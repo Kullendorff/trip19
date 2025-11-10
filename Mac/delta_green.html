@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAC RILEY - Delta Green | Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0D1117;
+            --bg-darker: #0A0F0F;
+            --accent: #4A90A4;
+            --accent-dim: #3A7080;
+            --text: #D1D5DB;
+            --text-dim: #6B7280;
+            --border: #1A2332;
+            --highlight: #2C3E50;
+            --warning: #E74C3C;
+            --success: #4A90A4;
+            --danger: #DC2626;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--bg-darker);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            text-align: center;
+            line-height: 1.4;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(74, 144, 164, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent-dim);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #1A2332 100%);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            filter: grayscale(20%);
+        }
+
+        .content-section {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .knowledge-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .knowledge-item {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: var(--bg-dark);
+            border-left: 3px solid var(--accent-dim);
+            border-radius: 4px;
+        }
+
+        .cell-member {
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+
+        .cell-member h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .cell-member p {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .operation-item {
+            display: grid;
+            grid-template-columns: 150px 1fr auto;
+            gap: 1rem;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background: var(--bg-dark);
+            border-radius: 4px;
+            align-items: center;
+        }
+
+        .operation-date {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .operation-name {
+            color: var(--text);
+        }
+
+        .san-loss {
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            background: var(--danger);
+            color: white;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .equipment-category {
+            background: var(--bg-dark);
+            padding: 1rem;
+            border-radius: 4px;
+        }
+
+        .equipment-category h3 {
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .equipment-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .equipment-list li {
+            padding: 0.25rem 0;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .warning-box {
+            background: rgba(231, 76, 60, 0.1);
+            border: 1px solid var(--warning);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .warning-box p {
+            color: var(--warning);
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+
+            .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .operation-item {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                MAC RILEY<br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">FBI // DELTA GREEN</span>
+            </div>
+            
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="karakter.html" class="page-link">KARAKTÄR</a>
+                        <a href="fbi_karriar.html" class="page-link">FBI KARRIÄR</a>
+                        <a href="delta_green.html" class="page-link active">DELTA GREEN</a>
+                        <a href="kontakter.html" class="page-link">KONTAKTER</a>
+                        <a href="personligt.html" class="page-link">PERSONLIGT</a>
+                        <a href="volkov_board.html" class="page-link">VOLKOV-BOARD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-title">SNABBNAVIGERING</div>
+                    <a href="#kunskap" class="nav-link">Vad Mac Vet</a>
+                    <a href="#cardinal" class="nav-link">Cardinal</a>
+                    <a href="#cell" class="nav-link">Cellmedlemmar</a>
+                    <a href="#operationer" class="nav-link">Operationer</a>
+                    <a href="#utrustning" class="nav-link">Utrustning</a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                CLASSIFIED<br>DELTA GREEN<br>EYES ONLY
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>DELTA GREEN</h1>
+                    <div class="subtitle">Outlaw Operative / "Chesapeake" Cell</div>
+                    <p>Rekryterad 2018 efter St. Louis-incidenten. Specialisering: investigation lead och behavioral analysis för oförklarliga händelser. Sju års operationer, närmar sig breaking point.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="mac1.jpeg" alt="Mac Riley - Tactical">
+                </div>
+            </div>
+
+            <section id="kunskap" class="content-section">
+                <h2 class="section-title">VAD MAC VET OM DELTA GREEN</h2>
+                <ul class="knowledge-list">
+                    <li class="knowledge-item">Oofficiell, oerkänd organisation inom amerikanska regeringen</li>
+                    <li class="knowledge-item">Grundad för att hantera "det onaturliga"</li>
+                    <li class="knowledge-item">Outlaw-status = ingen officiell backup, cover-up = eget ansvar</li>
+                    <li class="knowledge-item">Handler: Kodnamn CARDINAL</li>
+                    <li class="knowledge-item">Cell: "Chesapeake"-cell, Washington DC-området</li>
+                    <li class="knowledge-item">Säkerhet: Döda brevlådor, engångstelefoner, avskärmning</li>
+                    <li class="knowledge-item">"Need to know" basis - Mac vet inte full organisationsstruktur</li>
+                    <li class="knowledge-item">Majestic-12 och "The Program" - hört talas om men inga detaljer</li>
+                </ul>
+            </section>
+
+            <section id="cardinal" class="content-section">
+                <h2 class="section-title">CARDINAL</h2>
+                <div style="background: var(--bg-dark); padding: 1.5rem; border-radius: 4px; border-left: 3px solid var(--accent);">
+                    <p><strong>Kodnamn:</strong> CARDINAL</p>
+                    <p><strong>Riktigt namn:</strong> Jonathan Pierce (lärt sig 2021)</p>
+                    <p><strong>Roll:</strong> Handler för "Chesapeake"-cell</p>
+                    <p><strong>Kontakt:</strong> Död brevlåda i Arlington, engångstelefon för nödsituationer</p>
+                    <p><strong>Kännedom:</strong> Högnivå Delta Green-koordinator, ex-Army Intelligence</p>
+                    <p><strong>Mac's relation:</strong> Professionell som utvecklats till vänskap, men Cardinal är Delta Green först</p>
+                    
+                    <div class="warning-box">
+                        <p>Cardinal är orolig för Mac's mentala tillstånd. Mac vet att Cardinal skulle "retire" honom om nödvändigt.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cell" class="content-section">
+                <h2 class="section-title">CELLMEDLEMMAR</h2>
+                
+                <div class="cell-member">
+                    <h3>FATHER MICHAEL SULLIVAN</h3>
+                    <p><strong>Position:</strong> Navy Chaplain (Lieutenant Commander)</p>
+                    <p><strong>Specialisering:</strong> Pastoral care, occult knowledge, moralisk kompass</p>
+                    <p><strong>Mac's syn:</strong> Pålitlig men naiv om verklig ondska. De facto leader efter Mac's kollaps.</p>
+                </div>
+
+                <div class="cell-member">
+                    <h3>KAI "SPARKY" ZHANG</h3>
+                    <p><strong>Position:</strong> NSA Senior Analyst</p>
+                    <p><strong>Specialisering:</strong> SIGINT, cybersecurity, tech support</p>
+                    <p><strong>Mac's syn:</strong> Bästa tech-asset, delar Volkov-obsession, håller distans personligen.</p>
+                </div>
+
+                <div class="cell-member">
+                    <h3>SAM "TRENCH" NOVAK</h3>
+                    <p><strong>Position:</strong> US Army Reserve (Staff Sergeant)</p>
+                    <p><strong>Specialisering:</strong> Taktisk planering, heavy weapons, muscle</p>
+                    <p><strong>Mac's syn:</strong> Solid operator, kan lita på under press.</p>
+                </div>
+            </section>
+
+            <section id="operationer" class="content-section">
+                <h2 class="section-title">OPERATIONER</h2>
+                
+                <div class="operation-item">
+                    <span class="operation-date">2018 (mars)</span>
+                    <span class="operation-name">St. Louis Incident - REKRYTERING</span>
+                    <span class="san-loss">-1 SAN</span>
+                </div>
+                
+                <div class="operation-item">
+                    <span class="operation-date">2019 (aug)</span>
+                    <span class="operation-name">Operation Old Gods - Vermont</span>
+                    <span class="san-loss">-3 SAN</span>
+                </div>
+                
+                <div class="operation-item">
+                    <span class="operation-date">2020 (feb)</span>
+                    <span class="operation-name">Operation Paper Trail - Chicago</span>
+                    <span class="san-loss">-2 SAN</span>
+                </div>
+                
+                <div class="operation-item">
+                    <span class="operation-date">2021 (maj)</span>
+                    <span class="operation-name">Operation Book Club - Portland</span>
+                    <span class="san-loss">-2 SAN</span>
+                </div>
+                
+                <div class="operation-item">
+                    <span class="operation-date">2022 (sep)</span>
+                    <span class="operation-name">Operation Night Shift - Detroit</span>
+                    <span class="san-loss">-2 SAN</span>
+                </div>
+                
+                <div class="operation-item" style="border: 1px solid var(--warning);">
+                    <span class="operation-date">2023 (nov)</span>
+                    <span class="operation-name">The Mall Before Christmas</span>
+                    <span class="san-loss">-5 SAN</span>
+                </div>
+                
+                <div class="operation-item" style="border: 1px solid var(--danger);">
+                    <span class="operation-date">2025 (juni)</span>
+                    <span class="operation-name">Operation Sea Glass - BREAKING POINT</span>
+                    <span class="san-loss">-6 SAN</span>
+                </div>
+                
+                <div style="margin-top: 1.5rem; padding: 1rem; background: var(--bg-dark); border-radius: 4px;">
+                    <p><strong>Total SAN-förlust:</strong> ~21 poäng över 7 år</p>
+                    <p><strong>Nuvarande SAN:</strong> <span style="color: var(--danger);">46/60</span></p>
+                    <p><strong>Breaking Point:</strong> <span style="color: var(--danger);">40 (6 poäng kvar)</span></p>
+                </div>
+            </section>
+
+            <section id="utrustning" class="content-section">
+                <h2 class="section-title">UTRUSTNING</h2>
+                
+                <div class="equipment-grid">
+                    <div class="equipment-category">
+                        <h3>Standard Utrustning</h3>
+                        <ul class="equipment-list">
+                            <li>• Glock 22 (.40 S&W) - FBI-tjänstevapen</li>
+                            <li>• Sig Sauer P229 - reservpistol</li>
+                            <li>• Taktisk väst (räder)</li>
+                            <li>• FBI-legitimation + 3 falska identiteter</li>
+                            <li>• Portabel kriminalteknisk sats</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="equipment-category">
+                        <h3>Delta Green-förnödenheter</h3>
+                        <ul class="equipment-list">
+                            <li>• Engångstelefoner (×3)</li>
+                            <li>• Drop-telefon (CARDINAL-kontakt)</li>
+                            <li>• Dyrk-set</li>
+                            <li>• Minikamera + inspelningsenhet</li>
+                            <li>• $5,000 kontanter (oförklarliga utgifter)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

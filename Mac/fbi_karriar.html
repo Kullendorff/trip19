@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAC RILEY - FBI Karriär | Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0D1117;
+            --bg-darker: #0A0F0F;
+            --accent: #4A90A4;
+            --accent-dim: #3A7080;
+            --text: #D1D5DB;
+            --text-dim: #6B7280;
+            --border: #1A2332;
+            --highlight: #2C3E50;
+            --warning: #E74C3C;
+            --success: #4A90A4;
+            --danger: #DC2626;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--bg-darker);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            text-align: center;
+            line-height: 1.4;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(74, 144, 164, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent-dim);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #1A2332 100%);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            filter: grayscale(20%);
+        }
+
+        .content-section {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 0.75rem;
+            background: var(--highlight);
+            color: var(--accent);
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        tr:hover {
+            background: rgba(74, 144, 164, 0.05);
+        }
+
+        .expertise-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .expertise-item {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: var(--bg-dark);
+            border-left: 3px solid var(--accent);
+            border-radius: 4px;
+        }
+
+        .expertise-title {
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .expertise-desc {
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .status-active {
+            background: var(--success);
+            color: var(--bg-darker);
+        }
+
+        .status-inactive {
+            background: var(--danger);
+            color: white;
+        }
+
+        .status-limited {
+            background: var(--warning);
+            color: var(--bg-darker);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                MAC RILEY<br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">FBI // DELTA GREEN</span>
+            </div>
+            
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="karakter.html" class="page-link">KARAKTÄR</a>
+                        <a href="fbi_karriar.html" class="page-link active">FBI KARRIÄR</a>
+                        <a href="delta_green.html" class="page-link">DELTA GREEN</a>
+                        <a href="kontakter.html" class="page-link">KONTAKTER</a>
+                        <a href="personligt.html" class="page-link">PERSONLIGT</a>
+                        <a href="volkov_board.html" class="page-link">VOLKOV-BOARD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-title">SNABBNAVIGERING</div>
+                    <a href="#karriar" class="nav-link">Karriärhistorik</a>
+                    <a href="#expertomraden" class="nav-link">Expertområden</a>
+                    <a href="#befogenheter" class="nav-link">Befogenheter</a>
+                    <a href="#clearance" class="nav-link">Säkerhetsclearance</a>
+                    <a href="#status" class="nav-link">Nuvarande Status</a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                CLASSIFIED<br>DELTA GREEN<br>EYES ONLY
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>FBI KARRIÄR</h1>
+                    <div class="subtitle">Supervisory Special Agent / Behavioral Analysis Unit</div>
+                    <p>20+ år kombinerad tjänst i Marines och FBI. Specialisering: kriminell profilering, kalla fall, pattern recognition. Top 15% av FBI Academy-klassen 2012.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="mac2.jpeg" alt="Mac Riley - FBI">
+                </div>
+            </div>
+
+            <section id="karriar" class="content-section">
+                <h2 class="section-title">KARRIÄRHISTORIK</h2>
+                <table>
+                    <tr>
+                        <th>Period</th>
+                        <th>Position</th>
+                        <th>Enhet</th>
+                        <th>Grade</th>
+                    </tr>
+                    <tr>
+                        <td>2012-2014</td>
+                        <td>Special Agent</td>
+                        <td>New York Field Office</td>
+                        <td>GS-10 → GS-12</td>
+                    </tr>
+                    <tr>
+                        <td>2014-2016</td>
+                        <td>Special Agent</td>
+                        <td>Washington Field Office</td>
+                        <td>GS-12 → GS-13</td>
+                    </tr>
+                    <tr>
+                        <td>2016-2019</td>
+                        <td>Special Agent</td>
+                        <td>Behavioral Analysis Unit 2</td>
+                        <td>GS-13</td>
+                    </tr>
+                    <tr>
+                        <td>2019-2025</td>
+                        <td>Supervisory Special Agent</td>
+                        <td>BAU-2, Team Leader</td>
+                        <td>GS-14</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section id="expertomraden" class="content-section">
+                <h2 class="section-title">EXPERTOMRÅDEN</h2>
+                <ul class="expertise-list">
+                    <li class="expertise-item">
+                        <div class="expertise-title">Forensics</div>
+                        <div class="expertise-desc">Crime scene analysis, bevis säkring, 20+ års erfarenhet. Specialisering i komplexa mordutredningar och seriebrott.</div>
+                    </li>
+                    <li class="expertise-item">
+                        <div class="expertise-title">Criminology</div>
+                        <div class="expertise-desc">Brottslingsprofiler, mönsterigenkänning, seriebrott. Expert på geografisk profilering och gärningsmannaanalys.</div>
+                    </li>
+                    <li class="expertise-item">
+                        <div class="expertise-title">HUMINT</div>
+                        <div class="expertise-desc">Förhörsteknik, vittnesmål, Marines-bakgrund ger fördel. Specialist på att läsa kroppsspråk och upptäcka lögner.</div>
+                    </li>
+                    <li class="expertise-item">
+                        <div class="expertise-title">Behavioral Analysis</div>
+                        <div class="expertise-desc">Gärningsmannaprofilering, hotbedömning, BAU-specialist. Över 100+ profiler skapade, 75% träffsäkerhet.</div>
+                    </li>
+                    <li class="expertise-item">
+                        <div class="expertise-title">Pattern Recognition</div>
+                        <div class="expertise-desc">Ser samband över tid och geografi, ViCAP-expert. Specialist på att koppla orelaterade fall.</div>
+                    </li>
+                    <li class="expertise-item">
+                        <div class="expertise-title">Case Management</div>
+                        <div class="expertise-desc">Långvariga utredningar, multi-jurisdiktion koordinering. Leder team på 4-6 agenter effektivt.</div>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="befogenheter" class="content-section">
+                <h2 class="section-title">BEFOGENHETER</h2>
+                
+                <h3 style="color: var(--accent); margin-top: 1.5rem; margin-bottom: 1rem;">FEDERAL AUKTORITET</h3>
+                <table>
+                    <tr>
+                        <td><strong>Jurisdiktion:</strong></td>
+                        <td>Nationell (alla delstater)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gripande:</strong></td>
+                        <td>Federala gripandebefogenheter</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vapen:</strong></td>
+                        <td>Beväpnad dygnet runt</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Husrannsakan:</strong></td>
+                        <td>Federal häktning och genomsökning</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Koordinering:</strong></td>
+                        <td>Myndighetsövergripande samarbete</td>
+                    </tr>
+                </table>
+
+                <h3 style="color: var(--accent); margin-top: 1.5rem; margin-bottom: 1rem;">DATABASER & RESURSER</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 0.5rem; background: var(--bg-dark); margin-bottom: 0.5rem; border-radius: 4px;">
+                        <strong>NCIC</strong> - Nationell brottsdatabas
+                    </li>
+                    <li style="padding: 0.5rem; background: var(--bg-dark); margin-bottom: 0.5rem; border-radius: 4px;">
+                        <strong>ViCAP</strong> - Våldsbrott mönster
+                    </li>
+                    <li style="padding: 0.5rem; background: var(--bg-dark); margin-bottom: 0.5rem; border-radius: 4px;">
+                        <strong>CODIS</strong> - DNA-profiler
+                    </li>
+                    <li style="padding: 0.5rem; background: var(--bg-dark); margin-bottom: 0.5rem; border-radius: 4px;">
+                        <strong>Ansiktsigenkänning</strong> - FBI:s biometriska system
+                    </li>
+                    <li style="padding: 0.5rem; background: var(--bg-dark); margin-bottom: 0.5rem; border-radius: 4px;">
+                        <strong>Ekonomiska register</strong> - Med domstolsbeslut
+                    </li>
+                    <li style="padding: 0.5rem; background: var(--bg-dark); margin-bottom: 0.5rem; border-radius: 4px;">
+                        <strong>Kommunikationsövervakning</strong> - Med särskild order
+                    </li>
+                </ul>
+            </section>
+
+            <section id="clearance" class="content-section">
+                <h2 class="section-title">SÄKERHETSCLEARANCE</h2>
+                <table>
+                    <tr>
+                        <th>Säkerhetsnivå</th>
+                        <th>Status</th>
+                        <th>Tillgång</th>
+                    </tr>
+                    <tr>
+                        <td>SECRET</td>
+                        <td><span class="status-badge status-active">Aktiv</span></td>
+                        <td>Standard FBI-operationer</td>
+                    </tr>
+                    <tr>
+                        <td>TOP SECRET</td>
+                        <td><span class="status-badge status-active">Aktiv</span></td>
+                        <td>Myndighetsövergripande sekretess</td>
+                    </tr>
+                    <tr>
+                        <td>TS/SCI</td>
+                        <td><span class="status-badge status-limited">Begränsad</span></td>
+                        <td>Avdelad underrättelse</td>
+                    </tr>
+                    <tr>
+                        <td>Delta Green</td>
+                        <td><span class="status-badge status-inactive">N/A</span></td>
+                        <td>Oerkänt program</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section id="status" class="content-section">
+                <h2 class="section-title">NUVARANDE STATUS</h2>
+                <div style="background: var(--bg-dark); padding: 1.5rem; border-radius: 4px; border-left: 3px solid var(--danger);">
+                    <p><strong style="color: var(--danger);">Status:</strong> TVINGAD LEDIGHET (augusti 2025)</p>
+                    <p><strong>Anledning:</strong> PTSD-indikationer, stressreaktion</p>
+                    <p><strong>Utvärdering:</strong> Pågående psykologisk bedömning</p>
+                    <p><strong>Återgång:</strong> Obestämd</p>
+                    
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+                        <p><strong>Byrån vet:</strong> PTSD, hypervakenhet, stress</p>
+                        <p><strong style="color: var(--warning);">Byrån vet INTE:</strong> Delta Green, Volkov-besatthet, Breaking Point</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

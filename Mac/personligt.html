@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAC RILEY - Personligt | Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0D1117;
+            --bg-darker: #0A0F0F;
+            --accent: #4A90A4;
+            --accent-dim: #3A7080;
+            --text: #D1D5DB;
+            --text-dim: #6B7280;
+            --border: #1A2332;
+            --highlight: #2C3E50;
+            --warning: #E74C3C;
+            --success: #4A90A4;
+            --danger: #DC2626;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--bg-darker);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            text-align: center;
+            line-height: 1.4;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(74, 144, 164, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent-dim);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #1A2332 100%);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            filter: grayscale(20%);
+        }
+
+        .content-section {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .bond-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .bond-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .bond-name {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .bond-value {
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .bond-8 { background: #f59e0b; color: white; }
+        .bond-10 { background: #22c55e; color: white; }
+
+        .bond-relationship {
+            color: var(--text-dim);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .bond-description {
+            color: var(--text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .disorder-box {
+            background: rgba(231, 76, 60, 0.1);
+            border: 2px solid var(--danger);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .disorder-title {
+            color: var(--danger);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .symptom-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .symptom-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(231, 76, 60, 0.2);
+            color: var(--text);
+        }
+
+        .apartment-detail {
+            background: var(--bg-dark);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+
+        .apartment-detail h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-quote {
+            background: var(--bg-dark);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: var(--text);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .stat-item {
+            background: var(--bg-dark);
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .stat-label {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .warning-text {
+            color: var(--warning);
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                MAC RILEY<br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">FBI // DELTA GREEN</span>
+            </div>
+            
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="karakter.html" class="page-link">KARAKTÄR</a>
+                        <a href="fbi_karriar.html" class="page-link">FBI KARRIÄR</a>
+                        <a href="delta_green.html" class="page-link">DELTA GREEN</a>
+                        <a href="kontakter.html" class="page-link">KONTAKTER</a>
+                        <a href="personligt.html" class="page-link active">PERSONLIGT</a>
+                        <a href="volkov_board.html" class="page-link">VOLKOV-BOARD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-title">SNABBNAVIGERING</div>
+                    <a href="#bonds" class="nav-link">Bonds</a>
+                    <a href="#disorder" class="nav-link">Disorder</a>
+                    <a href="#boende" class="nav-link">Boende</a>
+                    <a href="#vardagsliv" class="nav-link">Vardagsliv</a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                CLASSIFIED<br>DELTA GREEN<br>EYES ONLY
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>PERSONLIGT</h1>
+                    <div class="subtitle">Familj, Mentalt Tillstånd & Vardagsliv</div>
+                    <p>En man som förlorat allt han brydde sig om i jakten på sanningar han inte kan dela. Barriärerna mellan Mac och hans familj växer för varje dag som passerar.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="mac5.png" alt="Mac Riley - Personal">
+                </div>
+            </div>
+
+            <section id="bonds" class="content-section">
+                <h2 class="section-title">BONDS</h2>
+                
+                <div class="bond-card">
+                    <div class="bond-header">
+                        <div class="bond-name">Sarah Riley (Ex-fru)</div>
+                        <div class="bond-value bond-8">8/12</div>
+                    </div>
+                    <div class="bond-relationship">Gift 2011-2021, gemensam vårdnad av Jake</div>
+                    <div class="bond-description">
+                        Den första personen som fick Mac att känna sig normal efter Irak. 13 år tillsammans. Skilsmässan 2021 berodde på Mac's oförmåga att förklara sina Delta Green-aktiviteter. Sarah vill fortfarande att Mac ska må bra, men skyddar Jake från Mac's instabilitet.
+                    </div>
+                    <div class="timeline-quote">
+                        "Jag älskar dig fortfarande. Men jag kan inte leva så här. Och Jake kan inte växa upp i det här."
+                    </div>
+                </div>
+
+                <div class="bond-card">
+                    <div class="bond-header">
+                        <div class="bond-name">Jake Riley (Son)</div>
+                        <div class="bond-value bond-8">8/12</div>
+                    </div>
+                    <div class="bond-relationship">Son, 12 år gammal</div>
+                    <div class="bond-description">
+                        Mac's stolthet och glädje, nu distanserad och rädd. Jake märker att "pappa är annorlunda" men förstår inte varför. Bygger murar för att skydda sig själv. Mac's värsta rädsla är att förlora sitt barn helt.
+                    </div>
+                    <div class="timeline-quote">
+                        "Mamma, jag tror pappa blir konstig. Han har typ... en konspiration-vägg i vardagsrummet."
+                    </div>
+                </div>
+
+                <div class="bond-card">
+                    <div class="bond-header">
+                        <div class="bond-name">Thomas "Tom" Riley (Far)</div>
+                        <div class="bond-value bond-10">10/12</div>
+                    </div>
+                    <div class="bond-relationship">Far, ex-Marines Gunnery Sergeant, 71 år</div>
+                    <div class="bond-description">
+                        Starkaste bandet. Tom förstår militärt trauma utan att behöva förklaringar. Deras fiskedagar är Mac's enda riktiga vila. Tom vet något är fel men respekterar gränser. Är rädd att Mac ska ta sitt liv som andra veteraner han känt.
+                    </div>
+                    <div class="timeline-quote">
+                        "Whatever hell you're walking through, remember: you ain't walking it alone."
+                    </div>
+                </div>
+            </section>
+
+            <section id="disorder" class="content-section">
+                <h2 class="section-title">MENTAL HÄLSA</h2>
+                
+                <div class="disorder-box">
+                    <div class="disorder-title">PTSD med Obsessiva Drag</div>
+                    <p><strong>Förvärvad:</strong> Juni 2025 (Operation Sea Glass)</p>
+                    <p><strong>Severity:</strong> <span class="warning-text">Moderate-to-Severe, deteriorerande</span></p>
+                    
+                    <h4 style="margin-top: 1.5rem; margin-bottom: 1rem; color: var(--danger);">Primära Symptom:</h4>
+                    <ul class="symptom-list">
+                        <li class="symptom-item">• Flashbacks 2-5x per vecka (Sea Glass, Mall, Old Gods)</li>
+                        <li class="symptom-item">• Mardrömmar varje natt, 3-4h sömn</li>
+                        <li class="symptom-item">• Hypervigilans konstant aktiv</li>
+                        <li class="symptom-item">• Volkov-obsession (24/7 intrusive thoughts)</li>
+                        <li class="symptom-item">• Kristall-hallucinations 10-20x/dag</li>
+                        <li class="symptom-item">• "Signal"-hörselhallucinationer konstant</li>
+                        <li class="symptom-item">• Emotionell avstängdhet från familj</li>
+                        <li class="symptom-item">• Alkoholkonsumtion 3-10 glas/dag</li>
+                    </ul>
+
+                    <div class="stats-grid" style="margin-top: 1.5rem;">
+                        <div class="stat-item">
+                            <div class="stat-label">Breaking Point Risk</div>
+                            <div class="stat-value" style="color: var(--danger);">6 SAN kvar</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Nästa Kollaps</div>
+                            <div class="stat-value" style="color: var(--danger);">Oundviklig</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="boende" class="content-section">
+                <h2 class="section-title">BOENDE</h2>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <strong>Adress:</strong> Unit 806, 1021 N Garfield St, Arlington, VA 22201<br>
+                    <strong>Typ:</strong> 1 sovrum, ~60 kvm<br>
+                    <strong>Hyra:</strong> $1,800/mån
+                </div>
+
+                <div class="apartment-detail">
+                    <h3>Säkerhetsåtgärder</h3>
+                    <ul style="list-style: none; padding-left: 1rem;">
+                        <li>• 3 separata dödlås på dörren</li>
+                        <li>• Säkerhetskedja alltid påsatt</li>
+                        <li>• Dörrkilarm (skriker vid intrång)</li>
+                        <li>• Tung mörklägggningsgardiner (alltid fördragna)</li>
+                        <li>• Säkerhetsskåp med vapen och ammunition</li>
+                        <li>• Flyktvåska alltid packad</li>
+                    </ul>
+                </div>
+
+                <div class="apartment-detail">
+                    <h3>Volkov-Board</h3>
+                    <p>Korkskiva 120x180cm + utbyggnad 60x90cm på vardagsrumsväggen. Täckt med foton, kartor, anteckningar och rött snöre. Dominerar rummet helt. Mac stirrar på den timmar i sträck.</p>
+                </div>
+
+                <div class="apartment-detail">
+                    <h3>Vardagstillstånd</h3>
+                    <ul style="list-style: none; padding-left: 1rem;">
+                        <li>• Sängen sällan bäddad</li>
+                        <li>• 2-3 dagars disk i diskho</li>
+                        <li>• Takeout-rester överallt</li>
+                        <li>• Whiskyflaska på köksbänken</li>
+                        <li>• Familjefoton vända nedåt</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="vardagsliv" class="content-section">
+                <h2 class="section-title">VARDAGSLIV (Nuvarande)</h2>
+                
+                <div style="background: var(--bg-dark); padding: 1.5rem; border-radius: 4px; margin-bottom: 1.5rem;">
+                    <p><strong style="color: var(--warning);">Status:</strong> Tvingad ledighet från FBI (augusti 2025)</p>
+                    <p><strong>Dag-struktur:</strong> Ingen - Volkov-research fyller tomrummet</p>
+                </div>
+
+                <h3 style="color: var(--accent); margin-bottom: 1rem;">Typisk Dag</h3>
+                
+                <div style="background: var(--bg-dark); padding: 1rem; margin-bottom: 1rem; border-radius: 4px;">
+                    <strong>Morgon (Vaknar 10:00-12:00):</strong><br>
+                    Mardrömmar, 3-4h sömn. Kaffe, proteinbar. Direkt till boarden.
+                </div>
+
+                <div style="background: var(--bg-dark); padding: 1rem; margin-bottom: 1rem; border-radius: 4px;">
+                    <strong>Dag (12:00-18:00):</strong><br>
+                    Intensiv Volkov-research. Dark web-forum. Board-uppdateringar. Kristall-hallucinations värre på dagen.
+                </div>
+
+                <div style="background: var(--bg-dark); padding: 1rem; margin-bottom: 1rem; border-radius: 4px;">
+                    <strong>Kväll (18:00-02:00):</strong><br>
+                    Whiskey-konsumtion eskalerar. Mer research. Ibland "Dannys Bar" för att dricka ensam.
+                </div>
+
+                <div style="background: var(--bg-dark); padding: 1rem; margin-bottom: 1rem; border-radius: 4px;">
+                    <strong>Natt (02:00-06:00):</strong><br>
+                    Försöker sova på soffan (sovrummet känns osäkert). Signal-hallucinations starkast. Kollar lägenheten för intrång.
+                </div>
+
+                <h3 style="color: var(--accent); margin: 1.5rem 0 1rem;">Jake-besök (Varannan helg)</h3>
+                <p style="color: var(--text-dim); margin-bottom: 1rem;">Mac försöker låtsas vara "normal" men Jake ser genom det. Awkward takeout-middagar. Mac distraherad av boarden. Jake spelar videospel medan Mac "tittar på" men stirrar genom skärmen.</p>
+
+                <div class="timeline-quote">
+                    "Jake: 'Pappa, vi sa att vi skulle se Marvel-filmen.' Mac: 'Ja... ja, absolut. Vilken film?' Jake: 'Vi pratade om det i 20 minuter.' Mac: 'Förlåt, buddy. Pappa har mycket att tänka på.'"
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

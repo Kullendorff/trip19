@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAC RILEY - Karaktär | Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0D1117;
+            --bg-darker: #0A0F0F;
+            --accent: #4A90A4;
+            --accent-dim: #3A7080;
+            --text: #D1D5DB;
+            --text-dim: #6B7280;
+            --border: #1A2332;
+            --highlight: #2C3E50;
+            --warning: #E74C3C;
+            --success: #4A90A4;
+            --danger: #DC2626;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--bg-darker);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            text-align: center;
+            line-height: 1.4;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(74, 144, 164, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent-dim);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #1A2332 100%);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            filter: grayscale(20%);
+        }
+
+        .content-section {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 0.75rem;
+            background: var(--highlight);
+            color: var(--accent);
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        tr:hover {
+            background: rgba(74, 144, 164, 0.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-box {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            background: var(--bg-dark);
+            border-radius: 4px;
+        }
+
+        .skill-name {
+            color: var(--text);
+        }
+
+        .skill-value {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .timeline-item {
+            padding: 1rem 0;
+            border-left: 2px solid var(--accent);
+            margin-left: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 1.5rem;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .timeline-year {
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-text {
+            color: var(--text);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                MAC RILEY<br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">FBI // DELTA GREEN</span>
+            </div>
+            
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="karakter.html" class="page-link active">KARAKTÄR</a>
+                        <a href="fbi_karriar.html" class="page-link">FBI KARRIÄR</a>
+                        <a href="delta_green.html" class="page-link">DELTA GREEN</a>
+                        <a href="kontakter.html" class="page-link">KONTAKTER</a>
+                        <a href="personligt.html" class="page-link">PERSONLIGT</a>
+                        <a href="volkov_board.html" class="page-link">VOLKOV-BOARD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-title">SNABBNAVIGERING</div>
+                    <a href="#grundinfo" class="nav-link">Grundinfo</a>
+                    <a href="#stats" class="nav-link">Stats</a>
+                    <a href="#skills" class="nav-link">Färdigheter</a>
+                    <a href="#bakgrund" class="nav-link">Bakgrund</a>
+                    <a href="#tidslinje" class="nav-link">Tidslinje</a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                CLASSIFIED<br>DELTA GREEN<br>EYES ONLY
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>MAC RILEY</h1>
+                    <div class="subtitle">Special Agent Marcus Patrick Riley</div>
+                    <p>FBI Supervisory Special Agent med specialisering i kriminell profilering och kalla fall. Delta Green Outlaw operative sedan 2018. Ex-Marine med två deployments i Irak och Afghanistan.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="mac4.png" alt="Mac Riley">
+                </div>
+            </div>
+
+            <section id="grundinfo" class="content-section">
+                <h2 class="section-title">GRUNDINFO</h2>
+                <table>
+                    <tr>
+                        <td><strong>Namn:</strong></td>
+                        <td>Marcus Patrick "Mac" Riley</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Codename:</strong></td>
+                        <td>SERGEANT</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Född:</strong></td>
+                        <td>27 mars 1987, Naval Hospital Camp Lejeune, NC</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ålder:</strong></td>
+                        <td>38 år</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nationalitet:</strong></td>
+                        <td>Amerikansk</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yrke:</strong></td>
+                        <td>FBI Supervisory Special Agent (tvingad ledighet augusti 2025)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Delta Green:</strong></td>
+                        <td>Outlaw operative, "Chesapeake" cell</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section id="stats" class="content-section">
+                <h2 class="section-title">STATS</h2>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-label">STR</div>
+                        <div class="stat-value">14</div>
+                        <div class="stat-label">(70%)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">CON</div>
+                        <div class="stat-value">14</div>
+                        <div class="stat-label">(70%)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">DEX</div>
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">(60%)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">INT</div>
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">(60%)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">POW</div>
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">(60%)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">CHA</div>
+                        <div class="stat-value">10</div>
+                        <div class="stat-label">(50%)</div>
+                    </div>
+                </div>
+                
+                <table>
+                    <tr>
+                        <th>Härledda Attribut</th>
+                        <th>Värde</th>
+                    </tr>
+                    <tr>
+                        <td>Hit Points (HP)</td>
+                        <td>14</td>
+                    </tr>
+                    <tr>
+                        <td>Willpower Points (WP)</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>Sanity (SAN)</td>
+                        <td style="color: var(--warning);">46/60</td>
+                    </tr>
+                    <tr>
+                        <td>Breaking Point</td>
+                        <td style="color: var(--danger);">40</td>
+                    </tr>
+                    <tr>
+                        <td>Disorder</td>
+                        <td style="color: var(--danger);">PTSD med obsessiva drag (Volkov-fokuserad)</td>
+                    </tr>
+                    <tr>
+                        <td>Adapted to Violence</td>
+                        <td>2/5</td>
+                    </tr>
+                    <tr>
+                        <td>Adapted to Helplessness</td>
+                        <td>1/5</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section id="skills" class="content-section">
+                <h2 class="section-title">FÄRDIGHETER</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <span class="skill-name">Alertness</span>
+                        <span class="skill-value">50%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Athletics</span>
+                        <span class="skill-value">40%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Bureaucracy</span>
+                        <span class="skill-value">40%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Criminology</span>
+                        <span class="skill-value">50%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Demolitions</span>
+                        <span class="skill-value">0%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Disguise</span>
+                        <span class="skill-value">20%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Dodge</span>
+                        <span class="skill-value">30%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Drive</span>
+                        <span class="skill-value">40%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Firearms</span>
+                        <span class="skill-value">70%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">First Aid</span>
+                        <span class="skill-value">20%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Forensics</span>
+                        <span class="skill-value">60%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Heavy Machinery</span>
+                        <span class="skill-value">0%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Heavy Weapons</span>
+                        <span class="skill-value">20%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">History</span>
+                        <span class="skill-value">20%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">HUMINT</span>
+                        <span class="skill-value">50%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Law</span>
+                        <span class="skill-value">40%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Medicine</span>
+                        <span class="skill-value">0%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Melee Weapons</span>
+                        <span class="skill-value">30%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Military Science</span>
+                        <span class="skill-value">20%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Navigate</span>
+                        <span class="skill-value">20%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Occult</span>
+                        <span class="skill-value">20%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Persuade</span>
+                        <span class="skill-value">40%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Pharmacy</span>
+                        <span class="skill-value">0%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Psychotherapy</span>
+                        <span class="skill-value">0%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Ride</span>
+                        <span class="skill-value">20%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Search</span>
+                        <span class="skill-value">40%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">SIGINT</span>
+                        <span class="skill-value">0%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Stealth</span>
+                        <span class="skill-value">30%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Surgery</span>
+                        <span class="skill-value">0%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Survival</span>
+                        <span class="skill-value">20%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Swim</span>
+                        <span class="skill-value">30%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Technology</span>
+                        <span class="skill-value">20%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Unarmed Combat</span>
+                        <span class="skill-value">50%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Unnatural</span>
+                        <span class="skill-value">8%</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="bakgrund" class="content-section">
+                <h2 class="section-title">BAKGRUND</h2>
+                <p>Mac Riley växte upp som en militär brat, flyttade mellan baser var tredje år. Fadern Thomas "Tom" Riley var Gunnery Sergeant i USMC, modern Patricia sjuksköterska. Den ständiga förflyttningen lärde Mac att inte knyta djupa vänskaper.</p>
+                
+                <p>Efter high school gick Mac in i Marines 2005, gjorde två deployments - Irak 2007 och Afghanistan 2009-2010. Såg strid, förlorade kamrater, kom hem förändrad. Lämnade Marines 2011 som Sergeant.</p>
+                
+                <p>Georgetown University 2011-2012, kriminologi. FBI Academy 2012, tog examen i top 15%. Började som Special Agent i New York Field Office, flyttades till Washington Field Office 2014, befordrad till BAU-2 2016. Blev Supervisory Special Agent 2019.</p>
+                
+                <p>Rekryterad till Delta Green mars 2018 efter St. Louis-incidenten. Sju års operationer har kostat honom äktenskapet med Sarah (skild 2021), distanserat honom från sonen Jake (12 år), och lett till PTSD med obsessiva drag fokuserade på Dmitri Volkov.</p>
+            </section>
+
+            <section id="tidslinje" class="content-section">
+                <h2 class="section-title">TIDSLINJE</h2>
+                <div class="timeline-item">
+                    <div class="timeline-year">1987</div>
+                    <div class="timeline-text">Född på Camp Lejeune, North Carolina</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2005</div>
+                    <div class="timeline-text">USMC grundutbildning, Parris Island</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2007</div>
+                    <div class="timeline-text">Första deployment - Irak, Anbar Province</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2009-2010</div>
+                    <div class="timeline-text">Andra deployment - Afghanistan, Helmand Province</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2011</div>
+                    <div class="timeline-text">Lämnar Marines, gift med Sarah, påbörjar Georgetown</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2012</div>
+                    <div class="timeline-text">FBI Academy, Quantico - Top 15%</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2012-2014</div>
+                    <div class="timeline-text">Special Agent, New York Field Office</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2013</div>
+                    <div class="timeline-text">Jake föds</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2014-2016</div>
+                    <div class="timeline-text">Special Agent, Washington Field Office</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2016-2019</div>
+                    <div class="timeline-text">Special Agent, Behavioral Analysis Unit 2</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2018</div>
+                    <div class="timeline-text" style="color: var(--warning);">Rekryterad till Delta Green - St. Louis-incidenten</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-text">Befordrad till Supervisory Special Agent</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-text">Skilsmässa från Sarah</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023 (november)</div>
+                    <div class="timeline-text" style="color: var(--warning);">Operation Mall Before Christmas - 5 SAN-förlust</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2025 (juni)</div>
+                    <div class="timeline-text" style="color: var(--danger);">Operation Sea Glass - Breaking Point (6 SAN-förlust)</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2025 (augusti)</div>
+                    <div class="timeline-text" style="color: var(--danger);">Tvingad ledighet från FBI</div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

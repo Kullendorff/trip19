@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Father Sullivan - Bibelcitat | Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0a;
+            --bg-darker: #050805;
+            --accent: #b87333;
+            --accent-dim: #8b5a2b;
+            --text: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --border: #2d3d2d;
+            --highlight: #3d5a3d;
+            --warning: #ff6b35;
+            --success: #b87333;
+            --danger: #ff3366;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--bg-darker);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            text-align: center;
+            line-height: 1.4;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent-dim);
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(184, 115, 51, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #1a2332 100%);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text);
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            margin-top: 2rem;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            border: 2px solid var(--accent);
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--accent-dim);
+            padding-bottom: 0.5rem;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            color: var(--accent-dim);
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .quote-box {
+            background-color: var(--bg-darker);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .bible-quotes {
+            margin: 2rem 0;
+        }
+
+        .quote-category {
+            margin-bottom: 3rem;
+        }
+
+        .quote-category h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--accent-dim);
+            padding-bottom: 0.5rem;
+        }
+
+        .bible-quote {
+            background-color: var(--bg-darker);
+            border-left: 4px solid var(--accent-dim);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .bible-quote .verse {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .bible-quote .reference {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            text-align: right;
+        }
+
+        .sullivan-note {
+            background-color: rgba(184, 115, 51, 0.1);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .alert {
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+
+        .alert-warning {
+            background-color: rgba(255, 107, 53, 0.1);
+            border-left-color: var(--warning);
+            color: var(--warning);
+        }
+
+        .alert-success {
+            background-color: rgba(184, 115, 51, 0.1);
+            border-left-color: var(--success);
+            color: var(--success);
+        }
+
+        .alert-danger {
+            background-color: rgba(255, 51, 102, 0.1);
+            border-left-color: var(--danger);
+            color: var(--danger);
+        }
+
+        .alert h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .main-content {
+                padding: 2rem;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                FATHER SULLIVAN<br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">NAVY CHAPLAIN // DELTA GREEN</span>
+            </div>
+            
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="sullivan_karakter.html" class="page-link">KARAKTÄR</a>
+                        <a href="sullivan_pastoral.html" class="page-link">PASTORAL</a>
+                        <a href="sullivan_operativt.html" class="page-link">OPERATIVT</a>
+                        <a href="sullivan_personligt.html" class="page-link">PERSONLIGT</a>
+                        <a href="sullivan_bibelcitat.html" class="page-link active">BIBELCITAT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-title">SNABBNAVIGERING</div>
+                    <a href="#tvivel-lidande" class="nav-link">Tvivel & Lidande</a>
+                    <a href="#morkret-mysteriet" class="nav-link">Mörkret & Mysteriet</a>
+                    <a href="#sokande-trots-tvivel" class="nav-link">Sökande Trots Tvivel</a>
+                    <a href="#latin-citat" class="nav-link">Latin-citat</a>
+                    <a href="#kamp-strid" class="nav-link">Kamp & Strid</a>
+                    <a href="#rattvisa-dom" class="nav-link">Rättvisa & Dom</a>
+                    <a href="#ensamhet-fortvivlan" class="nav-link">Ensamhet & Förtvivlan</a>
+                    <a href="#vrede-ilska" class="nav-link">Vrede & Ilska</a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                CLASSIFIED<br>DELTA GREEN<br>EYES ONLY
+            </div>
+        </div>
+
+        <main class="main-content">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1>ORDET I MÖRKRET</h1>
+                    
+                    <div class="hero-quote">
+                        "Jag har läst dessa ord i tjugo år. Som präst kan jag citera dem ur minnet. 
+                        Men efter Sea Glass har de börjat betyda något annat. Något mörkare."
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="sullivan4.png" alt="Sullivan vid skrivbord med bibel och anteckningar" />
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>ORDEN HAN LÄSER - CITAT FÖR SULLIVAN</h2>
+
+                <p>Sullivan har läst Bibeln i tjugo år. Som präst kan han citera den ur minnet. Men efter Sea Glass har vissa citat börjat betyda något annat. Här är citat han återkommer till - i bön, i tvivel, i mörker.</p>
+
+                <div class="bible-quotes">
+                    <div class="quote-category" id="tvivel-lidande">
+                        <h4>LIDANDE & TVIVEL</h4>
+                        
+                        <div class="bible-quote">
+                            <div class="verse">"Må den dag förgås då jag blev född, och den natt då det sades: 'En gosse har blivit avlad.'"</div>
+                            <div class="reference">— Job 3:3</div>
+                        </div>
+
+                        <div class="bible-quote">
+                            <div class="verse">"Hur länge, HERRE? Skall du för alltid glömma mig? Hur länge skall du dölja ditt ansikte för mig?"</div>
+                            <div class="reference">— Psaltaren 13:2</div>
+                        </div>
+
+                        <div class="bible-quote">
+                            <div class="verse">"Min Gud, min Gud, varför har du övergivit mig?"</div>
+                            <div class="reference">— Psaltaren 22:2 / Matteus 27:46</div>
+                        </div>
+
+                        <div class="sullivan-note">
+                            Sullivan's anteckning: <em>Det här är Job efter att han förlorat allt. Det här är Jesus på korset. Om även de tvivlade... får då jag?</em>
+                        </div>
+                    </div>
+
+                    <div class="quote-category" id="morkret-mysteriet">
+                        <h4>MÖRKRET & MYSTERIET</h4>
+                        
+                        <div class="bible-quote">
+                            <div class="verse">"Jorden var öde och tom, och mörker var över djupet, och Guds Ande svävade över vattnet."</div>
+                            <div class="reference">— 1 Mosebok 1:2</div>
+                        </div>
+
+                        <div class="bible-quote">
+                            <div class="verse">"Djupet ropar till djupet vid dånet av dina vattenfall; alla dina böljor och vågor har gått över mig."</div>
+                            <div class="reference">— Psaltaren 42:8</div>
+                        </div>
+
+                        <div class="sullivan-note">
+                            Sullivan's anteckning: <em>Mörker över djupet. Det är vad jag sett. Men var är Guds Ande nu? Svävar Han fortfarande där? Eller har Han lämnat oss?</em>
+                        </div>
+                    </div>
+
+                    <div class="quote-category" id="sokande-trots-tvivel">
+                        <h4>SÖKANDE TROTS TVIVEL</h4>
+                        
+                        <div class="bible-quote">
+                            <div class="verse">"Jag tror. Hjälp min otro!"</div>
+                            <div class="reference">— Markus 9:24</div>
+                        </div>
+
+                        <div class="bible-quote">
+                            <div class="verse">"Anden hjälper oss i vår svaghet. Vi vet inte hur vi skall be. Men Anden själv går i förbön för oss med outsägliga suckar."</div>
+                            <div class="reference">— Romarbrevet 8:26</div>
+                        </div>
+
+                        <div class="sullivan-note">
+                            Sullivan's anteckning: <em>"Jag tror. Hjälp min otro." Det är allt jag har kvar. Tre ord. Är det nog?</em>
+                        </div>
+                    </div>
+
+                    <div class="quote-category" id="latin-citat">
+                        <h4>LATIN-CITAT (för mässor och ritualer)</h4>
+                        
+                        <div class="bible-quote">
+                            <div class="verse">"De profundis clamavi ad te, Domine."<br>(Ur djupet ropar jag till dig, Herre.)</div>
+                            <div class="reference">— Psaltaren 130:1</div>
+                        </div>
+
+                        <div class="bible-quote">
+                            <div class="verse">"In manus tuas commendo spiritum meum."<br>(I dina händer överlämnar jag min ande.)</div>
+                            <div class="reference">— Lukas 23:46</div>
+                        </div>
+
+                        <div class="sullivan-note">
+                            Sullivan's anteckning: <em>På latin känns orden mindre personliga. Mindre som lögner. Bara... formelord från en död kyrka.</em>
+                        </div>
+                    </div>
+
+                    <div class="quote-category" id="kamp-strid">
+                        <h4>KAMP & STRID (Military Chaplain)</h4>
+                        
+                        <div class="bible-quote">
+                            <div class="verse">"HERREN är en krigare, HERREN är hans namn"</div>
+                            <div class="reference">— 2 Mosebok 15:3</div>
+                        </div>
+
+                        <div class="bible-quote">
+                            <div class="verse">"Ikläd er hela Guds vapenrustning, så att ni kan stå emot djävulens listiga angrepp"</div>
+                            <div class="reference">— Efesierbrevet 6:11</div>
+                        </div>
+
+                        <div class="bible-quote">
+                            <div class="verse">"Kämpa trons goda kamp"</div>
+                            <div class="reference">— 1 Timoteusbrevet 6:12</div>
+                        </div>
+
+                        <div class="bible-quote">
+                            <div class="verse">"Ingen soldat i aktiv tjänst flätar in sig i vardagslivets angelägenheter"</div>
+                            <div class="reference">— 2 Timoteusbrevet 2:4</div>
+                        </div>
+
+                        <div class="bible-quote">
+                            <div class="verse">"Vår strids vapen är inte av kött och blod, utan gudomligt kraftfulla"</div>
+                            <div class="reference">— 2 Korinthierbrevet 10:4</div>
+                        </div>
+                    </div>
+
+                    <div class="quote-category" id="rattvisa-dom">
+                        <h4>RÄTTVISA & DOM</h4>
+                        
+                        <div class="bible-quote">
+                            <div class="verse">"Han har låtit dig veta vad som är gott: att öva rätt och älska godhet och att ödmjukt vandra med din Gud"</div>
+                            <div class="reference">— Mika 6:8</div>
+                        </div>
+
+                        <div class="bible-quote">
+                            <div class="verse">"Ve dem som kallar det onda gott och det goda ont"</div>
+                            <div class="reference">— Jesaja 5:20</div>
+                        </div>
+
+                        <div class="bible-quote">
+                            <div class="verse">"Ska inte hela jordens domare göra rätt?"</div>
+                            <div class="reference">— 1 Mosebok 18:25</div>
+                        </div>
+
+                        <div class="bible-quote">
+                            <div class="verse">"Hämnden är min, jag ska vedergälla, säger Herren"</div>
+                            <div class="reference">— Romarbrevet 12:19</div>
+                        </div>
+
+                        <div class="sullivan-note">
+                            Sullivan's anteckning: <em>"Ve dem som kallar det onda gott och det goda ont" - Kallar jag cover-ups för "gott"? Dödar oskyldiga för "det större goda"?</em>
+                        </div>
+                    </div>
+
+                    <div class="quote-category" id="ensamhet-fortvivlan">
+                        <h4>ENSAMHET & FÖRTVIVLAN</h4>
+                        
+                        <div class="bible-quote">
+                            <div class="verse">"Jag är utmattad av mitt ropande, min strupe är torr"</div>
+                            <div class="reference">— Psaltaren 69:4</div>
+                        </div>
+
+                        <div class="bible-quote">
+                            <div class="verse">"Ingen bryr sig om min själ"</div>
+                            <div class="reference">— Psaltaren 142:5</div>
+                        </div>
+
+                        <div class="bible-quote">
+                            <div class="verse">"Till och med min närmaste vän som jag litade på, har höjt sin häl mot mig"</div>
+                            <div class="reference">— Psaltaren 41:10</div>
+                        </div>
+
+                        <div class="bible-quote">
+                            <div class="verse">"Jag är bortglömd som en död, ur sinnet"</div>
+                            <div class="reference">— Psaltaren 31:13</div>
+                        </div>
+                    </div>
+
+                    <div class="quote-category" id="vrede-ilska">
+                        <h4>VREDE & ILSKA</h4>
+                        
+                        <div class="bible-quote">
+                            <div class="verse">"Vredgas, men synda inte"</div>
+                            <div class="reference">— Efesierbrevet 4:26</div>
+                        </div>
+
+                        <div class="bible-quote">
+                            <div class="verse">"Han drev ut dem alla ur templet och välte borden"</div>
+                            <div class="reference">— Johannes 2:15</div>
+                        </div>
+
+                        <div class="bible-quote">
+                            <div class="verse">"Hur länge måste jag se stridens fana och höra basunen ljuda?"</div>
+                            <div class="reference">— Jeremia 4:21</div>
+                        </div>
+
+                        <div class="sullivan-note">
+                            Sullivan's anteckning: <em>Även Jesus använde våld ibland. Kanske finns det rättfärdig vrede? Kanske är det det jag känner?</em>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-danger">
+                    <h4>⚠️ SULLIVANS INRE KONFLIKT</h4>
+                    
+                    <p><strong>Citat han SÄGER (offentligt):</strong><br>
+                    "Kämpa trons goda kamp" (1 Tim 6:12)</p>
+                    
+                    <p><strong>Citat han TÄNKER (privat):</strong><br>
+                    "Jag är utmattad av mitt ropande, min strupe är torr" (Ps 69:4)</p>
+                    
+                    <p><strong>Citat som plågar honom:</strong><br>
+                    "Ve dem som kallar det onda gott och det goda ont" (Jes 5:20)<br>
+                    <em>Kallar han cover-ups för "gott"? Dödar oskyldiga för "det större goda"?</em></p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active section highlighting
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.section');
+
+        function updateActiveLink() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        updateActiveLink();
+    </script>
+</body>
+</html>

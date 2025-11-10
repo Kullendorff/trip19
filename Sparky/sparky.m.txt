@@ -1,0 +1,342 @@
+# KAI "SPARKY" ZHANG - KOMPLETT KARAKTÄRSPROFIL
+
+## GRUNDINFORMATION
+━━━━━━━━━━━━━━━━━
+
+**Namn:** Kai "Sparky" Zhang  
+**Yrke:** IT-specialist, NSA Cyberövervakning  
+**Ålder:** 28  
+**Kön:** Kvinna  
+**Nationalitet:** Amerikansk
+
+---
+
+## GRUNDEGENSKAPER
+━━━━━━━━━━━━━━━━
+
+| Egenskap | Värde | % |
+|----------|-------|---|
+| STR | 8 | 40% |
+| CON | 10 | 50% |
+| DEX | 12 | 60% |
+| INT | 18 | 90% |
+| POW | 14 | 70% |
+| CHA | 8 | 40% |
+
+**Fysisk beskrivning:**  
+Något under medellängd, smal build. Nervös energi i rörelserna. Sitter oftast framåtlutad med dålig hållning (för mycket datortid). Bär ofta hoodies och bekväma kläder. Har alltid en laptop eller telefon inom räckhåll.
+
+---
+
+## HÄRLEDDA ATTRIBUT
+━━━━━━━━━━━━━━━━
+
+| Attribut | Maximum | Aktuell |
+|----------|---------|---------|
+| **HP** | 9 | 9 |
+| **WP** | 14 | 14 |
+| **SAN** | 70 | 70 |
+| **Brytpunkt** | 56 | 56 |
+
+---
+
+## FÄRDIGHETER
+━━━━━━━━━━━
+
+### Yrkesfärdigheter
+
+**Tekniska Specialiteter:**
+- **Datavetenskap:** 90%  
+  *Elithacker. Kan bryta sig in i nästan vilket system som helst.*
+  
+- **SIGINT (Signalunderrättelse):** 80%  
+  *NSA-tränad i att avlyssna och analysera elektronisk kommunikation.*
+  
+- **Elektronik:** 60%  
+  *Hårdvaruhacking, kan modifiera och bygga egna verktyg.*
+
+**Språk & Kommunikation:**
+- **Språk (Ryska):** 60%  
+  *Från NSA-arbete, kan läsa teknisk dokumentation och avlyssna kommunikation.*
+  
+- **Språk (Kinesiska, Mandarin):** 40%  
+  *Kan förstå men inte flytande. Morsmålsbakgrund men aldrig fullt flytande.*
+
+**Underrättelse & Byråkrati:**
+- **Biblioteksforskning:** 60%  
+  *Expert på att hitta information i databaser, arkiv och dark web.*
+  
+- **Bureaucracy:** 50%  
+  *Lärt sig navigera NSA:s helvete av formulär och protokoll.*
+  
+- **Search:** 40%  
+  *Hittar dolda ledtrådar, både digitalt och fysiskt.*
+  
+- **Law:** 30%  
+  *Vet exakt vilka federala lagar hon brutit som "Sparkplug".*
+
+### Bonusfärdigheter
+
+- **Uppmärksamhet:** 40%  
+  *Paranoid vaksamhet från hacktivist-dagarna.*
+  
+- **Smyga:** 30%  
+  *Lärt sig röra sig obemärkt, både online och IRL.*
+  
+- **Skjutvapen:** 40%  
+  *NSA-grundträning + Delta Green field work.*
+
+---
+
+## PERSONLIGA BAND (BONDS)
+━━━━━━━━━━━━━━━━━━━━━━
+
+### Bond 1: Susan Zhang (Mor) - 8
+
+**Ålder:** 55  
+**Yrke:** Grundskolelärare  
+**Bor:** Denver, Colorado
+
+**Relation:**  
+Susan är änka sedan Kais pappa dog i en bilolycka när Kai var 15. Hon lever ett enkelt, tryggt liv och är enormt stolt över sin dotter som "jobbar för regeringen". Susan har INGEN aning om hacktivism, om FBI-jakten, om de onaturliga hot Kai möter.
+
+Hon skickar glada SMS med fotona från sin trädgård, pratar om sina elever, frågade senast om Kai ville följa med på en kryssning nästa sommar. Varje gång Kai pratar med henne känns det som ett brott - att dra in denna oskyldiga, godhjärtade kvinna i sin värld av lögner.
+
+Susan är Sparkys sista koppling till normalitet, och Kai är livredd för den dag något från hennes hemliga liv når modern. Susan ringer varje söndag kväll. Kai svarar alltid, oavsett var hon är eller vad hon gör.
+
+---
+
+### Bond 2: Mr. Robert Walsh (Granne) - 8
+
+**Ålder:** 78  
+**Yrke:** Pensionerad lärare  
+**Bor:** Lägenheten bredvid Sparkys
+
+**Relation:**  
+Mr. Walsh är änkling sedan tre år (hans fru dog av cancer). Han är lite för pratsam, lite för ensam, bjuder alltid in Kai på kaffe. Hon tackade ja en gång av ren utmattning efter en brutal operation, och nu har det blivit en tradition - varje söndag morgon dricker de kaffe på hans balkong.
+
+Han berättar historier från sina år som High School-lärare på 70- och 80-talet. Pratar om sin fru Dorothy. Frågar aldrig för mycket om Kais liv, bara "Hur mår du, unga dam?" och lyssnar faktiskt på svaret. Han behandlar henne som ett barnbarn han aldrig fick.
+
+För Kai är Mr. Walsh en ankarpunkt - bevis på att vänliga, vanliga människor fortfarande finns. Men hon är livredd för dagen något från hennes värld når honom. Gamla människor dör lätt av hjärtattacker när monster kommer. Hon har börjat undvika att parkera sina "arbetsbilar" för nära lägenheten.
+
+---
+
+### Bond 3: The Null Space Collective (Online Community) - 12
+
+**Plattform:** Privat invite-only forum på dark web  
+**Sparkys alias:** "NullByte"  
+**Tid tillsammans:** 8-10 år
+
+**Community-beskrivning:**  
+Ett elitforum för säkerhetsforskare och hackers. Fokus på exploit development, kryptografi, digital frihet och filosofiska diskussioner om tech-etik. Inte aktivister längre (de flesta har "vuxit upp"), men fortfarande passionerade.
+
+**Hennes nära vänner där:**
+
+**"Cipher"** - Troligen europé (baserat på tidszon). Expert på kryptografi och mathematics. De har diskuterat allt från algorithm-design till existentiella kriser kl 03:00. Cipher känner NullByte bättre än de flesta IRL-personer känner Kai. Har en torr, brittisk humor.
+
+**"RedShift"** - Yngre, tidiga 20-tal, otroligt talangfull men osäker. Sparky har blivit lite som en mentor. RedShift frågar om karriärval, etik, om det är värt att "sälja ut" till corporate. Sparky känner stort ansvar och skuld - hon vet hon ljuger om sitt eget val.
+
+**"Proxy"** - Den mest paranoida av dem. Aldrig voice chat, bara text. Diskuterar surveillance, government overreach, conspiracy theories. Vissa av Proxys "teorier" träffar för nära Sparkys Delta Green-verklighet, vilket gör conversationerna obekväma.
+
+**Varför det betyder så mycket:**  
+De var där genom allt - när FBI jagade henne, när hon "fick nytt jobb" (ljög om att det var ett vanligt tech-företag), genom utbrändhet och kriser. De har pratat igenom nätter om kod, politik, relationer, livet, döden, meningen med alltihop.
+
+Det här är den enda platsen där Sparky kan vara (nästan) sig själv. Inte NSA-Kai, inte Delta Green-agenten, inte Susan Zhangs perfekta dotter. Bara en hacker som pratar med andra hackers.
+
+De delar in-jokes från 2016. Memes som bara de förstår. Code dumps när något äntligen fungerade efter veckor. Screenshots av dumma bugs med caption "kill me now".
+
+**Risken:**  
+Om Delta Green visste om denna connection skulle de se det som en massiv säkerhetsrisk. Om hennes vänner visste vad hon faktiskt jobbar med - att hon inte bara "sålde ut" till NSA utan aktivt arbetar för en hemlig konspiration - skulle de känna sig förrådda. 
+
+Cipher, RedShift och Proxy representerar den digitala frihet hon en gång kämpade för. Nu ljuger hon för dem varenda dag.
+
+---
+
+## UTRUSTNING
+━━━━━━━━━━
+
+### Standardutrustning
+
+**Operativ gear:**
+- Custom-modified laptop (Linux, encrypted, airgapped när nödvändigt)
+- Krypterad mobiltelefon (burner phones för operations)
+- **Flipper Zero** (multi-tool för RF, NFC, RFID, infrared)
+- **Leatherman Wave+** (alltid i fickan)
+- Ryggsäck (svart, anonym, sliten)
+
+**Vapen:**
+- **Custom Glock 19** (9mm, compact)
+  - *Cyan cerakote slide med laser-gravyr "SPARK ZERO"*
+  - *Trijicon RMR red dot sight med teal housing*
+  - *Extended magazine (21 rounds)*
+  - *Anodized blue pins och controls*
+  - *Streamlight TLR-7 med cyan bezel*
+  - *Privat ägd, köpt och modifierad själv*
+  - *Bärs dagligen concealed (IWB holster)*
+
+**Federal Carry Authorization:**
+Sparky har hackat sig in i FBI's CJIS Division database och manipulerat LEOSA (Law Enforcement Officers Safety Act) national registry. Hon finns listad som:
+
+**"Technical Enforcement Officer - National Security Division"**
+
+- Skapade bakåtdaterade träningsrecords och kvalifikationer
+- Hennes credentials verifieras som giltiga när poliser kollar i NCIC
+- Ger henne nationwide concealed carry authority
+- Tekniskt fake, men systemet säger att hon är legitim federal LEO
+- Perfekt gråzon för Delta Green-operationer
+
+Detta är MYCKET olagligt (18 U.S.C. § 1030 - Computer Fraud, 18 U.S.C. § 912 - Impersonating federal officer), men Sparky rationaliserar det: "Jag skyddar landet från verkliga hot. Vem bryr sig om ett falskt ID?"
+
+**Digitala verktyg:**
+- USB Rubber Ducky (keystroke injection)
+- Raspberry Pi Zero W (portable hacking platform)
+- Diverse lockpicks (aldrig använt professionellt, mest hobby)
+- Faraday bags (för att isolera devices)
+
+**Alltid med sig:**
+- Notebook (fysisk, för anteckningar som inte ska digitaliseras)
+- Flera USB-minnen (encrypted)
+- Extra batterier och power banks
+- Kabel-kaos (USB-C, Micro-USB, Lightning, Ethernet adapters)
+
+---
+
+## BAKGRUND
+━━━━━━━━━
+
+### Tidiga år - "Sparkplug"
+
+Sparkys resa till Delta Green började långt innan hon hamnade i NSA:s sterila kontorslandskap. Hon var en ökänd hacktivist, en digital spökraket som gick under aliaset **"Sparkplug"**. 
+
+Hon dansade genom nätverkens mörka gränder, avslöjade korrupta politiker, läckte hemliga dokument och utmanade makten med varje tangenttryckning. Hon var en legend i den underjordiska hacker-världen, en frihetskämpe i den digitala tidsåldern.
+
+Hon hade aldrig gjort det för pengar. Det var principen - transparency, accountability, power to the people. WikiLeaks var hennes hjältar. Aaron Swartz var hennes martyr.
+
+---
+
+### Vändpunkten - FBI och The Deal
+
+Men Sparkys rebelliska natur gjorde henne till en måltavla. FBI var henne ständigt i hälarna, och hon levde i ständig rädsla för att bli gripen. De kom nära flera gånger - för nära. 
+
+Sedan kom erbjudandet från NSA. En chans att använda sina färdigheter för "det goda", att bekämpa terrorism och cyberbrottslighet. Alternativet var fängelse, åtal under Computer Fraud and Abuse Act, antagligen 10-15 år.
+
+Det var en gyllene bur, men det var åtminstone en bur med internetuppkoppling.
+
+Hon tog dealen. Marcus "Ghost" och resten av kollektivet sa adjö. Vissa förstod. De flesta tyckte hon sålde ut.
+
+---
+
+### NSA-tiden - The Cage
+
+Sparky hatade kontoret. De sterila väggarna, de själlösa skrivborden, de meningslösa mötena om "procedur" och "protocol". Hon längtade efter den digitala friheten, efter adrenalinkicken av att bryta sig in i förbjudna system.
+
+Men hon bet ihop. Använde sin tid till att finslipa sina kunskaper, bygga nya verktyg, och kartlägga NSA:s egna hemligheter. Hon blev bra på sitt jobb. För bra.
+
+Det var bara ett jobb. Clock in, clock out, ljug för mamma om vad hon egentligen gör.
+
+---
+
+### Upptäckten - Something Wrong
+
+En dag, mitt i en rutinmässig övervakningsuppgift, snubblade Sparky över något märkligt. En serie krypterade meddelanden, dolda i en ström av till synes oskyldig data. 
+
+Hon knäckte koden och fann... något som inte borde finnas. Referenser till "The Sleeper", till koordinater i Stilla Havet, till något som kallades "The Deep Ones". En sekt som planerade något - hon visste inte vad, men meddelandena var fyllda med märkliga termer och matematiska formler som inte gav någon mening.
+
+Hon rapporterade det till sina överordnade. De avfärdade henne.
+
+"Fantasier," sa de. "Konspirationsteorier. Du har läst för mycket skräp på internet."
+
+---
+
+### Vägen till Delta Green - The Recruitment
+
+Sparky visste att de hade fel. Hon kände det i sina digitala ben, en kall kåre som spred sig genom nätverket. Hon fortsatte gräva, på egen hand, efter jobbet, i hemlighet.
+
+Sedan kom kontakten. En anonym källa, en viskning i den digitala vinden. Ett krypterat meddelande som sa: "Du har sett för mycket. Men du kan hjälpa oss att stoppa det."
+
+Källan var en Delta Green-agent. De bekräftade hennes misstankar - och berättade saker som var värre än hon kunde föreställa sig. Att verkligheten var skörare än hon trott. Att det fanns saker där ute som kunde förstöra allt.
+
+"Du har sett det nu," sa agenten. "Du kan aldrig glömma det. Frågan är: Vad ska du göra åt det?"
+
+---
+
+### Nuvarande situation - The Double Life
+
+Sparky tvekade. NSA var hennes fängelse, men det var också hennes skydd. Men hon kunde inte ignorera hotet. 
+
+Hon gick med i Delta Green, en dubbelagent i en värld av skuggor och lögner. Nu använder hon sina kunskaper för att bekämpa de onaturliga hoten, de varelser och krafter som hotar att förgöra vår värld.
+
+Hon är fortfarande en hacker i hjärtat, en rebell som kämpar för frihet och sanning, men nu i ett krig som ingen annan känner till. Hon ljuger för alla - för mamma, för Mr. Walsh, för Cipher och RedShift och Proxy, för sina NSA-kollegor.
+
+Ibland, när hon sitter ensam kl 03:00 efter en operation, undrar hon: Var det värt det? Att byta en bur mot en annan?
+
+Men hon vet svaret. Hon har sett vad som finns där ute. Någon måste stoppa det.
+
+Och just nu är hon en av få som kan.
+
+---
+
+## PERSONLIGHET & BETEENDE
+━━━━━━━━━━━━━━━━━━━━
+
+**Grunddrag:**
+- **Rebellisk natur dold under professionell fasad** - Spelar spelet på jobbet, men hatar varje sekund
+- **Djupt cynisk mot auktoriteter** - Både FBI och NSA och till viss del Delta Green
+- **Driven av kompulsiv längtan efter sanningen** - Kan inte låta mysterier vara
+- **Känner sig instängd i byråkratin** - NSA känns som ett fängelse
+- **Saknar gamla tidens hackeräventyr** - Men kan aldrig gå tillbaka
+- **Plågas av vetskapen om vad som finns därute** - Har sett för mycket
+
+**I sociala situationer:**
+- Introvert, undviker small talk
+- Blir levande när det gäller tech eller när hon känner sig trygg
+- Använder humor som försvar (oftast sarkastisk, självironisk)
+- Dålig på ögonkontakt när hon är obekväm
+- Kompenserar osäkerhet med kompetens - "Jag kan lösa det här problemet"
+
+**Stress-beteenden:**
+- Isolerar sig
+- Spenderar ännu mer tid online med Null Space
+- Glömmer äta och sova när hon är inne i ett problem
+- Chain-dricker kaffe och energidryck
+- Blir kortare och mer cynisk i sin kommunikation
+
+**Motivationer:**
+1. Sanningen - hon måste veta vad som händer
+2. Beskydda de oskyldiga (även om hon inte kan rädda alla)
+3. En liten, dold del hoppas fortfarande på digital frihet
+4. Rädsla - hon har sett vad som händer om inget görs
+
+---
+
+## OPERATIV PROFIL
+━━━━━━━━━━━━━━
+
+**Specialiteter:**
+- Digital infiltration och cyberoperationer
+- Kryptering och dekryptering (av data, meddelanden, filer)
+- Övervakningssystem - manipulation och avlyssning
+- Elektronisk underrättelseinhämtning (SIGINT)
+- Sårbarhetsanalys och exploit development
+- Social engineering (via digitala kanaler, mindre bra IRL)
+
+**Styrkor i fält:**
+- Exceptionellt bra på problemlösning under press
+- Kan hacka nästan vilket system som helst givet tid
+- Tänker utanför boxen (rebellisk bakgrund hjälper)
+- Paranoid på rätt sätt - kollar alltid över axeln
+- Kan improvisera när plans går åt helvete
+
+**Svagheter i fält:**
+- Inte fysiskt stark eller särskilt atletisk
+- Socialt osäker face-to-face (bättre online)
+- Har svårt att lita på auktoriteter (även allierade)
+- Tar ibland onödiga risker för att "bevisa något"
+- Känslomässigt isolerad - svårt att be om hjälp
+
+**Roll i team:**
+- The Hacker / Tech Specialist
+- Information gatherer och analyst
+- Electronic warfare
+- Helst bakom datorn, inte i front lines
+- Men kan handla när det behövs (har redan förlorat SAN, vad är lite mer?)

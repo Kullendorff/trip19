@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Father Sullivan - Personligt | Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0a;
+            --bg-darker: #050805;
+            --accent: #b87333;
+            --accent-dim: #8b5a2b;
+            --text: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --border: #2d3d2d;
+            --highlight: #3d5a3d;
+            --warning: #ff6b35;
+            --success: #b87333;
+            --danger: #ff3366;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--bg-darker);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            text-align: center;
+            line-height: 1.4;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent-dim);
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(184, 115, 51, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #1a2332 100%);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text);
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            margin-top: 2rem;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            border: 2px solid var(--accent);
+        }
+
+        .alert {
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+
+        .alert-warning {
+            background-color: rgba(255, 107, 53, 0.1);
+            border-left-color: var(--warning);
+            color: var(--warning);
+        }
+
+        .alert-success {
+            background-color: rgba(184, 115, 51, 0.1);
+            border-left-color: var(--success);
+            color: var(--success);
+        }
+
+        .alert-danger {
+            background-color: rgba(255, 51, 102, 0.1);
+            border-left-color: var(--danger);
+            color: var(--danger);
+        }
+
+        .alert h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--accent-dim);
+            padding-bottom: 0.5rem;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            color: var(--accent-dim);
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .quote-box {
+            background-color: var(--bg-darker);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-dim);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            background-color: var(--bg-darker);
+            padding: 1.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 1.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 2px solid var(--bg-dark);
+        }
+
+        .timeline-year {
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-event {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-guilt {
+            color: var(--danger);
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        .section-image {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .section-image img {
+            max-width: 500px;
+            width: 100%;
+            border-radius: 8px;
+            border: 2px solid var(--accent-dim);
+        }
+
+        .dark-card {
+            background-color: var(--bg-darker);
+            border: 2px solid var(--danger);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .dark-card h4 {
+            color: var(--danger);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .bible-quotes {
+            margin: 2rem 0;
+        }
+
+        .quote-category {
+            margin-bottom: 3rem;
+        }
+
+        .quote-category h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--accent-dim);
+            padding-bottom: 0.5rem;
+        }
+
+        .bible-quote {
+            background-color: var(--bg-darker);
+            border-left: 4px solid var(--accent-dim);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .bible-quote .verse {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .bible-quote .reference {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            text-align: right;
+        }
+
+        .sullivan-note {
+            background-color: rgba(184, 115, 51, 0.1);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            text-align: center;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            border-radius: 8px;
+            border: 2px solid var(--accent-dim);
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-caption {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .bond-card {
+            background-color: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent);
+        }
+
+        .bond-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .bond-name {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .bond-value {
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .bond-relation {
+            color: var(--text-dim);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .bond-status {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: rgba(184, 115, 51, 0.1);
+            border-radius: 4px;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .main-content {
+                padding: 2rem;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .timeline-item::before {
+                left: -1.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                FATHER SULLIVAN<br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">NAVY CHAPLAIN // DELTA GREEN</span>
+            </div>
+            
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="sullivan_karakter.html" class="page-link">KARAKTÄR</a>
+                        <a href="sullivan_pastoral.html" class="page-link">PASTORAL</a>
+                        <a href="sullivan_operativt.html" class="page-link">OPERATIVT</a>
+                        <a href="sullivan_personligt.html" class="page-link active">PERSONLIGT</a>
+                        <a href="sullivan_bibelcitat.html" class="page-link">BIBELCITAT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-title">SNABBNAVIGERING</div>
+                    <a href="#tidslinje" class="nav-link">Tidslinje</a>
+                    <a href="#bonds" class="nav-link">Bonds</a>
+                    <a href="#tro-kris" class="nav-link">Tro-kris</a>
+                    <a href="#hemligheter" class="nav-link">Hemligheter</a>
+                    <a href="#galleri" class="nav-link">Galleri</a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                CLASSIFIED<br>DELTA GREEN<br>EYES ONLY
+            </div>
+        </div>
+
+        <main class="main-content">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1>MINNENAS TYNGD</h1>
+                    
+                    <div class="hero-quote">
+                        "Varje bön känns som en lögn. Varje predikan, ihåliga ord. 
+                        Men jag fortsätter. För om jag slutar... vad var det hela för?"
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="sullivan3.png" alt="Sullivan sitter vid eld, håller rosenkrans - ensam, contemplativ" />
+                </div>
+            </section>
+
+            <section id="tidslinje" class="section">
+                <h2>LIVET SOM FORMADE HONOM</h2>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">1979 - FÖDD</div>
+                        <div class="timeline-event">South Boston, Massachusetts. Irländsk-katolsk arbetarfamilj.</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">1993 (14 år) - THE DROWNING</div>
+                        <div class="timeline-event">Bror Patrick (16) drunknar framför Michaels ögon. Båtolycka, Boston Harbor.</div>
+                        <p>Michael överlever 4 timmar i kallt vatten. Räddas av Fader Brennan "på en känsla".</p>
+                        <div class="timeline-guilt">Första skulden: Varför överlevde jag och inte Patrick?</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2001 (22 år) - FAR DÖR</div>
+                        <div class="timeline-event">Thomas Sullivan dör i arbetsplatsolycka.</div>
+                        <p>Michael tar examen från Boston College samma månad.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2002 (23 år) - ORDINERAD</div>
+                        <div class="timeline-event">Blir katolsk präst. Fader Brennan mentor.</div>
+                        <p>Tjänar vid St. Augustine's, Boston.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2006 (27 år) - THE SCANDAL</div>
+                        <div class="timeline-event">Father Marcus O'Brien (kollega) anklagas för sexuellt missbruk av minderåriga.</div>
+                        <p>Sullivan försvarade honom offentligt. "En god man. Offer ljuger."<br>
+                        Sedan kom bevisen. Allt var sant.</p>
+                        <div class="timeline-guilt">Andra skulden: Jag försvarade en predator. Mina ord skadade offer.</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2006 - FLYKTEN</div>
+                        <div class="timeline-event">Ansöker till Navy Chaplain Corps. Lämnar Boston.</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2007-2020 - MILITARY SERVICE</div>
+                        <div class="timeline-event">Multiple deployments. Afghanistan 2011-2013, 2019-2020.</div>
+                        <p>Ser krig. Ser död. Tron börjar spricka.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2020 (41 år) - AFGHANISTAN - THE EXORCISM</div>
+                        <div class="timeline-event">Corporal Miller. Det onaturliga. Exorcism fungerar inte.</div>
+                        <p>Delta Green rekryterar honom.</p>
+                        <div class="timeline-guilt">Tredje skulden: Om exorcism inte fungerar, vad är jag då?</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024 DEC - THE MALL BEFORE CHRISTMAS</div>
+                        <div class="timeline-event">Första operation med Mac & Sparky. Dmitri Volkov. Kristallkuben.</div>
+                        <p>Började se att det onaturliga är större än han trodde.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025 MAJ - SEA GLASS</div>
+                        <div class="timeline-event">Maine. Kristaller. Människor transformerade. Kunde inte rädda dem.</div>
+                        <p>Måste döda dem istället.</p>
+                        <div class="timeline-guilt">Fjärde skulden: Jesus gav aldrig upp på någon. Jag gav upp på alla.</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025 SEPT - NU</div>
+                        <div class="timeline-event">Quantico. De facto cell leader. Fungerar professionellt.</div>
+                        <p>Inuti: Tom. Tvivlande. Söker svar som inte kommer.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="bonds" class="section">
+                <h2>BONDS - FÖRBINDELSER SOM HÅLLER HONOM KVAR</h2>
+
+                <div class="bond-card">
+                    <div class="bond-header">
+                        <div class="bond-name">KATIE SULLIVAN</div>
+                        <div class="bond-value">12</div>
+                    </div>
+                    <div class="bond-relation">Yngre syster, nunna/social worker, Boston</div>
+                    
+                    <p><strong>Bakgrund:</strong><br>
+                    Katie blev nunna år efter Sullivan blev präst. De delar samma kallelse - hjälpa människor. Men Katie vet inte om Delta Green.</p>
+
+                    <div class="bond-status">
+                        <p><strong>Nuvarande status:</strong><br>
+                        Katie känner att något är fel. Michael ringer sällan. När de pratar låter han tom. Hon har frågat: "Michael, pratar du fortfarande med Gud?" Han ljög: "Varje dag."</p>
+                    </div>
+
+                    <div class="quote-box">
+                        Katie: "Du låter så trött, Mike. Tar de hand om dig i Marines?"<br>
+                        Sullivan: "De gör sitt bästa."<br>
+                        Katie: "Pratar du med Gud? Ber du?"<br>
+                        Sullivan: [paus] "Varje dag, Katie."<br>
+                        <em>Lögnen brände i halsen.</em>
+                    </div>
+                </div>
+
+                <div class="bond-card">
+                    <div class="bond-header">
+                        <div class="bond-name">DR. DAVID "DOC" TORRES</div>
+                        <div class="bond-value">10</div>
+                    </div>
+                    <div class="bond-relation">Combat medic, Afghanistan-överlevare, PTSD</div>
+                    
+                    <p><strong>Bakgrund:</strong><br>
+                    Doc Torres var combat medic som hjälpte Sullivan försöka rädda Corporal Miller i Afghanistan 2020. De såg samma onaturliga sak. Båda överlevde.</p>
+
+                    <div class="bond-status">
+                        <p><strong>Nuvarande status:</strong><br>
+                        Doc är hemma i San Antonio. Får terapi för PTSD men vet att det inte var normal PTSD. Sullivan ringer varannan månad - checkup, stöd. Doc är den enda utanför Delta Green som vet vad Sullivan såg.</p>
+                        
+                        <p><strong>Hur denna bond kan skadas:</strong><br>
+                        - Doc frågar för mycket om vad Sullivan gör nu<br>
+                        - Doc blir själv måltavla för något onaturligt<br>
+                        - Sullivan måste välja mellan mission och att skydda Doc</p>
+                    </div>
+                </div>
+
+                <div class="bond-card">
+                    <div class="bond-header">
+                        <div class="bond-name">LT. COMMANDER JAMES "JIMMY" WALSH</div>
+                        <div class="bond-value">14</div>
+                    </div>
+                    <div class="bond-relation">Senior Chaplain, mentor, Quantico</div>
+                    
+                    <p><strong>Bakgrund:</strong><br>
+                    Jimmy Walsh (58) är Sullivans boss och mentor. Tjänstgjorde i Vietnam, blev chaplain, sett helvetet. Sullivan ser Jimmy som ersättning för Fader Brennan.</p>
+
+                    <div class="bond-status">
+                        <p><strong>Varför denna bond är viktig:</strong><br>
+                        Jimmy representerar "normala" livet - en chaplain med fast tro som genuint tror han gör skillnad. Varje gång Sullivan ser Jimmy påminns han om vem han var.</p>
+                        
+                        <p><strong>Efter Sea Glass:</strong><br>
+                        Jimmy märkte något var fel. Beordrade Sullivan på retreat. Sullivan gick (måste), kom tillbaka lika tom. Jimmy oroar sig men respekterar gränser.</p>
+                    </div>
+                </div>
+
+                <div class="alert alert-danger">
+                    <h4>💔 DEN VIKTIGASTE BONDEN</h4>
+                    <p>14 poäng - högst av Sullivans bonds.<br>
+                    Jimmy representerar inte bara en person, utan en hel livsstil, 
+                    en identitet. Om Sullivan förlorar Jimmy förlorar han sin 
+                    sista koppling till vem han var.</p>
+                    
+                    <p>Men varje gång han ljuger för Jimmy om var han varit, 
+                    varje "pastoral care" som egentligen var Delta Green...
+                    det äter på bonden. Långsamt. Obönhörligt.</p>
+                </div>
+            </section>
+
+            <section id="tro-kris" class="section">
+                <h2>NÄR BÖNER INTE RÄCKER</h2>
+
+                <div class="section-image">
+                    <img src="sullivan4.png" alt="Sullivan typing på gammal skrivmaskin, whiskey - mörkt rum" />
+                </div>
+
+                <p>Efter Sea Glass kan Sullivan inte längre be utan att känna tomhet. Han utför ritualer mekaniskt:</p>
+
+                <div class="quote-box">
+                    "In nomine Patris, et Filii, et Spiritus Sancti..."<br><br>
+
+                    Orden kommer automatiskt. Händerna gör korset. 
+                    Men hjärtat? Hjärtat känner ingenting.<br><br>
+
+                    Är det här vad det betyder att förlora tron? 
+                    Att orden fortsätter men meningen är borta?
+                </div>
+
+                <div class="alert alert-danger">
+                    <h4>⚠️ DEN CENTRALA FRÅGAN</h4>
+                    <p>Om exorcism inte fungerar - finns då demoner?<br>
+                    Om demoner inte finns - vad är då det onaturliga?<br>
+                    Om det onaturliga existerar - var är Gud?</p>
+                    
+                    <p>Om Gud finns men inte ingriper - är Han värd att tillbe?<br>
+                    Om Gud inte finns - vad är jag då? En präst utan tro?
+                    En soldat för ingenting?</p>
+                </div>
+            </section>
+
+            <section id="hemligheter" class="section">
+                <h2>VAD INGEN VET</h2>
+
+                <p>Sullivan tror inte längre på Gud. Inte sedan Sea Glass. Kanske inte sedan Afghanistan.</p>
+
+                <p>Han utför fortfarande alla sina plikter som chaplain. Varje mässa, varje rådgivningssamtal, varje bön. Men orden är ihåliga.</p>
+
+                <div class="dark-card">
+                    <h4>HAN ÄR RÄDD</h4>
+                    
+                    <p>Om han erkänner detta - för sig själv, för andra - 
+                    kommer allt han gjort vara meningslöst.</p>
+                    
+                    <p>Alla val han gjort.<br>
+                    Alla han inte kunde rädda.<br>
+                    Alla offer Delta Green krävt.</p>
+                    
+                    <p>Så han fortsätter. Låtsas. Söker. 
+                    Hoppas att tron kommer tillbaka.</p>
+                    
+                    <p>Men varje dag blir det svårare att komma ihåg 
+                    vad tro kändes som.</p>
+                </div>
+            </section>
+
+
+            <section id="galleri" class="section">
+                <h2>BETWEEN DUTY AND DESPAIR</h2>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="sullivan1.jpeg" alt="Official Portrait" />
+                        <div class="gallery-caption">Official Portrait - Quantico, 2025</div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="sullivan2.jpeg" alt="After the Operation" />
+                        <div class="gallery-caption">After the Operation - Identity Unknown</div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="sullivan5.png" alt="Alone with His Thoughts" />
+                        <div class="gallery-caption">Alone with His Thoughts</div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="sullivan8.png" alt="Mess Hall - Morning Routine" />
+                        <div class="gallery-caption">Mess Hall - Morning Routine</div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="sullivan9.png" alt="The Mask He Wears" />
+                        <div class="gallery-caption">The Mask He Wears - Kitchen Duty</div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="sullivan6.png" alt="Pastoral Care in Action" />
+                        <div class="gallery-caption">Pastoral Care in Action</div>
+                    </div>
+                </div>
+
+                <div class="quote-box">
+                    "Jag sa till henne att Gud sänt mig. Jag ljög. 
+                    Eller... Gud SKICKADE mig, och jag misslyckades. 
+                    Jag vet inte vilket som är värre."
+                </div>
+
+                <div class="quote-box">
+                    "Jimmy frågar om jag ber. Jag säger ja. 
+                    Katie frågar om jag fortfarande tror. Jag säger ja.
+                    Mac frågar om jag mår bra. Jag säger ja.
+
+                    Tre människor jag älskar. Tre lögner."
+                </div>
+
+                <div class="quote-box">
+                    "Kanske är det här helvetet. 
+                    Inte eld och demoner. 
+                    Bara... att gå genom rörelserna för evigt, 
+                    och veta att det inte betyder något."
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active section highlighting
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.section');
+
+        function updateActiveLink() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        updateActiveLink();
+    </script>
+</body>
+</html>

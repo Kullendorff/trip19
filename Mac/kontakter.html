@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAC RILEY - Kontakter | Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0D1117;
+            --bg-darker: #0A0F0F;
+            --accent: #4A90A4;
+            --accent-dim: #3A7080;
+            --text: #D1D5DB;
+            --text-dim: #6B7280;
+            --border: #1A2332;
+            --highlight: #2C3E50;
+            --warning: #E74C3C;
+            --success: #4A90A4;
+            --danger: #DC2626;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--bg-darker);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            text-align: center;
+            line-height: 1.4;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(74, 144, 164, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent-dim);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #1A2332 100%);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            filter: grayscale(20%);
+        }
+
+        .content-section {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .contact-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-name {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-role {
+            color: var(--text-dim);
+            font-style: italic;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-details {
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-details p {
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-status {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .status-active { background: #22c55e; color: white; }
+        .status-limited { background: #f59e0b; color: white; }
+        .status-risky { background: var(--warning); color: white; }
+        .status-broken { background: var(--danger); color: white; }
+
+        .risk-indicator {
+            float: right;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .risk-low { background: #22c55e; color: white; }
+        .risk-medium { background: #f59e0b; color: white; }
+        .risk-high { background: var(--danger); color: white; }
+
+        .category-header {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .category-desc {
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                MAC RILEY<br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">FBI // DELTA GREEN</span>
+            </div>
+            
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="karakter.html" class="page-link">KARAKTÄR</a>
+                        <a href="fbi_karriar.html" class="page-link">FBI KARRIÄR</a>
+                        <a href="delta_green.html" class="page-link">DELTA GREEN</a>
+                        <a href="kontakter.html" class="page-link active">KONTAKTER</a>
+                        <a href="personligt.html" class="page-link">PERSONLIGT</a>
+                        <a href="volkov_board.html" class="page-link">VOLKOV-BOARD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-title">SNABBNAVIGERING</div>
+                    <a href="#fbi" class="nav-link">FBI</a>
+                    <a href="#local" class="nav-link">Lokala Myndigheter</a>
+                    <a href="#military" class="nav-link">Militära</a>
+                    <a href="#civilian" class="nav-link">Civila</a>
+                    <a href="#utility" class="nav-link">Utility</a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                CLASSIFIED<br>DELTA GREEN<br>EYES ONLY
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>KONTAKTER</h1>
+                    <div class="subtitle">Operationella Resurser & Information</div>
+                    <p>20+ kontakter inom federal law enforcement, militär och civila sektorer. Majoriteten ovetandes om Mac's Delta Green-aktiviteter.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="mac3.jpeg" alt="Mac Riley Network">
+                </div>
+            </div>
+
+            <section id="fbi" class="content-section">
+                <h2 class="section-title">FBI & FEDERAL LAW ENFORCEMENT</h2>
+                <div class="category-desc">Officiella kollegor och samarbetspartners. Känner Mac's officiella karriär men inte Delta Green.</div>
+                
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-name">Agent Lisa Chen <span class="risk-indicator risk-medium">MEDEL RISK</span></div>
+                        <div class="contact-role">FBI Cyber Division, Washington Field Office</div>
+                        <div class="contact-details">
+                            <p><strong>Specialisering:</strong> Digital forensics, cyberteknik</p>
+                            <p><strong>Användbarhet:</strong> Tech-spårning, kryptering</p>
+                            <p><strong>Problem:</strong> För smart, märkt Mac's konstiga förfrågningar</p>
+                        </div>
+                        <span class="contact-status status-limited">BEGRÄNSAD</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">SSA David Porter <span class="risk-indicator risk-high">HÖG RISK</span></div>
+                        <div class="contact-role">FBI Behavioral Analysis Unit 3</div>
+                        <div class="contact-details">
+                            <p><strong>Specialisering:</strong> Profiling, personalutvärdering</p>
+                            <p><strong>Användbarhet:</strong> FBI-backup, case access</p>
+                            <p><strong>Problem:</strong> Känner Mac för väl, ser genom lögner</p>
+                        </div>
+                        <span class="contact-status status-risky">RISKABEL</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Dr. Janet Reeves <span class="risk-indicator risk-medium">MEDEL RISK</span></div>
+                        <div class="contact-role">FBI Behavioral Science Unit, Quantico</div>
+                        <div class="contact-details">
+                            <p><strong>Specialisering:</strong> Forensisk psykologi</p>
+                            <p><strong>Användbarhet:</strong> Profiling-konsultation</p>
+                            <p><strong>Problem:</strong> Ser tecken på mental ohälsa</p>
+                        </div>
+                        <span class="contact-status status-limited">BEGRÄNSAD</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Agent Marcus Williams <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">DEA DC Field Division</div>
+                        <div class="contact-details">
+                            <p><strong>Specialisering:</strong> Narkotika, organiserad brottslighet</p>
+                            <p><strong>Användbarhet:</strong> Street intel, DEA-resurser</p>
+                            <p><strong>Problem:</strong> Mac slutat svara på kontakt</p>
+                        </div>
+                        <span class="contact-status status-broken">BRUTEN</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="local" class="content-section">
+                <h2 class="section-title">LOKALA MYNDIGHETER</h2>
+                <div class="category-desc">State och lokala law enforcement. Mindre känsliga för federal oversight.</div>
+                
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-name">Det. Sarah Nakamura <span class="risk-indicator risk-medium">MEDEL RISK</span></div>
+                        <div class="contact-role">DC Metro Police, Homicide</div>
+                        <div class="contact-details">
+                            <p><strong>Specialisering:</strong> Mordutredning, local intel</p>
+                            <p><strong>Användbarhet:</strong> DC case files, crime scenes</p>
+                            <p><strong>Problem:</strong> Märkt Mac's ovanliga case-frågor</p>
+                        </div>
+                        <span class="contact-status status-limited">BEGRÄNSAD</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Sgt. Mike Thompson <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Maryland State Police</div>
+                        <div class="contact-details">
+                            <p><strong>Specialisering:</strong> Criminal enforcement, backup muscle</p>
+                            <p><strong>Användbarhet:</strong> Maryland coverage, no questions asked</p>
+                            <p><strong>Problem:</strong> Inga större</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Dr. Patricia Reynolds <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Chief Medical Examiner, Virginia</div>
+                        <div class="contact-details">
+                            <p><strong>Specialisering:</strong> Forensisk patologi</p>
+                            <p><strong>Användbarhet:</strong> Autopsy reports, cause of death</p>
+                            <p><strong>Problem:</strong> Mac's frågor blivit konstigare</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Officer Jim Rodriguez <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Arlington County Police</div>
+                        <div class="contact-details">
+                            <p><strong>Specialisering:</strong> Patrol, local eyes and ears</p>
+                            <p><strong>Användbarhet:</strong> Neighborhood intel, quick response</p>
+                            <p><strong>Problem:</strong> Märkt Mac ute sent flera gånger</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="military" class="content-section">
+                <h2 class="section-title">MILITÄRA KONTAKTER</h2>
+                <div class="category-desc">Marines-kamrater från deployments. Förstår operational security och loyalty.</div>
+                
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-name">Marcus "Hardball" Santos <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Ex-Marine, Construction Foreman</div>
+                        <div class="contact-details">
+                            <p><strong>Historia:</strong> Iraq 2007-2008, räddade Mac's liv</p>
+                            <p><strong>Användbarhet:</strong> Emotional support, combat backup</p>
+                            <p><strong>Problem:</strong> Mac undviker kontakt (guilt)</p>
+                        </div>
+                        <span class="contact-status status-broken">BRUTEN</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">GySgt Rachel Morrison <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Active Duty USMC, Quantico</div>
+                        <div class="contact-details">
+                            <p><strong>Historia:</strong> Afghanistan 2010-2011</p>
+                            <p><strong>Användbarhet:</strong> Military resources, tactical backup</p>
+                            <p><strong>Problem:</strong> Minimal contact senaste åren</p>
+                        </div>
+                        <span class="contact-status status-limited">BEGRÄNSAD</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="civilian" class="content-section">
+                <h2 class="section-title">CIVILA & AKADEMISKA</h2>
+                <div class="category-desc">Professionella kontakter utanför law enforcement. Varierande risk för exponering.</div>
+                
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-name">Dr. Leonard Hayes <span class="risk-indicator risk-medium">MEDEL RISK</span></div>
+                        <div class="contact-role">Professor, Georgetown University</div>
+                        <div class="contact-details">
+                            <p><strong>Specialisering:</strong> Forensisk psykologi, beteendeanalys</p>
+                            <p><strong>Användbarhet:</strong> Academic research, teorier</p>
+                            <p><strong>Problem:</strong> Mac's frågor blivit morbida</p>
+                        </div>
+                        <span class="contact-status status-limited">BEGRÄNSAD</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Amanda Reese <span class="risk-indicator risk-high">HÖG RISK</span></div>
+                        <div class="contact-role">Washington Post, Crime Reporter</div>
+                        <div class="contact-details">
+                            <p><strong>Specialisering:</strong> Investigative journalism</p>
+                            <p><strong>Användbarhet:</strong> Intel, news archives</p>
+                            <p><strong>Problem:</strong> AKTIVT gräver på Mac's activities</p>
+                        </div>
+                        <span class="contact-status status-risky">RISKABEL</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Frank Caruso <span class="risk-indicator risk-medium">MEDEL RISK</span></div>
+                        <div class="contact-role">Private Investigator</div>
+                        <div class="contact-details">
+                            <p><strong>Specialisering:</strong> Off-book surveillance, background checks</p>
+                            <p><strong>Användbarhet:</strong> Discreet investigations</p>
+                            <p><strong>Problem:</strong> Professionell men observant</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="utility" class="content-section">
+                <h2 class="section-title">UTILITY KONTAKTER</h2>
+                <div class="category-desc">"Service providers" och vardagskontakter. Generellt säkra men observanta.</div>
+                
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-name">Danny Sullivan <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Bartender, "The Safehouse"</div>
+                        <div class="contact-details">
+                            <p><strong>Användbarhet:</strong> Safe space, intel från bar talk</p>
+                            <p><strong>Loyalty:</strong> Hög - bartender discretion</p>
+                            <p><strong>Problem:</strong> Märkt Mac's deterioration</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Victor Morales <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Gun Shop Owner, "Patriot Arms"</div>
+                        <div class="contact-details">
+                            <p><strong>Användbarhet:</strong> Weapons, ammo, tactical gear</p>
+                            <p><strong>Philosophy:</strong> "Man's business is his business"</p>
+                            <p><strong>Problem:</strong> Noterat Mac's ökad ammo-inköp</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Maria Santos <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Landlord, Mac's Apartment</div>
+                        <div class="contact-details">
+                            <p><strong>Användbarhet:</strong> Housing security, no questions</p>
+                            <p><strong>Attitude:</strong> Maternal concern</p>
+                            <p><strong>Problem:</strong> Märkt Mac's nattliga aktiviteter</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Terrence "Terry" Bishop <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Gym Owner, "Iron Haven"</div>
+                        <div class="contact-details">
+                            <p><strong>Användbarhet:</strong> Workout space, ex-Marine understanding</p>
+                            <p><strong>Status:</strong> Mac stopped coming augusti 2025</p>
+                            <p><strong>Problem:</strong> None currently</p>
+                        </div>
+                        <span class="contact-status status-broken">BRUTEN</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

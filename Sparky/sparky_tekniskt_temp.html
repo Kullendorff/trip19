@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAI "SPARKY" ZHANG - Karaktär</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0e1a;
+            --bg-darker: #060911;
+            --accent: #00ff88;
+            --accent-dim: #00cc6a;
+            --text: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --border: #1a2332;
+            --warning: #ff6b35;
+            --success: #00ff88;
+            --danger: #ff3366;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Navigation Sidebar */
+        .sidebar {
+            background: var(--bg-darker);
+            border-right: 2px solid var(--border);
+            padding: 2rem 1rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: var(--bg-darker);
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--accent-dim);
+            border-radius: 4px;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-title {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            margin-bottom: 0.25rem;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+            background: rgba(0, 255, 136, 0.1);
+            padding-left: 1rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--accent-dim);
+            text-decoration: none;
+            padding: 0.75rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            margin-bottom: 0.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(0, 255, 136, 0.1);
+            border-color: var(--accent);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+        }
+
+        /* Hero Section with Image */
+        .hero-section {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #1a2332 100%);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 2rem;
+        }
+
+        .hero-content {
+            padding: 2rem;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-section h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .header-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-item {
+            background: rgba(0, 255, 136, 0.05);
+            padding: 0.75rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .info-label {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        /* Image containers */
+        .section-image {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            margin: 2rem auto;
+            display: block;
+        }
+
+        .section-image-small {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            border: 2px solid var(--accent);
+            margin: 1rem 0;
+        }
+
+        /* Gallery Grid */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--accent);
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 1rem;
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h3 {
+            color: var(--accent-dim);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+        }
+
+        h4 {
+            color: var(--text);
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-dim);
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-dim);
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--bg-darker);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:hover {
+            background: rgba(0, 255, 136, 0.05);
+        }
+
+        /* Alert Boxes */
+        .alert {
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+        }
+
+        .alert-warning {
+            background: rgba(255, 107, 53, 0.1);
+            border-color: var(--warning);
+        }
+
+        .alert-danger {
+            background: rgba(255, 51, 102, 0.1);
+            border-color: var(--danger);
+        }
+
+        .alert-success {
+            background: rgba(0, 255, 136, 0.1);
+            border-color: var(--success);
+        }
+
+        .alert-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Quick Reference Grid */
+        .quick-ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .quick-ref-item {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.2s;
+        }
+
+        .quick-ref-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .quick-ref-item h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-dim);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: relative;
+                height: auto;
+                border-right: none;
+                border-bottom: 2px solid var(--border);
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                ▲ DELTA GREEN<br>
+                AGENT FILE: SPARKY
+            </div>
+
+            <!-- KARAKTÄR (expanded) -->
+            <div class="nav-section">
+                <div class="nav-title">⚡ KARAKTÄR</div>
+                <a href="#oversikt" class="nav-link">Översikt</a>
+                <a href="#attribut" class="nav-link">Attribut & Stats</a>
+                <a href="#fardigheter" class="nav-link">Färdigheter</a>
+            </div>
+
+            <!-- TEKNISKT (link) -->
+            <div class="nav-section">
+                <a href="sparky_tekniskt.html" class="page-link">💻 TEKNISKT</a>
+            </div>
+
+            <!-- OPERATIVT (link) -->
+            <div class="nav-section">
+                <a href="sparky_operativt.html" class="page-link">🎯 OPERATIVT</a>
+            </div>
+
+            <!-- PERSONLIGT (link) -->
+            <div class="nav-section">
+                <a href="sparky_personligt.html" class="page-link">❤️ PERSONLIGT</a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- ÖVERSIKT SECTION -->
+            <section id="oversikt">
+                <!-- Hero Section with Image -->
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <h1>KAI "SPARKY" ZHANG</h1>
+                        <p style="color: var(--text); font-size: 1.1rem;">Teknisk Operations Manual - Sekretessbelagd</p>
+
+                        <div class="header-info">
+                            <div class="info-item">
+                                <div class="info-label">Ålder</div>
+                                <div class="info-value">30</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Clearance</div>
+                                <div class="info-value">Top Secret / SCI</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Organisation</div>
+                                <div class="info-value">NSA (2019-) / Delta Green (2020-)</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Specialisering</div>
+                                <div class="info-value">SIGINT, Cyber Ops, EW</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">SAN</div>
+                                <div class="info-value">60/70</div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-warning" style="margin-top: 1.5rem;">
+                            <div class="alert-title">⚠️ VARNING</div>
+                            Detta dokument beskriver dina tekniska kapaciteter och begränsningar. Vid fara: Förstör enhet, kryptera kommunikation, neka allt.
+                        </div>
+                    </div>
+                    <img src="sparky_hero_tactical.jpg" alt="Sparky - Taktiska Operationer" class="hero-image">
+                </div>
+
+                <!-- Photo Gallery -->
+                <h2 style="margin-top: 3rem;">📸 FOTOGALLERI</h2>
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="sparky_working_late.jpg" alt="Sent på natten">
+                        <div class="gallery-caption">Sena nattoperationer</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="sparky_operations_room.png" alt="NSA Operations Room">
+                        <div class="gallery-caption">NSA Operations Room</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="sparky_convenience_store.png" alt="Energy drink påfyllning">
+                        <div class="gallery-caption">02:00 Påfyllning</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="sparky_street_surveillance.png" alt="Fältbevakning">
+                        <div class="gallery-caption">Urban Övervakning</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="sparky_operational_ready.png" alt="Operationell redo">
+                        <div class="gallery-caption">Operationell Redo</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="sparky_portrait_casual.png" alt="Icke-tjänstgörande">
+                        <div class="gallery-caption">Icke-tjänstgörande</div>
+                    </div>
+                </div>
+
+                <!-- Cheat Sheet -->
+                <h2 style="margin-top: 3rem;">🎯 SNABBREFERENS CHEAT SHEET</h2>
+
+                <h3 style="color: var(--success);">✅ Saker du nästan alltid kan göra (givet tid)</h3>
+                <ul>
+                    <li>Läsa någons emails (via PRISM eller hack)</li>
+                    <li>Spåra telefon (via cell towers eller GPS)</li>
+                    <li>Klona hotellkort / basic RFID badges</li>
+                    <li>Öppna gamla bilar</li>
+                    <li>Hacka WiFi (WPA2)</li>
+        <\!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                ▲ DELTA GREEN<br>
+                AGENT FILE: SPARKY
+            </div>

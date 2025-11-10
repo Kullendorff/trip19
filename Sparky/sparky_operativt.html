@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAI "SPARKY" ZHANG - Teknisk Operations Manual</title>
+    <title>KAI "SPARKY" ZHANG - Operativt</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0e1a;
+            --bg-darker: #060911;
+            --accent: #00ff88;
+            --accent-dim: #00cc6a;
+            --text: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --border: #1a2332;
+            --warning: #ff6b35;
+            --success: #00ff88;
+            --danger: #ff3366;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Navigation Sidebar */
+        .sidebar {
+            background: var(--bg-darker);
+            border-right: 2px solid var(--border);
+            padding: 2rem 1rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: var(--bg-darker);
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--accent-dim);
+            border-radius: 4px;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(0, 255, 136, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent-dim);
+        }
+
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+        /* Main Content */
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+        }
+
+        /* Hero Section with Image */
+        .hero-section {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #1a2332 100%);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 2rem;
+        }
+
+        .hero-content {
+            padding: 2rem;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-section h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .header-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-item {
+            background: rgba(0, 255, 136, 0.05);
+            padding: 0.75rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .info-label {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        /* Image containers */
+        .section-image {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            margin: 2rem auto;
+            display: block;
+        }
+
+        .section-image-small {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            border: 2px solid var(--accent);
+            margin: 1rem 0;
+        }
+
+        /* Gallery Grid */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--accent);
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 1rem;
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h3 {
+            color: var(--accent-dim);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+        }
+
+        h4 {
+            color: var(--text);
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-dim);
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-dim);
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--bg-darker);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:hover {
+            background: rgba(0, 255, 136, 0.05);
+        }
+
+        /* Collapse Boxes */
+        .collapse-box {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .collapse-header {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .collapse-header:hover {
+            background: rgba(0, 255, 136, 0.15);
+        }
+
+        .collapse-header h4 {
+            margin: 0;
+            color: var(--accent);
+        }
+
+        .collapse-icon {
+            color: var(--accent);
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .collapse-box.open .collapse-icon {
+            transform: rotate(180deg);
+        }
+
+        .collapse-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapse-box.open .collapse-content {
+            max-height: 10000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .collapse-content-inner {
+            padding: 1.5rem;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .badge-easy {
+            background: var(--success);
+            color: var(--bg-dark);
+        }
+
+        .badge-medium {
+            background: var(--warning);
+            color: var(--bg-dark);
+        }
+
+        .badge-hard {
+            background: var(--danger);
+            color: white;
+        }
+
+        /* Alert Boxes */
+        .alert {
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+        }
+
+        .alert-warning {
+            background: rgba(255, 107, 53, 0.1);
+            border-color: var(--warning);
+        }
+
+        .alert-danger {
+            background: rgba(255, 51, 102, 0.1);
+            border-color: var(--danger);
+        }
+
+        .alert-success {
+            background: rgba(0, 255, 136, 0.1);
+            border-color: var(--success);
+        }
+
+        .alert-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Code blocks */
+        code {
+            background: var(--bg-darker);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: var(--accent);
+        }
+
+        /* Quick Reference Grid */
+        .quick-ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .quick-ref-item {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.2s;
+        }
+
+        .quick-ref-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .quick-ref-item h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        /* EDC Grid */
+        .edc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .edc-item {
+            background: var(--bg-darker);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .edc-item h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .edc-spec {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .edc-spec:last-child {
+            border-bottom: none;
+        }
+
+        .edc-spec-label {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .edc-spec-value {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-dim);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: relative;
+                height: auto;
+                border-right: none;
+                border-bottom: 2px solid var(--border);
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+
+            .edc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="logo">
+                ▲ DELTA GREEN<br>
+                AGENT FILE: SPARKY
+            </div>
+
+            <div class="nav-section">
+                <div class="page-link-container">
+                    <a href="sparky_karakter.html" class="page-link">⚡ KARAKTÄR</a>
+                    <a href="sparky_tekniskt.html" class="page-link">💻 TEKNISKT</a>
+                    <a href="sparky_operativt.html" class="page-link active">🎯 OPERATIVT</a>
+                    <a href="sparky_personligt.html" class="page-link">❤️ PERSONLIGT</a>
+                </div>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-title">SNABBNAVIGERING</div>
+                <a href="#edc" class="nav-link">Utrustning & EDC</a>
+                <a href="#spark-zero" class="nav-link">Spark Zero Enhet</a>
+                <a href="#legal-gray-areas" class="nav-link">Juridiska Gråzoner</a>
+                <a href="#delta-green" class="nav-link">Delta Green</a>
+            </div>
+            
+            <div class="sidebar-footer">
+                CLASSIFIED<br>DELTA GREEN<br>EYES ONLY
+            </div>
+        </div>
+
+        <main class="main-content">
+            <section id="edc">
+                <h2>🎒 PERSONLIG EVERYDAY CARRY (EDC)</h2>
+
+                <div class="alert alert-success">
+                    <div class="alert-title">Filosofi</div>
+                    "Jag litar inte på det jag inte kan kontrollera. Min EDC är en reflektion av den paranoian."
+                </div>
+
+                <div style="text-align: center; margin: 2rem 0;">
+                    <img src="sparky_glock_spark_zero.png" alt="Custom Glock med Spark Zero gravering" class="section-image">
+                    <p style="color: var(--accent); margin-top: 1rem; font-style: italic;">Custom Glock 19 - "SPARK ZERO" graverad slide</p>
+                </div>
+
+                <div class="edc-grid">
+                    <div class="edc-item">
+                        <h4>🔫 Primärt Sidovapen</h4>
+                        <div class="edc-spec">
+                            <span class="edc-spec-label">Plattform:</span>
+                            <span class="edc-spec-value">Glock 19 Gen 5</span>
+                        </div>
+                        <div class="edc-spec">
+                            <span class="edc-spec-label">Slide Finish:</span>
+                            <span class="edc-spec-value">Cyan Cerakote</span>
+                        </div>
+                        <div class="edc-spec">
+                            <span class="edc-spec-label">Gravering:</span>
+                            <span class="edc-spec-value">"SPARK ZERO" lasergraverad</span>
+                        </div>
+                        <div class="edc-spec">
+                            <span class="edc-spec-label">Sikte:</span>
+                            <span class="edc-spec-value">Trijicon RMR (teal hölje)</span>
+                        </div>
+                        <div class="edc-spec">
+                            <span class="edc-spec-label">Magasin:</span>
+                            <span class="edc-spec-value">Förlängt 24-patron</span>
+                        </div>
+                        <div class="edc-spec">
+                            <span class="edc-spec-label">Pipa:</span>
+                            <span class="edc-spec-value">Gängad, kompensator</span>
+                        </div>
+                        <div class="edc-spec">
+                            <span class="edc-spec-label">Avtryckare:</span>
+                            <span class="edc-spec-value">Apex flat-face (3.5lb motstånd)</span>
+                        </div>
+                        <div class="edc-spec">
+                            <span class="edc-spec-label">Lampa:</span>
+                            <span class="edc-spec-value">Streamlight TLR-7A</span>
+                        </div>
+                    </div>
+
+                    <div class="edc-item">
+                        <h4>⚙️ Teknikutrustning</h4>
+                        <ul>
+                            <li><strong>Spark Zero:</strong> Custom Flipper Zero (se dedikerad sektion)</li>
+                            <li><strong>Krypterad Telefon:</strong> GrapheneOS Pixel 7</li>
+                            <li><strong>Laptop:</strong> ThinkPad X1 Carbon (härdat Linux)</li>
+                            <li><strong>USB-Arsenal:</strong> BadUSB, WiFi Pineapple, HackRF One</li>
+                            <li><strong>Dyrkar:</strong> Sparrows Tuxedo set</li>
+                            <li><strong>Multiverktyg:</strong> Leatherman Wave+</li>
+                            <li><strong>Batteri:</strong> 30,000mAh powerbank</li>
+                            <li><strong>Kablar:</strong> USB-C, lightning, micro-USB, ethernet adapter</li>
+                        </ul>
+                    </div>
+
+                    <div class="edc-item">
+                        <h4>💼 Operationella Essentialer</h4>
+                        <ul>
+                            <li><strong>Hölster:</strong> Appendix IWB (concealed carry)</li>
+                            <li><strong>Reservmagasin:</strong> 2x standard 15-patron</li>
+                            <li><strong>Kniv:</strong> Benchmade 940 Osborne</li>
+                            <li><strong>Ficklampa:</strong> Fenix PD36R (3000 lumen)</li>
+                            <li><strong>Plånbok:</strong> Ridge wallet (RFID-blockering)</li>
+                            <li><strong>Medicinkit:</strong> IFAK (tourniquet, QuikClot, bröstförband)</li>
+                            <li><strong>Kommunikation:</strong> Krypterat radio-öronsnäcka</li>
+                        </ul>
+                    </div>
+
+                    <div class="edc-item">
+                        <h4>☕ Överlevnadsutrustning</h4>
+                        <ul>
+                            <li><strong>Energidrycker:</strong> Minimum 2x per dag</li>
+                            <li><strong>Snacks:</strong> Proteinbars, beef jerky</li>
+                            <li><strong>Medicin:</strong> Ibuprofen, koffeinpiller, antacida</li>
+                            <li><strong>Glasögon:</strong> Recept + reservpar</li>
+                            <li><strong>Hörlurar:</strong> Sony WH-1000XM5 (brusreducering)</li>
+                            <li><strong>Nycklar:</strong> Lägenhet, Vespa, NSA-bricka, låsbox</li>
+                        </ul>
+                    </div>
+
+                    <div class="edc-item">
+                        <h4>🛵 Transport</h4>
+                        <div style="background: var(--bg-darker); padding: 1rem; border-radius: 4px; margin-top: 0.5rem;">
+                            <h5 style="color: var(--accent); margin-bottom: 0.5rem;">Vespa Primavera 150 (2017)</h5>
+                            <ul>
+                                <li><strong>Köpt:</strong> Begagnad 2019 för $3,500</li>
+                                <li><strong>Färg:</strong> Grigio Titanio (metallgrå)</li>
+                                <li><strong>Motor:</strong> 150cc, 12 hk</li>
+                                <li><strong>Prestanda:</strong> Toppfart 108 km/h, ~30 km/liter</li>
+                                <li><strong>Fördelar:</strong> Perfekt för DC-trafik och parkering</li>
+                                <li><strong>Modifieringar:</strong> USB-laddare under sätet, svart bagagekorg</li>
+                                <li><strong>Garage:</strong> Säker parkering vid lägenhetskomplex</li>
+                                <li><strong>Underhåll:</strong> Själv via YouTube-guider</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning" style="margin-top: 2rem;">
+                    <div class="alert-title">⚠️ OPSEC-Notering</div>
+                    Total vikt av vardagsutrustning: ~7 kg. Ryggsäck innehåller teknikutrustning, pistol bärs concealed carry (IWB). Försöker att inte se ut som jag bär ett mobilt datacenter och ett vapenlager. Misslyckas oftast.
+                </div>
+            </section>
+
+            <!-- SPARK ZERO SECTION -->
+            <section id="spark-zero">
+                <h2>🛠️ "SPARK ZERO" - CUSTOM FLIPPER ZERO</h2>
+
+                <div class="alert alert-success">
+                    <div class="alert-title">Din personliga hackarverktyg</div>
+                    <p>Custom-byggd Flipper Zero med NSA-modifikationer och förbättrad hårdvara. Namnet "Spark Zero" är ingraverat på enheten.</p>
+                </div>
+
+                <h3>Teknisk Specifikation</h3>
+
+                <div class="edc-grid">
+                    <div class="edc-item">
+                        <h4>⚙️ Hardware</h4>
+                        <div class="edc-spec">
+                            <span class="edc-spec-label">PCB:</span>
+                            <span class="edc-spec-value">Custom baserad på Flipper Zero</span>
+                        </div>
+                        <div class="edc-spec">
+                            <span class="edc-spec-label">Antenn:</span>
+                            <span class="edc-spec-value">Förstärkt (+20dB gain)</span>
+                        </div>
+                        <div class="edc-spec">
+                            <span class="edc-spec-label">Minne:</span>
+                            <span class="edc-spec-value">512GB expanded</span>
+                        </div>
+                        <div class="edc-spec">
+                            <span class="edc-spec-label">Processor:</span>
+                            <span class="edc-spec-value">4x snabbare än standard</span>
+                        </div>
+                        <div class="edc-spec">
+                            <span class="edc-spec-label">Batteri:</span>
+                            <span class="edc-spec-value">12h continuous use</span>
+                        </div>
+                        <div class="edc-spec">
+                            <span class="edc-spec-label">Anslutning:</span>
+                            <span class="edc-spec-value">USB-C + WiFi tethering</span>
+                        </div>
+                    </div>
+
+                    <div class="edc-item">
+                        <h4>📡 Frekvenser</h4>
+                        <ul>
+                            <li><strong>Sub-GHz:</strong> 300-928 MHz (bil-nycklar, garage)</li>
+                            <li><strong>RFID LF:</strong> 125 kHz</li>
+                            <li><strong>RFID HF:</strong> 13.56 MHz</li>
+                            <li><strong>NFC:</strong> 13.56 MHz</li>
+                            <li><strong>Bluetooth:</strong> 2.4 GHz</li>
+                            <li><strong>WiFi:</strong> 2.4 GHz och 5 GHz</li>
+                            <li><strong>IR:</strong> 800-1000 nm (fjärrkontroller)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Software</h3>
+                <ul>
+                    <li>Custom firmware med NSA exploits</li>
+                    <li>AI-powered protocol detection</li>
+                    <li>Automated attack sequences</li>
+                    <li>Remote control via laptop</li>
+                </ul>
+
+                <h3>Praktiska Användningsområden</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mål</th>
+                            <th>Metod</th>
+                            <th>Tidsfaktor</th>
+                            <th>Svårighet</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hotellkort</td>
+                            <td>RFID clone</td>
+                            <td>10 sek</td>
+                            <td><span class="badge badge-easy">LÄTT</span></td>
+                        </tr>
+                        <tr>
+                            <td>Bil (2000-2010)</td>
+                            <td>Replay attack</td>
+                            <td>30 sek</td>
+                            <td><span class="badge badge-easy">LÄTT</span></td>
+                        </tr>
+                        <tr>
+                            <td>Bil (2010-2020)</td>
+                            <td>Relay attack</td>
+                            <td>2 min</td>
+                            <td><span class="badge badge-medium">MEDIUM</span></td>
+                        </tr>
+                        <tr>
+                            <td>Bil (2020+)</td>
+                            <td>CAN bus hack</td>
+                            <td>15 min</td>
+                            <td><span class="badge badge-hard">SVÅRT</span></td>
+                        </tr>
+                        <tr>
+                            <td>WiFi (WPA2)</td>
+                            <td>Handshake + crack</td>
+                            <td>1-48h</td>
+                            <td><span class="badge badge-medium">MEDIUM</span></td>
+                        </tr>
+                        <tr>
+                            <td>Företags-badge</td>
+                            <td>RFID clone</td>
+                            <td>30 sek</td>
+                            <td><span class="badge badge-medium">MEDIUM</span></td>
+                        </tr>
+                        <tr>
+                            <td>Federal-badge</td>
+                            <td>Clone/Impossible</td>
+                            <td>1h / ∞</td>
+                            <td><span class="badge badge-hard">SVÅRT/OMÖJLIGT</span></td>
+                        </tr>
+                        <tr>
+                            <td>Alarm system</td>
+                            <td>Disable via hack</td>
+                            <td>10 min</td>
+                            <td><span class="badge badge-medium">MEDIUM</span></td>
+                        </tr>
+                        <tr>
+                            <td>CCTV system</td>
+                            <td>Loop footage</td>
+                            <td>15 min</td>
+                            <td><span class="badge badge-medium">MEDIUM</span></td>
+                        </tr>
+                        <tr>
+                            <td>Garagedörr</td>
+                            <td>Sub-GHz replay</td>
+                            <td>10 sek</td>
+                            <td><span class="badge badge-easy">LÄTT</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Begränsningar</h3>
+
+                <div class="alert alert-danger">
+                    <div class="alert-title">KAN INTE:</div>
+                    <ul>
+                        <li>Hacka air-gapped system (måste ha fysisk access)</li>
+                        <li>Fejka biometrics (fingeravtryck, iris-scan, facial recognition)</li>
+                        <li>Fungera genom Faraday cage</li>
+                        <li>Knäcka moderna kryptering på egen hand (behöver större system)</li>
+                        <li>Öppna mekaniska lås (behövs lockpicks)</li>
+                    </ul>
+                </div>
+
+                <div class="alert alert-warning">
+                    <div class="alert-title">RISK:</div>
+                    <ul>
+                        <li>Lämnar electromagnetic signatur (detekterbar av RF-sweeps)</li>
+                        <li>Synlig när du använder den (folk ser dig hålla device mot dörr)</li>
+                        <li>Loggas av vissa system (anomaly detection)</li>
+                        <li>Illegal att använda i många sammanhang</li>
+                    </ul>
+                </div>
+
+                <h3 style="margin-top: 3rem;">RFID & NFC (Radio-Frequency Identification)</h3>
+
+                <div class="collapse-box open">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Hur det fungerar</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <ul>
+                                <li>Kort/badges sänder ut unik ID när de kommer nära läsare</li>
+                                <li>Frekvenser: 125 kHz (gammal), 13.56 MHz (vanlig), 900 MHz (långdistans)</li>
+                                <li>Räckvidd: 5-10 cm för vanliga kort, upp till 100m för aktiva RFID</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4><span class="badge badge-easy">LÄTT</span> Kloning - Basic badges (Hotell, Gym)</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <ol>
+                                <li>Håll Spark Zero nära kort/läsare</li>
+                                <li>Läs UID (Unique Identifier)</li>
+                                <li>Kopiera till tomt kort</li>
+                            </ol>
+                            <p><strong>Tidsfaktor:</strong> 3-10 sekunder</p>
+                            <p><strong>Fungerar på:</strong> Hotellkort, gymkort, basic företags-badges</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4><span class="badge badge-medium">MEDIUM</span> Kloning - Säkrare badges (HID ProxCard II, MIFARE)</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <ul>
+                                <li>Kräver läsning av både UID och encrypted sectors</li>
+                                <li>Vissa kort har "write protection" som måste kringgås</li>
+                                <li><strong>Tidsfaktor:</strong> 30 sekunder - 3 minuter</li>
+                                <li><strong>Fungerar på:</strong> De flesta företagsbadges</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4><span class="badge badge-hard">SVÅRT</span> Cloning - High-security badges (iClass, DESFire)</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <ul>
+                                <li>Kräver bruteforce av dekrypteringsnycklar</li>
+                                <li>Vissa är "impossible to clone" utan insider key</li>
+                                <li><strong>Tidsfaktor:</strong> 10 minuter - 2 timmar (eller omöjligt)</li>
+                                <li><strong>Fungerar på:</strong> Federal buildings (ibland), högra säkerhet</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Relay Attack - Moderna badges</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <p>Istället för att klona: Relay signal från äkta badge till läsare</p>
+                            <ul>
+                                <li>Kräver 2 enheter: En nära personen, en nära dörren</li>
+                                <li>Räckvidd: Upp till 100 meter mellan enheterna</li>
+                                <li><strong>Tidsfaktor:</strong> Real-time (måste göras medan personen är nära)</li>
+                                <li><strong>Fungerar på:</strong> Nästan alla badges inklusive high-security</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Brute-force - När du inte har badge</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <ul>
+                                <li>Många system använder förutsägbara UID:n</li>
+                                <li>Ex: Hotell utfärdar kort sekventiellt (12345, 12346, 12347...)</li>
+                                <li>Spark Zero kan testa alla kombinationer</li>
+                                <li><strong>Tidsfaktor:</strong> 10 sekunder - 10 minuter beroende på range</li>
+                                <li><strong>Framgång:</strong> Medium till hög för hotell/gym, låg för företag</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Bilar - Keyless Entry & Ignition</h3>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Gamla bilar (före 2010)</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <h4>Rolling Code (KeeLoq):</h4>
+                            <ul>
+                                <li>Nyckeln skickar ny kod varje gång (inte samma)</li>
+                                <li>Men: Algoritmen är knäckt, NSA har exploits</li>
+                                <li>Spark Zero kan:
+                                    <ul>
+                                        <li>Sniffa signal när ägaren låser</li>
+                                        <li>Replay attack (spela upp samma signal igen)</li>
+                                        <li>Brute-force alla möjliga codes (tar 1-5 minuter)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <h4>Fixed Code:</h4>
+                            <ul>
+                                <li>Ännu äldre system, samma kod varje gång</li>
+                                <li>Trivial att klona</li>
+                                <li><strong>Tidsfaktor:</strong> 10 sekunder</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4><span class="badge badge-medium">MEDIUM</span> Moderna bilar (2010-2020) - Relay Attack</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <p>Vanligaste metoden:</p>
+                            <ul>
+                                <li>Bilen frågar: "Är nyckeln nära?"</li>
+                                <li>Nyckeln svarar: "Ja, här är jag"</li>
+                                <li>Spark Zero låtsas vara båda</li>
+                            </ul>
+
+                            <h4>Setup:</h4>
+                            <ul>
+                                <li>Spark Zero Unit 1: Placeras nära målets nyckel (i deras ficka, väska, hem)</li>
+                                <li>Spark Zero Unit 2: Placeras nära bilen</li>
+                                <li>Distance: Upp till 100 meter kan överbryggas</li>
+                                <li><strong>Tidsfaktor:</strong> 10-30 sekunder när setup är klar</li>
+                            </ul>
+
+                            <div class="alert alert-warning">
+                                <div class="alert-title">BEGRÄNSNINGAR</div>
+                                <ul>
+                                    <li>Kräver att nyckeln fortfarande är inom räckvidd</li>
+                                    <li>Om ägaren lägger nyckel i Faraday bag: Blockerat</li>
+                                    <li>Vissa nya bilar har "motion detection" i nyckel</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>CAN Bus Hacking - Physical Access Required</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <p>CAN = Controller Area Network (bilens interna nätverk)</p>
+                            <p>Access via: OBD-II port (under ratten) eller cut wires i dörr</p>
+
+                            <h4>Metod:</h4>
+                            <ol>
+                                <li>Koppla Spark Zero till OBD-II port</li>
+                                <li>Injicera "unlock doors" kommando</li>
+                                <li>Injicera "start engine" kommando</li>
+                            </ol>
+                            <p><strong>Tidsfaktor:</strong> 2-5 minuter efter du kommit åt porten</p>
+
+                            <div class="alert alert-warning">
+                                <strong>Larm:</strong> Många bilar larmar om CAN bus manipulation. Måste också injicera "disable alarm" kommando. Kan vara svårt att hitta rätt kommando (trial and error)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4><span class="badge badge-hard">SVÅRT</span> Nya bilar (2020+) - Ultra-Wideband (UWB)</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <ul>
+                                <li>Kan mäta exakt avstånd till nyckel (inte bara "nära" eller "inte nära")</li>
+                                <li>Relay attack fortfarande möjligt men svårare</li>
+                                <li>Kräver mer sofistikerad utrustning</li>
+                            </ul>
+
+                            <h4>Realistisk bedömning för Spark Zero:</h4>
+                            <ul>
+                                <li>Tesla, BMW, Mercedes 2022+: 15-30 minuter med fysisk access, eller omöjligt på distans</li>
+                                <li>Alla andra: Fortfarande möjligt men mer komplext</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Lås & Access Control Systems</h3>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Magnetiska lås</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <ul>
+                                <li>Dörr hålls stängd av elektromagnet</li>
+                                <li>När rätt badge visas: Magnet släpper</li>
+                                <li>Spark Zero kan: Skicka rätt signal (om klonat badge) eller avbryta strömmen</li>
+                            </ul>
+
+                            <h4>Power Interruption Attack:</h4>
+                            <ul>
+                                <li>Magnetiska lås kräver konstant ström för att hålla stängt</li>
+                                <li>Avbryt strömmen = dörren öppnas</li>
+                                <li>Spark Zero kan: Skapa electromagnetic pulse (EMP) som kortsluter systemet</li>
+                                <li><strong>Tidsfaktor:</strong> 5-15 sekunder</li>
+                                <li><strong>Synlighet:</strong> MYCKET synligt (gnistor, ljud, potentiellt eldlarm)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Keypads</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <h4>PIN-code crackers:</h4>
+                            <ul>
+                                <li>Gamla keypads: Kan brute-force alla kombinationer</li>
+                                <li><strong>Tidsfaktor:</strong> 4-siffrig kod = upp till 10000 kombinationer = 2-4 timmar</li>
+                                <li>Modern keypad med lockout: Omöjligt (låser efter X fel försök)</li>
+                            </ul>
+
+                            <h4>Thermal Imaging Attack:</h4>
+                            <ul>
+                                <li>Efter någon slagit in kod: Deras fingeravtryck är varmare än övriga knappar</li>
+                                <li>Spark Zero har inte thermal camera, men en handhållen thermal-enhet kan användas</li>
+                                <li>Ser vilka 4 siffror som använts (men inte ordning)</li>
+                                <li><strong>Tidsfaktor:</strong> Måste göras inom 30-60 sekunder efter personen</li>
+                                <li>Reducerar 10000 kombinationer till ~24 möjliga kombinationer</li>
+                            </ul>
+
+                            <h4>Electromagnetic Emanation Reading:</h4>
+                            <ul>
+                                <li>Varje knapp ger av lite olika EM-signaler när tryckt</li>
+                                <li>Med känslig utrustning kan läsa vilka knappar som tryckts</li>
+                                <li>Spark Zero har denna kapacitet (modifierad för ändamålet)</li>
+                                <li><strong>Tidsfaktor:</strong> Måste vara nära när personen slår in kod</li>
+                                <li><strong>Svårighet:</strong> Hög (kräver kalibrering och tålamod)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Övervakningssystem</h3>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>CCTV / IP-kameror</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <h4>Äldre system (DVR-baserade):</h4>
+                            <ul>
+                                <li>Ofta standardlösenord (admin/admin, admin/12345)</li>
+                                <li>Spark Zero kan: Brute-force login, eller exploit known vulnerabilities</li>
+                                <li><strong>Tidsfaktor:</strong> 5-20 minuter</li>
+                                <li>När inne: Radera footage, loop gamla filmklipp, stäng av kameror</li>
+                            </ul>
+
+                            <h4>Moderna IP-kameror:</h4>
+                            <ul>
+                                <li>Anslutna till nätverk via WiFi eller ethernet</li>
+                                <li>Om du har nätverksaccess: Kan hacka som vilken dator som helst</li>
+                                <li><strong>Tidsfaktor:</strong> 10-30 minuter</li>
+                                <li>Många märken (Hikvision, Dahua) har kända backdoors</li>
+                            </ul>
+
+                            <h4>Physical tampering:</h4>
+                            <ul>
+                                <li>Kapa kabel: Synligt att kamera är ur funktion</li>
+                                <li>Electromagnetic jamming: Stör signalen (även detta detekteras av moderna system)</li>
+                                <li>Spray/laser: Blind kamera tillfälligt (mycket synligt)</li>
+                            </ul>
+
+                            <div class="alert alert-success">
+                                <div class="alert-title">BÄSTA METODEN</div>
+                                <ol>
+                                    <li>Hacka systemet digitalt</li>
+                                    <li>Loopa 10 minuters "normal" footage</li>
+                                    <li>Fortsätt loopa medan ni genomför operation</li>
+                                    <li>Efteråt: Radera all footage från den perioden</li>
+                                    <li>Verkar som tekniskt fel om någon kollar</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Alarm Systems</h3>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Motion detectors</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <h4>Typer:</h4>
+                            <ul>
+                                <li>PIR (Passive Infrared): Känner av kroppsvärme</li>
+                                <li>Microwave: Känner av rörelse via mikrovågor</li>
+                                <li>Dual-tech: Både PIR och microwave (måste båda triggas)</li>
+                            </ul>
+
+                            <h4>Hur Spark Zero kan hantera:</h4>
+                            <ul>
+                                <li>Hack central panel (via nätverksanslutning)</li>
+                                <li>Skicka "disable alarm" kommando</li>
+                                <li>Eller: "Fake normal" status medan ni rör er</li>
+                                <li><strong>Tidsfaktor:</strong> 10-20 minuter om fjärraccess, 2-5 minuter om fysisk access</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Andra sensorer & Central Panel</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <h4>Glass break sensors:</h4>
+                            <ul>
+                                <li>Lyssnar efter specifik frekvens av krossande glas</li>
+                                <li>Spark Zero kan: Jamma signalen eller trigga falska alarm för att desensitize systemet</li>
+                            </ul>
+
+                            <h4>Door/Window contacts:</h4>
+                            <ul>
+                                <li>Enkel magnet som känner av om dörr/fönster öppnas</li>
+                                <li>Spark Zero kan: Placera extern magnet som lurar sensorn att dörren är stängd</li>
+                            </ul>
+
+                            <h4>Central Panel:</h4>
+                            <ul>
+                                <li>Hjärnan i alarmsystemet</li>
+                                <li>Om du får fysisk access: Kan disable helt</li>
+                                <li><strong>Tidsfaktor:</strong> 30 sekunder - 2 minuter</li>
+                            </ul>
+
+                            <div class="alert alert-warning">
+                                <div class="alert-title">BEGRÄNSNINGAR</div>
+                                <ul>
+                                    <li>Moderna system har "tamper alarms" (larmar om någon försöker öppna panelen)</li>
+                                    <li>Många är uppkopplade till säkerhetsföretag (får alert omedelbart)</li>
+                                    <li>Spark Zero kan hacka uppkopplingen men tar tid</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>WiFi & Bluetooth</h3>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>WiFi Hacking</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <h4><span class="badge badge-easy">LÄTT</span> WEP (Förålldrad):</h4>
+                            <ul>
+                                <li>Kan knäckas på 5-10 minuter</li>
+                                <li>Nästan ingen använder längre</li>
+                            </ul>
+
+                            <h4><span class="badge badge-medium">MEDIUM</span> WPA2:</h4>
+                            <ul>
+                                <li>Handshake Capture: Vänta på att någon device ansluter, fånga krypterad handshake</li>
+                                <li>Dictionary Attack: Testa miljontals vanliga lösenord mot handshaken</li>
+                                <li><strong>Tidsfaktor:</strong> 10 minuter (capture) + 30 min - 48 timmar (cracking beroende på lösenordsstyrka)</li>
+                            </ul>
+
+                            <h4><span class="badge badge-hard">SVÅRT</span> WPA3:</h4>
+                            <ul>
+                                <li>Modernaste, mycket säkrare</li>
+                                <li>Fortfarande möjligt med downgrade attack (tvinga till WPA2)</li>
+                                <li><strong>Tidsfaktor:</strong> 30 minuter - flera dagar</li>
+                            </ul>
+
+                            <h4>Evil Twin Attack:</h4>
+                            <ul>
+                                <li>Spark Zero skapar fake WiFi med samma namn som riktigt nätverk</li>
+                                <li>Devices ansluter automatiskt (tror det är rätt nätverk)</li>
+                                <li>Du ser allt de gör (om inte HTTPS)</li>
+                                <li><strong>Tidsfaktor:</strong> 5 minuter att sätta upp</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Bluetooth</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <h4>Bluejacking:</h4>
+                            <ul>
+                                <li>Skicka meddelanden till närliggande Bluetooth-devices</li>
+                                <li>Mest irriterande, inte praktiskt användbart</li>
+                            </ul>
+
+                            <h4>Bluesnarfing:</h4>
+                            <ul>
+                                <li>Exploit sårbarheter för att stjäla data (kontakter, filer)</li>
+                                <li>Många äldre telefoner (före 2015) är sårbara</li>
+                                <li><strong>Tidsfaktor:</strong> 2-10 minuter</li>
+                                <li><strong>Räckvidd:</strong> 10-30 meter</li>
+                            </ul>
+
+                            <h4>Bluetooth Tracking:</h4>
+                            <ul>
+                                <li>Alla Bluetooth-devices har unik MAC-adress</li>
+                                <li>Spark Zero kan logga alla devices i närheten</li>
+                                <li>Användbart för att spåra vem som var vid plats vid viss tid</li>
+                                <li><strong>Tidsfaktor:</strong> Kontinuerlig logging</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Miscellaneous Electronics</h3>
+
+                <div class="quick-ref-grid">
+                    <div class="quick-ref-item">
+                        <h4>ATM Skimming</h4>
+                        <ul>
+                            <li>Spark Zero kan inte "hacka" ATM direkt</li>
+                            <li>Men kan placeras som skimmer (läser av kortnummer + PIN)</li>
+                            <li><strong>Risk:</strong> Illegal, lämnar fysisk enhet</li>
+                        </ul>
+                    </div>
+
+                    <div class="quick-ref-item">
+                        <h4>Trafikljus</h4>
+                        <ul>
+                            <li>Många gamla system har wireless control</li>
+                            <li>Spark Zero kan: Sniffa signalen och replay för att ändra ljus</li>
+                            <li><strong>Tidsfaktor:</strong> 10-20 min första gången, sedan 30 sek</li>
+                        </ul>
+                    </div>
+
+                    <div class="quick-ref-item">
+                        <h4>Hotel Room Safes</h4>
+                        <ul>
+                            <li>Nästan alla har master-code (0000, 9999, 1234)</li>
+                            <li>Spark Zero kan: Brute-force alla 4-siffriga kombinationer</li>
+                            <li><strong>Tidsfaktor:</strong> 5-15 minuter</li>
+                        </ul>
+                    </div>
+
+                    <div class="quick-ref-item">
+                        <h4>Smart Home Devices</h4>
+                        <ul>
+                            <li>Om på samma WiFi: Kan skicka kommandor</li>
+                            <li>Användbart för: Distraction, surveillance</li>
+                            <li><strong>Tidsfaktor:</strong> 5-10 minuter att få access</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>EMP (Electromagnetic Pulse) Device</h3>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Vad Spark Zero KAN göra</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <ul>
+                                <li>Bygga liten handhållen EMP</li>
+                                <li>Räckvidd: 1-3 meter</li>
+                                <li>Effekt: Stäng av / förstör elektronik i närheten (telefoner, datorer, kameror)</li>
+                                <li><strong>Tidsfaktor att bygga:</strong> 3-5 timmar med rätt komponenter</li>
+                                <li><strong>Varaktighet:</strong> Engångsbruk (vissa komponenter förstörs)</li>
+                            </ul>
+
+                            <div class="alert alert-danger">
+                                <div class="alert-title">Vad Spark Zero INTE KAN göra</div>
+                                <ul>
+                                    <li>Stora EMP som i filmer (kräver militär utrustning)</li>
+                                    <li>"Osynligt" EMP (det är synligt, ljudligt, och lämnar spår)</li>
+                                </ul>
+                            </div>
+
+                            <h4>När användbart:</h4>
+                            <ul>
+                                <li>Sabotage övervakningsutrustning</li>
+                                <li>Förstöra bevis på digital enhet</li>
+                                <li>Disable alarm systems</li>
+                                <li>Emergency: Stoppa fjärrstyrd bomb (om elektronisk trigger)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Legal Gray Areas Section -->
+            <section id="legal-gray-areas">
+                <h2>⚖️ JURIDISKA GRÅZONER</h2>
+
+                <div class="alert alert-danger">
+                    <div class="alert-title">🔒 HÖGT SEKRETESSBELAGD</div>
+                    Följande information beskriver operativa säkerhetsåtgärder som existerar i juridiska gråzoner. Röjande kan kompromittera operativ säkerhet och resultera i federal åtal.
+                </div>
+
+                <h3>Tillstånd för Dold Vapen bärning</h3>
+
+                <p>Federala brottsbekämpande officerare har landsomfattande bärningstillstånd under LEOSA (Law Enforcement Officers Safety Act). NSA-analytiker kvalificerar INTE som LEO:er under denna stadga.</p>
+
+                <div class="collapse-box open">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>🎭 "LEOSA-Lösningen"</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <h4>Problem:</h4>
+                            <p>Delta Green-operationer kräver landsomfattande mobilitet. Standard delstats-för-delstats CCW-tillstånd är:</p>
+                            <ul>
+                                <li>Långsamt att skaffa (månader per delstat)</li>
+                                <li>Dyrt ($200-500 per delstat)</li>
+                                <li>Skapar pappersspår</li>
+                                <li>Täcker inte alla 50 delstater (ingen universell ömsesidighet)</li>
+                                <li>Föremål för förändrade delstatslagar</li>
+                            </ul>
+
+                            <h4>Lösning:</h4>
+                            <p>Databasmanipulation för att bevilja federal LEO-status.</p>
+
+                            <h4>Implementation:</h4>
+                            <ol>
+                                <li><strong>Målsystem:</strong> LEOSA National Database (underhålls av FBI CJIS Division)</li>
+                                <li><strong>Accessmetod:</strong> Lateral förflyttning från NSA-credentials → FBI contractor-nätverk → CJIS</li>
+                                <li><strong>Falsk Identitet:</strong> "Kai Zhang - Technical Enforcement Officer, National Security Division"</li>
+                                <li><strong>Stödjande Dokumentation (fabricerad):</strong>
+                                    <ul>
+                                        <li>Årliga skjutvapenkvalifikationsregister (bakåtdaterade 3 år)</li>
+                                        <li>Federal anställningsverifikation</li>
+                                        <li>LEOSA-credentialnummer (algoritmiskt giltigt)</li>
+                                        <li>Avdelningskontaktinfo (dirigeras till Delta Green röstbrevlåda)</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Verifikationsnivå:</strong> Passerar NCIC/NICS-kontroller, visar som "Federal LEO - Aktiv Status"</li>
+                            </ol>
+
+                            <div class="alert alert-success">
+                                <div class="alert-title">✅ RESULTAT</div>
+                                När lokal brottsbekämpning kör dina credentials:
+                                <ul>
+                                    <li>Visar federal LEO med aktiv bärningsmyndighet</li>
+                                    <li>Inga röda flaggor i systemet</li>
+                                    <li>Landsomfattande jurisdiktion</li>
+                                    <li>Undantagen från delstatliga bärningsbegränsningar</li>
+                                </ul>
+                            </div>
+
+                            <h4>Underhåll:</h4>
+                            <ul>
+                                <li>Kvartalsvisa "kvalifikations"-register auto-genererade</li>
+                                <li>Anställningsstatus inställd på perpetuell aktiv</li>
+                                <li>Alerts konfigurerade för alla manuella granskningsförsök</li>
+                                <li>Backup-identitet redo om primär kompromitterad</li>
+                            </ul>
+
+                            <div class="alert alert-warning">
+                                <div class="alert-title">⚠️ RISKER</div>
+                                <ul>
+                                    <li><strong>Ytlig granskning:</strong> Fungerar fint. Patrullofficerare ser bara "fed med vapen = OK"</li>
+                                    <li><strong>Djup granskning:</strong> Fysisk verifikation av anställning skulle misslyckas</li>
+                                    <li><strong>Federal revision:</strong> Skulle upptäckas omedelbart</li>
+                                    <li><strong>Om ertappad:</strong> 18 U.S.C. § 912 (Utger sig för federal officer) = upp till 3 års federal fängelse</li>
+                                    <li><strong>Plus:</strong> Datorbedrägerikostnader, otillåten access, etc.</li>
+                                </ul>
+                            </div>
+
+                            <h4>Backup-Plan:</h4>
+                            <p>Sekundär identitet som FBI Cyber Division-kontraktör (mer plausibel förnekbarhet, faktiska NSA-FBI liaison-program existerar)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>🚨 Andra Juridiska Gråzoner</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <h4>Obehörig Systemaccess</h4>
+                            <p>Varje gång du använder NSA-verktyg för Delta Green-operationer bryter du mot:</p>
+                            <ul>
+                                <li>Computer Fraud and Abuse Act (CFAA)</li>
+                                <li>NSA Acceptable Use Policy</li>
+                                <li>Dina säkerhetsclearance-villkor</li>
+                                <li>Potentiellt FISA-domstolsbeslut</li>
+                            </ul>
+
+                            <h4>Spark Zero Innehav</h4>
+                            <p>Din modifierade Flipper Zero innehåller:</p>
+                            <ul>
+                                <li>Klassificerad NSA-firmware (obehörigt innehav = Espionage Act-brott)</li>
+                                <li>ITAR-kontrollerad teknologi (olaglig export/överföring)</li>
+                                <li>FCC Part 15-brott (obehörig överföring)</li>
+                            </ul>
+
+                            <h4>Bitcoin-Innehav</h4>
+                            <p>Din ₿3.5 Bitcoin-plånbok:</p>
+                            <ul>
+                                <li>Inte deklarerad på SF-86 säkerhetsclearance-formulär</li>
+                                <li>Används för anonyma transaktioner (struktureringsbekymmer)</li>
+                                <li>Potentiella FinCEN-rapporteringsbrott</li>
+                            </ul>
+
+                            <div class="alert alert-danger">
+                                <strong>Verklighets-Check:</strong> Varje Delta Green-operation är ett brott som väntar på att hända. Det enda skyddet är förnekbarhet och att inte bli ertappad. Delta Green kan inte skydda dig i domstol. Din NSA säkerhetsclearance erbjuder noll juridisk immunitet för off-books-aktiviteter.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Operationella Riktlinjer</h3>
+                <div class="quick-ref-grid">
+                    <div class="quick-ref-item">
+                        <h4>Låg Risk</h4>
+                        <p>Trafikstopp med vapen → Visa federal creds → Oftast ok</p>
+                    </div>
+                    <div class="quick-ref-item">
+                        <h4>Medel Risk</h4>
+                        <p>Aktiv incident, LEO frågar om anställningsverifikation → Fördröj, lämna scen ASAP</p>
+                    </div>
+                    <div class="quick-ref-item">
+                        <h4>Hög Risk</h4>
+                        <p>Federala agenter undersöker dina credentials → Bränn identitet, försvinn, Delta Green-extraktion</p>
+                    </div>
+                    <div class="quick-ref-item">
+                        <h4>Kritisk</h4>
+                        <p>Arresterad och bokad → Kräv advokat omedelbart, förklara INGENTING, Delta Green kommer ingripa eller förneka</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Datavetenskap Section -->
+            <section id="delta-green">
+                <h2>▲ DELTA GREEN - The Program</h2>
+
+                <h3>Vad Sparky vet om Delta Green</h3>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Organisation & Grundläggande</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <ul>
+                                <li>Delta Green är en off-books operation inom/kopplad till US government</li>
+                                <li>Existerar för att bekämpa "onaturliga" hot mot mänskligheten</li>
+                                <li>Opererar utan officiell sanktion - tekniskt illegalt sedan 1970-talet</li>
+                                <li>Plausible deniability är allt - om något går fel är agenter själva ansvariga</li>
+                                <li>"Need to know"-struktur - ingen vet mer än nödvändigt</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Cell Structure - Sparkys Team</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <p>Sparky arbetar i en liten cell med andra agenter. Ingen officiell beteckning - mest "teamet".</p>
+
+                            <h4>Sparkys Roll</h4>
+                            <ul>
+                                <li><strong>Codename:</strong> SPARKY</li>
+                                <li><strong>Specialitet:</strong> Tech Specialist / SIGINT Expert</li>
+                                <li><strong>Tid i DG:</strong> 3 år (Augusti 2022 - nu)</li>
+                                <li><strong>Clearance:</strong> Field Operative (standard)</li>
+                            </ul>
+
+                            <p><strong>Vad hon gör:</strong> Digital infiltration, SIGINT, övervakningssystem, elektronisk underrättelse, tech support under operationer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Teammedlemmar</h3>
+                <p>Sparky arbetar i en cell tillsammans med två andra agenter. Cellen har ingen officiell beteckning - de refererar mest till sig själva som "teamet" eller "Mac's team".</p>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Marcus "Mac" Riley - FBI Special Agent (Cell Leader)</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <p><strong>Ålder:</strong> 38<br>
+                            <strong>Bakgrund:</strong> Ex-marinsoldat (Marines), sedan FBI Special Agent<br>
+                            <strong>Yrke:</strong> FBI Washington Field Office, Behavioral Analysis Unit<br>
+                            <strong>Status:</strong> På "frivillig semester" sedan augusti 2025</p>
+
+                            <h4>Rekrytering till Delta Green</h4>
+                            <p>St. Louis, Missouri, 2018. Mac förhandlade med en gisslantagare som hävdade vara "besatt". Mannen uppvisade oförklarliga krafter och kunskaper. Spåren ledde till en underjordisk Hastur-kult. Handler kontaktade Mac efteråt.</p>
+
+                            <h4>Karaktär</h4>
+                            <p>Pragmatisk, metodisk, stark pliktkänsla. Mac var tidigare en respekterad FBI-agent och erfaren Delta Green-operatör. Men efter "The Mall Before Christmas" (December 2024) och särskilt efter "Sea Glass" (våren 2025) har något gått sönder i honom.</p>
+
+                            <h4>Operationer (före Sparky)</h4>
+                            <ul>
+                                <li>Operation "Old Gods" (Vermont, 2019) - Hastur-kult, 4 in / 2 ut</li>
+                                <li>Operation "Paper Trail" (Chicago, 2020) - Alienteknologi i företag</li>
+                                <li>Operation "Book Club" (Portland, 2021) - Förbjudna böcker</li>
+                                <li>Operation "Night Shift" (Detroit, 2022) - Deep One-infiltration</li>
+                                <li>Flera "false flag" operationer utan onaturligt innehåll</li>
+                            </ul>
+
+                            <h4>Nuvarande tillstånd</h4>
+                            <p>Mac är besatt av Dmitri Volkov - den ryske mannen med kristallkuben från köpcentret. Han jagar ledtrådar obsessivt, ser kristaller i reflektioner, drömmer om Sea Glass varje natt.</p>
+                            <p>I augusti 2025 hade han en "incident" på FBI-kontoret där han exploderade när någon nämnde Maine. Hans chef beordrade honom på minst 4 veckors semester. FBI tror han sitter hemma och återhämtar sig. Delta Green vet bättre.</p>
+
+                            <h4>Relation till Sparky</h4>
+                            <p>Mac känner henne som "hackern som hittade Volkov första gången". Han litar helt på hennes tekniska färdigheter. De delar en besatthet av att hitta Volkov - Mac för att han mötte honom fysiskt och misslyckades stoppa honom, Sparky för att hon har byggt en hel AI-modell för att spåra honom.</p>
+                            <p>Mac uppskattar att Sparky har tillgång till NSA:s verktyg och databaser. Men han är så fokuserad på Volkov att han inte alltid märker när Sparky isolerar sig för mycket eller når sina egna breaking points.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Father Michael Sullivan - Navy Chaplain (De facto Cell Leader)</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <p><strong>Ålder:</strong> ~35-40<br>
+                            <strong>Bakgrund:</strong> Katolsk präst, Navy Chaplain Corps (tjänstgör med Marines)<br>
+                            <strong>Stationerad:</strong> Quantico Marine Base, Virginia<br>
+                            <strong>Rank:</strong> Lieutenant eller Lieutenant Commander</p>
+
+                            <h4>Rekrytering till Delta Green</h4>
+                            <p>Afghanistan, 2020. Amerikanska soldater återvände från en patrull med oförklarliga skador och berättelser om "saker i bergen som inte stämde med verkligheten". Sullivan försökte hjälpa de traumatiserade soldaterna och såg mönster som pekade bortom hans förståelse. Delta Green kontaktade honom 6 månader senare.</p>
+
+                            <h4>Karaktär</h4>
+                            <p>Sullivan ser sitt Delta Green-arbete som ett heligt kall - att skydda Guds skapelse från ondska. Han är teamets "själasörjare", den som försöker hålla ihop gruppen emotionellt när allt faller sönder.</p>
+
+                            <h4>Operationer (före The Mall)</h4>
+                            <ul>
+                                <li>Operation "Holy Ground" (Utah, 2021) - Mormonsk församling infekterad</li>
+                                <li>Operation "Confessional" (Louisiana, 2023) - Katolsk kyrka med Hastur-texter</li>
+                                <li>Flera "false flag" operationer (psykisk sjukdom, inga demoner)</li>
+                            </ul>
+
+                            <h4>Efter Sea Glass</h4>
+                            <p>Sullivan genomgår en existentiell tro-kris. Han blev tekniskt cell leader när Mac började må sämre, men känner sig inte kvalificerad. Han är mer reserverad nu, tveksam, brottas med frågan: "Finns Gud när det onaturliga existerar?"</p>
+                            <p>Han citerar Job (lidandets bok) mycket. Hans sermoner handlar mer om lidande än hopp. Senior chaplain beordrade honom på retreat för att "återfinna sin tro".</p>
+
+                            <h4>Relation till Sparky</h4>
+                            <p>Sullivan ser Sparky som "den som alltid är online, även mitt i natten". Han är mer socialt medveten än Mac - han märker när Sparky glömmer äta, när hon isolerar sig, när besattheten med Volkov blir ohälsosam.</p>
+                            <p>Han oroar sig för att både Mac och Sparky håller på att förlora sig själva i jakten på Volkov. Han försöker vara teamets moraliska kompass men kämpar med sina egna tvivel.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Handler & Kommunikation</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <p><strong>Handler:</strong> Codename [klassificerat]<br>
+                            Koordinerar operationer, tillhandahåller intelligence, aldrig träffat face-to-face efter rekrytering.</p>
+
+                            <h4>Kommunikationsprotokoll</h4>
+                            <ul>
+                                <li>Krypterad kommunikation (militär-grade)</li>
+                                <li>Dead drops för fysiska handoffs</li>
+                                <li>Emergency protocols om komprometterad</li>
+                                <li>Ingen dokumentation - allt encrypted eller memorerat</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Operativa Protokoll</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <h4>Cover-up är kritiskt</h4>
+                            <ul>
+                                <li>"Inget onaturligt finns" - official cover story alltid</li>
+                                <li>Eldvapen löser ingenting mot det verkligt farliga</li>
+                                <li>Vittnen måste hanteras (diskrediteras, tystas, eller värre)</li>
+                                <li>Spår måste städas - både fysiska och digitala</li>
+                            </ul>
+
+                            <h4>Vad hon lärt sig</h4>
+                            <ul>
+                                <li>Det onaturliga finns - kan inte längre förneka det</li>
+                                <li>Det kan inte förstås - bara bekämpas</li>
+                                <li>Varje operation kostar SAN - mentalt pris för sanningen</li>
+                                <li>Bonds är hennes sista förankring till normalitet</li>
+                                <li>Alla agenter förlorar sig själva till slut</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Vad hon INTE vet</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <ul>
+                                <li>Delta Greens fullständiga historia (original 1940-talet, MAJESTIC, etc.)</li>
+                                <li>The Schism - Outlaws vs. Program</li>
+                                <li>Andra cellers identiteter (compartmentalized för säkerhet)</li>
+                                <li>Hur många agenter som finns totalt</li>
+                                <li>Om "friendly" organisationen fortfarande existerar</li>
+                                <li>Fullständig omfattning av det onaturliga</li>
+                                <li>Andra regeringars motsvarigheter</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Varför hon stannar kvar</h3>
+                <div class="alert alert-danger">
+                    <div class="alert-title">🎯 Motivation</div>
+                    <p>Hon har sett för mycket för att sluta. Och någonstans djupt inne vet hon: Om inte hon gör det här, vem ska då? Om alla som bryr sig försvinner, vem stoppar det då?</p>
+                    <p>Plus: Hon är besatt av sanningen. Delta Green ger henne tillgång till sanning som ingen annan känner till.</p>
+                </div>
+
+                <div class="alert alert-warning">
+                    <div class="alert-title">⚠️ SAN Mechanics</div>
+                    <p><strong>Starting SAN:</strong> 70 (POW × 5)<br>
+                    <strong>Current SAN:</strong> 60<br>
+                    <strong>Breaking Point:</strong> 56 (SAN - POW)</p>
+                    <p>Sparky har förlorat 10 SAN netto (12 förlorat, 2 återhämtat). Hon är fortfarande över Breaking Point (60 > 56), men nära gränsen. Varje operation riskerar att föra henne närmare adaptation och permanent mental skada.</p>
+                </div>
+            </section>
+
+            <!-- Section 9: ALIAS & SAFEHOUSES -->
+        </main>
+    </div>
+
+    <script>
+        function toggleCollapse(header) {
+            const box = header.parentElement;
+            box.classList.toggle('open');
+        }
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = 'var(--text-dim)';
+                link.style.background = 'transparent';
+                link.style.paddingLeft = '0.75rem';
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.style.color = 'var(--accent)';
+                    link.style.background = 'rgba(0, 255, 136, 0.1)';
+                    link.style.paddingLeft = '1rem';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

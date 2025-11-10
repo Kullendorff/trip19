@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ren:*)",
+      "Bash(mv:*)",
+      "Bash(start \"\" \"D:\\GDRIVE\\My Drive\\Johan\\Gaming\\Gammal leka bäst\\Delta Green\\Jul\\Sparky\\sparky_character_sheet.html\")",
+      "Bash(start \"\" \"D:\\GDRIVE\\My Drive\\Johan\\Gaming\\Gammal leka bäst\\Delta Green\\Jul\\Sparky\\sparky_character_sheet_v2.html\")",
+      "Bash(/tmp/datavetenskap.txt)",
+      "Bash(/tmp/sigint.txt)",
+      "Bash(/tmp/nsa.txt)",
+      "Bash(start \"\" \"D:\\GDRIVE\\My Drive\\Johan\\Gaming\\Gammal leka bäst\\Delta Green\\Jul\\Sparky\\sparky_karakter.html\")",
+      "Bash(awk:*)",
+      "Bash(sparky_tekniskt_temp.html)",
+      "Bash(start \"\" sparky_karakter.html)",
+      "Bash(start \"\" sparky_tekniskt.html)",
+      "Bash(start \"\" sparky_operativt.html)",
+      "Bash(start \"\" sparky_personligt.html)",
+      "Bash(/tmp/boende_section_complete.txt)",
+      "Bash(sparky_personligt_temp.html)",
+      "Bash(/tmp/page_link_css.txt)",
+      "Bash(cat:*)",
+      "Bash(start \"\" \"sparky_personligt.html\")",
+      "Bash(start \"\" \"sparky_operativt.html\")",
+      "Bash(claude doctor:*)",
+      "Bash(claude --version:*)",
+      "Bash(npm i:*)",
+      "Bash(npm view:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

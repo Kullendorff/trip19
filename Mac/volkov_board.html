@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAC RILEY - Volkov Board | Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0D1117;
+            --bg-darker: #0A0F0F;
+            --accent: #4A90A4;
+            --accent-dim: #3A7080;
+            --text: #D1D5DB;
+            --text-dim: #6B7280;
+            --border: #1A2332;
+            --highlight: #2C3E50;
+            --warning: #E74C3C;
+            --success: #4A90A4;
+            --danger: #DC2626;
+            --obsession: #DC2626;
+            --conspiracy: #8B5A2B;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--bg-darker);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            text-align: center;
+            line-height: 1.4;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(74, 144, 164, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent-dim);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #2A1810 100%);
+            border-radius: 8px;
+            border: 2px solid var(--obsession);
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: var(--obsession);
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .hero-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            background: var(--bg-darker);
+            border: 2px solid var(--obsession);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(60%) sepia(20%) hue-rotate(350deg);
+        }
+
+        .content-section {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .obsession-warning {
+            background: rgba(220, 38, 38, 0.1);
+            border: 2px solid var(--obsession);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .obsession-warning h3 {
+            color: var(--obsession);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .obsession-text {
+            color: var(--text);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .board-section {
+            background: var(--conspiracy);
+            border: 2px solid var(--obsession);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .board-title {
+            color: var(--obsession);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 1rem;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            border-left: 3px solid var(--obsession);
+        }
+
+        .timeline-year {
+            color: var(--obsession);
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .timeline-content {
+            color: var(--text);
+        }
+
+        .timeline-note {
+            color: var(--warning);
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .location-pin {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1rem;
+            border-radius: 4px;
+            border: 1px solid var(--obsession);
+        }
+
+        .location-name {
+            color: var(--obsession);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .location-details {
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        .connection-line {
+            height: 2px;
+            background: var(--obsession);
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .connection-line::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: -3px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid var(--obsession);
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+        }
+
+        .crystal-tech {
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border: 2px solid var(--obsession);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .crystal-tech h3 {
+            color: var(--obsession);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .theory-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .theory-item {
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            color: var(--text);
+        }
+
+        .post-it {
+            background: #ffeb3b;
+            color: #000;
+            padding: 0.75rem;
+            margin: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            transform: rotate(-2deg);
+            display: inline-block;
+        }
+
+        .post-it.red {
+            background: #f44336;
+            color: white;
+            transform: rotate(1deg);
+        }
+
+        .post-it.blue {
+            background: #2196f3;
+            color: white;
+            transform: rotate(-1deg);
+        }
+
+        .post-it.green {
+            background: #4caf50;
+            color: white;
+            transform: rotate(2deg);
+        }
+
+        .sanity-quote {
+            background: rgba(220, 38, 38, 0.15);
+            border: 2px solid var(--obsession);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--obsession);
+            margin: 2rem 0;
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                MAC RILEY<br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">FBI // DELTA GREEN</span>
+            </div>
+            
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="karakter.html" class="page-link">KARAKTÄR</a>
+                        <a href="fbi_karriar.html" class="page-link">FBI KARRIÄR</a>
+                        <a href="delta_green.html" class="page-link">DELTA GREEN</a>
+                        <a href="kontakter.html" class="page-link">KONTAKTER</a>
+                        <a href="personligt.html" class="page-link">PERSONLIGT</a>
+                        <a href="volkov_board.html" class="page-link active">VOLKOV-BOARD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-title">SNABBNAVIGERING</div>
+                    <a href="#obsession" class="nav-link">Obsessionen</a>
+                    <a href="#timeline" class="nav-link">Tidslinje</a>
+                    <a href="#locations" class="nav-link">Geografisk Kartläggning</a>
+                    <a href="#crystal" class="nav-link">Kristallteknologi</a>
+                    <a href="#theories" class="nav-link">Teorier</a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                CLASSIFIED<br>DELTA GREEN<br>EYES ONLY
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>VOLKOV BOARD</h1>
+                    <div class="subtitle">Obsessionens Manifestation</div>
+                    <p>Korkskiva 120x180cm dominerar Mac's vardagsrum. Foton, kartor, snören och anteckningar mappar Dmitri Volkov's aktiviteter. Mac's sista ankare till verkligheten... eller hans väg in i galenskap.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="mac7.png" alt="Volkov Board">
+                </div>
+            </div>
+
+            <div class="obsession-warning">
+                <h3>JAG ÄR INTE GAL</h3>
+                <p class="obsession-text">- Post-it mitt på boarden, täcker familjeporträtt från 2019</p>
+            </div>
+
+            <section id="obsession" class="content-section">
+                <h2 class="section-title">OBSESSIONENS KÄRNA</h2>
+                
+                <div style="text-align: center; margin: 2rem 0;">
+                    <div style="background: var(--bg-dark); border: 2px solid var(--obsession); padding: 2rem; border-radius: 8px;">
+                        <h3 style="color: var(--obsession); margin-bottom: 1rem;">DMITRI VOLKOV</h3>
+                        <p style="color: var(--text); margin-bottom: 1rem;">Suddig övervakningsbild från Köpcentret (dec 2024)</p>
+                        <p style="color: var(--text); margin-bottom: 1rem;">Enda tydliga bild Mac har</p>
+                        
+                        <div style="margin: 1.5rem 0; color: var(--obsession); font-weight: bold;">
+                            VEM?<br>
+                            VARFÖR?<br>
+                            JOBBAR FÖR VEM?
+                        </div>
+                        
+                        <div style="background: rgba(220, 38, 38, 0.1); padding: 1rem; border-radius: 4px;">
+                            <strong style="color: var(--obsession);">"VAR ÄR HAN?"</strong><br>
+                            <span style="color: var(--text-dim);">- Skrivet 47 gånger på boarden</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="timeline" class="content-section">
+                <h2 class="section-title">TIDSLINJE</h2>
+                
+                <div class="board-section">
+                    <h3 class="board-title">VOLKOV'S SPÅR</h3>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2019</div>
+                        <div class="timeline-content">
+                            <strong>Stanford University</strong><br>
+                            Restricted Lab Access, April 2019
+                            <div class="timeline-note">"Vad gjorde han där? Fysik? Materiallära?"</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2019</div>
+                        <div class="timeline-content">
+                            <strong>Iowa State University</strong><br>
+                            Visiting Researcher, Engineering Dept
+                            <div class="timeline-note">"Samma år som Stanford. Varför båda?"</div>
+                        </div>
+                    </div>
+
+                    <div class="connection-line"></div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-content">
+                            <strong>Mall Before Christmas</strong><br>
+                            December 23 - Volkov identifierad, mahognylåda
+                            <div class="timeline-note">"Han visste vad som skulle hända. Han VAR där."</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">
+                            <strong>Sea Glass</strong><br>
+                            Maj - Kristallteknologi utan Volkov
+                            <div class="timeline-note">"Volkov var INTE där - men teknologin var"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sanity-quote">
+                    Timeline = 6 år. Planerat? Experiment?
+                </div>
+            </section>
+
+            <section id="locations" class="content-section">
+                <h2 class="section-title">GEOGRAFISK KARTLÄGGNING</h2>
+                
+                <div class="board-section">
+                    <h3 class="board-title">USA-KARTA MED NÅLAR</h3>
+                    
+                    <div class="location-grid">
+                        <div class="location-pin">
+                            <div class="location-name">🔴 STANFORD, CA</div>
+                            <div class="location-details">
+                                Restricted lab - fysikavdelning<br>
+                                "Vad testades?"
+                            </div>
+                        </div>
+
+                        <div class="location-pin">
+                            <div class="location-name">🔴 IOWA CITY, IA</div>
+                            <div class="location-details">
+                                Engineering dept - materialforskning?<br>
+                                "Koppling till Stanford-besöket"
+                            </div>
+                        </div>
+
+                        <div class="location-pin">
+                            <div class="location-name">⚫ WASHINGTON DC</div>
+                            <div class="location-details">
+                                Mall incident - Volkov identifierad<br>
+                                "Mahognylåda funnen"
+                            </div>
+                        </div>
+
+                        <div class="location-pin">
+                            <div class="location-name">⚫ ROCKPORT, ME</div>
+                            <div class="location-details">
+                                Fyr - kristallteknologi<br>
+                                "Volkov INTE där - men samma teknik"
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 2rem 0; padding: 1rem; background: rgba(0, 0, 0, 0.4); border-radius: 4px;">
+                        <strong style="color: var(--obsession);">MÖNSTER:</strong><br>
+                        <span style="color: var(--text);">
+                            2019: Universitet (research)<br>
+                            2024-2025: Aktiv fas (incidents)<br><br>
+                            <span style="color: var(--warning);">
+                                Vad SÖKER han?<br>
+                                Vad BYGGER han?<br>
+                                Var härnäst?
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="crystal" class="content-section">
+                <h2 class="section-title">KRISTALLTEKNOLOGI</h2>
+                
+                <div class="crystal-tech">
+                    <h3>TEKNOLOGISK ANALYS</h3>
+                    <p style="color: var(--text); text-align: center; margin-bottom: 1.5rem; font-style: italic;">
+                        "Mac förstår inte teknologin. Detta är den mest kaotiska sektionen."
+                    </p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div>
+                            <h4 style="color: var(--obsession); margin-bottom: 0.5rem;">MALL-INCIDENT</h4>
+                            <ul style="list-style: none; color: var(--text); font-size: 0.9rem;">
+                                <li>• Mahognylåda med sniderier</li>
+                                <li>• Röd kristallkub ~5cm³</li>
+                                <li>• Pulserade</li>
+                                <li>• "Inte bara dekoration - funktionell?"</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 style="color: var(--obsession); margin-bottom: 0.5rem;">SEA GLASS</h4>
+                            <ul style="list-style: none; color: var(--text); font-size: 0.9rem;">
+                                <li>• Kristallformationer i fyren</li>
+                                <li>• Olika färger (röd, blå, grön)</li>
+                                <li>• "Samma geometri som kuben?"</li>
+                                <li>• Beacon-teknologi</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="connection-line" style="margin: 1.5rem 0;"></div>
+
+                    <div style="text-align: center; color: var(--obsession); font-weight: bold;">
+                        SAMMA TEKNOLOGI = SAMMA KÄLLA = VOLKOV
+                    </div>
+                </div>
+            </section>
+
+            <section id="theories" class="content-section">
+                <h2 class="section-title">TEORIER & POST-IT LAPPAR</h2>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--accent); margin-bottom: 1rem;">Spridda Post-Its på Boarden</h3>
+                    
+                    <div class="post-it">Kolla Iowa State arkiv - mer info?</div>
+                    <div class="post-it red">VAR ÄR VOLKOV NU???</div>
+                    <div class="post-it">Finns Volkov i Stanford databas?</div>
+                    <div class="post-it blue">Volkov = agent, inte mastermind?</div>
+                    <div class="post-it red">Nästa incident - VAR? NÄR?</div>
+                    <div class="post-it green">Verifiera Stanford loggar</div>
+                    <div class="post-it blue">Flera Volkovs? Kloner? (NEJ, galet)</div>
+                    <div class="post-it">Fråga Frank om kristall-analys (försiktigt)</div>
+                    <div class="post-it red">Var fick han teknologin?</div>
+                    <div class="post-it blue">Teknologi från WWII-eran? Reverse-engineered?</div>
+                </div>
+
+                <div class="board-section">
+                    <h3 class="board-title">DARK WEB RESEARCH</h3>
+                    
+                    <ul class="theory-list">
+                        <li class="theory-item">
+                            <strong>Nazi crystal technology</strong><br>
+                            Referenser till "Project Ahnenerbe"
+                        </li>
+                        <li class="theory-item">
+                            <strong>Die Glocke-experiment</strong><br>
+                            Nazistiskt "klockexperiment" - koppling?
+                        </li>
+                        <li class="theory-item">
+                            <strong>Piezoelektriska material</strong><br>
+                            Akademiska artiklar från JSTOR (Mac förstår ~30%)
+                        </li>
+                        <li class="theory-item">
+                            <strong>Kvantmekaniska resonansfenomen</strong><br>
+                            "Kraftkälla? Kommunikationsenhet? Vapen?"
+                        </li>
+                    </ul>
+
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(220, 38, 38, 0.1); border-radius: 4px;">
+                        <strong style="color: var(--obsession);">MAC'S SLUTSATS:</strong><br>
+                        <span style="color: var(--text); font-style: italic;">
+                            "2019: Volkov börjar (Stanford/Iowa)<br>
+                            2024-2025: Incidents eskalerar<br><br>
+                            Samma projekt? Hur länge har det pågått?<br>
+                            VEM DRIVER PROJEKTET OM INTE VOLKOV?"
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <div class="sanity-quote">
+                "MÖNSTREN ÄR VERKLIGA.<br>
+                DET GÖR HONOM BARA MER GAL."
+            </div>
+        </main>
+    </div>
+</body>
+</html>

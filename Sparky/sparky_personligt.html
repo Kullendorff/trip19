@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAI "SPARKY" ZHANG - Personligt</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0e1a;
+            --bg-darker: #060911;
+            --accent: #00ff88;
+            --accent-dim: #00cc6a;
+            --text: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --border: #1a2332;
+            --warning: #ff6b35;
+            --success: #00ff88;
+            --danger: #ff3366;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Navigation Sidebar */
+        .sidebar {
+            background: var(--bg-darker);
+            border-right: 2px solid var(--border);
+            padding: 2rem 1rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: var(--bg-darker);
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--accent-dim);
+            border-radius: 4px;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(0, 255, 136, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent-dim);
+        }
+
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+        /* Main Content */
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+        }
+
+        /* Hero Section with Image */
+        .hero-section {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #1a2332 100%);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 2rem;
+        }
+
+        .hero-content {
+            padding: 2rem;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-section h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .header-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-item {
+            background: rgba(0, 255, 136, 0.05);
+            padding: 0.75rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .info-label {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        /* Image containers */
+        .section-image {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            margin: 2rem auto;
+            display: block;
+        }
+
+        .section-image-small {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            border: 2px solid var(--accent);
+            margin: 1rem 0;
+        }
+
+        /* Gallery Grid */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--accent);
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 1rem;
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h3 {
+            color: var(--accent-dim);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+        }
+
+        h4 {
+            color: var(--text);
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-dim);
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-dim);
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--bg-darker);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:hover {
+            background: rgba(0, 255, 136, 0.05);
+        }
+
+        /* Collapse Boxes */
+        .collapse-box {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .collapse-header {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .collapse-header:hover {
+            background: rgba(0, 255, 136, 0.15);
+        }
+
+        .collapse-header h4 {
+            margin: 0;
+            color: var(--accent);
+        }
+
+        .collapse-icon {
+            color: var(--accent);
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .collapse-box.open .collapse-icon {
+            transform: rotate(180deg);
+        }
+
+        .collapse-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapse-box.open .collapse-content {
+            max-height: 10000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .collapse-content-inner {
+            padding: 1.5rem;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .badge-easy {
+            background: var(--success);
+            color: var(--bg-dark);
+        }
+
+        .badge-medium {
+            background: var(--warning);
+            color: var(--bg-dark);
+        }
+
+        .badge-hard {
+            background: var(--danger);
+            color: white;
+        }
+
+        /* Alert Boxes */
+        .alert {
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+        }
+
+        .alert-warning {
+            background: rgba(255, 107, 53, 0.1);
+            border-color: var(--warning);
+        }
+
+        .alert-danger {
+            background: rgba(255, 51, 102, 0.1);
+            border-color: var(--danger);
+        }
+
+        .alert-success {
+            background: rgba(0, 255, 136, 0.1);
+            border-color: var(--success);
+        }
+
+        .alert-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Code blocks */
+        code {
+            background: var(--bg-darker);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: var(--accent);
+        }
+
+        /* Quick Reference Grid */
+        .quick-ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .quick-ref-item {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.2s;
+        }
+
+        .quick-ref-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .quick-ref-item h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        /* EDC Grid */
+        .edc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .edc-item {
+            background: var(--bg-darker);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .edc-item h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .edc-spec {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .edc-spec:last-child {
+            border-bottom: none;
+        }
+
+        .edc-spec-label {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .edc-spec-value {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-dim);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: relative;
+                height: auto;
+                border-right: none;
+                border-bottom: 2px solid var(--border);
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+
+            .edc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="logo">
+                ▲ DELTA GREEN<br>
+                AGENT FILE: SPARKY
+            </div>
+
+            <div class="nav-section">
+                <div class="page-link-container">
+                    <a href="sparky_karakter.html" class="page-link">⚡ KARAKTÄR</a>
+                    <a href="sparky_tekniskt.html" class="page-link">💻 TEKNISKT</a>
+                    <a href="sparky_operativt.html" class="page-link">🎯 OPERATIVT</a>
+                    <a href="sparky_personligt.html" class="page-link active">❤️ PERSONLIGT</a>
+                </div>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-title">SNABBNAVIGERING</div>
+                <a href="#bonds" class="nav-link">Bonds</a>
+                <a href="#bakgrund" class="nav-link">Bakgrund</a>
+                <a href="#alias" class="nav-link">Alias & Safehouses</a>
+                <a href="#boende" class="nav-link">Boende</a>
+            </div>
+            
+            <div class="sidebar-footer">
+                CLASSIFIED<br>DELTA GREEN<br>EYES ONLY
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section id="bonds">
+                <h2>❤️ BONDS - Personliga Band</h2>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Susan Zhang (Mor) - Bond: 8</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <p><strong>Ålder:</strong> 55 år<br>
+                            <strong>Yrke:</strong> Grundskolelärare<br>
+                            <strong>Bor:</strong> Denver, Colorado</p>
+
+                            <h4>Relation</h4>
+                            <p>Susan är änka sedan Kais pappa dog i en bilolycka när Kai var 15. Hon lever ett enkelt, tryggt liv och är enormt stolt över sin dotter som "jobbar för regeringen". Susan har INGEN aning om hacktivism, om FBI-jakten, om de onaturliga hot Kai möter.</p>
+
+                            <p>Hon skickar glada SMS med foton från sin trädgård, pratar om sina elever, frågade senast om Kai ville följa med på en kryssning nästa sommar. Varje gång Kai pratar med henne känns det som ett brott - att dra in denna oskyldiga, godhjärtade kvinna i sin värld av lögner.</p>
+
+                            <h4>Betydelse</h4>
+                            <p>Susan är Sparkys sista koppling till normalitet. Susan ringer varje söndag kväll. Kai svarar alltid, oavsett var hon är eller vad hon gör.</p>
+
+                            <h4>Risk</h4>
+                            <p>Kai är livredd för den dag något från hennes hemliga liv når modern. Om Susan får veta sanningen - eller värre, blir ett mål för Sparkys fiender - skulle det förstöra både Susan och Kai.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Mr. Robert Walsh (Granne) - Bond: 8</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <p><strong>Ålder:</strong> 78 år<br>
+                            <strong>Yrke:</strong> Pensionerad lärare<br>
+                            <strong>Bor:</strong> C Street Flats, Apartment 4A (samma building som Sparky)</p>
+
+                            <h4>Relation</h4>
+                            <p>Mr. Walsh är änkling sedan tre år (hans fru Dorothy dog av cancer). Han är lite för pratsam, lite för ensam, bjuder alltid in Kai på kaffe. Hon tackade ja en gång av ren utmattning efter en brutal operation, och nu har det blivit en tradition - varje söndag morgon dricker de kaffe på hans balkong.</p>
+
+                            <p>Han berättar historier från sina år som High School-lärare på 70- och 80-talet. Pratar om sin fru Dorothy. Frågar aldrig för mycket om Kais liv, bara "Hur mår du, unga dam?" och lyssnar faktiskt på svaret. Han behandlar henne som ett barnbarn han aldrig fick.</p>
+
+                            <h4>Betydelse</h4>
+                            <p>För Kai är Mr. Walsh en ankarpunkt - bevis på att vänliga, vanliga människor fortfarande finns. Hans lägenhet är allt hennes inte är: foton överallt, mattor, växter, luktar kaffe. Det känns som ett hem.</p>
+
+                            <h4>Risk</h4>
+                            <p>Hon är livredd för dagen något från hennes värld når honom. Gamla människor dör lätt av hjärtattacker när monster kommer. Hon har börjat undvika att parkera sina "arbetsbilar" för nära lägenheten.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>The Null Space Collective (Online Community) - Bond: 12</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <p><strong>Plattform:</strong> Privat invite-only forum på dark web<br>
+                            <strong>Sparkys alias:</strong> "NullByte"<br>
+                            <strong>Tid tillsammans:</strong> 8-10 år</p>
+
+                            <h4>Community-beskrivning</h4>
+                            <p>Ett elitforum för säkerhetsforskare och hackers. Fokus på exploit development, kryptografi, digital frihet och filosofiska diskussioner om tech-etik. Inte aktivister längre (de flesta har "vuxit upp"), men fortfarande passionerade.</p>
+
+                            <h4>Hennes nära vänner där</h4>
+                            <p><strong>"Cipher"</strong> - Troligen europé (baserat på tidszon). Expert på kryptografi och mathematics. De har diskuterat allt från algorithm-design till existentiella kriser kl 03:00. Cipher känner NullByte bättre än de flesta IRL-personer känner Kai. Har en torr, brittisk humor.</p>
+
+                            <p><strong>"RedShift"</strong> - Yngre, tidiga 20-tal, otroligt talangfull men osäker. Sparky har blivit lite som en mentor. RedShift frågar om karriärval, etik, om det är värt att "sälja ut" till corporate. Sparky känner stort ansvar och skuld - hon vet hon ljuger om sitt eget val.</p>
+
+                            <p><strong>"Proxy"</strong> - Den mest paranoida av dem. Aldrig voice chat, bara text. Diskuterar surveillance, government overreach, conspiracy theories. Vissa av Proxys "teorier" träffar för nära Sparkys Delta Green-verklighet, vilket gör conversationerna obekväma.</p>
+
+                            <h4>Varför det betyder så mycket</h4>
+                            <p>De var där genom allt - när FBI jagade henne, när hon "fick nytt jobb" (ljög om att det var ett vanligt tech-företag), genom utbrändhet och kriser. De har pratat igenom nätter om kod, politik, relationer, livet, döden, meningen med alltihop.</p>
+
+                            <p>Det här är den enda platsen där Sparky kan vara (nästan) sig själv. Inte NSA-Kai, inte Delta Green-agenten, inte Susan Zhangs perfekta dotter. Bara en hacker som pratar med andra hackers.</p>
+
+                            <h4>Risken</h4>
+                            <p>Om Delta Green visste om denna connection skulle de se det som en massiv säkerhetsrisk. Om hennes vänner visste vad hon faktiskt jobbar med - att hon inte bara "sålde ut" till NSA utan aktivt arbetar för en hemlig konspiration - skulle de känna sig förrådda.</p>
+
+                            <p>Cipher, RedShift och Proxy representerar den digitala frihet hon en gång kämpade för. Nu ljuger hon för dem varenda dag.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-danger">
+                    <div class="alert-title">💔 Bond Erosion</div>
+                    <p>Varje operation, varje lögn, varje hemliga samtal gör det svårare att upprätthålla dessa relationer. Bonds kan skadas av SAN loss, av svåra val, av att behöva offra civila för "the greater good". Om Sparky förlorar sina Bonds, vad blir hon då?</p>
+                </div>
+            </section>
+
+            <!-- Section 6: BAKGRUND -->
+            <section id="bakgrund">
+                <h2>📖 BAKGRUND - Sparkys Historia</h2>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">1997 - Födelseår</div>
+                        <p><strong>15 mars:</strong> Kai Zhang föds i San Francisco, Kalifornien.<br>
+                        Föräldrar: Susan Zhang (lärare) och David Zhang (civilingenjör)</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2004 (Ålder 7)</div>
+                        <p><strong>Första datorn:</strong> Får en gammal Dell från pappas jobb. Börjar lära sig grundläggande programmering. Det blir kärlek vid första anblick.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2012 (Ålder 15)</div>
+                        <p><strong>Juni:</strong> Pappa David Zhang dör i bilolycka. Kai drar sig in i datorer som coping mechanism.<br>
+                        <strong>September:</strong> Susan och Kai flyttar från San Francisco till Denver, Colorado. Nystart för mamman.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2013 (Ålder 16) - Radikalisering</div>
+                        <p><strong>Aaron Swartz död:</strong> Påverkar henne djupt. Börjar se hacking som politisk aktivitet.<br>
+                        <strong>Första större hack:</strong> Bryter sig in i ett lokalt företags nätverk och läcker miljöföroreningar de dolt.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2015 (Ålder 18) - MIT</div>
+                        <p><strong>Augusti:</strong> Börjar på MIT, Computer Science.<br>
+                        <strong>Oktober:</strong> Aliaset "Sparkplug" skapas. Första gången hon använder det i hacktivist-sammanhang.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2016 (Ålder 19) - Ghost</div>
+                        <p><strong>Vår:</strong> Träffar Marcus "Ghost" Reeves online. Han blir hennes mentor i aktivism och djupare hacking.<br>
+                        <strong>Juni-Augusti:</strong> Första större läckan under "Sparkplug"-namnet. Corporate corruption case. Uppmärksammas i underground.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2017 (Ålder 20) - Null Space</div>
+                        <p><strong>Januari:</strong> Går med i "The Null Space Collective" under aliaset "NullByte". Träffar Cipher, RedShift och Proxy.<br>
+                        <strong>Mars-December:</strong> Intensiv hacktivist-period. Flera läckor, blir känd figur i underground. FBI börjar intressera sig.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2018 (Ålder 21) - FBI Jakt</div>
+                        <p><strong>Februari:</strong> FBI:s Cyber Division börjar aktivt jaga "Sparkplug".<br>
+                        <strong>Maj:</strong> Nära på att bli gripen första gången. Ghost och Sparky separerar för säkerhet.<br>
+                        <strong>Augusti:</strong> Examen från MIT, Computer Science (BS).</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2019 (Ålder 22) - The Deal</div>
+                        <p><strong>April:</strong> FBI gör razzia mot en av hennes safe houses. Hon är inte där, men de hittar hårdvara.<br>
+                        <strong>Maj:</strong> FBI kontaktar henne med "The Deal" - jobba för dem eller gå i fängelse.<br>
+                        <strong>Juni:</strong> Sparkplug "dör". Kai accepterar NSA-anställning. Flyttar till Maryland.<br>
+                        <strong>Juli:</strong> Börjar på NSA, Fort Meade. Hatar det direkt.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2020-2021 (Ålder 23-24) - NSA Cage</div>
+                        <p><strong>2020:</strong> Covid-19 pandemin. Jobbar hemifrån. Isolerad men produktiv. Bygger sina tekniska kunskaper inom NSA. Hackar LEOSA-databasen för concealed carry (Oktober 2020).<br>
+                        <strong>2021:</strong> Tillbaka på kontoret. Hatar det mer än någonsin. Köper sin custom Glock. Flyttar till nuvarande lägenhet i Laurel. Träffar Mr. Walsh.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022 (Ålder 25) - Delta Green Rekrytering</div>
+                        <p><strong>Mars:</strong> Snubblar över krypterade meddelanden om "The Sleeper" och "Deep Ones" under rutinmässigt NSA-arbete.<br>
+                        <strong>April:</strong> Rapporterar till överordnade. De avfärdar det som "konspirationsteorier".<br>
+                        <strong>Juni:</strong> Får krypterat meddelande från okänd källa: "Du har sett för mycket." Träffar "Handler" - en Delta Green-representant. Får veta sanningen.<br>
+                        <strong>Augusti:</strong> Går med i Delta Green efter fyra veckors tveksamhet. Får codename SPARKY.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025 (Ålder 28) - Nuvarande Status</div>
+                        <p><strong>NSA:</strong> Senior analyst, cyberdefense<br>
+                        <strong>Delta Green:</strong> Tech specialist, aktiv agent<br>
+                        <strong>Status:</strong> Ljuger för alla hon bryr sig om. Vet inte hur länge hon kan hålla detta uppe.</p>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <div class="alert-title">🎭 Dubbelliv</div>
+                    <p>Sparky lever tre liv samtidigt:</p>
+                    <ul>
+                        <li><strong>NSA Analyst:</strong> Professionell, kompetent, "normal" employee</li>
+                        <li><strong>Delta Green Agent:</strong> Hemlig operative mot onaturliga hot</li>
+                        <li><strong>"NullByte":</strong> Online hacker-persona, hennes sanna jag?</li>
+                    </ul>
+                    <p>Ingen av dessa personer känner de andra. Hon ljuger för alla, varje dag. Ibland undrar hon: Vem är Kai Zhang egentligen?</p>
+                </div>
+            </section>
+
+            <!-- Section 7: DELTA GREEN -->
+            <section id="alias">
+                <h2>🎭 ALIAS & SAFEHOUSES</h2>
+
+                <p>Sparky har skapat <strong>två primära alias</strong> + <strong>ett emergency backup-ID</strong> för operationell säkerhet. Systemet är designat för compartmentalization - om ett alias bränns, de andra förblir intakta.</p>
+
+                <div class="alert alert-warning">
+                    <div class="alert-title">🔐 Grundprincip</div>
+                    <p>Aldrig förvara alla fake IDs på samma plats. Aldrig förvara fake IDs där hennes riktiga identitet finns. Geographic separation. Use case separation.</p>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>ALIAS 1: Sarah Mitchell</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <h4>Grundinformation</h4>
+                            <p><strong>Namn:</strong> Sarah Elizabeth Mitchell<br>
+                            <strong>Född:</strong> April 12, 1995 (30 år)<br>
+                            <strong>SSN:</strong> 574-89-3621 (stulen från död spädbarn)<br>
+                            <strong>Etnisitet:</strong> Vit (strategiskt valt för att skilja från Sparkys bakgrund)</p>
+
+                            <h4>Cover Story</h4>
+                            <p><strong>Yrke:</strong> Remote IT Consultant<br>
+                            <strong>Arbetsgivare:</strong> "TechFlow Solutions LLC" (fake företag, men hemsida existerar)<br>
+                            <strong>Credit Score:</strong> 720 (lagom bra, inte misstänkt)</p>
+
+                            <h4>Dokumentation</h4>
+                            <ul>
+                                <li>Driver's License (Virginia)</li>
+                                <li>Visa (ending 4782) och Mastercard (ending 9234)</li>
+                                <li>Wells Fargo debit card</li>
+                                <li>LinkedIn (minimal, 83 connections)</li>
+                            </ul>
+
+                            <h4>Safehouse - College Park, MD</h4>
+                            <p><strong>Adress:</strong> 7413 Baltimore Avenue, Apartment 2F, College Park, MD 20740<br>
+                            <strong>Hyra:</strong> $1,400/månad (betald 6 månader framåt alltid)<br>
+                            <strong>Storlek:</strong> 1 bedroom, ~50 kvm</p>
+
+                            <h4>Innehåll i Safehouse</h4>
+                            <ul>
+                                <li>$10,000 cash (gömda på 3 olika platser)</li>
+                                <li>2 extra burner phones</li>
+                                <li>Laptop (airgapped, encrypted, Sarah-persona only)</li>
+                                <li>3 sets kläder (business casual)</li>
+                                <li>Glock 19 (duplicate, utan custom mods)</li>
+                                <li>500 rounds ammunition</li>
+                                <li>2 veckors mat och vatten</li>
+                                <li>First aid kit (advanced)</li>
+                                <li>2 mindre utvecklade backup-identiteter (Plan C och D)</li>
+                            </ul>
+
+                            <h4>Användning</h4>
+                            <p><strong>Använd:</strong> 2 gånger (setup 2022, practice run 2024)<br>
+                            <strong>Syfte:</strong> Domestic operations, safehouse, "försvinn lokalt"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>ALIAS 2: Maya Nakamura</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <h4>Grundinformation</h4>
+                            <p><strong>Namn:</strong> Maya Keiko Nakamura<br>
+                            <strong>Född:</strong> September 3, 1998 (27 år)<br>
+                            <strong>SSN:</strong> 612-44-8903 (japansk-amerikan som flyttade till Japan 2015)<br>
+                            <strong>Etnisitet:</strong> Japansk-amerikan (3:e generationen)</p>
+
+                            <h4>Cover Story</h4>
+                            <p><strong>Yrke:</strong> Freelance Photographer & Travel Blogger<br>
+                            <strong>Brand:</strong> "Digital nomad" - förklarar att hon är överallt och ingenstans<br>
+                            <strong>Instagram:</strong> @maya_shoots_film (2,347 followers, AI-genererade resefoton 1x/vecka)</p>
+
+                            <h4>Dokumentation</h4>
+                            <ul>
+                                <li>USA Passport (MYCKET svårt att få - hackade State Department)</li>
+                                <li>Driver's License (Washington State)</li>
+                                <li>Press credentials (fake freelance journalist ID)</li>
+                                <li>American Express (ending 7721) och Discover (ending 3094)</li>
+                            </ul>
+
+                            <h4>Safety Deposit Box - Baltimore</h4>
+                            <p><strong>Bank:</strong> PNC Bank, Downtown Baltimore<br>
+                            <strong>Address:</strong> 25 S. Charles Street, Baltimore, MD 21201<br>
+                            <strong>Box nummer:</strong> #437 (medium size)<br>
+                            <strong>Kostnad:</strong> $180/år (crypto-backed auto-payment)</p>
+
+                            <h4>Innehåll i Box</h4>
+                            <ul>
+                                <li>Maya Nakamura passport (primary ID)</li>
+                                <li>Driver's license Washington</li>
+                                <li>Press credentials</li>
+                                <li>Båda kreditkorten</li>
+                                <li>$3,000 backup cash</li>
+                                <li>USB-minne (encrypted backup av digital footprint)</li>
+                                <li>Safehouse nyckel #2 (duplicate till Sarah's place)</li>
+                            </ul>
+
+                            <h4>Användning</h4>
+                            <p><strong>Använd:</strong> 4 gånger (international operations, journalist cover)<br>
+                            <strong>Syfte:</strong> International ops, journalist cover, long-term operations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>EMERGENCY BACKUP: Jennifer Park</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <h4>Grundinformation</h4>
+                            <p><strong>Namn:</strong> Jennifer Park<br>
+                            <strong>Född:</strong> March 8, 1993 (32 år)<br>
+                            <strong>Typ:</strong> Minimalt utvecklad identitet</p>
+
+                            <h4>Dokumentation</h4>
+                            <ul>
+                                <li>Driver's License (Maryland - fake, basic quality)</li>
+                                <li>Prepaid Visa (fake name men fungerande)</li>
+                                <li>$500 cash</li>
+                            </ul>
+
+                            <p><strong>Ingen annan dokumentation.</strong> Ingen social media. Ingen historik. Bara ett ID för "jag måste ha NÅGOT".</p>
+
+                            <h4>Förvaring - NSA Fort Meade</h4>
+                            <p><strong>Plats:</strong> Sparkys workspace på NSA<br>
+                            <strong>Specifikt:</strong> Gömd i botten av filing cabinet under "Personal Tax Documents 2019"</p>
+
+                            <h4>Varför NSA?</h4>
+                            <ul>
+                                <li>Ironiskt säkert - vem misstänker hennes arbetsplats?</li>
+                                <li>Alltid tillgängligt - hon är där 5 dagar/vecka</li>
+                                <li>Plausible deniability om funnen</li>
+                                <li>Inte hemma - om lägenhet ransakas finns inget</li>
+                            </ul>
+
+                            <div class="alert alert-danger">
+                                <div class="alert-title">⚠️ EXTREM RISK</div>
+                                <p>Om upptäckt = instant federal crime på NSA-premiss. Förlorar jobb, clearance, troligen fängelse.</p>
+                                <p>Men: Om det kommit så långt att hon behöver Jennifer Park är hon redan fucked.</p>
+                            </div>
+
+                            <h4>Användning</h4>
+                            <p><strong>Använd:</strong> 0 gånger (bara testad att ID funkar)<br>
+                            <strong>Syfte:</strong> "Jag måste försvinna JUST NU och har 0 tid"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>System Overview</h3>
+                <div class="quick-ref-grid">
+                    <div class="quick-ref-item">
+                        <h4>Compartmentalization</h4>
+                        <p>Om Sarah bränns → Maya och Jennifer oskadade. Ingen connection mellan dem.</p>
+                    </div>
+                    <div class="quick-ref-item">
+                        <h4>Geographic Separation</h4>
+                        <p>Sarah (College Park), Maya (Baltimore), Jennifer (NSA Fort Meade), Sparky (Laurel)</p>
+                    </div>
+                    <div class="quick-ref-item">
+                        <h4>Use Case Separation</h4>
+                        <p>Sarah = domestic, Maya = international, Jennifer = emergency</p>
+                    </div>
+                    <div class="quick-ref-item">
+                        <h4>Kostnader</h4>
+                        <p>$18,420/år totalt. Hon har råd. Knappt.</p>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <div class="alert-title">🎭 Psykologi</div>
+                    <p>Hon byggde Sarah Mitchell och Maya Nakamura <strong>innan</strong> Delta Green ens rekryterade henne. Det var under FBI-jakten på "Sparkplug".</p>
+                    <p>Officiell orsak: "Operational security för eventuella framtida operations."</p>
+                    <p>Verklig orsak: Paranoia. Kontrollbehov. Rädsla.</p>
+                    <p>Sarah "bor" i en tom lägenhet hon aldrig besöker. Maya "bor" på Instagram. De är spöken. Precis som Sparky själv.</p>
+                </div>
+            </section>
+
+            <!-- Section 10: BOENDE -->
+            <section id="boende">
+                <h2>🏠 BOENDE - C Street Flats</h2>
+
+                <h3>Adress & Grundfakta</h3>
+                <p><strong>Fullständig adress:</strong><br>
+                Apartment 3G, C Street Flats<br>
+                24 C Street, Laurel, MD 20707</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Detalj</th>
+                            <th>Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Storlek</strong></td>
+                            <td>580 sq ft (~54 kvm)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Typ</strong></td>
+                            <td>1 bedroom, 1 bathroom</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Våning</strong></td>
+                            <td>3:e våningen, unit G</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hyra</strong></td>
+                            <td>$1,580/månad</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hyrestid</strong></td>
+                            <td>3 år (sedan 2022)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Layout</h3>
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Rumsindelning & Innehåll</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <h4>Entré</h4>
+                            <p>Liten hall direkt in från korridoren. Knappt plats för skor (hon har 3 par). Ingen dekor, bara funktionellt.</p>
+
+                            <h4>Kök/Vardagsrum (Open-plan)</h4>
+                            <p><strong>Kök:</strong> Modernt, fullt utrustat. Kylskåp halvfullt: energidryck, leftover takeout, Susans hemskickade mat i frysen. Mestadels mikrovåg.</p>
+                            <p><strong>Vardagsrum:</strong> Ingen soffa. Gaming chair framför TV (55"). Inget soffbord. Stora fönster med blackout-gardiner.</p>
+
+                            <h4>Sovrum</h4>
+                            <ul>
+                                <li><strong>Säng:</strong> Queen size, IKEA, aldrig bäddad</li>
+                                <li><strong>Skrivbord:</strong> Huvudarbetsplats - 3 monitorer (27"), laptop, mekaniskt tangentbord, kabelkaos, Post-it notes med hex codes</li>
+                                <li><strong>Walk-in closet:</strong> Kläder (jeans, hoodies), go-bag (alltid packad), safe (encrypted drives, $5k cash, spare IDs)</li>
+                                <li><strong>Väggar:</strong> Nästan tomma - ett enda foto av Susan och Kai från college graduation (2018)</li>
+                            </ul>
+
+                            <h4>Badrum</h4>
+                            <p>Standard, funktionellt. Tvättmaskin/torktumlare. Inget fancy.</p>
+
+                            <h4>Balkong</h4>
+                            <p>Liten men användbar. Plast-stol och litet bord. Här vaping hon ibland. <strong>Emergency exit route:</strong> Kan klättra till Mr. Walsh balkong (4 meter bort, samma våning).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Atmosfär</h3>
+                <div class="alert alert-warning">
+                    <div class="alert-title">🏚️ Vad lägenheten känns som</div>
+                    <ul>
+                        <li><strong>Steril</strong> - Som ett hotellrum där någon bor för länge</li>
+                        <li><strong>Funktionell</strong> - Allt har syfte, inget för skönhetens skull</li>
+                        <li><strong>Temporär</strong> - Trots 3 år känns det inte permanent</li>
+                        <li><strong>Ljud:</strong> Mekaniskt tangentbord (klick-klick-klick), fläktar från datorer (alltid igång), grannarna genom väggarna</li>
+                        <li><strong>Lukt:</strong> Kaffe (alltid färskt), elektronik, takeout-rester</li>
+                        <li><strong>Ljus:</strong> Artificiellt (LED strips bakom monitorer - grön/blå), blackout-gardiner ofta nerdragna</li>
+                    </ul>
+                </div>
+
+                <h3>Vad Finns / INTE Finns</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>FINNS</th>
+                            <th>FINNS INTE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tech gear (överallt)</td>
+                            <td>Dekorationer</td>
+                        </tr>
+                        <tr>
+                            <td>3 laptops, 5 monitorer</td>
+                            <td>Tavlor (förutom 1 foto)</td>
+                        </tr>
+                        <tr>
+                            <td>Server rack (snurrar 24/7)</td>
+                            <td>Växter</td>
+                        </tr>
+                        <tr>
+                            <td>Go-bag (alltid packad)</td>
+                            <td>"Mysiga" textilier</td>
+                        </tr>
+                        <tr>
+                            <td>Flipper Zero, lockpicks</td>
+                            <td>Vänners foton</td>
+                        </tr>
+                        <tr>
+                            <td>Burner phones</td>
+                            <td>Gästmöbler</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Varför så tomt?</strong> Hon säger till sig själv: "Mindre att städa. Lättare att lämna." Sanningen: Hon har aldrig lärt sig att göra det till ett hem.</p>
+
+                <h3>Besökare</h3>
+                <p><strong>Har varit här:</strong></p>
+                <ul>
+                    <li><strong>Mr. Walsh</strong> (2 gånger) - Kommenterade: "Du behöver lite färg på väggarna, unga dam"</li>
+                    <li><strong>Landlord/Maintenance</strong> (3 gånger) - AC-reparation, läckande kran, årlig inspektion</li>
+                </ul>
+
+                <p><strong>Aldrig varit här:</strong> Susan, Cipher/RedShift/Proxy, Delta Green team, NSA-kollegor, pojkvän/flickvän</p>
+
+                <h3>Dagliga Rutiner</h3>
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Typisk Dag</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <h4>Morning (om hon sovit)</h4>
+                            <ul>
+                                <li>06:00 - Alarm (snooze × 3)</li>
+                                <li>06:30 - Dusch, kaffe</li>
+                                <li>07:00 - Check systems, encrypted messages</li>
+                                <li>07:30 - MARC train till NSA</li>
+                            </ul>
+
+                            <h4>Evening (normalt)</h4>
+                            <ul>
+                                <li>18:00 - Hem från NSA</li>
+                                <li>18:30 - Takeout (orkar inte laga mat)</li>
+                                <li>19:00-02:00 - "Övertid" (DG-arbete eller egna projekt)</li>
+                                <li>02:00 - Sömn (ibland)</li>
+                            </ul>
+
+                            <h4>Söndagar</h4>
+                            <ul>
+                                <li>10:00 - Kaffe hos Mr. Walsh (tradition)</li>
+                                <li>Resten av dagen: kod, online forum, försöker slappna av (lyckas inte)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Säkerhet & Paranoia</h3>
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Digital & Fysisk Säkerhet</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <h4>Digitalt</h4>
+                            <ul>
+                                <li>WiFi: Hårdvara-firewall, VPN, MAC-address rotation</li>
+                                <li>Laptops: Full disk encryption (VeraCrypt)</li>
+                                <li>Passwords: 256-bit, roteras månadsvis</li>
+                                <li>Surveillance: Kollar regelbundet för bugs</li>
+                            </ul>
+
+                            <h4>Fysiskt</h4>
+                            <ul>
+                                <li>Dörr: Extra lås (installerat själv)</li>
+                                <li>Windows: Blackout-gardiner alltid nerdragna</li>
+                                <li><strong>Escape routes:</strong>
+                                    <ol>
+                                        <li>Huvuddörr → hiss/trappor</li>
+                                        <li>Balkong → Mr. Walsh balkong → hans dörr</li>
+                                        <li>Emergency: Hoppa från balkong (3 våningar - skulle överleva men bli skadad)</li>
+                                    </ol>
+                                </li>
+                            </ul>
+
+                            <h4>Bug-Out Plan</h4>
+                            <p><strong>Total tid: Under 5 minuter från "oh fuck" till "gone"</strong></p>
+                            <ol>
+                                <li>Grab go-bag (30 sekunder)</li>
+                                <li>Smash hard drives med hammare (1 minut)</li>
+                                <li>Remote wipe alla andra devices (30 sekunder)</li>
+                                <li>Out via balkong → Mr. Walsh → ner (3 minuter)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-danger">
+                    <div class="alert-title">💔 Hem vs. Plats att Sova</div>
+                    <p><strong>Mr. Walsh lever i sin lägenhet. Sparky existerar i sin.</strong></p>
+                    <p>Hon vet det. Hon hatar det. Men hon vet inte hur man fixar det.</p>
+                    <p>Ibland, när hon sitter vid sina monitorer kl 02:00 och ser sitt eget speglade ansikte i den svarta skärmen, tänker hon:</p>
+                    <p><em>"När blev jag en ghost i mitt eget liv?"</em></p>
+                    <p>Men sedan pingar en notis, och hon återgår till jobbet.</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        function toggleCollapse(header) {
+            const box = header.parentElement;
+            box.classList.toggle('open');
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Highlight active section in sidebar
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
