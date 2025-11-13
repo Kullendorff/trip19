@@ -110,6 +110,83 @@ Sullivan rekryterades till Delta Green inom 6 månader. Han hade sett beviset - 
 
 ---
 
+### 2021 - OPERATION "HOLY GROUND": FÖRSTA OPERATIONEN (Ålder 42)
+**Plats:** Lantliga Utah, mormonsk församling
+**Typ:** HUMINT-infiltration, första operation efter rekrytering
+
+**Vad hände:**
+En mormonsk församling började predika "nya uppenbarelser" som inte stämde med LDS-teologi. Delta Green misstänkte infiltration. Sullivan's uppgift: Identifiera vilka som var "äkta" troende och vilka som var komprometterade.
+
+Sullivan spenderade två veckor i församlingen. Använde sina HUMINT-skills från 15+ år av bekännelser för att läsa människors sanna intentioner.
+
+**Tecknen:**
+- De "smittade" pratade om uppenbarelser men kunde inte förklara dem koherent
+- De citerade skrifter men orden var... fel. Subtilt fel.
+- De visade ingen rädsla - alls. Inte ens fruktan för Gud.
+- När Sullivan bad med dem kände han ingenting. Tomhet.
+
+**Det omöjliga valet:**
+Sullivan identifierade 5 komprometterade individer inklusive pastorn. De tog gisslan. En av de smittade - en kvinna i 60-årsåldern - sa i ett ögonblick av klarhet: "Father, vi är redan döda. Du kan inte rädda oss. Men du kan rädda de andra. Gör vad som måste göras."
+
+Sullivan gav ordern. Delta Green-teamet gick in. Två gisslan dog i korselden. Fem smittade neutraliserades. Åtta medlemmar räddades.
+
+**Konsekvens:**
+Första gången Sullivan tvingades välja mellan oskyldiga liv. Två dog för att rädda åtta. Matematiken var klar. Men kan man räkna själar som siffror?
+
+**Psykologisk påverkan:**
+- SAN loss: -2
+- Insåg att Delta Green kräver omöjliga val
+- Började ifrågasätta om "räddning" är möjlig när smittan redan tagit själen
+- Om de smittade var "redan döda" - räddar man dem genom att döda kropparna?
+
+---
+
+### 2023 - OPERATION "NIGHT TERRORS": BARNEN (Ålder 44)
+**Plats:** Richmond, Virginia - dagis
+**Typ:** Child extraction, psykisk smitta
+
+**Upptäckten:**
+Femton barn mellan 4-6 år började rapportera identiska mardrömmar: En "grå man" med för långa armar som "bad dem komma med honom" till en plats "under golvet."
+
+Föräldrarna trodde det var gruppsuggestion. Skolpsykologen kontaktade CDC. CDC kontaktade Delta Green.
+
+**Sullivan's utredning:**
+Sullivan gick in som "crisis counselor" från diocesen. Pratade med barnen enskilt.
+
+**Det värsta:** Barnen beskrev inte mardrömmar. De beskrev minnen.
+
+En flicka sa: "Han kom igår natt igen, Father Sullivan. Men den här gången gick jag med honom. Det var kallt under golvet. Andra barn var där också. Men de såg konstiga ut. Deras ögon var..."
+
+Sedan frågade hon: "Varför står han bakom dig nu?"
+
+**Källaren:**
+Delta Green-teamet undersökte dagisets källare med värmekamera. Kalla fläckar. Mänskligt formade. Stående helt stilla längs väggarna. När de rörde sig... "gick" fläckarna genom väggarna istället för runt dem.
+
+**Lösningen:**
+Handler: "Protokoll Zeta-7. Evakuera alla barn och personal. Sanera platsen. Total förstörelse. Ni har 4 timmar."
+
+Sullivan organiserade evakuering. "Gasläcka upptäckts, måste stänga omedelbart." Femton barn och åtta vuxna ut på 45 minuter.
+
+Sedan: 200 liter bensin. Brännbara kemikalier. Allt brinner.
+
+**När byggnaden brann:**
+En flicka frågade Sullivan: "Nu kan han inte komma tillbaka. Eller hur, Father?"
+
+Sullivan ville säga ja. Men han visste inte. Han sa: "Jag ska be för er varje natt. Och om han kommer tillbaka, säg det till mig. Okej?"
+
+**Konsekvens:**
+Sullivan räddade barnen genom att förstöra deras dagis. Gjorde "rätt" val. Men en av föräldrarna sa: "Varför känns det som att ni tog något från dem ändå?"
+
+**Psykologisk påverkan:**
+- SAN loss: -1
+- Första gången jobba med barn-offer
+- Insåg att det onaturliga inte respekterar oskuld
+- Följde upp med barnen i sex månader - tre utvecklade sömnproblem, en vägrade vara ensam i mörker
+- De var "räddade" - men traumat kvarstod
+- Började tvivla om "räddning" verkligen är räddning när offer behåller skadan
+
+---
+
 ### 2025 - SEA GLASS: THE BREAKING POINT (Ålder 46)
 **Vad hände:**
 Operation i Maine. Kristaller som transformerade människor. Sullivan såg:
@@ -172,7 +249,9 @@ Sullivan krossades. Han följde order - gjorde "rätt" val enligt Delta Green. M
   - **2019-2020:** Afghanistan (andra gången)
 - **2020 (41 år):** **AFGHANISTAN - THE EXORCISM** - Första kontakten med det onaturliga
 - **2020 (sent):** Rekryterad till Delta Green
-- **2020-2024:** Fortsatt som chaplain + Delta Green operations (8-10 operationer totalt)
+- **2021:** **Operation "Holy Ground"** (Utah) - Mormonsk församling infiltrerad av kult, första operation efter rekrytering (-2 SAN)
+- **2022-2023:** Fortsatta Delta Green-operationer med andra handlers/cells
+- **2023:** **Operation "Night Terrors"** (Virginia) - Dagis med delade mardrömmar, psykisk smitta (-1 SAN)
 - **2024 Oktober:** Operation "Shepherd" (Pennsylvania) - False flag med Mac (första träffen)
 - **2024 November:** Operation "Voices" (Maryland) - False flag med Mac & Sparky
 - **2024 December:** "The Mall Before Christmas" - Första RIKTIGA hot med Mac & Sparky
