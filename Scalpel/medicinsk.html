@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DR. HANNA ENGLER - Medicinsk Karriär | Medical Examiner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #1a1612;
+            --secondary-bg: #2b2520;
+            --accent-bg: #3d342e;
+            --text-primary: #e8dcc8;
+            --text-secondary: #a89378;
+            --accent-color: #c9a876;
+            --accent-secondary: #8b7355;
+            --border-color: #4a3f35;
+            --warning: #d4a574;
+            --danger: #c9947a;
+        }
+
+        body {
+            font-family: Georgia, Garamond, serif;
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(201, 168, 118, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(61, 52, 46, 0.03) 0%, transparent 50%);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--secondary-bg);
+            padding: 2rem 1.5rem;
+            border-right: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: var(--accent-color);
+            text-align: center;
+            line-height: 1.3;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .ornament {
+            color: var(--accent-secondary);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .nav-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .nav-title {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: Georgia, serif;
+            font-variant: small-caps;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            background: rgba(201, 168, 118, 0.05);
+            position: relative;
+        }
+
+        .page-link::before {
+            content: "❧ ";
+            color: var(--accent-secondary);
+            opacity: 0.6;
+            margin-right: 5px;
+        }
+
+        .page-link:hover {
+            color: var(--accent-color);
+            background: rgba(201, 168, 118, 0.15);
+            border-color: var(--accent-color);
+            transform: translateX(3px);
+        }
+
+        .page-link.active {
+            background: var(--accent-color);
+            color: var(--primary-bg);
+            font-weight: bold;
+            border-color: var(--accent-color);
+        }
+
+        .page-link.active::before {
+            color: var(--primary-bg);
+            opacity: 1;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.85rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            border-bottom-color: var(--accent-secondary);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-align: center;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--accent-bg) 100%);
+            border-radius: 8px;
+            border: 2px solid var(--border-color);
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid var(--accent-secondary);
+            border-radius: 6px;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+            letter-spacing: 1px;
+            font-variant: small-caps;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            filter: sepia(20%) contrast(1.1);
+            border: 2px solid var(--accent-secondary);
+        }
+
+        .content-section {
+            background: var(--secondary-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .content-section::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 1px solid var(--accent-secondary);
+            border-radius: 6px;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        .section-title::before {
+            content: "✦ ";
+            color: var(--accent-secondary);
+            margin-right: 8px;
+        }
+
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .facility-item {
+            background: var(--accent-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 6px;
+        }
+
+        .facility-item h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.8rem;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        .facility-item ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .facility-item li {
+            padding: 0.3rem 0;
+            color: var(--text-primary);
+            border-bottom: 1px solid rgba(201, 168, 118, 0.1);
+        }
+
+        .facility-item li:before {
+            content: "◦ ";
+            color: var(--accent-secondary);
+            margin-right: 0.5rem;
+        }
+
+        .case-types {
+            background: var(--accent-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 2rem;
+            border-radius: 0 6px 6px 0;
+            margin: 2rem 0;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .case-category {
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 4px;
+        }
+
+        .case-category h5 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-variant: small-caps;
+        }
+
+        .case-category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .case-category li {
+            font-size: 0.9rem;
+            padding: 0.2rem 0;
+            color: var(--text-secondary);
+        }
+
+        .workflow-timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .workflow-step {
+            position: relative;
+            padding-left: 3rem;
+            padding-bottom: 1.5rem;
+            border-left: 2px solid var(--accent-secondary);
+            margin-left: 1rem;
+        }
+
+        .workflow-step::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            border: 2px solid var(--secondary-bg);
+        }
+
+        .workflow-time {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            font-variant: small-caps;
+        }
+
+        .workflow-activity {
+            color: var(--text-primary);
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .workflow-details {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .authority-box {
+            background: linear-gradient(135deg, var(--accent-bg) 0%, var(--secondary-bg) 100%);
+            border: 2px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .authority-box::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 1px solid var(--accent-secondary);
+            border-radius: 6px;
+            opacity: 0.2;
+        }
+
+        .authority-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .authority-section h4 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        .authority-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .authority-section li {
+            padding: 0.4rem 0;
+            color: var(--text-primary);
+            border-bottom: 1px solid rgba(201, 168, 118, 0.1);
+        }
+
+        .authority-section li:before {
+            content: "◆ ";
+            color: var(--accent-secondary);
+            margin-right: 0.5rem;
+        }
+
+        .colleagues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .colleague-card {
+            background: var(--accent-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 6px;
+        }
+
+        .colleague-name {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+            font-variant: small-caps;
+        }
+
+        .colleague-title {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .colleague-note {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .risk-warning {
+            background: rgba(212, 165, 116, 0.1);
+            border-left: 4px solid var(--warning);
+            padding: 1.5rem;
+            border-radius: 0 4px 4px 0;
+            margin: 2rem 0;
+        }
+
+        .risk-warning h4 {
+            color: var(--warning);
+            margin-bottom: 0.8rem;
+            font-variant: small-caps;
+        }
+
+        .risk-warning p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 2px solid var(--border-color);
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .facility-grid,
+            .authority-grid,
+            .colleagues-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <span class="ornament">❧</span> DR. HANNA ENGLER <span class="ornament">❧</span><br>
+                <span style="font-size: 0.8rem; color: var(--text-secondary); font-variant: normal; letter-spacing: 1px;">Medical Examiner • Delta Green</span>
+            </div>
+            
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="index.html" class="page-link">KARAKTÄR</a>
+                        <a href="personligt.html" class="page-link">PERSONLIGT</a>
+                        <a href="medicinsk.html" class="page-link active">MEDICINSK KARRIÄR</a>
+                        <a href="operativt.html" class="page-link">OPERATIVT</a>
+                        <a href="art.html" class="page-link">KONST & MUSIK</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-title">Snabbnavigering</div>
+                    <a href="#position" class="nav-link">Nuvarande Position</a>
+                    <a href="#arbetsdag" class="nav-link">Typisk Arbetsdag</a>
+                    <a href="#befogenheter" class="nav-link">Befogenheter</a>
+                    <a href="#kollegor" class="nav-link">Kollegor</a>
+                    <a href="#risker" class="nav-link">Begränsningar</a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <span class="ornament">✦</span><br>
+                Classified Material<br>
+                Medical Examiner<br>
+                Baltimore, Maryland<br>
+                <span class="ornament">✦</span>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>Medicinsk Karriär</h1>
+                    <div class="subtitle">Associate Medical Examiner</div>
+                    <p>Office of the Chief Medical Examiner, Maryland. Forensisk patolog med specialisering inom medicolegal death investigation, toxikologi och biologiska anomalier. Sex års erfarenhet av att söka sanning i dödens tystnad.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="hanna7.png" alt="Hanna Engler - medicinsk karriär">
+                </div>
+            </div>
+
+            <section id="position" class="content-section">
+                <h2 class="section-title">Nuvarande Position</h2>
+                
+                <div style="background: var(--accent-bg); padding: 2rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid var(--border-color);">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <h4 style="color: var(--accent-color); margin-bottom: 1rem; font-variant: small-caps;">Arbetsgivare</h4>
+                            <p style="margin-bottom: 0.5rem;"><strong>Office of the Chief Medical Examiner (OCME)</strong></p>
+                            <p style="margin-bottom: 0.5rem;">Maryland Department of Health</p>
+                            <p style="margin-bottom: 1rem;">900 W Baltimore St, Baltimore, MD 21223</p>
+                            
+                            <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                                Centraliserat ME-system för hela Maryland. Hanterar ~10,000 fall per år. 
+                                Ett av USA:s mest respekterade forensiska center.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h4 style="color: var(--accent-color); margin-bottom: 1rem; font-variant: small-caps;">Position</h4>
+                            <p style="margin-bottom: 0.5rem;"><strong>Associate Medical Examiner</strong></p>
+                            <p style="margin-bottom: 0.5rem;">Anställd: Sommaren 2025</p>
+                            <p style="margin-bottom: 1rem;">Tidigare: Northern New Jersey (2019-2025)</p>
+                            
+                            <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                                Strategisk placering för Delta Green - Baltimore ligger centralt 
+                                för Chesapeake-cellens operationsområde.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="facility-grid">
+                    <div class="facility-item">
+                        <h4>Laboratorietillgång</h4>
+                        <ul>
+                            <li>Moderna autopsisalar</li>
+                            <li>Toxikologiskt laboratorium</li>
+                            <li>Histologi-laboratorium</li>
+                            <li>DNA-analys (begränsad)</li>
+                            <li>Röntgen och radiologi</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="facility-item">
+                        <h4>Säker Infrastruktur</h4>
+                        <ul>
+                            <li>Evidensförvaring</li>
+                            <li>Digitalt arkivsystem</li>
+                            <li>Krypterade kommunikationer</li>
+                            <li>Kontrollerad access</li>
+                            <li>Säkra förvaringsenheter</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="facility-item">
+                        <h4>Specialutrustning</h4>
+                        <ul>
+                            <li>Avancerad mikroskopi</li>
+                            <li>Kemisk analysering</li>
+                            <li>Biologisk säkerhetsutrustning</li>
+                            <li>Fotografisk dokumentation</li>
+                            <li>Kylförvaring för prover</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="arbetsdag" class="content-section">
+                <h2 class="section-title">Typisk Arbetsdag</h2>
+                
+                <div class="workflow-timeline">
+                    <div class="workflow-step">
+                        <div class="workflow-time">07:30</div>
+                        <div class="workflow-activity">Morgonmöte</div>
+                        <div class="workflow-details">
+                            Genomgång av nya fall från natten. Tilldelning av autopsier. 
+                            Diskussion av komplicerade fall och resursallokning.
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="workflow-time">08:00-12:00</div>
+                        <div class="workflow-activity">Autopsier</div>
+                        <div class="workflow-details">
+                            1-3 autopsier beroende på komplexitet. Assisterad av dieners. 
+                            Noggrann dokumentation, fotografering och provtagning. 
+                            <em>Möjlighet att säkra DG-relevanta prover.</em>
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="workflow-time">12:00-13:00</div>
+                        <div class="workflow-activity">Lunch</div>
+                        <div class="workflow-details">
+                            Ofta med kollegor. Makaber humor som coping-mekanism. 
+                            Hanna håller sig distanserad men professionell.
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="workflow-time">13:00-16:00</div>
+                        <div class="workflow-activity">Labbarbete & Rapporter</div>
+                        <div class="workflow-details">
+                            Mikroskopisk analys. Rapport-skrivning. Konsultation med toxikologi. 
+                            Kommunikation med polis. <em>Tid för diskreta DG-analyser.</em>
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="workflow-time">16:00-17:00</div>
+                        <div class="workflow-activity">Administration</div>
+                        <div class="workflow-details">
+                            Databasuppdateringar. Kollegial granskning. 
+                            Förberedelse för domstolsvittnen. 
+                            <em>Dokumentationsmanipulation vid behov.</em>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-types">
+                    <h4 style="color: var(--accent-color); margin-bottom: 1rem; font-variant: small-caps; letter-spacing: 1px;">
+                        Fall Hanna Hanterar
+                    </h4>
+                    
+                    <div class="case-grid">
+                        <div class="case-category">
+                            <h5>Rutinmässiga</h5>
+                            <ul>
+                                <li>• Misstänkta mord</li>
+                                <li>• Överdoser</li>
+                                <li>• Trafikolyckor</li>
+                                <li>• Arbetsolyckor</li>
+                                <li>• Självmord</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="case-category">
+                            <h5>Komplexa</h5>
+                            <ul>
+                                <li>• Omärkta kroppar</li>
+                                <li>• Skelettfynd</li>
+                                <li>• Massdödsfall</li>
+                                <li>• Barn-dödsfall</li>
+                                <li>• Ovanliga infektioner</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="case-category">
+                            <h5>Specialisering</h5>
+                            <ul>
+                                <li>• Toxikologi-fall</li>
+                                <li>• Biologiska anomalier</li>
+                                <li>• Komplicerade förgiftningar</li>
+                                <li>• Onaturliga fenomen</li>
+                                <li>• <em>DG-relaterade fall</em></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="befogenheter" class="content-section">
+                <h2 class="section-title">Juridiska Befogenheter</h2>
+                
+                <div class="authority-box">
+                    <div class="authority-grid">
+                        <div class="authority-section">
+                            <h4>Direkt Auktoritet</h4>
+                            <ul>
+                                <li>Ta över kroppar från brottsplatser</li>
+                                <li>Genomföra autopsier utan tillstånd</li>
+                                <li>Samla och förvara bevis</li>
+                                <li>Utfärda dödsintyg</li>
+                                <li>Fastställa dödsorsak</li>
+                                <li>Begära ytterligare tester</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="authority-section">
+                            <h4>Myndighetssamarbete</h4>
+                            <ul>
+                                <li>Direkt arbete med polisen</li>
+                                <li>FBI-konsultation vid federala brott</li>
+                                <li>Åklagarkontakt</li>
+                                <li>Expert witness i domstol</li>
+                                <li>Tvärmyndighets-koordination</li>
+                                <li>Regionalt ME-nätverk</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="authority-section">
+                            <h4>Informationstillgång</h4>
+                            <ul>
+                                <li>Polisrapporter</li>
+                                <li>Medicinsk historik från sjukhus</li>
+                                <li>Vissa kriminalregister</li>
+                                <li>Andra ME-kontors databaser</li>
+                                <li>Forensiska nätverk</li>
+                                <li>Vetenskapliga databaser</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: rgba(201, 168, 118, 0.1); padding: 1.5rem; border-left: 4px solid var(--accent-color); border-radius: 0 4px 4px 0; margin: 2rem 0;">
+                    <h4 style="color: var(--accent-color); margin-bottom: 0.8rem; font-variant: small-caps;">Delta Green Fördelar</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem; color: var(--text-primary);">
+                            <strong>Legitim cover:</strong> Kan undersöka ovanliga kroppar och begära unika analyser utan misstankar
+                        </li>
+                        <li style="margin-bottom: 0.5rem; color: var(--text-primary);">
+                            <strong>Resurstillgång:</strong> Laboratorier, utrustning och säker förvaringsplats
+                        </li>
+                        <li style="margin-bottom: 0.5rem; color: var(--text-primary);">
+                            <strong>Manipulationsmöjligheter:</strong> Kan "förlora" prover, fördröja rapporter, skapa alternativa förklaringar
+                        </li>
+                        <li style="color: var(--text-primary);">
+                            <strong>Professionella kontakter:</strong> Direkt access till polis, FBI och andra myndigheter
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="kollegor" class="content-section">
+                <h2 class="section-title">Kollegor & Arbetsrelationer</h2>
+                
+                <div class="colleagues-grid">
+                    <div class="colleague-card">
+                        <div class="colleague-name">Dr. Raymond Foster</div>
+                        <div class="colleague-title">Chief Medical Examiner</div>
+                        <div class="colleague-note">
+                            60-årig veteran, respekterad i branschen. Strikt men rättvis. 
+                            Vet INTE om Delta Green. God professionell relation baserad 
+                            på Hannas New Jersey-meriter.
+                        </div>
+                    </div>
+                    
+                    <div class="colleague-card">
+                        <div class="colleague-name">Dr. Lisa Park</div>
+                        <div class="colleague-title">Senior ME - Pediatrisk specialist</div>
+                        <div class="colleague-note">
+                            45 år, specialist på barn-dödsfall. Hannas närmaste kollega. 
+                            Har bjudit in henne på middag (Hanna tackade nej). 
+                            <em>Börjar bli nyfiken på varför Hanna är så privat.</em>
+                        </div>
+                    </div>
+                    
+                    <div class="colleague-card">
+                        <div class="colleague-name">Dr. James Sullivan</div>
+                        <div class="colleague-title">Associate ME - Ex-militärläkare</div>
+                        <div class="colleague-note">
+                            50 år, tidigare militärläkare. Professionell att arbeta med. 
+                            Minimal social interaktion. Respekterar Hannas arbetsstil och 
+                            ställer inga onödiga frågor.
+                        </div>
+                    </div>
+                    
+                    <div class="colleague-card">
+                        <div class="colleague-name">Michael Chen</div>
+                        <div class="colleague-title">Senior Diener (autopsy technician)</div>
+                        <div class="colleague-note">
+                            Erfaren och noggrann. Diskret och professionell. 
+                            Värdeful för DG-operationer - ställer inga frågor 
+                            om ovanliga procedurer.
+                        </div>
+                    </div>
+                    
+                    <div class="colleague-card">
+                        <div class="colleague-name">Shauna Williams</div>
+                        <div class="colleague-title">Junior Diener</div>
+                        <div class="colleague-note">
+                            Ung och ambitiös. <em>Ställer ibland för många frågor.</em> 
+                            Potentiell säkerhetsrisk - Hanna måste vara extra 
+                            försiktig när hon arbetar med Shauna.
+                        </div>
+                    </div>
+                    
+                    <div class="colleague-card">
+                        <div class="colleague-name">Bobby Martinez</div>
+                        <div class="colleague-title">Veteran Diener</div>
+                        <div class="colleague-note">
+                            Veteran som "sett allt". Bryr sig inte om något längre. 
+                            Perfekt för diskreta operationer - han noterar inte 
+                            ovanligheter eller ställer frågor.
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; background: var(--accent-bg); padding: 1.5rem; border-radius: 6px;">
+                    <h4 style="color: var(--accent-color); margin-bottom: 1rem; font-variant: small-caps;">Externa Kontakter</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                        <div>
+                            <strong style="color: var(--text-primary);">Baltimore PD - Homicide:</strong><br>
+                            <span style="color: var(--text-secondary); font-size: 0.9rem;">
+                                Detektiv Sarah Chen - primär kontakt för mordfall
+                            </span>
+                        </div>
+                        <div>
+                            <strong style="color: var(--text-primary);">Maryland State Police:</strong><br>
+                            <span style="color: var(--text-secondary); font-size: 0.9rem;">
+                                Forensics Unit - samarbete vid större fall
+                            </span>
+                        </div>
+                        <div>
+                            <strong style="color: var(--text-primary);">FBI Baltimore:</strong><br>
+                            <span style="color: var(--text-secondary); font-size: 0.9rem;">
+                                Begränsad kontakt ännu - potential för framtida DG-asset
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="risker" class="content-section">
+                <h2 class="section-title">Begränsningar & Risker</h2>
+                
+                <div class="risk-warning">
+                    <h4>Professionella Begränsningar</h4>
+                    <p>
+                        Alla fall är trackade i system. Kollegor kan granska hennes arbete. 
+                        Polisen förväntar sig rapporter. Domstolar kan kalla henne som vittne. 
+                        Hon kan inte operera helt fritt utan att väcka misstankar.
+                    </p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                    <div style="background: rgba(212, 165, 116, 0.1); border-left: 4px solid var(--warning); padding: 1.5rem; border-radius: 0 4px 4px 0;">
+                        <h4 style="color: var(--warning); margin-bottom: 0.8rem; font-variant: small-caps;">Upptäcktrisk</h4>
+                        <ul style="list-style: none; padding: 0; color: var(--text-secondary);">
+                            <li style="margin-bottom: 0.4rem;">• Systematiska granskningar</li>
+                            <li style="margin-bottom: 0.4rem;">• Nyfikna kollegor (särskilt Dr. Park)</li>
+                            <li style="margin-bottom: 0.4rem;">• Andra myndigheter som övervakar</li>
+                            <li style="margin-bottom: 0.4rem;">• Mönster i "förlorade" prover</li>
+                            <li>• Domstolsgranskning av metodik</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(201, 148, 122, 0.1); border-left: 4px solid var(--danger); padding: 1.5rem; border-radius: 0 4px 4px 0;">
+                        <h4 style="color: var(--danger); margin-bottom: 0.8rem; font-variant: small-caps;">Personliga Konsekvenser</h4>
+                        <ul style="list-style: none; padding: 0; color: var(--text-secondary);">
+                            <li style="margin-bottom: 0.4rem;">• Förlust av medicinsk licens</li>
+                            <li style="margin-bottom: 0.4rem;">• Karriärdöd vid etiska överträdelser</li>
+                            <li style="margin-bottom: 0.4rem;">• Rättsliga påföljder</li>
+                            <li style="margin-bottom: 0.4rem;">• Exponering för biologiska hot</li>
+                            <li>• Stress av dubbelliv</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="background: var(--accent-bg); padding: 2rem; border-radius: 8px; border: 1px solid var(--border-color);">
+                    <h4 style="color: var(--accent-color); margin-bottom: 1rem; font-variant: small-caps; letter-spacing: 1px;">
+                        Säkerhet & OPSEC-strategier
+                    </h4>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                        <div>
+                            <strong style="color: var(--text-primary);">Dokumentation:</strong><br>
+                            <span style="color: var(--text-secondary); font-size: 0.9rem;">
+                                Separata anteckningar för DG-observationer. Kodord i officiella rapporter. 
+                                "Pending investigation" för DG-aktiva fall.
+                            </span>
+                        </div>
+                        
+                        <div>
+                            <strong style="color: var(--text-primary);">Provhantering:</strong><br>
+                            <span style="color: var(--text-secondary); font-size: 0.9rem;">
+                                "Extra" prover som aldrig loggas. "Kontaminerade" prover som måste förstöras. 
+                                Legitima förklaringar för saknade prover.
+                            </span>
+                        </div>
+                        
+                        <div>
+                            <strong style="color: var(--text-primary);">Digital Säkerhet:</strong><br>
+                            <span style="color: var(--text-secondary); font-size: 0.9rem;">
+                                Officiella system endast för legitima fall. DG-kommunikation på separata enheter. 
+                                Krypterad kommunikation med handler.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; background: rgba(139, 115, 85, 0.1); padding: 1.5rem; border-left: 4px solid var(--accent-secondary); border-radius: 0 4px 4px 0;">
+                    <h4 style="color: var(--accent-secondary); margin-bottom: 0.8rem; font-variant: small-caps;">Kritisk Fråga</h4>
+                    <p style="color: var(--text-secondary); line-height: 1.6; font-style: italic;">
+                        Hur länge kan hon balansera mellan den vetenskapliga världen och det onaturliga? 
+                        Varje DG-operation ökar risken för upptäckt. Varje förlorat prov kan vara det sista. 
+                        Och Dr. Lisa Park ställer fler frågor för varje vecka...
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

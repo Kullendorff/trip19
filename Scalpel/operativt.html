@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DR. HANNA ENGLER - Operativt | Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #1a1612;
+            --secondary-bg: #2b2520;
+            --accent-bg: #3d342e;
+            --text-primary: #e8dcc8;
+            --text-secondary: #a89378;
+            --accent-color: #c9a876;
+            --accent-secondary: #8b7355;
+            --border-color: #4a3f35;
+            --warning: #d4a574;
+            --danger: #c9947a;
+            --classified: #8b5a5a;
+        }
+
+        body {
+            font-family: Georgia, Garamond, serif;
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(201, 168, 118, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(61, 52, 46, 0.03) 0%, transparent 50%);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--secondary-bg);
+            padding: 2rem 1.5rem;
+            border-right: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: var(--accent-color);
+            text-align: center;
+            line-height: 1.3;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .ornament {
+            color: var(--accent-secondary);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .nav-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .nav-title {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: Georgia, serif;
+            font-variant: small-caps;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            background: rgba(201, 168, 118, 0.05);
+            position: relative;
+        }
+
+        .page-link::before {
+            content: "❧ ";
+            color: var(--accent-secondary);
+            opacity: 0.6;
+            margin-right: 5px;
+        }
+
+        .page-link:hover {
+            color: var(--accent-color);
+            background: rgba(201, 168, 118, 0.15);
+            border-color: var(--accent-color);
+            transform: translateX(3px);
+        }
+
+        .page-link.active {
+            background: var(--accent-color);
+            color: var(--primary-bg);
+            font-weight: bold;
+            border-color: var(--accent-color);
+        }
+
+        .page-link.active::before {
+            color: var(--primary-bg);
+            opacity: 1;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.85rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            border-bottom-color: var(--accent-secondary);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-align: center;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--accent-bg) 100%);
+            border-radius: 8px;
+            border: 2px solid var(--border-color);
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid var(--accent-secondary);
+            border-radius: 6px;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+            letter-spacing: 1px;
+            font-variant: small-caps;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            filter: sepia(20%) contrast(1.1);
+            border: 2px solid var(--accent-secondary);
+        }
+
+        .content-section {
+            background: var(--secondary-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .content-section::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 1px solid var(--accent-secondary);
+            border-radius: 6px;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        .section-title::before {
+            content: "✦ ";
+            color: var(--accent-secondary);
+            margin-right: 8px;
+        }
+
+        .classified-warning {
+            background: linear-gradient(135deg, var(--classified) 0%, rgba(139, 90, 90, 0.8) 100%);
+            border: 2px solid rgba(139, 90, 90, 0.6);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .classified-warning h3 {
+            color: #e8dcc8;
+            font-variant: small-caps;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .classified-warning p {
+            color: #d4c4a8;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        .operation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .operation-card {
+            background: var(--accent-bg);
+            border: 2px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .operation-card::before {
+            content: "";
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            bottom: 6px;
+            border: 1px solid var(--accent-secondary);
+            border-radius: 6px;
+            opacity: 0.2;
+        }
+
+        .operation-title {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        .operation-details {
+            display: grid;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .operation-detail {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(201, 168, 118, 0.1);
+        }
+
+        .detail-label {
+            color: var(--text-secondary);
+            font-weight: bold;
+            font-variant: small-caps;
+            font-size: 0.9rem;
+        }
+
+        .detail-value {
+            color: var(--text-primary);
+        }
+
+        .bonds-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .bond-card {
+            background: var(--accent-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.8rem;
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .bond-status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        .bond-active {
+            background: rgba(201, 168, 118, 0.2);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+
+        .bond-broken {
+            background: rgba(201, 148, 122, 0.2);
+            color: var(--danger);
+            border: 1px solid var(--danger);
+        }
+
+        .bond-name {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-variant: small-caps;
+        }
+
+        .bond-relation {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .bond-strength {
+            color: var(--text-primary);
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+        }
+
+        .bond-description {
+            color: var(--text-secondary);
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .contact-card {
+            background: var(--accent-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 6px;
+        }
+
+        .contact-name {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+            font-variant: small-caps;
+        }
+
+        .contact-title {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-note {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .equipment-category {
+            background: var(--accent-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 6px;
+        }
+
+        .equipment-category h4 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        .equipment-category ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .equipment-category li {
+            padding: 0.3rem 0;
+            color: var(--text-primary);
+            border-bottom: 1px solid rgba(201, 168, 118, 0.1);
+            font-size: 0.9rem;
+        }
+
+        .equipment-category li:before {
+            content: "◦ ";
+            color: var(--accent-secondary);
+            margin-right: 0.5rem;
+        }
+
+        .handler-box {
+            background: linear-gradient(135deg, var(--classified) 0%, rgba(139, 90, 90, 0.3) 100%);
+            border: 2px solid rgba(139, 90, 90, 0.6);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .handler-title {
+            color: #e8dcc8;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+            font-size: 1.2rem;
+        }
+
+        .handler-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .handler-section h5 {
+            color: #d4c4a8;
+            margin-bottom: 0.8rem;
+            font-variant: small-caps;
+        }
+
+        .handler-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .handler-section li {
+            padding: 0.3rem 0;
+            color: #c4b49d;
+            font-size: 0.9rem;
+        }
+
+        .handler-section li:before {
+            content: "▪ ";
+            color: rgba(139, 115, 85, 0.8);
+            margin-right: 0.5rem;
+        }
+
+        .risk-assessment {
+            background: rgba(212, 165, 116, 0.1);
+            border-left: 4px solid var(--warning);
+            padding: 1.5rem;
+            border-radius: 0 4px 4px 0;
+            margin: 2rem 0;
+        }
+
+        .risk-assessment h4 {
+            color: var(--warning);
+            margin-bottom: 0.8rem;
+            font-variant: small-caps;
+        }
+
+        .risk-assessment p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 2px solid var(--border-color);
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .operation-grid,
+            .bonds-grid,
+            .contacts-grid,
+            .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <span class="ornament">❧</span> DR. HANNA ENGLER <span class="ornament">❧</span><br>
+                <span style="font-size: 0.8rem; color: var(--text-secondary); font-variant: normal; letter-spacing: 1px;">Medical Examiner • Delta Green</span>
+            </div>
+            
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="index.html" class="page-link">KARAKTÄR</a>
+                        <a href="personligt.html" class="page-link">PERSONLIGT</a>
+                        <a href="medicinsk.html" class="page-link">MEDICINSK KARRIÄR</a>
+                        <a href="operativt.html" class="page-link active">OPERATIVT</a>
+                        <a href="art.html" class="page-link">KONST & MUSIK</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-title">Snabbnavigering</div>
+                    <a href="#delta-green" class="nav-link">Delta Green</a>
+                    <a href="#operationer" class="nav-link">Operationer</a>
+                    <a href="#bonds" class="nav-link">Bonds</a>
+                    <a href="#kontakter" class="nav-link">Kontakter</a>
+                    <a href="#utrustning" class="nav-link">Utrustning</a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <span class="ornament">✦</span><br>
+                Classified Material<br>
+                Eyes Only<br>
+                Delta Green<br>
+                <span class="ornament">✦</span>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>Operativ Profil</h1>
+                    <div class="subtitle">Codename: SCALPEL</div>
+                    <p>Delta Green operative sedan 2022. Forensisk expert och analytisk support för Chesapeake-cellen. Specialisering inom biologiska anomalier och post-operation cleanup. Nuvarande uppdrag inkluderar bedömning av teamleader Mac Rileys funktionalitet.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="hanna8.png" alt="Hanna Engler - operativ">
+                </div>
+            </div>
+
+            <div class="classified-warning">
+                <h3>◆ CLASSIFIED - DELTA GREEN EYES ONLY ◆</h3>
+                <p>Följande information är klassificerad och endast avsedd för auktoriserad Delta Green-personal</p>
+            </div>
+
+            <section id="delta-green" class="content-section">
+                <h2 class="section-title">Delta Green Status</h2>
+                
+                <div class="handler-box">
+                    <div class="handler-title">Handler-relation: Cardinal Pierce</div>
+                    <div class="handler-details">
+                        <div class="handler-section">
+                            <h5>Kontaktinformation</h5>
+                            <ul>
+                                <li>Krypterade meddelanden (Signal)</li>
+                                <li>Engångstelefoner</li>
+                                <li>Fysiska möten (sällan)</li>
+                                <li>Dead drop vid nödsituation</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="handler-section">
+                            <h5>Relation</h5>
+                            <ul>
+                                <li>Rekryterade Hanna 2022</li>
+                                <li>Professionell respekt</li>
+                                <li>Ordnade Maryland-placeringen</li>
+                                <li>Sekundärt uppdrag: bedöm Mac Riley</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="handler-section">
+                            <h5>Kommunikationsfrekvens</h5>
+                            <ul>
+                                <li>Månader mellan kontakt (normalt)</li>
+                                <li>Daglig kontakt under operationer</li>
+                                <li>Rapportering vid behov</li>
+                                <li>Nödkontakt vid kompromittering</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: var(--accent-bg); padding: 2rem; border-radius: 8px; margin: 2rem 0; border: 1px solid var(--border-color);">
+                    <h4 style="color: var(--accent-color); margin-bottom: 1rem; font-variant: small-caps; letter-spacing: 1px;">
+                        Rekryteringshistoria
+                    </h4>
+                    <p style="color: var(--text-primary); line-height: 1.7; margin-bottom: 1rem;">
+                        <strong>Våren 2022:</strong> Autopsi av biologiskt omöjlig kropp från "industriolycka" i New Jersey. 
+                        Hannas noggranna dokumentation och diskretion noterades av DG.
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        "Vi vet vad du såg. Vi vet att du dokumenterade det korrekt. Det finns en organisation som hanterar sånt här. 
+                        Vi behöver människor som du - metodiska, diskreta, kapabla att se sanningen utan att bryta ihop."
+                    </p>
+                </div>
+            </section>
+
+            <section id="operationer" class="content-section">
+                <h2 class="section-title">DG-operationer</h2>
+                
+                <div class="operation-grid">
+                    <div class="operation-card">
+                        <div class="operation-title">Operation 1: [Klassificerad]</div>
+                        <div class="operation-details">
+                            <div class="operation-detail">
+                                <div class="detail-label">Datum:</div>
+                                <div class="detail-value">2022-2023</div>
+                            </div>
+                            <div class="operation-detail">
+                                <div class="detail-label">Roll:</div>
+                                <div class="detail-value">Forensisk expert</div>
+                            </div>
+                            <div class="operation-detail">
+                                <div class="detail-label">SAN-förlust:</div>
+                                <div class="detail-value">4-6 poäng</div>
+                            </div>
+                            <div class="operation-detail">
+                                <div class="detail-label">Status:</div>
+                                <div class="detail-value">Lyckad (med förluster)</div>
+                            </div>
+                        </div>
+                        <p style="color: var(--text-secondary); font-style: italic; font-size: 0.9rem;">
+                            Första exponering för det genuint onaturliga. Hypervigilans utvecklades som responsmekanism. 
+                            Förändrade hennes syn på världen permanent.
+                        </p>
+                    </div>
+                    
+                    <div class="operation-card">
+                        <div class="operation-title">Operation "Clean Sweep"</div>
+                        <div class="operation-details">
+                            <div class="operation-detail">
+                                <div class="detail-label">Datum:</div>
+                                <div class="detail-value">Hösten 2023</div>
+                            </div>
+                            <div class="operation-detail">
+                                <div class="detail-label">Plats:</div>
+                                <div class="detail-value">Delaware</div>
+                            </div>
+                            <div class="operation-detail">
+                                <div class="detail-label">Roll:</div>
+                                <div class="detail-value">Post-operation cleanup</div>
+                            </div>
+                            <div class="operation-detail">
+                                <div class="detail-label">SAN-förlust:</div>
+                                <div class="detail-value">2-3 poäng</div>
+                            </div>
+                        </div>
+                        <p style="color: var(--text-secondary); font-style: italic; font-size: 0.9rem;">
+                            Autopsi av både offer och döda DG-agents efter annan cells misslyckade operation. 
+                            Tvingades dissekera en kollega - emotionellt brutalt.
+                        </p>
+                    </div>
+                    
+                    <div class="operation-card">
+                        <div class="operation-title">Operation "Pattern Recognition"</div>
+                        <div class="operation-details">
+                            <div class="operation-detail">
+                                <div class="detail-label">Datum:</div>
+                                <div class="detail-value">Våren 2025</div>
+                            </div>
+                            <div class="operation-detail">
+                                <div class="detail-label">Plats:</div>
+                                <div class="detail-value">New Jersey</div>
+                            </div>
+                            <div class="operation-detail">
+                                <div class="detail-label">Komplikation:</div>
+                                <div class="detail-value">Patricia Rourke-incident</div>
+                            </div>
+                            <div class="operation-detail">
+                                <div class="detail-label">Resultat:</div>
+                                <div class="detail-value">Tvångsflyttning</div>
+                            </div>
+                        </div>
+                        <p style="color: var(--text-secondary); font-style: italic; font-size: 0.9rem;">
+                            Serie märkliga kroppar ledde till kollegas mentala kollaps. Hanna rapporterade Patricia till DG. 
+                            Patricia "försvann". Hannas cover kompromitterad - flytt till Maryland nödvändig.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="risk-assessment">
+                    <h4>Nuvarande Operativ Status</h4>
+                    <p>
+                        Hanna befinner sig i Maryland med nytt ME-uppdrag som cover. Sekundärt mål att bedöma Mac Rileys funktionalitet 
+                        för DG. SAN eroderar stadigt - närmare breaking point än hon vill erkänna. Två bonds förlorade senaste året.
+                    </p>
+                </div>
+            </section>
+
+            <section id="bonds" class="content-section">
+                <h2 class="section-title">Bonds & Relationer</h2>
+                
+                <div style="text-align: center; margin: 2rem 0; padding: 1rem; background: var(--accent-bg); border-radius: 6px;">
+                    <span style="color: var(--accent-color); font-size: 1.5rem; font-weight: bold;">Totalt aktiva bonds: 25 poäng</span>
+                </div>
+                
+                <div class="bonds-grid">
+                    <div class="bond-card">
+                        <div class="bond-status bond-active">Aktiv</div>
+                        <div class="bond-name">Sarah Engler</div>
+                        <div class="bond-relation">Mor och dotter</div>
+                        <div class="bond-strength">Bond-styrka: 10</div>
+                        <div class="bond-description">
+                            Pensionerad dataingenjör, 63 år, NYC. Pragmatisk kärlek utan sentimentalitet. 
+                            Vet inte om Delta Green - tror Hanna bara har stressigt jobb. 
+                            Hanna håller henne på avstånd för att skydda henne.
+                        </div>
+                    </div>
+                    
+                    <div class="bond-card">
+                        <div class="bond-status bond-active">Aktiv</div>
+                        <div class="bond-name">Jürgen Engler</div>
+                        <div class="bond-relation">Far och dotter</div>
+                        <div class="bond-strength">Bond-styrka: 8</div>
+                        <div class="bond-description">
+                            Konstnär/musiker, 64 år, Berlin. Sporadisk men djup kontakt. 
+                            Aldrig frågade "varför är du sådan?" - bara accepterade. 
+                            Skulle hantera DG-sanningar bättre än de flesta.
+                        </div>
+                    </div>
+                    
+                    <div class="bond-card">
+                        <div class="bond-status bond-active">Aktiv</div>
+                        <div class="bond-name">Dr. Marcus Chen</div>
+                        <div class="bond-relation">Före detta kollega</div>
+                        <div class="bond-strength">Bond-styrka: 7</div>
+                        <div class="bond-description">
+                            ME i New Jersey, 42 år. Sex års professionellt samarbete som blev vänskap. 
+                            Geografisk separation gör bonden svagare varje månad. 
+                            Risk att den bara faller bort av försummelse.
+                        </div>
+                    </div>
+                    
+                    <div class="bond-card">
+                        <div class="bond-status bond-broken">Bruten</div>
+                        <div class="bond-name">Före detta partner</div>
+                        <div class="bond-relation">Romantisk relation (3+ år)</div>
+                        <div class="bond-strength">Var: 10-12 poäng</div>
+                        <div class="bond-description">
+                            Relation förstörd av DG-hemligheter 2025. "Du är någon annanstans hela tiden. 
+                            Jag känner inte igen dig längre." Hanna kunde inte försvara sig utan att avslöja sanningen.
+                        </div>
+                    </div>
+                    
+                    <div class="bond-card">
+                        <div class="bond-status bond-broken">Bruten</div>
+                        <div class="bond-name">Dr. Patricia Rourke</div>
+                        <div class="bond-relation">Mentor och kollega</div>
+                        <div class="bond-strength">Var: 9 poäng</div>
+                        <div class="bond-description">
+                            Senior ME som började obsessera över "mönster" i märkliga fall. 
+                            Hanna rapporterade henne till DG. Patricia försvann kort därefter. 
+                            Skuld och trauma kvarstår.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="kontakter" class="content-section">
+                <h2 class="section-title">Professionella Kontakter</h2>
+                
+                <div class="contacts-grid">
+                    <div class="contact-card">
+                        <div class="contact-name">Dr. Lisa Park</div>
+                        <div class="contact-title">Senior ME, Baltimore OCME</div>
+                        <div class="contact-note">
+                            45 år, pediatrisk specialist. Hannas "mentor" för Baltimore-systemet. 
+                            Börjar bli nyfiken på varför Hanna är så privat. 
+                            Potentiell vän om Hanna tillät det - och potentiell säkerhetsrisk.
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-name">Detektiv Sarah Chen</div>
+                        <div class="contact-title">Baltimore PD, Homicide</div>
+                        <div class="contact-note">
+                            38 år, 7 år i Homicide. Tuff och pragmatisk. 
+                            Arbetar med Hanna på mordfall. Professionell respekt, minimal småprat. 
+                            Har bjudit på öl efter svåra fall.
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-name">Dr. Raymond Foster</div>
+                        <div class="contact-title">Chief Medical Examiner</div>
+                        <div class="contact-note">
+                            60-årig veteran, strikt men rättvis. 
+                            Vet INTE om Delta Green. God professionell relation baserad på 
+                            Hannas New Jersey-meriter.
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-name">Michael Chen</div>
+                        <div class="contact-title">Senior Diener</div>
+                        <div class="contact-note">
+                            Erfaren autopsy technician. Diskret och professionell. 
+                            Värdeful för DG-operationer - ställer inga frågor om ovanliga procedurer.
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-name">Shauna Williams</div>
+                        <div class="contact-title">Junior Diener</div>
+                        <div class="contact-note">
+                            Ung och ambitiös. Ställer ibland för många frågor. 
+                            Potentiell säkerhetsrisk - Hanna måste vara extra försiktig 
+                            när hon arbetar med Shauna.
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-name">Bobby Martinez</div>
+                        <div class="contact-title">Veteran Diener</div>
+                        <div class="contact-note">
+                            Veteran som "sett allt", bryr sig inte om något längre. 
+                            Perfekt för diskreta operationer - noterar inte ovanligheter 
+                            eller ställer frågor.
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; background: rgba(139, 115, 85, 0.1); padding: 1.5rem; border-left: 4px solid var(--accent-secondary); border-radius: 0 4px 4px 0;">
+                    <h4 style="color: var(--accent-secondary); margin-bottom: 0.8rem; font-variant: small-caps;">Kontakt-strategi</h4>
+                    <p style="color: var(--text-secondary); line-height: 1.6; font-style: italic;">
+                        Hanna håller människor på avstånd - inte för att hon är elak, utan för att hon lärt sig att människor 
+                        kan tas ifrån henne, lämna henne, eller ställa frågor hon inte kan svara på. 
+                        Det är lättare att vara ensam. Säkrare att vara ensam.
+                    </p>
+                </div>
+            </section>
+
+            <section id="utrustning" class="content-section">
+                <h2 class="section-title">Utrustning & Resurser</h2>
+                
+                <div class="equipment-grid">
+                    <div class="equipment-category">
+                        <h4>Flykt-utrustning</h4>
+                        <ul>
+                            <li>Go-bag under sängen (3 dagars försörjning)</li>
+                            <li>$2,500 i kontanter och prepaid-kort</li>
+                            <li>Backup-dokumentation</li>
+                            <li>Första hjälpen-kit</li>
+                            <li>Multi-tool och överlevnadsutrustning</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="equipment-category">
+                        <h4>Transport</h4>
+                        <ul>
+                            <li>2019 Honda Civic (silver, anonym)</li>
+                            <li>Maryland-registrering</li>
+                            <li>Alltid minst halvtank bränsle</li>
+                            <li>Go-bag duplicate i bagageutrymme</li>
+                            <li>ME-legitimation för rörelsefrihet</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="equipment-category">
+                        <h4>Kommunikation</h4>
+                        <ul>
+                            <li>2-3 engångstelefoner (ej hemma)</li>
+                            <li>Signal-app för kryptering</li>
+                            <li>VPN-access</li>
+                            <li>Krypterad laptop</li>
+                            <li>USB-backup (gömd separat)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="equipment-category">
+                        <h4>Grafitti-utrustning</h4>
+                        <ul>
+                            <li>5-8 handskurna stencils (anatomiska dödskallar)</li>
+                            <li>Spray paint-förråd</li>
+                            <li>Skärverktyg och material</li>
+                            <li>Skyddsutrustning och mask</li>
+                            <li>Cleanup-material</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="equipment-category">
+                        <h4>Säkerhet</h4>
+                        <ul>
+                            <li>Extra dörrås (diskret installation)</li>
+                            <li>Kontaktsensorer på fönster</li>
+                            <li>Dörrkil under sängen</li>
+                            <li>Identifierad flyktväg via bakfönster</li>
+                            <li>Hårstrån för intrångsdetektering</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="equipment-category">
+                        <h4>Saknas (överväger)</h4>
+                        <ul>
+                            <li>Vapen (Glock 19 under övervägande)</li>
+                            <li>Bättre säker för dokument</li>
+                            <li>Backup safe house</li>
+                            <li>Krav Maga-gym i Baltimore</li>
+                            <li>Avancerad surveillance-utrustning</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="background: var(--accent-bg); padding: 2rem; border-radius: 8px; border: 1px solid var(--border-color); margin-top: 2rem;">
+                    <h4 style="color: var(--accent-color); margin-bottom: 1rem; font-variant: small-caps; letter-spacing: 1px;">
+                        Utrustnings-filosofi
+                    </h4>
+                    <p style="color: var(--text-primary); line-height: 1.7;">
+                        <strong>Minimalism som säkerhetsstrategi.</strong> Allt hon äger kan packas och transporteras snabbt. 
+                        Inga sentimentala föremål synliga. Varje föremål tjänar ett syfte. 
+                        Hon är redo att lämna allt inom 10-15 minuter om planerat, 2-3 minuter vid desperation.
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

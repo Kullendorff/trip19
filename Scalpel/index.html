@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DR. HANNA ENGLER - Karaktär | Medical Examiner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #1a1612;
+            --secondary-bg: #2b2520;
+            --accent-bg: #3d342e;
+            --text-primary: #e8dcc8;
+            --text-secondary: #a89378;
+            --accent-color: #c9a876;
+            --accent-secondary: #8b7355;
+            --border-color: #4a3f35;
+            --warning: #d4a574;
+            --danger: #c9947a;
+        }
+
+        body {
+            font-family: Georgia, Garamond, serif;
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(201, 168, 118, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(61, 52, 46, 0.03) 0%, transparent 50%);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--secondary-bg);
+            padding: 2rem 1.5rem;
+            border-right: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: var(--accent-color);
+            text-align: center;
+            line-height: 1.3;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .ornament {
+            color: var(--accent-secondary);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .nav-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .nav-title {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: Georgia, serif;
+            font-variant: small-caps;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            background: rgba(201, 168, 118, 0.05);
+            position: relative;
+        }
+
+        .page-link::before {
+            content: "❧ ";
+            color: var(--accent-secondary);
+            opacity: 0.6;
+            margin-right: 5px;
+        }
+
+        .page-link:hover {
+            color: var(--accent-color);
+            background: rgba(201, 168, 118, 0.15);
+            border-color: var(--accent-color);
+            transform: translateX(3px);
+        }
+
+        .page-link.active {
+            background: var(--accent-color);
+            color: var(--primary-bg);
+            font-weight: bold;
+            border-color: var(--accent-color);
+        }
+
+        .page-link.active::before {
+            color: var(--primary-bg);
+            opacity: 1;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.85rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            border-bottom-color: var(--accent-secondary);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-align: center;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--accent-bg) 100%);
+            border-radius: 8px;
+            border: 2px solid var(--border-color);
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid var(--accent-secondary);
+            border-radius: 6px;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+            letter-spacing: 1px;
+            font-variant: small-caps;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            filter: sepia(20%) contrast(1.1);
+            border: 2px solid var(--accent-secondary);
+        }
+
+        .content-section {
+            background: var(--secondary-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .content-section::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 1px solid var(--accent-secondary);
+            border-radius: 6px;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        .section-title::before {
+            content: "✦ ";
+            color: var(--accent-secondary);
+            margin-right: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 1rem 0.75rem;
+            background: var(--accent-bg);
+            color: var(--accent-color);
+            font-weight: bold;
+            border-bottom: 2px solid var(--accent-color);
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+            background: rgba(201, 168, 118, 0.03);
+        }
+
+        tr:nth-child(even) td {
+            background: rgba(61, 52, 46, 0.1);
+        }
+
+        tr:hover td {
+            background: rgba(201, 168, 118, 0.08);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-box {
+            background: var(--accent-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-box::before {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 1px solid var(--accent-secondary);
+            border-radius: 4px;
+            opacity: 0.3;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-variant: small-caps;
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-percent {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0.8rem;
+            background: var(--accent-bg);
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-name {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .skill-value {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .danger-stat {
+            color: var(--danger) !important;
+            font-weight: bold;
+        }
+
+        .warning-stat {
+            color: var(--warning) !important;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 2px solid var(--border-color);
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <span class="ornament">❧</span> DR. HANNA ENGLER <span class="ornament">❧</span><br>
+                <span style="font-size: 0.8rem; color: var(--text-secondary); font-variant: normal; letter-spacing: 1px;">Medical Examiner • Delta Green</span>
+            </div>
+            
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="index.html" class="page-link active">KARAKTÄR</a>
+                        <a href="personligt.html" class="page-link">PERSONLIGT</a>
+                        <a href="medicinsk.html" class="page-link">MEDICINSK KARRIÄR</a>
+                        <a href="operativt.html" class="page-link">OPERATIVT</a>
+                        <a href="art.html" class="page-link">KONST & MUSIK</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-title">Snabbnavigering</div>
+                    <a href="#grundinfo" class="nav-link">Grundinfo</a>
+                    <a href="#stats" class="nav-link">Statistik</a>
+                    <a href="#skills" class="nav-link">Huvudfärdigheter</a>
+                    <a href="#mental" class="nav-link">Mentalt Tillstånd</a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <span class="ornament">✦</span><br>
+                Classified Material<br>
+                Medical Examiner<br>
+                Baltimore, Maryland<br>
+                <span class="ornament">✦</span>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>Hanna Engler</h1>
+                    <div class="subtitle">Dr. Hanna Marie Engler, M.D.</div>
+                    <p>Associate Medical Examiner för Baltimore County. Forensisk patolog med 6 års erfarenhet och specialisering inom medicolegal death investigation. Delta Green operative sedan 2022 med expertis inom biologisk analys och forensisk dokumentation.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="hanna1.png" alt="Dr. Hanna Engler">
+                </div>
+            </div>
+
+            <section id="grundinfo" class="content-section">
+                <h2 class="section-title">Grundinformation</h2>
+                <table>
+                    <tr>
+                        <td><strong>Fullständigt namn:</strong></td>
+                        <td>Hanna Marie Engler</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Codename:</strong></td>
+                        <td>SCALPEL</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Född:</strong></td>
+                        <td>15 april 1986, New York City</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ålder:</strong></td>
+                        <td>39 år</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nationalitet:</strong></td>
+                        <td>Amerikansk (tysk härkomst)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yrke:</strong></td>
+                        <td>Associate Medical Examiner, Baltimore County</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Delta Green-status:</strong></td>
+                        <td>Operative (2022-), Forensisk expert</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Specialisering:</strong></td>
+                        <td>Forensisk patologi, toxikologi, biologisk analys</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section id="stats" class="content-section">
+                <h2 class="section-title">Grundstatistik</h2>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-label">STR</div>
+                        <div class="stat-value">9</div>
+                        <div class="stat-percent">(45%)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">CON</div>
+                        <div class="stat-value">11</div>
+                        <div class="stat-percent">(55%)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">DEX</div>
+                        <div class="stat-value">13</div>
+                        <div class="stat-percent">(65%)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">INT</div>
+                        <div class="stat-value">16</div>
+                        <div class="stat-percent">(80%)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">POW</div>
+                        <div class="stat-value">14</div>
+                        <div class="stat-percent">(70%)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">CHA</div>
+                        <div class="stat-value">11</div>
+                        <div class="stat-percent">(55%)</div>
+                    </div>
+                </div>
+                
+                <table>
+                    <tr>
+                        <th>Härledda Värden</th>
+                        <th>Värde</th>
+                        <th>Anteckningar</th>
+                    </tr>
+                    <tr>
+                        <td>Hit Points (HP)</td>
+                        <td>10</td>
+                        <td>(STR + CON) / 2</td>
+                    </tr>
+                    <tr>
+                        <td>Willpower Points (WP)</td>
+                        <td>14</td>
+                        <td>= POW</td>
+                    </tr>
+                    <tr>
+                        <td>Sanity Points (SAN)</td>
+                        <td class="warning-stat">56</td>
+                        <td>POW × 4, efter DG-förluster</td>
+                    </tr>
+                    <tr>
+                        <td>Breaking Point (BP)</td>
+                        <td class="danger-stat">42</td>
+                        <td>SAN - POW</td>
+                    </tr>
+                    <tr>
+                        <td>Adapted to Violence</td>
+                        <td>1</td>
+                        <td>Vissa DG-operationer</td>
+                    </tr>
+                    <tr>
+                        <td>Adapted to Helplessness</td>
+                        <td>0</td>
+                        <td>Kontrollbehov för högt</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section id="skills" class="content-section">
+                <h2 class="section-title">Huvudfärdigheter</h2>
+                
+                <h3 style="color: var(--accent-color); margin: 1.5rem 0 1rem 0; font-variant: small-caps; letter-spacing: 1px;">Medicinska Expertområden</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <span class="skill-name">Forensics</span>
+                        <span class="skill-value">60%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Medicine</span>
+                        <span class="skill-value">60%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Science (Pathology)</span>
+                        <span class="skill-value">50%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Science (Toxicology)</span>
+                        <span class="skill-value">40%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Science (Biology)</span>
+                        <span class="skill-value">40%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Surgery</span>
+                        <span class="skill-value">20%</span>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--accent-color); margin: 1.5rem 0 1rem 0; font-variant: small-caps; letter-spacing: 1px;">Analytiska & Observationella</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <span class="skill-name">Alertness</span>
+                        <span class="skill-value">50%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Search</span>
+                        <span class="skill-value">20%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">HUMINT</span>
+                        <span class="skill-value">40%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Science (Chemistry)</span>
+                        <span class="skill-value">30%</span>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--accent-color); margin: 1.5rem 0 1rem 0; font-variant: small-caps; letter-spacing: 1px;">Språk & Kulturella</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <span class="skill-name">Foreign Language (German)</span>
+                        <span class="skill-value">50%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Foreign Language (Latin)</span>
+                        <span class="skill-value">30%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">History</span>
+                        <span class="skill-value">20%</span>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--accent-color); margin: 1.5rem 0 1rem 0; font-variant: small-caps; letter-spacing: 1px;">Praktiska Färdigheter</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <span class="skill-name">Unarmed Combat (Krav Maga)</span>
+                        <span class="skill-value">40%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Art (Sketch/Graffiti)</span>
+                        <span class="skill-value">40%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Music (Piano)</span>
+                        <span class="skill-value">40%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Drive</span>
+                        <span class="skill-value">50%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Computer Science</span>
+                        <span class="skill-value">20%</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mental" class="content-section">
+                <h2 class="section-title">Mentalt Tillstånd</h2>
+                <table>
+                    <tr>
+                        <td><strong>Sanity Points:</strong></td>
+                        <td class="warning-stat">56/56</td>
+                        <td>Eroderar stadigt efter DG-operationer</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Breaking Point:</strong></td>
+                        <td class="danger-stat">42</td>
+                        <td>Närmare än hon vill erkänna</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mentala störningar:</strong></td>
+                        <td>Inga formella ännu</td>
+                        <td>Men varningssignaler finns</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Coping-mekanismer:</strong></td>
+                        <td>Krav Maga, Piano, Grafitti</td>
+                        <td>Kontroll genom rutiner</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stress-respons:</strong></td>
+                        <td>Hyperrational kontroll</td>
+                        <td>Intensifierad rutinmässighet</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Riskfaktorer:</strong></td>
+                        <td>Hypervigilans, isolation</td>
+                        <td>Drömmar om Patricia Rourke</td>
+                    </tr>
+                </table>
+
+                <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(196, 148, 116, 0.1); border-left: 4px solid var(--warning); border-radius: 4px;">
+                    <p style="font-style: italic; color: var(--text-secondary);">
+                        <strong>Psykologisk bedömning:</strong> Dr. Engler uppvisar tecken på ökande stress efter DG-rekrytering. 
+                        Hennes naturliga kontrollbehov intensifieras som respons på exponering för det okontrollerbara. 
+                        Hypervigilans och obsessiva rutiner utvecklas som försvar. Nära övervakning rekommenderas.
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

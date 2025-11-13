@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DR. HANNA ENGLER - Konst & Musik | Art Expression</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #1a1612;
+            --secondary-bg: #2b2520;
+            --accent-bg: #3d342e;
+            --text-primary: #e8dcc8;
+            --text-secondary: #a89378;
+            --accent-color: #c9a876;
+            --accent-secondary: #8b7355;
+            --border-color: #4a3f35;
+            --warning: #d4a574;
+            --danger: #c9947a;
+        }
+
+        body {
+            font-family: Georgia, Garamond, serif;
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(201, 168, 118, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(61, 52, 46, 0.03) 0%, transparent 50%);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--secondary-bg);
+            padding: 2rem 1.5rem;
+            border-right: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: var(--accent-color);
+            text-align: center;
+            line-height: 1.3;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .ornament {
+            color: var(--accent-secondary);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .nav-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .nav-title {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: Georgia, serif;
+            font-variant: small-caps;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            background: rgba(201, 168, 118, 0.05);
+            position: relative;
+        }
+
+        .page-link::before {
+            content: "❧ ";
+            color: var(--accent-secondary);
+            opacity: 0.6;
+            margin-right: 5px;
+        }
+
+        .page-link:hover {
+            color: var(--accent-color);
+            background: rgba(201, 168, 118, 0.15);
+            border-color: var(--accent-color);
+            transform: translateX(3px);
+        }
+
+        .page-link.active {
+            background: var(--accent-color);
+            color: var(--primary-bg);
+            font-weight: bold;
+            border-color: var(--accent-color);
+        }
+
+        .page-link.active::before {
+            color: var(--primary-bg);
+            opacity: 1;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.85rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            border-bottom-color: var(--accent-secondary);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-align: center;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--accent-bg) 100%);
+            border-radius: 8px;
+            border: 2px solid var(--border-color);
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid var(--accent-secondary);
+            border-radius: 6px;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+            letter-spacing: 1px;
+            font-variant: small-caps;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            filter: sepia(20%) contrast(1.1);
+            border: 2px solid var(--accent-secondary);
+        }
+
+        .content-section {
+            background: var(--secondary-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .content-section::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 1px solid var(--accent-secondary);
+            border-radius: 6px;
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        .section-title::before {
+            content: "✦ ";
+            color: var(--accent-secondary);
+            margin-right: 8px;
+        }
+
+        .quote-box {
+            background: var(--accent-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 6px 6px 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            text-align: center;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .quote-box::before,
+        .quote-box::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--accent-secondary);
+            position: absolute;
+            opacity: 0.3;
+        }
+
+        .quote-box::before {
+            top: 0.5rem;
+            left: 1rem;
+        }
+
+        .quote-box::after {
+            bottom: 0.5rem;
+            right: 1rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .artwork-card {
+            background: var(--accent-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .artwork-card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-color);
+        }
+
+        .artwork-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            filter: sepia(15%) contrast(1.1);
+            transition: filter 0.3s ease;
+        }
+
+        .artwork-card:hover .artwork-image {
+            filter: sepia(5%) contrast(1.2);
+        }
+
+        .artwork-info {
+            padding: 1.5rem;
+        }
+
+        .artwork-title {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        .artwork-details {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .artwork-description {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .era-section {
+            margin: 3rem 0;
+        }
+
+        .era-title {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-variant: small-caps;
+            letter-spacing: 2px;
+            border-bottom: 1px solid var(--accent-secondary);
+            padding-bottom: 1rem;
+        }
+
+        .era-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .piano-section {
+            background: linear-gradient(135deg, var(--accent-bg) 0%, var(--secondary-bg) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .piano-section::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 1px solid var(--accent-secondary);
+            border-radius: 6px;
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .piano-title {
+            color: var(--accent-color);
+            font-size: 1.6rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        .spotify-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .spotify-embed {
+            background: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .spotify-title {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-variant: small-caps;
+            font-weight: bold;
+        }
+
+        .spotify-iframe {
+            width: 100%;
+            height: 152px;
+            border-radius: 12px;
+            border: none;
+        }
+
+        .philosophy-box {
+            background: rgba(139, 115, 85, 0.1);
+            border-left: 4px solid var(--accent-secondary);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .philosophy-box h4 {
+            color: var(--accent-secondary);
+            margin-bottom: 1rem;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        .philosophy-box p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .silence-warning {
+            background: rgba(212, 165, 116, 0.1);
+            border: 2px solid var(--warning);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .silence-warning h4 {
+            color: var(--warning);
+            margin-bottom: 0.8rem;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        .silence-warning p {
+            color: var(--text-primary);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 2px solid var(--border-color);
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .gallery,
+            .spotify-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <span class="ornament">❧</span> DR. HANNA ENGLER <span class="ornament">❧</span><br>
+                <span style="font-size: 0.8rem; color: var(--text-secondary); font-variant: normal; letter-spacing: 1px;">Medical Examiner • Delta Green</span>
+            </div>
+            
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="index.html" class="page-link">KARAKTÄR</a>
+                        <a href="personligt.html" class="page-link">PERSONLIGT</a>
+                        <a href="medicinsk.html" class="page-link">MEDICINSK KARRIÄR</a>
+                        <a href="operativt.html" class="page-link">OPERATIVT</a>
+                        <a href="art.html" class="page-link active">KONST & MUSIK</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-title">Snabbnavigering</div>
+                    <a href="#filosofi" class="nav-link">Konstnärlig Filosofi</a>
+                    <a href="#berlin" class="nav-link">Berlin Era</a>
+                    <a href="#amerika" class="nav-link">Amerika Era</a>
+                    <a href="#piano" class="nav-link">Piano & Musik</a>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <span class="ornament">✦</span><br>
+                Creative Expression<br>
+                Art & Music<br>
+                Private Collection<br>
+                <span class="ornament">✦</span>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>Konst & Musik</h1>
+                    <div class="subtitle">Anatomical Street Art & Piano</div>
+                    <p>Var patologins precision möter street arts råhet. Anatomiskt noggrann graffiti och återfunnet piano efter 17 års tystnad. Konst som kontroll. Musik som meditation. Döden gjord vacker genom precision.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="hanna6.png" alt="Hanna Engler - konst och musik">
+                </div>
+            </div>
+
+            <div class="quote-box">
+                Döden är vacker när den är precis. Allt annat är bara förfall.
+            </div>
+
+            <section id="filosofi" class="content-section">
+                <h2 class="section-title">Konstnärlig Filosofi</h2>
+                
+                <div class="philosophy-box">
+                    <h4>Visual Art - Street Anatomy</h4>
+                    <p>
+                        Hennes konst är där patologins precision möter street arts råhet. Anatomiskt noggrann. 
+                        Medicinskt korrekt. Men på tegelväggar i mörkret, inte på obduktionsbord i ljuset. 
+                        Samma motiv, olika väggar. Memento mori som filosofi.
+                    </p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+                    <div style="background: var(--accent-bg); padding: 1.5rem; border-radius: 6px; border: 1px solid var(--border-color);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.8rem; font-variant: small-caps;">Stil</h4>
+                        <ul style="list-style: none; padding: 0; color: var(--text-primary);">
+                            <li style="margin-bottom: 0.4rem;">• Svart/vitt/grått (sällan färg)</li>
+                            <li style="margin-bottom: 0.4rem;">• Stencil-baserad (precision, kontroll)</li>
+                            <li style="margin-bottom: 0.4rem;">• Anatomisk noggrannhet</li>
+                            <li>• Memento mori-tema</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: var(--accent-bg); padding: 1.5rem; border-radius: 6px; border: 1px solid var(--border-color);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 0.8rem; font-variant: small-caps;">Teknik</h4>
+                        <ul style="list-style: none; padding: 0; color: var(--text-primary);">
+                            <li style="margin-bottom: 0.4rem;">• Multi-layer stencils</li>
+                            <li style="margin-bottom: 0.4rem;">• 4-8 timmar skärtid</li>
+                            <li style="margin-bottom: 0.4rem;">• 30-60 minuter målning</li>
+                            <li>• Alltid på natten (03:00-05:00)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="silence-warning">
+                    <h4>Nuvarande Status - Baltimore</h4>
+                    <p>Har INTE målat i Baltimore än. För riskabelt. För nyligen flyttad. Men händerna kliar. Stencilsen ligger kvar i closet.</p>
+                </div>
+            </section>
+
+            <section id="berlin" class="content-section">
+                <div class="era-section">
+                    <div class="era-title">Berlin Era</div>
+                    <div class="era-subtitle">2010-2011 • Utbytesår • Kreuzberg • Learning the streets</div>
+                    
+                    <div class="gallery">
+                        <div class="artwork-card">
+                            <img src="hannaart7.png" alt="Thorax Study #1" class="artwork-image">
+                            <div class="artwork-info">
+                                <div class="artwork-title">Thorax Study #1</div>
+                                <div class="artwork-details">
+                                    <strong>Plats:</strong> Kreuzberg, Berlin<br>
+                                    <strong>Datum:</strong> Oktober 2010<br>
+                                    <strong>Medium:</strong> Stencil, svart spray<br>
+                                    <strong>Status:</strong> Målad över 2012
+                                </div>
+                                <div class="artwork-description">
+                                    Första stora stencilen. Tre lager för djup. Tog 6 timmar att skära, 40 minuter att måla vid 03:00. 
+                                    Blodet pumpade hårt. Händerna skakade. Men linjerna? Perfekta.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="artwork-card">
+                            <img src="hannaart5.png" alt="Skull Profile Series" class="artwork-image">
+                            <div class="artwork-info">
+                                <div class="artwork-title">Skull Profile Series</div>
+                                <div class="artwork-details">
+                                    <strong>Plats:</strong> Kreuzberg, Berlin<br>
+                                    <strong>Datum:</strong> Mars 2011<br>
+                                    <strong>Medium:</strong> Stencil, svart spray<br>
+                                    <strong>Status:</strong> Buffad 2011
+                                </div>
+                                <div class="artwork-description">
+                                    Urban memento mori breder ut sig över sönderfallande betong. En skalle i dramatisk profil, 
+                                    svart sprayfärg skapar djup genom skugga och negativt utrymme. Vilda botaniska element bryter genom benstrukturen - 
+                                    naturen återtar döden, eller döden som närer tillväxt. Den massiva skalan förvandlar en medicinsk studie till gatumytologi. 
+                                    Postsovjetisk estetik möter anatomisk precision i övergivna industrizoner.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="artwork-card">
+                            <img src="hannaart1.png" alt="Vertebrae Sequence" class="artwork-image">
+                            <div class="artwork-info">
+                                <div class="artwork-title">Vertebrae Sequence</div>
+                                <div class="artwork-details">
+                                    <strong>Plats:</strong> Friedrichshain, Berlin<br>
+                                    <strong>Datum:</strong> Januari 2011<br>
+                                    <strong>Medium:</strong> Stencil, svart/vitt<br>
+                                    <strong>Status:</strong> Kvar (senast sedd 2019)
+                                </div>
+                                <div class="artwork-description">
+                                    Monumentalt street art som dominerar en hel byggnadsvägg. En massiv skelettorso växer fram från åldrad tegel, 
+                                    ryggrad och revben renderade i fotorealistisk detalj över tre våningar av industriell förfall. 
+                                    Skalan förvandlar anatomi till arkitektur - varje kota lika stor som ett fönster, 
+                                    dödlighet målad tillräckligt stor för att synas från kvarter bort. Berlin-utbytesår, där små stencils växte till byggnads-stora statements.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="amerika" class="content-section">
+                <div class="era-section">
+                    <div class="era-title">Amerika Era</div>
+                    <div class="era-subtitle">2012-2024 • NYC/New Jersey • Residency • Licensure • Night work • Darkness</div>
+                    
+                    <div class="gallery">
+                        <div class="artwork-card">
+                            <img src="hannaart3.png" alt="Ribcage #7" class="artwork-image">
+                            <div class="artwork-info">
+                                <div class="artwork-title">Ribcage #7</div>
+                                <div class="artwork-details">
+                                    <strong>Plats:</strong> Newark, NJ<br>
+                                    <strong>Datum:</strong> Augusti 2015<br>
+                                    <strong>Medium:</strong> Stencil, svart/beige<br>
+                                    <strong>Status:</strong> Kvar (förmodligen)
+                                </div>
+                                <div class="artwork-description">
+                                    Efter första DG-operationen. Kunde inte sova. Behövde måla. 
+                                    Revben och rygg mot gammal betongvägg. Tre lager. Sex timmar att skära. En timme att måla. 
+                                    Gryningen kom när jag var klar.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="artwork-card">
+                            <img src="hannaart4.png" alt="Full Skeleton #2" class="artwork-image">
+                            <div class="artwork-info">
+                                <div class="artwork-title">Full Skeleton #2</div>
+                                <div class="artwork-details">
+                                    <strong>Plats:</strong> Brooklyn, NY (Red Hook)<br>
+                                    <strong>Datum:</strong> Juni 2018<br>
+                                    <strong>Medium:</strong> Multi-layer stencil<br>
+                                    <strong>Status:</strong> Kvar (senast sedd 2023)
+                                </div>
+                                <div class="artwork-description">
+                                    Efter DG-rekrytering. Första stora verket som "insider". Hela kroppen. Kranium till tår. 
+                                    Fyra meter högt. Åtta lagers stencil. Två nätter. Patricia hjälpte till att hålla watch. 
+                                    Hon förstod varför jag behövde göra det.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="artwork-card">
+                            <img src="hannaart8.png" alt="Skeletal Hand Reaching" class="artwork-image">
+                            <div class="artwork-info">
+                                <div class="artwork-title">Skeletal Hand Reaching</div>
+                                <div class="artwork-details">
+                                    <strong>Plats:</strong> Newark, NJ<br>
+                                    <strong>Datum:</strong> April 2021<br>
+                                    <strong>Medium:</strong> Stencil, svart spray<br>
+                                    <strong>Status:</strong> Delvis kvar (faded)
+                                </div>
+                                <div class="artwork-description">
+                                    Under pandemin. Efter att ha sett för många döda. Handen sträcker sig uppåt. 
+                                    Metacarpals till phalanges. Exakt. Når efter något som inte finns. 
+                                    Eller kanske döden når efter oss.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="artwork-card">
+                            <img src="hannaart10.png" alt="Multi-Skull Compilation" class="artwork-image">
+                            <div class="artwork-info">
+                                <div class="artwork-title">Multi-Skull Compilation</div>
+                                <div class="artwork-details">
+                                    <strong>Plats:</strong> Studio work (NJ apartment)<br>
+                                    <strong>Datum:</strong> 2012-2020 (löpande)<br>
+                                    <strong>Medium:</strong> Ink on aged paper<br>
+                                    <strong>Status:</strong> Private collection
+                                </div>
+                                <div class="artwork-description">
+                                    Anatomiska studier mellan jobben. Bläck på papper. Ibland för att studera. 
+                                    Oftast för att meditera. Döden är inte skrämmande när den är vacker.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="artwork-card">
+                            <img src="hannaart12.png" alt="Ribcage Technical Illustration" class="artwork-image">
+                            <div class="artwork-info">
+                                <div class="artwork-title">Ribcage Technical Illustration</div>
+                                <div class="artwork-details">
+                                    <strong>Typ:</strong> Anatomisk studie<br>
+                                    <strong>Medium:</strong> Ink, technical precision<br>
+                                    <strong>Användning:</strong> Stencil-förberedelse<br>
+                                    <strong>Status:</strong> Arbetsmaterial
+                                </div>
+                                <div class="artwork-description">
+                                    Tekniska förstudier för stencil-arbete. Varje linje måste vara exakt 
+                                    innan den skärs. Medicin möter konst möter precision.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="artwork-card">
+                            <img src="hannaart2.png" alt="Night Watch Baltimore" class="artwork-image">
+                            <div class="artwork-info">
+                                <div class="artwork-title">Night Watch Baltimore</div>
+                                <div class="artwork-details">
+                                    <strong>Plats:</strong> Baltimore, MD<br>
+                                    <strong>Datum:</strong> Oktober 2018<br>
+                                    <strong>Medium:</strong> Direkt spraymålning, svart/vit<br>
+                                    <strong>Status:</strong> Övermålad 2019
+                                </div>
+                                <div class="artwork-description">
+                                    Anatomisk precision möter urban förfall i en gränd nära Johns Hopkins. 
+                                    Skallen vaktar över tomma gator, målad direkt på tegelsten utan stencil - varje spricka i väggen blir en spricka i benet. 
+                                    Gatlyktornas skarpa ljus förvandlar verket från dag till natt, från varning till vallmo. 
+                                    Skapad under en sömnlös vecka efter en särskilt brutal obduktion av en tonåring. Stadens våld översatt till permanent påminnelse.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="piano" class="content-section">
+                <div class="piano-section">
+                    <div class="piano-title">Piano - Återkomsten</div>
+                    
+                    <div style="text-align: center; margin: 2rem 0;">
+                        <img src="hanna4.png" alt="Hanna vid piano" style="max-width: 400px; width: 100%; border-radius: 8px; filter: sepia(20%) contrast(1.1); border: 2px solid var(--accent-secondary);">
+                    </div>
+
+                    <div style="background: var(--secondary-bg); padding: 2rem; border-radius: 6px; margin: 2rem 0; border: 1px solid var(--border-color);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 1rem; font-variant: small-caps; text-align: center;">
+                            17 års tystnad (2004-2025)
+                        </h4>
+                        <p style="color: var(--text-primary); text-align: center; line-height: 1.7; font-style: italic;">
+                            College, medical school, residency, karriär - ingen tid, ingen tillgång till instrument. 
+                            Piano-bänken blev tom. Fingrarna glömde. Musiken tystnade.
+                        </p>
+                    </div>
+
+                    <div style="background: var(--accent-bg); padding: 2rem; border-radius: 6px; margin: 2rem 0; border: 1px solid var(--border-color);">
+                        <h4 style="color: var(--accent-color); margin-bottom: 1rem; font-variant: small-caps; text-align: center;">
+                            Baltimore 2025 - Återfunnet
+                        </h4>
+                        <p style="color: var(--text-primary); text-align: center; line-height: 1.7;">
+                            Lägenheten på 9 E Ostend St hade ett gammalt piano. För tungt att flytta ut. 
+                            Perfekt för henne att flytta in. Muskelminne återkom efter några veckor. 
+                            <strong>Spelar nu 4-5 kvällar/vecka, sent (22:00-23:30), tyst för grannarna.</strong>
+                        </p>
+                    </div>
+
+                    <div class="spotify-grid">
+                        <div class="spotify-embed">
+                            <div class="spotify-title">Ludovico Einaudi - Nuvole Bianche</div>
+                            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3weNRklVDqb4Rr5MhKBR3D?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            <div style="color: var(--text-secondary); margin-top: 1rem; font-style: italic; padding: 0 1rem; text-align: center; font-size: 0.9rem;">
+                                Modern, minimalistisk, repetitiv. Emotionell men kontrollerad. Tekniskt tillgänglig efter 17 års paus. Spelar den när hon behöver känna något utan att förlora kontrollen.
+                            </div>
+                        </div>
+
+                        <div class="spotify-embed">
+                            <div class="spotify-title">Max Richter - On The Nature of Daylight</div>
+                            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/65gmwDiFrJhzKD2lJviFIb?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            <div style="color: var(--text-secondary); margin-top: 1rem; font-style: italic; padding: 0 1rem; text-align: center; font-size: 0.9rem;">
+                                Sorgsen. Vacker. Minimalistisk struktur = meditation. Spelar den sent. När lägenheten är tyst. När världen utanför inte finns.
+                            </div>
+                        </div>
+
+                        <div class="spotify-embed">
+                            <div class="spotify-title">Erik Satie - Gymnopédie No. 1</div>
+                            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5NGtFXVpXSvwunEIGeviY3?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            <div style="color: var(--text-secondary); margin-top: 1rem; font-style: italic; padding: 0 1rem; text-align: center; font-size: 0.9rem;">
+                                Första stycket hon spelade igen. Tekniskt enkelt. Melankoliskt utan att vara överväldigande. Perfekt för 23:00. Perfekt för ensam.
+                            </div>
+                        </div>
+
+                        <div class="spotify-embed">
+                            <div class="spotify-title">Erik Satie - Gnossienne No. 1</div>
+                            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4820SC1xnUaabzzYQTDkP2?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            <div style="color: var(--text-secondary); margin-top: 1rem; font-style: italic; padding: 0 1rem; text-align: center; font-size: 0.9rem;">
+                                Mystisk. Metodisk. Meditativ. Spelar den när hon behöver struktur. Slow tempo. Inga fel. Ordning.
+                            </div>
+                        </div>
+
+                        <div class="spotify-embed">
+                            <div class="spotify-title">Frédéric Chopin - Nocturne Op. 9 No. 2</div>
+                            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4xv3vh8uplclEMnFWTpujZ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            <div style="color: var(--text-secondary); margin-top: 1rem; font-style: italic; padding: 0 1rem; text-align: center; font-size: 0.9rem;">
+                                Klassiskt melankolisk. Inte för teknisk. Spelar den när hon behöver känna sorg utan att bryta ihop. Vacker men distant.
+                            </div>
+                        </div>
+
+                        <div class="spotify-embed">
+                            <div class="spotify-title">Claude Debussy - Clair de Lune</div>
+                            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5u5aVJKjSMJr4zesMPz7bL?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            <div style="color: var(--text-secondary); margin-top: 1rem; font-style: italic; padding: 0 1rem; text-align: center; font-size: 0.9rem;">
+                                Drömsk. Impressionistisk. En av de första hon lärde sig igen. Känslomässigt distanserad men vacker. Som henne.
+                            </div>
+                        </div>
+
+                        <div class="spotify-embed">
+                            <div class="spotify-title">J.S. Bach - Prelude in C Major</div>
+                            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4i8ly7ffzWu8nfKLI8SZFj?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            <div style="color: var(--text-secondary); margin-top: 1rem; font-style: italic; padding: 0 1rem; text-align: center; font-size: 0.9rem;">
+                                Ren struktur. Matematisk skönhet. Ordning. Spelar den när hon behöver känna kontroll. Bach förstod: skönhet finns i precision.
+                            </div>
+                        </div>
+
+                        <div class="spotify-embed">
+                            <div class="spotify-title">J.S. Bach - Goldberg Variations (Aria)</div>
+                            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/74OIJe9hgZswqyLyicfAy4?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            <div style="color: var(--text-secondary); margin-top: 1rem; font-style: italic; padding: 0 1rem; text-align: center; font-size: 0.9rem;">
+                                Bara arian, inte hela variationsverket (ännu). Balanserad. Strukturerad. Lugn. Bach som meditation, inte virtuositet.
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="philosophy-box" style="margin-top: 3rem;">
+                        <h4>Musik som Coping-mekanism</h4>
+                        <p>
+                            Piano är inte funktionellt för överlevnad. Det tjänar ingen operativ funktion. 
+                            Men det är för själen. Första gången sedan DG-rekrytering hon tillåtit sig något bara för att hon vill ha det. 
+                            Spelar för meditation och kontroll. När världen blir för brutal, finns Bach. När döden blir för närvarande, finns Chopin.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
