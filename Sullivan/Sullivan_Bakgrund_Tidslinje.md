@@ -187,7 +187,7 @@ Sullivan räddade barnen genom att förstöra deras dagis. Gjorde "rätt" val. M
 
 ---
 
-### 2025 - SEA GLASS: THE BREAKING POINT (Ålder 46)
+### 2025 - SEA GLASS: TRO-KRISEN KULMINERAR (Ålder 46)
 **Vad hände:**
 Operation i Maine. Kristaller som transformerade människor. Sullivan såg:
 
@@ -210,7 +210,7 @@ Inte en enskild händelse - utan den ackumulerade vår av:
 - Gud lät detta hända utan att ge något sätt att rädda dem
 
 **Konsekvens:**
-Sullivan krossades. Han följde order - gjorde "rätt" val enligt Delta Green. Men en präst ska rädda liv, inte offra dem.
+Sullivan skadades djupt. Han följde order - gjorde "rätt" val enligt Delta Green. Men en präst ska rädda liv, inte offra dem.
 
 **Psykologisk status efter Sea Glass:**
 - Kan inte längre be offentligt utan att tvivla
@@ -287,7 +287,7 @@ Sullivan krossades. Han följde order - gjorde "rätt" val enligt Delta Green. M
 - Stannar i Delta Green av plikt, inte tro
 - Stödjer Mac (ser hans kollaps)
 - Stödjer Sparky (ser hennes isolering)
-- Känner sig ansvarig för teamet trots att han själv bryter
+- Känner sig ansvarig för teamet trots att han själv närmar sig gränsen
 
 **Den centrala frågan:**
 *"Finns Gud när det onaturliga existerar? Om exorcism inte fungerar, om bön inte hjälper, om oskyldiga dör ändå - vad är jag då? En präst utan tro? En soldat för ingenting?"*
