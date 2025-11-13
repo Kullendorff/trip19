@@ -250,6 +250,34 @@
             border-radius: 6px;
             border: 1px solid var(--border);
             border-left: 4px solid var(--accent-dim);
+            transition: all 0.3s ease;
+        }
+
+        .operation-card.clickable {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .operation-card.clickable:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .operation-card.clickable::after {
+            content: "► Klicka för detaljer";
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            font-size: 0.75rem;
+            color: var(--accent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-style: normal;
+        }
+
+        .operation-card.clickable:hover::after {
+            opacity: 1;
         }
 
         .operation-card h4 {
@@ -269,53 +297,6 @@
             margin-top: 1rem;
         }
 
-        .bonds-section {
-            margin-top: 3rem;
-        }
-
-        .bond-card {
-            background-color: var(--bg-darker);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 2rem;
-            margin: 2rem 0;
-            border-left: 4px solid var(--accent);
-        }
-
-        .bond-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .bond-name {
-            font-size: 1.3rem;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        .bond-value {
-            background-color: var(--accent);
-            color: var(--bg-dark);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-weight: bold;
-        }
-
-        .bond-relation {
-            color: var(--text-dim);
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        .bond-status {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background-color: rgba(184, 115, 51, 0.1);
-            border-radius: 4px;
-        }
-
         .section-image {
             text-align: center;
             margin: 2rem 0;
@@ -326,6 +307,152 @@
             width: 100%;
             border-radius: 8px;
             border: 2px solid var(--accent-dim);
+        }
+
+        /* Operation Modal Styles */
+        .operation-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            overflow-y: auto;
+        }
+
+        .operation-modal.active {
+            display: block;
+        }
+
+        .operation-modal-content {
+            background: var(--bg-darker);
+            margin: 2% auto;
+            padding: 3rem;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            width: 90%;
+            max-width: 900px;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--accent);
+            color: var(--bg-darker);
+        }
+
+        .modal-header {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-meta-item {
+            background: var(--bg-dark);
+            padding: 0.75rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .modal-meta-label {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .modal-meta-value {
+            font-size: 1rem;
+            color: var(--text);
+            font-weight: bold;
+        }
+
+        .modal-section {
+            margin-bottom: 2rem;
+        }
+
+        .modal-section h3 {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .modal-section p {
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .modal-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .modal-section li {
+            padding: 0.5rem 0;
+            color: var(--text);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .modal-section li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .modal-quote {
+            background: var(--bg-dark);
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: var(--text-dim);
+        }
+
+        .modal-warning {
+            background: rgba(255, 51, 102, 0.1);
+            border: 1px solid var(--danger);
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+            color: var(--danger);
         }
 
         @media (max-width: 1024px) {
@@ -351,6 +478,16 @@
 
             .operations-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .operation-modal-content {
+                width: 95%;
+                padding: 2rem 1.5rem;
+                margin: 5% auto;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
             }
         }
 
@@ -444,7 +581,7 @@
                 FATHER SULLIVAN<br>
                 <span style="font-size: 0.8rem; color: var(--text-dim);">NAVY CHAPLAIN // DELTA GREEN</span>
             </div>
-            
+
             <nav>
                 <div class="nav-section">
                     <div class="page-link-container">
@@ -455,14 +592,14 @@
                         <a href="sullivan_bibelcitat.html" class="page-link">BIBELCITAT</a>
                     </div>
                 </div>
-                
+
                 <div class="nav-section">
                     <div class="nav-title">SNABBNAVIGERING</div>
                     <a href="#rekrytering" class="nav-link">Rekrytering</a>
                     <a href="#operationer" class="nav-link">Operationer</a>
                 </div>
             </nav>
-            
+
             <div class="sidebar-footer">
                 <a href="../index.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">
                     ✦ TRIP 19 ✦<br>
@@ -476,9 +613,9 @@
                 <div class="hero-content">
                     <h1>DELTA GREEN OPERATIVE</h1>
                     <div class="subtitle">Chesapeake Cell | Field Agent | 5 Years Service</div>
-                    
+
                     <div class="hero-quote">
-                        "Någon måste stå mellan dem och mörkret. 
+                        "Någon måste stå mellan dem och mörkret.
                         Även om Gud inte gör det."
                     </div>
                 </div>
@@ -487,48 +624,50 @@
                 </div>
             </section>
 
-            <section id="rekrytering" class="section">
-                <h2>REKRYTERING: AFGHANISTAN 2020</h2>
-
-                <div class="section-image">
-                    <img src="sullivan6.png" alt="Sullivan helping wounded - pastoral work i krigszon" class="clickable-image" />
-                </div>
-
-                <p><strong>Platsen:</strong> Forward Operating Base, Helmand Province, Afghanistan<br>
-                <strong>Datum:</strong> September 2020<br>
-                <strong>Ålder:</strong> 41 år</p>
-
-                <p>Sullivan var Navy Chaplain tilldelad en Marines-enhet. En ung Marine - Corporal Ryan Miller - började uppvisa märkligt beteende. Pratade om "röster från väggen", skrev bakåt i sin dagbok, såg saker som inte fanns där.</p>
-
-                <p>Officerarna trodde det var PTSD eller heatstroke. Sullivan insåg det var något annat.</p>
-
-                <div class="quote-box">
-                    "Jag försökte exorcism. Latin, heligt vatten, böner jag lärt mig 
-                    i seminariet. Ingenting fungerade. Rösten fortsatte. Miller blev värre. 
-                    Sedan en natt... något svarade tillbaka. På Latin. Men... baklänges."
-                </div>
-
-                <p><strong>Vad hände:</strong><br>
-                Sullivan och Doc Torres (combat medic, nu Bond #2) försökte rädda Miller. De misslyckades. Miller dog - men inte av naturliga orsaker.</p>
-
-                <p>Efteråt kontaktades Sullivan av en "consultant" från Defense Intelligence. Mannen visste exakt vad som hänt. Han erbjöd Sullivan en möjlighet att "göra något åt sånt här".</p>
-
-                <p>Sullivan sa ja. Inte för Gud. För plikt.</p>
-            </section>
-
             <section id="operationer" class="section">
                 <h2>DELTA GREEN OPERATIONER (2020-2025)</h2>
 
-                <p>Sullivan har deltagit i 8-10 Delta Green-operationer sedan 2020:</p>
+                <p>Sullivan har deltagit i 8-10 Delta Green-operationer sedan 2020. Här är de viktigaste:</p>
 
                 <div class="operations-grid">
+                    <div class="operation-card clickable" onclick="openOperationModal('op1')">
+                        <h4>Afghanistan Exorcism</h4>
+                        <div class="date">September 2020</div>
+                        <p>- REKRYTERINGSHÄNDELSEN<br>
+                        - Corporal Miller & "rösten"<br>
+                        - Exorcism som misslyckades<br>
+                        - "Något svarade tillbaka"</p>
+                        <div class="san-loss">Rekrytering (ingen SAN-förlust ännu)</div>
+                    </div>
+
+                    <div class="operation-card clickable" onclick="openOperationModal('op2')">
+                        <h4>Operation "Holy Ground"</h4>
+                        <div class="date">Utah, 2021</div>
+                        <p>- Mormonsk församling infiltrerad<br>
+                        - HUMINT identifierade smittade<br>
+                        - 2 civila döda, 8 räddade<br>
+                        - Första operation efter rekrytering</p>
+                        <div class="san-loss">2 SAN-förlust</div>
+                    </div>
+
+                    <div class="operation-card clickable" onclick="openOperationModal('op3')">
+                        <h4>Operation "Night Terrors"</h4>
+                        <div class="date">Virginia, 2023</div>
+                        <p>- Dagis med delade mardrömmar<br>
+                        - Psykisk smitta, inte trauma<br>
+                        - Evakuerade barn, brände byggnaden<br>
+                        - "Räddade dem genom att förstöra hemmet"</p>
+                        <div class="san-loss">1 SAN-förlust</div>
+                    </div>
+
                     <div class="operation-card">
                         <h4>Operation "The Mall Before Christmas"</h4>
                         <div class="date">December 2024</div>
                         <p>- Första operation med Mac & Sparky<br>
                         - Kristallkub, Dmitri Volkov<br>
-                        - Mac's besatthet började här</p>
-                        <div class="san-loss">4 SAN-förlust</div>
+                        - Mac's besatthet började här<br>
+                        - Tro-krisen började</p>
+                        <div class="san-loss">3 SAN-förlust</div>
                     </div>
 
                     <div class="operation-card">
@@ -537,18 +676,9 @@
                         <p>- Maine research facility<br>
                         - Kristaller som transformerade människor<br>
                         - <strong>THE BREAKING POINT</strong><br>
-                        - Tro-krisen kulminerade</p>
-                        <div class="san-loss">6 SAN-förlust</div>
-                    </div>
-
-                    <div class="operation-card">
-                        <h4>5+ tidigare operationer</h4>
-                        <div class="date">2020-2024</div>
-                        <p>- Mix av false flags och genuina hot<br>
-                        - Gradvis erosion av tron<br>
-                        - Lärde sig Delta Green-metoder<br>
-                        - Träffade Mac oktober 2024</p>
-                        <div class="san-loss">~2 SAN-förlust totalt</div>
+                        - Tro-krisen kulminerade<br>
+                        - "Set the charges"</p>
+                        <div class="san-loss">5 SAN-förlust</div>
                     </div>
                 </div>
 
@@ -558,7 +688,7 @@
                     <strong>Breaking Point:</strong> Nådd under Sea Glass<br>
                     <strong>Tro:</strong> Borta eller vilande - han vet inte vilket<br>
                     <strong>Roll i cell:</strong> De facto leader efter Mac's forced leave</p>
-                    
+
                     <p>Han fortsätter inte för tro. Han fortsätter för att någon måste.
                     Och om han slutar nu var allt meningslöst.</p>
                 </div>
@@ -567,7 +697,307 @@
         </main>
     </div>
 
+    <!-- Operation Modals -->
+    <div id="op1-modal" class="operation-modal">
+        <div class="operation-modal-content">
+            <button class="modal-close" onclick="closeOperationModal('op1')">&times;</button>
+
+            <div class="modal-header">
+                <h2 class="modal-title">Afghanistan Exorcism</h2>
+                <div class="modal-meta">
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Datum</div>
+                        <div class="modal-meta-value">September 2020</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Plats</div>
+                        <div class="modal-meta-value">Helmand Province, Afghanistan</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Roll</div>
+                        <div class="modal-meta-value">Navy Chaplain</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Typ</div>
+                        <div class="modal-meta-value">REKRYTERING</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3>Upptäckten</h3>
+                <p>Forward Operating Base, Helmand Province. En Delta Force-operator - Corporal Ryan Miller - fördes till Sullivan efter ett black ops-uppdrag i grottorna. Officiellt: PTSD. Inofficiellt: säkerhetshot.</p>
+                <p>Sullivan såg symptom som inte stämde:</p>
+                <ul>
+                    <li>Miller pratade baklänges (perfekt, som inspelning spelad baklänges)</li>
+                    <li>Visste saker han inte borde kunna veta</li>
+                    <li>Hade onaturlig styrka (6 MPs kunde inte hålla honom)</li>
+                    <li>Reagerade fysiskt på kors, biblar, välsignat vatten</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>Vad Sullivan trodde</h3>
+                <p>Demonic possession. Verklig besättelse. Sullivan utförde exorcism (inte officiell katolsk ritual - han hade inte tillstånd - men han försökte).</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Vad som hände</h3>
+                <p>Exorcismen förvärrade situationen. Miller skrattade:</p>
+                <div class="modal-quote">
+                    "Silly priest. There is no demon. I am more. I am what came before your God. I am what will remain after."
+                </div>
+                <p>När Sullivan läste evangelium skrek Miller - men av glädje, inte smärta:</p>
+                <div class="modal-quote">
+                    "YES! Read more! Your words feed me! Your faith makes me REAL!"
+                </div>
+                <p>Sullivan slutade. Insåg: Detta var inte demonic. Det var något annat. Något som hans tro inte kunde stoppa.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Delta Green kommer</h3>
+                <p>Samma natt kom ett team, drogade Miller, förde bort honom. En man i civil kläder - senare kallad "Handler" - pratade med Sullivan efteråt:</p>
+                <div class="modal-quote">
+                    "Faith doesn't work on these things, Father. They're older than your God. They don't care about crosses. But we need people like you - people who won't run when they see the truth."
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3>Valet</h3>
+                <p>Sullivan fick 3 månader att tänka. Handler gav honom ett säkert telefonnummer. "Ring om du vill veta mer. Eller glöm det här och fortsätt ditt liv."</p>
+                <p><strong>Sullivan ringde 2 månader senare.</strong></p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Varför han gick med</h3>
+                <ul>
+                    <li>Kunde inte ignorera vad han sett</li>
+                    <li>Om exorcism inte fungerar, vad fungerar då?</li>
+                    <li>Någon måste stoppa dessa saker</li>
+                    <li>Som präst är hans kallelse att skydda själar - även om fienden inte är demoner</li>
+                    <li>Kanske, på något sätt, är detta Guds plan för honom</li>
+                </ul>
+            </div>
+
+            <div class="modal-warning">
+                <strong>Permanent påverkan:</strong> Första gången Sullivan insåg att hans tro inte räckte. Första sprickan i fundamentet. Men han såg det som en utmaning, inte ett misslyckande. Ännu.
+            </div>
+        </div>
+    </div>
+
+    <div id="op2-modal" class="operation-modal">
+        <div class="operation-modal-content">
+            <button class="modal-close" onclick="closeOperationModal('op2')">&times;</button>
+
+            <div class="modal-header">
+                <h2 class="modal-title">Operation "Holy Ground"</h2>
+                <div class="modal-meta">
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Datum</div>
+                        <div class="modal-meta-value">2021</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Plats</div>
+                        <div class="modal-meta-value">Utah</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Roll</div>
+                        <div class="modal-meta-value">HUMINT Specialist</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">SAN-förlust</div>
+                        <div class="modal-meta-value">-2</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3>Situationen</h3>
+                <p>En mormonsk församling i lantliga Utah hade börjat uppvisa märkligt beteende. Pastor och flera äldre predikade om "nya uppenbarelser" som inte stämde med LDS-teologi.</p>
+                <p>Delta Green misstänkte infiltration. Sullivan's uppgift: Identifiera vilka som var "äkta" troende och vilka som var komprometterade.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Sullivan's metod</h3>
+                <p>Sullivan spenderade två veckor i församlingen, gick på möten, pratade med medlemmar. Använde sina 15+ års erfarenhet av att höra bekännelser för att läsa människors sanna intentioner.</p>
+                <p>Han identifierade mönstret:</p>
+                <ul>
+                    <li>De "smittade" pratade om uppenbarelser men kunde inte förklara dem koherent</li>
+                    <li>De citerade skrifter men orden var... fel. Subtilt fel.</li>
+                    <li>De visade ingen rädsla - alls. Inte ens fruktan för Gud.</li>
+                    <li>När Sullivan bad med dem kände han ingenting. Tomhet.</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>Interventionen</h3>
+                <p>Sullivan identifierade 5 komprometterade individer inklusive pastorn. Delta Green-teamet gick in under nattlig "räd".</p>
+                <p><strong>Problem:</strong> De smittade tog gisslan. Hotade att döda oskyldiga medlemmar om Delta Green inte drog sig tillbaka.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Sullivans val</h3>
+                <p>Sullivan pratade med dem. Försökte förhandla. En av de smittade - en kvinna i 60-årsåldern som Sullivan pratat med i veckor - sa:</p>
+                <div class="modal-quote">
+                    "Father, vi är redan döda. Du kan inte rädda oss. Men du kan rädda de andra. Gör vad som måste göras."
+                </div>
+                <p>I ett ögonblick av klarhet - kanske hennes verkliga själ som kämpade sig fram - gav hon honom tillstånd.</p>
+                <p>Sullivan gav ordern. Delta Green-teamet gick in. Två gisslan dog i korselden. Fem smittade neutraliserades.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Efterdyningar</h3>
+                <p>Åtta medlemmar räddades. Församlingen upplöstes - cover story: gasolycka, pastor och flera äldre döda.</p>
+                <p>Sullivan höll begravningar för offren. Bad för deras själar. Men kvinnans ord fastnade:</p>
+                <div class="modal-quote">
+                    "Vi är redan döda. Gör vad som måste göras."
+                </div>
+                <p>Om smittan dödade själen innan kroppen dog... räddade han dem verkligen? Eller förlorade de redan innan han kom?</p>
+            </div>
+
+            <div class="modal-warning">
+                <strong>Permanent påverkan:</strong> Första gången Sullivan tvingades välja mellan oskyldiga liv. Två dog för att rädda åtta. Matematiken var klar. Men kan man räkna själar som siffror?
+            </div>
+        </div>
+    </div>
+
+    <div id="op3-modal" class="operation-modal">
+        <div class="operation-modal-content">
+            <button class="modal-close" onclick="closeOperationModal('op3')">&times;</button>
+
+            <div class="modal-header">
+                <h2 class="modal-title">Operation "Night Terrors"</h2>
+                <div class="modal-meta">
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Datum</div>
+                        <div class="modal-meta-value">2023</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Plats</div>
+                        <div class="modal-meta-value">Virginia</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Roll</div>
+                        <div class="modal-meta-value">Lead / Child Extraction</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">SAN-förlust</div>
+                        <div class="modal-meta-value">-1</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3>Upptäckten</h3>
+                <p>Ett dagis i förorterna till Richmond, Virginia. Femton barn mellan 4-6 år började rapportera identiska mardrömmar:</p>
+                <ul>
+                    <li>En "grå man" som stod vid deras sängar</li>
+                    <li>Han "bad dem komma med honom"</li>
+                    <li>Till en plats "under golvet"</li>
+                    <li>Barnen ritade samma teckning: en grå silhuett med för långa armar</li>
+                </ul>
+                <p>Föräldrarna trodde det var gruppsuggestion - barn som skrämde varandra. Skolpsykologen var inte lika säker och kontaktade CDC. CDC kontaktade Delta Green.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Sullivan's utredning</h3>
+                <p>Sullivan gick in som "crisis counselor" från diocesen (hans chaplain-cover fungerade perfekt). Pratade med barnen enskilt.</p>
+                <p><strong>Det värsta:</strong> Barnen beskrev inte mardrömmar. De beskrev minnen.</p>
+                <div class="modal-quote">
+                    "Han kom igår natt igen, Father Sullivan. Men den här gången gick jag med honom. Det var kallt under golvet. Andra barn var där också. Men de såg konstiga ut. Deras ögon var..."
+                </div>
+                <p>Flickan slutade prata. Stirrade på något Sullivan inte kunde se. Sedan frågade hon:</p>
+                <div class="modal-quote">
+                    "Varför står han bakom dig nu?"
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3>Källaren</h3>
+                <p>Sullivan och Delta Green-teamet undersökte dagisets källare. Hittar inget - officiellt. Men när de använder värmekamera ser de något:</p>
+                <p>Kalla fläckar. Mänskligt formade. Stående helt stilla längs väggarna. När de rör sig... "går" fläckarna genom väggarna istället för runt dem.</p>
+                <p>En tekniker skrek och släppte kameran. Sa att "något rörde vid hans nacke" men ingen stod bakom honom.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Beslut</h3>
+                <p>Handler via radio:</p>
+                <div class="modal-quote">
+                    "Protokoll Zeta-7. Evakuera alla barn och personal. Sanera platsen. Total förstörelse. Ni har 4 timmar."
+                </div>
+                <p>Sullivan organiserade evakuering. Berättade personal att "gasläcka upptäckts, måste stänga omedelbart". Femton barn och åtta vuxna ut på 45 minuter.</p>
+                <p>Sedan: 200 liter bensin. Brännbara kemikalier. Allt brinner.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>När byggnaden brann</h3>
+                <p>Sullivan stod utanför med barnen. De tittade på lågorna. En flicka - samma som sett "mannen bakom Sullivan" - sa:</p>
+                <div class="modal-quote">
+                    "Nu kan han inte komma tillbaka. Eller hur, Father?"
+                </div>
+                <p>Sullivan ville säga ja. Ville försäkra henne. Men han visste inte. Han hade ingen aning om eld kunde stoppa något som inte var fysiskt.</p>
+                <p>Så han sa:</p>
+                <div class="modal-quote">
+                    "Jag ska be för er varje natt. Och om han kommer tillbaka, säg det till mig. Okej?"
+                </div>
+                <p>Hon nickade. Sullivan bad - för första gången på länge - att Gud faktiskt skulle lyssna.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Efterdyningar</h3>
+                <p>Dagis stängdes. Officiell rapport: Strukturella problem och gasläcka. Ingen frågade mer.</p>
+                <p>Sullivan följde upp med barnen i sex månader. Mardrömmarna slutade efter två veckor. Men tre barn utvecklade sömnproblem. En vägrade vara ensam i mörker.</p>
+                <p>De var "räddade". Men traumat kvarstod.</p>
+            </div>
+
+            <div class="modal-warning">
+                <strong>Permanent påverkan:</strong> Sullivan räddade barnen genom att förstöra deras dagis. Gjorde "rätt" val. Men en av föräldrarna sa: "Varför känns det som att ni tog något från dem ändå?" Sullivan hade inget svar.
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </div>
+
     <script>
+        // Operation Modal Functions
+        function openOperationModal(opId) {
+            const modal = document.getElementById(opId + '-modal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeOperationModal(opId) {
+            const modal = document.getElementById(opId + '-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modals on click outside
+        document.querySelectorAll('.operation-modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    const modalId = modal.id.replace('-modal', '');
+                    closeOperationModal(modalId);
+                }
+            });
+        });
+
+        // Close modals on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.operation-modal.active').forEach(modal => {
+                    const modalId = modal.id.replace('-modal', '');
+                    closeOperationModal(modalId);
+                });
+            }
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -606,17 +1036,7 @@
 
         window.addEventListener('scroll', updateActiveLink);
         updateActiveLink();
-    </script>
 
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox">
-        <div class="lightbox-content">
-            <span class="lightbox-close">&times;</span>
-            <img id="lightbox-img" src="" alt="">
-        </div>
-    </div>
-
-    <script>
         // Lightbox functionality
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
@@ -640,7 +1060,7 @@
         }
 
         lightboxClose.addEventListener('click', closeLightbox);
-        
+
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
                 closeLightbox();
