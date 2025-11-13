@@ -319,7 +319,7 @@
             <nav>
                 <div class="nav-section">
                     <div class="page-link-container">
-                        <a href="sullivan_karakter.html" class="page-link active">KARAKTÄR</a>
+                        <a href="index.html" class="page-link active">KARAKTÄR</a>
                         <a href="sullivan_pastoral.html" class="page-link">PASTORAL</a>
                         <a href="sullivan_operativt.html" class="page-link">OPERATIVT</a>
                         <a href="sullivan_personligt.html" class="page-link">PERSONLIGT</a>
@@ -354,7 +354,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="sullivan1.jpeg" alt="Father Sullivan i uniform med chaplain collar" />
+                    <img src="sullivan1.jpeg" alt="Father Sullivan i uniform med chaplain collar" class="clickable-image" />
                 </div>
             </section>
 
@@ -641,6 +641,52 @@
 
         window.addEventListener('scroll', updateActiveLink);
         updateActiveLink();
+    </script>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const clickableImages = document.querySelectorAll('.clickable-image');
+
+        // Open lightbox
+        clickableImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
     </script>
 </body>
 </html>

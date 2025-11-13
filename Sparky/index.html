@@ -442,6 +442,88 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+        }
+
+        .lightbox img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 2px solid var(--accent);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: var(--accent);
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(10, 14, 26, 0.8);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--accent);
+        }
+
+        .lightbox-close:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        .clickable-image {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .clickable-image:hover {
+            opacity: 0.8;
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-close {
+                top: 10px;
+                right: 15px;
+                font-size: 25px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .lightbox-content {
+                max-width: 95%;
+                max-height: 95%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -455,7 +537,7 @@
 
             <div class="nav-section">
                 <div class="page-link-container">
-                    <a href="sparky_karakter.html" class="page-link active">⚡ KARAKTÄR</a>
+                    <a href="index.html" class="page-link active">⚡ KARAKTÄR</a>
                     <a href="sparky_tekniskt.html" class="page-link">💻 TEKNISKT</a>
                     <a href="sparky_operativt.html" class="page-link">🎯 OPERATIVT</a>
                     <a href="sparky_personligt.html" class="page-link">❤️ PERSONLIGT</a>
@@ -512,34 +594,34 @@
                             Detta dokument beskriver dina tekniska kapaciteter och begränsningar. Vid fara: Förstör enhet, kryptera kommunikation, neka allt.
                         </div>
                     </div>
-                    <img src="sparky_hero_tactical.jpg" alt="Sparky - Taktiska Operationer" class="hero-image">
+                    <img src="sparky_hero_tactical.jpg" alt="Sparky - Taktiska Operationer" class="hero-image clickable-image">
                 </div>
 
                 <!-- Photo Gallery -->
                 <h2 style="margin-top: 3rem;">📸 FOTOGALLERI</h2>
                 <div class="image-gallery">
                     <div class="gallery-item">
-                        <img src="sparky_working_late.jpg" alt="Sent på natten">
+                        <img src="sparky_working_late.jpg" alt="Sent på natten" class="clickable-image">
                         <div class="gallery-caption">Sena nattoperationer</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="sparky_operations_room.png" alt="NSA Operations Room">
+                        <img src="sparky_operations_room.png" alt="NSA Operations Room" class="clickable-image">
                         <div class="gallery-caption">NSA Operations Room</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="sparky_convenience_store.png" alt="Energy drink påfyllning">
+                        <img src="sparky_convenience_store.png" alt="Energy drink påfyllning" class="clickable-image">
                         <div class="gallery-caption">02:00 Påfyllning</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="sparky_street_surveillance.png" alt="Fältbevakning">
+                        <img src="sparky_street_surveillance.png" alt="Fältbevakning" class="clickable-image">
                         <div class="gallery-caption">Urban Övervakning</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="sparky_operational_ready.png" alt="Operationell redo">
+                        <img src="sparky_operational_ready.png" alt="Operationell redo" class="clickable-image">
                         <div class="gallery-caption">Operationell Redo</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="sparky_portrait_casual.png" alt="Icke-tjänstgörande">
+                        <img src="sparky_portrait_casual.png" alt="Icke-tjänstgörande" class="clickable-image">
                         <div class="gallery-caption">Icke-tjänstgörande</div>
                     </div>
                 </div>
@@ -895,6 +977,52 @@
                     link.style.paddingLeft = '1rem';
                 }
             });
+        });
+    </script>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const clickableImages = document.querySelectorAll('.clickable-image');
+
+        // Open lightbox
+        clickableImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
         });
     </script>
 </body>

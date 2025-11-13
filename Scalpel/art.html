@@ -482,6 +482,73 @@
             font-size: 1.1rem;
         }
 
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+        }
+
+        .lightbox img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 2px solid var(--accent-color);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: var(--accent-color);
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(26, 22, 18, 0.8);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--accent-color);
+        }
+
+        .lightbox-close:hover {
+            background: var(--accent-color);
+            color: var(--primary-bg);
+        }
+
+        .clickable-image {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .clickable-image:hover {
+            opacity: 0.8;
+            transform: scale(1.02);
+        }
+
         @media (max-width: 768px) {
             .container {
                 grid-template-columns: 1fr;
@@ -510,6 +577,19 @@
 
             .main-content {
                 padding: 2rem 1rem;
+            }
+
+            .lightbox-close {
+                top: 10px;
+                right: 15px;
+                font-size: 25px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .lightbox-content {
+                max-width: 95%;
+                max-height: 95%;
             }
         }
     </style>
@@ -559,7 +639,7 @@
                     <p>Var patologins precision möter street arts råhet. Anatomiskt noggrann graffiti och återfunnet piano efter 17 års tystnad. Konst som kontroll. Musik som meditation. Döden gjord vacker genom precision.</p>
                 </div>
                 <div class="hero-image">
-                    <img src="hanna6.png" alt="Hanna Engler - konst och musik">
+                    <img src="hanna6.png" alt="Hanna Engler - konst och musik" class="clickable-image">
                 </div>
             </div>
 
@@ -614,7 +694,7 @@
                     
                     <div class="gallery">
                         <div class="artwork-card">
-                            <img src="hannaart7.png" alt="Thorax Study #1" class="artwork-image">
+                            <img src="hannaart7.png" alt="Thorax Study #1" class="artwork-image clickable-image">
                             <div class="artwork-info">
                                 <div class="artwork-title">Thorax Study #1</div>
                                 <div class="artwork-details">
@@ -631,7 +711,7 @@
                         </div>
 
                         <div class="artwork-card">
-                            <img src="hannaart5.png" alt="Skull Profile Series" class="artwork-image">
+                            <img src="hannaart5.png" alt="Skull Profile Series" class="artwork-image clickable-image">
                             <div class="artwork-info">
                                 <div class="artwork-title">Skull Profile Series</div>
                                 <div class="artwork-details">
@@ -650,7 +730,7 @@
                         </div>
 
                         <div class="artwork-card">
-                            <img src="hannaart1.png" alt="Vertebrae Sequence" class="artwork-image">
+                            <img src="hannaart1.png" alt="Vertebrae Sequence" class="artwork-image clickable-image">
                             <div class="artwork-info">
                                 <div class="artwork-title">Vertebrae Sequence</div>
                                 <div class="artwork-details">
@@ -678,7 +758,7 @@
                     
                     <div class="gallery">
                         <div class="artwork-card">
-                            <img src="hannaart3.png" alt="Ribcage #7" class="artwork-image">
+                            <img src="hannaart3.png" alt="Ribcage #7" class="artwork-image clickable-image">
                             <div class="artwork-info">
                                 <div class="artwork-title">Ribcage #7</div>
                                 <div class="artwork-details">
@@ -696,7 +776,7 @@
                         </div>
 
                         <div class="artwork-card">
-                            <img src="hannaart4.png" alt="Full Skeleton #2" class="artwork-image">
+                            <img src="hannaart4.png" alt="Full Skeleton #2" class="artwork-image clickable-image">
                             <div class="artwork-info">
                                 <div class="artwork-title">Full Skeleton #2</div>
                                 <div class="artwork-details">
@@ -714,7 +794,7 @@
                         </div>
 
                         <div class="artwork-card">
-                            <img src="hannaart8.png" alt="Skeletal Hand Reaching" class="artwork-image">
+                            <img src="hannaart8.png" alt="Skeletal Hand Reaching" class="artwork-image clickable-image">
                             <div class="artwork-info">
                                 <div class="artwork-title">Skeletal Hand Reaching</div>
                                 <div class="artwork-details">
@@ -732,7 +812,7 @@
                         </div>
 
                         <div class="artwork-card">
-                            <img src="hannaart10.png" alt="Multi-Skull Compilation" class="artwork-image">
+                            <img src="hannaart10.png" alt="Multi-Skull Compilation" class="artwork-image clickable-image">
                             <div class="artwork-info">
                                 <div class="artwork-title">Multi-Skull Compilation</div>
                                 <div class="artwork-details">
@@ -749,7 +829,7 @@
                         </div>
 
                         <div class="artwork-card">
-                            <img src="hannaart12.png" alt="Ribcage Technical Illustration" class="artwork-image">
+                            <img src="hannaart12.png" alt="Ribcage Technical Illustration" class="artwork-image clickable-image">
                             <div class="artwork-info">
                                 <div class="artwork-title">Ribcage Technical Illustration</div>
                                 <div class="artwork-details">
@@ -766,7 +846,7 @@
                         </div>
 
                         <div class="artwork-card">
-                            <img src="hannaart2.png" alt="Night Watch Baltimore" class="artwork-image">
+                            <img src="hannaart2.png" alt="Night Watch Baltimore" class="artwork-image clickable-image">
                             <div class="artwork-info">
                                 <div class="artwork-title">Night Watch Baltimore</div>
                                 <div class="artwork-details">
@@ -792,7 +872,7 @@
                     <div class="piano-title">Piano - Återkomsten</div>
                     
                     <div style="text-align: center; margin: 2rem 0;">
-                        <img src="hanna4.png" alt="Hanna vid piano" style="max-width: 400px; width: 100%; border-radius: 8px; filter: sepia(20%) contrast(1.1); border: 2px solid var(--accent-secondary);">
+                        <img src="hanna4.png" alt="Hanna vid piano" class="clickable-image" style="max-width: 400px; width: 100%; border-radius: 8px; filter: sepia(20%) contrast(1.1); border: 2px solid var(--accent-secondary);">
                     </div>
 
                     <div style="background: var(--secondary-bg); padding: 2rem; border-radius: 6px; margin: 2rem 0; border: 1px solid var(--border-color);">
@@ -895,5 +975,53 @@
             </section>
         </main>
     </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const clickableImages = document.querySelectorAll('.clickable-image');
+
+        // Open lightbox
+        clickableImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        });
+
+        // Close lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        
+        // Close when clicking outside image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Close with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    </script>
 </body>
 </html>
