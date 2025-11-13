@@ -231,6 +231,33 @@
             background: var(--bg-dark);
             border-radius: 4px;
             align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .operation-item.clickable {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .operation-item.clickable:hover {
+            border: 1px solid var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .operation-item.clickable::after {
+            content: "► Klicka för detaljer";
+            position: absolute;
+            bottom: 0.5rem;
+            right: 1rem;
+            font-size: 0.75rem;
+            color: var(--accent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .operation-item.clickable:hover::after {
+            opacity: 1;
         }
 
         .operation-date {
@@ -293,6 +320,152 @@
             font-weight: bold;
         }
 
+        /* Operation Modal Styles */
+        .operation-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            overflow-y: auto;
+        }
+
+        .operation-modal.active {
+            display: block;
+        }
+
+        .operation-modal-content {
+            background: var(--bg-darker);
+            margin: 2% auto;
+            padding: 3rem;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            width: 90%;
+            max-width: 900px;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--accent);
+            color: var(--bg-darker);
+        }
+
+        .modal-header {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-meta-item {
+            background: var(--bg-dark);
+            padding: 0.75rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .modal-meta-label {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .modal-meta-value {
+            font-size: 1rem;
+            color: var(--text);
+            font-weight: bold;
+        }
+
+        .modal-section {
+            margin-bottom: 2rem;
+        }
+
+        .modal-section h3 {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .modal-section p {
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .modal-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .modal-section li {
+            padding: 0.5rem 0;
+            color: var(--text);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .modal-section li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .modal-quote {
+            background: var(--bg-dark);
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: var(--text-dim);
+        }
+
+        .modal-warning {
+            background: rgba(231, 76, 60, 0.1);
+            border: 1px solid var(--danger);
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+            color: var(--danger);
+        }
+
         @media (max-width: 768px) {
             .container {
                 grid-template-columns: 1fr;
@@ -315,6 +488,16 @@
 
             .operation-item {
                 grid-template-columns: 1fr;
+            }
+
+            .operation-modal-content {
+                width: 95%;
+                padding: 2rem 1.5rem;
+                margin: 5% auto;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
             }
         }
 
@@ -408,7 +591,7 @@
                 MAC RILEY<br>
                 <span style="font-size: 0.8rem; color: var(--text-dim);">FBI // DELTA GREEN</span>
             </div>
-            
+
             <nav>
                 <div class="nav-section">
                     <div class="page-link-container">
@@ -420,7 +603,7 @@
                         <a href="volkov_board.html" class="page-link">VOLKOV-BOARD</a>
                     </div>
                 </div>
-                
+
                 <div class="nav-section">
                     <div class="nav-title">SNABBNAVIGERING</div>
                     <a href="#kunskap" class="nav-link">Vad Mac Vet</a>
@@ -430,7 +613,7 @@
                     <a href="#utrustning" class="nav-link">Utrustning</a>
                 </div>
             </nav>
-            
+
             <div class="sidebar-footer">
                 <a href="../index.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">
                     ✦ TRIP 19 ✦<br>
@@ -474,7 +657,7 @@
                     <p><strong>Kontakt:</strong> Död brevlåda i Arlington, engångstelefon för nödsituationer</p>
                     <p><strong>Kännedom:</strong> Högnivå Delta Green-koordinator, ex-Army Intelligence</p>
                     <p><strong>Mac's relation:</strong> Professionell som utvecklats till vänskap, men Cardinal är Delta Green först</p>
-                    
+
                     <div class="warning-box">
                         <p>Cardinal är orolig för Mac's mentala tillstånd. Mac vet att Cardinal skulle "retire" honom om nödvändigt.</p>
                     </div>
@@ -483,7 +666,7 @@
 
             <section id="cell" class="content-section">
                 <h2 class="section-title">CELLMEDLEMMAR</h2>
-                
+
                 <div class="cell-member">
                     <h3>FATHER MICHAEL SULLIVAN</h3>
                     <p><strong>Position:</strong> Navy Chaplain (Lieutenant Commander)</p>
@@ -508,49 +691,49 @@
 
             <section id="operationer" class="content-section">
                 <h2 class="section-title">OPERATIONER</h2>
-                
-                <div class="operation-item">
+
+                <div class="operation-item clickable" onclick="openOperationModal('op1')">
                     <span class="operation-date">2018 (mars)</span>
                     <span class="operation-name">St. Louis Incident - REKRYTERING</span>
                     <span class="san-loss">-1 SAN</span>
                 </div>
-                
-                <div class="operation-item">
+
+                <div class="operation-item clickable" onclick="openOperationModal('op2')">
                     <span class="operation-date">2019 (aug)</span>
                     <span class="operation-name">Operation Old Gods - Vermont</span>
                     <span class="san-loss">-3 SAN</span>
                 </div>
-                
-                <div class="operation-item">
-                    <span class="operation-date">2020 (feb)</span>
+
+                <div class="operation-item clickable" onclick="openOperationModal('op3')">
+                    <span class="operation-date">2020 (sept)</span>
                     <span class="operation-name">Operation Paper Trail - Chicago</span>
                     <span class="san-loss">-2 SAN</span>
                 </div>
-                
-                <div class="operation-item">
-                    <span class="operation-date">2021 (maj)</span>
+
+                <div class="operation-item clickable" onclick="openOperationModal('op4')">
+                    <span class="operation-date">2021 (mars)</span>
                     <span class="operation-name">Operation Book Club - Portland</span>
                     <span class="san-loss">-2 SAN</span>
                 </div>
-                
-                <div class="operation-item">
-                    <span class="operation-date">2022 (sep)</span>
+
+                <div class="operation-item clickable" onclick="openOperationModal('op5')">
+                    <span class="operation-date">2022 (nov)</span>
                     <span class="operation-name">Operation Night Shift - Detroit</span>
                     <span class="san-loss">-2 SAN</span>
                 </div>
-                
+
                 <div class="operation-item" style="border: 1px solid var(--warning);">
-                    <span class="operation-date">2023 (nov)</span>
+                    <span class="operation-date">2024 (dec)</span>
                     <span class="operation-name">The Mall Before Christmas</span>
                     <span class="san-loss">-5 SAN</span>
                 </div>
-                
+
                 <div class="operation-item" style="border: 1px solid var(--danger);">
-                    <span class="operation-date">2025 (juni)</span>
+                    <span class="operation-date">2025 (maj)</span>
                     <span class="operation-name">Operation Sea Glass - BREAKING POINT</span>
                     <span class="san-loss">-6 SAN</span>
                 </div>
-                
+
                 <div style="margin-top: 1.5rem; padding: 1rem; background: var(--bg-dark); border-radius: 4px;">
                     <p><strong>Total SAN-förlust:</strong> ~21 poäng över 7 år</p>
                     <p><strong>Nuvarande SAN:</strong> <span style="color: var(--danger);">46/60</span></p>
@@ -560,7 +743,7 @@
 
             <section id="utrustning" class="content-section">
                 <h2 class="section-title">UTRUSTNING</h2>
-                
+
                 <div class="equipment-grid">
                     <div class="equipment-category">
                         <h3>Standard Utrustning</h3>
@@ -572,7 +755,7 @@
                             <li>• Portabel kriminalteknisk sats</li>
                         </ul>
                     </div>
-                    
+
                     <div class="equipment-category">
                         <h3>Delta Green-förnödenheter</h3>
                         <ul class="equipment-list">
@@ -588,6 +771,351 @@
         </main>
     </div>
 
+    <!-- Operation Modals -->
+    <div id="op1-modal" class="operation-modal">
+        <div class="operation-modal-content">
+            <button class="modal-close" onclick="closeOperationModal('op1')">&times;</button>
+
+            <div class="modal-header">
+                <h2 class="modal-title">St. Louis Incident</h2>
+                <div class="modal-meta">
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Datum</div>
+                        <div class="modal-meta-value">Mars 2018</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Plats</div>
+                        <div class="modal-meta-value">St. Louis, Missouri</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Roll</div>
+                        <div class="modal-meta-value">Gisslanförhandlare</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">SAN-förlust</div>
+                        <div class="modal-meta-value">-1</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3>Uppdraget</h3>
+                <p>FBI Behavioral Analysis Unit skickade Mac för att förhandla med gisslantagare som hävdade vara "besatt av The King in Yellow."</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Vad Mac såg</h3>
+                <ul>
+                    <li>Gisslantagaren uppvisade övernaturlig styrka</li>
+                    <li>Visste saker han omöjligt kunde veta (Mac's klassificerade deployment-info)</li>
+                    <li>Fysisk transformation (gula ögon, klor-lika händer)</li>
+                    <li>Talade språk Mac aldrig hört men FÖRSTOD innebörden</li>
+                    <li>Referenser till "The King in Yellow," "The Pallid Mask"</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>Slutet</h3>
+                <p>SWAT neutralized suspect. Mac's rapport flaggades för "inconsistencies." Han ändrade den till "PCP-inducerad psykos."</p>
+                <p><strong>Men Mac visste bättre.</strong></p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Egen utredning (Mars-Maj 2018)</h3>
+                <p>Mac grävde på egen hand:</p>
+                <ul>
+                    <li>Hittade 12 liknande incidents senaste 5 åren</li>
+                    <li>Alla flaggade som "droger" eller "mental illness"</li>
+                    <li>Geografisk pattern: St. Louis, Chicago, New Orleans</li>
+                    <li>Kult-kopplingar: Hastur-referenser, teatersällskap</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>Första kontakten - Handler (Maj 2018)</h3>
+                <div class="modal-quote">
+                    "You saw something in St. Louis. You're looking for answers. We have them."
+                </div>
+                <p>Krypterad app dök upp på Mac's telefon. Möte: Diner utanför Quantico, 23:00.</p>
+                <p>En man i civil kläder, grått hår, skarpa ögon som sett för mycket.</p>
+                <div class="modal-quote">
+                    <strong>Handler:</strong> "You've stumbled onto something most people never see."<br>
+                    <strong>Mac:</strong> "Vem fan är du?"<br>
+                    <strong>Handler:</strong> "Someone who knows what you saw was real. Delta Green. We stop things that shouldn't exist."
+                </div>
+                <p>Handler visade files. Photos från 1940-talet forward. Incident reports.</p>
+                <p><strong>Det var verkligt.</strong></p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Valet</h3>
+                <p>Mac tog 4 veckor att tänka. Researched mer. Kunde inte ignorera det.</p>
+                <p><strong>Juni 2018:</strong> Mac sa ja.</p>
+            </div>
+
+            <div class="modal-warning">
+                <strong>Permanent påverkan:</strong> Första steget in i världen bortom normalitet. Mac's världsbild krossad och ombyggd på 10 minuter.
+            </div>
+        </div>
+    </div>
+
+    <div id="op2-modal" class="operation-modal">
+        <div class="operation-modal-content">
+            <button class="modal-close" onclick="closeOperationModal('op2')">&times;</button>
+
+            <div class="modal-header">
+                <h2 class="modal-title">Operation Old Gods</h2>
+                <div class="modal-meta">
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Datum</div>
+                        <div class="modal-meta-value">Augusti 2019</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Plats</div>
+                        <div class="modal-meta-value">Vermont</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Roll</div>
+                        <div class="modal-meta-value">Field Leader (första gången)</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">SAN-förlust</div>
+                        <div class="modal-meta-value">-3</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3>Briefing</h3>
+                <p>Hastur-kult i Vermont. 12 medlemmar. Planning summoning ritual.</p>
+                <p><strong>Team:</strong> 4 Delta Green agents (Mac + 3 andra)</p>
+                <p><strong>Mission:</strong> Infiltrera, sabotera ritual, eliminate cult.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Vad som hände</h3>
+                <ul>
+                    <li>Infiltration lyckades</li>
+                    <li>Ritual började innan interception</li>
+                    <li>"Something" började materialisera</li>
+                    <li>2 agents dog (ripped apart)</li>
+                    <li>Mac dödade 4 kultister</li>
+                    <li>Överlevde knappt</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>Hemkomst (April 2019)</h3>
+                <p>Mac kom hem med 1000-yard stare.</p>
+                <div class="modal-quote">
+                    <strong>Jake (6 år):</strong> "Pappa, titta! Jag ritade en drake!"<br>
+                    <strong>Mac (stirrar på väggen):</strong> "...Fin drake, buddy."<br>
+                    <strong>Jake:</strong> "Du tittar inte ens."
+                </div>
+                <p>Sarah såg det. Mac var annorlunda.</p>
+                <div class="modal-quote">
+                    <strong>Sarah:</strong> "Vad hände i Vermont?"<br>
+                    <strong>Mac:</strong> "Klassificerat."<br>
+                    <strong>Sarah:</strong> "Marcus—"<br>
+                    <strong>Mac:</strong> "Jag kan inte prata om det!"
+                </div>
+                <p>Första gången han höjde rösten mot henne.</p>
+            </div>
+
+            <div class="modal-warning">
+                <strong>Permanent påverkan:</strong> Mac's första kills. Två agenter döda. Första sprickorna i äktenskapet. Insåg att Delta Green inte bara var investigation - det var krig.
+            </div>
+        </div>
+    </div>
+
+    <div id="op3-modal" class="operation-modal">
+        <div class="operation-modal-content">
+            <button class="modal-close" onclick="closeOperationModal('op3')">&times;</button>
+
+            <div class="modal-header">
+                <h2 class="modal-title">Operation Paper Trail</h2>
+                <div class="modal-meta">
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Datum</div>
+                        <div class="modal-meta-value">September 2020</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Plats</div>
+                        <div class="modal-meta-value">Chicago Financial District</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Roll</div>
+                        <div class="modal-meta-value">Lead Investigator / Infiltration</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">SAN-förlust</div>
+                        <div class="modal-meta-value">-2</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3>Händelseförlopp</h3>
+                <p>Mac gick in undercover som federal auditor för att undersöka Harmon Industries "omöjliga" teknologiska genombrott. VD Marcus Harmon hade på sex månader revolutionerat företagets AI-algoritmer bortom vad som borde vara möjligt.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Apparaten</h3>
+                <p>I Harmons privata kontor fanns en apparat stor som en gammal skrivmaskin, men byggd av något som såg ut som korroderad koppar. Ytan täckt med geometriska mönster som gjorde ont att fokusera på - vinklar som inte summerade rätt. När aktiverad skapade den ett ljud Mac beskrev som "tänder mot glas fast inifrån skallen."</p>
+                <p>Harmon demonstrerade: Man skrev en fråga på tangentbord som inte motsvarade någon känd skrift. Apparaten "svarade" genom att projicera lösningar direkt in i användarens medvetande. Harmon påstod att den "lånade perspektiv från de som redan löst problemet." Vem dessa "de" var ville han inte säga.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Priset</h3>
+                <p>Harmons hjärna visade tecken på extrem degeneration. Mikroskopiska lesioner över hela cortex. Hans anteckningar blev gradvis mer obegripliga - började på engelska, slutade i symboler som matchade apparatens tangentbord. Sista sidorna var fyllda med samma mening:</p>
+                <div class="modal-quote">
+                    "De väntar på sin tur att låna tillbaka."
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3>Konfrontation</h3>
+                <p>När Mac försökte konfiskera apparaten aktiverade Harmon den en sista gång utan skydd. Hans ögon rullade bakåt. Han talade i tretton minuter på ett språk Mac aldrig hört - guturalt men med matematisk precision. Sedan dog han. Obduktionen visade att hans hjärna var "omorganiserad" - neuroner arrangerade i spiralmönster ingen kunde förklara.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Efterspel</h3>
+                <p>Apparaten förseglad i Green Box utanför Chicago - ett climate-controlled storage unit Mac hoppas ingen någonsin öppnar. Mac vaknade i månader med Harmons sista ord ekande i huvudet. Kunde aldrig återge dem korrekt.</p>
+            </div>
+
+            <div class="modal-warning">
+                <strong>Permanent påverkan:</strong> Första konfrontationen med "teknologi" från bortom. Mac insåg att hotet inte bara var monster - det var kunskap själv.
+            </div>
+        </div>
+    </div>
+
+    <div id="op4-modal" class="operation-modal">
+        <div class="operation-modal-content">
+            <button class="modal-close" onclick="closeOperationModal('op4')">&times;</button>
+
+            <div class="modal-header">
+                <h2 class="modal-title">Operation Book Club</h2>
+                <div class="modal-meta">
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Datum</div>
+                        <div class="modal-meta-value">Mars 2021</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Plats</div>
+                        <div class="modal-meta-value">Portland, Oregon</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Roll</div>
+                        <div class="modal-meta-value">Team Leader (3-person cell)</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">SAN-förlust</div>
+                        <div class="modal-meta-value">-2</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3>Händelseförlopp</h3>
+                <p>Antikvariatshandlare längs västkusten dog i märkliga "olyckor" - alla hade sålt samma sällsynta bok. Mac's team spårade köparen: Dorothy Chen, pensionerad bibliotekarie som drev "The Eternal Word Book Club."</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Boken</h3>
+                <p>"The Binding of Stars" - privatpublicerad 1923, handskriven på något som kändes som människoskinn (labb sa "tekniskt omöjligt att verifiera"). Text på tre språk: engelska, latin, och något som såg ut som kinesiska men "bakvänt på fel sätt."</p>
+                <p>Medlemmarna läste högt tillsammans. När de nådde vissa passager blev luften tjockare, skuggor föll åt fel håll, och Mac svär att han såg stjärnorna utanför fönstret arrangera om sig i mönster.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Ritualen</h3>
+                <p>Tre medlemmar hade "lyckats" - deras kroppar satt kvar men var tomma. Fortfarande levande tekniskt sett, men ögonen fokuserade på något "bortom." Deras munnar fortsatte forma ord utan ljud. Rumstemperaturen runt dem var alltid exakt 4 grader kallare.</p>
+                <div class="modal-quote">
+                    <strong>Chen (extatiskt):</strong> "Vi läser oss in i den stora berättelsen! Bortom död, bortom tid! Författaren väntar på oss mellan raderna!"
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3>Katastrofen</h3>
+                <p>Agent Martinez tittade direkt på en specifik sida för länge. Började läsa högt - först viskande, sedan skrikande. Kunde inte sluta. När Cooper försökte rycka boken från honom sköt han henne reflexivt, fortsatte läsa medan hon blödde ut.</p>
+                <p><strong>Mac tvingades neutralisera Martinez.</strong> Hans sista ord var på samma språk som bokens tredje del - men bakfram, som ett eko.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Chen försvann</h3>
+                <p>Lämnade bara en lapp: "Berättelsen fortsätter. Nästa kapitel redan skrivet." Hennes lägenhet var tom förutom askavtryck på golvet i form av en perfekt femuddig stjärna.</p>
+            </div>
+
+            <div class="modal-warning">
+                <strong>Permanent påverkan:</strong> Mac tvingades döda en kollega. Två agenter KIA (Cooper och Martinez). Insåg att kunskap själv kan vara vapen - och fälla.
+            </div>
+        </div>
+    </div>
+
+    <div id="op5-modal" class="operation-modal">
+        <div class="operation-modal-content">
+            <button class="modal-close" onclick="closeOperationModal('op5')">&times;</button>
+
+            <div class="modal-header">
+                <h2 class="modal-title">Operation Night Shift</h2>
+                <div class="modal-meta">
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Datum</div>
+                        <div class="modal-meta-value">November 2022</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Plats</div>
+                        <div class="modal-meta-value">Detroit (Packard Automotive Plant)</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">Roll</div>
+                        <div class="modal-meta-value">Emergency Response</div>
+                    </div>
+                    <div class="modal-meta-item">
+                        <div class="modal-meta-label">SAN-förlust</div>
+                        <div class="modal-meta-value">-2</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3>Händelseförlopp</h3>
+                <p>Hemlösa försvann runt den övergivna bilfabriken. En lokal DG-cell som undersökte slutade rapportera. Mac kallades in som förstärkning.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Källaren</h3>
+                <p>Fabrikens källare var översvämmat med vatten som inte luktade rätt - salt och ruttet fisk trots att Detroit ligger vid sötvatten. I vattnet: halvt transformerade kroppar. Människor i olika stadier av... förändring. Fjäll som växte under hud. Fingrar som förlängts med hinnor. Ögon som migrerat mot tinningarna.</p>
+                <p><strong>Det värsta:</strong> De flesta levde fortfarande. Gurglade böner om "återvändandet till det våta mörkret."</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Varelserna</h3>
+                <p>Tre humanoider, men fel på fundamentala sätt. Rörde sig ryckigt på land men flöt genom vattnet som de var födda i det. Gröngråa, med halsar som pulserade när de andades. Kommunicerade med ljud som lät som däggdjur som drunknar baklänges.</p>
+                <p>De hade byggt något som såg ut som ett altare av bildäck och människoben. På toppen: en staty av svart sten föreställande något med för många tentakler för att vara en bläckfisk, för många ögon för att vara en fisk.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Närstrid</h3>
+                <p>En överraskade Mac bakifrån. Den var stark som tre män, hal som en fisk. Dess mun öppnade sig i fyra delar när den bet honom i axeln. Luktade som något som dött i havet och återuppstått.</p>
+                <p>Mac fick tummen i något som kanske var ett öga. Den skrek med två röster samtidigt - en hög, en låg. Han höll den under vattnet tills den slutade sparka. Dess sista bubblor formade ord han inte ville förstå.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Lösningen</h3>
+                <p>200 liter bensin. Låsta dörrar. Skriken från elden varade i fyrtiofem minuter - alldeles för länge för normala varelser. Några lät nästan som de sa "tack" mot slutet.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Konsekvenser</h3>
+                <p>Mac har fortfarande märken på axeln - fyra rader av tänder som inte matchar något känt djur. Ibland kliar de när det regnar. Han har slutat simma helt. Kan inte förklara varför.</p>
+            </div>
+
+            <div class="modal-warning">
+                <strong>Permanent påverkan:</strong> Närstrid med det onaturliga. Permanenta fysiska ärr. Mac insåg att han inte bara utreder monster - han slåss mot dem hand-to-hand.
+            </div>
+        </div>
+    </div>
+
     <!-- Lightbox -->
     <div id="lightbox" class="lightbox">
         <div class="lightbox-content">
@@ -597,6 +1125,39 @@
     </div>
 
     <script>
+        // Operation Modal Functions
+        function openOperationModal(opId) {
+            const modal = document.getElementById(opId + '-modal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeOperationModal(opId) {
+            const modal = document.getElementById(opId + '-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modals on click outside
+        document.querySelectorAll('.operation-modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    const modalId = modal.id.replace('-modal', '');
+                    closeOperationModal(modalId);
+                }
+            });
+        });
+
+        // Close modals on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.operation-modal.active').forEach(modal => {
+                    const modalId = modal.id.replace('-modal', '');
+                    closeOperationModal(modalId);
+                });
+            }
+        });
+
         // Lightbox functionality
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
@@ -620,7 +1181,7 @@
         }
 
         lightboxClose.addEventListener('click', closeLightbox);
-        
+
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
                 closeLightbox();
