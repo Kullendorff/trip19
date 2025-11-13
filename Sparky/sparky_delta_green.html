@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAI "SPARKY" ZHANG - Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0e1a;
+            --bg-darker: #060911;
+            --accent: #00ff88;
+            --accent-dim: #00cc6a;
+            --text: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --border: #1a2332;
+            --warning: #ff6b35;
+            --success: #00ff88;
+            --danger: #ff3366;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Navigation Sidebar */
+        .sidebar {
+            background: var(--bg-darker);
+            border-right: 2px solid var(--border);
+            padding: 2rem 1rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: var(--bg-darker);
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--accent-dim);
+            border-radius: 4px;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(0, 255, 136, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent-dim);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h3 {
+            color: var(--accent-dim);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+        }
+
+        h4 {
+            color: var(--text);
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-dim);
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-dim);
+        }
+
+        /* Collapse Boxes */
+        .collapse-box {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .collapse-header {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .collapse-header:hover {
+            background: rgba(0, 255, 136, 0.15);
+        }
+
+        .collapse-header h4 {
+            margin: 0;
+            color: var(--accent);
+        }
+
+        .collapse-icon {
+            color: var(--accent);
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .collapse-box.open .collapse-icon {
+            transform: rotate(180deg);
+        }
+
+        .collapse-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapse-box.open .collapse-content {
+            max-height: 10000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .collapse-content-inner {
+            padding: 1.5rem;
+        }
+
+        /* Alert Boxes */
+        .alert {
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+        }
+
+        .alert-warning {
+            background: rgba(255, 107, 53, 0.1);
+            border-color: var(--warning);
+        }
+
+        .alert-danger {
+            background: rgba(255, 51, 102, 0.1);
+            border-color: var(--danger);
+        }
+
+        .alert-success {
+            background: rgba(0, 255, 136, 0.1);
+            border-color: var(--success);
+        }
+
+        .alert-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-dim);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: relative;
+                height: auto;
+                border-right: none;
+                border-bottom: 2px solid var(--border);
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="logo">
+                ▲ DELTA GREEN<br>
+                AGENT FILE: SPARKY
+            </div>
+
+            <div class="nav-section">
+                <div class="page-link-container">
+                    <a href="index.html" class="page-link">⚡ KARAKTÄR</a>
+                    <a href="sparky_tekniskt.html" class="page-link">💻 TEKNISKT</a>
+                    <a href="sparky_operativt.html" class="page-link">🎯 OPERATIVT</a>
+                    <a href="sparky_delta_green.html" class="page-link active">▲ DELTA GREEN</a>
+                    <a href="sparky_personligt.html" class="page-link">❤️ PERSONLIGT</a>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">SNABBNAVIGERING</div>
+                <a href="#organization" class="nav-link">Organisationen</a>
+                <a href="#cell" class="nav-link">Sparky's Cell</a>
+                <a href="#teammates" class="nav-link">Teammedlemmar</a>
+                <a href="#operations" class="nav-link">Operativa Protokoll</a>
+                <a href="#unknown" class="nav-link">Vad Hon Inte Vet</a>
+            </div>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">
+                    ✦ TRIP 19 ✦<br>
+                    ← CHESAPEAKE CELL
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section id="organization">
+                <h2>▲ DELTA GREEN - The Outlaws</h2>
+
+                <p style="font-size: 1.1rem; color: var(--text); margin-bottom: 2rem;">
+                    <em>"Vi existerar inte. Om något går fel, är vi själva ansvariga. Men om vi inte gör det här - vem ska då?"</em>
+                </p>
+
+                <div class="alert alert-warning">
+                    <div class="alert-title">🔒 SEKRETESSGRAD: NEED TO KNOW</div>
+                    <p>Detta dokument innehåller information som Sparky har tillgång till baserat på hennes position som Field Operative. Mycket mer finns dolt från henne av säkerhetsskäl.</p>
+                </div>
+
+                <h3>Vad Sparky vet om Delta Green</h3>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Organisation & Grundläggande</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <ul>
+                                <li>Delta Green är en off-books operation inom/kopplad till US government</li>
+                                <li>Existerar för att bekämpa "onaturliga" hot mot mänskligheten</li>
+                                <li>Opererar utan officiell sanktion - tekniskt illegalt</li>
+                                <li>Plausible deniability är allt - om något går fel är agenter själva ansvariga</li>
+                                <li>"Need to know"-struktur - ingen vet mer än nödvändigt</li>
+                                <li>Agenter kallar sig själva "Outlaws" - hon vet inte varför</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cell">
+                <h2>🎯 SPARKY'S CELL</h2>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Cell Structure</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <p>Sparky arbetar i en liten cell med andra agenter. Ingen officiell beteckning - mest "teamet" eller "Mac's team" (även om Mac tekniskt inte längre leder).</p>
+
+                            <h4>Sparkys Roll</h4>
+                            <ul>
+                                <li><strong>Codename:</strong> SPARKY</li>
+                                <li><strong>Specialitet:</strong> Tech Specialist / SIGINT Expert</li>
+                                <li><strong>Tid i DG:</strong> 3 år (Augusti 2022 - November 2025)</li>
+                                <li><strong>Clearance:</strong> Field Operative (standard)</li>
+                                <li><strong>Total operationer:</strong> 7 (inkl. Mall Before Christmas)</li>
+                            </ul>
+
+                            <p><strong>Vad hon gör:</strong> Digital infiltration, SIGINT, övervakningssystem, elektronisk underrättelse, tech support under operationer. Hon är cellens "ögon och öron" i cyberspace.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="teammates">
+                <h2>👥 TEAMMEDLEMMAR</h2>
+
+                <p>Sparky arbetar tillsammans med två andra agenter i hennes cell. De är allt hon har inom Delta Green.</p>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Marcus "Mac" Riley - FBI Special Agent (Cell Leader, På Leave)</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <p><strong>Ålder:</strong> 38<br>
+                            <strong>Bakgrund:</strong> Ex-Marine (2005-2011), sedan FBI Special Agent<br>
+                            <strong>Yrke:</strong> FBI Washington Field Office, Behavioral Analysis Unit<br>
+                            <strong>Status:</strong> På "tvingad semester" sedan augusti 2025</p>
+
+                            <h4>Vad Sparky Vet Om Hans Rekrytering</h4>
+                            <p>Mac har nämnt St. Louis-incidenten från 2018. En gisslantagare som "inte borde kunna göra det han gjorde". Mac pratar inte gärna om det. Men det var när Delta Green hittade honom.</p>
+
+                            <h4>Karaktär (Ur Sparkys Perspektiv)</h4>
+                            <p>Pragmatisk. Metodisk. Plikttrogen. Mac var en respekterad FBI-agent och erfaren Delta Green-operatör när Sparky rekryterades 2022.</p>
+
+                            <p>Men efter "The Mall Before Christmas" (december 2024) förändrades något. Och efter "Sea Glass" (våren 2025 - Sparky var inte med) gick något sönder i honom.</p>
+
+                            <h4>Nuvarande Tillstånd (Vad Sparky Ser)</h4>
+                            <p>Mac är besatt av Dmitri Volkov - mannen med kristallkuben från köpcentret. Han jagar ledtrådar obsessivt. Sparky ser honom sent om kvällarna online, söker genom databaser, följer spår som leder ingenstans.</p>
+
+                            <p>I augusti 2025 hade han en "incident" på FBI-kontoret. Sparky vet inte exakt vad som hände, bara att någon nämnde Maine och Mac exploderade. Hans chef tvingade honom på minst 4 veckors semester.</p>
+
+                            <p>FBI tror han sitter hemma och återhämtar sig. Sparky vet bättre - hon ser hans digitala fotspår. Han jagar fortfarande.</p>
+
+                            <h4>Relation till Sparky</h4>
+                            <p>Mac känner henne som "hackern som hittade Volkov första gången". Han litar 100% på hennes tekniska färdigheter. Ber aldrig henne förklara hur hon gör saker - bara att hon gör dem.</p>
+
+                            <p>De delar en besatthet av att hitta Volkov:</p>
+                            <ul>
+                                <li><strong>Mac:</strong> Personlig. Volkov kom undan. Mac misslyckades stoppa honom på taket.</li>
+                                <li><strong>Sparky:</strong> Intellektuell. Vad ÄR kuben? Hur fungerar den? Kan det onaturliga förklaras med kod?</li>
+                            </ul>
+
+                            <p>De driver varandra djupare in i besattheten. Sullivan ser det och oroar sig.</p>
+
+                            <div class="alert alert-warning">
+                                <div class="alert-title">⚠️ Sparkys Observation</div>
+                                <p>Mac uppskattar att hon har tillgång till NSA:s verktyg och databaser. Han frågar aldrig hur hon får informationen - bara använder den.</p>
+                                <p>Men han är så fokuserad på Volkov att han inte alltid märker när Sparky själv isolerar sig för mycket, glömmer äta, når sina egna breaking points.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Father Michael Sullivan - Navy Chaplain (De Facto Cell Leader)</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <p><strong>Ålder:</strong> 45 (född 1979)<br>
+                            <strong>Bakgrund:</strong> Katolsk präst, Navy Chaplain Corps (tjänstgör med Marines)<br>
+                            <strong>Stationerad:</strong> Quantico Marine Base, Virginia<br>
+                            <strong>Rank:</strong> Lieutenant Commander</p>
+
+                            <h4>Vad Sparky Vet Om Hans Rekrytering</h4>
+                            <p>Sullivan har delat lite: Afghanistan, 2020. Amerikanska soldater återvände från en patrull med skador som inte borde kunna hända. Berättelser om "saker i bergen".</p>
+
+                            <p>Sullivan försökte hjälpa de traumatiserade soldaterna som chaplain. Såg mönster. Delta Green kontaktade honom månader senare.</p>
+
+                            <h4>Karaktär (Ur Sparkys Perspektiv)</h4>
+                            <p>Sullivan är teamets "själasörjare". Han försöker hålla ihop gruppen emotionellt när allt faller sönder. Han ser sitt Delta Green-arbete som ett heligt kall - att skydda Guds skapelse från ondska.</p>
+
+                            <p>Men efter Sea Glass har något förändrats. Han är mer reserverad nu. Tveksam. Sparky har hört honom citera Job (lidandets bok) mycket oftare än förut.</p>
+
+                            <h4>Efter Sea Glass (Vad Sparky Observerar)</h4>
+                            <p>Sullivan genomgår något han kallar en "tro-kris". Han blev tekniskt cell leader när Mac började må sämre, men han sa till Sparky: <em>"Jag känner mig inte kvalificerad för det här."</em></p>
+
+                            <p>Hans sermoner (Sparky har sett inspelningar när hon researchar honom av säkerhetsskäl) handlar mer om lidande än hopp nu. Senior chaplain beordrade honom på retreat för att "återfinna sin tro".</p>
+
+                            <h4>Relation till Sparky</h4>
+                            <p>Sullivan ser Sparky som "den som alltid är online, även mitt i natten". Han är mer socialt medveten än Mac - han märker detaljer:</p>
+                            <ul>
+                                <li>När Sparky glömmer äta</li>
+                                <li>När hon isolerar sig för mycket</li>
+                                <li>När besattheten med Volkov blir ohälsosam</li>
+                            </ul>
+
+                            <p>Han skickar textmeddelanden typ: <em>"Har du ätit idag?"</em> eller <em>"Ta en paus. Det är en order från din cell leader."</em></p>
+
+                            <p>Sullivan har sagt till Sparky att han oroar sig för att både hon och Mac håller på att förlora sig själva i jakten på Volkov. Han försöker vara teamets moraliska kompass, men Sparky ser att han själv kämpar med tvivel.</p>
+
+                            <div class="alert alert-success">
+                                <div class="alert-title">💚 Sparkys Observation</div>
+                                <p>Sullivan är den enda i Delta Green som faktiskt verkar bry sig om Sparky som person, inte bara som tech asset. Det betyder mer än hon vill erkänna.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Handler & Kommunikation</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <p><strong>Handler:</strong> Codename [Sparky vet inte]<br>
+                            Koordinerar operationer, tillhandahåller intelligence. Sparky träffade honom face-to-face vid rekrytering (juni 2022), aldrig sedan dess.</p>
+
+                            <h4>Kommunikationsprotokoll</h4>
+                            <ul>
+                                <li>Krypterad kommunikation (militär-grade, hon vet vilken typ)</li>
+                                <li>Dead drops för fysiska handoffs (Sparky har gjort 3 st)</li>
+                                <li>Emergency protocols om komprometterad</li>
+                                <li>Ingen dokumentation - allt encrypted eller memorerat</li>
+                            </ul>
+
+                            <p><strong>Vad Sparky Inte Vet:</strong> Handlers riktiga namn, position, om det ens är samma person varje gång, hur många handlers som finns.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="operations">
+                <h2>📋 OPERATIVA PROTOKOLL</h2>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Cover-up är Kritiskt</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <ul>
+                                <li>"Inget onaturligt finns" - official cover story alltid</li>
+                                <li>Eldvapen löser ingenting mot det verkligt farliga (Sparky har lärt sig detta)</li>
+                                <li>Vittnen måste hanteras - diskrediteras, tystas, eller värre</li>
+                                <li>Spår måste städas - både fysiska och digitala (hennes jobb)</li>
+                                <li>Media måste kontrolleras - alternativa förklaringar planteras</li>
+                            </ul>
+
+                            <div class="alert alert-danger">
+                                <div class="alert-title">💀 "Eller Värre"</div>
+                                <p>Sparky har inte behövt göra det än. Men hon vet att det kommer. En dag kommer Handler säga: <em>"Den vittnet måste tystas permanent."</em></p>
+                                <p>Vad gör hon då?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Vad Hon Lärt Sig</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <ul>
+                                <li><strong>Det onaturliga finns</strong> - kan inte längre förneka det efter 7 operationer</li>
+                                <li><strong>Det kan inte förstås</strong> - bara bekämpas, förstörs, begravs</li>
+                                <li><strong>Varje operation kostar SAN</strong> - mentalt pris för sanningen</li>
+                                <li><strong>Bonds är hennes sista förankring</strong> - till normalitet, till mänsklighet</li>
+                                <li><strong>Alla agenter förlorar sig själva till slut</strong> - döda, galna, eller värre</li>
+                                <li><strong>Det onaturliga smittar</strong> - inte bara fysiskt, psykologiskt</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="unknown">
+                <h2>❓ VAD HON INTE VET</h2>
+
+                <p>Det här är saker Sparky INTE vet - antingen för att hon inte har clearance, eller för att ingen har berättat för henne:</p>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Organisatoriska Mysterier</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <ul>
+                                <li>Delta Greens fullständiga historia (när grundades det? av vem?)</li>
+                                <li>Vad "MAJESTIC" är (har hört namnet en gång, ingen förklarade)</li>
+                                <li>Varför de kallar sig "Outlaws" - vad är alternativet?</li>
+                                <li>Andra cellers identiteter (compartmentalized för säkerhet)</li>
+                                <li>Hur många agenter som finns totalt (hennes gissning: 50-200)</li>
+                                <li>Andra regeringars motsvarigheter (finns de? samarbetar de?)</li>
+                                <li>Vem som egentligen finansierar operationerna</li>
+                                <li>Om det finns en "högsta ledning" eller om det bara är handlers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse-box">
+                    <div class="collapse-header" onclick="toggleCollapse(this)">
+                        <h4>Det Onaturliga</h4>
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="collapse-content">
+                        <div class="collapse-content-inner">
+                            <ul>
+                                <li>Fullständig omfattning av det onaturliga (hon har sett 0.001%?)</li>
+                                <li>Om det finns "vänliga" onaturliga varelser</li>
+                                <li>Vad Volkovs kristallkub faktiskt är</li>
+                                <li>Vad som VERKLIGEN hände på Sea Glass (ingen vill prata om det)</li>
+                                <li>Om det onaturliga alltid funnits, eller om det växer</li>
+                                <li>Om mänskligheten kan vinna, eller bara överleva lite längre</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <div class="alert-title">🔍 Sparkys Nyfikenhet</div>
+                    <p>Hon är hacker. Hon VILL veta. Varje gap i informationen gör henne nyfiken. Hon har övervägt att hacka Delta Greens system.</p>
+                    <p>Men något håller henne tillbaka. Rädsla? Respekt? Eller vet hon redan att vissa sanningar är värre än okunnighet?</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>💭 VARFÖR HON STANNAR KVAR</h2>
+
+                <div class="alert alert-danger">
+                    <div class="alert-title">🎯 Motivation</div>
+                    <p><strong>Hon har sett för mycket för att sluta.</strong></p>
+                    <p>Och någonstans djupt inne vet hon: Om inte hon gör det här, vem ska då? Om alla som bryr sig försvinner, vem stoppar det då?</p>
+                    <p>Plus: Hon är besatt av sanningen. Alltid har varit. Delta Green ger henne tillgång till sanning som ingen annan känner till. Farlig sanning. Förgiftad sanning.</p>
+                    <p>Men sanning.</p>
+                </div>
+
+                <div class="alert alert-warning" style="margin-top: 2rem;">
+                    <div class="alert-title">⚠️ SAN STATUS</div>
+                    <p><strong>Starting SAN:</strong> 70 (POW × 5)<br>
+                    <strong>Current SAN:</strong> 63<br>
+                    <strong>Breaking Point:</strong> 56 (SAN - POW)<br>
+                    <strong>Margin:</strong> 7 poäng kvar</p>
+                    <p style="margin-top: 1rem;">Sparky har förlorat 7 SAN totalt över 3 år och 7 operationer. Hon är fortfarande över Breaking Point (63 > 56), men närmar sig gränsen.</p>
+                    <p><strong>Varje operation riskerar att föra henne närmare adaptation och permanent mental skada.</strong></p>
+                    <p style="margin-top: 1rem; font-style: italic;">Mac bröt vid 46 SAN. Sullivan är på 69 SAN men nära sin brytpunkt på 64. Sparky är 7 poäng från sin.</p>
+                </div>
+
+                <div class="alert alert-danger" style="margin-top: 2rem;">
+                    <div class="alert-title">⏰ Tiden Rinner Ut</div>
+                    <p>Varje operation, varje onaturlig händelse, varje lögn till Susan/Mr. Walsh/Null Space Collective tar lite mer av henne.</p>
+                    <p>Mac höll i 7 år. Sullivan i 5 år (och counting). Sparky är på år 3.</p>
+                    <p><em>Hur länge kan hon hålla?</em></p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        function toggleCollapse(header) {
+            const box = header.parentElement;
+            box.classList.toggle('open');
+        }
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
