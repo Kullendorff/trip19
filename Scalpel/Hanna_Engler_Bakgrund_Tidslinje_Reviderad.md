@@ -9,13 +9,13 @@
 ### Barndom & Uppväxt (1986-2004)
 
 **1986**
-- Född i New York City (Brooklyn eller Queens?)
+- Född i New York City (Brooklyn)
 - Mor: Sarah Engler, dataingenjör, pionjär i tech-branschen på 80-talet
-- Far: Jürgen Engler, tysk konstnär/musiker, träffades efter spelning
+- Far: Jürgen Engler, tysk konstnär/musiker, träffades efter spelning i Brooklyn-klubb
 - Föräldrar aldrig tillsammans, men överenskommelse om ansvar
 
 **1986-1995: Tidig barndom**
-- Uppväxt i NYC-förort med ensamstående mor
+- Uppväxt i Brooklyn med ensamstående mor
 - Modern arbetar långa dagar på tech-företag, ofta distanserad men närvarande när det behövs
 - **Datorer hemma:** Modern hade alltid den senaste hårdvaran, Hanna växte upp bekväm med datorer men lärde sig aldrig programmering - modern försökte lära henne men Hanna var mer intresserad av biologi än kod (Computer Science grundläggande användning)
 - Tidig fascination för naturvetenskap, biologi, döda djur hon hittar
@@ -39,16 +39,19 @@
 
 ### Utbildning & Professionalisering (2004-2019)
 
-**2004-2008: College/Pre-med** (Columbia eller NYU)
-- Pre-medical studies med fokus på biologi och kemi
+**2004-2008: College - NYU, Biology Major (Pre-med)**
+- New York University, Greenwich Village - valde NYU över Columbia för ekonomiska skäl och urban campus-atmosfär
+- Biology major med pre-medical track - fokus på cellbiologi, anatomi, organisk kemi
 - Arbetar deltid för att stödja studier (modern hjälper men inte fullt ut)
 - **Slutar spela piano:** Ingen tid, ingen tillgång till instrument, studierna tar över helt
 - Fortsätter med anatomiska teckningar, börjar experimentera med mer konstnärliga uttryck
 - Besöker pappan i Berlin, exponeras för street art-kultur
 - **Latin-kurser** som del av pre-med requirements - fascineras av språkets precision och medicinska tillämpningar (Latin grundlagt)
 
-**2008-2013: Medical School** (SUNY Downstate eller Stony Brook)
-- Medicinsk grundutbildning
+**2008-2013: Medical School - SUNY Downstate, Brooklyn**
+- State University of New York Downstate Medical Center - återvände till Brooklyn
+- Valde SUNY Downstate för stark urban medicine-profil och ekonomiska skäl (public medical school)
+- Medicinsk grundutbildning (M.D.)
 - **Piano tystnar:** 17 år utan att spela börjar här - inget utrymme, ingen tid
 - **Latin fördjupas** - använder det aktivt för anatomisk terminologi, läser historiska medicinska texter
 - Fortsätter teckna - nu mer fokuserat på anatomiska studier som stödjer inlärning
