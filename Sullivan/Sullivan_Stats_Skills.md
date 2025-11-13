@@ -58,11 +58,11 @@
 | Historia | 10% | 60% | +50 |
 | HUMINT | 10% | 70% | +60 |
 | Språk (Latin) | 0% | 50% | +50 |
-| Medicin | 0% | 40% | +40 |
+| Medicin | 0% | 30% | +30 |
 | Military Science (Land) | 0% | 40% | +40 |
 | Persuade | 20% | 60% | +40 |
 | Psykoterapi | 10% | 60% | +50 |
-| Religion | 0% | 60% | +60 |
+| Religion | 0% | 70% | +70 |
 | Drive | 20% | 20% | +0 |
 
 **Total:** 460 professional skill points
@@ -79,9 +79,10 @@
 | Byråkrati | +20% | 60% |
 | Alertness | +20% | 60% |
 | Skjutvapen | +60% | 60% |
-| Computer Science | +10% | 50% |
+| Computer Science | +20% | 20% |
+| Craft (Möbelrestaurering) | +30% | 30% |
 
-**Notering:** Framförallt jaktvapen - avskyr pistoler
+**Notering:** Framförallt jaktvapen - avskyr pistoler. Restaurerar antika kyrkbänkar och möbler som terapi/meditation.
 
 ---
 
