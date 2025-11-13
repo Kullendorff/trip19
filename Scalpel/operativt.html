@@ -31,7 +31,7 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 20% 80%, rgba(201, 168, 118, 0.02) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(61, 52, 46, 0.03) 0%, transparent 50%);
         }
@@ -299,6 +299,14 @@
             padding: 2rem;
             border-radius: 8px;
             position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .operation-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
         .operation-card::before {
@@ -311,6 +319,23 @@
             border: 1px solid var(--accent-secondary);
             border-radius: 6px;
             opacity: 0.2;
+        }
+
+        .operation-card::after {
+            content: "► Klicka för mer info";
+            position: absolute;
+            bottom: 1rem;
+            right: 1.5rem;
+            font-size: 0.75rem;
+            color: var(--accent-secondary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+        }
+
+        .operation-card:hover::after {
+            opacity: 1;
         }
 
         .operation-title {
@@ -345,6 +370,138 @@
 
         .detail-value {
             color: var(--text-primary);
+        }
+
+        /* Operation Modal Styles */
+        .operation-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow-y: auto;
+        }
+
+        .operation-modal.active {
+            display: block;
+        }
+
+        .operation-modal-content {
+            background: var(--secondary-bg);
+            margin: 2% auto;
+            padding: 3rem;
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            width: 90%;
+            max-width: 900px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+        }
+
+        .operation-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: var(--accent-color);
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(26, 22, 18, 0.8);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .operation-modal-close:hover {
+            background: var(--accent-color);
+            color: var(--primary-bg);
+        }
+
+        .operation-modal h2 {
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-variant: small-caps;
+            letter-spacing: 2px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .operation-modal h3 {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-variant: small-caps;
+        }
+
+        .operation-modal h4 {
+            color: var(--accent-secondary);
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-variant: small-caps;
+        }
+
+        .operation-modal p {
+            color: var(--text-primary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .operation-modal ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .operation-modal li {
+            color: var(--text-primary);
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .operation-modal li::before {
+            content: "▪ ";
+            color: var(--accent-secondary);
+            position: absolute;
+            left: 0;
+        }
+
+        .operation-modal strong {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .operation-modal em {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .modal-warning-box {
+            background: rgba(212, 165, 116, 0.1);
+            border-left: 4px solid var(--warning);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .modal-classified-box {
+            background: rgba(139, 90, 90, 0.2);
+            border: 2px solid var(--classified);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
         }
 
         .bonds-grid {
@@ -583,6 +740,20 @@
             .main-content {
                 padding: 2rem 1rem;
             }
+
+            .operation-modal-content {
+                width: 95%;
+                padding: 2rem 1.5rem;
+                margin: 5% auto;
+            }
+
+            .operation-modal-close {
+                top: 0.5rem;
+                right: 1rem;
+                font-size: 25px;
+                width: 40px;
+                height: 40px;
+            }
         }
 
         /* Lightbox Styles */
@@ -675,7 +846,7 @@
                 <span class="ornament">❧</span> DR. HANNA ENGLER <span class="ornament">❧</span><br>
                 <span style="font-size: 0.8rem; color: var(--text-secondary); font-variant: normal; letter-spacing: 1px;">Medical Examiner • Delta Green</span>
             </div>
-            
+
             <nav>
                 <div class="nav-section">
                     <div class="page-link-container">
@@ -686,7 +857,7 @@
                         <a href="art.html" class="page-link">KONST & MUSIK</a>
                     </div>
                 </div>
-                
+
                 <div class="nav-section">
                     <div class="nav-title">Snabbnavigering</div>
                     <a href="#delta-green" class="nav-link">Delta Green</a>
@@ -696,7 +867,7 @@
                     <a href="#utrustning" class="nav-link">Utrustning</a>
                 </div>
             </nav>
-            
+
             <div class="sidebar-footer">
                 <a href="../index.html" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">
                     ✦ TRIP 19 ✦<br>
@@ -724,7 +895,7 @@
 
             <section id="delta-green" class="content-section">
                 <h2 class="section-title">Delta Green Status</h2>
-                
+
                 <div class="handler-box">
                     <div class="handler-title">Handler-relation: Cardinal Pierce</div>
                     <div class="handler-details">
@@ -737,7 +908,7 @@
                                 <li>Dead drop vid nödsituation</li>
                             </ul>
                         </div>
-                        
+
                         <div class="handler-section">
                             <h5>Relation</h5>
                             <ul>
@@ -747,7 +918,7 @@
                                 <li>Sekundärt uppdrag: bedöm Mac Riley</li>
                             </ul>
                         </div>
-                        
+
                         <div class="handler-section">
                             <h5>Kommunikationsfrekvens</h5>
                             <ul>
@@ -765,11 +936,11 @@
                         Rekryteringshistoria
                     </h4>
                     <p style="color: var(--text-primary); line-height: 1.7; margin-bottom: 1rem;">
-                        <strong>Våren 2022:</strong> Autopsi av biologiskt omöjlig kropp från "industriolycka" i New Jersey. 
+                        <strong>Våren 2022:</strong> Autopsi av biologiskt omöjlig kropp från "industriolycka" i New Jersey.
                         Hannas noggranna dokumentation och diskretion noterades av DG.
                     </p>
                     <p style="color: var(--text-secondary); line-height: 1.7; font-style: italic;">
-                        "Vi vet vad du såg. Vi vet att du dokumenterade det korrekt. Det finns en organisation som hanterar sånt här. 
+                        "Vi vet vad du såg. Vi vet att du dokumenterade det korrekt. Det finns en organisation som hanterar sånt här.
                         Vi behöver människor som du - metodiska, diskreta, kapabla att se sanningen utan att bryta ihop."
                     </p>
                 </div>
@@ -777,35 +948,35 @@
 
             <section id="operationer" class="content-section">
                 <h2 class="section-title">DG-operationer</h2>
-                
+
                 <div class="operation-grid">
-                    <div class="operation-card">
-                        <div class="operation-title">Operation 1: [Klassificerad]</div>
+                    <div class="operation-card" onclick="openOperationModal('op1')">
+                        <div class="operation-title">Operation "Harvest Moon"</div>
                         <div class="operation-details">
                             <div class="operation-detail">
                                 <div class="detail-label">Datum:</div>
-                                <div class="detail-value">2022-2023</div>
+                                <div class="detail-value">17-24 Oktober 2022</div>
+                            </div>
+                            <div class="operation-detail">
+                                <div class="detail-label">Plats:</div>
+                                <div class="detail-value">Millbrook, Vermont</div>
                             </div>
                             <div class="operation-detail">
                                 <div class="detail-label">Roll:</div>
-                                <div class="detail-value">Forensisk expert</div>
+                                <div class="detail-value">Forensisk expert / Biologisk verifikation</div>
                             </div>
                             <div class="operation-detail">
                                 <div class="detail-label">SAN-förlust:</div>
-                                <div class="detail-value">4-6 poäng</div>
-                            </div>
-                            <div class="operation-detail">
-                                <div class="detail-label">Status:</div>
-                                <div class="detail-value">Lyckad (med förluster)</div>
+                                <div class="detail-value">6 poäng</div>
                             </div>
                         </div>
                         <p style="color: var(--text-secondary); font-style: italic; font-size: 0.9rem;">
-                            Första exponering för det genuint onaturliga. Hypervigilans utvecklades som responsmekanism. 
-                            Förändrade hennes syn på världen permanent.
+                            Fem återvändande barn. Identiskt DNA. Fel isotoper. Föräldrars desperata förnekelse.
+                            Första gången vetenskapen bevisade något som ingen ville tro på.
                         </p>
                     </div>
-                    
-                    <div class="operation-card">
+
+                    <div class="operation-card" onclick="openOperationModal('op2')">
                         <div class="operation-title">Operation "Clean Sweep"</div>
                         <div class="operation-details">
                             <div class="operation-detail">
@@ -826,12 +997,12 @@
                             </div>
                         </div>
                         <p style="color: var(--text-secondary); font-style: italic; font-size: 0.9rem;">
-                            Autopsi av både offer och döda DG-agents efter annan cells misslyckade operation. 
+                            Autopsi av både offer och döda DG-agents efter annan cells misslyckade operation.
                             Tvingades dissekera en kollega - emotionellt brutalt.
                         </p>
                     </div>
-                    
-                    <div class="operation-card">
+
+                    <div class="operation-card" onclick="openOperationModal('op3')">
                         <div class="operation-title">Operation "Pattern Recognition"</div>
                         <div class="operation-details">
                             <div class="operation-detail">
@@ -852,7 +1023,7 @@
                             </div>
                         </div>
                         <p style="color: var(--text-secondary); font-style: italic; font-size: 0.9rem;">
-                            Serie märkliga kroppar ledde till kollegas mentala kollaps. Hanna rapporterade Patricia till DG. 
+                            Serie märkliga kroppar ledde till kollegas mentala kollaps. Hanna rapporterade Patricia till DG.
                             Patricia "försvann". Hannas cover kompromitterad - flytt till Maryland nödvändig.
                         </p>
                     </div>
@@ -861,7 +1032,7 @@
                 <div class="risk-assessment">
                     <h4>Nuvarande Operativ Status</h4>
                     <p>
-                        Hanna befinner sig i Maryland med nytt ME-uppdrag som cover. Sekundärt mål att bedöma Mac Rileys funktionalitet 
+                        Hanna befinner sig i Maryland med nytt ME-uppdrag som cover. Sekundärt mål att bedöma Mac Rileys funktionalitet
                         för DG. SAN eroderar stadigt - närmare breaking point än hon vill erkänna. Två bonds förlorade senaste året.
                     </p>
                 </div>
@@ -869,11 +1040,11 @@
 
             <section id="bonds" class="content-section">
                 <h2 class="section-title">Bonds & Relationer</h2>
-                
+
                 <div style="text-align: center; margin: 2rem 0; padding: 1rem; background: var(--accent-bg); border-radius: 6px;">
                     <span style="color: var(--accent-color); font-size: 1.5rem; font-weight: bold;">Totalt aktiva bonds: 25 poäng</span>
                 </div>
-                
+
                 <div class="bonds-grid">
                     <div class="bond-card">
                         <div class="bond-status bond-active">Aktiv</div>
@@ -881,55 +1052,55 @@
                         <div class="bond-relation">Mor och dotter</div>
                         <div class="bond-strength">Bond-styrka: 10</div>
                         <div class="bond-description">
-                            Pensionerad dataingenjör, 63 år, NYC. Pragmatisk kärlek utan sentimentalitet. 
-                            Vet inte om Delta Green - tror Hanna bara har stressigt jobb. 
+                            Pensionerad dataingenjör, 63 år, NYC. Pragmatisk kärlek utan sentimentalitet.
+                            Vet inte om Delta Green - tror Hanna bara har stressigt jobb.
                             Hanna håller henne på avstånd för att skydda henne.
                         </div>
                     </div>
-                    
+
                     <div class="bond-card">
                         <div class="bond-status bond-active">Aktiv</div>
                         <div class="bond-name">Jürgen Engler</div>
                         <div class="bond-relation">Far och dotter</div>
                         <div class="bond-strength">Bond-styrka: 8</div>
                         <div class="bond-description">
-                            Konstnär/musiker, 64 år, Berlin. Sporadisk men djup kontakt. 
-                            Aldrig frågade "varför är du sådan?" - bara accepterade. 
+                            Konstnär/musiker, 64 år, Berlin. Sporadisk men djup kontakt.
+                            Aldrig frågade "varför är du sådan?" - bara accepterade.
                             Skulle hantera DG-sanningar bättre än de flesta.
                         </div>
                     </div>
-                    
+
                     <div class="bond-card">
                         <div class="bond-status bond-active">Aktiv</div>
                         <div class="bond-name">Dr. Marcus Chen</div>
                         <div class="bond-relation">Före detta kollega</div>
                         <div class="bond-strength">Bond-styrka: 7</div>
                         <div class="bond-description">
-                            ME i New Jersey, 42 år. Sex års professionellt samarbete som blev vänskap. 
-                            Geografisk separation gör bonden svagare varje månad. 
+                            ME i New Jersey, 42 år. Sex års professionellt samarbete som blev vänskap.
+                            Geografisk separation gör bonden svagare varje månad.
                             Risk att den bara faller bort av försummelse.
                         </div>
                     </div>
-                    
+
                     <div class="bond-card">
                         <div class="bond-status bond-broken">Bruten</div>
                         <div class="bond-name">Före detta partner</div>
                         <div class="bond-relation">Romantisk relation (3+ år)</div>
                         <div class="bond-strength">Var: 10-12 poäng</div>
                         <div class="bond-description">
-                            Relation förstörd av DG-hemligheter 2025. "Du är någon annanstans hela tiden. 
+                            Relation förstörd av DG-hemligheter 2025. "Du är någon annanstans hela tiden.
                             Jag känner inte igen dig längre." Hanna kunde inte försvara sig utan att avslöja sanningen.
                         </div>
                     </div>
-                    
+
                     <div class="bond-card">
                         <div class="bond-status bond-broken">Bruten</div>
                         <div class="bond-name">Dr. Patricia Rourke</div>
                         <div class="bond-relation">Mentor och kollega</div>
                         <div class="bond-strength">Var: 9 poäng</div>
                         <div class="bond-description">
-                            Senior ME som började obsessera över "mönster" i märkliga fall. 
-                            Hanna rapporterade henne till DG. Patricia försvann kort därefter. 
+                            Senior ME som började obsessera över "mönster" i märkliga fall.
+                            Hanna rapporterade henne till DG. Patricia försvann kort därefter.
                             Skuld och trauma kvarstår.
                         </div>
                     </div>
@@ -938,63 +1109,63 @@
 
             <section id="kontakter" class="content-section">
                 <h2 class="section-title">Professionella Kontakter</h2>
-                
+
                 <div class="contacts-grid">
                     <div class="contact-card">
                         <div class="contact-name">Dr. Lisa Park</div>
                         <div class="contact-title">Senior ME, Baltimore OCME</div>
                         <div class="contact-note">
-                            45 år, pediatrisk specialist. Hannas "mentor" för Baltimore-systemet. 
-                            Börjar bli nyfiken på varför Hanna är så privat. 
+                            45 år, pediatrisk specialist. Hannas "mentor" för Baltimore-systemet.
+                            Börjar bli nyfiken på varför Hanna är så privat.
                             Potentiell vän om Hanna tillät det - och potentiell säkerhetsrisk.
                         </div>
                     </div>
-                    
+
                     <div class="contact-card">
                         <div class="contact-name">Detektiv Sarah Chen</div>
                         <div class="contact-title">Baltimore PD, Homicide</div>
                         <div class="contact-note">
-                            38 år, 7 år i Homicide. Tuff och pragmatisk. 
-                            Arbetar med Hanna på mordfall. Professionell respekt, minimal småprat. 
+                            38 år, 7 år i Homicide. Tuff och pragmatisk.
+                            Arbetar med Hanna på mordfall. Professionell respekt, minimal småprat.
                             Har bjudit på öl efter svåra fall.
                         </div>
                     </div>
-                    
+
                     <div class="contact-card">
                         <div class="contact-name">Dr. Raymond Foster</div>
                         <div class="contact-title">Chief Medical Examiner</div>
                         <div class="contact-note">
-                            60-årig veteran, strikt men rättvis. 
-                            Vet INTE om Delta Green. God professionell relation baserad på 
+                            60-årig veteran, strikt men rättvis.
+                            Vet INTE om Delta Green. God professionell relation baserad på
                             Hannas New Jersey-meriter.
                         </div>
                     </div>
-                    
+
                     <div class="contact-card">
                         <div class="contact-name">Michael Chen</div>
                         <div class="contact-title">Senior Diener</div>
                         <div class="contact-note">
-                            Erfaren autopsy technician. Diskret och professionell. 
+                            Erfaren autopsy technician. Diskret och professionell.
                             Värdeful för DG-operationer - ställer inga frågor om ovanliga procedurer.
                         </div>
                     </div>
-                    
+
                     <div class="contact-card">
                         <div class="contact-name">Shauna Williams</div>
                         <div class="contact-title">Junior Diener</div>
                         <div class="contact-note">
-                            Ung och ambitiös. Ställer ibland för många frågor. 
-                            Potentiell säkerhetsrisk - Hanna måste vara extra försiktig 
+                            Ung och ambitiös. Ställer ibland för många frågor.
+                            Potentiell säkerhetsrisk - Hanna måste vara extra försiktig
                             när hon arbetar med Shauna.
                         </div>
                     </div>
-                    
+
                     <div class="contact-card">
                         <div class="contact-name">Bobby Martinez</div>
                         <div class="contact-title">Veteran Diener</div>
                         <div class="contact-note">
-                            Veteran som "sett allt", bryr sig inte om något längre. 
-                            Perfekt för diskreta operationer - noterar inte ovanligheter 
+                            Veteran som "sett allt", bryr sig inte om något längre.
+                            Perfekt för diskreta operationer - noterar inte ovanligheter
                             eller ställer frågor.
                         </div>
                     </div>
@@ -1003,8 +1174,8 @@
                 <div style="margin-top: 2rem; background: rgba(139, 115, 85, 0.1); padding: 1.5rem; border-left: 4px solid var(--accent-secondary); border-radius: 0 4px 4px 0;">
                     <h4 style="color: var(--accent-secondary); margin-bottom: 0.8rem; font-variant: small-caps;">Kontakt-strategi</h4>
                     <p style="color: var(--text-secondary); line-height: 1.6; font-style: italic;">
-                        Hanna håller människor på avstånd - inte för att hon är elak, utan för att hon lärt sig att människor 
-                        kan tas ifrån henne, lämna henne, eller ställa frågor hon inte kan svara på. 
+                        Hanna håller människor på avstånd - inte för att hon är elak, utan för att hon lärt sig att människor
+                        kan tas ifrån henne, lämna henne, eller ställa frågor hon inte kan svara på.
                         Det är lättare att vara ensam. Säkrare att vara ensam.
                     </p>
                 </div>
@@ -1012,7 +1183,7 @@
 
             <section id="utrustning" class="content-section">
                 <h2 class="section-title">Utrustning & Resurser</h2>
-                
+
                 <div class="equipment-grid">
                     <div class="equipment-category">
                         <h4>Flykt-utrustning</h4>
@@ -1024,7 +1195,7 @@
                             <li>Multi-tool och överlevnadsutrustning</li>
                         </ul>
                     </div>
-                    
+
                     <div class="equipment-category">
                         <h4>Transport</h4>
                         <ul>
@@ -1035,7 +1206,7 @@
                             <li>ME-legitimation för rörelsefrihet</li>
                         </ul>
                     </div>
-                    
+
                     <div class="equipment-category">
                         <h4>Kommunikation</h4>
                         <ul>
@@ -1046,7 +1217,7 @@
                             <li>USB-backup (gömd separat)</li>
                         </ul>
                     </div>
-                    
+
                     <div class="equipment-category">
                         <h4>Grafitti-utrustning</h4>
                         <ul>
@@ -1057,18 +1228,18 @@
                             <li>Cleanup-material</li>
                         </ul>
                     </div>
-                    
+
                     <div class="equipment-category">
                         <h4>Säkerhet</h4>
                         <ul>
-                            <li>Extra dörrås (diskret installation)</li>
+                            <li>Extra dörrlås (diskret installation)</li>
                             <li>Kontaktsensorer på fönster</li>
                             <li>Dörrkil under sängen</li>
                             <li>Identifierad flyktväg via bakfönster</li>
                             <li>Hårstrån för intrångsdetektering</li>
                         </ul>
                     </div>
-                    
+
                     <div class="equipment-category">
                         <h4>Saknas (överväger)</h4>
                         <ul>
@@ -1086,13 +1257,194 @@
                         Utrustnings-filosofi
                     </h4>
                     <p style="color: var(--text-primary); line-height: 1.7;">
-                        <strong>Minimalism som säkerhetsstrategi.</strong> Allt hon äger kan packas och transporteras snabbt. 
-                        Inga sentimentala föremål synliga. Varje föremål tjänar ett syfte. 
+                        <strong>Minimalism som säkerhetsstrategi.</strong> Allt hon äger kan packas och transporteras snabbt.
+                        Inga sentimentala föremål synliga. Varje föremål tjänar ett syfte.
                         Hon är redo att lämna allt inom 10-15 minuter om planerat, 2-3 minuter vid desperation.
                     </p>
                 </div>
             </section>
         </main>
+    </div>
+
+    <!-- Operation Modals -->
+    <div id="op1-modal" class="operation-modal">
+        <div class="operation-modal-content">
+            <span class="operation-modal-close" onclick="closeOperationModal('op1')">&times;</span>
+            <h2>Operation "Harvest Moon"</h2>
+            <p><strong>Datum:</strong> 17-24 Oktober 2022<br>
+            <strong>Plats:</strong> Millbrook, Vermont (fiktiv småstad, population ~2,800)<br>
+            <strong>Roll:</strong> Forensisk expert / Biologisk verifikation<br>
+            <strong>SAN-förlust:</strong> 6 poäng<br>
+            <strong>Status:</strong> Lyckad (med förbehåll)</p>
+
+            <h3>Situationen</h3>
+            <p>Fem barn (åldrarna 6-11) försvann under Harvest Festival 10 oktober. De återkom en vecka senare, till synes oskadda. Föräldrarna jublade. Lokala myndigheter stängde fallet.</p>
+            <p>Men något var fel. En lokal läkare noterade anomalier i rutinkontroller och kontaktade FBI. FBI:s preliminära tester var... oroande. Delta Green aktiverades.</p>
+
+            <h3>Hannas uppgift</h3>
+            <p>Bevisa vetenskapligt att dessa INTE var samma barn, trots:</p>
+            <ul>
+                <li>Identiskt DNA (99.98% match)</li>
+                <li>Samma minnen, beteenden, röstigenkänning</li>
+                <li>Föräldrar som desperat insisterade "det är vårt barn"</li>
+            </ul>
+
+            <h3>Vad hon fann</h3>
+            <p><strong>Cellulära anomalier:</strong> Mitokondriell aktivitet följde inte jordisk biokemi. Celldelning skedde i "fel" riktning. Vävnad som såg normal ut i mikroskop men reflekterade ljus på omöjliga sätt.</p>
+
+            <div class="modal-warning-box">
+                <p><strong>Det avgörande beviset:</strong> Isotopanalys visade att barnens kroppar innehöll kol-isotoper som inte existerat på jorden sedan prekambrium. De var kopior byggda av "urgammal" materia.</p>
+            </div>
+
+            <h3>Konfrontationen</h3>
+            <p>Hanna presenterade bevisen för föräldrarna tillsammans med DG-teamet. Reaktionen var våldsam förnekelse:</p>
+            <ul>
+                <li><em>"Det är VÅRT barn! Jag känner mitt eget barn!"</em></li>
+                <li><em>"Era tester är fel! De har varit borta, de är rädda, det är allt!"</em></li>
+                <li><em>"Ni försöker bara ta dem ifrån oss igen!"</em></li>
+            </ul>
+            <p>En mamma attackerade fysiskt Hanna. <em>"Du ljuger! Du mördar mitt barn med dina lögner!"</em></p>
+
+            <h3>Utgången</h3>
+            <p>Delta Green tog barnen. Officiell cover story: Sällsynt parasitinfektion, krävde karantän på federal anläggning.</p>
+            <p>Föräldrarna fick aldrig veta sanningen. De sörjer fortfarande sina "sjuka" barn som "staten tog."</p>
+
+            <h4>Vad hände med de "riktiga" barnen?</h4>
+            <p>Hanna vet inte. Ingen vet. Det värsta är att kopior-barnen själva verkade tro de var äkta. De grät efter sina föräldrar när de fördes bort.</p>
+
+            <h3>Permanent påverkan på Hanna</h3>
+            <div class="modal-classified-box">
+                <h4>Världssyn</h4>
+                <p>Mänsklig desperation är farligare än det onaturliga. Folk väljer hellre en bekväm lögn än en outhärdlig sanning.</p>
+
+                <h4>Beteendeförändring</h4>
+                <ul>
+                    <li>Undviker barnfallsautopsier när möjligt</li>
+                    <li>Gör alltid isotopanalys på "ovanliga" fall</li>
+                    <li>Ser föräldra-barn interaktioner med ny skepsis</li>
+                </ul>
+
+                <h4>Kvardröjande tvivel</h4>
+                <p><em>Tänk om föräldrarna hade rätt? Tänk om kärlek är starkare än biokemi?</em></p>
+                <p><strong>Nej. Data ljuger inte. Data ljuger inte.</strong></p>
+            </div>
+
+            <h3>Vad hon behöll</h3>
+            <p>En USB med alla testresultat, inklusive föräldrarnas desperata vittnesmål. Ibland på sömnlösa nätter läser hon dem igen. Påminner sig om varför sanningen måste skyddas från de som inte kan hantera den.</p>
+        </div>
+    </div>
+
+    <div id="op2-modal" class="operation-modal">
+        <div class="operation-modal-content">
+            <span class="operation-modal-close" onclick="closeOperationModal('op2')">&times;</span>
+            <h2>Operation "Clean Sweep"</h2>
+            <p><strong>Datum:</strong> Hösten 2023<br>
+            <strong>Plats:</strong> Delaware<br>
+            <strong>Situation:</strong> Post-operation cleanup efter annan cells misslyckade insats<br>
+            <strong>SAN-förlust:</strong> 2-3 poäng</p>
+
+            <h3>Hannas roll</h3>
+            <p>Forensisk expert kallad in för att dokumentera och därefter förstöra bevis efter att Delta Green-cellen neutraliserat ett hot men lämnat komprometterad plats.</p>
+
+            <h3>Uppgift</h3>
+            <ul>
+                <li>Autopsi av tre döda civilians (offer för det onaturliga)</li>
+                <li>Autopsi av två agents som dött under operationen</li>
+                <li>Dokumentera alla biologiska anomalier</li>
+                <li>Förstöra alla bevis som kunde avslöja det onaturliga</li>
+                <li>Skapa trovärdig cover story för lokala myndigheter</li>
+            </ul>
+
+            <h3>Utmaning</h3>
+            <div class="modal-warning-box">
+                <p>En av de döda agenterna var någon Hanna kände marginellt från tidigare. Att dissekera en kollega - någon som dött för att stoppa något fruktansvärt - var psykologiskt brutalt.</p>
+            </div>
+
+            <p>Hennes händer skakade inte under dissektionen. Det var det värsta. Hon hade blivit så van vid döden att inte ens detta rörde henne längre.</p>
+
+            <p>Men efteråt, i duschen, stod hon i 40 minuter och kunde inte sluta tvätta.</p>
+
+            <h3>Resultat</h3>
+            <p><strong>Officiell status:</strong> Operation klassificerad som framgång. Lokala myndigheter accepterade cover story (gasläcka). Inga spår kvar.</p>
+
+            <h3>Läxa</h3>
+            <div class="modal-classified-box">
+                <p><strong>Delta Green-agents är förbrukningsvara. Inklusive henne själv.</strong></p>
+                <p>Hon hade alltid vetat det teoretiskt. Nu visste hon det på obduktionsbordet, med skalp i hand, med kollegans organ framför sig.</p>
+                <p>En dag skulle det vara hon på det bordet. En annan Hanna skulle dokumentera hur hon dog. Kanske också tvätta händerna i 40 minuter efteråt.</p>
+            </div>
+
+            <h3>SAN-förlust</h3>
+            <p>Främst från kollegans död, inte från det onaturliga. Det onaturliga hade blivit rutinmässigt. Det mänskliga var vad som fortfarande kunde såra henne.</p>
+            <p>Hon visste inte om det var bra eller dåligt.</p>
+        </div>
+    </div>
+
+    <div id="op3-modal" class="operation-modal">
+        <div class="operation-modal-content">
+            <span class="operation-modal-close" onclick="closeOperationModal('op3')">&times;</span>
+            <h2>Operation "Pattern Recognition"</h2>
+            <p><strong>Datum:</strong> Mars-April 2025<br>
+            <strong>Plats:</strong> New Jersey<br>
+            <strong>Komplikation:</strong> Patricia Rourke-incident<br>
+            <strong>Resultat:</strong> Tvångsflyttning till Maryland</p>
+
+            <h3>Bakgrund</h3>
+            <p>Serie av kroppar började komma in till ME-kontoret under våren. Märkliga men inte uppenbart onaturliga. Hanna noterade anomalier men rapporterade dem inte till DG - verkade inte tillräckligt allvarliga.</p>
+
+            <p>Dr. Patricia Rourke, äldre kollega och mentor, började obsessera över "mönster" i kropparna.</p>
+
+            <h3>Eskalering</h3>
+            <p>Hanna blev nyfiken. Behöll vävnadsprover. Gjorde privata analyser utanför protokoll.</p>
+
+            <p>Patricia blev värre:</p>
+            <ul>
+                <li>Började prata om "meddelanden från de döda"</li>
+                <li>Försökte tvinga Hanna att "se" något i vävnaderna</li>
+                <li>Jobbade övertid, ensam i labbet, sent på nätterna</li>
+                <li>Började teckna symboler i sina anteckningar</li>
+            </ul>
+
+            <div class="modal-warning-box">
+                <p>Hanna rapporterade Patricia till Cardinal Pierce.</p>
+            </div>
+
+            <h3>Hannas roll i "operationen"</h3>
+            <ul>
+                <li>Dokumentera Patricias beteende</li>
+                <li>Säkerställa alla vävnadsprover</li>
+                <li>Fortsätt arbeta som vanligt medan DG hanterade situationen</li>
+                <li>Rapportera om andra kollegor uppvisade liknande symtom</li>
+            </ul>
+
+            <h3>Utgången</h3>
+            <p>Patricia "försvann" - officiellt sjukskriven för mentala hälsoskäl. Familjen sa att hon valde inläggning frivilligt. Hanna vet inte om det är sant.</p>
+
+            <p>Alla märkliga vävnadsprover konfiskerades av "federal agents." Hannas labb-aktivitet hade flaggats av någon (inte DG - troligen Majestic eller annat?).</p>
+
+            <div class="modal-classified-box">
+                <p><strong>Cardinal Pierce:</strong> <em>"Du är bränd här. Måste flytta. Nu."</em></p>
+                <p>Inom två veckor ordnade Pierce ME-tjänsten i Maryland. Ny stad. Ny start. Sekundärt uppdrag: bedöm Mac Rileys funktionalitet.</p>
+            </div>
+
+            <h3>Skuld</h3>
+            <p>Kunde Hanna ha hjälpt Patricia istället för att rapportera henne? Var Patricia verkligt galen eller såg hon något äkta?</p>
+
+            <p>Hanna tänker på det varje gång hon arbetar sent ensam i labbet i Baltimore. Varje gång hon noterar ett "mönster" som inte borde finnas.</p>
+
+            <p><em>Tänk om hon börjar se samma saker Patricia såg? Vem kommer rapportera henne då?</em></p>
+
+            <h3>Läxa</h3>
+            <div class="modal-classified-box">
+                <p><strong>Nyfikenhet är farligt. Att gräva för djupt lockar uppmärksamhet från mer än bara Delta Green.</strong></p>
+                <p>Det finns saker där ute som inte vill bli funna. Och de kan hitta dig tillbaka genom den data du samlar.</p>
+                <p>Patricia ville förstå. Förståelsen förstörde henne.</p>
+                <p>Hur mycket längre kan Hanna gå innan hon passerar samma gräns?</p>
+            </div>
+
+            <h3>SAN-förlust</h3>
+            <p>Främst skuld över att ha rapporterat Patricia. Men också rädsla: <em>Kommer jag bli nästa?</em></p>
+        </div>
     </div>
 
     <!-- Lightbox -->
@@ -1110,35 +1462,64 @@
         const lightboxClose = document.querySelector('.lightbox-close');
         const clickableImages = document.querySelectorAll('.clickable-image');
 
-        // Open lightbox
         clickableImages.forEach(img => {
             img.addEventListener('click', () => {
                 lightboxImg.src = img.src;
                 lightboxImg.alt = img.alt;
                 lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
+                document.body.style.overflow = 'hidden';
             });
         });
 
-        // Close lightbox
         function closeLightbox() {
             lightbox.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Restore scrolling
+            document.body.style.overflow = 'auto';
         }
 
         lightboxClose.addEventListener('click', closeLightbox);
-        
-        // Close when clicking outside image
+
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
                 closeLightbox();
             }
         });
 
-        // Close with Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && lightbox.classList.contains('active')) {
                 closeLightbox();
+            }
+        });
+
+        // Operation Modal functionality
+        function openOperationModal(opId) {
+            const modal = document.getElementById(opId + '-modal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeOperationModal(opId) {
+            const modal = document.getElementById(opId + '-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.querySelectorAll('.operation-modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    const modalId = modal.id.replace('-modal', '');
+                    closeOperationModal(modalId);
+                }
+            });
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.operation-modal.active').forEach(modal => {
+                    const modalId = modal.id.replace('-modal', '');
+                    closeOperationModal(modalId);
+                });
             }
         });
     </script>
