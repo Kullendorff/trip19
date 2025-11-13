@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delta Green: Flight 19 - Karaktärer</title>
+    <title>Delta Green: Trip 19 - Chesapeake Cell</title>
     <style>
         * {
             margin: 0;
@@ -13,192 +13,321 @@
 
         :root {
             --bg-dark: #0D1117;
-            --bg-darker: #0A0F0F;
-            --accent: #4A90A4;
-            --text: #D1D5DB;
-            --text-dim: #6B7280;
-            --border: #1A2332;
+            --bg-darker: #1a1a1a;
+            --accent: #ff6b35;
+            --accent-dim: #cc5529;
+            --text: #ffffff;
+            --text-dim: #cccccc;
+            --text-darker: #888888;
+            --border: #333333;
             --warning: #E74C3C;
+            --card-bg: rgba(0, 0, 0, 0.7);
+            --card-border: rgba(255, 107, 53, 0.3);
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+            background: 
+                linear-gradient(rgba(13, 17, 23, 0.85), rgba(13, 17, 23, 0.85)),
+                url('volkov1.png') center center/cover no-repeat fixed;
             color: var(--text);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .container {
-            text-align: center;
-            max-width: 1000px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             padding: 2rem;
-        }
-
-        .title {
-            font-size: 3rem;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            text-shadow: 0 2px 10px rgba(74, 144, 164, 0.3);
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-dim);
-            margin-bottom: 3rem;
-            font-style: italic;
-        }
-
-        .players-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .player-card {
-            background: rgba(26, 35, 50, 0.8);
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: var(--text);
             position: relative;
-            overflow: hidden;
+            z-index: 2;
         }
 
-        .player-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(74, 144, 164, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .player-card:hover::before {
-            left: 100%;
-        }
-
-        .player-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(74, 144, 164, 0.2);
-        }
-
-        .player-name {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        .player-title {
-            font-size: 1rem;
-            color: var(--text-dim);
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .player-description {
-            font-size: 0.9rem;
-            color: var(--text);
-            line-height: 1.5;
-        }
-
-        .footer {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-            color: var(--text-dim);
-            font-size: 0.9rem;
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 3;
         }
 
         .classification {
             color: var(--warning);
             font-weight: bold;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+        }
+
+        .title {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 900;
+            text-shadow: 
+                0 0 20px rgba(255, 107, 53, 0.5),
+                0 2px 4px rgba(0, 0, 0, 0.8);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+            font-style: italic;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        .cell-designation {
+            font-size: 1rem;
+            color: var(--text-darker);
             text-transform: uppercase;
             letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            margin: 2rem 0;
+            position: relative;
+            z-index: 3;
+        }
+
+        .agent-card {
+            background: var(--card-bg);
+            border: 2px solid var(--card-border);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: var(--text);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            cursor: pointer;
+        }
+
+        .agent-card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .agent-card:hover::before {
+            opacity: 1;
+        }
+
+        .agent-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(255, 107, 53, 0.3);
+            background: rgba(0, 0, 0, 0.85);
+        }
+
+        .agent-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            object-position: center center;
+            border-radius: 10px;
             margin-bottom: 1rem;
+            border: 2px solid rgba(255, 107, 53, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Specific positioning for different agents */
+
+        .agent-card[href*="Sparky"] .agent-image {
+            object-position: center 20%;
+        }
+
+        .agent-card[href*="Scalpel"] .agent-image {
+            object-position: center 30%;
+        }
+
+        .agent-card:hover .agent-image {
+            border-color: var(--accent);
+            filter: brightness(1.1) contrast(1.1);
+        }
+
+        .agent-info {
+            position: relative;
+            z-index: 2;
+        }
+
+        .agent-name {
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 0.3rem;
+            font-weight: bold;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .agent-title {
+            font-size: 1rem;
+            color: var(--text-dim);
+            margin-bottom: 0.8rem;
+            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .agent-description {
+            font-size: 0.85rem;
+            color: var(--text);
+            line-height: 1.4;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-darker);
+            font-size: 0.8rem;
+            position: relative;
+            z-index: 3;
+        }
+
+        .footer p {
+            margin-bottom: 0.3rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        .volkov-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('volkov1.png') center center/cover no-repeat;
+            opacity: 0.15;
+            z-index: 1;
+            pointer-events: none;
         }
 
         @media (max-width: 768px) {
             .title {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
-            .players-grid {
+            .agents-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
+                max-width: 400px;
             }
 
             .container {
                 padding: 1rem;
             }
+
+            .agent-image {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="volkov-overlay"></div>
+    
     <div class="container">
-        <div class="classification">⚠ Classified Material ⚠</div>
-        
-        <h1 class="title">DELTA GREEN: FLIGHT 19</h1>
-        <p class="subtitle">Operative Karaktärer - Chesapeake Cell</p>
+        <div class="header">
+            <div class="classification">⚠ CLASSIFIED - DELTA GREEN EYES ONLY ⚠</div>
+            <h1 class="title">TRIP 19</h1>
+            <p class="subtitle">Operation Active</p>
+            <p class="cell-designation">CHESAPEAKE CELL</p>
+        </div>
 
-        <div class="players-grid">
-            <a href="Mac/index.html" class="player-card">
-                <div class="player-name">Marcus "MAC" Riley</div>
-                <div class="player-title">FBI Special Agent</div>
-                <div class="player-description">
-                    Team leader med 15+ års federal law enforcement-erfarenhet. 
-                    Specialisering inom organized crime och counter-intelligence. 
-                    Delta Green handler och operations coordinator.
+        <div class="agents-grid">
+            <a href="Mac/index.html" class="agent-card">
+                <img src="mac21.png" alt="Marcus Riley" class="agent-image">
+                <div class="agent-info">
+                    <div class="agent-name">Marcus "MAC" Riley</div>
+                    <div class="agent-title">FBI Special Agent / Cell Leader</div>
+                    <div class="agent-description">
+                        Team leader med 15+ års federal law enforcement-erfarenhet. 
+                        Specialisering inom organized crime och counter-intelligence. 
+                        Delta Green handler och operations coordinator.
+                    </div>
                 </div>
             </a>
 
-            <a href="Sparky/index.html" class="player-card">
-                <div class="player-name">Alexander "SPARKY" Chen</div>
-                <div class="player-title">Technical Specialist</div>
-                <div class="player-description">
-                    Electronics expert och surveillance specialist. 
-                    Ansvarig för teknisk support, kommunikation och digital security 
-                    för Chesapeake cell operations.
+            <a href="Sullivan/index.html" class="agent-card">
+                <img src="padre1.png" alt="Michael Sullivan" class="agent-image">
+                <div class="agent-info">
+                    <div class="agent-name">Michael "PADRE" Sullivan</div>
+                    <div class="agent-title">Navy Chaplain</div>
+                    <div class="agent-description">
+                        Militär präst med combat-erfarenhet från Afghanistan och Irak. 
+                        Pastoral care specialist och team's moral anchor 
+                        under high-stress operations.
+                    </div>
                 </div>
             </a>
 
-            <a href="Sullivan/index.html" class="player-card">
-                <div class="player-name">Michael "PADRE" Sullivan</div>
-                <div class="player-title">Navy Chaplain</div>
-                <div class="player-description">
-                    Militär präst med combat-erfarenhet från Afghanistan och Irak. 
-                    Pastoral care specialist och team's moral anchor 
-                    under high-stress operations.
+            <a href="Sparky/index.html" class="agent-card">
+                <img src="spark22.png" alt="Alexander Chen" class="agent-image">
+                <div class="agent-info">
+                    <div class="agent-name">Alexander "SPARKY" Chen</div>
+                    <div class="agent-title">Technical Specialist</div>
+                    <div class="agent-description">
+                        Electronics expert och surveillance specialist. 
+                        Ansvarig för teknisk support, kommunikation och digital security 
+                        för Chesapeake cell operations.
+                    </div>
                 </div>
             </a>
 
-            <a href="Scalpel/index.html" class="player-card">
-                <div class="player-name">Hanna "SCALPEL" Engler</div>
-                <div class="player-title">Medical Examiner</div>
-                <div class="player-description">
-                    Associate Medical Examiner för Baltimore County. 
-                    Forensisk patolog med specialisering inom biologiska anomalier 
-                    och post-operation cleanup.
+            <a href="Scalpel/index.html" class="agent-card">
+                <img src="scalpel22.png" alt="Hanna Engler" class="agent-image">
+                <div class="agent-info">
+                    <div class="agent-name">Hanna "SCALPEL" Engler</div>
+                    <div class="agent-title">Medical Examiner</div>
+                    <div class="agent-description">
+                        Associate Medical Examiner för Baltimore County. 
+                        Forensisk patolog med specialisering inom biologiska anomalier 
+                        och post-operation cleanup.
+                    </div>
                 </div>
             </a>
         </div>
 
         <div class="footer">
-            <p><strong>Operation Status:</strong> Active</p>
-            <p><strong>Clearance Level:</strong> Delta Green Eyes Only</p>
-            <p><strong>Last Updated:</strong> November 2025</p>
+            <p><strong>OPERATION STATUS:</strong> ACTIVE</p>
+            <p><strong>SECURITY CLEARANCE:</strong> DELTA GREEN ULTRA</p>
+            <p><strong>LAST UPDATED:</strong> NOVEMBER 2025</p>
         </div>
     </div>
 </body>
