@@ -699,8 +699,14 @@ ar samma person gjort online
 
 ## ðŸ’° EKONOMISKA RESURSER
 
-**NSA-lÃ¶n:** ~$95,000/Ã¥r  
+**NSA-lÃ¶n:** ~$95,000/Ã¥r
 **Bitcoin-wallet:** â‚¿3.5 (~$378,000 september 2025)
+**AI-driven aktieportfölj:** ~$150,000
+- Custom-byggd AI trading bot (daytrading algorithm)
+- Hanterar portfölj automatiskt
+- Diversifierad över tech-aktier och index funds
+- Genererar 8-12% årlig avkastning
+- Tillgänglig via legitim mäklarkonto (Charles Schwab)
 
 **Vad du kan gÃ¶ra:**
 - Betala anonyma kontakter pÃ¥ dark web (utan paper trail)
@@ -715,8 +721,8 @@ ar samma person gjort online
 - All Ã¶verskott gÃ¥r till hardware och software
 
 **Praktiskt fÃ¶r operationer:**
-- Kan lÃ¶sa problem under $10k omedelbart
-- StÃ¶rre summor ($50k+) krÃ¤ver eftertanke (mÃ¥ste sÃ¤lja bitcoin = lÃ¤mnar spÃ¥r)
+- Kan lÃ¶sa problem under $100k omedelbart
+- StÃ¶rre summor ($500k+) krÃ¤ver eftertanke (mÃ¥ste sÃ¤lja bitcoin = lÃ¤mnar spÃ¥r)
 
 ---
 

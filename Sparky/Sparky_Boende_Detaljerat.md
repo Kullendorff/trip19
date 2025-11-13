@@ -66,7 +66,7 @@
 **Walk-in closet:**
 - Kläder: mostly jeans, hoodies, tech t-shirts
 - Go-bag (alltid packad)
-- Safe (encrypted hard drives, backup cash $5k, spare fake IDs)
+- Safe (encrypted hard drives, backup cash $50k, spare fake IDs)
 
 **Väggar:**
 - Nästan tomma
@@ -243,7 +243,7 @@ Varje gång Sparky går tillbaka till sitt ställe känns kontrasten brutal.
   3. Emergency: Hoppa från balkong till parkeringen (3 våningar - hon skulle överleva men bli skadad)
 
 ### Go-bag (alltid packad i closet):
-- $5,000 cash (små valörer)
+- $50,000 cash (små valörer)
 - 3 burner phones (prepaid, oanvända)
 - Kläder (3 sets, generic, olika storlekar)
 - First aid kit (advanced - suturkit, antibiotika, smärtstillande)

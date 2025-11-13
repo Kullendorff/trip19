@@ -67,7 +67,7 @@ Aldrig förvara alla fake IDs på samma plats. Aldrig förvara fake IDs där hen
 - Betald 6 månader framåt alltid
 
 **Innehåll i safehouse:**
-- **Emergency cash:** $10,000 (små valörer, gömda på 3 olika platser)
+- **Emergency cash:** $100,000 (små valörer, gömda på 3 olika platser)
 - **Två extra burner phones** (prepaid, oanvända)
 - **Laptop:** Airgapped, encrypted, Sarah Mitchell-persona only
 - **Kläder:** 3 sets (business casual, passar "IT consultant")
@@ -181,7 +181,7 @@ Aldrig längre än en natt. Mest för att checka att allt funkar.
 - **Driver's license Washington**
 - **Press credentials**
 - **Båda kreditkorten (AmEx & Discover)**
-- **Backup kontanter:** $3,000
+- **Backup kontanter:** $30,000
 - **USB-minne:** Encrypted, med backup av Maya's digital footprint
 - **Safehouse nyckel #2** (duplicate Sarah Mitchell safehouse key)
 - **Ersättnings-dokumentation:** Birth certificate copy (fake), social security card
@@ -221,7 +221,7 @@ Aldrig längre än en natt. Mest för att checka att allt funkar.
 **Physical ID:**
 - **Driver's License:** Maryland (fake, basic quality)
 - **En kreditkort:** Prepaid Visa (fake name men fungerande)
-- **$500 kontant** i wallet
+- **$5,000 kontant** i wallet
 
 **Ingen annan dokumentation.**  
 Ingen social media. Ingen historik. Ingen bank account. Bara ett ID för "jag måste ha NÅGOT".
@@ -313,9 +313,9 @@ Ingen plats har mer än ett alias.
 ## KOSTNADER & UNDERHÅLL
 
 ### Initial setup (2022):
-- **SSN-köp:** $8,000 (två stulna identiteter från dark web)
-- **Dokumentation:** $7,000 (fake IDs, credits cards, physical documents)
-- **Total:** ~$15,000
+- **SSN-köp:** $80,000 (två stulna identiteter från dark web)
+- **Dokumentation:** $70,000 (fake IDs, credits cards, physical documents)
+- **Total:** ~$150,000
 
 ### Månadsunderhåll:
 - **Sarah safehouse hyra:** $1,400
