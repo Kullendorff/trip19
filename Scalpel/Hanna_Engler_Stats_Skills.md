@@ -27,17 +27,21 @@
 |-------|-----------|----------|
 | **Hit Points (HP)** | (STR + CON) / 2 | 10 |
 | **Willpower Points (WP)** | = POW | 14 |
-| **Sanity Points (SAN)** | POW × 4, minus DG-förluster | 56 |
-| **Breaking Point (BP)** | SAN - POW | 42 |
+| **Sanity Points (SAN)** | POW × 5, minus netto DG-förluster | 63 |
+| **Breaking Point (BP)** | Starting SAN - POW | 56 |
 
 ### SAN-förlust historik:
-- Startade vid: 56 (POW 14 × 4)
-- Efter DG Operation 1 (traumatisk): -4 till -6
-- Efter Operation 2 (Clean Sweep): -2 till -3  
-- Efter Operation 3 (Pattern Recognition): -2
-- Patricia Rourkes öde: -1 till -2
-- **Nuvarande SAN: 56** (justeras efter SLs val av exakt förluster)
-- **Breaking Point: 42** (SAN 56 - POW 14)
+- **Startade vid:** 70 (POW 14 × 5)
+- **Operation 1 (traumatisk):** -4 SAN
+- **Operation 2 (Clean Sweep):** -2 SAN
+- **Operation 3 (Pattern Recognition):** -2 SAN
+- **Patricia Rourkes öde:** -1 SAN
+- **Total förlust:** -9 SAN
+- **Återhämtat:** +2 SAN (genom konst och musik som terapi)
+- **Netto förlust:** -7 SAN
+- **Nuvarande SAN:** 63/70
+- **Breaking Point:** 56 (70 - 14, fast värde)
+- **Margin:** 7 poäng kvar till Breaking Point
 
 ---
 
@@ -267,7 +271,7 @@ Hanna har ingen formell vapen-träning. Vid behov:
 ### Mental Resilience:
 - **POW 14** = stark vilja
 - **WP 14** = kan motstå mental press
-- **SAN 56** = stadig men eroderar
+- **SAN 63/70** = stadig men eroderar, 7 poäng till Breaking Point (56)
 
 ### Stress Responses:
 1. **Under press:** Hyperrational, intensifierar kontrollbehov

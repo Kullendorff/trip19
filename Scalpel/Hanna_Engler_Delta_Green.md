@@ -191,17 +191,22 @@ Hanna förstår inte helt varför DG misstror Mac. Men hon har lärt sig att int
 
 ## SAN & BREAKING POINT
 
-**Nuvarande SAN:** 56 (POW 14 x4 = 56, minus DG-operationer)
+**Starting SAN:** 70 (POW 14 × 5)
 
-**Breaking Point:** 44-45
+**Nuvarande SAN:** 63/70
+
+**Breaking Point:** 56 (Starting SAN - POW, fast värde)
 
 **SAN-förlust från DG:**
-- Operation 1 (traumatisk): 1d6-1d8 (estimat 4-6 poäng)
-- Operation 2 (Clean Sweep): 1d4 (estimat 2-3 poäng)
-- Operation 3 (Pattern Recognition): 1d4 (estimat 2 poäng)
-- Patricias öde: 1-2 poäng ytterligare
+- Operation 1 (traumatisk): -4 SAN
+- Operation 2 (Clean Sweep): -2 SAN
+- Operation 3 (Pattern Recognition): -2 SAN
+- Patricias öde: -1 SAN
+- **Total förlust:** -9 SAN
+- **Återhämtat:** +2 SAN (genom konst och musik som terapi)
+- **Netto förlust:** -7 SAN
 
-**Total estimated loss: ~8-12 SAN sedan rekrytering**
+**Margin till Breaking Point:** 7 poäng (63 - 56)
 
 **Disorders/Symptoms:** Inga formella disorders än, men:
 - Hypervigilans i laboratoriet
@@ -248,8 +253,8 @@ Patricia Rourke. Före detta partnern. Vad hon rapporterade, vad hon inte sa. Ku
 
 ## FRAMTIDA RISKER
 
-**Breaking Point närmar sig:**
-- 56 SAN, Breaking Point 44-45 = 11-12 poäng margin
+**Breaking Point status:**
+- 63 SAN, Breaking Point 56 = 7 poäng margin
 - 2-3 operationer till innan hon når kritisk nivå
 - Varje bond som bryts flyttar Breaking Point uppåt
 
@@ -274,7 +279,7 @@ Hanna Engler är en kompetent, värdefull Delta Green-asset. Hennes medicinska e
 Men hon håller på att betala priset. Tre år i DG har kostat henne:
 - Ett förhållande
 - En mentor (Patricia)
-- ~10 SAN-poäng
+- 7 SAN-poäng (netto efter återhämtning via konst/musik)
 - Trygghetskänslan i sitt arbete
 
 Nu står hon i Maryland med uppdraget att utvärdera någon annans mentala stabilitet - medan hennes egen sakta urholkas.
