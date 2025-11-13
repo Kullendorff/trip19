@@ -66,10 +66,10 @@ Vet att Delta Green är en off-books operation men inte fullständiga detaljer o
 **Total operationer:** 8-10 operationer  
 (Inkluderar "false flags" där misstänkt onaturligt visade sig vara psykisk sjukdom)
 
-**Aktuell SAN:** 58/70  
-- Total förlust: 12 poäng
-- Breaking point efter Sea Glass
-- Funktionell men skör
+**Aktuell SAN:** 69/80
+- Total förlust: 11 poäng
+- Breaking Point: 64 (5 poäng kvar)
+- Funktionell men närmar sig gränsen
 
 ---
 
@@ -155,12 +155,6 @@ Sullivan's första ~3 år i Delta Green (2020-2023) var med andra handlers och c
 - Sullivan's HUMINT-skills identifierade vilka som var "äkta" troende vs smittade
 - 2 civila döda, 8 räddade
 - SAN loss: -2
-
-**Operation "Confessional" (Louisiana, 2022):**
-- Katolsk kyrka där präst hittat Hastur-texter
-- Sullivan tvingades döda en präst (annan präst, inte sig själv)
-- Första gången han dödade någon personligen
-- SAN loss: -3
 
 **Operation "Night Terrors" (Virginia, 2023):**
 - Barn på dagis med delade mardrömmar
@@ -268,7 +262,7 @@ Sullivan gick. Satt i ett kloster. Bad varje dag. Väntade på svar.
 
 Ingenting kom.
 
-**SAN loss:** -4 poäng
+**SAN loss:** -5 poäng
 
 **Tro-kris:** Total. Sullivan vet inte om han tror på Gud längre. Men han kan inte erkänna det - för då var allt han gjort meningslöst.
 

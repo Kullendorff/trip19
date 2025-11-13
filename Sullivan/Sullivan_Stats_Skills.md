@@ -36,10 +36,14 @@
 |----------|---------|---------|
 | **HP** | 11 | 11 |
 | **WP** | 16 | 16 |
-| **SAN** | 70 | 58-60 |
-| **Brytpunkt** | 56 | 47-48 |
+| **SAN** | 80 | 69 |
+| **Brytpunkt** | 64 | 64 |
 
-**SAN-förlust:** ~10-12 poäng (främst från Sea Glass, 2025)
+**SAN-förlust:** 11 poäng totalt
+- Operation "Holy Ground" (2021): -2 SAN
+- Operation "Night Terrors" (2023): -1 SAN
+- "The Mall Before Christmas" (2024): -3 SAN
+- "Sea Glass" (2025): -5 SAN
 
 ---
 
