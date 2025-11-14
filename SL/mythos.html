@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYTHOS - Trip 19 Campaign</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0e17;
+            --bg-darker: #050810;
+            --bg-panel: #12161f;
+            --text-primary: #e8e6e3;
+            --text-dim: #8a9ba8;
+            --accent-blue: #4a90a4;
+            --accent-red: #d94a3d;
+            --border: #1e2936;
+            --classified: #ff4444;
+            --yithian: #4a90a4;
+            --nyogtha: #8b4789;
+            --warning: #d4a520;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--bg-darker);
+            border-bottom: 2px solid var(--classified);
+            padding: 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--classified);
+            letter-spacing: 2px;
+        }
+
+        .back-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .classified-banner {
+            background: repeating-linear-gradient(
+                45deg,
+                var(--classified),
+                var(--classified) 10px,
+                #cc0000 10px,
+                #cc0000 20px
+            );
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+        }
+
+        .warning-box {
+            background: rgba(212, 165, 32, 0.1);
+            border: 2px solid var(--warning);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .warning-box h2 {
+            color: var(--warning);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            color: var(--accent-blue);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section h3 {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .force-box {
+            background: var(--bg-darker);
+            border-left: 4px solid var(--yithian);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .force-box.nyogtha {
+            border-left-color: var(--nyogtha);
+        }
+
+        .force-box h4 {
+            color: var(--yithian);
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .force-box.nyogtha h4 {
+            color: var(--nyogtha);
+        }
+
+        .detail-box {
+            background: rgba(74, 144, 164, 0.1);
+            border: 1px solid var(--accent-blue);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .detail-box.critical {
+            background: rgba(217, 74, 61, 0.1);
+            border-color: var(--accent-red);
+        }
+
+        .detail-box.warning {
+            background: rgba(212, 165, 32, 0.1);
+            border-color: var(--warning);
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge.sl-only {
+            background: var(--classified);
+            color: white;
+        }
+
+        .badge.player-can-learn {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .badge.never-reveal {
+            background: #333;
+            color: #888;
+        }
+
+        code {
+            background: var(--bg-darker);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            color: var(--accent-blue);
+            font-family: 'Courier New', monospace;
+        }
+
+        .transformation-stages {
+            display: grid;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stage {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--warning);
+            padding: 1rem;
+            border-radius: 4px;
+        }
+
+        .stage-header {
+            color: var(--warning);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stage-percentage {
+            color: var(--accent-red);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">▲ MYTHOS REFERENCE</div>
+            <a href="index.html" class="back-link">← Tillbaka</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="classified-banner">
+            CLASSIFIED - HANDLER EYES ONLY
+        </div>
+
+        <h1>🔺 MYTHOS & DET ONATURLIGA</h1>
+
+        <!-- Warning Box -->
+        <div class="warning-box">
+            <h2>⚠️ VIKTIG INFORMATION FÖR SPELLEDAREN</h2>
+            <p><strong>Detta dokument innehåller SL-kunskap som ALDRIG ska avslöjas för spelarna.</strong></p>
+            <p style="margin-top: 0.5rem;">Använd ALDRIG Mythos-terminologi (Yithian, Nyogtha, Great Old One) under spel. Beskriv istället vad spelarna SER, HÖR och UPPLEVER. Låt dem dra egna slutsatser baserat på fragmenterad information.</p>
+            <p style="margin-top: 0.5rem;"><em>"Show, don't tell. Mystery, not explanation."</em></p>
+        </div>
+
+        <!-- The Two Forces -->
+        <div class="section">
+            <h2>🌌 DE TVÅ MYTHOS-KRAFTERNA</h2>
+
+            <div class="detail-box critical">
+                <strong>GRUNDLÄGGANDE KONFLIKT:</strong><br>
+                Två helt olika onaturliga krafter kolliderade i Leningrad nyårsnatt 1942. De är INTE allierade. De är inte ens medvetna om varandra som intelligenta motståndare. Konflikten är slumpmässig men dödlig.
+            </div>
+
+            <!-- Force 1: Yithian Echo -->
+            <div class="force-box">
+                <h4>KRAFT 1: "DE SOM VILL HEM"</h4>
+                <span class="badge sl-only">SL-KUNSKAP</span>
+                <span class="badge never-reveal">ALDRIG AVSLÖJA NAMN</span>
+
+                <h3>Vad det egentligen är (Great Race of Yith):</h3>
+                <ul>
+                    <li><strong>Ursprung:</strong> Medvetanden från en utomjordisk ras som lever miljoner år i framtiden/förr</li>
+                    <li><strong>Förmåga:</strong> Kan projicera sina sinnen genom tid och rum</li>
+                    <li><strong>Kristallerna:</strong> Är "mottagare" de lämnat i olika tidsperioder som mentala telefonväxlar</li>
+                    <li><strong>Vad de vill:</strong> Återvända till rätt tidsperiod (Permian-perioden, miljoner år sedan)</li>
+                    <li><strong>Varför de är farliga:</strong> Fullständigt likgiltiga för mänskligt liv - vi är insekter för dem</li>
+                </ul>
+
+                <h3>Hur de påverkar människor:</h3>
+                <ul>
+                    <li><strong>Mental kolonisering:</strong> Yithianskt medvetande tar gradvis över kroppen</li>
+                    <li><strong>Minnen från andra tider:</strong> Offret börjar "minnas" händelser från framtiden/förr</li>
+                    <li><strong>Hummande:</strong> Konstant 247 Hz-ton = Yithian "tal" utanför mänskligt hörselregister</li>
+                    <li><strong>Ögonreflexer:</strong> Ljus reflekteras "fel" - ögonen fungerar som icke-mänskliga</li>
+                    <li><strong>Transformation irreversibel:</strong> Kan inte räddas efter ~80% kolonisering</li>
+                </ul>
+
+                <div class="detail-box">
+                    <strong>SPELARNA KAN UPPTÄCKA:</strong>
+                    <ul>
+                        <li>✅ "Något" vill tillbaka till "rätt tid"</li>
+                        <li>✅ Använder människor som "behållare"</li>
+                        <li>✅ Pratar om minnen från framtiden</li>
+                        <li>✅ Hummar konstant samma frekvens</li>
+                        <li>✅ Verkar inte "onda" men fullständigt likgiltiga</li>
+                    </ul>
+                </div>
+
+                <div class="detail-box critical">
+                    <strong>SPELARNA FÅR ALDRIG VETA:</strong>
+                    <ul>
+                        <li>❌ Namnet "Yithian" eller "Great Race of Yith"</li>
+                        <li>❌ Att de är från Permian-perioden</li>
+                        <li>❌ Exakt hur mind-transfer fungerar</li>
+                        <li>❌ Deras fullständiga historia och civilisation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Force 2: Nyogtha -->
+            <div class="force-box nyogtha">
+                <h4>KRAFT 2: "DET SOM VAR HÄR FÖRST"</h4>
+                <span class="badge sl-only">SL-KUNSKAP</span>
+                <span class="badge never-reveal">ALDRIG AVSLÖJA NAMN</span>
+
+                <h3>Vad det egentligen är (Nyogtha):</h3>
+                <ul>
+                    <li><strong>Ursprung:</strong> Lesser Great Old One begravd under Leningrad i årtusenden</li>
+                    <li><strong>Plats:</strong> Fanns HÄR före människan - inte utomjordisk</li>
+                    <li><strong>Fängelse:</strong> Ortodox kristen mysticism höll den förseglad (oavsiktligt)</li>
+                    <li><strong>Belägringen 1941-44:</strong> 872 dagar av död/svält försvagade förseglingen</li>
+                    <li><strong>Väcktes:</strong> Av Yithian-signalen nyårsnatt 1942</li>
+                </ul>
+
+                <h3>Hur den påverkar verkligheten:</h3>
+                <ul>
+                    <li><strong>Fysisk transformation:</strong> Förändrar materia och kött (inte bara mentalt)</li>
+                    <li><strong>Dimensionell bleed:</strong> Verkligheten "böjs" omkring dess närvaro</li>
+                    <li><strong>Aktiv fientlighet:</strong> HATAR mänskligheten (vi fängslade den)</li>
+                    <li><strong>Sprids som sjukdom:</strong> Kontaminering via beröring/närvaro</li>
+                    <li><strong>Kan inte förhandlas med:</strong> Ren ilska och hunger efter frihet</li>
+                </ul>
+
+                <div class="detail-box">
+                    <strong>SPELARNA KAN UPPTÄCKA:</strong>
+                    <ul>
+                        <li>✅ "Något gammalt" under Leningrad</li>
+                        <li>✅ Fanns där före staden byggdes</li>
+                        <li>✅ Fängslades av kyrkor/religiös energi</li>
+                        <li>✅ Vill aktivt skada mänskligheten</li>
+                        <li>✅ Fysisk transformation vs Yithian mental</li>
+                    </ul>
+                </div>
+
+                <div class="detail-box critical">
+                    <strong>SPELARNA FÅR ALDRIG VETA:</strong>
+                    <ul>
+                        <li>❌ Namnet "Nyogtha"</li>
+                        <li>❌ Att det är en "Lesser Great Old One"</li>
+                        <li>❌ Hur det fängslades ursprungligen</li>
+                        <li>❌ Full natur och kosmisk betydelse</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>⚡ Konflikten mellan krafterna:</h3>
+            <div class="detail-box warning">
+                <strong>DE ÄR INTE ALLIERADE</strong><br><br>
+                <strong>Yithianerna:</strong> Vill hem till sin tid. Bryr sig inte om Nyogtha.<br>
+                <strong>Nyogtha:</strong> Väcktes av Yithian-signal. Hatar både Yithianer och människor.<br><br>
+                <strong>Resultatet:</strong> Yithian portal-försök stör Nyogthas fängelse. Nyogthas närvaro förvränger Yithian-signal. De kan inte båda få vad de vill samtidigt. MEN - spelarna är i vägen för BÅDA.
+            </div>
+        </div>
+
+        <!-- The Crystals -->
+        <div class="section">
+            <h2>💎 KRISTALLERNA (TYPE-VII/VIII APPARATUS)</h2>
+
+            <h3>Vad nazisterna visste:</h3>
+            <ul>
+                <li>Hittade kristaller i arkeologiska utgrävningar 1930-tal (Mesopotamien/Egypten)</li>
+                <li>Tolkade dem som "forntida arisk teknologi"</li>
+                <li>Hade INGEN aning om vad de faktiskt var</li>
+                <li>Byggde metallbehållare för att "aktivera" dem</li>
+                <li>Kallade dem "elektromagnetiska resonatorer"</li>
+            </ul>
+
+            <h3>Vad de egentligen är:</h3>
+            <div class="force-box">
+                <h4>Kristallernas sanna funktion:</h4>
+                <ul>
+                    <li><strong>Resonatorer:</strong> "Mottagare" för Yithianskt medvetande genom tid/rum</li>
+                    <li><strong>Aktivering:</strong> Öppnar "kanal" för mind-transfer</li>
+                    <li><strong>Fragmentering:</strong> Splittrade kristaller behåller partial funktion</li>
+                    <li><strong>Återförening:</strong> Om alla fragment samlas = full portal öppnas</li>
+                    <li><strong>Frekvens:</strong> 247 Hz = Yithian "hemfrekvens"</li>
+                </ul>
+            </div>
+
+            <h3>Fragmenthistoria:</h3>
+            <div class="grid-2">
+                <div>
+                    <h4>1940 - Trip 19:</h4>
+                    <ul>
+                        <li>Type-VII prototype (en kristall)</li>
+                        <li>Aktiverades av misstag under flight</li>
+                        <li>Påverkade piloter mentalt → krasch</li>
+                        <li>Kristall splittrades vid impact</li>
+                        <li>Fragment begravda i Lovettsville</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>1942 - Leningrad:</h4>
+                    <ul>
+                        <li>Type-VIII (utvecklad version)</li>
+                        <li>Placerade runt hela staden</li>
+                        <li>Aktiverade nyårsnatten</li>
+                        <li>Yithian medvetande kom igenom</li>
+                        <li>Kollision med Nyogtha = katastrofal splittring</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="detail-box">
+                <strong>FYSISK BESKRIVNING (för spelarna):</strong>
+                <ul>
+                    <li>Metallisk behållare med tyska märkningar "Reichsluftfahrtministerium"</li>
+                    <li>Inuti: Kristallstruktur som inte matchar känd geologi</li>
+                    <li>Blått sken i mörker (svag bioluminescens)</li>
+                    <li>Svag radioaktiv signatur (men inte farlig själv)</li>
+                    <li>Vid beröring: mental "flash" av främmande perspektiv</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Transformations -->
+        <div class="section">
+            <h2>🧬 TRANSFORMATIONER</h2>
+
+            <h3>Volkovs gradvis transformation (2019-2025):</h3>
+            <div class="transformation-stages">
+                <div class="stage">
+                    <div class="stage-header">STEG 1: Sökaren (2019-2024)</div>
+                    <div class="stage-percentage">~20% Yithian, 80% Volkov</div>
+                    <strong>Symptom:</strong> Drömmar om andra tider, "minnen" som inte är hans, blackouts<br>
+                    <strong>Beteende:</strong> Besatt av research, genuint vill förstå sanningen<br>
+                    <strong>Kontroll:</strong> Yithianerna styr subtilt - lägger "idéer" i hans huvud
+                </div>
+
+                <div class="stage">
+                    <div class="stage-header">STEG 2: Samlaren (Mars-Maj 2025)</div>
+                    <div class="stage-percentage">~50% Yithian, 50% Volkov</div>
+                    <strong>Symptom:</strong> Ögon reflekterar ljus fel, rörelser onaturliga, pratar i plural<br>
+                    <strong>Beteende:</strong> Aktivt jagar fragment, inser att något är fel: "Jag kan inte stoppa mig själv"<br>
+                    <strong>Kontroll:</strong> Kämpar aktivt mot kontrollen, vissa dagar är "han", vissa är "de"
+                </div>
+
+                <div class="stage">
+                    <div class="stage-header">STEG 3: Den Transformerade (Berlin-Tyskland)</div>
+                    <div class="stage-percentage">~80% Yithian, 20% Volkov</div>
+                    <strong>Symptom:</strong> Ögon alltid fel, hummar konstant, pratar okända språk<br>
+                    <strong>Beteende:</strong> Methodiskt samlar fragment, försöker varna när han har kontroll<br>
+                    <strong>Kontroll:</strong> "Volkov" är fånge i egen kropp, tar kontroll endast enstaka ögonblick
+                </div>
+
+                <div class="stage">
+                    <div class="stage-header">STEG 4: Den Förlorade (Leningrad finale)</div>
+                    <div class="stage-percentage">~95% Yithian, 5% Volkov</div>
+                    <strong>Symptom:</strong> Nästan fullständig transformation, kroppen förändras fysiskt<br>
+                    <strong>Beteende:</strong> Fullständigt kontrollerad av Yithianerna<br>
+                    <strong>Sista gnistan:</strong> I klimax-ögonblick kan Volkov ta kontroll EN sista gång
+                </div>
+            </div>
+
+            <h3>De tre männen (Anton, Sasha, Filip):</h3>
+            <div class="grid-2">
+                <div class="force-box">
+                    <h4>Anton Mahler (Yithian-värd)</h4>
+                    <strong>Transformation:</strong> Yithian-medvetande koloniserade, mest "mänsklig" av de tre<br>
+                    <strong>Förmågor:</strong> Ser tidslinje, minns framtida händelser, åldras inte<br>
+                    <strong>Symptom:</strong> Ögon fel, pratar om "fel tid", ibland konfunderad
+                </div>
+                <div class="force-box">
+                    <h4>Sasha Pogodin (247 Hz)</h4>
+                    <strong>Transformation:</strong> Djupast påverkad, blev levande resonator<br>
+                    <strong>Förmågor:</strong> Känner kristallfragment på avstånd<br>
+                    <strong>Symptom:</strong> Hummar KONSTANT 247 Hz, kan inte prata, påverkar elektronik
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="force-box">
+                    <h4>Filip Kramer (Drömvandrare)</h4>
+                    <strong>Transformation:</strong> Kan röra sig i andras drömmar<br>
+                    <strong>Förmågor:</strong> Går in i folks medvetanden under sömn, samlar information<br>
+                    <strong>Symptom:</strong> Målar vad han ser i drömmar, "känner igen" folk han aldrig träffat
+                </div>
+                <div class="force-box nyogtha">
+                    <h4>Barnen i Kalenkos hus</h4>
+                    <strong>Transformation:</strong> Fångade i huset 1942, håller Nyogtha-fragment<br>
+                    <strong>Tillstånd:</strong> Åldras långsamt (80 år = ~5 för dem), delvis transformerade<br>
+                    <strong>Dilemma:</strong> Om de dör/befrias = Nyogtha släpps. Inget bra val.
+                </div>
+            </div>
+
+            <div class="detail-box critical">
+                <strong>VIKTIGT FÖR SPELARNA:</strong><br>
+                Transformation är IRREVERSIBEL efter ~50% Yithian-kontroll. De kan inte "rädda" Volkov eller de tre männen. De kan bara stoppa spridningen och förhindra återförening av fragmenten.
+            </div>
+        </div>
+
+        <!-- What Players Learn -->
+        <div class="section">
+            <h2>🔍 VAD SPELARNA KAN LÄRA SIG</h2>
+
+            <h3>Grundprincip: Show, Don't Tell</h3>
+            <div class="detail-box warning">
+                <strong>ALDRIG säga:</strong> "Detta är Great Race of Yith som projicerar medvetande genom tid"<br>
+                <strong>ISTÄLLET beskriv:</strong> "Hans ögon reflekterar ljuset fel. Han hummar samma ton i 10 minuter. När han pratar säger han 'vi måste hem' och 'fel tid, fel kroppar'. Hans röst låter djupare, främmande."
+            </div>
+
+            <h3>Fragmenterad information genom sessioner:</h3>
+            <div class="grid-2">
+                <div>
+                    <h4>Session 1-3 (Research):</h4>
+                    <span class="badge player-can-learn">KAN LÄRA</span>
+                    <ul>
+                        <li>Trip 19 kraschade augusti 1940</li>
+                        <li>"Blue flame" i himlen (vittnesmål)</li>
+                        <li>Lundeen bar något från Viereck</li>
+                        <li>FBI grävde hela natten</li>
+                        <li>Volkov researchar detta i åratal</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Session 4 (Lovettsville):</h4>
+                    <span class="badge player-can-learn">KAN LÄRA</span>
+                    <ul>
+                        <li>Tyska märkningar: "Type-VII"</li>
+                        <li>Metalliska fragment med konstiga effekter</li>
+                        <li>Vid beröring: mental "flash"</li>
+                        <li>Blått sken i mörker</li>
+                        <li>Hummande ljud (247 Hz)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div>
+                    <h4>Session 5-6 (Berlin/Magda):</h4>
+                    <span class="badge player-can-learn">KAN LÄRA</span>
+                    <ul>
+                        <li>Trip 19 → Leningrad koppling</li>
+                        <li>Tre män exponerades 1942</li>
+                        <li>Frankfurt Clinic (1946-1952)</li>
+                        <li>Magdas mors dagbok: "De lever fortfarande"</li>
+                        <li>Slavic Association = front</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Session 7-9 (Slavic/Frankfurt):</h4>
+                    <span class="badge player-can-learn">KAN LÄRA</span>
+                    <ul>
+                        <li>De tre männen är inte normala</li>
+                        <li>Pratar om "rätt tid"</li>
+                        <li>Minns framtida händelser</li>
+                        <li>Camp S-17: 200+ "kontaminerade"</li>
+                        <li>Volkov transformeras också</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div>
+                    <h4>Session 10-11 (Leningrad):</h4>
+                    <span class="badge player-can-learn">KAN LÄRA</span>
+                    <ul>
+                        <li>TVÅ olika krafter i konflikt</li>
+                        <li>En vill "hem" (i männen)</li>
+                        <li>En vill "ut" (under staden)</li>
+                        <li>Barnen håller dem åtskilda</li>
+                        <li>Om något släpps = katastrof</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>ALDRIG avslöja:</h4>
+                    <span class="badge never-reveal">FÖRBLIR MYSTERIUM</span>
+                    <ul>
+                        <li>Mythos-terminologi (Yithian/Nyogtha)</li>
+                        <li>Full kosmisk kontext</li>
+                        <li>Exakt hur kristaller fungerar</li>
+                        <li>Krafternas ursprung och mål</li>
+                        <li>"Lösningen" - det finns ingen</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="detail-box">
+                <strong>DELTA GREEN-FILOSOFI:</strong><br>
+                "Need to know. And they don't need to know everything."<br><br>
+                Spelarna kan förstå att två krafter är i konflikt. De kan förstå att människor blev offer. De kan förstå att valen är svåra. De kan överleva (kanske). Men de kan INTE förstå full kosmisk sanning. Och det är perfekt Delta Green.
+            </div>
+        </div>
+
+        <!-- Quick Reference -->
+        <div class="section">
+            <h2>📋 SNABBREFERENS FÖR SPELLEDAREN</h2>
+
+            <h3>När spelarna frågar "Vad ÄR detta?"</h3>
+            <div class="detail-box">
+                <strong>BESKRIV istället för att förklara:</strong><br><br>
+                <strong>Fysiskt:</strong> "Kristallen lyser blått i mörkret. När du rör den känns det som om någon tittar på dig genom dina egna ögon."<br><br>
+                <strong>Mentalt:</strong> "För ett ögonblick är du inte längre här. Du ser dig själv uppifrån, som en insekt under mikroskop."<br><br>
+                <strong>Ljudligt:</strong> "Ett konstant hummande, samma ton hela tiden. 247 Hz precis. Det slutar aldrig."<br><br>
+                <strong>Beteende:</strong> "Han rör sig vinklat, som om kroppen inte längre är helt hans. Ögonen reflekterar ljuset fel."
+            </div>
+
+            <h3>Motstridiga källor (ge flera tolkningar):</h3>
+            <ul>
+                <li><strong>Nazi-dokument:</strong> "Arisk super-vetenskap från forntida Atlantis"</li>
+                <li><strong>Sovjetiska arkiv:</strong> "Kapitalistiskt vapen för psykologisk krigföring"</li>
+                <li><strong>Volkovs blogg:</strong> "Dimensionella resonatorer, teknologi bortom mänsklig förståelse"</li>
+                <li><strong>Barnen i huset:</strong> "De som hummar från långt borta"</li>
+            </ul>
+            <p><em>Låt spelarna själva avgöra vad som är närmast sanningen.</em></p>
+
+            <h3>Volkov som tragisk figur:</h3>
+            <div class="detail-box warning">
+                <strong>Antagonist OCH offer samtidigt:</strong><br>
+                - Jagar samma fragment som spelarna (farlig)<br>
+                - Kämpar mot transformation (tragisk)<br>
+                - Försöker varna när han kan (potentiell allierad)<br>
+                - Kan INTE lita på honom (Yithian-kontroll)<br><br>
+                <em>Inget enkelt svar på om han ska dödas eller räddas.</em>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
