@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pennsylvania Central Airlines Flight 19 - Passagerarlista</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Special+Elite&display=swap');
+        
+        body {
+            font-family: 'Crimson Text', serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            background: #f4f1e8;
+            color: #2a2a2a;
+            line-height: 1.6;
+        }
+        
+        .document {
+            background: white;
+            padding: 60px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            border: 1px solid #d4c5a9;
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px double #8b7355;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .title {
+            font-family: 'Special Elite', monospace;
+            font-size: 28px;
+            color: #5a4a3a;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: #8b7355;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .meta {
+            font-size: 14px;
+            color: #666;
+            margin-top: 15px;
+        }
+        
+        .section {
+            margin: 30px 0;
+        }
+        
+        .section-title {
+            font-family: 'Special Elite', monospace;
+            font-size: 20px;
+            color: #5a4a3a;
+            border-bottom: 2px solid #d4c5a9;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .crew-list, .passenger-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .crew-list li, .passenger-list li {
+            padding: 8px 0;
+            border-bottom: 1px dotted #ddd;
+        }
+        
+        .crew-list li:last-child, .passenger-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .name {
+            font-weight: 600;
+            color: #2a2a2a;
+        }
+        
+        .location {
+            color: #666;
+            font-size: 14px;
+            font-style: italic;
+        }
+        
+        .role {
+            color: #8b7355;
+            font-size: 14px;
+        }
+        
+        .number {
+            display: inline-block;
+            width: 30px;
+            color: #8b7355;
+            font-weight: 600;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #d4c5a9;
+            font-size: 13px;
+            color: #666;
+            text-align: center;
+        }
+        
+        .note {
+            background: #fef9f0;
+            border-left: 3px solid #8b7355;
+            padding: 15px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #5a4a3a;
+        }
+        
+        .total {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: #5a4a3a;
+            margin: 30px 0;
+            padding: 15px;
+            background: #fef9f0;
+            border: 2px solid #d4c5a9;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .document {
+                box-shadow: none;
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="document">
+        <div class="header">
+            <div class="title">PENNSYLVANIA CENTRAL AIRLINES</div>
+            <div class="subtitle">Flight 19 — Trip från Washington D.C. till Detroit</div>
+            <div class="meta">
+                <strong>Datum:</strong> Lördag 31 augusti 1940<br>
+                <strong>Plats:</strong> Kraschade nära Lovettsville, Virginia kl. 14:51<br>
+                <strong>Flygplan:</strong> Douglas DC-3A (NC21789)
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">BESÄTTNING</div>
+            <ul class="crew-list">
+                <li>
+                    <span class="name">Captain LOWELL V. SCROGGINS</span><br>
+                    <span class="role">Pilot</span> — <span class="location">Washington, D.C.</span>
+                </li>
+                <li>
+                    <span class="name">J. PAUL MOORE</span><br>
+                    <span class="role">Förste officer</span> — <span class="location">Washington, D.C.</span>
+                </li>
+                <li>
+                    <span class="name">MARGARET CARSON</span><br>
+                    <span class="role">Flygvärdinna</span> — <span class="location">Pittsburgh, Pennsylvania</span>
+                </li>
+                <li>
+                    <span class="name">JOHN B. STAIRE, JR.</span><br>
+                    <span class="role">PCA Traffic Manager (jump seat)</span> — <span class="location">Washington, D.C.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">PASSAGERARE</div>
+            <ul class="passenger-list">
+                <li>
+                    <span class="number">1.</span>
+                    <span class="name">Senator ERNEST LUNDEEN</span><br>
+                    <span class="role">U.S. Senator, Farmer-Labor Party, Minnesota</span>
+                </li>
+                <li>
+                    <span class="number">2.</span>
+                    <span class="name">WILLIAM GARBOSE</span><br>
+                    <span class="role">Attorney, Criminal Division, Department of Justice</span> — <span class="location">Washington, D.C.</span>
+                </li>
+                <li>
+                    <span class="number">3.</span>
+                    <span class="name">JOSEPH J. PESCI</span><br>
+                    <span class="role">Special Agent, Federal Bureau of Investigation</span> — <span class="location">Blairsville, Pennsylvania</span>
+                </li>
+                <li>
+                    <span class="number">4.</span>
+                    <span class="name">Miss MARGARET TURNER</span><br>
+                    <span class="role">Secretary, Federal Bureau of Investigation</span> — <span class="location">Huddleston, Virginia</span>
+                </li>
+                <li>
+                    <span class="number">5.</span>
+                    <span class="name">A. HALLAWAY</span><br>
+                    <span class="role">Interstate Commerce Commission</span> — <span class="location">Washington, D.C.</span>
+                </li>
+                <li>
+                    <span class="number">6.</span>
+                    <span class="name">D. P. JANES</span><br>
+                    <span class="role">Interstate Commerce Commission</span> — <span class="location">Des Moines, Iowa</span>
+                </li>
+                <li>
+                    <span class="number">7.</span>
+                    <span class="name">E. G. BOWER</span><br>
+                    <span class="role">Internal Revenue Department</span> — <span class="location">Mt. Lebanon, Pittsburgh</span>
+                </li>
+                <li>
+                    <span class="number">8.</span>
+                    <span class="name">M. P. MAHAN</span><br>
+                    <span class="role">Internal Revenue Department</span> — <span class="location">Washington, D.C.</span>
+                </li>
+                <li>
+                    <span class="number">9.</span>
+                    <span class="name">A. MOCK</span><br>
+                    <span class="role">Internal Revenue Department</span> — <span class="location">Washington, D.C.</span>
+                </li>
+                <li>
+                    <span class="number">10.</span>
+                    <span class="name">Dr. C. D. COLE</span><br>
+                    <span class="location">Washington, D.C.</span>
+                </li>
+                <li>
+                    <span class="number">11.</span>
+                    <span class="name">E. J. TARR</span><br>
+                    <span class="location">Washington, D.C.</span>
+                </li>
+                <li>
+                    <span class="number">12.</span>
+                    <span class="name">Miss C. POST</span><br>
+                    <span class="location">Washington, D.C.</span>
+                </li>
+                <li>
+                    <span class="number">13.</span>
+                    <span class="name">Miss EVELYN GOLDSMITH</span><br>
+                    <span class="location">Pittsburgh, Pennsylvania</span>
+                </li>
+                <li>
+                    <span class="number">14.</span>
+                    <span class="name">Miss [förnamn okänt] BEER</span><br>
+                    <span class="role">Foster Travel Service</span> — <span class="location">Washington, D.C.</span>
+                </li>
+                <li>
+                    <span class="number">15.</span>
+                    <span class="name">Miss NAOMI COLEO</span><br>
+                    <span class="location">Washington, D.C.</span>
+                </li>
+                <li>
+                    <span class="number">16.</span>
+                    <span class="name">A. H. ELLIOTT</span><br>
+                    <span class="location">N.W., Washington, D.C.</span>
+                </li>
+                <li>
+                    <span class="number">17.</span>
+                    <span class="name">Miss R. M. HALE</span><br>
+                    <span class="location">Charlottesville, Virginia</span>
+                </li>
+                <li>
+                    <span class="number">18.</span>
+                    <span class="name">Miss MILDRED CHESSER</span><br>
+                    <span class="location">Washington, D.C.</span>
+                </li>
+                <li>
+                    <span class="number">19.</span>
+                    <span class="name">J. J. HOLLERITH</span><br>
+                    <span class="location">Chicago, Illinois</span>
+                </li>
+                <li>
+                    <span class="number">20.</span>
+                    <span class="name">E. W. CHAMBERS</span><br>
+                    <span class="location">Pittsburgh, Pennsylvania</span>
+                </li>
+                <li>
+                    <span class="number">21.</span>
+                    <span class="name">W. M. BURLESON</span><br>
+                    <span class="location">Richmond, Virginia</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="total">
+            TOTALT: 25 OMKOMNA
+        </div>
+
+        <div class="note">
+            <strong>Omständigheter:</strong> Flygplanet träffades av blixtnedslag under en ovanligt intensiv storm och störtade i ett alfalfafält på Walter Bishops farm nära Lovettsville, Virginia. Vittnen rapporterade en "våldsam blixt" följd av ett "extraordinärt högt motorljud" innan planet nosade över och störtade rakt ner. Detta var Pennsylvania Central Airlines första dödsolycka på 13 år.
+        </div>
+
+        <div class="footer">
+            <em>Källa: Pennsylvania Central Airlines officiella passagerarlista, publicerad i The Coshocton Tribune, 1 september 1940.<br>
+            Civil Aeronautics Board Investigation Report, 1940.</em>
+        </div>
+    </div>
+</body>
+</html>
