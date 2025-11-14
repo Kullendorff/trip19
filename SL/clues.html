@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip 19 // Black Madonna - Ledtrådar & Research</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0e17;
+            color: #d0d0d0;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            border-bottom: 2px solid #ff4444;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            color: #ff4444;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            color: #8a9ba8;
+            font-size: 0.9rem;
+        }
+
+        /* Navigation */
+        .nav {
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid rgba(255, 68, 68, 0.3);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: #4a90a4;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid #4a90a4;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            background: rgba(74, 144, 164, 0.2);
+            border-color: #6ab0c4;
+        }
+
+        /* Search box */
+        .search-box {
+            background: rgba(74, 144, 164, 0.1);
+            border: 1px solid rgba(74, 144, 164, 0.3);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(10, 14, 23, 0.8);
+            border: 1px solid #4a90a4;
+            color: #d0d0d0;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            border-radius: 4px;
+        }
+
+        .search-box input::placeholder {
+            color: #8a9ba8;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid #ff4444;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+
+        .warning-box h2 {
+            color: #ff4444;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Category sections */
+        .category-section {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            color: #4a90a4;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(74, 144, 164, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Clue cards */
+        .clues-grid {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .clue-card {
+            background: rgba(20, 30, 40, 0.6);
+            border: 1px solid rgba(74, 144, 164, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .clue-card:hover {
+            border-color: #4a90a4;
+            background: rgba(74, 144, 164, 0.1);
+        }
+
+        .clue-card.googable {
+            border-left: 4px solid #4a90a4;
+        }
+
+        .clue-card.fictional {
+            border-left: 4px solid #d4a520;
+        }
+
+        .clue-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .clue-title {
+            color: #4a90a4;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .clue-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .badge.googable {
+            background: rgba(74, 144, 164, 0.2);
+            color: #4a90a4;
+            border: 1px solid rgba(74, 144, 164, 0.5);
+        }
+
+        .badge.fictional {
+            background: rgba(212, 165, 32, 0.2);
+            color: #d4a520;
+            border: 1px solid rgba(212, 165, 32, 0.5);
+        }
+
+        .badge.session {
+            background: rgba(138, 155, 168, 0.2);
+            color: #8a9ba8;
+            border: 1px solid rgba(138, 155, 168, 0.5);
+        }
+
+        .clue-description {
+            color: #d0d0d0;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .clue-search {
+            background: rgba(10, 14, 23, 0.6);
+            border: 1px solid rgba(74, 144, 164, 0.3);
+            border-radius: 4px;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .clue-search strong {
+            color: #4a90a4;
+        }
+
+        .clue-search code {
+            color: #6ab0c4;
+            background: rgba(74, 144, 164, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.9rem;
+        }
+
+        .clue-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .clue-links a {
+            color: #4a90a4;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.5rem;
+            background: rgba(74, 144, 164, 0.1);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            word-break: break-all;
+        }
+
+        .clue-links a:hover {
+            background: rgba(74, 144, 164, 0.2);
+            border-left: 3px solid #4a90a4;
+        }
+
+        .clue-reveals {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed rgba(138, 155, 168, 0.3);
+        }
+
+        .clue-reveals strong {
+            color: #d4a520;
+        }
+
+        .clue-reveals ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .clue-reveals li {
+            margin-bottom: 0.3rem;
+        }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 3px solid #4a90a4;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .info-box.warning {
+            background: rgba(255, 68, 68, 0.1);
+            border-left-color: #ff4444;
+        }
+
+        .info-box ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .info-box li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* Research trail boxes */
+        .trail-box {
+            background: rgba(212, 165, 32, 0.1);
+            border: 1px solid rgba(212, 165, 32, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .trail-box h3 {
+            color: #d4a520;
+            margin-bottom: 1rem;
+        }
+
+        .trail-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .trail-step {
+            padding-left: 2rem;
+            position: relative;
+            color: #d0d0d0;
+        }
+
+        .trail-step::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #d4a520;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .clue-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .nav {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 LEDTRÅDAR & RESEARCH</h1>
+            <p class="subtitle">Trip 19 / Black Madonna - Googlebara ledtrådar och research-spår</p>
+        </div>
+
+        <div class="nav">
+            <a href="index.html">← Dashboard</a>
+            <a href="timeline.html">Tidslinje</a>
+            <a href="npcs.html">NPCs</a>
+            <a href="locations.html">Platser</a>
+            <a href="mythos.html">Mythos</a>
+        </div>
+
+        <div class="warning-box">
+            <h2>⚠️ FILOSOFI: BLUR THE LINE</h2>
+            <p><strong>Spelarna ska inte veta vad som är riktigt historiskt och vad som är fiktivt.</strong></p>
+            <p>Ledtrådar märkta "GOOGELBAR" är riktiga - spelarna kan googla och hitta dem. Fiktiva ledtrådar är trovärdiga tillägg som fyller i luckor i den riktiga historien.</p>
+            <p><strong>Säg ALDRIG:</strong> "Detta är påhittat" - behandla allt som äkta!</p>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Sök ledtrådar... (ex: 'Lundeen', 'CAB rapport', 'arkiv')" onkeyup="filterClues()">
+        </div>
+
+        <!-- TRIP 19 CLUES -->
+        <div class="category-section">
+            <h2 class="category-title">✈️ TRIP 19 - KRASCHEN 1940</h2>
+
+            <div class="clues-grid" id="trip19Clues">
+                <!-- CAB Report -->
+                <div class="clue-card googable" data-keywords="cab rapport flight 19 official document">
+                    <div class="clue-header">
+                        <div class="clue-title">CAB Aircraft Accident Report</div>
+                        <div class="clue-badges">
+                            <span class="badge googable">GOOGELBAR</span>
+                            <span class="badge session">Session 1-2</span>
+                        </div>
+                    </div>
+                    <div class="clue-description">
+                        Den officiella CAB (Civil Aeronautics Board) rapporten om Pennsylvania Central Airlines Flight 19. 87 sidor, offentlig handling, finns digitaliserad.
+                    </div>
+                    <div class="clue-search">
+                        <strong>Sökord:</strong> <code>"Pennsylvania Central Airlines Flight 19" CAB report</code>
+                    </div>
+                    <div class="clue-links">
+                        <a href="https://commons.wikimedia.org/wiki/File:CAB_Aircraft_Accident_Report,_Pennsylvania_Central_Airlines_Corporation_Trip_19.pdf" target="_blank">
+                            📄 CAB Report - Wikimedia Commons (RIKTIGT)
+                        </a>
+                    </div>
+                    <div class="clue-reveals">
+                        <strong>Vad spelarna hittar:</strong>
+                        <ul>
+                            <li>"Blue flame" observation (sid 23)</li>
+                            <li>"Pilots prevented from operating controls" (sid 47)</li>
+                            <li>Mystery passenger listings (sid 31)</li>
+                            <li>FBI agents on board</li>
+                            <li>Officially: Lightning strike (but inconsistencies)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Passenger List -->
+                <div class="clue-card googable" data-keywords="passagerare lundeen flight 19 names">
+                    <div class="clue-header">
+                        <div class="clue-title">Flight 19 Passagerarlista</div>
+                        <div class="clue-badges">
+                            <span class="badge googable">GOOGELBAR</span>
+                            <span class="badge session">Session 1</span>
+                        </div>
+                    </div>
+                    <div class="clue-description">
+                        Komplett lista över alla 25 omkomna (4 besättning, 21 passagerare). Tillgänglig i CAB-rapporten och diverse historiska källor.
+                    </div>
+                    <div class="clue-search">
+                        <strong>Sökord:</strong> <code>"Ernest Lundeen" "Flight 19" passengers victims</code>
+                    </div>
+                    <div class="clue-links">
+                        <a href="Flight_19_Passagerarlista.html" target="_blank">
+                            📋 Se komplett passagerarlista (lokalt dokument)
+                        </a>
+                    </div>
+                    <div class="clue-reveals">
+                        <strong>Nyckel-offer:</strong>
+                        <ul>
+                            <li>Senator Ernest Lundeen (huvudpersonen)</li>
+                            <li>Margaret Carson (FBI Secretary)</li>
+                            <li>DoJ Attorney (övervakade Lundeen?)</li>
+                            <li>Alla namn kan googlas för biografier</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Rachel Maddow Podcast -->
+                <div class="clue-card googable" data-keywords="rachel maddow ultra podcast lundeen nazi">
+                    <div class="clue-header">
+                        <div class="clue-title">Rachel Maddow: Ultra Podcast</div>
+                        <div class="clue-badges">
+                            <span class="badge googable">GOOGELBAR</span>
+                            <span class="badge session">Session 1-2</span>
+                        </div>
+                    </div>
+                    <div class="clue-description">
+                        RIKTIGT podcast (MSNBC, 2022) om Lundeen-Viereck nazi-konspirationskopplingen. Spelarna kan lyssna på riktigt!
+                    </div>
+                    <div class="clue-search">
+                        <strong>Sökord:</strong> <code>"Rachel Maddow" "Ultra" podcast Lundeen</code>
+                    </div>
+                    <div class="clue-links">
+                        <a href="https://www.msnbc.com/rachel-maddow-presents-ultra" target="_blank">
+                            🎧 Ultra Podcast - MSNBC (RIKTIGT)
+                        </a>
+                    </div>
+                    <div class="clue-reveals">
+                        <strong>Viktig info från podcasten:</strong>
+                        <ul>
+                            <li>Lundeen betalades av tysk agent Viereck</li>
+                            <li>Gav pro-Hitler tal i senaten</li>
+                            <li>Norma Lundeen (änka) förstörde dokument efter kraschen</li>
+                            <li>FBI övervakade Lundeen före död</li>
+                            <li>Timing av kraschen "misstänkt convenient" för DoJ</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Viereck Trial -->
+                <div class="clue-card googable" data-keywords="viereck trial 1942 lundeen propaganda">
+                    <div class="clue-header">
+                        <div class="clue-title">Viereck Trial Transcripts (1942)</div>
+                        <div class="clue-badges">
+                            <span class="badge googable">GOOGELBAR</span>
+                            <span class="badge session">Session 2</span>
+                        </div>
+                    </div>
+                    <div class="clue-description">
+                        George Sylvester Viereck rättegång 1942 för att vara tysk agent. Lundeen nämns extensivt. Rättegångsprotokoll offentliga.
+                    </div>
+                    <div class="clue-search">
+                        <strong>Sökord:</strong> <code>"George Sylvester Viereck" trial 1942 Lundeen</code>
+                    </div>
+                    <div class="clue-links">
+                        <a href="https://en.wikipedia.org/wiki/George_Sylvester_Viereck" target="_blank">
+                            📰 Viereck Wikipedia (startpunkt)
+                        </a>
+                    </div>
+                    <div class="clue-reveals">
+                        <strong>Vad spelarna lär sig:</strong>
+                        <ul>
+                            <li>Viereck betalade Lundeen för propaganda-tal</li>
+                            <li>Lundeen bar "Viereck files" när han dog</li>
+                            <li>FBI konfiskerade väskan inom 48 timmar</li>
+                            <li>Norma vittnade 1942 (förstörde vissa dokument)</li>
+                            <li>Viereck fängslad 1942-1947</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Stanford Archives -->
+                <div class="clue-card googable" data-keywords="stanford hoover lundeen papers archives">
+                    <div class="clue-header">
+                        <div class="clue-title">Stanford University - Lundeen Papers</div>
+                        <div class="clue-badges">
+                            <span class="badge googable">GOOGELBAR</span>
+                            <span class="badge session">Session 2</span>
+                        </div>
+                    </div>
+                    <div class="clue-description">
+                        Hoover Institution Library & Archives har Ernest Lundeens dokument. 218 lådor. Finding aid finns online. Box 147 restrikterad till 2045.
+                    </div>
+                    <div class="clue-search">
+                        <strong>Sökord:</strong> <code>"Ernest Lundeen papers" Stanford Hoover Institution</code>
+                    </div>
+                    <div class="clue-links">
+                        <a href="https://oac.cdlib.org/findaid/ark:/13030/tf6d5nb24j/" target="_blank">
+                            🗄️ Lundeen Papers Finding Aid (RIKTIGT)
+                        </a>
+                    </div>
+                    <div class="clue-reveals">
+                        <strong>Vad de kan begära:</strong>
+                        <ul>
+                            <li>Digital åtkomst till öppna boxar (tar 3-5 dagar)</li>
+                            <li>Fysisk visit till arkivet (Kalifornien)</li>
+                            <li>Box 147 kräver specialtillstånd (vägras troligen)</li>
+                            <li>Arkivarien nämner: "Another researcher (Magda Orlova) asked about this"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Volkov's Blog -->
+                <div class="clue-card fictional" data-keywords="volkov blog forum dvolkov2018 conspiracy">
+                    <div class="clue-header">
+                        <div class="clue-title">Volkovs Forumposter (2018-2025)</div>
+                        <div class="clue-badges">
+                            <span class="badge fictional">TROVÄRDIGT FIKTIV</span>
+                            <span class="badge session">Session 1-2</span>
+                        </div>
+                    </div>
+                    <div class="clue-description">
+                        Dmitri Volkov postade på konspirationsforum 2018-2019 om Trip 19. Senaste post mars 2025: "Following new lead. Lovettsville soon."
+                    </div>
+                    <div class="info-box">
+                        <strong>Exempel-post (handout):</strong>
+                        <p><em>"Everyone talks about Roswell (1947) but they're looking in the wrong places. The real beginning was TRIP 19 - Pennsylvania Central Airlines, August 31, 1940. Read the CAB report carefully. Multiple witnesses saw BLUE FLAME. Pilots 'prevented from operating controls' - not mechanical failure. PREVENTED. Lundeen was connected to German agent Viereck. I believe Lundeen was carrying a prototype device. FBI cleaned the crash site within 48 hours. What were they looking for?"</em></p>
+                    </div>
+                    <div class="clue-reveals">
+                        <strong>Vad detta ger spelarna:</strong> Volkovs research = deras vägkarta. Han har markerat vad som är viktigt i CAB-rapporten.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESEARCH TRAILS -->
+        <div class="category-section">
+            <h2 class="category-title">🔗 RESEARCH-SPÅR</h2>
+
+            <div class="trail-box">
+                <h3>Spår 1: "Väskan" - Vad bar Lundeen?</h3>
+                <div class="trail-steps">
+                    <div class="trail-step">
+                        <strong>Start:</strong> CAB-rapport nämner "personal effects confiscated by FBI"
+                    </div>
+                    <div class="trail-step">
+                        <strong>Googla:</strong> "Lundeen briefcase FBI" → Hittar Rachel Maddow podcast
+                    </div>
+                    <div class="trail-step">
+                        <strong>Podcast:</strong> Nämner "Viereck files" i väskan
+                    </div>
+                    <div class="trail-step">
+                        <strong>Googla:</strong> "Lundeen Viereck trial" → Rättegångsprotokoll 1942
+                    </div>
+                    <div class="trail-step">
+                        <strong>Norma:</strong> Vittnade att hon förstörde vissa dokument - VAD förstörde hon?
+                    </div>
+                    <div class="trail-step">
+                        <strong>Handout:</strong> SL ger Barbara Colbecks dagbok (fiktiv) - nämner metallbox från Tyskland
+                    </div>
+                    <div class="trail-step">
+                        <strong>Insikt:</strong> Lundeen bar något mer än dokument. FBI letade efter det hela natten.
+                    </div>
+                </div>
+            </div>
+
+            <div class="trail-box">
+                <h3>Spår 2: Volkovs Research - Vad visste han?</h3>
+                <div class="trail-steps">
+                    <div class="trail-step">
+                        <strong>Start:</strong> Delta Green vet Volkov researcht Trip 19
+                    </div>
+                    <div class="trail-step">
+                        <strong>Googla:</strong> "Flight 19 conspiracy" → Hittar forum med "DVolkov2018" posts
+                    </div>
+                    <div class="trail-step">
+                        <strong>Forum:</strong> Volkov teorin om Nazi-teknologi, blå flammor, kristaller
+                    </div>
+                    <div class="trail-step">
+                        <strong>Post 2019:</strong> "Talked to German researcher Orlova. She found documents."
+                    </div>
+                    <div class="trail-step">
+                        <strong>Stanford logg:</strong> "D. Volkov, June 2019" besökte arkiv
+                    </div>
+                    <div class="trail-step">
+                        <strong>Lovettsville:</strong> Curator + Bishop bekräftar Volkov var där maj 2019
+                    </div>
+                    <div class="trail-step">
+                        <strong>Bishop:</strong> "He came back at night and dug illegally"
+                    </div>
+                    <div class="trail-step">
+                        <strong>Insikt:</strong> Volkov är alltid ett steg före. Han vet mer än de gör.
+                    </div>
+                </div>
+            </div>
+
+            <div class="trail-box">
+                <h3>Spår 3: Magda-kopplingen - Från Trip 19 till Leningrad</h3>
+                <div class="trail-steps">
+                    <div class="trail-step">
+                        <strong>Start:</strong> Stanford arkivarie nämner "Magda Orlova asked about Lundeen"
+                    </div>
+                    <div class="trail-step">
+                        <strong>Googla:</strong> "Magda Orlova Berlin journalist" → Hittar hennes profil
+                    </div>
+                    <div class="trail-step">
+                        <strong>Mejl:</strong> Hon researchar Nazi-teknologi till USA 1940, skickar tyskt dokument
+                    </div>
+                    <div class="trail-step">
+                        <strong>Kritiskt mejl:</strong> "Hittade mors dagbok från Frankfurt 1946. Ni måste se detta."
+                    </div>
+                    <div class="trail-step">
+                        <strong>Sedan:</strong> Ingen kontakt → Googla → Nyhet: "Funnen död, självmord"
+                    </div>
+                    <div class="trail-step">
+                        <strong>Berlin:</strong> Hennes lägenhet, mors dagbok (gömd), Frankfurt-dokument
+                    </div>
+                    <div class="trail-step">
+                        <strong>Dagboken:</strong> Nämner tre män, Leningrad 1942, "något följde oss", Slavic Association
+                    </div>
+                    <div class="trail-step">
+                        <strong>Insikt:</strong> Trip 19 var BÖRJAN. Leningrad 1942 var Ground Zero.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLACK MADONNA CLUES -->
+        <div class="category-section">
+            <h2 class="category-title">🇩🇪 BERLIN & TYSKLAND - BLACK MADONNA ACT 1</h2>
+
+            <div class="clues-grid">
+                <div class="clue-card fictional" data-keywords="magda orlova dagbok mor frankfurt clinic">
+                    <div class="clue-header">
+                        <div class="clue-title">Magdas Mors Dagbok (1946-1952)</div>
+                        <div class="clue-badges">
+                            <span class="badge fictional">FIKTIV HANDOUT</span>
+                            <span class="badge session">Session 5</span>
+                        </div>
+                    </div>
+                    <div class="clue-description">
+                        Gömd bakom bokhylla i Magdas lägenhet. Ryska/tyska, daterad 1946-1952. Beskriver Camp S-17, Leningrad, de tre männen.
+                    </div>
+                    <div class="info-box">
+                        <strong>Nyckelcitat:</strong>
+                        <p><em>"1946, Mars: Vi kom till Frankfurt från Moskva. Camp S-17 är bakom oss nu. Men mardrömmarna fortsätter. Anton, Sasha, Filip - de är förändrade. Något följde oss från Leningrad."</em></p>
+                        <p><em>"1952, Februari (sista): Magda frågar om Leningrad. Jag kan inte berätta. Hon måste aldrig veta. De tre männen... jag hör att de lever fortfarande. I Berlin nu. Slaviska Sällskapet."</em></p>
+                    </div>
+                    <div class="clue-reveals">
+                        <strong>Ledtrådar:</strong> De tre männens namn, Slavic Association i Berlin, kopplingen Leningrad → Camp S-17 → Frankfurt
+                    </div>
+                </div>
+
+                <div class="clue-card googable" data-keywords="frankfurt dp displaced persons camp 1946">
+                    <div class="clue-header">
+                        <div class="clue-title">Frankfurt DP Camps (1946-1952)</div>
+                        <div class="clue-badges">
+                            <span class="badge googable">GOOGELBAR (kontext)</span>
+                            <span class="badge session">Session 6</span>
+                        </div>
+                    </div>
+                    <div class="clue-description">
+                        Displaced Persons camps i Tyskland efter WW2. Frankfurt hade medicinska faciliteter för traumatiserade flyktingar.
+                    </div>
+                    <div class="clue-search">
+                        <strong>Sökord:</strong> <code>"Frankfurt DP camp" 1946 medical</code>
+                    </div>
+                    <div class="clue-reveals">
+                        <strong>Patient-journaler (fiktiva handouts):</strong>
+                        <ul>
+                            <li>Anton Dzerzhinsky (42): "Hummar konstant, minns saker som inte hänt"</li>
+                            <li>Magda Orlova (7): "Selektiv mutism, ritar svart madonna-figur"</li>
+                            <li>Metallbehållare konfiskerad: "Type-VII apparatus"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="clue-card fictional" data-keywords="slavic association berlin kreuzberg tre männen">
+                    <div class="clue-header">
+                        <div class="clue-title">Slavic Association, Berlin</div>
+                        <div class="clue-badges">
+                            <span class="badge fictional">DELVIS GOOGELBAR</span>
+                            <span class="badge session">Session 5-6</span>
+                        </div>
+                    </div>
+                    <div class="clue-description">
+                        Kulturförening, Hauptstraße 47, Kreuzberg. Googling ger eventuellt språkkurser/evenemang. Verkar legitim.
+                    </div>
+                    <div class="clue-reveals">
+                        <strong>Magdas research-notes:</strong>
+                        <ul>
+                            <li>"Slavic Association ringde mig förra veckan"</li>
+                            <li>"De tre männen grundade det 1961"</li>
+                            <li>Granne: "Män i kostym" besökte Magda dagen före död</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LENINGRAD CLUES -->
+        <div class="category-section">
+            <h2 class="category-title">🇷🇺 LENINGRAD/RYSSLAND - ACT 2 & FINALE</h2>
+
+            <div class="clues-grid">
+                <div class="clue-card googable" data-keywords="siege leningrad 1942 belägring winter">
+                    <div class="clue-header">
+                        <div class="clue-title">Belägringen av Leningrad (1941-1944)</div>
+                        <div class="clue-badges">
+                            <span class="badge googable">GOOGELBAR</span>
+                            <span class="badge session">Session 6+</span>
+                        </div>
+                    </div>
+                    <div class="clue-description">
+                        872 dagar, en av WW2's värsta belägningar. 1+ miljon döda. Vintern 1941-42 kallast och värst.
+                    </div>
+                    <div class="clue-search">
+                        <strong>Sökord:</strong> <code>"Siege of Leningrad" 1942 winter</code>
+                    </div>
+                    <div class="clue-links">
+                        <a href="https://en.wikipedia.org/wiki/Siege_of_Leningrad" target="_blank">
+                            📰 Wikipedia - Siege of Leningrad
+                        </a>
+                    </div>
+                    <div class="clue-reveals">
+                        <strong>Täckning för Mythos:</strong> Extrem stress, död, masshysteri = perfekt täckmantel. Rapporter om "religiösa fenomen" nyårsnatten 1942.
+                    </div>
+                </div>
+
+                <div class="clue-card fictional" data-keywords="camp s-17 gru soviet internment">
+                    <div class="clue-header">
+                        <div class="clue-title">Camp S-17 & GRU SV-8</div>
+                        <div class="clue-badges">
+                            <span class="badge fictional">FIKTIV</span>
+                            <span class="badge session">Session 8-9</span>
+                        </div>
+                    </div>
+                    <div class="clue-description">
+                        Hemligt sovjetiskt läger för "kontaminerade" från Leningrad 1942. GRU SV-8 ansvarig. Arkiv finns i Moskva.
+                    </div>
+                    <div class="info-box">
+                        <strong>GRU Debriefing Transcript (handout):</strong>
+                        <p><em>Former guard, 1953: "They were... wrong. Not sick, not insane, but wrong. Some hummed constantly. They didn't die. We kept them for years. 1946: Half transferred to Frankfurt. The rest... shot. But I still hear the humming."</em></p>
+                    </div>
+                    <div class="clue-reveals">
+                        <strong>Hur hitta:</strong> Moskva, före detta GRU-officer, mutor (~$10,000+), risk för rysk säkerhetstjänst
+                    </div>
+                </div>
+
+                <div class="clue-card fictional" data-keywords="sankt petersburg quarantine 2025 kalenko">
+                    <div class="clue-header">
+                        <div class="clue-title">Sankt Petersburg Karantän (Oktober 2025)</div>
+                        <div class="clue-badges">
+                            <span class="badge fictional">FIKTIV NYHET</span>
+                            <span class="badge session">Session 10</span>
+                        </div>
+                    </div>
+                    <div class="clue-description">
+                        Ryska militären karantänerar Petrograd-distriktet. Officiellt: "strukturell instabilitet". Lokala: elektronik fungerar inte, ljud från under jorden.
+                    </div>
+                    <div class="info-box warning">
+                        <strong>Nyhet-handout (ИЗВЕСТИЯ, Oct 28, 2025):</strong>
+                        <p>"Military cordons established... residents report unusual phenomena... electronic devices malfunction... sounds from underground... area includes site of former Kalenko house, which mysteriously disappeared during Siege..."</p>
+                    </div>
+                    <div class="clue-reveals">
+                        <strong>Timing:</strong> Precis när spelarna närmar sig slutet. Kalenko-området "vaknar" igen. De måste dit NU.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- METHODOLOGY -->
+        <div class="category-section">
+            <h2 class="category-title">🎓 RESEARCH-METODOLOGI FÖR SL</h2>
+
+            <div class="info-box">
+                <h3>"Can they Google it"-testet</h3>
+                <p>För varje faktapåstående, fråga:</p>
+                <ul>
+                    <li><strong>Kan spelarna googla detta och hitta motsägelse?</strong> → Då måste vi ändra</li>
+                    <li><strong>Kan spelarna googla detta och hitta bekräftelse?</strong> → Bra, använd</li>
+                    <li><strong>Kan spelarna googla detta och hitta inget?</strong> → Perfekt, vi kan fylla i</li>
+                </ul>
+            </div>
+
+            <div class="info-box warning">
+                <h3>Volkovs Research som Meta-Tool</h3>
+                <p>Volkov har researcht längre än spelarna. Hans anteckningar/blogg blir:</p>
+                <ul>
+                    <li><strong>Tutorial:</strong> Visar vad som är viktigt (markerar CAB-rapport)</li>
+                    <li><strong>Validation:</strong> "Se, även han tyckte det var konstigt"</li>
+                    <li><strong>Competition:</strong> Han är före oss - skapar tidspressen</li>
+                    <li><strong>Clues:</strong> Han hittade saker vi inte hittat (auktionskatalog, etc.)</li>
+                </ul>
+            </div>
+
+            <div class="trail-box">
+                <h3>De tre lagren av information</h3>
+                <div class="trail-steps">
+                    <div class="trail-step">
+                        <strong>LAGER 1: Helt äkta (googelbart)</strong> - CAB-rapport, Rachel Maddow podcast, Viereck trial, Stanford archives, Siege of Leningrad, DP camps
+                    </div>
+                    <div class="trail-step">
+                        <strong>LAGER 2: Trovärdiga tillägg</strong> - Volkovs blogg, Barbara Colbecks dagbok, Normas auktion, tyska telegram, Frankfurt Clinic-journaler
+                    </div>
+                    <div class="trail-step">
+                        <strong>LAGER 3: Öppet fiktivt (Mythos)</strong> - Kristaller, Type-VII apparatus, Camp S-17, Kalenko-huset, GRU SV-8
+                    </div>
+                </div>
+                <p><strong>Filosofi:</strong> Spelarna HITTAR lager 3 via lager 1+2. Exempel: Riktigt dokument nämner "special apparatus" → Vi ger Mythos-detaljer.</p>
+            </div>
+
+            <div class="trail-box">
+                <h3>Handout-strategi</h3>
+                <div class="trail-steps">
+                    <div class="trail-step">
+                        <strong>Fysiska handouts (print/PDF):</strong> CAB-citat, Colbeck dagbok, Auktionskatalog, Magdas mors dagbok, Frankfurt-dokument, GRU transcript
+                    </div>
+                    <div class="trail-step">
+                        <strong>Digital (de googlar själva):</strong> CAB-rapporten (länk till Wikisource), Ultra podcast (länk till MSNBC), Stanford finding aid, Wikipedia-artiklar
+                    </div>
+                    <div class="trail-step">
+                        <strong>Muntlig (NPCs berättar):</strong> Curator om Volkov, Bishop om FBI-grävning, Magda via mejl, Pyotr om Camp S-17
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function filterClues() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const clueCards = document.querySelectorAll('.clue-card');
+
+            clueCards.forEach(card => {
+                const keywords = card.getAttribute('data-keywords') || '';
+                const title = card.querySelector('.clue-title')?.textContent.toLowerCase() || '';
+                const description = card.querySelector('.clue-description')?.textContent.toLowerCase() || '';
+
+                const matchesSearch = keywords.includes(searchTerm) ||
+                                    title.includes(searchTerm) ||
+                                    description.includes(searchTerm);
+
+                if (matchesSearch || searchTerm === '') {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -15,8 +15,8 @@ Kampanjen kombinerar den verkliga Trip 19-flygkraschen 1940 med KULT: Black Mado
 - **npcs.html** - NPC-databas med sök/filter och detaljerade modaler (18 NPCs)
 - **Flight_19_Passagerarlista.html** - Vintage-dokument med alla 25 omkomna
 - **mythos.html** - Mythos-referens: De två krafterna, kristaller, transformationer
-- **locations.html** - Platser (kommer)
-- **clues.html** - Ledtrådar och research-spår (kommer)
+- **locations.html** - Platser med detaljerade modaler (8 platser: Lovettsville, Stanford, Berlin, Frankfurt, Camp S-17, Leningrad, Kalenko)
+- **clues.html** - Ledtrådar och research-spår (googlebara + fiktiva, research-trails)
 - **sessions.html** - Sessionsplanering (kommer)
 - **adaption.html** - Adaption-guide KULT → Delta Green (kommer)
 
@@ -127,10 +127,10 @@ Kampanjen kombinerar den verkliga Trip 19-flygkraschen 1940 med KULT: Black Mado
 - ✅ Lagt till Flight_19_Passagerarlista.html (vintage-dokument)
 - ✅ Skapad mythos.html (SL-referens för de två krafterna)
 - ✅ Uppdaterat alla Trip 19 historiska figurer från transcript.txt
+- ✅ Skapad locations.html (8 kampanjplatser med detaljerade modaler och SL-noter)
+- ✅ Skapad clues.html (googlebara ledtrådar, research-trails, metodologi)
 
 **Nästa:**
-- [ ] locations.html (platser - Lovettsville, Berlin, Frankfurt, Leningrad)
-- [ ] clues.html (research-spår och googlebara ledtrådar)
 - [ ] sessions.html (sessionsplanering 1-12)
 - [ ] adaption.html (full KULT → Delta Green guide)
 

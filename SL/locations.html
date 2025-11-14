@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip 19 // Black Madonna - Platser</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0e17;
+            color: #d0d0d0;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            border-bottom: 2px solid #ff4444;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            color: #ff4444;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            color: #8a9ba8;
+            font-size: 0.9rem;
+        }
+
+        /* Navigation */
+        .nav {
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid rgba(255, 68, 68, 0.3);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: #4a90a4;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid #4a90a4;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            background: rgba(74, 144, 164, 0.2);
+            border-color: #6ab0c4;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid #ff4444;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+
+        .warning-box h2 {
+            color: #ff4444;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Location Categories */
+        .category-section {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            color: #4a90a4;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(74, 144, 164, 0.3);
+        }
+
+        /* Location Cards */
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .location-card {
+            background: rgba(20, 30, 40, 0.6);
+            border: 1px solid rgba(74, 144, 164, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .location-card:hover {
+            border-color: #4a90a4;
+            background: rgba(74, 144, 164, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 144, 164, 0.2);
+        }
+
+        .location-name {
+            color: #4a90a4;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .location-subtitle {
+            color: #8a9ba8;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .location-brief {
+            color: #d0d0d0;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .location-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: rgba(74, 144, 164, 0.2);
+            color: #4a90a4;
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(74, 144, 164, 0.3);
+        }
+
+        .tag.danger {
+            background: rgba(255, 68, 68, 0.2);
+            color: #ff4444;
+            border-color: rgba(255, 68, 68, 0.3);
+        }
+
+        .tag.historical {
+            background: rgba(212, 165, 32, 0.2);
+            color: #d4a520;
+            border-color: rgba(212, 165, 32, 0.3);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: #0a0e17;
+            margin: auto;
+            padding: 0;
+            border: 2px solid #4a90a4;
+            border-radius: 8px;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 20px rgba(74, 144, 164, 0.3);
+        }
+
+        .modal-header {
+            background: rgba(74, 144, 164, 0.2);
+            padding: 1.5rem;
+            border-bottom: 1px solid #4a90a4;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .modal-title {
+            color: #4a90a4;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-subtitle {
+            color: #8a9ba8;
+            font-size: 1rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-section {
+            margin-bottom: 2rem;
+        }
+
+        .modal-section h3 {
+            color: #4a90a4;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(74, 144, 164, 0.3);
+        }
+
+        .modal-section h4 {
+            color: #8a9ba8;
+            font-size: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-section p {
+            color: #d0d0d0;
+            margin-bottom: 0.8rem;
+        }
+
+        .modal-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-section li {
+            color: #d0d0d0;
+            margin-bottom: 0.5rem;
+        }
+
+        .close {
+            color: #8a9ba8;
+            float: right;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ff4444;
+        }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 3px solid #4a90a4;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .info-box.warning {
+            background: rgba(255, 68, 68, 0.1);
+            border-left-color: #ff4444;
+        }
+
+        .info-box.danger {
+            background: rgba(212, 165, 32, 0.1);
+            border-left-color: #d4a520;
+        }
+
+        .coordinates {
+            font-family: monospace;
+            color: #4a90a4;
+            background: rgba(74, 144, 164, 0.1);
+            padding: 0.5rem;
+            border-radius: 3px;
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                flex-direction: column;
+            }
+
+            .modal-content {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🗺️ KAMPANJPLATSER</h1>
+            <p class="subtitle">Trip 19 / Black Madonna - Geografisk översikt för SL</p>
+        </div>
+
+        <div class="nav">
+            <a href="index.html">← Dashboard</a>
+            <a href="timeline.html">Tidslinje</a>
+            <a href="npcs.html">NPCs</a>
+            <a href="mythos.html">Mythos</a>
+        </div>
+
+        <div class="warning-box">
+            <h2>⚠️ SL-INFORMATION</h2>
+            <p>Detta dokument innehåller fullständiga detaljer om kampanjplatser, inklusive hemlig information och potentiella handouts. Använd för förberedelse och snabbreferens under spel.</p>
+        </div>
+
+        <!-- USA LOCATIONS -->
+        <div class="category-section">
+            <h2 class="category-title">🇺🇸 USA - TRIP 19</h2>
+            <div class="locations-grid">
+                <!-- Lovettsville -->
+                <div class="location-card" onclick="openModal('lovettsville')">
+                    <div class="location-name">Lovettsville, Virginia</div>
+                    <div class="location-subtitle">Trip 19 Crash Site - 31 augusti 1940</div>
+                    <div class="location-brief">
+                        Liten lantlig by i Loudoun County där Pennsylvania Central Airlines Flight 19 kraschade och dödade 25 personer, inklusive Senator Ernest Lundeen. FBI-operation samma natt. Fragment fortfarande begravda.
+                    </div>
+                    <div class="location-tags">
+                        <span class="tag historical">Session 3-4</span>
+                        <span class="tag danger">Aktiv site</span>
+                        <span class="tag">Volkov-spår</span>
+                    </div>
+                </div>
+
+                <!-- Stanford Archives -->
+                <div class="location-card" onclick="openModal('stanford')">
+                    <div class="location-name">Stanford University Archives</div>
+                    <div class="location-subtitle">Hoover Institution - Lundeen Papers</div>
+                    <div class="location-brief">
+                        218 lådor med Senator Ernest Lundeens dokument. Box 147 "Personal effects" restrikterad till 2045. Volkov försökte få tillgång 2019. Spelarna kan begära digital åtkomst eller besöka fysiskt.
+                    </div>
+                    <div class="location-tags">
+                        <span class="tag historical">Session 2</span>
+                        <span class="tag">Research</span>
+                        <span class="tag">Volkov var här</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GERMANY LOCATIONS -->
+        <div class="category-section">
+            <h2 class="category-title">🇩🇪 TYSKLAND - BLACK MADONNA ACT 1</h2>
+            <div class="locations-grid">
+                <!-- Berlin - Slavic Association -->
+                <div class="location-card" onclick="openModal('berlin_slavic')">
+                    <div class="location-name">Slavic Association, Berlin</div>
+                    <div class="location-subtitle">Hauptstraße 47, Kreuzberg - Grundad 1961</div>
+                    <div class="location-brief">
+                        "Kulturförening" grundad av de tre männen (Anton, Sasha, Filip). Front för deras överlevnad och rekrytering av drönare. Blandning av oskyldig verksamhet och något mycket mörkare.
+                    </div>
+                    <div class="location-tags">
+                        <span class="tag danger">Session 5-6</span>
+                        <span class="tag danger">De tre männen</span>
+                        <span class="tag">Drönare</span>
+                    </div>
+                </div>
+
+                <!-- Berlin - Magda's apartment -->
+                <div class="location-card" onclick="openModal('berlin_magda')">
+                    <div class="location-name">Magdas lägenhet, Berlin</div>
+                    <div class="location-subtitle">Kreuzberg - Mordplats April 2025</div>
+                    <div class="location-brief">
+                        Magda Orlovas lägenhet där hon "begick självmord". Genomsökt men viktiga dokument överlevde - morsdagbok, Frankfurt-dokument, research om de tre männen. Spelarna kommer för sent.
+                    </div>
+                    <div class="location-tags">
+                        <span class="tag danger">Session 5</span>
+                        <span class="tag">Brottsplats</span>
+                        <span class="tag">Handouts</span>
+                    </div>
+                </div>
+
+                <!-- Frankfurt Clinic -->
+                <div class="location-card" onclick="openModal('frankfurt')">
+                    <div class="location-name">Frankfurt Clinic</div>
+                    <div class="location-subtitle">Amerikanska zonen 1946-1952 - Nu stängd</div>
+                    <div class="location-brief">
+                        Allierad medicinsk facilitet där "kontaminerade" från Camp S-17 behandlades 1946-52. De tre männen, Magda och hennes mor vårdades här. Journaler finns i stadsarkiv. Pyotr-figuren (90+) kanske lever.
+                    </div>
+                    <div class="location-tags">
+                        <span class="tag historical">Session 6</span>
+                        <span class="tag">Arkiv</span>
+                        <span class="tag">Drömsekvens?</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RUSSIA LOCATIONS -->
+        <div class="category-section">
+            <h2 class="category-title">🇷🇺 RYSSLAND - BLACK MADONNA ACT 2 & FINALE</h2>
+            <div class="locations-grid">
+                <!-- Camp S-17 -->
+                <div class="location-card" onclick="openModal('camp_s17')">
+                    <div class="location-name">Camp S-17</div>
+                    <div class="location-subtitle">Moskva-regionen - Sovjetiskt interneringsläger 1942-1946</div>
+                    <div class="location-brief">
+                        Hemligt läger för "kontaminerade" civila från Leningrad 1942. 200 fångar som "inte dog". 1946: Halva överförda till Frankfurt, resten skjutna. Masskrav finns kvar. GRU SV-8 arkiv i Moskva har dokument.
+                    </div>
+                    <div class="location-tags">
+                        <span class="tag danger">Session 8-9</span>
+                        <span class="tag historical">Ground Zero #2</span>
+                        <span class="tag">GRU SV-8</span>
+                    </div>
+                </div>
+
+                <!-- Leningrad/Sankt Petersburg -->
+                <div class="location-card" onclick="openModal('leningrad')">
+                    <div class="location-name">Sankt Petersburg / Leningrad</div>
+                    <div class="location-subtitle">Ground Zero - Nyårsnatten 1942</div>
+                    <div class="location-brief">
+                        Där allt började. Nazi Type-VIII kolliderade med sovjetisk motåtgärd midnatt 1 januari 1942. Kalenko-huset fasförskjöts, barn försvann, 20 präster dog. 2025: Militär karantän runt historiska distriktet.
+                    </div>
+                    <div class="location-tags">
+                        <span class="tag danger">Session 10-12</span>
+                        <span class="tag danger">FINALE</span>
+                        <span class="tag historical">1942 katastrofen</span>
+                    </div>
+                </div>
+
+                <!-- Kalenko House -->
+                <div class="location-card" onclick="openModal('kalenko')">
+                    <div class="location-name">Kalenkos hus</div>
+                    <div class="location-subtitle">Petrograd-distriktet - Fasförskjutet sedan 1942</div>
+                    <div class="location-brief">
+                        Barnhem som försvann nyårsnatten 1942. Existerar i fasförskjutning. 15-20 barn (5-12 år) "lever" där fortfarande. Kräver Unnatural-ritualer för att nå. Fängelset för fragment av Det Som Fängslades.
+                    </div>
+                    <div class="location-tags">
+                        <span class="tag danger">Session 11-12</span>
+                        <span class="tag danger">SLUTKONFRONTATION</span>
+                        <span class="tag">Fasförskjutning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- MODALS -->
+    <div id="locationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <p class="modal-subtitle" id="modalSubtitle"></p>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        const locationData = {
+            lovettsville: {
+                title: 'LOVETTSVILLE, VIRGINIA',
+                subtitle: 'Trip 19 Crash Site - Bishop Farm',
+                content: `
+                    <div class="modal-section">
+                        <h3>📍 ÖVERSIKT</h3>
+                        <div class="coordinates">39°16'N, 77°38'W - Loudoun County, Virginia</div>
+                        <p><strong>Status 2025:</strong> Aktiv kraschplats, privat mark (Bishop Farm), monument finns</p>
+                        <p><strong>Population:</strong> ~1,200 invånare (liten lantlig by)</p>
+                        <p><strong>Betydelse:</strong> Ground Zero för Trip 19 (1940), Fragment-begravning, Volkovs besök 2019</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🕐 HISTORIK</h3>
+                        <h4>31 augusti 1940 - Kraschen</h4>
+                        <ul>
+                            <li>Pennsylvania Central Airlines Flight 19 kraschar 10:14 AM</li>
+                            <li>25 döda: 4 besättning, 21 passagerare inkl. Senator Ernest Lundeen</li>
+                            <li>Officiell orsak: Blixtnedslag (CAB-rapport)</li>
+                            <li>Vittnen: Blå flammor, planet "föll som en sten"</li>
+                        </ul>
+
+                        <h4>31 augusti - 2 september 1940 - FBI Clean-up</h4>
+                        <ul>
+                            <li>FBI på plats inom 4 timmar (ovanligt snabbt)</li>
+                            <li>Arbetade hela natten med lyktor och grävutrustning</li>
+                            <li>Konfiskerade Lundeens väska och dokument</li>
+                            <li>Sökte efter något specifikt (metallbehållare)</li>
+                            <li>Lämnade små fragment kvar (kunde inte hitta allt)</li>
+                        </ul>
+
+                        <h4>2019 - Volkovs besök</h4>
+                        <ul>
+                            <li>Dmitri Volkov besöker Historical Society i maj</li>
+                            <li>Begär tillgång till kraschplatsen - nekad</li>
+                            <li>Återvänder på natten, gräver illegalt</li>
+                            <li>Bishop (markägare) hittar gropar dagen efter</li>
+                            <li>Vad Volkov hittade: Okänt, men han fortsatte researchen</li>
+                        </ul>
+
+                        <h4>2024 - Ground-Penetrating Radar</h4>
+                        <ul>
+                            <li>Delta Green-scan visar metallisk anomali 6 fot ner</li>
+                            <li>Radioaktiv läsning (svag men detekterbar)</li>
+                            <li>"Svarade" på kristallaktivering i Portland</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🎯 VIKTIGA PLATSER</h3>
+
+                        <h4>1. Bishop Farm - Kraschplatsen</h4>
+                        <ul>
+                            <li><strong>Exakt plats:</strong> Öppen åkermark, 300 yards från boningshus</li>
+                            <li><strong>Monument:</strong> Enkel stenpelare med 25 namn</li>
+                            <li><strong>Fragment:</strong> Begravda 6 fot ner, rostig metallbehållare med tyska märkningar</li>
+                            <li><strong>Markägare:</strong> John Bishop (50-tal), bonde, skeptisk men samarbetsvillig</li>
+                            <li><strong>Tillstånd krävs:</strong> Ja, privat mark</li>
+                        </ul>
+
+                        <h4>2. Lovettsville Historical Society</h4>
+                        <ul>
+                            <li><strong>Plats:</strong> Gammalt hus, centrum av byn</li>
+                            <li><strong>Curator:</strong> Margaret Winters (60-tal), lokal entusiast</li>
+                            <li><strong>Material:</strong> Foton från 1940 (Life Magazine), artifacts från kraschen, vittnesmål</li>
+                            <li><strong>Loggbok:</strong> Visar "D. Volkov, May 2019" besökte och bad om "metallurgiska rapporter"</li>
+                            <li><strong>Farfars berättelse:</strong> Curators farfar såg FBI gräva hela natten</li>
+                        </ul>
+
+                        <h4>3. St. James United Church of Christ</h4>
+                        <ul>
+                            <li>Begravningsplats för några av offren (lokala)</li>
+                            <li>Register över begravningar tillgängliga</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🔍 VAD SPELARNA KAN HITTA</h3>
+
+                        <div class="info-box">
+                            <strong>Om de gräver på Bishop Farm:</strong>
+                            <ul>
+                                <li>Rostig metallbehållare med tyska märkningar "Reichsluftfahrtministerium"</li>
+                                <li>Inuti: Småa kristallfragment (Type-VII rester)</li>
+                                <li>Radioaktiv läsning (svag, kräver Geiger-räknare)</li>
+                                <li>Resonansfrekvens: 247 Hz (samma som kristallen i Portland)</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-box warning">
+                            <strong>Om de exponeras för fragmenten:</strong>
+                            <ul>
+                                <li>SAN-kontroll (1/1D4)</li>
+                                <li>Hummande ljud i huvudet (247 Hz)</li>
+                                <li>Långsiktig exponering = drönare-risk</li>
+                            </ul>
+                        </div>
+
+                        <h4>Handouts tillgängliga här:</h4>
+                        <ul>
+                            <li>Life Magazine-foton från kraschen (äkta)</li>
+                            <li>Vittnesmål från lokala 1940</li>
+                            <li>Curators berättelse om FBI-grävning</li>
+                            <li>Bishops berättelse om Volkov 2019</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>📝 SL-NOTER</h3>
+
+                        <h4>Atmosfär:</h4>
+                        <p>Lugn lantlig by. Tid som stannat. Alla känner alla. Kraschplatsen känns stilla men obehaglig - särskilt vid skymning. Fåglar undviker området.</p>
+
+                        <h4>Möjliga scener:</h4>
+                        <ul>
+                            <li><strong>Historical Society:</strong> Prata med curator, se material, upptäcka Volkov-spår</li>
+                            <li><strong>Bishop Farm:</strong> Förhandla tillgång, undersöka platsen, grävbeslut</li>
+                            <li><strong>Grävscen:</strong> Fysiskt arbete, spänning när de hittar något, möjlig interferens</li>
+                            <li><strong>Observation:</strong> Någon tittar från skogslinjen (Volkovs agent? Annat?)</li>
+                            <li><strong>Jagscen:</strong> Om de springer efter observatören</li>
+                        </ul>
+
+                        <h4>Volkovs spår:</h4>
+                        <ul>
+                            <li>Namnet i loggbok</li>
+                            <li>Bishops berättelse om illegal grävning</li>
+                            <li>Möjlig direktkonfrontation (om SL vill eskalera)</li>
+                        </ul>
+
+                        <h4>Kopplingar framåt:</h4>
+                        <ul>
+                            <li>Fragment pekar mot Leningrad (samma teknologi)</li>
+                            <li>Tyska märkningar → Nazi-kopplingen</li>
+                            <li>Volkovs obsession → Han vet mer än de gör</li>
+                            <li>Magdas mejl kommer här (om inte tidigare)</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🗺️ KARTA & OMGIVNING</h3>
+                        <p><strong>Avstånd från Washington DC:</strong> ~50 miles nordväst</p>
+                        <p><strong>Närmaste stad:</strong> Leesburg (15 min bil)</p>
+                        <p><strong>Karaktär:</strong> Rolling hills, farmland, Shenandoah-vy i väster</p>
+                    </div>
+                `
+            },
+
+            stanford: {
+                title: 'STANFORD UNIVERSITY ARCHIVES',
+                subtitle: 'Hoover Institution - Lundeen Papers Collection',
+                content: `
+                    <div class="modal-section">
+                        <h3>📍 ÖVERSIKT</h3>
+                        <div class="coordinates">Stanford, California - Hoover Institution Library & Archives</div>
+                        <p><strong>Collection:</strong> Ernest Lundeen Papers, 1901-1968</p>
+                        <p><strong>Omfattning:</strong> 218 lådor, 109 linear feet</p>
+                        <p><strong>Tillgänglighet:</strong> Delvis öppen, vissa boxar restrikterade</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>📚 SAMLINGEN</h3>
+
+                        <h4>Öppet material:</h4>
+                        <ul>
+                            <li>Tal och artiklar 1935-1940</li>
+                            <li>Kongresskorrespondens</li>
+                            <li>Politiska pamfletter</li>
+                            <li>Fotografier</li>
+                            <li>Tidningsklipp om kraschen</li>
+                        </ul>
+
+                        <h4>Box 147 - "Personal Effects" (RESTRIKTERAD TILL 2045)</h4>
+                        <div class="info-box warning">
+                            <p><strong>Officiell förklaring:</strong> "Privacy concerns för efterlevande familj"</p>
+                            <p><strong>Sanning:</strong> FBI-klassificering, innehåller dokument om väskan och dess innehåll</p>
+                            <p><strong>Vad som faktiskt finns där:</strong></p>
+                            <ul>
+                                <li>Brev mellan Lundeen och Viereck (okända för offentligheten)</li>
+                                <li>Foton: Lundeen + Viereck + okänd tysk vetenskapsman</li>
+                                <li>Tekniska skisser (delvis censurerade)</li>
+                                <li>FBI-rapport från kraschplatsen (hemligstämplad)</li>
+                                <li>Normas vittnesmål från 1942 (fullständig version)</li>
+                            </ul>
+                        </div>
+
+                        <h4>Digital finding aid (tillgänglig online):</h4>
+                        <p>Spelarna kan googla detta och hitta: https://oac.cdlib.org/findaid/ark:/13030/tf6d5nb24j/</p>
+                        <p>Visar Box 147 men inte innehåll. Märkt "RESTRICTED UNTIL 2045"</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🕵️ VOLKOVS BESÖK</h3>
+
+                        <h4>Juni 2019 - Första besöket</h4>
+                        <ul>
+                            <li>Begärde tillgång till Box 147 - nekad</li>
+                            <li>Läste öppet material i 3 dagar</li>
+                            <li>Gjorde extensiva anteckningar om Viereck-kopplingen</li>
+                            <li>Frågade arkivarien om "missing items from crash site"</li>
+                        </ul>
+
+                        <h4>Mars 2021 - Andra besöket</h4>
+                        <ul>
+                            <li>Försökte igen med Box 147 - nekad</li>
+                            <li>Verkar ha smugit in efter stängning (säkerhetslarm utlöstes)</li>
+                            <li>Ingen vet vad han hittade</li>
+                        </ul>
+
+                        <div class="info-box">
+                            <strong>Om spelarna frågar arkivarien:</strong> "That Russian researcher was very persistent. Almost obsessive. He kept asking about items that 'should be here but aren't.' I told him archives are incomplete sometimes. He didn't believe me."
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🔍 VAD SPELARNA KAN GÖRA</h3>
+
+                        <h4>Option A: Begära digital åtkomst</h4>
+                        <ul>
+                            <li>Tar 3-5 dagar</li>
+                            <li>Får skannade dokument från öppna boxar</li>
+                            <li>Box 147 fortfarande nekad</li>
+                            <li>Gratis för forskare</li>
+                        </ul>
+
+                        <h4>Option B: Besöka personligen</h4>
+                        <ul>
+                            <li>Kan läsa allt öppet material samma dag</li>
+                            <li>Prata med arkivarier (får höra om Volkov)</li>
+                            <li>Reading room access 9 AM - 5 PM</li>
+                            <li>Kräver ID och registration</li>
+                        </ul>
+
+                        <h4>Option C: Federal credentials</h4>
+                        <ul>
+                            <li>FBI/Delta Green kan begära Box 147</li>
+                            <li>Kräver officiell förfrågan genom Hoover Institution Director</li>
+                            <li>Tar 1-2 veckor (byråkrati)</li>
+                            <li>Riskerar uppmärksamhet från Program</li>
+                        </ul>
+
+                        <h4>Option D: Brott mot lagen</h4>
+                        <ul>
+                            <li>Bryt in, stjäl Box 147</li>
+                            <li>Svårt (säkerhet, kameror)</li>
+                            <li>Allvarliga konsekvenser om fångade</li>
+                            <li>Men Volkov försökte...</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>📄 HANDOUTS FRÅN STANFORD</h3>
+
+                        <h4>Öppet tillgängligt:</h4>
+                        <ul>
+                            <li>Lundeens tal från 1939-40 (pro-isolationist, några pro-Hitler)</li>
+                            <li>Korrespondens med Viereck (sanitized version)</li>
+                            <li>Tidningsartiklar om kraschen</li>
+                            <li>Nekrolog och memorial services</li>
+                        </ul>
+
+                        <h4>Om de får Box 147 (lågsannolik):</h4>
+                        <ul>
+                            <li>Foto av Lundeen + Viereck + tysk vetenskapsman (se handout)</li>
+                            <li>Brev om "special delivery from embassy"</li>
+                            <li>FBI-rapport om "metallurgical analysis of crash debris"</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>📝 SL-NOTER</h3>
+
+                        <p><strong>Troligtvis:</strong> Spelarna besöker INTE Stanford fysiskt (för långt från DC/Virginia). De begär digital åtkomst eller koncentrerar sig på Iowa archives (närmare).</p>
+
+                        <p><strong>Men Stanford visar:</strong> Att Volkov var här först, att det finns hemlig information, att någon (FBI/Program?) fortfarande klassificerar material 85 år senare.</p>
+
+                        <p><strong>Magda-kopplingen:</strong> Om spelarna kontaktar Stanford, kan arkivarien säga: "Another researcher asked about Lundeen recently - Magda Orlova from Berlin. Want her contact?"</p>
+                    </div>
+                `
+            },
+
+            berlin_slavic: {
+                title: 'SLAVIC ASSOCIATION, BERLIN',
+                subtitle: 'Hauptstraße 47, Kreuzberg - Front för de tre männen',
+                content: `
+                    <div class="modal-section">
+                        <h3>📍 ÖVERSIKT</h3>
+                        <div class="coordinates">52°30'N, 13°24'E - Kreuzberg, Berlin</div>
+                        <p><strong>Grundad:</strong> 1961 (Östberlin), reaktiverad 1990</p>
+                        <p><strong>Officiell verksamhet:</strong> Rysk-tyskt kulturutbyte, språkkurser, evenemang</p>
+                        <p><strong>Sanning:</strong> Front för de tre männens överlevnad och rekrytering</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🕐 HISTORIK</h3>
+
+                        <h4>1961 - Grundande</h4>
+                        <ul>
+                            <li>Anton Mahler, Sasha Pogodin, Filip Kramer grundar föreningen</li>
+                            <li>Östberlin, under DDR</li>
+                            <li>Täckmantel för att samla "likasinnade" (tidiga drönare)</li>
+                            <li>Stasi-skydd (Anton arbetar för Stasi)</li>
+                        </ul>
+
+                        <h4>1962-1989 - DDR-eran</h4>
+                        <ul>
+                            <li>Legitim verksamhet: Språkkurser, rysk kultur</li>
+                            <li>Hemlig verksamhet: Fragment-exponering av vissa medlemmar</li>
+                            <li>Magda var medlem 1961-1972 (arresterad, deporterad)</li>
+                        </ul>
+
+                        <h4>1990 - Återaktivering</h4>
+                        <ul>
+                            <li>Efter murens fall, flyttar till Kreuzberg (f.d. Västberlin)</li>
+                            <li>Nya medlemmar rekryterade</li>
+                            <li>De tre männen (nu 80+) fortfarande "lever"</li>
+                        </ul>
+
+                        <h4>2025 - Nu</h4>
+                        <ul>
+                            <li>~50 medlemmar: Mestadels oskyldig, ~10 drönare, 3 "ledare"</li>
+                            <li>Kontaktade Magda april 2025 (ville ha hennes mors dagbok)</li>
+                            <li>Troligen mördade henne när hon vägrade</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🏢 BYGGNADEN</h3>
+
+                        <h4>Bottenvåning - Öppen för publik</h4>
+                        <ul>
+                            <li>Reception och kontor</li>
+                            <li>Klassrum för språkkurser</li>
+                            <li>Liten salong för evenemang</li>
+                            <li>Bibliotek (rysk litteratur)</li>
+                        </ul>
+
+                        <h4>Andra våningen - Medlemmar endast</h4>
+                        <ul>
+                            <li>Privata mötesrum</li>
+                            <li>Arkiv (dokument från DDR-tiden)</li>
+                            <li>Köks- och matsal</li>
+                        </ul>
+
+                        <h4>Källaren - RESTRICTED</h4>
+                        <div class="info-box danger">
+                            <p><strong>Vad som faktiskt finns där:</strong></p>
+                            <ul>
+                                <li>De tre männens "sovrum" (de bor här nu)</li>
+                                <li>Fragment-låda (Type-VIII rester från Leningrad)</li>
+                                <li>Drönare-"behandlingsrum" (exponering)</li>
+                                <li>Dokument från Frankfurt Clinic och Camp S-17</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>👥 NYCKEL-NPCs HÄR</h3>
+
+                        <h4>De tre männen (se NPCs-sidan för detaljer):</h4>
+                        <ul>
+                            <li><strong>Anton "Mahler"</strong> (87) - Ledare, f.d. Stasi, strategisk</li>
+                            <li><strong>Sasha Pogodin</strong> (83) - Brutal, kriminell bakgrund</li>
+                            <li><strong>Filip Kramer</strong> (79) - Magdas ex, mest mänsklig av de tre</li>
+                        </ul>
+
+                        <h4>Drönare (10 personer):</h4>
+                        <ul>
+                            <li>Exponerade för fragment över tid</li>
+                            <li>Följer männens order utan ifrågasättande</li>
+                            <li>Varierande grader av transformation</li>
+                            <li>Hummar ibland på 247 Hz</li>
+                        </ul>
+
+                        <h4>Oskyldig personal:</h4>
+                        <ul>
+                            <li>Receptionisten (vet inget)</li>
+                            <li>Språklärare (2-3 personer, vet inget)</li>
+                            <li>Vanliga medlemmar (~40 personer, kulturintresserade)</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🔍 UNDERSÖKNING</h3>
+
+                        <h4>Öppen approach:</h4>
+                        <ul>
+                            <li>Anmäla sig till språkkurs</li>
+                            <li>Delta i publikt evenemang</li>
+                            <li>Intervjua som "journalist" eller "forskare"</li>
+                            <li>Fördel: Legitim, ingen misstanke</li>
+                            <li>Nackdel: Begränsad åtkomst</li>
+                        </ul>
+
+                        <h4>Undercoverinfiltration:</h4>
+                        <ul>
+                            <li>Bli medlem (tar tid, kräver vetting)</li>
+                            <li>Vänta på inbjudan till andra våningen</li>
+                            <li>Långsiktig operation</li>
+                        </ul>
+
+                        <h4>Break-in:</h4>
+                        <ul>
+                            <li>Nattetid, när stängt</li>
+                            <li>Säkerhet: Larm, låsta dörrar, drönare patrullerar?</li>
+                            <li>Risk: Hög om fångade</li>
+                            <li>Belöning: Källaren och alla hemligheter</li>
+                        </ul>
+
+                        <h4>Direktkonfrontation:</h4>
+                        <ul>
+                            <li>Visa FBI-legitimation, kräva tillträde</li>
+                            <li>Tysk polis kan kallas (juridisk komplikation)</li>
+                            <li>De tre männen spelar oskyldig</li>
+                            <li>"Vi är bara kulturförening"</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>⚠️ FAROR</h3>
+
+                        <div class="info-box warning">
+                            <h4>Fragment-exponering:</h4>
+                            <p>Om spelarna går till källaren och exponeras:</p>
+                            <ul>
+                                <li>SAN-kontroll (1/1D6)</li>
+                                <li>Hummande i huvudet</li>
+                                <li>Långsiktig exponering: Drönare-transformation börjar</li>
+                            </ul>
+                        </div>
+
+                        <h4>De tre männens förmågor:</h4>
+                        <ul>
+                            <li>Är inte helt mänskliga längre</li>
+                            <li>Fragmenten inuti dem ger viss Unnatural-kraft</li>
+                            <li>Möjligen: Psykisk påverkan, drömmar, resonans</li>
+                            <li>Svåra att döda (fragment håller dem vid liv)</li>
+                        </ul>
+
+                        <h4>Drönare-attack:</h4>
+                        <ul>
+                            <li>Om alarm, 10 drönare kan svärma</li>
+                            <li>Koordinerad attack</li>
+                            <li>Berör utan självbevarelsedrift</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>📝 SL-NOTER</h3>
+
+                        <h4>Första besöket:</h4>
+                        <p>Låt det verka normalt. Språkkurs pågår, kaffe serveras, rysk musik. Långsamt börjar konstigheter:</p>
+                        <ul>
+                            <li>Vissa medlemmar rör sig synkroniserat</li>
+                            <li>Någon hummar lågt (247 Hz)</li>
+                            <li>De tre männen är "mötet i källaren, kan inte störas"</li>
+                        </ul>
+
+                        <h4>Magda-kopplingen:</h4>
+                        <p>Om spelarna nämner Magda: "Ah yes, tragic. She used to be member here, long ago. We tried to help her recently but... she was not well."</p>
+
+                        <h4>Slutkonfrontation (möjlig):</h4>
+                        <p>Om spelarna återvänder senare i kampanjen med mer kunskap, kan detta bli en konfrontationsplats. De tre männen måste "hanteras" för att stoppa fragment-nätverket.</p>
+                    </div>
+                `
+            },
+
+            berlin_magda: {
+                title: 'MAGDAS LÄGENHET, BERLIN',
+                subtitle: 'Kreuzberg - Mordplats april 2025',
+                content: `
+                    <div class="modal-section">
+                        <h3>📍 ÖVERSIKT</h3>
+                        <div class="coordinates">Kreuzberg, Berlin - 3:e våningen, altbau-byggnad</div>
+                        <p><strong>Status:</strong> Brottsplats (Tysk polis: stängd självmord-utredning)</p>
+                        <p><strong>Ägare:</strong> Magda Orlova (död april 2025)</p>
+                        <p><strong>Tillstånd krävs:</strong> Ja (polis eller hyresvärd)</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🕐 VAD HÄNDE HÄR</h3>
+
+                        <h4>April 2025 - Dagarna före döden:</h4>
+                        <ul>
+                            <li>Magda mejlade spelarna om "mors dagbok"</li>
+                            <li>Män i kostym besökte henne (granne hörde argument)</li>
+                            <li>Magda skrek: "I won't give it to you!"</li>
+                            <li>De lämnade, men hon var rädd efter</li>
+                        </ul>
+
+                        <h4>Natten hon dog:</h4>
+                        <ul>
+                            <li>Granne hörde gråt genom golvet</li>
+                            <li>Sedan: tystnad</li>
+                            <li>Nästa morgon: Polisen</li>
+                        </ul>
+
+                        <h4>Officiell dödsorsak:</h4>
+                        <p>"Hängning, självmord, inga tecken på våld"</p>
+
+                        <div class="info-box warning">
+                            <strong>Sanningen (SL-kunskap):</strong> Tvångssjälvmord via fragment-resonans. De tre männen/Volkov aktiverade fragment i henne (ärvt från modern). Hon tvingades hänga sig själv medan hon var vid medvetande.
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🏠 LÄGENHET-LAYOUT</h3>
+
+                        <h4>Entré & korridor:</h4>
+                        <ul>
+                            <li>Skoställ (inget konstigt)</li>
+                            <li>Spegel (spräckt - när?)</li>
+                            <li>Post på golvet (oberörd av polis)</li>
+                        </ul>
+
+                        <h4>Vardagsrum:</h4>
+                        <ul>
+                            <li>Laptop på bord (krypterad, men spelarna kan cracka)</li>
+                            <li>Pappershögar (delvis tagna av de som genomsökte)</li>
+                            <li>Bokhylla (många ryska/tyska historieböcker)</li>
+                            <li><strong>HEMLIGT:</strong> Bakom bokhylla - hemlig hylla med mors dagbok</li>
+                        </ul>
+
+                        <h4>Sovrum:</h4>
+                        <ul>
+                            <li>Där hon dog (upphängd från taklampa)</li>
+                            <li>Polisavspärrning kvar</li>
+                            <li>Stol omkullvält under henne</li>
+                            <li>Rep borttaget av polis</li>
+                        </ul>
+
+                        <h4>Arbetsrum:</h4>
+                        <ul>
+                            <li>Skrivbord med research-anteckningar</li>
+                            <li>Karta på väggen: Markeringar för Lovettsville, Berlin, Frankfurt, Leningrad</li>
+                            <li>Foton fastnålade: De tre männen (1946), hennes mor</li>
+                            <li>Anteckningar om Volkov</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🔍 VAD SPELARNA HITTAR</h3>
+
+                        <h4>1. Mors dagbok (gömd bakom bokhylla):</h4>
+                        <div class="info-box">
+                            <p><strong>Handout:</strong> Dagbok från 1946-1952, ryska/tyska</p>
+                            <p><strong>Innehåll:</strong></p>
+                            <ul>
+                                <li>Camp S-17 beskrivningar</li>
+                                <li>Leningrad 1942 nyårsnatten</li>
+                                <li>"Något följde oss från Leningrad"</li>
+                                <li>De tre männen - "förändrade"</li>
+                                <li>Frankfurt Clinic behandling</li>
+                                <li>Sista inlägg 1952: "De tre männen lever. Berlin. Slaviska Sällskapet."</li>
+                            </ul>
+                        </div>
+
+                        <h4>2. Magdas research-anteckningar:</h4>
+                        <ul>
+                            <li>"Volkov teorin: Nazi-kristaller testades Flight 19"</li>
+                            <li>"Mors tre män = Anton Dzerzhinsky, Sasha Pogodin, Filip Kramer"</li>
+                            <li>"Slavic Association ringde mig förra veckan"</li>
+                            <li>"Vad hände i Leningrad? Alla källor censurerade"</li>
+                            <li>Foton skannade från Frankfurt Clinic-arkiv</li>
+                        </ul>
+
+                        <h4>3. Laptop (om crackad):</h4>
+                        <ul>
+                            <li>Mejlkorrespondens med Volkov 2019</li>
+                            <li>Volkov: "Your mother was there. She knows."</li>
+                            <li>Magda: "My mother is dead."</li>
+                            <li>Volkov: "Find the three men. Still in Berlin. Still waiting."</li>
+                            <li>Senaste mejl till spelarna (aldrig skickad): "They're coming for me"</li>
+                        </ul>
+
+                        <h4>4. Frankfurt Clinic-dokument (skannat):</h4>
+                        <div class="info-box">
+                            <p><strong>Handout:</strong> Patient Transfer Record, mars 1946</p>
+                            <ul>
+                                <li>Fyra patienter från Camp S-17</li>
+                                <li>Magda (7 år), Anton, Sasha, Filip</li>
+                                <li>"Severe psychological trauma, possible radiation exposure"</li>
+                                <li>Personal effects: Metallbehållare märkt "Type-VII"</li>
+                            </ul>
+                        </div>
+
+                        <h4>5. Karta med markeringar:</h4>
+                        <ul>
+                            <li>Lovettsville (rött kryss)</li>
+                            <li>Berlin - Slavic Association (cirkel)</li>
+                            <li>Frankfurt (gul markering)</li>
+                            <li>Leningrad/Sankt Petersburg (stor röd cirkel med frågetecken)</li>
+                            <li>Linjer dragna mellan alla platser</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>👮 POLIS & HINDER</h3>
+
+                        <h4>Tysk polis:</h4>
+                        <ul>
+                            <li>Stängde utredning som självmord</li>
+                            <li>Lägenheten försglad</li>
+                            <li>Släktingar (inga) kan ta över bo efter 30 dagar</li>
+                        </ul>
+
+                        <h4>Hur får spelarna tillgång?</h4>
+                        <ul>
+                            <li><strong>Option A:</strong> Visa FBI-legitimation till tysk polis (riskabelt, uppmärksamhet)</li>
+                            <li><strong>Option B:</strong> Bryt in (olagligt, men möjligt på natten)</li>
+                            <li><strong>Option C:</strong> Mutor hyresvärd (2000 Euro, no questions)</li>
+                            <li><strong>Option D:</strong> Delta Green kontakter (tar tid)</li>
+                        </ul>
+
+                        <h4>Grann-vittne:</h4>
+                        <p>Fru Bergmann (70-tal), bor över Magda:</p>
+                        <ul>
+                            <li>Hörde argumentet med män i kostym</li>
+                            <li>Hörde gråt natten hon dog</li>
+                            <li>"She was scared last week. I saw it in her eyes."</li>
+                            <li>Kan berätta om Magdas rutiner, vem som besökte</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>📝 SL-NOTER</h3>
+
+                        <h4>Atmosfär:</h4>
+                        <p>Stilla, kuslig, för sent-känsla. Hennes kopp kaffe fortfarande på bordet (nästan dricken). Research halvfärdig. Hon var mitt i något viktigt när hon dog.</p>
+
+                        <h4>Emotional impact:</h4>
+                        <p>Spelarna "kände" henne via mejl. Hon hjälpte dem. Nu är hon död. De kom för sent. Detta driver dem vidare - personlig hämnd/ansvar.</p>
+
+                        <h4>Clues framåt:</h4>
+                        <ul>
+                            <li>Slavic Association = nästa stop</li>
+                            <li>De tre männen = antagonister</li>
+                            <li>Frankfurt = research-destination</li>
+                            <li>Leningrad = slutdestination</li>
+                            <li>Volkov = han visste detta skulle hända</li>
+                        </ul>
+
+                        <h4>Vad genomsökarna tog:</h4>
+                        <ul>
+                            <li>Vissa specifika anteckningar (om fragment?)</li>
+                            <li>Ett foto (vilket?)</li>
+                            <li>Men de MISSADE dagboken (för välgömd)</li>
+                        </ul>
+                    </div>
+                `
+            },
+
+            frankfurt: {
+                title: 'FRANKFURT CLINIC',
+                subtitle: 'Amerikanska zonen 1946-1952 - DP Camp Medical Facility',
+                content: `
+                    <div class="modal-section">
+                        <h3>📍 ÖVERSIKT</h3>
+                        <div class="coordinates">Frankfurt am Main, Tyskland - F.d. Rödelheim district</div>
+                        <p><strong>Aktiv:</strong> 1946-1952</p>
+                        <p><strong>Status 2025:</strong> Stängd, byggnad riven 1960-talet, arkiv finns kvar</p>
+                        <p><strong>Syfte:</strong> Medicinsk behandling för "displaced persons" med psykologiskt trauma</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🕐 HISTORIK</h3>
+
+                        <h4>1946 - Etablering</h4>
+                        <ul>
+                            <li>Allierad kontroll, amerikansk zon</li>
+                            <li>DP (Displaced Persons) camp medical facility</li>
+                            <li>Fokus: Överlevande från koncentrationsläger, östeuropeiska flyktingar</li>
+                            <li><strong>Hemligt:</strong> Även "ovanliga" fall från sovjetisk zon</li>
+                        </ul>
+
+                        <h4>Mars 1946 - Camp S-17 överföring</h4>
+                        <ul>
+                            <li>Fyra patienter från Camp S-17 (Moskva-regionen)</li>
+                            <li>Anton (42), Sasha (38), Filip (35), Magdas mor + Magda (7)</li>
+                            <li>Klassificering: "Severe psychological trauma, radiation exposure?"</li>
+                            <li>Personal effects: Metallbehållare märkt "Type-VII"</li>
+                        </ul>
+
+                        <h4>1946-1952 - Behandlingsperiod</h4>
+                        <ul>
+                            <li>De tre männen: Långtidsboende, aldrig "botade"</li>
+                            <li>Magdas mor: Behandlad för trauma, dog 1952</li>
+                            <li>Magda: Selektiv mutism, traumatiserad, slutligen adopterad</li>
+                            <li>Dr. Heinrich Müller: Huvudläkare, frustrerad över brist på framsteg</li>
+                        </ul>
+
+                        <h4>1952 - Stängning</h4>
+                        <ul>
+                            <li>DP camps stänger, flyktingkrisen över</li>
+                            <li>De tre männen "frisläpps" (ingen mer behandling möjlig)</li>
+                            <li>Flyttar till Berlin</li>
+                            <li>Arkiv överförs till Frankfurt stadsarkiv</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🔍 VAD FINNS KVAR 2025?</h3>
+
+                        <h4>Frankfurt Stadsarkiv:</h4>
+                        <ul>
+                            <li>Patient-journaler (1946-1952)</li>
+                            <li>Personalanteckningar</li>
+                            <li>Överföringsprotokoll från Camp S-17</li>
+                            <li>Foton från kliniken (medicinskt dokumentation)</li>
+                        </ul>
+
+                        <h4>Platsen där kliniken stod:</h4>
+                        <ul>
+                            <li>Nu: Moderna lägenheter, byggda 1970-talet</li>
+                            <li>Minnesplatta om DP camp (nämner inte "special patients")</li>
+                            <li>Inget fysiskt kvar</li>
+                        </ul>
+
+                        <h4>Pyotr-figuren (möjlig NPC):</h4>
+                        <div class="info-box">
+                            <p><strong>I KULT:</strong> Pyotr är drömvandrare som kan lära spelarna drömkonst</p>
+                            <p><strong>I DG-adaptionen:</strong></p>
+                            <ul>
+                                <li><strong>Option A:</strong> Pyotr (90+ år) lever fortfarande, bor i Frankfurt</li>
+                                <li>Var patient på kliniken 1946-48</li>
+                                <li>Exponerad för fragment (låg dos)</li>
+                                <li>Kan "minnas" Camp S-17 och Leningrad via fragment-bleed</li>
+                                <li><strong>Option B:</strong> Pyotr död, men hans journaler beskriver hans drömmar (info-källa)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>📄 PATIENT-JOURNALER (handout)</h3>
+
+                        <div class="info-box">
+                            <h4>Patient: Anton Dzerzhinsky (March 1946 - Aug 1952)</h4>
+                            <ul>
+                                <li>Ålder: 42 vid ankomst</li>
+                                <li>Diagnos: PTSD, trauma från Leningrad-belägringen</li>
+                                <li>Symptom: Hummar konstant (247 Hz), nattliga skrik, "minns saker som inte hänt"</li>
+                                <li>Behandling: Sedation, terapi - INGEN förbättring</li>
+                                <li>Notering 1950: "Patient does not age normally. Appears younger than admitted age."</li>
+                                <li>Utsläppt: Aug 1952 (ingen mer behandling möjlig)</li>
+                            </ul>
+
+                            <h4>Patient: Magda Orlova (March 1946 - June 1947)</h4>
+                            <ul>
+                                <li>Ålder: 7 år</li>
+                                <li>Diagnos: Selektiv mutism, extremt trauma</li>
+                                <li>Symptom: Talar inte, ritar samma bild om och om igen (svart madonna-figur)</li>
+                                <li>Skrikattacker när separerad från mor</li>
+                                <li>Adopterad av tysk familj 1952 efter mors död</li>
+                            </ul>
+
+                            <h4>Metallbehållare (confiscated item):</h4>
+                            <ul>
+                                <li>Tysk tillverkning, märkt "Reichsluftfahrtministerium Type-VII"</li>
+                                <li>Tom vid konfiskering (innehöll tidigare något radioaktivt?)</li>
+                                <li>Överförd till Allied Control Commission [REDACTED]</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🌙 DRÖMSEKVENS (optional)</h3>
+
+                        <p><strong>Om SL använder fragment-bleed mekanik:</strong></p>
+
+                        <div class="info-box danger">
+                            <p>Om spelarna exponerades i Lovettsville eller Berlin, kan de ofrivilligt dras in i Pyotrs/de tre männens minnen när de läser journalerna i Frankfurt.</p>
+
+                            <h4>Vad de "ser" i drömmen:</h4>
+                            <ul>
+                                <li><strong>Camp S-17:</strong> Frusen tundra, barackbyggnader, 200 fångar som hummar</li>
+                                <li><strong>Leningrad 1942:</strong> Kalenko-huset, barn som försvinner, präster som tar självmord</li>
+                                <li><strong>Nyårsnatten:</strong> Två krafter kolliderar, verkligheten revas</li>
+                            </ul>
+
+                            <p><strong>SAN-förlust:</strong> 1/1D6 (att se fragment-minnen)</p>
+                            <p><strong>Ledtråd:</strong> De vet nu vad som hände i Leningrad (delvis)</p>
+                        </div>
+
+                        <p><strong>Alternativt (utan drömmar):</strong> All information kommer från dokument och Pyotrs beskrivningar av hans drömmar i journalerna.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🔍 UNDERSÖKNING</h3>
+
+                        <h4>Frankfurt Stadsarkiv:</h4>
+                        <ul>
+                            <li>Öppettider: 9-17, mån-fre</li>
+                            <li>Kräver ID och förfrågan</li>
+                            <li>DP camp-material delvis öppet, delvis klassificerat</li>
+                            <li>Tar 1-2 dagar att få tillgång</li>
+                        </ul>
+
+                        <h4>Pyotrs nuvarande bostad (om levande):</h4>
+                        <ul>
+                            <li>Liten lägenhet i Frankfurt-Bornheim</li>
+                            <li>90+ år, skröplig men skarpt sinne</li>
+                            <li>Villig att prata om "de konstiga patienterna"</li>
+                            <li>"The three men were not sick. They were changed."</li>
+                        </ul>
+
+                        <h4>F.d. klinikplatsen:</h4>
+                        <ul>
+                            <li>Inget att hitta fysiskt</li>
+                            <li>Men området känns "fel" (fragment-resonans kvar?)</li>
+                            <li>Fåglar undviker platsen</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>📝 SL-NOTER</h3>
+
+                        <h4>Syfte i kampanjen:</h4>
+                        <ul>
+                            <li>Bekräftar kopplingen Camp S-17 → Frankfurt → Berlin</li>
+                            <li>Ger detaljer om de tre männens tillstånd</li>
+                            <li>Magdas bakgrund (emotionell vikt)</li>
+                            <li>Proof att fragment överfördes från Leningrad</li>
+                        </ul>
+
+                        <h4>Drömsekvens-beslut:</h4>
+                        <p>SL måste bestämma om fragment-bleed/drömmar används eller inte. Om ja: Detta är perfekt plats för första stora drömscen (Session 6). Om nej: All info via dokument.</p>
+
+                        <h4>Nästa steg:</h4>
+                        <p>Efter Frankfurt vet spelarna:</p>
+                        <ul>
+                            <li>De tre männen kom från Camp S-17</li>
+                            <li>Camp S-17 kom från Leningrad 1942</li>
+                            <li>De måste hitta GRU SV-8 arkiv om Camp S-17 (Ryssland)</li>
+                        </ul>
+                    </div>
+                `
+            },
+
+            camp_s17: {
+                title: 'CAMP S-17',
+                subtitle: 'Moskva-regionen - Sovjetiskt interneringsläger 1942-1946',
+                content: `
+                    <div class="modal-section">
+                        <h3>📍 ÖVERSIKT</h3>
+                        <div class="coordinates">~100 km öster om Moskva, exakt plats klassificerad</div>
+                        <p><strong>Aktiv:</strong> Januari 1942 - Mars 1946</p>
+                        <p><strong>Status 2025:</strong> Övergiven, masskrav finns kvar, farligt område</p>
+                        <p><strong>Klassificering:</strong> GRU SV-8 hemlig anläggning</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🕐 HISTORIK</h3>
+
+                        <h4>Januari 1942 - Etablering</h4>
+                        <ul>
+                            <li>Etablerat efter Leningrad nyårsnatten-incident</li>
+                            <li>Syfte: Internera "kontaminerade" civila från Leningrad</li>
+                            <li>~200 fångar initialt</li>
+                            <li>GRU SV-8 (militär ockult avdelning) ansvarig</li>
+                        </ul>
+
+                        <h4>1942-1945 - Operations-period</h4>
+                        <ul>
+                            <li>Fångar "åldrandes inte normalt"</li>
+                            <li>Konstant hummande (247 Hz) från vissa fångar</li>
+                            <li>Vakter rapporterar drömmar, hallucinationer</li>
+                            <li>Flera vakter begår självmord över åren</li>
+                            <li>Inga fångar dog (extremt onormalt för Gulag-förhållanden)</li>
+                        </ul>
+
+                        <h4>Mars 1946 - Stängning</h4>
+                        <ul>
+                            <li>Order från Moskva: "No witnesses"</li>
+                            <li>~100 fångar skjutna, begravda i massgrav</li>
+                            <li>~100 fångar överförda till allierad kontroll (Frankfurt Clinic)</li>
+                            <li>Anläggningen övergiven</li>
+                            <li>Alla dokument klassificerade</li>
+                        </ul>
+
+                        <h4>1946-2025 - Eftermäle</h4>
+                        <ul>
+                            <li>Officiellt: "Aldrig existerat"</li>
+                            <li>GRU SV-8 arkiv: Hemligt, Moskva</li>
+                            <li>Området förbjudet (militär zon)</li>
+                            <li>Lokala legender om "sjungande spöken"</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🏚️ PLATSEN 2025</h3>
+
+                        <h4>Fysiska rester:</h4>
+                        <ul>
+                            <li>Förfallna barackbyggnader (5-6 stycken)</li>
+                            <li>Vaktorn (raserad)</li>
+                            <li>Taggtråd (rostig, delvis kvar)</li>
+                            <li>Administrativa byggnaden (halvt kollapsad)</li>
+                        </ul>
+
+                        <h4>Massgraven:</h4>
+                        <div class="info-box warning">
+                            <p><strong>Plats:</strong> 200 meter öster om huvudläger</p>
+                            <p><strong>Innehåll:</strong> ~100 kroppar från 1946</p>
+                            <p><strong>Fara:</strong> Fragment-kontamination fortfarande aktiv</p>
+                            <ul>
+                                <li>Om spelarna gräver/undersöker: SAN-kontroll (1/1D8)</li>
+                                <li>Hummande ljud från graven (247 Hz)</li>
+                                <li>Kroppar har inte ruttnat normalt</li>
+                            </ul>
+                        </div>
+
+                        <h4>Atmosfär:</h4>
+                        <ul>
+                            <li>Inga fåglar, inga djur</li>
+                            <li>Tyst, kusligt tyst</li>
+                            <li>Svagt hummande från marken (fragment-resonans)</li>
+                            <li>Metalldetektor går haywire</li>
+                            <li>Elektronik funkade dåligt</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>📚 GRU SV-8 ARKIV (Moskva)</h3>
+
+                        <p><strong>Spelarna kommer troligen INTE till fysiska Camp S-17 (för farligt, för avlägset). Istället: Hittar arkiv i Moskva.</strong></p>
+
+                        <h4>Var arkiven finns:</h4>
+                        <ul>
+                            <li>GRU huvudkvarter, Moskva (mycket svårt att nå)</li>
+                            <li>ELLER: Före detta KGB-arkiv (delvis tillgängligt för forskare)</li>
+                            <li>ELLER: Svartabörshandel med f.d. GRU-officer</li>
+                        </ul>
+
+                        <h4>Handout: GRU SV-8 Debriefing Transcript</h4>
+                        <div class="info-box">
+                            <p><strong>Subject:</strong> [REDACTED], Former Guard, Camp S-17</p>
+                            <p><strong>Date:</strong> April 1953</p>
+
+                            <p><strong>Q: Describe the camp's purpose.</strong><br>
+                            A: We were told it was for "contaminated" civilians from Leningrad. Not disease - something else. Command never explained.</p>
+
+                            <p><strong>Q: What do you mean by "contaminated"?</strong><br>
+                            A: They were... wrong. Not sick, not insane, but wrong. Their eyes. The way they moved. Some hummed constantly. Always the same tone.</p>
+
+                            <p><strong>Q: How many prisoners?</strong><br>
+                            A: Started with maybe 200 from Leningrad, early '42. But they didn't die. We kept them for years. Same people. They should have aged, gotten sick. They didn't.</p>
+
+                            <p><strong>Q: Where are they now?</strong><br>
+                            A: '45, orders came. Half were transferred to Frankfurt, American zone. Why? I don't know. The rest... [SUBJECT HESITATES]... Shot. Buried in pit near camp. Orders from Moscow. "No witnesses."</p>
+
+                            <p><strong>Q: You're a witness.</strong><br>
+                            A: [SUBJECT NERVOUS] I was following orders. I didn't know what they were.</p>
+
+                            <p><strong>Q: What WERE they?</strong><br>
+                            A: I don't know. But I still hear the humming. Twenty years later. I still hear it.</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🔍 HUR SPELARNA UNDERSÖKER</h3>
+
+                        <h4>Option A: Moskva-arkiv (mest troligt)</h4>
+                        <ul>
+                            <li>Hitta före detta GRU-officer villig att sälja information</li>
+                            <li>Korruption, mutor (~$10,000-50,000)</li>
+                            <li>Risk: Rysk säkerhetstjänst uppmärksamhet</li>
+                            <li>Belöning: Dokument, vittnesmål, kartor</li>
+                        </ul>
+
+                        <h4>Option B: Besöka Camp S-17 fysiskt (högrisk)</h4>
+                        <ul>
+                            <li>Kräver resa ~100 km från Moskva</li>
+                            <li>Militär förbjuden zon (patrulleras?)</li>
+                            <li>Extrem fragment-kontamination</li>
+                            <li>SAN-förlust garanterad</li>
+                            <li>Troligen inget mer att hitta än i arkiven</li>
+                        </ul>
+
+                        <h4>Option C: Före detta fånge (om någon lever)</h4>
+                        <ul>
+                            <li>Extremt osannolikt (90+ år, traumatiserade)</li>
+                            <li>De flesta överförda dog senare</li>
+                            <li>Pyotr från Frankfurt var en</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>⚠️ FAROR</h3>
+
+                        <div class="info-box danger">
+                            <h4>Om spelarna besöker fysiska platsen:</h4>
+                            <ul>
+                                <li><strong>Fragment-kontamination:</strong> SAN-förlust 1/1D8 per timme på platsen</li>
+                                <li><strong>Hummande:</strong> Ökar i intensitet nära massgraven</li>
+                                <li><strong>Drömbleed:</strong> Om de sover där, ofrivilliga visioner av Leningrad 1942</li>
+                                <li><strong>Transformation-risk:</strong> Långsiktig exponering = drönare-transformation</li>
+                                <li><strong>Ryska militären:</strong> Om fångade = internationell incident</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>📝 SL-NOTER</h3>
+
+                        <h4>Syfte i kampanjen:</h4>
+                        <p>Camp S-17 är LÄNKEN mellan Leningrad 1942 och Frankfurt 1946. Här internerades de första fragment-värdarna.</p>
+
+                        <h4>Troligt scenario (Session 8-9):</h4>
+                        <ul>
+                            <li>Spelarna i Moskva, jagar GRU-arkiv</li>
+                            <li>Hittar före detta officer/forskare villig att prata</li>
+                            <li>Får vittnesmål och dokument</li>
+                            <li>Lär sig om Leningrad 1942 connection</li>
+                            <li>Inser: De måste till Sankt Petersburg</li>
+                        </ul>
+
+                        <h4>Volkov-kopplingen:</h4>
+                        <ul>
+                            <li>Volkovs far arbetade nära Camp S-17 (eller visste om det)</li>
+                            <li>Volkov ärvde anteckningar 2015</li>
+                            <li>Det var så han började sin jakt</li>
+                            <li>Han kanske hittar spelarna här (eller vice versa)</li>
+                        </ul>
+
+                        <h4>Nästa steg:</h4>
+                        <p>Efter Camp S-17-informationen vet spelarna att allt började i Leningrad nyårsnatten 1942. De måste dit för att förstå och stoppa det.</p>
+                    </div>
+                `
+            },
+
+            leningrad: {
+                title: 'SANKT PETERSBURG / LENINGRAD',
+                subtitle: 'Ground Zero - Nyårsnatten 1942',
+                content: `
+                    <div class="modal-section">
+                        <h3>📍 ÖVERSIKT</h3>
+                        <div class="coordinates">59°56'N, 30°18'E - Petrograd district (historiskt centrum)</div>
+                        <p><strong>Namn 1942:</strong> Leningrad</p>
+                        <p><strong>Namn 2025:</strong> Sankt Petersburg</p>
+                        <p><strong>Händelse:</strong> 31 dec 1941 / 1 jan 1942 - Midnatt katastrofen</p>
+                        <p><strong>Status 2025:</strong> Militär karantän runt Kalenko-området</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🕐 1942 - VAD HÄNDE</h3>
+
+                        <h4>Belägringen av Leningrad (context):</h4>
+                        <ul>
+                            <li>8 september 1941 - 27 januari 1944 (872 dagar)</li>
+                            <li>En av WW2's värsta belägningar</li>
+                            <li>1+ miljon civila döda (mest svält)</li>
+                            <li>Vintern 1941-42: Kallast och värst</li>
+                            <li>Kannibalismrapporter, massdöd, total desperation</li>
+                        </ul>
+
+                        <h4>Nyårsnatten 1941/1942 - Midnatt:</h4>
+                        <div class="info-box danger">
+                            <p><strong>23:00 - Nazi-aktivering</strong></p>
+                            <ul>
+                                <li>Type-VIII apparater aktiveras runt staden</li>
+                                <li>Tre enheter i triangelformation</li>
+                                <li>Mål: Psykologisk krigföring, bryta motståndet</li>
+                            </ul>
+
+                            <p><strong>23:45 - Sovjetisk motåtgärd</strong></p>
+                            <ul>
+                                <li>GRU SV-8 aktiverar egen "counter-frequency" enhet</li>
+                                <li>Placerad i kyrka i Petrograd-distriktet</li>
+                                <li>Baserad på Type-VII dokument från USA 1943 (via spioner)</li>
+                            </ul>
+
+                            <p><strong>00:00 - KOLLISION</strong></p>
+                            <ul>
+                                <li>Båda krafterna kolliderar</li>
+                                <li>Realiteten REVAS</li>
+                                <li>Två Mythos-entiteter dras in ofrivilligt</li>
+                                <li>Katastrofala effekter...</li>
+                            </ul>
+                        </div>
+
+                        <h4>Omedelbara effekter:</h4>
+                        <ul>
+                            <li>Kyrkljus slocknar över hela staden</li>
+                            <li>Helgonikoner blir svarta</li>
+                            <li>20 präster tar självmord samtidigt</li>
+                            <li>Kalenko-huset (barnhem) <strong>försvinner</strong></li>
+                            <li>15-20 barn försvinner med huset</li>
+                            <li>~200 civila exponeras (transporteras till Camp S-17)</li>
+                            <li>Tre män (Anton, Sasha, Filip) blir permanenta värdar</li>
+                        </ul>
+
+                        <h4>Långsiktiga effekter:</h4>
+                        <ul>
+                            <li>Området censurerat av sovjetiska myndigheter</li>
+                            <li>Officiell förklaring: "Bombning" eller "gasläcka"</li>
+                            <li>Kalenko-huset fasförskjutet (existerar mellan dimensioner)</li>
+                            <li>Fragment sprids över Europa</li>
+                            <li>85 år senare: Fortfarande aktiv hot</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🗺️ PETROGRAD DISTRICT 2025</h3>
+
+                        <h4>Karaktär:</h4>
+                        <ul>
+                            <li>Historiskt centrum, vackra byggnader</li>
+                            <li>Turist-destination normalt</li>
+                            <li>Men: Oktober 2025 = militär karantän</li>
+                        </ul>
+
+                        <h4>Militär karantän (oktober 2025):</h4>
+                        <div class="info-box warning">
+                            <p><strong>Officiell förklaring:</strong> "Strukturell instabilitet efter seismisk aktivitet"</p>
+                            <p><strong>Sanning:</strong> Kalenko-huset börjar "blöda igenom" till vår dimension igen</p>
+
+                            <ul>
+                                <li>Kordon runt 3-4 kvarter</li>
+                                <li>Civila evakuerade</li>
+                                <li>Ryska militären patrullerar</li>
+                                <li>Elektronik fungerar inte nära centrum</li>
+                                <li>Rapporter om "ljud från under jorden"</li>
+                                <li>Flera soldater hospitaliserade ("desorientering")</li>
+                            </ul>
+                        </div>
+
+                        <h4>Vad lokala säger:</h4>
+                        <ul>
+                            <li>"Samma plats där Kalenko-huset försvann 1942"</li>
+                            <li>"Ingenting har varit där på 80 år"</li>
+                            <li>"Varför militär NU?"</li>
+                            <li>Rykten om radioaktivitet, kemikalier, oupptäckt bomb</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🔍 UNDERSÖKNING</h3>
+
+                        <h4>Innan karantänen (research):</h4>
+                        <ul>
+                            <li>Lokala arkiv om 1942-händelsen</li>
+                            <li>Intervjuer med äldre invånare (få lever)</li>
+                            <li>Historiker som känner till legenden</li>
+                            <li>Kyrkoregister (20 döda präster)</li>
+                        </ul>
+
+                        <h4>Infiltrera karantänzonen:</h4>
+                        <ul>
+                            <li><strong>Option A:</strong> Visa legitimation (riskabelt, internationellt)</li>
+                            <li><strong>Option B:</strong> Smyga in (svårt, militär patrullerar)</li>
+                            <li><strong>Option C:</strong> Muta rysk officer (möjligt men riskabelt)</li>
+                            <li><strong>Option D:</strong> Delta Green ryska kontakter (om de finns)</li>
+                        </ul>
+
+                        <h4>Inne i zonen:</h4>
+                        <ul>
+                            <li>Tomma gator, övergiven känsla</li>
+                            <li>Elektronik fungerar dåligt</li>
+                            <li>Hummande ljud (247 Hz) ökar mot centrum</li>
+                            <li>Ryska soldater verkar rädda</li>
+                            <li>Centrum: Var Kalenko-huset stod</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>⚠️ FAROR</h3>
+
+                        <div class="info-box danger">
+                            <h4>Ryska militären:</h4>
+                            <ul>
+                                <li>Om fångade: Internationell incident</li>
+                                <li>Amerikanska agenter i hemlig rysk militärzon</li>
+                                <li>Delta Green kan inte hjälpa officiellt</li>
+                                <li>Troligen fängelse eller utvisning</li>
+                            </ul>
+
+                            <h4>Fragment-exponering:</h4>
+                            <ul>
+                                <li>Hela området kontaminerat</li>
+                                <li>SAN-förlust 1/1D4 per timme</li>
+                                <li>Hummande intensifieras</li>
+                                <li>Drömmar/hallucinationer</li>
+                            </ul>
+
+                            <h4>Kalenko-huset själv:</h4>
+                            <ul>
+                                <li>Fasförskjutet, kräver ritual för att nå</li>
+                                <li>Se separat modal för detaljer</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>📰 MODERN NYHET (handout)</h3>
+
+                        <div class="info-box">
+                            <p><strong>ИЗВЕСТИЯ [IZVESTIA] - October 28, 2025</strong></p>
+
+                            <h4>САНКТ-ПЕТЕРБУРГ: MILITARY CORDONS ESTABLISHED AROUND HISTORICAL DISTRICT</h4>
+
+                            <p>Sankt Petersburg - Russian military forces have established security cordons around several blocks of the historical Petrograd district, citing "structural instability" following recent seismic activity.</p>
+
+                            <p>Residents within the affected zone have been temporarily relocated. Ministry of Emergency Situations spokesman Dmitri Volkov stated: "This is purely precautionary. Old building foundations are being assessed for safety."</p>
+
+                            <p>However, local residents report unusual phenomena:</p>
+                            <ul>
+                                <li>Electronic devices malfunction near the cordon</li>
+                                <li>Several residents hospitalized with "disorientation"</li>
+                                <li>Reports of "sounds from underground"</li>
+                            </ul>
+
+                            <p>Ministry dismisses rumors of radioactive contamination or undiscovered WW2 ordnance. "The area is safe outside the cordon. There is no danger to the public."</p>
+
+                            <p>The affected area includes the site of the former Kalenko house, which mysteriously disappeared during the Siege of Leningrad (1941-44). Local historian Pavel Nesterov notes: "It's strange they're focusing on that exact location. Nothing has been there for 80 years."</p>
+
+                            <p>Military presence expected to remain "indefinitely."</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>📝 SL-NOTER</h3>
+
+                        <h4>Session 10 troligen:</h4>
+                        <p>Ankomst till Sankt Petersburg, research, planering av infiltration.</p>
+
+                        <h4>Atmosfär:</h4>
+                        <ul>
+                            <li>Vacker stad, men militärnärvaro skapar spänning</li>
+                            <li>Känsla av att "detta är slutet"</li>
+                            <li>Allt ledde hit: Lovettsville → Frankfurt → Camp S-17 → här</li>
+                        </ul>
+
+                        <h4>Volkov-konfrontation:</h4>
+                        <p>Troligen: Volkov är också här. Han kom före dem. Vad är hans plan? Slutkonfrontation eller allians?</p>
+
+                        <h4>Nästa steg:</h4>
+                        <p>In i karantänzonen → Hitta Kalenko-huset → Slutkonfrontationen</p>
+                    </div>
+                `
+            },
+
+            kalenko: {
+                title: 'KALENKOS HUS',
+                subtitle: 'Petrograd - Fasförskjutet sedan nyårsnatten 1942',
+                content: `
+                    <div class="modal-section">
+                        <h3>📍 ÖVERSIKT</h3>
+                        <div class="coordinates">F.d. position: Petrograd district, Sankt Petersburg</div>
+                        <p><strong>Nuvarande status:</strong> Fasförskjutet, existerar "mellan"</p>
+                        <p><strong>Försvann:</strong> 1 januari 1942, midnatt</p>
+                        <p><strong>Åtkomst 2025:</strong> Kräver Unnatural-ritual eller extrem fragment-exponering</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🏚️ BYGGNADEN</h3>
+
+                        <h4>Före försvinnandet (1942):</h4>
+                        <ul>
+                            <li>Tre-vånings tegelbyggnad, 1800-tal</li>
+                            <li>Barnhem drivet av ortodoxa kyrkan</li>
+                            <li>15-20 barn (5-12 år gamla)</li>
+                            <li>3 nunnor, 1 präst som personal</li>
+                            <li>Söder om Petrograd-kajen, nära Neva-floden</li>
+                        </ul>
+
+                        <h4>Nyårsnatten 1942:</h4>
+                        <ul>
+                            <li>Midnatt: Nazi och sovjetisk kristall-teknologi kolliderar</li>
+                            <li>Huset "dras" mellan dimensioner</li>
+                            <li>Allt inuti fryser i tid (eller nästan)</li>
+                            <li>Fysisk byggnad försvinner från vår dimension</li>
+                            <li>Tom tomt kvar, inga rester</li>
+                        </ul>
+
+                        <h4>Fasförskjutning (2025):</h4>
+                        <div class="info-box danger">
+                            <p><strong>Huset existerar fortfarande, men inte i vår dimension.</strong></p>
+                            <ul>
+                                <li>Fasförskjutet till "mellan-rum"</li>
+                                <li>Tid går annorlunda där (mycket långsammare)</li>
+                                <li>Används som fängelse för fragment av "Det Som Fängslades"</li>
+                                <li>Barnen lever fortfarande (delvis)</li>
+                                <li>Kräver Unnatural-ritualer för att nå</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>👶 BARNEN</h3>
+
+                        <h4>När de försvann (1942):</h4>
+                        <ul>
+                            <li>15-20 barn (5-12 år)</li>
+                            <li>Ortodoxa barnhem, krigsoffer</li>
+                            <li>Oskyldiga, inga "krafter"</li>
+                        </ul>
+
+                        <h4>Nu (2025, från deras perspektiv ~5-10 år senare):</h4>
+                        <div class="info-box">
+                            <p><strong>SL måste bestämma deras exakta tillstånd:</strong></p>
+
+                            <p><strong>Option A: Långsam tid</strong></p>
+                            <ul>
+                                <li>Har åldrats 5-10 år (nu 10-22 år gamla)</li>
+                                <li>Traumatiserade men delvis mänskliga</li>
+                                <li>Minns "det som kom"</li>
+                                <li>Används som levande fängelse för fragment</li>
+                            </ul>
+
+                            <p><strong>Option B: Total transformation</strong></p>
+                            <ul>
+                                <li>Inte mänskliga längre</li>
+                                <li>Ser ut som barn men ÄR fragment-värdar</li>
+                                <li>Kan inte räddas</li>
+                                <li>Att döda dem = släpper loss fragment</li>
+                            </ul>
+
+                            <p><strong>Option C: Loopande ekon</strong></p>
+                            <ul>
+                                <li>"Spelar upp" sista dagarna om och om igen</li>
+                                <li>Inte tekniskt levande, men inte döda</li>
+                                <li>Spöklika projektioner</li>
+                            </ul>
+                        </div>
+
+                        <h4>Dilemma för spelarna:</h4>
+                        <ul>
+                            <li>Kan de räddas? (Troligen inte)</li>
+                            <li>Att befria dem = släpper loss krafter</li>
+                            <li>Att lämna dem = de lider fortfarande</li>
+                            <li>Att döda dem = massmord av barn, men kanske enda sättet</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🌀 DE TVÅ KRAFTERNA HÄR</h3>
+
+                        <div class="info-box danger">
+                            <p><strong>KRAFT 1: "Det Som Splittrades" (Yithian Echo)</strong></p>
+                            <ul>
+                                <li>Fragment i de tre männen (Anton, Sasha, Filip)</li>
+                                <li>VILL: Återförenas, använda Kalenko-huset som portal hem</li>
+                                <li>Om lyckas: De tre männen kommer hit, förenar fragment, lämnar</li>
+                            </ul>
+
+                            <p><strong>KRAFT 2: "Det Som Fängslades" (Nyogtha)</strong></p>
+                            <ul>
+                                <li>Fragment i barnen och byggnaden själv</li>
+                                <li>VILL: Fullständig frihet, bryta ut till vår dimension</li>
+                                <li>Om lyckas: Kalenko-huset "smälter" in i verkligheten, släpper loss entiteten</li>
+                            </ul>
+
+                            <p><strong>KONFLIKTEN:</strong></p>
+                            <p>De två krafterna är fientliga mot varandra. Om båda försöker nå sina mål samtidigt = katastrof. Spelarna är insekter i titanernas kamp.</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🚪 HUR NÅ HUSET</h3>
+
+                        <h4>Platsen i vår dimension:</h4>
+                        <ul>
+                            <li>Tom tomt i Petrograd district</li>
+                            <li>Inget står där (sedan 1942)</li>
+                            <li>Men: "Bleed-through" började oktober 2025</li>
+                            <li>Huset börjar synas ibland (skimmer, fade in/out)</li>
+                        </ul>
+
+                        <h4>Kräver för att korsa över:</h4>
+                        <ul>
+                            <li><strong>Option A:</strong> Unnatural-ritual (Occult, SAN-kostnad)</li>
+                            <li><strong>Option B:</strong> Extrem fragment-exponering (farligt, transformation-risk)</li>
+                            <li><strong>Option C:</strong> Volkov vet vägen (allians?)</li>
+                            <li><strong>Option D:</strong> De tre männen kan öppna porten (om fångade/tvingade)</li>
+                        </ul>
+
+                        <h4>Vad händer när de korsar:</h4>
+                        <ul>
+                            <li>Verkligheten "vänder sig" (SAN-kontroll 1/1D8)</li>
+                            <li>De står plötsligt inne i huset</li>
+                            <li>Tid känns annorlunda (slow motion-känsla)</li>
+                            <li>Hummande överallt (247 Hz)</li>
+                            <li>Barnen där...</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🏚️ INUTI HUSET</h3>
+
+                        <h4>Bottenvåning:</h4>
+                        <ul>
+                            <li>Entré, matsal, kök</li>
+                            <li>Fruset i tid från 1942</li>
+                            <li>Mat på borden (möglig, men inte ruttnad normalt)</li>
+                            <li>Klocka stannad på 00:00</li>
+                        </ul>
+
+                        <h4>Andra våningen:</h4>
+                        <ul>
+                            <li>Sovrum för barnen</li>
+                            <li>Här är de flesta barn (lever? loopar?)</li>
+                            <li>Hummar, stirrar, rör sig synkroniserat</li>
+                        </ul>
+
+                        <h4>Tredje våningen:</h4>
+                        <ul>
+                            <li>Kapell/bönrum</li>
+                            <li>Helgonikoner - alla svarta</li>
+                            <li>Prästens kropp här (självmord 1942)</li>
+                            <li>Centrum för fragment-energi</li>
+                        </ul>
+
+                        <h4>Källaren:</h4>
+                        <div class="info-box danger">
+                            <p><strong>Källaren är KÄRNAN.</strong></p>
+                            <ul>
+                                <li>Här "möttes" de två krafterna 1942</li>
+                                <li>Fortfarande öppen "sår" mellan dimensioner</li>
+                                <li>Att gå ner = konfrontation med båda krafterna</li>
+                                <li>Här måste spelarna fatta VALET</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>⚖️ SLUTVALET</h3>
+
+                        <p><strong>Spelarna måste välja (Session 11-12):</strong></p>
+
+                        <h4>Val A: Offra sig själv</h4>
+                        <ul>
+                            <li>En spelare blir nytt fängelse för krafterna</li>
+                            <li>Permanent karaktärsdöd</li>
+                            <li>Håller krafterna kvar, men för hur länge?</li>
+                            <li>Barnen förblir fångade</li>
+                        </ul>
+
+                        <h4>Val B: Förstöra allt</h4>
+                        <ul>
+                            <li>Döda barnen, kollapsa byggnaden</li>
+                            <li>Släcker fragment permanent (förhoppningsvis)</li>
+                            <li>Massmord av tekniskt oskyldiga</li>
+                            <li>SAN-förlust massiv (1D10)</li>
+                            <li>Men stoppar troligen båda krafterna</li>
+                        </ul>
+
+                        <h4>Val C: Försegla på nytt</h4>
+                        <ul>
+                            <li>Komplex Unnatural-ritual</li>
+                            <li>Kräver offer (kanske en av de tre männen frivilligt?)</li>
+                            <li>Återställer status quo</li>
+                            <li>Barnen fortfarande fångade</li>
+                            <li>Problemet fortsätter (kicka burken nedför vägen)</li>
+                        </ul>
+
+                        <h4>Val D: Frigöra allt</h4>
+                        <ul>
+                            <li>Släpp barnen OCH krafterna</li>
+                            <li>Hoppas de tar ut varandra</li>
+                            <li>Enormt riskabelt (katastrof trolig)</li>
+                            <li>Men kanske det enda "moraliska"?</li>
+                        </ul>
+
+                        <h4>Val E: Volkovs plan</h4>
+                        <ul>
+                            <li>Om Volkov är där: Han har en plan</li>
+                            <li>Vad är den? (SL bestämmer)</li>
+                            <li>Kan spelarna lita på honom?</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>📝 SL-NOTER</h3>
+
+                        <h4>Detta är FINALEN:</h4>
+                        <p>Session 11-12. Allt ledde hit. Lovettsville → Berlin → Frankfurt → Camp S-17 → här.</p>
+
+                        <h4>Atmosfär:</h4>
+                        <ul>
+                            <li>Skrämmande, kosmisk skräck</li>
+                            <li>Oskyldiga barn lider</li>
+                            <li>Inga bra val</li>
+                            <li>Spelarna känner VIKTEN av beslutet</li>
+                        </ul>
+
+                        <h4>Volkov-konfrontation:</h4>
+                        <p>Han är troligen här. Vad vill han? Alliera eller bekämpa honom? Hans slutgiltiga mål avslöjas.</p>
+
+                        <h4>Epilog:</h4>
+                        <ul>
+                            <li>Cover-up massiv</li>
+                            <li>Sankt Petersburg "industriolycka"</li>
+                            <li>Överlevande agenter: SAN-förlust, Bonds skadade</li>
+                            <li>Kampanjen slutar inte "lyckligt" men kanske "minst dåligt"</li>
+                        </ul>
+
+                        <h4>Inget "gott" slut:</h4>
+                        <p>Detta är Delta Green. Bästa utgång: De stoppade det, några överlevde, världen vet aldrig vad som nästan hände. Men priset betalades.</p>
+                    </div>
+                `
+            }
+        };
+
+        function openModal(locationId) {
+            const data = locationData[locationId];
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalSubtitle').textContent = data.subtitle;
+            document.getElementById('modalBody').innerHTML = data.content;
+            document.getElementById('locationModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('locationModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('locationModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
