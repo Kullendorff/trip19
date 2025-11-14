@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight 19 - Konspirations-Analysguide (SL)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --accent-yellow: #ffcc00;
+            --accent-orange: #ff6b35;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-red);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: var(--accent-red);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .header .subtitle {
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .header .warning {
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid var(--accent-red);
+            border-radius: 4px;
+            padding: 1rem;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Navigation */
+        .nav-back {
+            background: rgba(74, 144, 164, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .nav-back a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .nav-back a:hover {
+            color: #6ab0c4;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .toc h2 {
+            color: var(--accent-blue);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s;
+            display: block;
+            padding: 0.3rem 0.5rem;
+            border-left: 2px solid transparent;
+        }
+
+        .toc a:hover {
+            color: var(--accent-blue);
+            border-left-color: var(--accent-blue);
+            padding-left: 1rem;
+            background: rgba(74, 144, 164, 0.1);
+        }
+
+        /* Sections */
+        .section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: var(--accent-red);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .section h3 {
+            color: var(--accent-blue);
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section h4 {
+            color: var(--accent-yellow);
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Tier badges */
+        .tier-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tier-1 { background: rgba(255, 68, 68, 0.2); color: var(--accent-red); border: 1px solid var(--accent-red); }
+        .tier-2 { background: rgba(255, 107, 53, 0.2); color: var(--accent-orange); border: 1px solid var(--accent-orange); }
+        .tier-3 { background: rgba(74, 144, 164, 0.2); color: var(--accent-blue); border: 1px solid var(--accent-blue); }
+        .tier-4 { background: rgba(138, 43, 226, 0.2); color: #b370d5; border: 1px solid #b370d5; }
+
+        /* Warning boxes */
+        .warning-box {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid var(--accent-red);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .warning-box strong {
+            color: var(--accent-red);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-box strong {
+            color: var(--accent-blue);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .mystery-box {
+            background: rgba(138, 43, 226, 0.1);
+            border-left: 4px solid #b370d5;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .mystery-box strong {
+            color: #b370d5;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Quote blocks */
+        blockquote {
+            background: rgba(10, 14, 23, 0.6);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: var(--text-dim);
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Code/emphasis */
+        code {
+            background: rgba(74, 144, 164, 0.2);
+            color: var(--accent-blue);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        em {
+            color: var(--accent-yellow);
+            font-style: italic;
+        }
+
+        strong {
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        /* Anomaly cards */
+        .anomaly-card {
+            background: rgba(20, 30, 40, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .anomaly-card h4 {
+            margin-top: 0;
+        }
+
+        /* Checklist */
+        .checklist {
+            background: rgba(10, 14, 23, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .checklist li {
+            list-style-type: none;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🔍 FLIGHT 19 - KONSPIRATIONS-ANALYS</h1>
+            <div class="subtitle">CAB-rapporten, Passagerarlistan & Jump Seat-Mysteriet</div>
+            <div class="warning">
+                Detta dokument sammanställer alla anomalier, motsägelser och misstänkta detaljer i den officiella Civil Aeronautics Board-rapporten OCH passagerarlistan som paranoida Delta Green-spelare kommer attackera. Inkluderar djupdykning i John B. Staire Jr. och den misstänkta koncentrationen av federala tjänstemän ombord.
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-back">
+            <a href="clues.html">← Tillbaka till Ledtrådar</a> |
+            <a href="index.html">← Tillbaka till Dashboard</a>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h2>📋 Innehåll</h2>
+            <ul>
+                <li><a href="#tier1">🚨 Tier 1: Omedelbart Misstänkt - CAB-rapporten</a></li>
+                <li><a href="#passlist">🎯 Tier 1B: Passagerarlistan - Federal Operation</a></li>
+                <li><a href="#staire">💀 John B. Staire Jr. - Det Största Mysteriet</a></li>
+                <li><a href="#tier2">🔬 Tier 2: Fysiska Anomalier</a></li>
+                <li><a href="#tier3">👁️ Tier 3: Vittnesanomalier</a></li>
+                <li><a href="#tier4">🎭 Tier 4: CAB:s Motsägelser</a></li>
+                <li><a href="#tier5">🕵️ Tier 5: Saknade Bitar</a></li>
+                <li><a href="#tier6">🔧 Tier 6: Tekniska Detaljer</a></li>
+                <li><a href="#usage">🎬 Spelledarguide</a></li>
+            </ul>
+        </div>
+
+        <!-- TIER 1: CAB Report Anomalies -->
+        <div class="section" id="tier1">
+            <h2><span class="tier-badge tier-1">TIER 1</span> OMEDELBART MISSTÄNKT - "NÅGOT ÄR FEL"</h2>
+
+            <div class="anomaly-card">
+                <h3>🔴 KRITISK FORMULERING #1: "Prevented from effectively operating"</h3>
+                <div class="warning-box">
+                    <strong>CAB skriver:</strong>
+                    <blockquote>
+                        "It is possible that for some reason the pilot and copilot were <strong>prevented from effectively operating the controls</strong>."
+                    </blockquote>
+                </div>
+
+                <h4>Varför detta är misstänkt:</h4>
+                <ul>
+                    <li>Passiv form: "FÖRHINDRADES" - av vad? Av vem?</li>
+                    <li>Inte "kunde inte" eller "misslyckades" utan <em>aktivt hindrade</em></li>
+                    <li>Antyder extern kraft eller faktor</li>
+                </ul>
+
+                <h4>Vad spelare kommer fråga:</h4>
+                <ul>
+                    <li>"Vad hindrade dem fysiskt?"</li>
+                    <li>"Fanns det något eller någon i cockpit?"</li>
+                    <li>"Är detta kodspråk för sabotage?"</li>
+                </ul>
+            </div>
+
+            <div class="anomaly-card">
+                <h3>🔴 KRITISK FORMULERING #2: Båda piloterna samtidigt</h3>
+                <div class="warning-box">
+                    <strong>CAB skriver:</strong>
+                    <blockquote>
+                        "Moreover, it would be necessary to find that both pilots became incapacitated at just about the same time, for if only one pilot should be disabled and fall forward on the control column, the other pilot would not be called upon to exert extraordinary force in order to maintain control of the airplane."
+                    </blockquote>
+                </div>
+
+                <h4>Varför detta är misstänkt:</h4>
+                <ul>
+                    <li>Statistiskt nästan omöjligt vid olycka</li>
+                    <li>CAB erkänner problemet men ignorerar konsekvensen</li>
+                    <li>Båda erfarna piloter (11,442 & 6,018 timmars erfarenhet)</li>
+                </ul>
+
+                <h4>Vad spelare kommer fråga:</h4>
+                <ul>
+                    <li>"Gas i kabinen?"</li>
+                    <li>"Elektromagnetisk puls?"</li>
+                    <li>"Något övernaturligt som lamslår människor?"</li>
+                </ul>
+            </div>
+
+            <div class="anomaly-card">
+                <h3>🔴 KRITISK FORMULERING #3: "Extraordinary lightning"</h3>
+                <div class="warning-box">
+                    <strong>CAB skriver:</strong>
+                    <blockquote>
+                        "The probable cause of the accident was the disabling of the pilots by a severe lightning discharge..."
+                        <br><br>
+                        "We are obliged to look for the <strong>extraordinary</strong>, and to examine into the possibility and probability of occurrences that are so rare in practical operating experience as to be <strong>highly obscure, if not virtually unknown</strong>."
+                    </blockquote>
+                </div>
+
+                <h4>Varför detta är misstänkt:</h4>
+                <ul>
+                    <li>"Extraordinary" = CAB erkänner att vanlig blixt inte fungerar</li>
+                    <li>"Virtually unknown" = detta har aldrig hänt förut</li>
+                    <li>"Highly obscure" = vi vet inte vad det är</li>
+                </ul>
+
+                <h4>Vad spelare kommer fråga:</h4>
+                <ul>
+                    <li>"Finns det dokumentation om 'extraordinär blixt'?"</li>
+                    <li>"Är det här kodord för något hemligstämplat?"</li>
+                    <li>"Varför acceptera en förklaring som är 'virtually unknown'?"</li>
+                </ul>
+            </div>
+
+            <div class="anomaly-card">
+                <h3>🔴 KRITISK MOTSÄGELSE #4: Inga bevis för blixt</h3>
+                <div class="warning-box">
+                    <strong>CAB skriver:</strong>
+                    <blockquote>
+                        "There was no evidence that the plane had been struck by lightning"
+                        <br><br>
+                        "Upon the evidence of record, we cannot conclude that the airplane was struck by the usual type of lightning which produces a thermal effect"
+                    </blockquote>
+                    <br>
+                    <strong>Men samtidigt:</strong>
+                    <blockquote>
+                        "The probable cause of the accident was the disabling of the pilots by a severe lightning discharge"
+                    </blockquote>
+                </div>
+
+                <div class="mystery-box">
+                    <strong>DIREKT MOTSÄGELSE:</strong>
+                    Officiell förklaring: blixt<br>
+                    Bevis: ingen blixt
+                </div>
+            </div>
+
+            <div class="anomaly-card">
+                <h3>🔴 KRITISK ANOMALI #5: Motorer på full throttle</h3>
+                <div class="warning-box">
+                    <strong>CAB skriver:</strong>
+                    <blockquote>
+                        "The condition of the engines indicates that they were operating at very high speed at the time of impact"
+                        <br><br>
+                        "The throttles were in the full open position"
+                        <br><br>
+                        "Witnesses near the scene of the accident testified that they heard a loud roar of engines immediately prior to the sound of the crash"
+                    </blockquote>
+                </div>
+
+                <h4>Varför detta är misstänkt:</h4>
+                <ul>
+                    <li>Ingen erfaren pilot kör full gas i en dödsdyk</li>
+                    <li>Antyder piloterna INTE styrde</li>
+                    <li>Motorerna borde varit i idle för att försöka bromsa</li>
+                </ul>
+
+                <h4>Vad spelare kommer fråga:</h4>
+                <ul>
+                    <li>"Var piloterna redan döda?"</li>
+                    <li>"Aktiverades gasen automatiskt av något?"</li>
+                    <li>"Försökte planet FLY från något?"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TIER 1B: Passenger List -->
+        <div class="section" id="passlist">
+            <h2><span class="tier-badge tier-1">TIER 1B</span> PASSAGERARLISTAN - "DETTA VAR INGEN VANLIG FLYGNING"</h2>
+
+            <div class="warning-box">
+                <strong>STATISTISK ANOMALI:</strong>
+                8+ federala tjänstemän på ETT flyg
+            </div>
+
+            <h3>📋 Passagerarsammansättning</h3>
+
+            <div class="info-box">
+                <strong>LAW ENFORCEMENT (3 personer):</strong>
+                <ul>
+                    <li><strong>Joseph J. Pesci</strong> - Special Agent, FBI (Blairsville, PA)</li>
+                    <li><strong>Margaret Turner</strong> - Secretary, FBI (Huddleston, VA)</li>
+                    <li><strong>William Garbose</strong> - Attorney, Criminal Division, DOJ (Washington, DC)</li>
+                </ul>
+
+                <strong>INTERNAL REVENUE SERVICE (3 personer):</strong>
+                <ul>
+                    <li><strong>E.G. Bower</strong> - Internal Revenue Department (Pittsburgh, PA)</li>
+                    <li><strong>M.P. Mahan</strong> - Internal Revenue Department (Washington, DC)</li>
+                    <li><strong>A. Mock</strong> - Internal Revenue Department (Washington, DC)</li>
+                </ul>
+
+                <strong>INTERSTATE COMMERCE COMMISSION (2 personer):</strong>
+                <ul>
+                    <li><strong>A. Hallaway</strong> - ICC (Washington, DC)</li>
+                    <li><strong>D.P. Janes</strong> - ICC (Des Moines, IA)</li>
+                </ul>
+
+                <strong>POLITISK (1 person):</strong>
+                <ul>
+                    <li><strong>Senator Ernest Lundeen</strong> - U.S. Senator, Minnesota<br>
+                    <span style="color: var(--accent-red);">Känd Nazi-sympatisör, under FBI-övervakning, misstänkt för att ta emot tysk propaganda</span></li>
+                </ul>
+
+                <strong>OKLAR ROLL (1 person):</strong>
+                <ul>
+                    <li><strong>John B. Staire, Jr.</strong> - "Traffic Manager" <span style="color: var(--accent-yellow);">i cockpit på jump seat</span></li>
+                </ul>
+
+                Plus: 11 civila passagerare
+            </div>
+
+            <h3>💣 VAD ERFARNA DG-SPELARE OMEDELBART SER</h3>
+
+            <div class="mystery-box">
+                <strong>"Detta var en federal operation"</strong>
+
+                <p>Spelare kommer säga:</p>
+                <ul>
+                    <li>"8+ regeringstjänstemän på samma flyg är INTE slump"</li>
+                    <li>"Var det en konferens? En utredning?"</li>
+                    <li>"Transporterade de något?"</li>
+                    <li>"Eller var de på väg för att GRIPA någon?"</li>
+                </ul>
+
+                <p><strong>Särskilt misstänkt:</strong></p>
+                <ul>
+                    <li>FBI agent + FBI secretary + DOJ attorney = <em>Investigation team</em></li>
+                    <li>3× IRS agents = <em>Financial investigation</em></li>
+                    <li>2× ICC officials = <em>Interstate commerce/transport investigation</em></li>
+                    <li>Senator Lundeen = <em>Target eller beskyddare?</em></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- STAIRE SECTION -->
+        <div class="section" id="staire">
+            <h2>💀 JOHN B. STAIRE JR. - DET STÖRSTA MYSTERIET</h2>
+
+            <div class="warning-box">
+                <strong>⚠️ KRITISK UPPTÄCKT: Jump Seat-Mysteriet</strong>
+                <p><strong>VEM satt på jump seat?</strong></p>
+                <p><strong>CAB-rapporten:</strong> Nämnde "occupant of the jump seat" utan att namnge personen</p>
+                <p><strong>Passagerarlistan:</strong> JOHN B. STAIRE, JR.</p>
+                <ul>
+                    <li><strong>Roll:</strong> PCA Traffic Manager</li>
+                    <li><strong>Position:</strong> Jump seat (inne i cockpit)</li>
+                    <li><strong>Hemvist:</strong> Washington, D.C.</li>
+                </ul>
+            </div>
+
+            <h3>🚨 VARFÖR STAIRE ÄR MISSTÄNKT #1: Traffic Manager i cockpit</h3>
+
+            <div class="info-box">
+                <strong>Traffic Managers arbetar INTE i cockpit.</strong>
+
+                <p><strong>Normal arbetsuppgift för Traffic Manager:</strong></p>
+                <ul>
+                    <li>Schemalägger flyg från MARKEN</li>
+                    <li>Hanterar passagerarflöde på flygplatser</li>
+                    <li>Koordinerar logistik mellan städer</li>
+                    <li>Sitter i kontor, inte i flygplan</li>
+                </ul>
+
+                <p><strong>Varför satt Staire mellan piloterna?</strong></p>
+            </div>
+
+            <h3>🚨 VARFÖR STAIRE ÄR MISSTÄNKT #2: Jump seat = Perfekt position</h3>
+
+            <p><strong>Fysisk position i cockpit:</strong></p>
+            <ul>
+                <li>Sitter MELLAN pilot och copilot</li>
+                <li>Direkt åtkomst till alla instrument</li>
+                <li>Kan se ALLT som händer</li>
+                <li>Kan NÅ kontroller om han sträcker sig</li>
+            </ul>
+
+            <div class="mystery-box">
+                <strong>Perfekt för:</strong>
+                <ul>
+                    <li>✅ Sabotage (om han var fiende)</li>
+                    <li>✅ Övervakning (om han var agent)</li>
+                    <li>✅ Vittne (om något hände)</li>
+                    <li>✅ Offer (om någon ville tysta honom)</li>
+                </ul>
+            </div>
+
+            <blockquote>
+                CAB skrev: "The occupant of the jump seat might have inadvertently disturbed the pilots' control of the airplane"
+            </blockquote>
+
+            <p><strong>Spelare kommer tolka:</strong></p>
+            <ul>
+                <li>"Inadvertently" = av misstag... eller med flit?</li>
+                <li>"Might have disturbed" = försökte CAB skylla på honom?</li>
+                <li>Varför nämna jump seat om det inte var relevant?</li>
+                <li>Varför inte säga hans NAMN i rapporten?</li>
+            </ul>
+
+            <h3>🚨 VARFÖR STAIRE ÄR MISSTÄNKT #3: Ett spöke i dokumenten</h3>
+
+            <div class="info-box">
+                <strong>Jämför med andra passagerare:</strong>
+
+                <p><strong>FBI Special Agent Pesci:</strong><br>
+                Fullt namn: Joseph J. Pesci<br>
+                Titel: Special Agent, Federal Bureau of Investigation<br>
+                Specifik hemstad: Blairsville, Pennsylvania</p>
+
+                <p><strong>Miss Turner:</strong><br>
+                Fullt namn: Margaret Turner<br>
+                Titel: Secretary, Federal Bureau of Investigation<br>
+                Specifik hemstad: Huddleston, Virginia</p>
+
+                <p><strong>William Garbose:</strong><br>
+                Fullt namn: William Garbose<br>
+                Titel: Attorney, Criminal Division, Department of Justice<br>
+                Hemstad: Washington, D.C.</p>
+            </div>
+
+            <div class="warning-box">
+                <strong>Men Staire:</strong>
+                <ul>
+                    <li>Namn: John B. Staire, Jr. <em>(Jr. = finns en Senior någonstans?)</em></li>
+                    <li>Titel: "Traffic Manager" <em>(vagt)</em></li>
+                    <li>Hemstad: "Washington, D.C." <em>(ingen specifik adress)</em></li>
+                    <li>❌ Ingen ålder listad</li>
+                    <li>❌ Ingen bakgrund</li>
+                    <li>❌ Inga anhöriga i dödsannonser</li>
+                    <li>❌ Ingen begravningsplats</li>
+                </ul>
+
+                <p style="color: var(--accent-red); font-weight: bold; margin-top: 1rem;">
+                    Som om han... inte riktigt existerade
+                </p>
+            </div>
+
+            <h3>🎯 MÖJLIGA IDENTITETER</h3>
+
+            <div class="anomaly-card">
+                <h4>Teori 1: ONI-Agent Under Djup Cover</h4>
+                <ul>
+                    <li>"Traffic Manager" var cover för Office of Naval Intelligence</li>
+                    <li>Infiltrerat PCA sedan 1938 för att hitta Nazi-sabotage</li>
+                    <li>Jump seat-position för att bevaka transporten av något farligt</li>
+                    <li>Såg kristallen aktiveras - försökte stoppa det</li>
+                </ul>
+            </div>
+
+            <div class="anomaly-card">
+                <h4>Teori 2: Sabotören</h4>
+                <ul>
+                    <li>Tysk eller sovjetisk agent under djup cover</li>
+                    <li>Placerad i PCA för att sabotera specifika flyg</li>
+                    <li>Jump seat gav honom tillgång att aktivera något</li>
+                    <li>Dog också - dubbel-cross? Eller måste offras?</li>
+                </ul>
+            </div>
+
+            <div class="anomaly-card">
+                <h4>Teori 3: Inte Mänsklig</h4>
+                <ul>
+                    <li>Identiteten skapades 1938 av något som behövde komma ombord</li>
+                    <li>"Special operations liaison" = inte mänsklig organisation</li>
+                    <li>Jump seat = perfekt för att aktivera kristallen direkt</li>
+                    <li>Hans död = entiteten lämnade kroppen när målet var uppnått</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- GAMEMASTER USAGE -->
+        <div class="section" id="usage">
+            <h2>🎬 SPELLEDARGUIDE - HUR ANVÄNDER DU DETTA?</h2>
+
+            <h3>✅ Vad spelare kommer ÄLSKA:</h3>
+            <ul>
+                <li>Att CAB själva säger "extraordinary" och "virtually unknown"</li>
+                <li>Att det finns tre olika klocktider (fysiskt bevis!)</li>
+                <li>Att kroppar kastades ut UNDER dykfasen</li>
+                <li>Att båda motorerna skadades identiskt</li>
+                <li>Att CAB säger "prevented from" (passiv form = någon/något gjorde det)</li>
+                <li>Att passagerarlistan har 8+ federala tjänstemän</li>
+                <li>Att John B. Staire Jr. inte finns i någon annan historisk källa</li>
+                <li>Att en "Traffic Manager" sitter i cockpit</li>
+                <li>Att CAB nämnde jump seat utan att namnge Staire</li>
+            </ul>
+
+            <h3>❌ Vad spelare kommer HATA (i positiv DG-bemärkelse):</h3>
+            <ul>
+                <li>Att CAB säger "no sabotage" utan konkreta bevis</li>
+                <li>Att jump seat-personen inte namngavs i CAB-rapporten</li>
+                <li>Att CAB säger "it is useless to speculate" - SJÄLVKLART kommer de spekulera!</li>
+                <li>Att blixten inte träffade planet men ändå är förklaringen</li>
+                <li>Att 9 minuter av radiostillestånd inte förklaras</li>
+                <li>Att FBI + DOJ + IRS + ICC alla var ombord men "ingen visste något"</li>
+                <li>Att Staire inte har någon begravningsplats</li>
+                <li>Att lastmanifestet har "Diplomatic materials, sealed" från tysk ambassad</li>
+            </ul>
+
+            <h3>🎯 Perfekta följdfrågor för att bygga spänning:</h3>
+
+            <div class="mystery-box">
+                <strong>Om jump seat:</strong>
+                <blockquote>
+                    "Ni hittar namnet så småningom: John B. Staire Jr., 29, Traffic Manager. Men när ni gräver djupare... finns han inte. Ingen födelse före 1938. Ingen familj. Ingen begravning. Som om personligheten skapades bara för att vara på det flygplanet."
+                </blockquote>
+            </div>
+
+            <div class="mystery-box">
+                <strong>Om passagerarsammansättningen:</strong>
+                <blockquote>
+                    "Ni kontaktar FBI-arkiv. 'Pesci och Turner var på väg till Detroit för att vittna i en sluten utredning.' Om vad? 'Klassificerat.' Fortfarande? 'Ja. Fortfarande.'"
+                </blockquote>
+            </div>
+
+            <div class="mystery-box">
+                <strong>Om Staires identitet:</strong>
+                <blockquote>
+                    "Ni lyckas få tag i en PCA anställningsansökan från 1938. Staires signatur... ni jämför den med hans signering av lastinspektionen 1940. Det är INTE samma handstil. Vem var John B. Staire Jr. 1938? Och vem var han 1940?"
+                </blockquote>
+            </div>
+
+            <h3>📝 SPELLEDAR-CHECKLISTA</h3>
+
+            <div class="checklist">
+                <h4>När spelare får passagerarlistan:</h4>
+                <ul>
+                    <li>Låt dem LÄSA den själva först</li>
+                    <li>Räkna inte federala tjänstemän åt dem</li>
+                    <li>Nämn INTE Staire specifikt</li>
+                    <li>Vänta tills DE frågar "Vem var på jump seat?"</li>
+                </ul>
+
+                <h4>När de frågar om Staire:</h4>
+                <ul>
+                    <li>"Ni kan googla honom - vad hittar ni?"</li>
+                    <li>Låt dem göra HUMINT/Bureaucracy rolls för djupare info</li>
+                    <li>Bygg mysteriet gradvis - han var "mer än han verkade"</li>
+                    <li>ALDRIG ge ett enkelt svar</li>
+                </ul>
+
+                <h4>När de börjar koppla samman saker:</h4>
+                <ul>
+                    <li>FBI + DOJ + Lundeen = Investigation</li>
+                    <li>IRS × 3 = Pengaspår</li>
+                    <li>ICC × 2 = Transport av något</li>
+                    <li>Staire i cockpit = Observer eller Saboteur</li>
+                    <li>Låt dem bygga sin egen teori</li>
+                    <li>Sedan bekräfta de RÄDSLIGASTE delarna</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <strong>💀 SLUTSATS:</strong>
+                <p>Den verkliga skräcken är inte monstret.</p>
+                <p>Den verkliga skräcken är att verkligheten redan är trasig.</p>
+                <p>Och ingen säger något om det.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><em>"We are obliged to look for the extraordinary, and to examine into the possibility and probability of occurrences that are so rare in practical operating experience as to be highly obscure, if not virtually unknown."</em></p>
+            <p>— Civil Aeronautics Board, 1940</p>
+            <br>
+            <p><em>"Ni hittade det extraordinära. Nu får ni leva med det."</em></p>
+            <p>— Delta Green, 2025</p>
+            <br>
+            <p style="color: var(--accent-red); font-weight: bold;">
+                "John B. Staire Jr. existerade aldrig. Men han dog på Flight 19. Förklara det."
+            </p>
+            <p>— Chesapeake Cell, 2025</p>
+        </div>
+    </div>
+</body>
+</html>
