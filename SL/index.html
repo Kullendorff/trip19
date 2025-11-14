@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRIP 19 // BLACK MADONNA - Handler Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-green: #00ff41;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --accent-yellow: #ffcc00;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+            --classified: #ff4444;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-darker);
+            border-bottom: 2px solid var(--classified);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--classified);
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+        }
+
+        .status {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Main Grid */
+        .container {
+            max-width: 1600px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .nav-section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .nav-title {
+            color: var(--accent-blue);
+            font-size: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.6rem 1rem;
+            color: var(--text);
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .nav-link:hover {
+            background: rgba(74, 144, 164, 0.1);
+            border-left-color: var(--accent-blue);
+            color: var(--accent-blue);
+            padding-left: 1.2rem;
+        }
+
+        .nav-link.active {
+            background: rgba(74, 144, 164, 0.15);
+            border-left-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        /* Main Content */
+        .main-content {
+            min-height: 80vh;
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dashboard-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-blue);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .dashboard-card:hover {
+            border-color: var(--accent-blue);
+            box-shadow: 0 4px 20px rgba(74, 144, 164, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .dashboard-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-blue);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .card-desc {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .card-count {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(74, 144, 164, 0.2);
+            color: var(--accent-blue);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Section Styling */
+        section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        section h2 {
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Classified Banner */
+        .classified-banner {
+            background: repeating-linear-gradient(
+                45deg,
+                var(--classified),
+                var(--classified) 10px,
+                #cc0000 10px,
+                #cc0000 20px
+            );
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(255, 68, 68, 0.3);
+        }
+
+        /* Quick Stats */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-box {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent-blue);
+        }
+
+        .stat-label {
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            color: var(--accent-blue);
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        /* Timeline Preview */
+        .timeline-preview {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+
+        .timeline-item {
+            padding: 1rem;
+            border-left: 3px solid var(--accent-blue);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-date {
+            color: var(--accent-blue);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .timeline-event {
+            color: var(--text);
+            margin-top: 0.3rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: relative;
+                top: 0;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">▲ TRIP 19 // BLACK MADONNA</div>
+            <div class="status">
+                <div class="status-item">
+                    <div class="status-dot"></div>
+                    <span>HANDLER DASHBOARD</span>
+                </div>
+                <div class="status-item">
+                    <span>SEPTEMBER 2025</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Classified Banner -->
+    <div class="classified-banner">
+        CLASSIFIED // DELTA GREEN EYES ONLY // OPERATION TRIP 19
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <nav class="nav-section">
+                <div class="nav-title">Navigation</div>
+                <a href="#overview" class="nav-link active">Översikt</a>
+                <a href="timeline.html" class="nav-link">Tidslinje</a>
+                <a href="npcs.html" class="nav-link">Who's Who</a>
+                <a href="locations.html" class="nav-link">Platser</a>
+                <a href="mythos.html" class="nav-link">Mythos</a>
+                <a href="clues.html" class="nav-link">Ledtrådar</a>
+                <a href="sessions.html" class="nav-link">Sessions</a>
+            </nav>
+
+            <nav class="nav-section">
+                <div class="nav-title">Dokument</div>
+                <a href="../Aviation_Accident_Report__Pennsylvania_Central_Airlines_Flight_19.pdf" target="_blank" class="nav-link">CAB-rapport</a>
+                <a href="../KULT Divinity Lost - the Black Madonna.pdf" target="_blank" class="nav-link">Black Madonna PDF</a>
+                <a href="adaption.html" class="nav-link">Adaption Guide</a>
+            </nav>
+
+            <nav class="nav-section">
+                <div class="nav-title">Snabblänkar</div>
+                <a href="#volkov" class="nav-link">Dmitri Volkov</a>
+                <a href="#magda" class="nav-link">Magda Orlova</a>
+                <a href="#fragments" class="nav-link">Kristallfragment</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Overview -->
+            <section id="overview">
+                <h2>▲ Kampanjöversikt</h2>
+
+                <!-- Quick Stats -->
+                <div class="quick-stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Kampanjstart</div>
+                        <div class="stat-value">Sept 2025</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Planerade Sessions</div>
+                        <div class="stat-value">8-12</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Huvudantagonist</div>
+                        <div class="stat-value">Volkov</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Slutdestination</div>
+                        <div class="stat-value">Leningrad</div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Cards -->
+                <div class="dashboard-grid">
+                    <div class="dashboard-card" onclick="location.href='timeline.html'">
+                        <div class="card-count">1940-2025</div>
+                        <div class="card-icon">📅</div>
+                        <div class="card-title">TIDSLINJE</div>
+                        <div class="card-desc">Komplett kronologi från Trip 19-kraschen 1940 till kampanjstart 2025. Inkluderar Leningrad 1942, Camp S-17, Berlin-eran, och Volkovs aktiviteter.</div>
+                    </div>
+
+                    <div class="dashboard-card" onclick="location.href='npcs.html'">
+                        <div class="card-count">15+</div>
+                        <div class="card-icon">👥</div>
+                        <div class="card-title">WHO'S WHO</div>
+                        <div class="card-desc">Alla nyckelpersoner: Dmitri Volkov, Magda Orlova, de tre männen (Anton/Sasha/Filip), historiska figurer, och kontakter.</div>
+                    </div>
+
+                    <div class="dashboard-card" onclick="location.href='locations.html'">
+                        <div class="card-count">8</div>
+                        <div class="card-icon">🗺️</div>
+                        <div class="card-title">PLATSER</div>
+                        <div class="card-desc">Lovettsville kraschplats, Hamburg, Berlin, Frankfurt Clinic, Leningrad/St Petersburg, Camp S-17, Kalenko-huset.</div>
+                    </div>
+
+                    <div class="dashboard-card" onclick="location.href='mythos.html'">
+                        <div class="card-count">⚠️</div>
+                        <div class="card-icon">🔺</div>
+                        <div class="card-title">MYTHOS</div>
+                        <div class="card-desc">Type-VII/VIII fragment, Yithian-medvetande, Nyogtha, resonans-effekter, transformationer, och det som hände i Leningrad 1942.</div>
+                    </div>
+
+                    <div class="dashboard-card" onclick="location.href='clues.html'">
+                        <div class="card-count">10+</div>
+                        <div class="card-icon">🔍</div>
+                        <div class="card-title">LEDTRÅDAR</div>
+                        <div class="card-desc">Research-spår spelarna kan googla: Harriet Johnson, väskan, Bishop farm, Stanford Box 147, blå flammor, Frankfurt connection.</div>
+                    </div>
+
+                    <div class="dashboard-card" onclick="location.href='sessions.html'">
+                        <div class="card-count">12</div>
+                        <div class="card-icon">🎲</div>
+                        <div class="card-title">SESSIONS</div>
+                        <div class="card-desc">Planerad sessionsstruktur: Briefing, Research, Lovettsville, Berlin, Frankfurt, Polen-incidenten, Ryssland-infiltration.</div>
+                    </div>
+                </div>
+
+                <!-- Timeline Preview -->
+                <h3 style="color: var(--accent-blue); margin-top: 2rem; margin-bottom: 1rem;">Nyckelhändelser</h3>
+                <div class="timeline-preview">
+                    <div class="timeline-item">
+                        <div class="timeline-date">31 AUGUSTI 1940</div>
+                        <div class="timeline-event">Pennsylvania Central Airlines Flight 19 kraschar. Nazi-kurir med Type-VII fragment ombord. FBI grävoperationer hela natten.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">1 JANUARI 1942</div>
+                        <div class="timeline-event">LENINGRAD - Nyårsnatt-katastrofen. Nazi Type-VIII kolliderar med sovjetisk motkraft. Yithian/Nyogtha-kollision. Anton, Sasha, Filip, och Magda exponeras.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">DECEMBER 2024</div>
+                        <div class="timeline-event">Cherry Hill Mall - Volkov med röd kristallkub. 14 döda. Mac's obsession börjar.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">SEPTEMBER 2025</div>
+                        <div class="timeline-event">KAMPANJSTART - Sparkys AI-alert fångar Volkovs alias. Team börjar researcha Trip 19.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Reference -->
+            <section>
+                <h2>▲ Snabbreferens</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div>
+                        <h3 style="color: var(--accent-blue); margin-bottom: 1rem;">Nyckelbegrepp</h3>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Type-VII:</strong> Nazi kristallfragment från Trip 19</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Type-VIII:</strong> Vidareutvecklade enheter, Leningrad 1942</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Camp S-17:</strong> Sovjetiskt interneringsläger för "kontaminerade"</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Slavic Association:</strong> Berlinfasad för de tre männen</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>247 Hz:</strong> Konstant hummande från transformerade</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--accent-blue); margin-bottom: 1rem;">Huvudpersoner</h3>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Dmitri Volkov:</strong> Rysk konspirationsteoretiker, jagar kristaller</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Magda Orlova:</strong> Överlevare från Leningrad, researchar historia</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Anton Mahler:</strong> Transformerad, Östberlin, Yithian-värd</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Sasha Pogodin:</strong> Transformerad, hummar 247 Hz</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Filip Kramer:</strong> Transformerad, drömvandrare</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        DELTA GREEN // TRIP 19: BLACK MADONNA // HANDLER EYES ONLY<br>
+        Detta material är konfidentiellt och avsett endast för spelledaren.
+    </div>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Active nav link tracking
+        const navLinks = document.querySelectorAll('.nav-link');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

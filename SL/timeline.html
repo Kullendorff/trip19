@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tidslinje - TRIP 19 Handler Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-green: #00ff41;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --accent-yellow: #ffcc00;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+            --classified: #ff4444;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        .header {
+            background: var(--bg-darker);
+            border-bottom: 2px solid var(--classified);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--classified);
+            letter-spacing: 2px;
+        }
+
+        .back-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .back-link:hover {
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            color: var(--accent-blue);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 3px solid var(--accent-blue);
+            padding-bottom: 1rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent-blue), var(--classified));
+        }
+
+        .timeline-section {
+            margin-bottom: 3rem;
+        }
+
+        .timeline-year {
+            background: var(--bg-panel);
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            border: 2px solid var(--accent-blue);
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            position: relative;
+            left: -1rem;
+            box-shadow: 0 0 20px rgba(74, 144, 164, 0.3);
+        }
+
+        .timeline-event {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .timeline-event:hover {
+            border-left-color: var(--classified);
+            box-shadow: 0 4px 20px rgba(255, 68, 68, 0.2);
+            transform: translateX(5px);
+        }
+
+        .timeline-event.critical {
+            border-left-color: var(--classified);
+            background: rgba(255, 68, 68, 0.05);
+        }
+
+        .timeline-event.critical::before {
+            content: '⚠️';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .event-date {
+            color: var(--accent-blue);
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .event-date.critical {
+            color: var(--classified);
+        }
+
+        .event-title {
+            color: var(--text);
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-summary {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .event-badge {
+            display: inline-block;
+            background: rgba(74, 144, 164, 0.2);
+            color: var(--accent-blue);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .event-badge.mythos {
+            background: rgba(255, 68, 68, 0.2);
+            color: var(--classified);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-blue);
+            border-radius: 8px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 2rem;
+            position: relative;
+            animation: slideIn 0.3s;
+            margin: 2rem;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--classified);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            line-height: 1;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+            background: #ff0000;
+        }
+
+        .modal-title {
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .modal-body {
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .modal-body h3 {
+            color: var(--accent-blue);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .modal-body ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .modal-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-box {
+            background: var(--bg-darker);
+            border-left: 3px solid var(--accent-blue);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .detail-box.critical {
+            border-left-color: var(--classified);
+            background: rgba(255, 68, 68, 0.05);
+        }
+
+        /* Filter Buttons */
+        .filter-bar {
+            background: var(--bg-panel);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--bg-darker);
+            color: var(--text);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .filter-btn.active {
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            border-color: var(--accent-blue);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">▲ TIDSLINJE - TRIP 19</div>
+            <a href="index.html" class="back-link">← Tillbaka</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>📅 Komplett Tidslinje 1940-2025</h1>
+
+        <!-- Filter -->
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterTimeline('all')">Visa alla</button>
+            <button class="filter-btn" onclick="filterTimeline('critical')">Endast kritiska</button>
+            <button class="filter-btn" onclick="filterTimeline('mythos')">Mythos-relaterade</button>
+            <button class="filter-btn" onclick="filterTimeline('volkov')">Volkov</button>
+        </div>
+
+        <div class="timeline">
+            <!-- 1940 -->
+            <div class="timeline-section">
+                <div class="timeline-year">1940</div>
+
+                <div class="timeline-event critical" data-tags="critical,mythos" onclick="openModal('trip19crash')">
+                    <div class="event-date critical">31 AUGUSTI 1940</div>
+                    <div class="event-title">Pennsylvania Central Airlines Flight 19 Kraschar</div>
+                    <div class="event-summary">
+                        25 döda inkl. Senator Ernest Lundeen. Nazi-kurir ombord med Type-VII kristallfragment. FBI på plats hela natten - hemlig operation.
+                    </div>
+                    <span class="event-badge mythos">Mythos</span>
+                    <span class="event-badge">Fragment</span>
+                    <span class="event-badge">Lundeen</span>
+                </div>
+            </div>
+
+            <!-- 1941 -->
+            <div class="timeline-section">
+                <div class="timeline-year">1941</div>
+
+                <div class="timeline-event" data-tags="mythos" onclick="openModal('typeVIII')">
+                    <div class="event-date">SOMMAR-HÖST 1941</div>
+                    <div class="event-title">Type-VIII Apparater Förbereds</div>
+                    <div class="event-summary">
+                        Nazi-Tyskland vidareutvecklar Type-VII till Type-VIII. Tre enheter skickas till Leningrad-fronten. Planerad psykologisk krigföring.
+                    </div>
+                    <span class="event-badge mythos">Mythos</span>
+                    <span class="event-badge">Nazi-tech</span>
+                </div>
+
+                <div class="timeline-event" data-tags="" onclick="openModal('leningradsiege')">
+                    <div class="event-date">8 SEPTEMBER 1941</div>
+                    <div class="event-title">Leningrads Belägring Börjar</div>
+                    <div class="event-summary">
+                        872 dagar av svält och död framför sig. Detta blir kontexten för nyårsnatten 1942.
+                    </div>
+                    <span class="event-badge">Historiskt</span>
+                </div>
+            </div>
+
+            <!-- 1942 -->
+            <div class="timeline-section">
+                <div class="timeline-year">1942 - KATASTROFEN</div>
+
+                <div class="timeline-event critical" data-tags="critical,mythos" onclick="openModal('newyearsnight')">
+                    <div class="event-date critical">1 JANUARI 1942 - NYÅRSNATTEN</div>
+                    <div class="event-title">Leningrad Ground Zero - Katastrofal Kollision</div>
+                    <div class="event-summary">
+                        23:00 - Nazi Type-VIII aktiveras<br>
+                        23:45 - Sovjetisk motåtgärd aktiveras<br>
+                        MIDNATT - Katastrofal kollision: Yithian-medvetande kolliderar med Nyogtha. Kyrkljus slocknar. Helgonikoner blir svarta. 20 präster tar självmord. Kalenko-huset fasförskjuts. Barn försvinner.<br>
+                        <strong>Anton (38), Sasha (34), Filip (31) blir värdar. 3-åriga Magda exponeras.</strong>
+                    </div>
+                    <span class="event-badge mythos">Mythos</span>
+                    <span class="event-badge mythos">Yithian</span>
+                    <span class="event-badge mythos">Nyogtha</span>
+                </div>
+
+                <div class="timeline-event" data-tags="mythos" onclick="openModal('campS17')">
+                    <div class="event-date">JANUARI-MARS 1942</div>
+                    <div class="event-title">Camp S-17 Etableras</div>
+                    <div class="event-summary">
+                        Utanför Moskva. ~200 "kontaminerade" från Leningrad interneras. Bland dem: Anton, Sasha, Filip, Magda med mor.
+                    </div>
+                    <span class="event-badge mythos">Camp S-17</span>
+                    <span class="event-badge">Sovjetisk</span>
+                </div>
+            </div>
+
+            <!-- 1944 -->
+            <div class="timeline-section">
+                <div class="timeline-year">1944</div>
+
+                <div class="timeline-event" data-tags="" onclick="openModal('siegeends')">
+                    <div class="event-date">27 JANUARI 1944</div>
+                    <div class="event-title">Belägringen av Leningrad Bryts</div>
+                    <div class="event-summary">
+                        Kalenko-huset fortfarande "borta". Sovjetiska myndigheter förklarar området förbjudet.
+                    </div>
+                    <span class="event-badge">Historiskt</span>
+                    <span class="event-badge">Kalenko-hus</span>
+                </div>
+            </div>
+
+            <!-- 1946 -->
+            <div class="timeline-section">
+                <div class="timeline-year">1946</div>
+
+                <div class="timeline-event" data-tags="mythos" onclick="openModal('frankfurt')">
+                    <div class="event-date">MARS 1946</div>
+                    <div class="event-title">Överföring till Frankfurt Clinic</div>
+                    <div class="event-summary">
+                        Halva Camp S-17 överförs till allierad kontroll. Anton (42), Sasha (38), Filip (35) till Frankfurt Clinic. Magda (7) och mor också. Metallbehållare märkt "Type-VII" konfiskeras.
+                    </div>
+                    <span class="event-badge mythos">Frankfurt</span>
+                    <span class="event-badge">De tre männen</span>
+                </div>
+            </div>
+
+            <!-- 1952 -->
+            <div class="timeline-section">
+                <div class="timeline-year">1952</div>
+
+                <div class="timeline-event" data-tags="" onclick="openModal('magdamor')">
+                    <div class="event-date">FEBRUARI 1952</div>
+                    <div class="event-title">Magdas Mor Dör</div>
+                    <div class="event-summary">
+                        Frankfurt. Sista dagboksinlägg: "De tre männen lever. Berlin. Slaviska Sällskapet." Magda (13) adopteras av tysk familj.
+                    </div>
+                    <span class="event-badge">Magda</span>
+                </div>
+            </div>
+
+            <!-- 1958 -->
+            <div class="timeline-section">
+                <div class="timeline-year">1958 - BERLIN-ERAN BÖRJAR</div>
+
+                <div class="timeline-event" data-tags="mythos" onclick="openModal('berlinmove')">
+                    <div class="event-date">1958</div>
+                    <div class="event-title">De Tre Männen Flyttar till Berlin</div>
+                    <div class="event-summary">
+                        Anton (54) → "Anton Mahler" (Östberlin)<br>
+                        Sasha (50) → "Aleksandr Pogodin"<br>
+                        Filip (47) → "Filip Kramer"<br>
+                        Magda (19) lämnar mentalsjukhus, flyttar till Berlin
+                    </div>
+                    <span class="event-badge mythos">De tre männen</span>
+                    <span class="event-badge">Berlin</span>
+                </div>
+            </div>
+
+            <!-- 2019 -->
+            <div class="timeline-section">
+                <div class="timeline-year">2019</div>
+
+                <div class="timeline-event" data-tags="volkov" onclick="openModal('volkovbegins')">
+                    <div class="event-date">MARS 2019</div>
+                    <div class="event-title">Volkov Börjar Sin Research</div>
+                    <div class="event-summary">
+                        Dmitri Volkov besöker Stanford Archive (Box 147 nekad access), Lovettsville Historical Society, Iowa collections. Första spår av hans jakt på kristaller.
+                    </div>
+                    <span class="event-badge">Volkov</span>
+                    <span class="event-badge">Research</span>
+                </div>
+            </div>
+
+            <!-- 2024 -->
+            <div class="timeline-section">
+                <div class="timeline-year">2024</div>
+
+                <div class="timeline-event" data-tags="volkov" onclick="openModal('harriet')">
+                    <div class="event-date">OKTOBER 2024</div>
+                    <div class="event-title">Volkov Köper Harriet Johnsons Dagbok</div>
+                    <div class="event-summary">
+                        Via alias "V. Petrov" från Lovettsville Historical Society. Sekreterarens dagbok om Lundeen och väskan.
+                    </div>
+                    <span class="event-badge">Volkov</span>
+                    <span class="event-badge">Ledtråd</span>
+                </div>
+
+                <div class="timeline-event critical" data-tags="critical,volkov,mythos" onclick="openModal('christmasmall')">
+                    <div class="event-date critical">23 DECEMBER 2024</div>
+                    <div class="event-title">The Mall Before Christmas</div>
+                    <div class="event-summary">
+                        Cherry Hill Mall, New Jersey. Volkov med röd kristallkub. 14 civila döda. Mac's besatthet börjar. Sullivan tvivlar på Gud. Sparky börjar bygga AI-spårning.
+                    </div>
+                    <span class="event-badge mythos">Mythos</span>
+                    <span class="event-badge">Volkov</span>
+                    <span class="event-badge mythos">Kristall</span>
+                </div>
+            </div>
+
+            <!-- 2025 -->
+            <div class="timeline-section">
+                <div class="timeline-year">2025 - KAMPANJENS ÅR</div>
+
+                <div class="timeline-event" data-tags="" onclick="openModal('polen')">
+                    <div class="event-date">JULI 2025</div>
+                    <div class="event-title">Polen-Incidenten</div>
+                    <div class="event-summary">
+                        Sabotage-misstankar mot polska agenter i Kaliningrad. Ryssland stänger gränser, höjer militär beredskap. Kommer påverka agenternas Ryssland-infiltration.
+                    </div>
+                    <span class="event-badge">Geopolitik</span>
+                </div>
+
+                <div class="timeline-event critical" data-tags="critical,volkov" onclick="openModal('campaignstart')">
+                    <div class="event-date critical">4 SEPTEMBER 2025</div>
+                    <div class="event-title">KAMPANJEN STARTAR</div>
+                    <div class="event-summary">
+                        Sparkys AI-alert fångar Volkovs alias-transaktion. Team samlas. Sullivan visar Reddit-mysteriet. Beslut: Researcha Trip 19 tillsammans.
+                    </div>
+                    <span class="event-badge mythos">Session 1</span>
+                    <span class="event-badge">Start</span>
+                </div>
+
+                <div class="timeline-event" data-tags="" onclick="openModal('session3')">
+                    <div class="event-date">SEPTEMBER 2025</div>
+                    <div class="event-title">Session 3: Lovettsville - Mötet med Magda</div>
+                    <div class="event-summary">
+                        Historical Society. Magda Orlova undersöker samma sak. Tillsammans vid kraschplatsen (Bishop farm). Volkovs spår överallt.
+                    </div>
+                    <span class="event-badge">Magda</span>
+                    <span class="event-badge">Session 3</span>
+                </div>
+
+                <div class="timeline-event critical" data-tags="critical,mythos" onclick="openModal('berlin')">
+                    <div class="event-date">OKTOBER 2025</div>
+                    <div class="event-title">Berlin - Magda Död/Försvunnen</div>
+                    <div class="event-summary">
+                        Något har hänt Magda. Team i hennes lägenhet (Kreuzberg). Hittar morns dagbok, Slavic Association-dokument, karta med Lovettsville-Berlin-Frankfurt-Leningrad.
+                    </div>
+                    <span class="event-badge mythos">Session 5</span>
+                    <span class="event-badge">Berlin</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Container -->
+    <div id="modal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        const modalData = {
+            trip19crash: {
+                title: '31 AUGUSTI 1940 - TRIP 19 KRASCHAR',
+                content: `
+                    <div class="detail-box critical">
+                        <strong>PENNSYLVANIA CENTRAL AIRLINES FLIGHT 19</strong><br>
+                        Lovettsville, Virginia - 25 döda
+                    </div>
+
+                    <h3>Officiell Version (CAB-rapport):</h3>
+                    <ul>
+                        <li>Tekniskt fel, dåligt väder</li>
+                        <li>Blue flame från motorer (St. Elmo's fire)</li>
+                        <li>Piloterna tappade kontroll</li>
+                    </ul>
+
+                    <h3>Verklig Version (Delta Green):</h3>
+                    <ul>
+                        <li><strong>Nazi-kurir ombord</strong> med falskt pass</li>
+                        <li>Bar <strong>Type-VII kristallfragment</strong> till Senator Lundeen</li>
+                        <li>Fragment aktiverades under flygning → blått ljus</li>
+                        <li>Piloter desorienterade av resonans</li>
+                    </ul>
+
+                    <h3>FBI-Operation:</h3>
+                    <ul>
+                        <li>Agenter på plats <strong>hela natten</strong></li>
+                        <li>Grävoperationer vid Bishop farm</li>
+                        <li>Fragment begravdes/försvann</li>
+                        <li>Lundeens väska konfiskerades inom 48h</li>
+                    </ul>
+
+                    <div class="detail-box">
+                        <strong>VIKTIGT:</strong> Detta är kampanjens ursprungspunkt. Allt spåras tillbaka hit.<br>
+                        Fragment från Trip 19 är samma typ som de tre männen exponerades för i Leningrad.
+                    </div>
+                `
+            },
+            typeVIII: {
+                title: 'TYPE-VIII APPARATER',
+                content: `
+                    <h3>Nazi-utveckling 1941:</h3>
+                    <ul>
+                        <li>Vidareutveckling av Type-VII (från Trip 19)</li>
+                        <li>Tre enheter skickas till Leningrad-fronten</li>
+                        <li>Syfte: "Elektromagnetisk störning" som psykologisk krigföring</li>
+                        <li>Nazi-vetenskapsmän förstod INTE vad de egentligen byggde</li>
+                    </ul>
+
+                    <div class="detail-box critical">
+                        <strong>VAD DE INTE VISSTE:</strong><br>
+                        Type-VIII var inte bara teknologi - det var kanaler för något utanför verkligheten.
+                        När de aktiverades i Leningrad nyårsnatt 1942, öppnade de dörrar.
+                    </div>
+
+                    <h3>Koppling till Mythos:</h3>
+                    <p>Kristallerna är inte "alienteknologi" i traditionell bemärkelse - de är geometrier som tillåter kontakt med Yithian-medvetanden och andra entiteter. Nazi-Tyskland experimenterade med något de aldrig kunde kontrollera.</p>
+                `
+            },
+            newyearsnight: {
+                title: '1 JANUARI 1942 - LENINGRAD GROUND ZERO',
+                content: `
+                    <div class="detail-box critical">
+                        <strong>DEN VIKTIGASTE HÄNDELSEN I KAMPANJEN</strong><br>
+                        Allt leder hit. Allt kommer härifrån.
+                    </div>
+
+                    <h3>Tidslinje för Nyårsnatten:</h3>
+                    <ul>
+                        <li><strong>23:00</strong> - Nazi Type-VIII enheter aktiveras runt staden</li>
+                        <li><strong>23:45</strong> - Sovjetisk motåtgärd aktiveras (okänd teknologi)</li>
+                        <li><strong>MIDNATT</strong> - Katastrofal kollision mellan två system</li>
+                    </ul>
+
+                    <h3>Vad Som Hände:</h3>
+                    <ul>
+                        <li>Yithian-medvetande från <em>framtiden</em> dras till kristallerna</li>
+                        <li>Kolliderar med Nyogtha (begravd under Leningrad sedan urminnes tider)</li>
+                        <li>Verkligheten <strong>spricker</strong> lokalt</li>
+                        <li>Fragment av båda krafterna sprids till närliggande människor</li>
+                    </ul>
+
+                    <h3>Synliga Effekter:</h3>
+                    <ul>
+                        <li>Kyrkljus slocknar över hela staden</li>
+                        <li>Helgonikoner blir svarta (permanent)</li>
+                        <li>20 präster tar självmord (samtidigt, inom 10 minuter)</li>
+                        <li>Kalenko-huset "fasförskjuts" - försvinner delvis ur verkligheten</li>
+                        <li>37 barn försvinner från barnhem (hittas aldrig)</li>
+                    </ul>
+
+                    <h3>De Transformerade:</h3>
+                    <div class="detail-box">
+                        <strong>Anton (38 år):</strong> Yithian-värd - kan se tidslinje, minns framtiden<br>
+                        <strong>Sasha (34 år):</strong> Djupast påverkad - hummar 247 Hz konstant<br>
+                        <strong>Filip (31 år):</strong> Drömvandrare - kan röra sig i andras medvetanden<br>
+                        <strong>Magda (3 år):</strong> För ung för full transformation, men märkt permanent
+                    </div>
+
+                    <h3>Varför Detta Är Viktigt:</h3>
+                    <p>Detta är inte bara backstory. Spelarna kommer <em>behöva</em> förstå vad som hände här för att stoppa Volkov. Han jagar fragment för att återskapa detta - men kontrollerat. Han tror sig kunna bli som de tre männen - odödlig, vetande, utanför tiden.</p>
+                `
+            },
+            campS17: {
+                title: 'CAMP S-17',
+                content: `
+                    <h3>Sovjetiskt Interneringsläger (Januari 1942 - Mars 1946):</h3>
+                    <ul>
+                        <li>Etablerat utanför Moskva</li>
+                        <li>~200 "kontaminerade" från Leningrad</li>
+                        <li>Officiellt: Karantän för "radiation exposure"</li>
+                        <li>Verkligen: Studier av det onaturliga</li>
+                    </ul>
+
+                    <div class="detail-box">
+                        <strong>VIKTIGA INTERNER:</strong><br>
+                        - Anton, Sasha, Filip (de tre männen)<br>
+                        - Magda (3 år) och hennes mor<br>
+                        - 197 andra "kontaminerade"<br>
+                        - 80% dog inom 2 år (självmord, transformation, "disappeared")
+                    </div>
+
+                    <h3>Vad Sovjetiska Forskare Observerade:</h3>
+                    <ul>
+                        <li>Konstant hummande (247 Hz) från vissa subjekt</li>
+                        <li>"Minnen från andra tider" - beskrev framtida händelser</li>
+                        <li>Aversion mot vissa frekvenser</li>
+                        <li>Åldrande stannade för vissa (Anton, Sasha, Filip)</li>
+                    </ul>
+
+                    <h3>Överföring till Allierade 1946:</h3>
+                    <p>I mars 1946 överförs halva lägret till Frankfurt som del av Displaced Persons-program. Soviets behöll de "intressantaste" fallen. Allierade fick resten - inklusive de tre männen och Magda.</p>
+
+                    <div class="detail-box critical">
+                        <strong>LEDTRÅD:</strong> Camp S-17-dokument finns i ryska arkiv.<br>
+                        Spelarna kommer behöva infiltrera Ryssland för att få full bild.
+                    </div>
+                `
+            },
+            frankfurt: {
+                title: 'FRANKFURT CLINIC 1946-1952',
+                content: `
+                    <h3>Displaced Persons Camp → Klinik:</h3>
+                    <ul>
+                        <li>Frankfurt an der Oder (östra Tyskland, gräns till Polen)</li>
+                        <li>Ursprungligen flyktingläger 1945-1946</li>
+                        <li>Omvandlat till "medicinsk observation" 1946</li>
+                    </ul>
+
+                    <h3>Patienter från Camp S-17:</h3>
+                    <div class="detail-box">
+                        <strong>Anton (42), Sasha (38), Filip (35)</strong> - "Behandling" 1946-1950<br>
+                        <strong>Magda (7)</strong> och mor - Separata från männen<br>
+                        Metallbehållare märkt "Type-VII" - Konfiskerad, analyserad
+                    </div>
+
+                    <h3>Patientjournaler (1946-1952):</h3>
+                    <ul>
+                        <li>"Subject A (Anton): Claims to remember events from 1975. Describes technology not yet invented."</li>
+                        <li>"Subject S (Sasha): Constant humming at 247 Hz. Will not stop. Cannot stop?"</li>
+                        <li>"Subject F (Filip): Reports 'visiting' other patients in dreams. Accurate details he should not know."</li>
+                        <li>"Child M (Magda): Mute. Draws spirals constantly. Mother reports 'she sees them'."</li>
+                    </ul>
+
+                    <h3>Magdas Mor (död 1952):</h3>
+                    <p>Sista dagboksinlägg: <em>"De tre männen lever. Berlin. Slaviska Sällskapet."</em></p>
+
+                    <div class="detail-box critical">
+                        <strong>VIKTIGT FÖR SPELARNA:</strong><br>
+                        Frankfurt Clinic-arkivet finns kvar. Patientjournaler från 1946-1952 är tillgängliga via tyska National Archive (med rätt clearance eller infiltration).
+                    </div>
+                `
+            },
+            berlinmove: {
+                title: '1958 - BERLIN-ERAN BÖRJAR',
+                content: `
+                    <h3>De Tre Männen Etablerar Sig:</h3>
+                    <div class="detail-box">
+                        <strong>Anton Mahler (54):</strong> Östberlin - Akademiker, "filosof"<br>
+                        <strong>Aleksandr Pogodin (50):</strong> Importör, fasad för verksamhet<br>
+                        <strong>Filip Kramer (47):</strong> Konstnär, bohemisk täckmantel
+                    </div>
+
+                    <h3>Slavic Association Grundas:</h3>
+                    <ul>
+                        <li>Officiellt: Kulturförening för östeuropeiska emigranter</li>
+                        <li>Verkligen: Front för de tre männens verksamhet</li>
+                        <li>1960-tal: Samlar likasinnade (ockultister, forskare, desperata)</li>
+                        <li>1970-1989: Överlever Berlin-murens delning (verksamhet i både öst/väst)</li>
+                        <li>1990-2025: Fortsätter efter murens fall</li>
+                    </ul>
+
+                    <h3>Magda (19) i Berlin:</h3>
+                    <ul>
+                        <li>Lämnar mentalsjukhus 1958</li>
+                        <li>Söker upp de tre männen (visste via morns dagbok)</li>
+                        <li>Undviker dem resten av sitt liv</li>
+                        <li>Börjar sin egen research om vad som hände i Leningrad</li>
+                    </ul>
+                `
+            },
+            christmasmall: {
+                title: '23 DECEMBER 2024 - CHERRY HILL MALL',
+                content: `
+                    <div class="detail-box critical">
+                        <strong>THE MALL BEFORE CHRISTMAS</strong><br>
+                        Detta är händelsen som startade spelarpersonernas besatthet.
+                    </div>
+
+                    <h3>Händelseförlopp:</h3>
+                    <ul>
+                        <li><strong>14:00</strong> - Volkov anländer med mahognylåda (30x20x15cm)</li>
+                        <li><strong>15:30</strong> - Säkerhetsvakter tar in honom (nervöst beteende)</li>
+                        <li><strong>16:00</strong> - Kontrollrum: Jultomten exponeras för kristallkub</li>
+                        <li><strong>16:15</strong> - Jultomten attackerar barn i Grand Court</li>
+                        <li><strong>16:20</strong> - Smittan sprids - zombieliknande kannibaler</li>
+                        <li><strong>17:00</strong> - Kaos, panik, 14 döda</li>
+                        <li><strong>17:45</strong> - Taket: Volkov delvis transformerad, flyr med lådan</li>
+                    </ul>
+
+                    <h3>Delta Green-Teamets Roll:</h3>
+                    <ul>
+                        <li><strong>Mac:</strong> Närmast Volkov på taket, misslyckades stoppa honom</li>
+                        <li><strong>Sullivan:</strong> Såg transformationer, började tvivla på Gud</li>
+                        <li><strong>Sparky:</strong> Tech support, såg via kameror</li>
+                    </ul>
+
+                    <h3>Efterdyningar:</h3>
+                    <ul>
+                        <li>Massiv cover-up (gasläcka-historia)</li>
+                        <li>Mac blir besatt av Volkov</li>
+                        <li>Sparky bygger AI-modell för att spåra honom</li>
+                        <li>Sullivan: Existentiell kris</li>
+                    </ul>
+
+                    <div class="detail-box">
+                        <strong>KRISTALLKUBEN:</strong> Röd, ~10cm, samma signatur som Trip 19-fragment.<br>
+                        Volkov visste exakt vad den skulle göra. Han testade den.
+                    </div>
+                `
+            },
+            campaignstart: {
+                title: '4 SEPTEMBER 2025 - KAMPANJSTART',
+                content: `
+                    <h3>Session 1: Briefing & AI-Alert</h3>
+
+                    <div class="detail-box">
+                        <strong>SPARKYS AI-ALERT:</strong><br>
+                        <code>
+                        VOLKOV_WATCH ALERT:<br>
+                        Alias match: "V. Petrov"<br>
+                        Transaction: Estate sale item purchase<br>
+                        Item: Personal diary (1940)<br>
+                        Estate: Harriet Johnson<br>
+                        Date logged: October 2024<br>
+                        Source: Lovettsville Historical Society Q1 2025 donor report
+                        </code>
+                    </div>
+
+                    <h3>Team Samlas:</h3>
+                    <ul>
+                        <li>Mac (besatt av Volkov sedan Christmas Mall)</li>
+                        <li>Sullivan (trosvacklande, de facto leader)</li>
+                        <li>Sparky (byggt AI-spårning)</li>
+                        <li>[Eventuell ny medlem: Scalpel/Hanna?]</li>
+                    </ul>
+
+                    <h3>Sullivan Visar Reddit-Mysteriet:</h3>
+                    <p>r/UnresolvedMysteries post om Trip 19, Senator Lundeen, FBI-cover-up. Kommentarer nämner "blue flame", "missing briefcase", "Bishop farm anomalies".</p>
+
+                    <h3>Beslut:</h3>
+                    <p>Researcha Trip 19 tillsammans. Volkovs intresse = Delta Green-intresse.</p>
+                `
+            },
+            session3: {
+                title: 'SESSION 3 - LOVETTSVILLE',
+                content: `
+                    <h3>Lovettsville, Virginia:</h3>
+                    <p>Liten by, lantlig, tyst. "Där tiden stannade"-känsla.</p>
+
+                    <h3>Historical Society - Mötet:</h3>
+                    <div class="detail-box">
+                        <strong>Mrs. Eleanor Whitman (70+):</strong> Curator, pratsam<br>
+                        <em>"Oh, interested in Trip 19? You're the second group today!"</em>
+                    </div>
+
+                    <h3>Magda Orlova:</h3>
+                    <ul>
+                        <li>Vid monter med kraschfoton</li>
+                        <li>Antecknar intensivt</li>
+                        <li>Pratar tyska i telefon</li>
+                        <li>Stelnar när hon hör om "Mr. Petrov"</li>
+                    </ul>
+
+                    <h3>Magda Närmar Sig:</h3>
+                    <p><em>"You're not tourists. You're here about the Russian too."</em></p>
+
+                    <h3>Bishop Farm (Kraschplatsen):</h3>
+                    <ul>
+                        <li>2.5 miles från Lovettsville</li>
+                        <li>Memorial marker (1950)</li>
+                        <li>Magda har ground-penetrating radar-data</li>
+                        <li>Anomali under marken där FBI grävde 1940</li>
+                        <li>Volkovs spår: GPR-mätningar från 2019</li>
+                    </ul>
+
+                    <div class="detail-box critical">
+                        <strong>MAGDA DELAR:</strong><br>
+                        Morns historia från Leningrad. Frankfurt Clinic. De tre männen i Berlin.<br>
+                        Hon researchar samma sak som Volkov - men för andra anledningar.
+                    </div>
+                `
+            },
+            berlin: {
+                title: 'OKTOBER 2025 - BERLIN',
+                content: `
+                    <h3>Session 5: Berlin Arrival</h3>
+
+                    <div class="detail-box critical">
+                        <strong>NÅGOT HAR HÄNT MED MAGDA:</strong><br>
+                        Alternativ A: Hon är död (mördad)<br>
+                        Alternativ B: Hon är försvunnen<br>
+                        Alternativ C: Hon är kidnappad av de tre männen
+                    </div>
+
+                    <h3>Magdas Lägenhet (Kreuzberg):</h3>
+                    <p>Team hittar hennes fullständiga research:</p>
+                    <ul>
+                        <li>Morns dagbok från 1946 (Frankfurt Clinic)</li>
+                        <li>Slavic Association-dokument</li>
+                        <li>Karta med markeringar: Lovettsville → Berlin → Frankfurt → Leningrad</li>
+                        <li>Referenser till "de tre ryska männen"</li>
+                        <li>Foton av Anton, Sasha, Filip från olika årtionden (de åldras inte)</li>
+                    </ul>
+
+                    <h3>Nästa Steg:</h3>
+                    <ul>
+                        <li>Slavic Association (infiltration)</li>
+                        <li>Frankfurt Clinic-arkiv</li>
+                        <li>Första mötet med en av de tre männen?</li>
+                    </ul>
+                `
+            }
+        };
+
+        function openModal(eventId) {
+            const modal = document.getElementById('modal');
+            const modalBody = document.getElementById('modal-body');
+            const data = modalData[eventId];
+
+            if (data) {
+                modalBody.innerHTML = `
+                    <div class="modal-title">${data.title}</div>
+                    <div class="modal-body">${data.content}</div>
+                `;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(event) {
+            if (!event || event.target.id === 'modal') {
+                const modal = document.getElementById('modal');
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function filterTimeline(filter) {
+            const events = document.querySelectorAll('.timeline-event');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter events
+            events.forEach(event => {
+                const tags = event.getAttribute('data-tags');
+                if (filter === 'all') {
+                    event.style.display = 'block';
+                } else if (tags.includes(filter)) {
+                    event.style.display = 'block';
+                } else {
+                    event.style.display = 'none';
+                }
+            });
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
