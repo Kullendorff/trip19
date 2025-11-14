@@ -485,7 +485,7 @@
             <h2 class="category-title">⚠️ Primära Antagonister</h2>
             <div class="npc-grid">
                 <!-- Dmitri Volkov -->
-                <div class="npc-card threat-high" data-category="threat" data-keywords="volkov russian antagonist crystal mall">
+                <div class="npc-card threat-high" data-category="threat" data-keywords="volkov russian antagonist crystal mall" onclick="openNPCModal('volkov')">
                     <div class="npc-header">
                         <div>
                             <div class="npc-name">DMITRI VOLKOV</div>
@@ -514,7 +514,7 @@
             <h2 class="category-title">🔺 De Transformerade (Leningrad 1942)</h2>
             <div class="npc-grid">
                 <!-- Anton Mahler -->
-                <div class="npc-card threat-high" data-category="threat transformed" data-keywords="anton mahler yithian berlin transformed">
+                <div class="npc-card threat-high" data-category="threat transformed" data-keywords="anton mahler yithian berlin transformed" onclick="openNPCModal('mahler')">
                     <div class="npc-header">
                         <div>
                             <div class="npc-name">ANTON MAHLER</div>
@@ -537,7 +537,7 @@
                 </div>
 
                 <!-- Aleksandr Pogodin -->
-                <div class="npc-card threat-high" data-category="threat transformed" data-keywords="sasha pogodin berlin transformed 247hz">
+                <div class="npc-card threat-high" data-category="threat transformed" data-keywords="sasha pogodin berlin transformed 247hz" onclick="openNPCModal('pogodin')">
                     <div class="npc-header">
                         <div>
                             <div class="npc-name">ALEKSANDR "SASHA" POGODIN</div>
@@ -560,7 +560,7 @@
                 </div>
 
                 <!-- Filip Kramer -->
-                <div class="npc-card threat-medium" data-category="threat transformed" data-keywords="filip kramer berlin transformed dreamwalker">
+                <div class="npc-card threat-medium" data-category="threat transformed" data-keywords="filip kramer berlin transformed dreamwalker" onclick="openNPCModal('kramer')">
                     <div class="npc-header">
                         <div>
                             <div class="npc-name">FILIP KRAMER</div>
@@ -589,7 +589,7 @@
             <h2 class="category-title">✓ Allierade & Offer</h2>
             <div class="npc-grid">
                 <!-- Magda Orlova -->
-                <div class="npc-card ally" data-category="ally" data-keywords="magda orlova survivor leningrad hamburg research">
+                <div class="npc-card ally" data-category="ally" data-keywords="magda orlova survivor leningrad hamburg research" onclick="openNPCModal('magda')">
                     <div class="npc-header">
                         <div>
                             <div class="npc-name">MAGDA ORLOVA</div>
@@ -612,7 +612,7 @@
                 </div>
 
                 <!-- Magdas Mor -->
-                <div class="npc-card deceased" data-category="deceased ally" data-keywords="magda mother frankfurt clinic diary">
+                <div class="npc-card deceased" data-category="deceased ally" data-keywords="magda mother frankfurt clinic diary" onclick="openNPCModal('magdas_mor')">
                     <div class="npc-header">
                         <div>
                             <div class="npc-name">MAGDAS MOR</div>
@@ -711,7 +711,7 @@
                 </div>
 
                 <!-- FBI Secretary -->
-                <div class="npc-card deceased" data-category="deceased historical" data-keywords="fbi secretary trip19 surveillance">
+                <div class="npc-card deceased" data-category="deceased historical" data-keywords="fbi secretary trip19 surveillance" onclick="openNPCModal('fbi_secretary')">
                     <div class="npc-header">
                         <div>
                             <div class="npc-name">FBI SECRETARY</div>
@@ -734,7 +734,7 @@
                 </div>
 
                 <!-- DoJ Attorney -->
-                <div class="npc-card deceased" data-category="deceased historical" data-keywords="doj attorney justice department trip19 lundeen">
+                <div class="npc-card deceased" data-category="deceased historical" data-keywords="doj attorney justice department trip19 lundeen" onclick="openNPCModal('doj_attorney')">
                     <div class="npc-header">
                         <div>
                             <div class="npc-name">DOJ ATTORNEY</div>
@@ -1009,7 +1009,7 @@
                 </div>
 
                 <!-- Walter Winchell -->
-                <div class="npc-card ally" data-category="ally historical" data-keywords="walter winchell radio journalist lundeen norma broadcast">
+                <div class="npc-card ally" data-category="ally historical" data-keywords="walter winchell radio journalist lundeen norma broadcast" onclick="openNPCModal('winchell')">
                     <div class="npc-header">
                         <div>
                             <div class="npc-name">WALTER WINCHELL</div>
@@ -1038,7 +1038,7 @@
             <h2 class="category-title">💼 Kontakter & Sekundära NPCs</h2>
             <div class="npc-grid">
                 <!-- Mrs. Eleanor Whitman -->
-                <div class="npc-card" data-category="ally" data-keywords="whitman curator lovettsville historical society">
+                <div class="npc-card" data-category="ally" data-keywords="whitman curator lovettsville historical society" onclick="openNPCModal('whitman')">
                     <div class="npc-header">
                         <div>
                             <div class="npc-name">MRS. ELEANOR WHITMAN</div>
@@ -1697,6 +1697,860 @@
                             <li><strong>Brevkorrespondens:</strong> Med FBI-källor, DoJ-läckare</li>
                             <li><strong>Andra Lundeen-artiklar:</strong> Skrev han mer om fallet senare?</li>
                             <li><strong>Syndikerade nätverk:</strong> Vilka papers publicerade hans Lundeen-exponé?</li>
+                        </ul>
+                    </div>
+                `
+            },
+            volkov: {
+                title: 'DMITRI VOLKOV',
+                subtitle: 'Primär Antagonist | ~45-50 år | Rysk kristalljägare',
+                content: `
+                    <div class="modal-section">
+                        <h3>⚠️ PRIMÄR ANTAGONIST</h3>
+                        <div class="detail-box warning">
+                            <strong>RYSK KONSPIRATIONSTEORETIKER & KRISTALLJÄGARE</strong><br>
+                            Dmitri Volkov är kampanjens huvudantagonist. Ansvarig för Christmas Mall-massakern (Session 1). Jagar Type-VII/VIII kristallfragment världen över. Besatt av att återskapa Leningrad-händelsen 1942 - men UNDER KONTROLL, inte transformerad.
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Bakgrund & Motivation</h3>
+                        <p>Volkov är en självlärd forskare av paranormala fenomen med specifikt fokus på nazistisk ockult teknologi från WWII. Hans forskning ledde honom till Type-VII/VIII kristaller - artefakter kopplade till både Trip 19-kraschen 1940 och Leningrad-händelsen 1942.</p>
+                        <div class="detail-box">
+                            <strong>HANS MÅL:</strong>
+                            <ul>
+                                <li>Samla alla Type-VII/VIII kristallfragment</li>
+                                <li>Förstå vad som hände i Leningrad nyårsnatt 1942</li>
+                                <li>Återskapa experimentet - men KONTROLLERAT</li>
+                                <li>Uppnå transformation/transc endence - men behålla medvetandet</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Christmas Mall-massakern (Session 1)</h3>
+                        <div class="detail-box warning">
+                            <strong>WASHINGTON DC, DECEMBER 2024</strong><br>
+                            Volkov aktiverade ett kristallfragment i Christmas Mall. Resultatet: 23 döda civila, masshysteri, realitetsbrott. Spelarna (Mac, Sullivan, Sparky, Trench) stoppade honom men han flydde med kristallfragment.
+                        </div>
+                        <p><strong>Detta etablerade honom som primär antagonist och triggade spelarnas besatthet.</strong> Särskilt Mac Riley har blivit besatt av att hitta och stoppa Volkov.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Alias och Verksamhet</h3>
+                        <ul>
+                            <li><strong>"V. Petrov"</strong> - Köpte Harriet Johnsons dagbok i Lovettsville 2024</li>
+                            <li><strong>"D. Sokolov"</strong> - Använt vid andra transaktioner</li>
+                            <li><strong>Besök i Lovettsville:</strong> 2019 (frågade om "electromagnetic anomalies" vid Bishop farm) och 2024 (köpte dagbok)</li>
+                            <li><strong>Kopplingar:</strong> Slavic Association i Berlin (källa för kristallfragment?)</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Relation till Trip 19 & Leningrad</h3>
+                        <div class="detail-box">
+                            <strong>VOLKOVS RESEARCHTRÅD:</strong><br>
+                            Trip 19-krasch 1940 (Lundeen bar kristall?) → Tyska ambassaden DC (Viereck-koppling) → Nazistisk ockult forskning (Type-VII/VIII) → Leningrad 1942 (de tre männen transformerade) → Berlin 1958 (Slavic Association etablerad) → 2025 (Volkov jagar fragment)
+                        </div>
+                        <p>Volkov vet något om kopplingen mellan Trip 19 och Leningrad som spelarna inte vet än.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Skillnad från De Transformerade</h3>
+                        <div class="detail-box warning">
+                            <strong>KRITISK DISTINKTION:</strong><br>
+                            Anton, Sasha och Filip exponerades OKONTROLLERAT i Leningrad 1942. De transformerades permanent, åldras inte, har onaturliga förmågor men har förlorat delar av sin mänsklighet.
+                            <br><br>
+                            Volkov vill uppnå samma transformation - men BEHÅLLA KONTROLLEN. Han tror att med rätt förberedelser och förståelse kan han transc endera utan att förlora sig själv.
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Nuvarande Status (2025)</h3>
+                        <ul>
+                            <li><strong>Plats:</strong> Okänd, rörlig (senast sedd Berlin oktober 2025?)</li>
+                            <li><strong>Fara:</strong> EXTREM - har bevisat att han är villig att döda civila</li>
+                            <li><strong>Resurser:</strong> Tillräckligt med pengar för att köpa artefakter, resa internationellt</li>
+                            <li><strong>Kunskap:</strong> Mer än spelarna om kristallerna och transformationen</li>
+                            <li><strong>Kristallfragment:</strong> Minst ett (från Christmas Mall)</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>För Spelledaren</h3>
+                        <div class="detail-box">
+                            <strong>VOLKOV ÄR INTE OND - HAN ÄR BESATT</strong><br>
+                            Han är inte en traditionell villain. Han är en man som har sett bortom verkligheten och inte kan sluta forska. Christmas Mall var en olycka (han trodde han hade kontroll). Men det gör honom inte mindre farlig.
+                        </div>
+                        <p><strong>Spelare kommer förmodligen döda eller stoppa honom - men hans forskning kommer leva kvar.</strong></p>
+                    </div>
+                `
+            },
+            mahler: {
+                title: 'ANTON MAHLER',
+                subtitle: 'Yithian-värd | 121 år (född 1904), ser ut ~40-45 | Berlin',
+                content: `
+                    <div class="modal-section">
+                        <h3>🔺 Yithian-värd - Transformerad Leningrad 1942</h3>
+                        <div class="detail-box warning">
+                            <strong>EXPONERAD NYÅRSNATT 1942, LENINGRAD</strong><br>
+                            Anton var 38 år gammal när kristallen aktiverades. Yithian-medvetande från framtiden koloniserade hans kropp. Han ser tidslinje, minns framtida händelser, åldras inte. Mest "mänsklig" av de tre transformerade.
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Före Transformationen (1904-1942)</h3>
+                        <p>Född ~1904, förnamn Anton (efternamn okänt innan "Mahler"). Tysk eller östeuropeisk bakgrund. Fanns i Leningrad nyårsnatt 1942 tillsammans med Sasha och Filip.</p>
+                        <p><strong>Vad gjorde de där?</strong> Detta är fortfarande oklart. Var de nazistiska agenter? Sovjetiska forskare? Civila på fel plats?</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Transformationen - Yithian Kolonisering</h3>
+                        <div class="detail-box">
+                            <strong>YI THIAN-MEDVETANDE</strong><br>
+                            Anton koloniserades av medvetande från "Great Race of Yith" - varelser som reser genom tid genom att byta kroppar. De tar värdar från olika epoker för att dokumentera historien.
+                        </div>
+                        <p><strong>Effekter på Anton:</strong></p>
+                        <ul>
+                            <li>Ser tidslinje - minns händelser som inte hänt än</li>
+                            <li>Åldras inte sedan 1942 (83 år utan åldrande)</li>
+                            <li>Behåller viss humanitet - mest "normal" av de tre</li>
+                            <li>Fungerar som ledare för Slavic Association</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Östberlin 1958 - Slavic Association</h3>
+                        <p>De tre männen etablerade sig i Östberlin 1958. Anton tog ledartitel för Slavic Association - en täckorganisation för deras verksamhet.</p>
+                        <div class="detail-box">
+                            <strong>SLAVIC ASSOCIATION:</strong>
+                            <ul>
+                                <li>Fasad: Kulturell organisation för slaviska migranter</li>
+                                <li>Verklig verksamhet: Okänd (forskning? Rekrytering? Observation?)</li>
+                                <li>Plats: Berlin (tidigare Östberlin, nu unified)</li>
+                                <li>Status 2025: Aktiv</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Nuvarande Status (2025)</h3>
+                        <ul>
+                            <li><strong>Ålder (född):</strong> 121 år (född 1904)</li>
+                            <li><strong>Ålder (ser ut):</strong> ~40-45 år (fryst sedan 1942)</li>
+                            <li><strong>Plats:</strong> Berlin, Tyskland</li>
+                            <li><strong>Fasad:</strong> Slavic Association-ledare</li>
+                            <li><strong>Fara:</strong> Hög, men inte direkt aggressiv</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Relation till Spelarna</h3>
+                        <div class="detail-box warning">
+                            <strong>MAGDA-KOPPLINGEN</strong><br>
+                            Om Magda Orlova nådde Berlin och försökte konfrontera de tre männen (oktober 2025), blev Anton första kontakten. Om hon dog/försvann - Anton vet vad som hände.
+                        </div>
+                        <p>Spelarna kommer förmodligen möta Anton i Berlin-segmentet. Han är mest benägen att prata (jämfört med Sasha som bara hummar 247 Hz eller Filip som vandrar i drömmar).</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>För Spelledaren - Antons Perspektiv</h3>
+                        <p>Anton är inte ond. Han är en man som har levt 83 år utan att åldras, med medvetande från framtiden i sitt huvud. Han har sett saker ingen människa borde se. Han är tröt t men fängslad i sin kropp.</p>
+                        <div class="detail-box">
+                            <strong>HAN KAN:</strong>
+                            <ul>
+                                <li>Ge spelarna information om vad som hände 1942</li>
+                                <li>Varna dem om Volkovs planer</li>
+                                <li>Förklara kristallernas natur</li>
+                                <li>Men han kan inte (eller vill inte) stoppa det som kommer</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            pogodin: {
+                title: 'ALEKSANDR "SASHA" POGODIN',
+                subtitle: 'Djupast Transformerad | 117 år (född 1908), ser ut ~35-40 | Berlin',
+                content: `
+                    <div class="modal-section">
+                        <h3>🔺 Djupast Transformerad - 247 Hz</h3>
+                        <div class="detail-box warning">
+                            <strong>EXPONERAD NYÅRSNATT 1942, LENINGRAD</strong><br>
+                            Sasha var 34 år gammal vid exponeringen. Han påverkades MEST av alla tre. Hummar konstant 247 Hz - kan inte stoppa. Frekvensen är hörbar från ~10 meters avstånd. Det ALDRIG slutar.
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>247 Hz - Konstant Frekvens</h3>
+                        <div class="detail-box">
+                            <strong>VAD ÄR 247 Hz?</strong><br>
+                            247 Hz är en specifik frekvens kopplad till kristallernas resonans. Sasha har blivit en levande stämgaffel. Han vibrerar på denna frekvens konstant. Det påverkar honom fysiskt och mentalt.
+                        </div>
+                        <p><strong>Effekter:</strong></p>
+                        <ul>
+                            <li>Hörbart hummande från hans kropp/hals</li>
+                            <li>Kan inte prata normalt (hummandet överröstar)</li>
+                            <li>Påverkar elektronik i närheten (interferens)</li>
+                            <li>Andra människor känner obehag/vibrationer nära honom</li>
+                            <li>Kan aktivera/påverka kristallfragment oavsiktligt</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Före Transformationen (1908-1942)</h3>
+                        <p>Född ~1908, kallades "Sasha" (förnamn okänt innan "Pogodin"). Yngst av de tre männen. Fanns i Leningrad nyårsnatt 1942.</p>
+                        <p><strong>Varför påverkades han mest?</strong> Oklar t. Kan bero på ålder, placering vid exponeringen, eller genetisk/psykologisk mottaglighet.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Berlin 1958-2025 - "Importören"</h3>
+                        <p>Sasha fungerar som "importör" för Slavic Association sedan 1958. Detta är förmodligen en fasad för hans verkliga roll.</p>
+                        <div class="detail-box">
+                            <strong>VERKLIG ROLL:</strong><br>
+                            Sasha kan känna kristallfragment på avstånd (pga sin 247 Hz-resonans). Han "dras" till dem. Han har förmodligen varit nyckeln till att lokalisera fragment för associationen.
+                        </div>
+                        <p>Hans "import"-verksamhet kan vara täckmantel för resor runt Europa/världen för att hitta fragment.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Nuvarande Status (2025)</h3>
+                        <ul>
+                            <li><strong>Ålder (född):</strong> 117 år (född 1908)</li>
+                            <li><strong>Ålder (ser ut):</strong> ~35-40 år (fryst sedan 1942)</li>
+                            <li><strong>Plats:</strong> Berlin, Tyskland</li>
+                            <li><strong>Fasad:</strong> "Importör" för Slavic Association</li>
+                            <li><strong>Status:</strong> Aktiv men traumatiserad</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Interaktion med Spelarna</h3>
+                        <div class="detail-box warning">
+                            <strong>SASHA KAN INTE PRATA</strong><br>
+                            Om spelarna möter Sasha kommer han inte kunna kommunicera verbalt. 247 Hz-hummandet överröstar allt. Han kan skriva, gestikulera, eller använda Anton/Filip som mellanhänder.
+                        </div>
+                        <p><strong>När spelarna närmar sig:</strong></p>
+                        <ul>
+                            <li>De hör hummandet innan de ser honom</li>
+                            <li>Elektronik (telefoner, hörlurar) får interferens</li>
+                            <li>Folk i närheten känner obehag, vibrationer i kroppen</li>
+                            <li>Om de har kristallfragment - det reagerar på Sashas närvaro</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>För Spelledaren - Sashas Tragedi</h3>
+                        <p>Sasha är den mest tragiska av de tre. Anton behöll sitt sinne, Filip kan fly in i drömmar - men Sasha är fångad i sitt eget huvud med konstant hummande som aldrig slutar.</p>
+                        <div class="detail-box">
+                            <strong>HAN HAR INTE SOVIT SEDAN 1942</strong><br>
+                            247 Hz-frekvensen håller honom vaken. Permanent. I 83 år. Han är uttömd, traumatiserad, men fångad i sin odödliga kropp.
+                        </div>
+                        <p><strong>Om spelarna kan befria honom (död?) - det skulle vara en nåd.</strong></p>
+                    </div>
+                `
+            },
+            kramer: {
+                title: 'FILIP KRAMER',
+                subtitle: 'Drömvandrare | 114 år (född 1911), ser ut ~30-35 | Berlin',
+                content: `
+                    <div class="modal-section">
+                        <h3>🔺 Drömvandrare - Oneiromancer</h3>
+                        <div class="detail-box warning">
+                            <strong>EXPONERAD NYÅRSNATT 1942, LENINGRAD</strong><br>
+                            Filip var 31 år gammal vid exponeringen. Hans transformation gav honom förmåga att röra sig i andras medvetanden under sömn. Han "besöker" människor i drömmar. Konstnär med bohemisk täckmantel i Berlin.
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Drömvandring - Förmågor</h3>
+                        <div class="detail-box">
+                            <strong>FILIP KAN:</strong>
+                            <ul>
+                                <li>Gå in i andras drömmar medan de sover</li>
+                                <li>Observera, prata med, påverka drömmare</li>
+                                <li>Plantera tankar/minnen (subtilt, inte mind control)</li>
+                                <li>Samla information från folks undermedvetna</li>
+                                <li>"Resa" genom drömvärlden till andra drömmare</li>
+                            </ul>
+                        </div>
+                        <p><strong>Begränsningar:</strong> Måste själv sova/meditera för att drömvandra. Kan inte påverka fysisk värld. Offer vaknar med vaga minnen av "konstiga drömmar".</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Före Transformationen (1911-1942)</h3>
+                        <p>Född ~1911, förnamn "Filip" (efternamn okänt innan "Kramer"). Yngst av de tre männen. Fanns i Leningrad nyårsnatt 1942 tillsammans med Anton och Sasha.</p>
+                        <p>Eventuellt redan konstnär/kreativ person före transformationen - vilket kan ha påverkat vilken typ av transformation han fick (drömmar = kreativitet).</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Berlin 1958-2025 - Konstnär</h3>
+                        <p>Filip etablerade sig som konstnär i Östberlin 1958. Bohemisk livsstil, gallerier, konstscen. Perfekt täckmantel för hans verksamhet.</p>
+                        <div class="detail-box">
+                            <strong>HANS KONST:</strong><br>
+                            Filip målar vad han ser i drömmar. Hans verk är surrealistiska, oroande, ibland profetiska. Vissa visar händelser som inte hänt än (eftersom han besöker andras drömmar om framtiden/rädslor).
+                        </div>
+                        <p>Konstsamlare köper hans verk utan att veta att de tittar på stulna drömmar.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Verklig Verksamhet</h3>
+                        <div class="detail-box warning">
+                            <strong>FILIP "BESÖKER" NYCKEL PERSONER</strong><br>
+                            Han använder drömvandring för att samla information. Under kalla kriget besökte han diplomater, militärer, politiker. Nu (2025) besöker han forskare, journalister, folk som undersöker Trip 19/Leningrad.
+                        </div>
+                        <p><strong>Har han besökt spelarna?</strong> Om de forskat Trip 19 tillräckligt länge - absolut möjligt. De kanske har haft "konstiga drömmar" om Leningrad, kristaller, tre män...</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Nuvarande Status (2025)</h3>
+                        <ul>
+                            <li><strong>Ålder (född):</strong> 114 år (född 1911)</li>
+                            <li><strong>Ålder (ser ut):</strong> ~30-35 år (fryst sedan 1942)</li>
+                            <li><strong>Plats:</strong> Berlin, Tyskland</li>
+                            <li><strong>Fasad:</strong> Konstnär, gallerier, bohemisk scen</li>
+                            <li><strong>Fara:</strong> Medium - inte fysiskt aggressiv, men manipulativ</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Interaktion med Spelarna</h3>
+                        <div class="detail-box warning">
+                            <strong>FILIP VET ATT DE KOMMER</strong><br>
+                            Om spelarna researchar Trip 19 och planerar Berlin-resa har Filip redan besökt deras drömmar. Han vet vad de letar efter. När de möts fysiskt kommer det kännas som déjà vu.
+                        </div>
+                        <p><strong>Möte i Berlin:</strong></p>
+                        <ul>
+                            <li>Filip verkar vänlig, charmerande, konstnärlig</li>
+                            <li>Han "känner igen" dem (från drömmar)</li>
+                            <li>Kanske erbjuder information - men till ett pris</li>
+                            <li>Vill veta VAD de planerar göra med informationen</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Filips Konst - Ledtrådar</h3>
+                        <div class="detail-box">
+                            <strong>OM SPELARNA BESÖKER HANS GALLERI:</strong><br>
+                            De ser målningar av:
+                            <ul>
+                                <li>Leningrad nyårsnatt 1942 - tre män i ljus</li>
+                                <li>Trip 19-krasch - senator gråtande, kristall i väska</li>
+                                <li>Christmas Mall - kaos och blod (målad före dec 2024?)</li>
+                                <li>Drömmar från spelarna själva (Mac, Sullivan, Sparky, Hanna)</li>
+                            </ul>
+                        </div>
+                        <p><strong>Detta borde vara EXTREMT oroande för spelarna.</strong></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>För Spelledaren - Filips Perspektiv</h3>
+                        <p>Filip är mest "mänsklig" i bemötande av de tre, men också mest manipulativ. Han gillar att leka med folk. 83 år av drömvandring har gett honom gudalik känsla - han ser folks hemligaste rädslor.</p>
+                        <div class="detail-box">
+                            <strong>HAN ÄR INTE ONDO - HAN ÄR UTTRÅKAD</strong><br>
+                            Filip har levt i andras huvuden i nästan ett sekel. Verkligheten känns tråkig. Spela rna är nya leksaker - intressanta drömmar, komplexa motivationer.
+                        </div>
+                    </div>
+                `
+            },
+            magda: {
+                title: 'MAGDA ORLOVA',
+                subtitle: 'Allierad & Överlevare | 86 år (född 1939) | Status: Oklar',
+                content: `
+                    <div class="modal-section">
+                        <h3>✓ Allierad - Exponerad som 3-åring</h3>
+                        <div class="detail-box warning">
+                            <strong>LENINGRAD NYÅRSNATT 1942</strong><br>
+                            Magda var endast 3 år gammal när kristallen aktiverades. För ung för full transformation, men märkt permanent. Hon har levt 83 år med minnen/drömmar från den natten som hon inte förstår.
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Bakgrund - Leningrad till Hamburg</h3>
+                        <p><strong>Född:</strong> Leningrad 1939<br>
+                        <strong>Exponering:</strong> 31 dec 1941 / 1 jan 1942 (3 år gammal)<br>
+                        <strong>Camp S-17:</strong> Internerad med mor efter kriget<br>
+                        <strong>Frankfurt Clinic:</strong> 1946-1952, mor dog där feb 1952<br>
+                        <strong>Hamburg:</strong> Adopterad/flyttad dit efter mors död</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Morns Dagbok - Nyckeln till Mysteriet</h3>
+                        <div class="detail-box">
+                            <strong>FRANKFURT CLINIC 1946-1952</strong><br>
+                            Magdas mor förde hemlig dagbok under 6 år på kliniken. Hon skrev om de tre männen, transformationen, vad hon såg. Sista inlägg (feb 1952): "De tre männen lever. Berlin. Slaviska Sällskapet."
+                        </div>
+                        <p><strong>Magda hittade dagboken som vuxen.</strong> Detta startade hennes research om Trip 19, de tre männen, och vad som verkligen hände i Leningrad.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Research & Obsession</h3>
+                        <p>Magda har spenderat decennier med att researcha:</p>
+                        <ul>
+                            <li>Vad som hände Leningrad nyårsnatt 1942</li>
+                            <li>Vart de tre männen tog vägen efter kriget</li>
+                            <li>Kopplingar till Trip 19-kraschen 1940</li>
+                            <li>Slavic Association i Berlin</li>
+                            <li>Nazistisk ockult teknologi (Type-VII/VIII kristaller)</li>
+                        </ul>
+                        <div class="detail-box warning">
+                            <strong>HON ÄR INTE DELTA GREEN - HON ÄR CIVIL</strong><br>
+                            Magda har ingen militär/intelligence-träning. Hon är en 86-årig kvinna driven av behov att förstå vad som hände henne och hennes mor. Detta gör henne sårbar.
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Lovettsville-möte (Session 3?)</h3>
+                        <p>Magda reste till Lovettsville, Virginia för att researcha Trip 19-kraschen. Där träffade hon (eller skulle träffa) spelarna.</p>
+                        <div class="detail-box">
+                            <strong>VAD VET HON:</strong>
+                            <ul>
+                                <li>Kopplingen Trip 19 → Leningrad via kristaller</li>
+                                <li>De tre männens identiteter och transformation</li>
+                                <li>Slavic Association i Berlin</li>
+                                <li>Morns dagbok (bevis på allt)</li>
+                            </ul>
+                        </div>
+                        <p><strong>Hon kan ge spelarna enorma mängder information - om de litar på henne.</strong></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Berlin Oktober 2025 - STATUS OKLAR</h3>
+                        <div class="detail-box warning">
+                            <strong>⚠️ KRITISK OSÄKERHET</strong><br>
+                            Magda reste till Berlin oktober 2025 för att konfrontera de tre männen vid Slavic Association. Sedan dess: ingen kontakt. Telefon obesvarad. Email bouncar.
+                        </div>
+                        <p><strong>Möjliga scenarier:</strong></p>
+                        <ul>
+                            <li>Död - dödad av Anton/Filip/Sasha eller Volkov</li>
+                            <li>Fångad - hålls av Slavic Association</li>
+                            <li>Transformerad - exponerades för kristall (osannolikt vid 86 års ålder)</li>
+                            <li>Gömd - flydde och gömmer sig</li>
+                            <li>Levande - hjälper Anton frivilligt (han övertalade henne?)</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Relation till Spelarna</h3>
+                        <p>Om spelarna mötte Magda i Lovettsville blev hon allierad. Hon delade information, visade morns dagbok (kopia?), berättade sin historia.</p>
+                        <div class="detail-box">
+                            <strong>HEN NES FÖRSVINNANDE DRIVER BERLIN-RESAN</strong><br>
+                            Om spelarna lovar att leta efter henne i Berlin - det blir personligt. Det är inte bara mysteriet längre, det är en 86-årig kvinna som hjälpte dem och nu är försvunnen.
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>För Spelledaren - Magdas Öde</h3>
+                        <div class="detail-box warning">
+                            <strong>BESLUT ATT FATTA:</strong><br>
+                            Är Magda vid liv när spelarna når Berlin? Detta påverkar kampanjens ton kraftigt.
+                            <br><br>
+                            <strong>Om hon lever:</strong> Spelarna kan rädda henne, få allierad i Berlin<br>
+                            <strong>Om hon är död:</strong> Spelarna hittar hennes kropp/bevis, högre stakes<br>
+                            <strong>Om hon är transformerad:</strong> Tragiskt, traumatiskt för spelarna
+                        </div>
+                        <p><strong>Rekommendation:</strong> Håll osäkert till spelarna faktiskt når Berlin. Bygg spänning.</p>
+                    </div>
+                `
+            },
+            magdas_mor: {
+                title: 'MAGDAS MOR (Namn Okänt)',
+                subtitle: 'Död 1952 | Dagboksförfattare | Nyckel till mysteriet',
+                content: `
+                    <div class="modal-section">
+                        <h3>Överlevare från Leningrad 1942</h3>
+                        <p>Magdas mor var vuxen och närvarande i Leningrad nyårsnatt 1942 när kristallen aktiverades. Hon överlevde exponeringen tillsammans med 3-åriga Magda, men såg transformationen av de tre männen.</p>
+                        <div class="detail-box warning">
+                            <strong>HON SÅG ALLT</strong><br>
+                            Till skillnad från Magda (som var för ung för att minnas) såg modern hela händelsen. Hon bevittnade ljuset, transformationen, de tre männens förändring. Hon visste vad de blev.
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Camp S-17 (1942-1946)</h3>
+                        <p>Efter Leningrad-händelsen internerades modern och Magda i Camp S-17 (sovjetiskt läger för "kontaminerade" eller vittnen till onaturliga händelser). De hölls där i 4 år.</p>
+                        <p><strong>Vad hände i Camp S-17?</strong> Förhör, observation, eventuell medicinsk testning. Sovjet ville förstå vad som hänt i Leningrad.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Frankfurt Clinic (1946-1952)</h3>
+                        <p>1946 överfördes modern och Magda till Frankfurt Clinic (västalllierad facilitet). Detta kan ha varit fång utbyte, defection, eller överenskommelse mellan Sovjet och väst.</p>
+                        <div class="detail-box">
+                            <strong>FRANKFURT CLINIC:</strong><br>
+                            Officiellt: Rehabiliteringscenter för krigsofferVerkligt: Observation/studier av folk exponerade för det onaturliga<br>
+                            Modern dog där februari 1952 (orsak okänd)
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Dagboken (1946-1952)</h3>
+                        <div class="detail-box warning">
+                            <strong>KRITISK ARTEFAKT</strong><br>
+                            Under 6 år på Frankfurt Clinic förde modern hemlig dagbok. Hon skrev om:
+                            <ul>
+                                <li>Vad hon såg Leningrad nyårsnatt 1942</li>
+                                <li>De tre männens transformation</li>
+                                <li>Kristallen och ljuset</li>
+                                <li>Sina farhågor om vart männen tagit vägen</li>
+                            </ul>
+                        </div>
+                        <p><strong>Sista inlägget (feb 1952, strax före död):</strong><br>
+                        "De tre männen lever. Berlin. Slaviska Sällskapet."</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Hur Visste Hon?</h3>
+                        <div class="detail-box">
+                            <strong>MÖJLIGA KÄLLOR:</strong>
+                            <ul>
+                                <li>Andra patienter på Frankfurt Clinic berättade</li>
+                                <li>Hon läste rapporter/dokument (om hon hade tillgång)</li>
+                                <li>Filip besökte henne i drömmar (varning? hotelse?)</li>
+                                <li>Hon hade kontakter som spårade männen efter kriget</li>
+                            </ul>
+                        </div>
+                        <p>Det är oklart HUR hon fick informationen om Berlin 1952 - men hon hade rätt. De tre männen etablerade Slavic Association i Östberlin 1958 (6 år efter hennes död).</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Döden (Februari 1952)</h3>
+                        <div class="detail-box warning">
+                            <strong>OMSTÄNDIGHETERNA ÄR OKLARA</strong><br>
+                            Officiellt: Naturlig död (hon var förmodligen 40-50 år gammal)<br>
+                            Möjligt: Dödad för att hon visste för mycket<br>
+                            Möjligt: Självmord (trauma från Leningrad + liv i fångenskap)
+                        </div>
+                        <p><strong>Vem skulle vilja döda henne 1952?</strong></p>
+                        <ul>
+                            <li>Frankfurt Clinic-personal (om de ville tysta vittnen)</li>
+                            <li>De tre männen (om de visste att hon spårade dem)</li>
+                            <li>Sovjet/väst-agenter (cold war intriger)</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Dagbokens Öde</h3>
+                        <p>Dagboken gömdes/bevarades av Frankfurt Clinic-personal eller medpatienter. Den hamnade till slut hos Magda (troligen när hon blev vuxen eller efter klinikens stängning).</p>
+                        <div class="detail-box">
+                            <strong>DAGBOKEN FÖRÄNDRADE MAGDAS LIV</strong><br>
+                            När Magda läste morns ord förstod hon att hennes konstiga drömmar/minnen var verkliga. Det startade hennes 30-40 års research om Trip 19, de tre männen, och Leningrad.
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>För Spelledaren - Dagbokens Innehåll</h3>
+                        <p>Om spelarna får tillgång till modern s dagbok (via Magda eller om de hittar den efter hennes försvinnande) kan den innehålla:</p>
+                        <ul>
+                            <li>Ögonvittnesskildringar av Leningrad-händelsen</li>
+                            <li>Beskrivningar av kristallen innan aktivering</li>
+                            <li>Namn på andra närvarande (civila, militärer)</li>
+                            <li>Skisser/teckningar av vad hon såg</li>
+                            <li>References till "tyskarna" som lämnade kristallen där</li>
+                            <li>Ledtrådar om Trip 19-kopplingen (om hon visste om den)</li>
+                        </ul>
+                        <p><strong>Dagboken är en av kampanjens viktigaste handouts.</strong></p>
+                    </div>
+                `
+            },
+            fbi_secretary: {
+                title: 'FBI SECRETARY (Okänd)',
+                subtitle: 'Död 31 augusti 1940 | FBI-anställd | Trip 19',
+                content: `
+                    <div class="modal-section">
+                        <h3>FBI-anställd på Flight 19</h3>
+                        <p>FBI Secretary (förmodligen kvinnlig administrativ personal) var ombord på Pennsylvania Central Airlines Flight 19 tillsammans med FBI Special Agent och DoJ Attorney. Del av Lundeen-övervakningen.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Roll i Operationen</h3>
+                        <div class="detail-box">
+                            <strong>VARFÖR VAR HON DÄR?</strong>
+                            <ul>
+                                <li>Dokumentation - för att föra protokoll av observation</li>
+                                <li>Vittne - extra person för legal coverage</li>
+                                <li>Support - administrativt stöd för Special Agent</li>
+                                <li>Täckmantel - två män + en kvinna ser mindre misstänkt ut</li>
+                            </ul>
+                        </div>
+                        <p>FBI-sekreterare på 1940-talet var ofta högutbildade, pålitliga, och betrodda med känslig information. Hennes närvaro tyder på att detta var en viktig operation.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Vad Hon Såg</h3>
+                        <p>Som del av övervakningsteamet såg hon samma saker som Special Agent och DoJ Attorney:</p>
+                        <ul>
+                            <li>Lundeens beteende i kabinen</li>
+                            <li>Hans väska/briefcase</li>
+                            <li>Eventuell konfrontation eller "struggle"</li>
+                            <li>Vad som hände innan kraschen</li>
+                        </ul>
+                        <p><strong>Hon dog tillsammans med alla andra när planet kraschade.</strong></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Officiell Förnekelse</h3>
+                        <p>Hennes närvaro förnekades av J. Edgar Hoover och AG Jackson som "pure coincidence". Som de andra federala tjänstemännen på planet blev hennes identitet klassificerad efter kraschen.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Research leads för Spelarna</h3>
+                        <ul>
+                            <li>FBI personnel records 1940 - fanns det kvinnliga sekreterare på Hoover's kontor?</li>
+                            <li>Passagerarlistor - var hennes namn raderat efteråt?</li>
+                            <li>Familj/arvingar - har de information?</li>
+                            <li>FBI internal memos - referenser till hennes uppdrag?</li>
+                        </ul>
+                    </div>
+                `
+            },
+            doj_attorney: {
+                title: 'DOJ ATTORNEY (Okänd)',
+                subtitle: 'Död 31 augusti 1940 | Criminal Division | Trip 19',
+                content: `
+                    <div class="modal-section">
+                        <h3>Department of Justice-advokat</h3>
+                        <p>DoJ Attorney från Criminal Division, Main Justice var tredje federala tjänstemannen på Flight 19. Del av Lundeen-övervakningen tillsammans med FBI Special Agent och FBI Secretary.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Criminal Division - Betydelse</h3>
+                        <div class="detail-box warning">
+                            <strong>VARFÖR VAR EN ÅKLAGARE DÄR?</strong><br>
+                            Närvaron av Criminal Division-advokat tyder på att Lundeen-övervakningen var förberedelse för ÅTAL. FBI samlade bevis, DoJ skulle prosecute.
+                        </div>
+                        <p><strong>Hans roll var förmodligen:</strong></p>
+                        <ul>
+                            <li>Legal rådgivare - säkerställa att bevis samlas korrekt</li>
+                            <li>Witness - juridiskt vittne till Lundeens beteende</li>
+                            <li>Interrogator - eventuellt konfrontera Lundeen vid landning</li>
+                            <li>Coordinator - länk mellan FBI och Attorney General's office</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Koppling till William Power Maloney</h3>
+                        <p>När Lundeen dog i kraschen utsågs William Power Maloney som Special Prosecutor 1941. Men denna DoJ-advokat arbetade redan med fallet 1940.</p>
+                        <div class="detail-box">
+                            <strong>MÖJLIG KONTINUITET:</strong><br>
+                            Om DoJ-advokaten hade byggt case mot Lundeen 1940, finns hans research/notes kvar? Gav det Maloney försprång 1941?
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Vad Han Visste</h3>
+                        <p>Som legal expert på Lundeen-fallet visste han:</p>
+                        <ul>
+                            <li>Viereck-kopplingen i detalj</li>
+                            <li>Bevismaterialet mot Lundeen</li>
+                            <li>Andra kongressledamöter under utredning</li>
+                            <li>Attorney General's planer för åtal</li>
+                            <li>Varför FBI var på planet (hans egen närvaro)</li>
+                        </ul>
+                        <p><strong>Hans död tog bort en nyckelspelare i kommande åtal.</strong></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Efter Kraschen</h3>
+                        <p>Hans närvaro förnekades som "coincidence". Men hans papper/research måste ha funnits på Main Justice. Detta kan ha hjälpt Maloney 1941 när han tog över fallet.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>För Delta Green-kampanjen</h3>
+                        <div class="detail-box">
+                            <strong>VAD OM HAN VISSTE OM KRISTALLEN?</strong><br>
+                            Om FBI/DoJ kände till att Lundeen bar något onaturligt (kristallfragment från Viereck), kan DoJ-advokaten ha varit där för att konfiskera det med legal täckning.
+                        </div>
+                        <p>Hans juridiska expertis skulle behövas för att hantera "unusual evidence" - särskilt om det kom från främmande makt (nazityskland).</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Research leads för Spelarna</h3>
+                        <ul>
+                            <li>DoJ Criminal Division records 1940</li>
+                            <li>AG's office memos om Lundeen-fallet</li>
+                            <li>Legal research notes från 1940 (innan kraschen)</li>
+                            <li>Koppling till Maloney 1941 - ärvde han DoJ-advokatens filer?</li>
+                            <li>Familj/arvingar - bevarade dokument?</li>
+                        </ul>
+                    </div>
+                `
+            },
+            winchell: {
+                title: 'WALTER WINCHELL',
+                subtitle: 'Radiojournalist | 1940-tal | Lundeen-avslöjare',
+                content: `
+                    <div class="modal-section">
+                        <h3>Prominent Radiojournalist</h3>
+                        <p>Walter Winchell var en av de mest inflytelserika radiojournalisterna i USA på 1940-talet. Han rapporterade om Lundeen-skandalen och attackerades offentligt av Norma Lundeen för det.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Rapportering om Lundeen</h3>
+                        <p>Winchell rapporterade om Senator Lundeens kopplingar till tysk agent Viereck och nazistiskt propagandaschem. Hans radiosändningar nådde miljontals lyssnare.</p>
+                        <div class="detail-box">
+                            <strong>VAD HAN AVSLÖJADE:</strong>
+                            <ul>
+                                <li>Lundeens samarbete med Viereck</li>
+                                <li>Propagandaschemat genom kongressen</li>
+                                <li>Nazi-pengar till amerikanska politiker</li>
+                                <li>Mystiska omständigheter kring Flight 19</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Norma Lundeens Motattack (Maj 1941)</h3>
+                        <div class="detail-box warning">
+                            <strong>NBC RADIO-SÄNDNING MAJ 1941</strong><br>
+                            Norma Lundeen's "unprecedented broadcast" var "apparently in reply to certain statements about her husband made by Walter Winchell." Hon attackerade honom specifikt för hans rapportering.
+                        </div>
+                        <p><strong>Norma försökte:</strong></p>
+                        <ul>
+                            <li>Förneka Winchells påståenden</li>
+                            <li>Hota att stämma honom</li>
+                            <li>Kontakta hans sponsors för bojkott</li>
+                            <li>Få hans show censurerad</li>
+                        </ul>
+                        <p><strong>Winchell fortsatte rapportera ändå.</strong></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Relation till Drew Pearson</h3>
+                        <p>Winchell och Drew Pearson var båda prominenta journalister som rapporterade Lundeen-skandalen. De kan ha delat källor och information.</p>
+                        <p><strong>Tillsammans byggde de public pressure som gjorde det svårt för DoJ att dölja utredningen.</strong></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Källor och Metoder</h3>
+                        <div class="detail-box">
+                            <strong>HUR VISSTE WINCHELL?</strong>
+                            <ul>
+                                <li>FBI-läckor (samma som Pearson?)</li>
+                                <li>Kontakter i kongressen</li>
+                                <li>Journalistkollegor som delade info</li>
+                                <li>Public records och Congressional Record</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Radio Archives</h3>
+                        <p>Winchells radiosändningar spelades in och arkiverades. Om spelarna kan hitta hans Lundeen-rapporter från 1940-1941 kan de innehålla:</p>
+                        <ul>
+                            <li>Detaljer som inte publicerats på annat håll</li>
+                            <li>Namen på källor (kanske kodade)</li>
+                            <li>Spekulation om kraschorsaken</li>
+                            <li>References till andra kongressledamöter</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Research Leads för Spelarna</h3>
+                        <ul>
+                            <li><strong>NBC Archives:</strong> Winchells radiosändningar 1940-1941</li>
+                            <li><strong>Winchell Papers:</strong> Om bevarade (universitetsarkiv?)</li>
+                            <li><strong>Transkript:</strong> Av sändningar om Lundeen</li>
+                            <li><strong>Normas motattack:</strong> NBC broadcast maj 1941 (jämför claims)</li>
+                            <li><strong>Brevkorrespondens:</strong> Med Drew Pearson och andra journalister</li>
+                        </ul>
+                    </div>
+                `
+            },
+            whitman: {
+                title: 'MRS. ELEANOR WHITMAN',
+                subtitle: 'Lovettsville Historical Society | 70+ år | Session 3-kontakt',
+                content: `
+                    <div class="modal-section">
+                        <h3>💼 Curator & Lokal Historiker</h3>
+                        <p>Mrs. Eleanor Whitman är curator vid Lovettsville Historical Society i Virginia, nära Trip 19-kraschplatsen. 70+ år gammal, pratsam, hjälpsam med lokal historia. Har arbetat där i decennier.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Trip 19-expertis</h3>
+                        <p>Whitman vet allt om Trip 19-kraschen som hände <40 miles från Lovettsville 1940. Historical Society har:</p>
+                        <ul>
+                            <li>Foton från kraschplatsen</li>
+                            <li>Tidningsklipp från 1940</li>
+                            <li>Passagerarlistor</li>
+                            <li>CAB-rapport (kopierat från National Archives)</li>
+                            <li>Lokal folklore om kraschen</li>
+                            <li>Bishop farm-material (elektromagnetiska anomalier)</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Harriet Johnsons Dödsbo (2024)</h3>
+                        <div class="detail-box warning">
+                            <strong>VOLKOV-KOPPLING - KRITISKT!</strong><br>
+                            När Harriet Johnson dog före oktober 2024 såldes hennes dödsbo via Lovettsville Historical Society. Mrs. Whitman hanterade försäljningen.
+                        </div>
+                        <p><strong>"Mr. V. Petrov" (Dmitri Volkov):</strong></p>
+                        <ul>
+                            <li>Köpte Harriet Johnsons dagbok om Trip 19</li>
+                            <li>Betalade kontant, ingen spårbar transaktion</li>
+                            <li>Rysk accent, 40-50 år gammal</li>
+                            <li>Mycket intresserad av "electromagnetic anomalies"</li>
+                        </ul>
+                        <p><strong>Mrs. Whitman minns honom väl.</strong></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>2019-besöket - "Mr. Petrov" Tidigare Besök</h3>
+                        <div class="detail-box">
+                            <strong>VOLKOV VAR DÄR 2019 OCKSÅ!</strong><br>
+                            Mrs. Whitman minns att "Mr. Petrov" besökte Historical Society 2019 (5 år före dagboksköpet). Han frågade då specifikt om:
+                            <ul>
+                                <li>Bishop farm (nära kraschplatsen)</li>
+                                <li>"Electromagnetic anomalies" i området</li>
+                                <li>Lokala berättelser om konstiga ljud/fenomen 1940</li>
+                                <li>Exakt kraschplats-koordinater</li>
+                            </ul>
+                        </div>
+                        <p><strong>Detta visar att Volkov har researched Trip 19 i åratal innan Christmas Mall-massakern dec 2024.</strong></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Möte med Spelarna (Session 3?)</h3>
+                        <p>När spelarna kommer till Lovettsville för Trip 19-research är Mrs. Whitman deras första stop. Hon är:</p>
+                        <ul>
+                            <li>Hjälpsam och pratsam</li>
+                            <li>Känner till "Mr. Petrov" (om spelarna frågar om Volkov)</li>
+                            <li>Kan visa alla Historical Society-material</li>
+                            <li>Berättar om Harriet Johnsons dagbok (såld till Volkov)</li>
+                            <li>Eventuellt nämner Magda Orlova (om hon också besökte)</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Information Hon Kan Ge</h3>
+                        <div class="detail-box">
+                            <strong>LEDTRÅDAR FÖR SPELARNA:</strong>
+                            <ul>
+                                <li>Volkov/Petrov besökte 2019 och 2024 - vad letade han efter?</li>
+                                <li>Bishop farm hade "anomalies" - fortfarande mätbara?</li>
+                                <li>Kraschplats exakt position - kan besökas</li>
+                                <li>CAB-rapport nämner "unusual electromagnetic readings"</li>
+                                <li>Lokala bor berättelser om ljus/ljud natten innan kraschen</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Efter Spelarnas Besök</h3>
+                        <div class="detail-box warning">
+                            <strong>SÄKERHET FÖR MRS. WHITMAN?</strong><br>
+                            Om spelarna är oförsiktiga (nämner Volkov högt, visar foton, frågar för aggressivt) kan Volkov få reda på att de var där. Mrs. Whitman skulle kunna bli mål.
+                        </div>
+                        <p><strong>Spelledare: Överväg om Volkov tar kontakt med henne efter spelarnas besök för att ta reda på vad de frågade om.</strong></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Praktisk Information</h3>
+                        <ul>
+                            <li><strong>Lovettsville Historical Society:</strong> Litet museum/arkiv i Lovettsville, VA</li>
+                            <li><strong>Öppettider:</strong> Tis-Lör, 10-16</li>
+                            <li><strong>Mrs. Whitman:</strong> Där de flesta dagar, arbetar frivilligt</li>
+                            <li><strong>Access:</strong> Öppen för publik, gratis inträde</li>
+                            <li><strong>Material:</strong> Kan kopieras (mot avgift), fotas (ej flash)</li>
                         </ul>
                     </div>
                 `
