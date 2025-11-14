@@ -12,9 +12,10 @@ Kampanjen kombinerar den verkliga Trip 19-flygkraschen 1940 med KULT: Black Mado
 
 - **index.html** - Huvuddashboard med snabbnavigering och översikt
 - **timeline.html** - Komplett tidslinje 1940-2025 med interaktiva modaler
-- **npcs.html** - NPC-databas med sök/filter och detaljerade modaler
+- **npcs.html** - NPC-databas med sök/filter och detaljerade modaler (18 NPCs)
+- **Flight_19_Passagerarlista.html** - Vintage-dokument med alla 25 omkomna
+- **mythos.html** - Mythos-referens: De två krafterna, kristaller, transformationer
 - **locations.html** - Platser (kommer)
-- **mythos.html** - Mythos-information (kommer)
 - **clues.html** - Ledtrådar och research-spår (kommer)
 - **sessions.html** - Sessionsplanering (kommer)
 - **adaption.html** - Adaption-guide KULT → Delta Green (kommer)
@@ -120,16 +121,18 @@ Kampanjen kombinerar den verkliga Trip 19-flygkraschen 1940 med KULT: Black Mado
 ## 🔄 UPPDATERINGAR
 
 **2025-01-14:**
-- ✅ Skapad index.html (dashboard)
-- ✅ Skapad timeline.html (komplett tidslinje med modaler)
-- ✅ Skapad npcs.html (NPC-databas grundstruktur)
-- 🔄 Uppdaterar npcs.html med alla Black Madonna-karaktärer
+- ✅ Skapad index.html (dashboard med snabbnavigering)
+- ✅ Skapad timeline.html (komplett tidslinje 1940-2025 med modaler)
+- ✅ Skapad npcs.html (18 NPCs med interaktiva modaler)
+- ✅ Lagt till Flight_19_Passagerarlista.html (vintage-dokument)
+- ✅ Skapad mythos.html (SL-referens för de två krafterna)
+- ✅ Uppdaterat alla Trip 19 historiska figurer från transcript.txt
 
 **Nästa:**
-- [ ] locations.html (platser)
-- [ ] mythos.html (förklaring av det onaturliga)
-- [ ] clues.html (research-spår)
-- [ ] sessions.html (sessionsplanering)
+- [ ] locations.html (platser - Lovettsville, Berlin, Frankfurt, Leningrad)
+- [ ] clues.html (research-spår och googlebara ledtrådar)
+- [ ] sessions.html (sessionsplanering 1-12)
+- [ ] adaption.html (full KULT → Delta Green guide)
 
 ## 📧 KONTAKT
 
