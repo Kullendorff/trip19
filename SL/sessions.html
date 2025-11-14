@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip 19 // Black Madonna - Sessions Journal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-green: #00ff41;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --accent-yellow: #ffcc00;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: var(--accent-blue);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .header .subtitle {
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+
+        /* Navigation */
+        .nav-back {
+            background: rgba(74, 144, 164, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .nav-back a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .nav-back a:hover {
+            color: #6ab0c4;
+        }
+
+        /* Placeholder message */
+        .placeholder {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent-yellow);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .placeholder h2 {
+            color: var(--accent-yellow);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .placeholder p {
+            color: var(--text-dim);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Session entry template */
+        .session-entry {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .session-header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .session-header h2 {
+            color: var(--accent-blue);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .session-meta {
+            display: flex;
+            gap: 2rem;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+        }
+
+        .session-meta .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .session-meta .meta-label {
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        .session-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .session-section h3 {
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .session-section ul {
+            list-style-position: inside;
+            color: var(--text);
+        }
+
+        .session-section li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        /* Stats box */
+        .stats-box {
+            background: rgba(74, 144, 164, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-label {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .stat-value {
+            color: var(--accent-blue);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Notes box */
+        .notes-box {
+            background: rgba(255, 204, 0, 0.1);
+            border-left: 4px solid var(--accent-yellow);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .notes-box strong {
+            color: var(--accent-yellow);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .session-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📅 SESSIONS JOURNAL</h1>
+            <div class="subtitle">TRIP 19: BLACK MADONNA - Chesapeake Cell</div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-back">
+            <a href="index.html">← Tillbaka till Dashboard</a>
+        </div>
+
+        <!-- Placeholder -->
+        <div class="placeholder">
+            <h2>⏳ Kampanjen Har Inte Startat Än</h2>
+            <p>Sessions-rapporter kommer fyllas i efter varje spelmöte.</p>
+            <p style="color: var(--accent-blue); margin-top: 1rem;">
+                Använd template nedan för att dokumentera varje session.
+            </p>
+        </div>
+
+        <!-- TEMPLATE SESSION ENTRY (Commented out for now) -->
+        <!--
+        <div class="session-entry">
+            <div class="session-header">
+                <h2>Session 1 - [Titel]</h2>
+                <div class="session-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Datum:</span>
+                        <span>[YYYY-MM-DD]</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Speltid:</span>
+                        <span>[X timmar]</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Spelare:</span>
+                        <span>[Namn]</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="session-section">
+                <h3>📋 Sammanfattning</h3>
+                <p>[Kort sammanfattning av sessionen - vad hände?]</p>
+            </div>
+
+            <div class="session-section">
+                <h3>🔍 Ledtrådar Funna</h3>
+                <ul>
+                    <li>[Ledtråd 1]</li>
+                    <li>[Ledtråd 2]</li>
+                </ul>
+            </div>
+
+            <div class="session-section">
+                <h3>👥 NPCs Mötta</h3>
+                <ul>
+                    <li><strong>[NPC Namn]</strong> - [Interaktion]</li>
+                </ul>
+            </div>
+
+            <div class="session-section">
+                <h3>🎯 Framsteg & Upptäckter</h3>
+                <ul>
+                    <li>[Vad spelarna lärde sig]</li>
+                    <li>[Vad de missade]</li>
+                </ul>
+            </div>
+
+            <div class="session-section">
+                <h3>⚠️ Sanity & Bonds</h3>
+                <div class="stats-box">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Sanity Loss (Total):</span>
+                            <span class="stat-value">[X points]</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Bonds Damaged:</span>
+                            <span class="stat-value">[X bonds]</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Breaking Points:</span>
+                            <span class="stat-value">[X/Y]</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notes-box">
+                <strong>SL-Anteckningar:</strong>
+                <p>[Privata anteckningar om vad som funkade bra, vad som behöver justeras, etc.]</p>
+            </div>
+
+            <div class="session-section">
+                <h3>➡️ Nästa Session</h3>
+                <p>[Vad händer härnäst? Vad ska förberedas?]</p>
+            </div>
+        </div>
+        -->
+
+        <!-- Example template for quick reference -->
+        <div class="session-entry" style="opacity: 0.6; border: 2px dashed var(--border);">
+            <div class="session-header">
+                <h2>Session X - [Titel]</h2>
+                <div class="session-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Datum:</span>
+                        <span>[YYYY-MM-DD]</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Speltid:</span>
+                        <span>[X timmar]</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Spelare:</span>
+                        <span>[Jonas, Daniel, Andreas, ...]</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="session-section">
+                <h3>📋 Sammanfattning</h3>
+                <p><em>[Vad hände under sessionen?]</em></p>
+            </div>
+
+            <div class="session-section">
+                <h3>🔍 Ledtrådar Funna</h3>
+                <ul>
+                    <li><em>[Ledtrådar spelarna upptäckte]</em></li>
+                </ul>
+            </div>
+
+            <div class="session-section">
+                <h3>👥 NPCs Mötta</h3>
+                <ul>
+                    <li><em>[Vilka NPCs interagerade de med?]</em></li>
+                </ul>
+            </div>
+
+            <div class="session-section">
+                <h3>🎯 Framsteg & Upptäckter</h3>
+                <ul>
+                    <li><em>[Vad lärde de sig?]</em></li>
+                    <li><em>[Vad missade de?]</em></li>
+                </ul>
+            </div>
+
+            <div class="session-section">
+                <h3>⚠️ Sanity & Bonds</h3>
+                <div class="stats-box">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Sanity Loss:</span>
+                            <span class="stat-value">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Bonds Damaged:</span>
+                            <span class="stat-value">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notes-box">
+                <strong>SL-Anteckningar:</strong>
+                <p><em>[Vad funkade? Vad behöver justeras?]</em></p>
+            </div>
+
+            <div class="session-section">
+                <h3>➡️ Nästa Session</h3>
+                <p><em>[Vad händer härnäst?]</em></p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            DELTA GREEN // TRIP 19: BLACK MADONNA // SESSIONS JOURNAL<br>
+            Dokumentera varje sessions framsteg, upptäckter och konsekvenser
+        </div>
+    </div>
+</body>
+</html>
