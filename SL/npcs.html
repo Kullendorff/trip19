@@ -636,16 +636,40 @@
             </div>
         </div>
 
-        <!-- HISTORICAL FIGURES -->
+        <!-- TRIP 19 - ON PLANE (DECEASED) -->
         <div class="category-section">
-            <h2 class="category-title">📜 Historiska Figurer (1940)</h2>
+            <h2 class="category-title">✈️ Trip 19 - På Planet (Döda)</h2>
             <div class="npc-grid">
                 <!-- Senator Ernest Lundeen -->
-                <div class="npc-card deceased" data-category="deceased historical" data-keywords="lundeen senator trip19 nazi briefcase">
+                <div class="npc-card deceased" data-category="deceased historical" data-keywords="lundeen senator trip19 nazi viereck propaganda briefcase crying" onclick="openNPCModal('lundeen')">
                     <div class="npc-header">
                         <div>
                             <div class="npc-name">SENATOR ERNEST LUNDEEN</div>
-                            <div class="npc-alias">Minnesota, USA</div>
+                            <div class="npc-alias">Minnesota, USA (Farmer-Labor Party)</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge deceased">DÖD 31 AUG 1940</span>
+                        <span class="badge historical">Trip 19</span>
+                        <span class="badge threat">Nazi-kollaboratör</span>
+                    </div>
+                    <div class="npc-summary">
+                        Senator (62 år) som dog i Trip 19-kraschen. Arbetade med tysk agent Viereck. Spred nazistisk propaganda genom Congressional franking system. Grät okontrollerbart morgonen innan flygning: "I've gone too far to turn back". Stanford Archive Box 147 innehåller hans papper (restricted till 2045).
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Död:</span> 31 augusti 1940</div>
+                        <div class="meta-item"><span class="meta-label">Ålder:</span> 62 år</div>
+                        <div class="meta-item"><span class="meta-label">Plats:</span> Trip 19-krasch, VA</div>
+                        <div class="meta-item"><span class="meta-label">Status:</span> FBI-övervakning</div>
+                    </div>
+                </div>
+
+                <!-- Margaret Carson -->
+                <div class="npc-card deceased" data-category="deceased historical" data-keywords="margaret carson flight attendant going down note trip19" onclick="openNPCModal('carson')">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">MARGARET CARSON</div>
+                            <div class="npc-alias">Flygvärdinna, Pennsylvania Central Airlines</div>
                         </div>
                     </div>
                     <div class="npc-badges">
@@ -653,36 +677,357 @@
                         <span class="badge historical">Trip 19</span>
                     </div>
                     <div class="npc-summary">
-                        Amerikansk senator med Nazi-kopplingar. Dog i Trip 19-kraschen. Väntade på Type-VII kristallfragment från tysk kurir. Korrespondens med Viereck. FBI konfiskerade väska inom 48h. Stanford Archive Box 147 innehåller hans klassificerade dokument (restricted till 2045).
+                        Ensam flygvärdinna på Flight 19. Dog i kraschen. Skrev lapp med texten "going down" som hittades 3 miles från kraschplats. Hade tid och sinnesnärvaro att varna innan impact. Vad såg hon i kabinen?
                     </div>
                     <div class="npc-meta">
                         <div class="meta-item"><span class="meta-label">Död:</span> 31 augusti 1940</div>
-                        <div class="meta-item"><span class="meta-label">Ålder:</span> 51</div>
-                        <div class="meta-item"><span class="meta-label">Plats:</span> Trip 19-krasch, Virginia</div>
-                        <div class="meta-item"><span class="meta-label">Roll:</span> Nazi-kollaboratör</div>
+                        <div class="meta-item"><span class="meta-label">Ålder:</span> Okänd</div>
+                        <div class="meta-item"><span class="meta-label">Artefakt:</span> "going down" lapp</div>
+                        <div class="meta-item"><span class="meta-label">Betydelse:</span> Vittne till kabinen</div>
+                    </div>
+                </div>
+
+                <!-- FBI Special Agent -->
+                <div class="npc-card deceased" data-category="deceased historical" data-keywords="fbi agent trip19 surveillance lundeen hoover" onclick="openNPCModal('fbi_agent')">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">FBI SPECIAL AGENT</div>
+                            <div class="npc-alias">Namn ej avslöjat (klassificerat)</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge deceased">DÖD 31 AUG 1940</span>
+                        <span class="badge historical">FBI</span>
+                    </div>
+                    <div class="npc-summary">
+                        FBI-agent på Flight 19. Officiellt "pure coincidence" (AG Jackson + J. Edgar Hoover förnekade utredning). Verklig anledning: Övervakade Lundeen. Närvaro avslöjad av Drew Pearson 13 sept 1940. Vad var hans order?
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Död:</span> 31 augusti 1940</div>
+                        <div class="meta-item"><span class="meta-label">Ålder:</span> Okänd</div>
+                        <div class="meta-item"><span class="meta-label">Uppdrag:</span> Lundeen-surveillance</div>
+                        <div class="meta-item"><span class="meta-label">Förnekad av:</span> Hoover, AG Jackson</div>
+                    </div>
+                </div>
+
+                <!-- FBI Secretary -->
+                <div class="npc-card deceased" data-category="deceased historical" data-keywords="fbi secretary trip19 surveillance">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">FBI SECRETARY</div>
+                            <div class="npc-alias">Namn ej avslöjat</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge deceased">DÖD 31 AUG 1940</span>
+                        <span class="badge historical">FBI</span>
+                    </div>
+                    <div class="npc-summary">
+                        FBI-anställd på Flight 19. Del av Lundeen-övervakningen. Också förnekad av officiella källor efter kraschen.
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Död:</span> 31 augusti 1940</div>
+                        <div class="meta-item"><span class="meta-label">Ålder:</span> Okänd</div>
+                        <div class="meta-item"><span class="meta-label">Uppdrag:</span> FBI-support</div>
+                        <div class="meta-item"><span class="meta-label">Status:</span> Klassificerad</div>
+                    </div>
+                </div>
+
+                <!-- DoJ Attorney -->
+                <div class="npc-card deceased" data-category="deceased historical" data-keywords="doj attorney justice department trip19 lundeen">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">DOJ ATTORNEY</div>
+                            <div class="npc-alias">Criminal Division, Main Justice</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge deceased">DÖD 31 AUG 1940</span>
+                        <span class="badge historical">DoJ</span>
+                    </div>
+                    <div class="npc-summary">
+                        Department of Justice-advokat från Criminal Division. På Flight 19 för Lundeen-utredning. Tredje federala tjänstemannen på planet. Också förnekad som "coincidence".
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Död:</span> 31 augusti 1940</div>
+                        <div class="meta-item"><span class="meta-label">Ålder:</span> Okänd</div>
+                        <div class="meta-item"><span class="meta-label">Division:</span> Criminal, Main Justice</div>
+                        <div class="meta-item"><span class="meta-label">Plats:</span> Washington DC</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRIP 19 - KEY INVESTIGATORS -->
+        <div class="category-section">
+            <h2 class="category-title">🔍 Trip 19 - Nyckelaktörer & Utredare</h2>
+            <div class="npc-grid">
+                <!-- George Sylvester Viereck -->
+                <div class="npc-card threat-high" data-category="threat historical" data-keywords="viereck german agent nazi propaganda hitler embassy lundeen franking" onclick="openNPCModal('viereck')">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">GEORGE SYLVESTER VIERECK</div>
+                            <div class="npc-alias">Top-rankad tysk agent i USA</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge threat">PRIMÄR SPÅRBAR</span>
+                        <span class="badge historical">Tysk Agent</span>
+                        <span class="badge">Arresterad 1941</span>
+                    </div>
+                    <div class="npc-summary">
+                        Högt betald agent för Hitlers regering. Värvade dussintals kongressledamöter (inklusive Lundeen) till propagandaschem. Mottog material från tyska ambassaden. Skrev tal som lästes i kongressen och skickades till miljoner amerikaner på skattebetalarkostnad. Arresterad av Maloney 1941. VAD MER GAV HAN LUNDEEN?
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Status 1940:</span> Aktiv</div>
+                        <div class="meta-item"><span class="meta-label">Status 1941:</span> Arresterad</div>
+                        <div class="meta-item"><span class="meta-label">Koppling:</span> Tysk ambassad DC</div>
+                        <div class="meta-item"><span class="meta-label">Rekryterade:</span> 24+ kongressledamöter</div>
+                    </div>
+                </div>
+
+                <!-- Norma Lundeen -->
+                <div class="npc-card threat-medium" data-category="historical" data-keywords="norma lundeen widow files viereck cover-up nbc radio hat" onclick="openNPCModal('norma')">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">NORMA LUNDEEN</div>
+                            <div class="npc-alias">Senatorns änka, "The Woman Who Knew"</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge historical">Överlevare</span>
+                        <span class="badge threat">Döljer bevis</span>
+                        <span class="badge">Möjlig 2025?</span>
+                    </div>
+                    <div class="npc-summary">
+                        Lång, självsäker kvinna med "a taste for flamboyant hats". Marscherade in på senatkontoret <48h efter kraschen och KRÄVDE Viereck-filerna (10+ års korrespondens). Gömde dem. Gick på NBC radio maj 1941 och ljög medvetet om mannens verksamhet. Hotade journalister. VAR ÄR FILERNA NU? Lever hon fortfarande 2025 (skulle vara 105+)?
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Status 1940:</span> Överlevare</div>
+                        <div class="meta-item"><span class="meta-label">Status 2025:</span> Troligen död</div>
+                        <div class="meta-item"><span class="meta-label">Artefakt:</span> Viereck-filer (gömd)</div>
+                        <div class="meta-item"><span class="meta-label">Betydelse:</span> KRITISK</div>
+                    </div>
+                </div>
+
+                <!-- William Power Maloney -->
+                <div class="npc-card ally" data-category="ally historical" data-keywords="maloney prosecutor special attorney viereck raid publicist 400-0" onclick="openNPCModal('maloney')">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">WILLIAM POWER MALONEY</div>
+                            <div class="npc-alias">Special Prosecutor, U.S. Attorney SDNY</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge ally">ÅKLAGARE</span>
+                        <span class="badge historical">400-0 Record</span>
+                        <span class="badge">Möjlig 2025?</span>
+                    </div>
+                    <div class="npc-summary">
+                        Specialist på fraud/corruption med 400-0 track record. Utsedd efter Lundeens död för att hantera ultra-right-hotet. Razzierade DC-publicistens lägenhet → hittade hundratals dokument med dussintals kongressledamöters namn. Arresterade Viereck. Hotad av Senator Wheeler. VAD MER HITTADE HAN? Lever han 2025 (~95 år)?
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Position:</span> Special Prosecutor</div>
+                        <div class="meta-item"><span class="meta-label">Record:</span> 400 wins - 0 losses</div>
+                        <div class="meta-item"><span class="meta-label">Razzia:</span> DC-publicist, 1941</div>
+                        <div class="meta-item"><span class="meta-label">Status 2025:</span> Möjlig (95+)</div>
+                    </div>
+                </div>
+
+                <!-- Lundeen's Secretary (witness) -->
+                <div class="npc-card" data-category="ally historical" data-keywords="secretary lundeen crying witness airport struggle scuffle" onclick="openNPCModal('secretary')">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">LUNDEENS SEKRETERARE</div>
+                            <div class="npc-alias">Namn ej känt (vittne)</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge ally">VITTNE</span>
+                        <span class="badge historical">Överlevare</span>
+                        <span class="badge">Möjlig 2025?</span>
+                    </div>
+                    <div class="npc-summary">
+                        Hittade Lundeen gråtande vid skrivbordet lördagsmorgon 31 aug. Körde honom till flygplatsen - de pratade inte alls. Bevittnade möjligen "struggle" bland passagerare genom öppen dörr. Åkte till kraschplatsen när hon hörde nyheterna. Arbetade på kontoret när Norma tog filerna. VAD SÅG HON VERKLIGEN? Lever hon 2025 (~70+ år)?
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Status 1940:</span> Överlevare</div>
+                        <div class="meta-item"><span class="meta-label">Vittne till:</span> Gråt, flygplats, struggle?</div>
+                        <div class="meta-item"><span class="meta-label">Status 2025:</span> Möjlig (105+)</div>
+                        <div class="meta-item"><span class="meta-label">Betydelse:</span> Ögonvittne</div>
                     </div>
                 </div>
 
                 <!-- Harriet Johnson -->
-                <div class="npc-card deceased" data-category="deceased historical" data-keywords="harriet johnson secretary diary volkov">
+                <div class="npc-card deceased" data-category="deceased historical ally" data-keywords="harriet johnson diary volkov petrov estate sale 2024">
                     <div class="npc-header">
                         <div>
                             <div class="npc-name">HARRIET JOHNSON</div>
-                            <div class="npc-alias">Lundeens sekreterare</div>
+                            <div class="npc-alias">Historisk forskare / dagboksförfattare</div>
                         </div>
                     </div>
                     <div class="npc-badges">
                         <span class="badge deceased">DÖD ~2024</span>
-                        <span class="badge historical">Vittne</span>
+                        <span class="badge historical">Dokumentär</span>
                     </div>
                     <div class="npc-summary">
-                        Lundeens personliga sekreterare. Körde honom till flygplatsen 31 augusti 1940. FBI-vittne: såg Lundeen gråtande, citerad "I've gone too far to turn back". Förde hemlig dagbok om senatorn och väskan. Dödsbo-försäljning 2024 → Volkov köpte dagboken via alias "V. Petrov".
+                        Forskare som förde hemlig dagbok om Lundeen och Trip 19. Död före okt 2024. Dödsbo-försäljning i Lovettsville → Dmitri Volkov köpte dagboken via alias "V. Petrov". Mrs. Eleanor Whitman minns honom från 2024 OCH 2019. VAD STOD I DAGBOKEN?
                     </div>
                     <div class="npc-meta">
                         <div class="meta-item"><span class="meta-label">Död:</span> Före oktober 2024</div>
-                        <div class="meta-item"><span class="meta-label">Ålder:</span> Okänd</div>
-                        <div class="meta-item"><span class="meta-label">Artefakt:</span> Dagbok (1940)</div>
-                        <div class="meta-item"><span class="meta-label">Betydelse:</span> Ledtråd till Volkov</div>
+                        <div class="meta-item"><span class="meta-label">Artefakt:</span> Dagbok (1940-tal)</div>
+                        <div class="meta-item"><span class="meta-label">Köpare:</span> "V. Petrov" (Volkov)</div>
+                        <div class="meta-item"><span class="meta-label">Plats:</span> Lovettsville, VA</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRIP 19 - CONSPIRATORS -->
+        <div class="category-section">
+            <h2 class="category-title">⚠️ Trip 19 - Konspiratörer (Franking Scheme)</h2>
+            <div class="npc-grid">
+                <!-- Senator Burton K. Wheeler -->
+                <div class="npc-card threat-medium" data-category="threat historical" data-keywords="wheeler montana america first senator conspiracy propaganda maloney">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">SENATOR BURTON K. WHEELER</div>
+                            <div class="npc-alias">Montana (Democrat)</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge threat">KONSPIRATÖR</span>
+                        <span class="badge historical">America First</span>
+                    </div>
+                    <div class="npc-summary">
+                        Ledare för America First Committee. Del av Viereck-schemat. Efter Vierecks arrestering: hotade DoJ med kongressutredning, försökte få Maloney sparkad, "burn the whole thing down". Namnet hittades i DC-publicistens lägenhet 1941.
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Stat:</span> Montana</div>
+                        <div class="meta-item"><span class="meta-label">Parti:</span> Democrat</div>
+                        <div class="meta-item"><span class="meta-label">Organisation:</span> America First</div>
+                        <div class="meta-item"><span class="meta-label">Roll:</span> Ledare</div>
+                    </div>
+                </div>
+
+                <!-- Senator Gerald Nye -->
+                <div class="npc-card threat-medium" data-category="threat historical" data-keywords="nye north dakota senator conspiracy propaganda viereck">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">SENATOR GERALD NYE</div>
+                            <div class="npc-alias">North Dakota (Republican)</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge threat">KONSPIRATÖR</span>
+                        <span class="badge historical">America First</span>
+                    </div>
+                    <div class="npc-summary">
+                        Del av Viereck-propagandaschemat. Namn hittades i Maloneys razzia. Spred nazistisk propaganda via Congressional franking system.
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Stat:</span> North Dakota</div>
+                        <div class="meta-item"><span class="meta-label">Parti:</span> Republican</div>
+                        <div class="meta-item"><span class="meta-label">Organisation:</span> America First</div>
+                        <div class="meta-item"><span class="meta-label">Bevis:</span> Maloney razzia</div>
+                    </div>
+                </div>
+
+                <!-- Senator David Worth Clark -->
+                <div class="npc-card threat-medium" data-category="threat historical" data-keywords="clark idaho senator conspiracy propaganda democrat">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">SENATOR DAVID WORTH CLARK</div>
+                            <div class="npc-alias">Idaho (Democrat)</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge threat">KONSPIRATÖR</span>
+                        <span class="badge historical">America First</span>
+                    </div>
+                    <div class="npc-summary">
+                        Demokratisk senator involverad i Viereck-schemat. Bevis hittades i DC-publicistens lägenhet. Del av bipartisan-konspirationen.
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Stat:</span> Idaho</div>
+                        <div class="meta-item"><span class="meta-label">Parti:</span> Democrat</div>
+                        <div class="meta-item"><span class="meta-label">Organisation:</span> America First</div>
+                        <div class="meta-item"><span class="meta-label">Bevis:</span> Maloney razzia</div>
+                    </div>
+                </div>
+
+                <!-- Other Congressmen Note -->
+                <div class="npc-card" data-category="historical" data-keywords="congressmen representatives senators 24 viereck propaganda franking scheme">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">ÖVRIGA KONGRESSLEDAMÖTER</div>
+                            <div class="npc-alias">21+ ytterligare namn</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge historical">24 Totalt</span>
+                        <span class="badge">Båda partier</span>
+                    </div>
+                    <div class="npc-summary">
+                        Maloney hittade totalt 24+ kongressledamöters namn i DC-publicistens razzia. Inkluderar Stephen Day (IL), George Tinkham (MA), Jacob Thorkelson (MT), Clare Hoffman, Martin L. Sweeney (OH), Rush Holt, med flera. "Names and literal receipts". Alla sökte sina filer efter Vierecks arrestering.
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Antal:</span> 24+ totalt</div>
+                        <div class="meta-item"><span class="meta-label">Partier:</span> Rep + Dem</div>
+                        <div class="meta-item"><span class="meta-label">Bevis:</span> Maloneys razzia</div>
+                        <div class="meta-item"><span class="meta-label">Reaktion:</span> "Burn it down"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRIP 19 - JOURNALISTS -->
+        <div class="category-section">
+            <h2 class="category-title">📰 Trip 19 - Journalister & Avslöjare</h2>
+            <div class="npc-grid">
+                <!-- Drew Pearson -->
+                <div class="npc-card ally" data-category="ally historical" data-keywords="drew pearson journalist columnist expose fbi surveillance sabotage" onclick="openNPCModal('pearson')">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">DREW PEARSON</div>
+                            <div class="npc-alias">"Arguably the most powerful journalist in the country"</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge ally">JOURNALIST</span>
+                        <span class="badge historical">Avslöjare</span>
+                    </div>
+                    <div class="npc-summary">
+                        Syndikerad krönikör. Publicerade "G-MEN WERE SHADOWING LATE SENATOR" 13 sept 1940 (10 dagar efter begravning). Avslöjade att FBI/DoJ var på planet för surveillance. Spekulerade om sabotage, om G-men "tangled with Lundeen in flight". Förutspådde att DoJ skulle förneka (de gjorde det). Attackerad av Norma Lundeen.
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Medium:</span> Syndikerad kolumn</div>
+                        <div class="meta-item"><span class="meta-label">Datum:</span> 13 sept 1940</div>
+                        <div class="meta-item"><span class="meta-label">Avslöjande:</span> FBI surveillance</div>
+                        <div class="meta-item"><span class="meta-label">Arkiv:</span> Library of Congress</div>
+                    </div>
+                </div>
+
+                <!-- Walter Winchell -->
+                <div class="npc-card ally" data-category="ally historical" data-keywords="walter winchell radio journalist lundeen norma broadcast">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">WALTER WINCHELL</div>
+                            <div class="npc-alias">Radiojournalist</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge ally">JOURNALIST</span>
+                        <span class="badge historical">Radio</span>
+                    </div>
+                    <div class="npc-summary">
+                        Prominent radiojournalist som rapporterade om Lundeen-skandalen. Normas NBC-radiosändning maj 1941 var "apparently in reply to certain statements about her husband made by Walter Winchell". Hon attackerade honom offentligt. Hans rapporter finns troligen i NBC Archives.
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Medium:</span> Radio</div>
+                        <div class="meta-item"><span class="meta-label">Rapporterade:</span> Lundeen-skandal</div>
+                        <div class="meta-item"><span class="meta-label">Reaktion:</span> Attackerad av Norma</div>
+                        <div class="meta-item"><span class="meta-label">Arkiv:</span> NBC Archives?</div>
                     </div>
                 </div>
             </div>
@@ -727,6 +1072,656 @@
     </div>
 
     <script>
+        // NPC Modal Data
+        const npcModalData = {
+            lundeen: {
+                title: 'SENATOR ERNEST LUNDEEN',
+                subtitle: 'Minnesota (Farmer-Labor) | DÖD: 31 augusti 1940, 62 år',
+                content: `
+                    <div class="modal-section">
+                        <h3>Översikt</h3>
+                        <p>Amerikansk senator som dog i Pennsylvania Central Airlines Flight 19-kraschen. Var under aktiv FBI-övervakning för samarbete med tysk agent George Sylvester Viereck. Central figur i nazistiskt propagandaschem som spred miljontals dokument till amerikanska medborgare via Congressional franking privilege.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Politisk Bakgrund</h3>
+                        <ul>
+                            <li><strong>1917:</strong> Röstade NEJ till USA:s inträde i WWI - förlorade sitt säte, nästan lynchad i Ortonville, Minnesota</li>
+                            <li><strong>1920-tal:</strong> Byggde upp stöd och krigskassa, återvald till Senaten sent 1930-tal</li>
+                            <li><strong>1930-40:</strong> Stark opponent mot USA:s inträde i WWII</li>
+                            <li><strong>Finansiell situation:</strong> Beskylld för kickbacks från anställda, "hurting a bit for money and open to questionable sources"</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Samarbete med Viereck</h3>
+                        <div class="detail-box warning">
+                            <strong>KRITISKT FÖRHÅLLANDE</strong><br>
+                            Lundeen och Viereck var "gamla vänner sedan WWI-eran" med över 10 års korrespondens. Viereck skrev tal som Lundeen läste ordagrant i Senaten. Talen trycktes på skattebetalarkostnad och skickades till miljoner amerikaner. Lundeen och Viereck delade vinsten från artikelpubliceringar.
+                        </div>
+                        <p><strong>Omfattning:</strong> Lundeen var endast EN av 24+ kongressledamöter som Viereck värvade till schemat.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>31 Augusti 1940 - Sista Dagen</h3>
+                        <div class="detail-box warning">
+                            <strong>LÖRDAGSMORGON:</strong><br>
+                            Lundeens sekreterare hittade honom gråtande vid sitt skrivbord. Han vägrade prata om det: "I can't talk about it" och "I've gone too far to turn back". Hon körde honom till flygplatsen i tystnad.
+                        </div>
+                        <p><strong>På planet:</strong> Lundeen bar Vierecks tal i fickan (planerat Labor Day-tal med pro-tyskt innehåll). Tre FBI/DoJ-personer var också ombord för surveillance. Talet överlevde kraschen - nu på Stanford University Archives.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Efter Kraschen</h3>
+                        <ul>
+                            <li><strong><48 timmar:</strong> Änkan Norma marscherade in på senatkontoret och KRÄVDE "Viereck-filerna" - 10+ års korrespondens</li>
+                            <li><strong>13 sept 1940:</strong> Drew Pearson avslöjade FBI-övervakning</li>
+                            <li><strong>1941:</strong> William Power Maloney arresterade Viereck, hittade 24+ kongressledamöters inblandning</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Öppna Frågor (Delta Green-kampanj)</h3>
+                        <div class="detail-box">
+                            <ul>
+                                <li>Vad mer gav Viereck Lundeen förutom tal? Kristaller? Artefakter?</li>
+                                <li>Varför grät han okontrollerbart morgonen innan flygning?</li>
+                                <li>Vad innehöll väskan som FBI konfiskerade?</li>
+                                <li>Vad står i Stanford Archive Box 147 (restricted till 2045)?</li>
+                                <li>Hade tyska ambassaden tillgång till ockult material från nazistisk forskning?</li>
+                                <li>Var det därför tre FBI/DoJ-personer var på planet?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Researchtrådar för Spelarna</h3>
+                        <ul>
+                            <li><strong>Stanford University Archives:</strong> Box 147 med Lundeens papper (restricted till 2045 - varför?)</li>
+                            <li><strong>Library of Congress:</strong> Congressional Record med hans tal</li>
+                            <li><strong>National Archives:</strong> FBI-filer om Lundeen-utredningen</li>
+                            <li><strong>Lovettsville Historical Society:</strong> Mrs. Eleanor Whitman kan berätta om Volkovs besök 2019 & 2024</li>
+                            <li><strong>Harriet Johnsons dagbok:</strong> Volkov köpte den 2024 - vad stod där?</li>
+                        </ul>
+                    </div>
+                `
+            },
+            carson: {
+                title: 'MARGARET CARSON',
+                subtitle: 'Flygvärdinna, Pennsylvania Central Airlines | DÖD: 31 augusti 1940',
+                content: `
+                    <div class="modal-section">
+                        <h3>Roll på Flight 19</h3>
+                        <p>Ensam flygvärdinna på Pennsylvania Central Airlines Flight 19. Dog tillsammans med alla 25 ombord när planet kraschade i rural Virginia mindre än 40 miles från Washington DC.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>"Going Down" - Sista Vittnesbörd</h3>
+                        <div class="detail-box warning">
+                            <strong>KRITISK ARTEFAKT</strong><br>
+                            Margaret Carson skrev en lapp med texten "going down" som hittades 3 miles från kraschplatsens epicentrum. Detta indikerar att hon hade tid och sinnesnärvaro att skriva en varning innan impact.
+                        </div>
+                        <p><strong>Implication:</strong> Planet gick inte ner omedelbart. Hon hade tid att reagera. Vad såg hon i kabinen? Var det kontrollerat nedstigande eller kaos?</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Vad Kunde Hon Ha Sett?</h3>
+                        <div class="detail-box">
+                            <ul>
+                                <li>Lundeen gråtande och beteende sig konstigt</li>
+                                <li>Tre FBI/DoJ-personer övervakande Lundeen</li>
+                                <li>Lundeens väska/briefcase med innehåll</li>
+                                <li>"Struggle"/"scuffle" bland passagerare (som sekreteraren möjligen såg genom dörren)</li>
+                                <li>Tekniska problem i kabinen</li>
+                                <li>Något onaturligt? Kristaller? Ljud? Vibrationer?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Kraschdetaljer</h3>
+                        <ul>
+                            <li><strong>Plats:</strong> Rural Virginia majsfält, <40 miles från DC</li>
+                            <li><strong>Motorerna:</strong> Drivna 6 fot ner i jorden - full gas vid impact</li>
+                            <li><strong>Spillror:</strong> Spridda över flera hundra yards</li>
+                            <li><strong>Överlevande artefakter:</strong> Vierecks tal (i Lundeens ficka), Carsons lapp</li>
+                            <li><strong>Kraschorsak:</strong> Officiellt oklart - piloterna kunde inte kontrollera planet</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>För Delta Green-utredningen</h3>
+                        <p>Margaret Carson var ögonvittne till allt som hände i kabinen de sista minuterna. Hennes lapp är ett av få fysiska bevis från kraschen. Om spelarna kan hitta mer information om hennes bakgrund, familj, eller andra artefakter från hennes tillhörigheter kan det ge ledtrådar om vad hon verkligen såg.</p>
+                    </div>
+                `
+            },
+            fbi_agent: {
+                title: 'FBI SPECIAL AGENT (Okänd)',
+                subtitle: 'Federal Bureau of Investigation | DÖD: 31 augusti 1940',
+                content: `
+                    <div class="modal-section">
+                        <h3>Klassificerad Närvaro</h3>
+                        <div class="detail-box warning">
+                            <strong>OFFICIELL FÖRNEKELSE</strong><br>
+                            Attorney General Jackson och J. Edgar Hoover förnekade båda efteråt att Lundeen var under utredning. De kallade FBI/DoJ-personalens närvaro på Flight 19 för "pure coincidence". Historiker vet nu att detta var en MEDVETEN LÖGN.
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Avslöjat av Drew Pearson</h3>
+                        <p><strong>13 september 1940</strong> (10 dagar efter Lundeens begravning):<br>
+                        Syndikerad krönikör Drew Pearson publicerade "G-MEN WERE SHADOWING LATE SENATOR" och avslöjade att FBI Special Agent, FBI Secretary, och DoJ Attorney var ombord för att övervaka Lundeen. Pearson förutspådde korrekt att DoJ skulle förneka detta.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Möjliga Uppdrag</h3>
+                        <div class="detail-box">
+                            <strong>VÅD VAR HANS VERKLIGA ORDER?</strong>
+                            <ul>
+                                <li>Övervaka Lundeens beteende och kontakter</li>
+                                <li>Konfiskera väska/briefcase vid landning</li>
+                                <li>Arrestera Lundeen vid ankomst till Minnesota</li>
+                                <li>Dokumentera innehåll i väskan</li>
+                                <li>Avlyssna samtal med andra passagerare</li>
+                                <li>Förhindra leverans av något Lundeen bar</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>"Struggle" i Kabinen?</h3>
+                        <p>Lundeens sekreterare vittnade om att hon möjligen såg en "struggle"/"scuffle" bland passagerare genom planetdörren innan avgång. Om FBI-agenten konfronterade Lundeen i flygning - kunde det ha bidragit till kraschen?</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>För Delta Green-utredningen</h3>
+                        <div class="detail-box">
+                            <ul>
+                                <li><strong>FBI National Archives:</strong> Finns rapporten om hans uppdrag?</li>
+                                <li><strong>Hoover's filer:</strong> Classified memos om Lundeen-surveillance</li>
+                                <li><strong>DoJ Criminal Division:</strong> Orders till de tre federala tjänstemännen</li>
+                                <li><strong>Identitet:</strong> Kan hans namn hittas i FBI personnel records 1940?</li>
+                                <li><strong>Familj:</strong> Har hans arvingar bevarat något? Brev? Dokument?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Kritiska Frågor</h3>
+                        <ul>
+                            <li>Visste FBI om artefakter/kristaller från tysk källa?</li>
+                            <li>Var de där för att FÖRHINDRA leverans eller för att KONFISKERA något?</li>
+                            <li>Konfronterade de Lundeen i flygning?</li>
+                            <li>Finns deras rapporter fortfarande klassificerade 2025?</li>
+                        </ul>
+                    </div>
+                `
+            },
+            viereck: {
+                title: 'GEORGE SYLVESTER VIERECK',
+                subtitle: 'Top-rankad tysk agent i USA | Arresterad 1941',
+                content: `
+                    <div class="modal-section">
+                        <h3>⚠️ PRIMÄR SPÅRBAR - "THE GERMAN AGENT"</h3>
+                        <div class="detail-box warning">
+                            <strong>DETTA ÄR MANNEN SPELARNA SÖKER</strong><br>
+                            George Sylvester Viereck var högt betald, top-rankad agent för Hitlers regering i USA. Han värvade dussintals kongressledamöter till ett massivt propagandaschem. Han gav Lundeen mer än bara tal - FRÅGAN ÄR VAD.
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Uppdrag från Berlin</h3>
+                        <ul>
+                            <li>Hålla USA ute ur WWII genom desinformation</li>
+                            <li>"Mjuka upp" Amerika genom propaganda</li>
+                            <li>Exploatera "kernels of disturbance" (raskontroverser, ekonomisk ojämlikhet, politiska splittringar)</li>
+                            <li>Skapa "national demoralization"</li>
+                            <li>Destabilisera amerikanskt samhälle inifrån</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>"The Franking Scheme" - Metod</h3>
+                        <div class="detail-box">
+                            <strong>HUR DET FUNGERADE:</strong>
+                            <ol>
+                                <li>Viereck fick material och order från <strong>tyska ambassaden i DC</strong></li>
+                                <li>Skrev tal baserat på tyskt propagandamaterial</li>
+                                <li>Kongressledamöter läste dem ordagrant i Senaten/House</li>
+                                <li>Tal trycktes på skattebetalarkostnad (miljontals kopior)</li>
+                                <li>Skickades med gratis frankerade kuvert (Congressional privilege)</li>
+                                <li>Miljoner amerikaner fick nazistisk propaganda hem i brevlådan</li>
+                                <li>Tal publicerades som artiklar - Viereck och kongressledamöter delade vinsten</li>
+                            </ol>
+                        </div>
+                        <p><strong>Omfattning:</strong> Värvade 24+ kongressledamöter från båda partier. Opererade "in plain sight" - hans identitet var inte hemlig.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Kopplingar och Nätverk</h3>
+                        <ul>
+                            <li><strong>Tyska ambassaden DC:</strong> Hans primära källa för material och betalning</li>
+                            <li><strong>Tyska konsuln:</strong> Betalningsagenter i USA</li>
+                            <li><strong>Francis Moran (Christian Front Boston):</strong> Levererade tusentals nazistiska böcker/pamfletter</li>
+                            <li><strong>America First Committee:</strong> De flesta hans kongressledamöter var medlemmar</li>
+                            <li><strong>24+ kongressledamöter:</strong> Lundeen, Wheeler, Nye, Clark, med flera</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Förhållande till Lundeen</h3>
+                        <div class="detail-box warning">
+                            <strong>"GAMLA VÄNNER SEDAN WWI-ERAN"</strong><br>
+                            Viereck och Lundeen hade över 10 års korrespondens. Viereck skrev alla Lundeens stora tal. Lundeen läste dem ordagrant. De delade artikelvinster. Men Norma tog filerna <48h efter kraschen - VAD FINNS DÄR?
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Arrestering och Åtal (1941)</h3>
+                        <p><strong>Arresterad av:</strong> William Power Maloney (Special Prosecutor, 400-0 track record)<br>
+                        <strong>Efter:</strong> Maloneys razzia mot DC-publicistens lägenhet<br>
+                        <strong>Bevis:</strong> Hundratals dokument, kuvert, "names and literal receipts"<br>
+                        <strong>Reaktion:</strong> Kongressledamöterna började "search their own files" för legal exposure</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🔴 KRITISKT FÖR KAMPANJEN</h3>
+                        <div class="detail-box warning">
+                            <strong>VAD MER GAV VIERECK LUNDEEN?</strong>
+                            <ul>
+                                <li>Hade han artefakter från nazistisk ockult forskning?</li>
+                                <li>Type-VII/VIII kristaller från tyska experiment?</li>
+                                <li>Material från Ahnenerbe eller andra nazistiska ockultavdelningar?</li>
+                                <li>Var det därför Lundeen grät okontrollerbart morgonen innan flygning?</li>
+                                <li>Var det därför FBI var på planet?</li>
+                                <li>Kraschade planet för att något onaturligt aktiverades?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Researchtrådar för Spelarna</h3>
+                        <ul>
+                            <li><strong>National Archives:</strong> Viereck-åtalet, vittnesbörd, bevis</li>
+                            <li><strong>Tyska ambassaden DC:</strong> Arkiv om vad de skickade till Viereck (om tillgängligt)</li>
+                            <li><strong>Stanford Archives:</strong> Vart tog Norma Viereck-filerna efter att hon gömde dem?</li>
+                            <li><strong>Maloneys razzia:</strong> Finns fler dokument från DC-publicistens lägenhet?</li>
+                            <li><strong>Vierecks familj/arvingar:</strong> Bevarade dokument? Dagböcker?</li>
+                            <li><strong>Christian Front:</strong> Francis Moran - vad levererade Viereck till honom?</li>
+                        </ul>
+                    </div>
+                `
+            },
+            norma: {
+                title: 'NORMA LUNDEEN',
+                subtitle: '"The Woman Who Knew" | Överlevare, möjligen 105+ år 2025',
+                content: `
+                    <div class="modal-section">
+                        <h3>Övergripande</h3>
+                        <p>Lång, självsäker, vältalig kvinna med "a taste for flamboyant hats". Senator Ernest Lundeens änka som visste ALLT om mannens samarbete med tysk agent Viereck - men valde att dölja sanningen istället för att samarbeta.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3><48 Timmar Efter Kraschen</h3>
+                        <div class="detail-box warning">
+                            <strong>KRITISK HANDLING</strong><br>
+                            Norma marscherade in på Lundeens senatkontor mindre än 48 timmar efter kraschen. Hon ville INTE trösta personal, prata med kollegor, eller hämta personliga effekter. Hon krävde specifikt <strong>"Viereck-filerna"</strong> - över 10 års korrespondens mellan hennes man och den tyske agenten.
+                        </div>
+                        <p><strong>Hon tog dem och gömde undan.</strong> Detta visar att hon visste exakt vad mannens verksamhet innebar.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>NBC Radio-sändning (Maj 1941)</h3>
+                        <p><strong>8 månader efter kraschen</strong> fick Norma tillgång till "unprecedented broadcast" på NBC radio. Hon presenterade sig som "widow of Ernest Lundeen" och ljög medvetet:</p>
+                        <div class="detail-box">
+                            <ul>
+                                <li><strong>"No one wrote my husband's speeches"</strong> - MEDVETEN LÖGN (hon hade själv gömt Viereck-filerna som bevisade detta)</li>
+                                <li>Svastika-fotot var "just a bad angle" (visade fyra fotos som "bevis")</li>
+                                <li>"It was a big misunderstanding"</li>
+                                <li>FBI/DoJ på planet var "pure coincidence" (citerade AG Jackson och Hoover)</li>
+                            </ul>
+                        </div>
+                        <p><strong>"That right there, that is where Norma Lundeen slipped up."</strong> - Historiker Bradley Hart</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Kampanj mot Sanningen</h3>
+                        <ul>
+                            <li>Kontaktade nyhetsnätverk direkt med krav på censur</li>
+                            <li>Lyckades få NBC VP att radera omnämnanden av Lundeen</li>
+                            <li>Hotade att stämma Drew Pearson och andra journalister</li>
+                            <li>Hotade radiostationer som sände rapporter om hennes man</li>
+                            <li>Hotade sponsorer av program där han nämndes</li>
+                            <li>Attackerade Walter Winchell offentligt</li>
+                            <li>Vägrade acceptera fotografiska bevis</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Historikers Bedömning</h3>
+                        <p>"How could she have not known his connection to Viereck and the Nazis? In that demand for the papers, there is what could be read as an acknowledgement of guilt. She was not naiv - she was actively trying to conceal the truth."</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🔴 FÖR DELTA GREEN-KAMPANJEN</h3>
+                        <div class="detail-box warning">
+                            <strong>VAD FINNS I VIERECK-FILERNA?</strong>
+                            <ul>
+                                <li>10+ års korrespondens mellan Lundeen och Viereck</li>
+                                <li>Bevis på betalningar och profit-sharing</li>
+                                <li>Referenser till artefakter? Kristaller? Ockult material?</li>
+                                <li>Information om varför Lundeen grät morgonen innan flygning?</li>
+                                <li>Kopplingar till tyska ambassadens ockultavdelning?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Status 2025</h3>
+                        <p>Om Norma var ~40 år 1940, skulle hon vara <strong>125 år gammal 2025</strong> - extremt osannolikt att hon lever. MEN:</p>
+                        <div class="detail-box">
+                            <ul>
+                                <li><strong>Arvingar:</strong> Barn? Barnbarn? Har de filerna?</li>
+                                <li><strong>Dödsbo:</strong> Såldes något vid hennes död? Auktion?</li>
+                                <li><strong>Privata arkiv:</strong> Gav hon filerna till någon?</li>
+                                <li><strong>Volkov-koppling:</strong> Har han redan hittat dem?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Researchtrådar för Spelarna</h3>
+                        <ul>
+                            <li><strong>Minnesota Historical Society:</strong> Lundeens/Normas papper</li>
+                            <li><strong>Stanford Archives:</strong> Box 147 (restricted till 2045 - varför?)</li>
+                            <li><strong>Familjearkiv:</strong> Hitta Normas arvingar, intervjua dem</li>
+                            <li><strong>NBC Archives:</strong> Hennes radiosändning maj 1941</li>
+                            <li><strong>Dödsregistret:</strong> När dog Norma? Var är dödsbohandlingar?</li>
+                            <li><strong>Private collectors:</strong> Har någon köpt Viereck-material på auktion?</li>
+                        </ul>
+                    </div>
+                `
+            },
+            maloney: {
+                title: 'WILLIAM POWER MALONEY',
+                subtitle: 'Special Prosecutor | 400-0 Track Record',
+                content: `
+                    <div class="modal-section">
+                        <h3>Bakgrund</h3>
+                        <p><strong>Position:</strong> U.S. Attorney's Office, Southern District of New York<br>
+                        <strong>Specialist:</strong> Fraud and corruption cases<br>
+                        <strong>Track record:</strong> 400 wins - 0 losses (hade ALDRIG förlorat ett fall)</p>
+                        <p>Utsedd som Special Prosecutor av Attorney General efter Lundeens död för att hantera hot från ultra-right som federal government hade misslyckats med.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Razzian mot DC-Publicisten (1941)</h3>
+                        <div class="detail-box warning">
+                            <strong>VAD HAN HITTADE:</strong><br>
+                            Genomförde razzia mot Vierecks DC-publicists lägenhet och upptäckte hundratals dokument och kuvert med <strong>DUSSINTALS kongressledamöters namn</strong> från båda partier. "Names and literal receipts" - fullständigt bevis på hela schemat.
+                        </div>
+                        <p>Detta var när Maloney insåg att det inte bara var Lundeen - det var en <strong>massiv bipartisan-konspiration</strong> som involverade 24+ medlemmar av kongressen.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Arrestering av Viereck</h3>
+                        <p>Baserat på bevis från razzian arresterade och åtalade Maloney George Sylvester Viereck. Detta fick alla involverade kongressledamöter att "search their own files" för legal exposure - de visste att Maloney hade deras namn.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Motstånd och Hot</h3>
+                        <div class="detail-box warning">
+                            <strong>"THIS IS A MOMENT OF GREAT POLITICAL DANGER FOR THESE MEN"</strong><br><br>
+                            Senator Burton K. Wheeler (själv involverad i schemat):
+                            <ul>
+                                <li>Hotade att kräva kongressutredning av DoJ</li>
+                                <li>Försökte få Maloney sparkad från Department of Justice</li>
+                                <li>Ledde kampanj att "burn the whole thing down"</li>
+                            </ul>
+                        </div>
+                        <p>Kongressledamöterna hade två val: samarbeta med Maloney eller förstöra utredningen. <strong>De valde att försöka förstöra den.</strong></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🔴 FÖR DELTA GREEN-KAMPANJEN</h3>
+                        <div class="detail-box">
+                            <strong>VAD MER HITTADE MALONEY?</strong>
+                            <ul>
+                                <li>Hundratals dokument - men om VAD exakt?</li>
+                                <li>Fanns det material om artefakter? Kristaller? Ockult forskning?</li>
+                                <li>Hittade han kopplingar till tyska ambassadens hemliga avdelningar?</li>
+                                <li>Varför stoppades hans utredning (om den stoppades)?</li>
+                                <li>Finns hans filer kvar i DoJ/National Archives?</li>
+                                <li>Lever han fortfarande 2025 (~95 år)?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Status 2025</h3>
+                        <p>Om Maloney var ~30 år 1941, skulle han vara <strong>~114 år gammal 2025</strong> - mycket osannolikt att han lever. Men hans utredning genererade enorma mängder dokumentation.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Researchtrådar för Spelarna</h3>
+                        <ul>
+                            <li><strong>National Archives:</strong> Viereck-åtalets filer, alla razziabevis</li>
+                            <li><strong>DoJ Criminal Division:</strong> Maloneys officiella rapporter</li>
+                            <li><strong>DC-publicistens lägenhet:</strong> Adress i rättshandlingar? Vem bor där nu?</li>
+                            <li><strong>SDNY Records:</strong> Maloneys andra fall, metoder, kontakter</li>
+                            <li><strong>Maloneys familj:</strong> Arvingar? Bevarade dokument? Dagböcker?</li>
+                            <li><strong>Wheeler's motattack:</strong> Kongressutredningar om DoJ - vad avslöjades?</li>
+                        </ul>
+                    </div>
+                `
+            },
+            secretary: {
+                title: 'LUNDEENS SEKRETERARE (Okänd)',
+                subtitle: 'Ögonvittne till sista dagen | Möjligen 105+ år 2025',
+                content: `
+                    <div class="modal-section">
+                        <h3>Ögonvittne till Lundeens Sista Dag</h3>
+                        <p>Lundeens personliga sekreterare var det sista vittnet till senatorns tillstånd innan Flight 19. Hon bevittnade händelser som ger kritiska ledtrådar till vad som verkligen hände.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Lördagsmorgon, 31 Augusti 1940</h3>
+                        <div class="detail-box warning">
+                            <strong>HAN GRÄT OKONTROLLERBART</strong><br><br>
+                            Sekreteraren hittade Lundeen gråtande vid sitt skrivbord på kontoret. När hon frågade vad som var fel vägrade han prata om det:
+                            <ul>
+                                <li>"I can't talk about it"</li>
+                                <li>"I've gone too far to turn back"</li>
+                            </ul>
+                        </div>
+                        <p>Detta var inte normal stress - detta var förtvivlan från en man som visste att han hade hamnat i något han inte kunde ta sig ur.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Bilresan till Flygplatsen</h3>
+                        <p>Sekreteraren körde Lundeen till flygplatsen för hans flight till Minnesota. <strong>De pratade inte alls under hela resan.</strong> Tystnad från en man som annars var en pratglad politiker.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>"Struggle" vid Dörren?</h3>
+                        <div class="detail-box">
+                            <strong>MÖJLIGT ÖGONVITTNE TILL KONFRONTATION</strong><br><br>
+                            Sekreteraren vittnade om att hon möjligen såg en "struggle"/"scuffle" bland passagerare genom den öppna flygplandörren innan avgång. Hon trodde att hon såg Lundeen bland de inblandade.
+                        </div>
+                        <p><strong>Frågor:</strong> Konfronterade FBI-agenten Lundeen redan på marken? Försökte någon ta väskan? Var det Viereck där för att lämna något?</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Efter Kraschen</h3>
+                        <ul>
+                            <li>Åkte till kraschplatsen när hon hörde nyheterna</li>
+                            <li>Arbetade förmodligen kvar på senatkontoret</li>
+                            <li>Var där när Norma marscherade in <48h senare och tog Viereck-filerna</li>
+                            <li>Såg Norma ta den dokumentation som bevisade allt</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🔴 VAD VET HON?</h3>
+                        <div class="detail-box warning">
+                            <strong>KRITISKT VITTNE</strong>
+                            <ul>
+                                <li>Varför grät Lundeen? Vad hade hänt dagen innan?</li>
+                                <li>Hade han fått något från Viereck nyligen?</li>
+                                <li>Vad såg hon verkligen vid flygplandörren?</li>
+                                <li>Vilka var inblandade i "struggle"?</li>
+                                <li>Fanns Viereck där på flygplatsen?</li>
+                                <li>Vad hände på kontoret när Norma kom för filerna?</li>
+                                <li>Arbetade hon med Viereck? Såg hon honom använda senatens telefon?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Status 2025</h3>
+                        <p>Om sekreteraren var ~25 år 1940, skulle hon vara <strong>110 år gammal 2025</strong> - extremt osannolikt men teoretiskt möjligt. Mer troligt: hon dog på 1990-2010-talet.</p>
+                        <div class="detail-box">
+                            <strong>MEN:</strong>
+                            <ul>
+                                <li>Intervjuades hon någonsin officiellt av FBI/DoJ?</li>
+                                <li>Skrev hon ned sina minnen?</li>
+                                <li>Finns vittnesbörd i National Archives?</li>
+                                <li>Berättade hon för familj? Arvingar?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Researchtrådar för Spelarna</h3>
+                        <ul>
+                            <li><strong>Senatens personalregister 1940:</strong> Vem var hon? Namn?</li>
+                            <li><strong>FBI vittnesbörd:</strong> Intervjuades hon efter kraschen?</li>
+                            <li><strong>National Archives:</strong> CAB-utredningen - vittnade hon där?</li>
+                            <li><strong>Minnesota State Archives:</strong> Lokala intervjuer om Lundeen?</li>
+                            <li><strong>Dödsregister:</strong> Spåra henne framåt i tiden</li>
+                            <li><strong>Familj:</strong> Barn? Barnbarn? Berättade hon om den dagen?</li>
+                        </ul>
+                    </div>
+                `
+            },
+            pearson: {
+                title: 'DREW PEARSON',
+                subtitle: '"Arguably the most powerful journalist in the country" | 1940',
+                content: `
+                    <div class="modal-section">
+                        <h3>Bakgrund</h3>
+                        <p><strong>Roll:</strong> Syndikerad krönikör med enorm räckvidd<br>
+                        <strong>Inflytande:</strong> "Arguably the most powerful journalist in the country" (1940)<br>
+                        <strong>Metod:</strong> Investigativ journalism, exponerade korruption och konspirationer</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>"G-MEN WERE SHADOWING LATE SENATOR"</h3>
+                        <div class="detail-box warning">
+                            <strong>13 SEPTEMBER 1940</strong> (10 dagar efter Lundeens begravning)<br><br>
+                            Drew Pearson publicerade bombavslöjandet som government försökte dölja:
+                            <ul>
+                                <li>Lundeen var under FBI-utredning vid dödstillfället</li>
+                                <li>FBI Special Agent, FBI Secretary, och DoJ Attorney var på Flight 19</li>
+                                <li>De var där för att övervaka Lundeen</li>
+                                <li>Utredningen handlade om nazistiska aktiviteter i USA</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Pearson Förutspådde Förnekelsen</h3>
+                        <p>I samma artikel skrev Pearson att han förväntade sig att Department of Justice skulle förneka utredningen. <strong>Han hade rätt</strong> - både AG Jackson och J. Edgar Hoover förnekade officiellt och kallade FBI/DoJ-närvaron "pure coincidence".</p>
+                        <p><strong>Pearson visste att de ljög.</strong></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Spekulation om Sabotage</h3>
+                        <div class="detail-box">
+                            <strong>PEARSON FRÅGADE:</strong>
+                            <ul>
+                                <li>Var Flight 19 saboterat?</li>
+                                <li>"Tangled with Lundeen in flight" - konfronterade G-men honom i kabinen?</li>
+                                <li>Bidrog detta till kraschen?</li>
+                            </ul>
+                        </div>
+                        <p>Detta var vågade spekulationer 1940 - men modern forskning visar att han kan ha varit nära sanningen.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Attackerad av Norma Lundeen</h3>
+                        <p>Norma Lundeen inkluderade Drew Pearson (och andra journalister) i sin NBC radio-attack maj 1941. Hon:</p>
+                        <ul>
+                            <li>Förnekade hans rapportering (fast hon visste att den var sann)</li>
+                            <li>Hotade att stämma honom</li>
+                            <li>Kontaktade hans syndikerade nätverk för att kräva censur</li>
+                            <li>Lyckades få vissa outlets att radera referenser till Lundeen</li>
+                        </ul>
+                        <p><strong>Pearson fortsatte ändå rapportera.</strong></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Källor och Metoder</h3>
+                        <div class="detail-box">
+                            <strong>HUR VISSTE PEARSON?</strong>
+                            <ul>
+                                <li>Hade han källor inom FBI/DoJ som läckte?</li>
+                                <li>Intervjuade han Lundeens sekreterare?</li>
+                                <li>Passagerarlistor från Pennsylvania Central Airlines?</li>
+                                <li>Kontakter på kraschplatsen i Virginia?</li>
+                                <li>Insider i Attorney General's office?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🔴 FÖR DELTA GREEN-KAMPANJEN</h3>
+                        <div class="detail-box warning">
+                            <strong>VAD MER VISSTE PEARSON?</strong>
+                            <ul>
+                                <li>Hade han mer information som han inte publicerade?</li>
+                                <li>Visste han om artefakter/kristaller?</li>
+                                <li>Hade han kontakt med FBI-källor som kunde berätta mer?</li>
+                                <li>Finns opublicerade anteckningar i hans arkiv?</li>
+                                <li>Intervjuade han andra passagerares familjer?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Researchtrådar för Spelarna</h3>
+                        <ul>
+                            <li><strong>Library of Congress:</strong> Drew Pearsons kompletta kolumner 1940-1941</li>
+                            <li><strong>Pearson Papers:</strong> Lyndon B. Johnson Library (hans arkiv)</li>
+                            <li><strong>Opublicerade anteckningar:</strong> Research files om Lundeen-fallet</li>
+                            <li><strong>Brevkorrespondens:</strong> Med FBI-källor, DoJ-läckare</li>
+                            <li><strong>Andra Lundeen-artiklar:</strong> Skrev han mer om fallet senare?</li>
+                            <li><strong>Syndikerade nätverk:</strong> Vilka papers publicerade hans Lundeen-exponé?</li>
+                        </ul>
+                    </div>
+                `
+            }
+        };
+
+        // Open NPC Modal
+        function openNPCModal(npcId) {
+            const data = npcModalData[npcId];
+            if (!data) return;
+
+            const modalBody = document.getElementById('modal-body');
+            modalBody.innerHTML = `
+                <div class="modal-header">
+                    <div class="modal-name">${data.title}</div>
+                    <div class="modal-subtitle">${data.subtitle}</div>
+                </div>
+                ${data.content}
+            `;
+
+            const modal = document.getElementById('modal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
         // Search functionality
         const searchBox = document.getElementById('searchBox');
         searchBox.addEventListener('input', (e) => {
@@ -770,14 +1765,6 @@
             // Clear search
             searchBox.value = '';
         }
-
-        // Click cards to expand (future: open detailed modal)
-        document.querySelectorAll('.npc-card').forEach(card => {
-            card.addEventListener('click', () => {
-                // Future: Open detailed modal with full NPC info
-                console.log('NPC card clicked:', card.querySelector('.npc-name').textContent);
-            });
-        });
 
         function closeModal(event) {
             if (!event || event.target.id === 'modal') {
