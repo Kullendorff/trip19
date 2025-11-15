@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trip 19 // Black Madonna - Sessions Journal</title>
+    <title>Trip 19 // Black Madonna - Sessions</title>
     <style>
         * {
             margin: 0;
@@ -19,6 +19,7 @@
             --accent-red: #ff4444;
             --accent-blue: #4a90a4;
             --accent-yellow: #ffcc00;
+            --accent-purple: #9b59b6;
             --text: #d1d5db;
             --text-dim: #6b7280;
             --border: #1a2332;
@@ -81,41 +82,17 @@
             color: #6ab0c4;
         }
 
-        /* Placeholder message */
-        .placeholder {
-            background: var(--bg-panel);
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--accent-yellow);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .placeholder h2 {
-            color: var(--accent-yellow);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .placeholder p {
-            color: var(--text-dim);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Session entry template */
-        .session-entry {
-            background: var(--bg-panel);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
+        /* Session container */
+        .session-container {
+            margin-bottom: 4rem;
         }
 
         .session-header {
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 1rem;
-            margin-bottom: 1.5rem;
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-blue);
+            border-radius: 8px 8px 0 0;
+            padding: 1.5rem;
+            text-align: center;
         }
 
         .session-header h2 {
@@ -124,46 +101,120 @@
             margin-bottom: 0.5rem;
         }
 
-        .session-meta {
-            display: flex;
-            gap: 2rem;
+        .session-status {
             color: var(--text-dim);
             font-size: 0.9rem;
-            flex-wrap: wrap;
         }
 
-        .session-meta .meta-item {
+        /* Prep section */
+        .prep-section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent-purple);
+            border-top: none;
+            padding: 2rem;
+        }
+
+        .prep-section h3 {
+            color: var(--accent-purple);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .session-meta .meta-label {
-            color: var(--accent-blue);
-            font-weight: bold;
-        }
-
-        .session-section {
+        .prep-subsection {
+            background: rgba(155, 89, 182, 0.1);
+            border: 1px solid rgba(155, 89, 182, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
             margin-bottom: 1.5rem;
         }
 
-        .session-section h3 {
+        .prep-subsection h4 {
+            color: var(--accent-purple);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .prep-subsection ul {
+            list-style-position: inside;
+            color: var(--text);
+        }
+
+        .prep-subsection li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.15);
+            border-left: 3px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .ai-text-box {
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid var(--accent-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .ai-text-box .label {
+            color: var(--accent-green);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* Journal section */
+        .journal-section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent-yellow);
+            border-radius: 0 0 8px 8px;
+            padding: 2rem;
+        }
+
+        .journal-section h3 {
+            color: var(--accent-yellow);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .journal-subsection {
+            margin-bottom: 1.5rem;
+        }
+
+        .journal-subsection h4 {
             color: var(--accent-blue);
             font-size: 1.2rem;
             margin-bottom: 0.8rem;
         }
 
-        .session-section ul {
+        .journal-subsection ul {
             list-style-position: inside;
             color: var(--text);
         }
 
-        .session-section li {
+        .journal-subsection li {
             margin-bottom: 0.5rem;
             padding-left: 1rem;
         }
 
-        /* Stats box */
+        .journal-subsection p {
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
         .stats-box {
             background: rgba(74, 144, 164, 0.1);
             border: 1px solid var(--accent-blue);
@@ -195,7 +246,6 @@
             font-size: 1.1rem;
         }
 
-        /* Notes box */
         .notes-box {
             background: rgba(255, 204, 0, 0.1);
             border-left: 4px solid var(--accent-yellow);
@@ -207,6 +257,13 @@
         .notes-box strong {
             color: var(--accent-yellow);
             display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .coordinates {
+            color: var(--accent-blue);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
             margin-bottom: 0.5rem;
         }
 
@@ -224,11 +281,6 @@
             body {
                 padding: 1rem;
             }
-
-            .session-meta {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
         }
     </style>
 </head>
@@ -236,7 +288,7 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>📅 SESSIONS JOURNAL</h1>
+            <h1>SESSIONS - PREP & JOURNAL</h1>
             <div class="subtitle">TRIP 19: BLACK MADONNA - Chesapeake Cell</div>
         </div>
 
@@ -245,174 +297,301 @@
             <a href="index.html">← Tillbaka till Dashboard</a>
         </div>
 
-        <!-- Placeholder -->
-        <div class="placeholder">
-            <h2>⏳ Kampanjen Har Inte Startat Än</h2>
-            <p>Sessions-rapporter kommer fyllas i efter varje spelmöte.</p>
-            <p style="color: var(--accent-blue); margin-top: 1rem;">
-                Använd template nedan för att dokumentera varje session.
-            </p>
+        <!-- ==================== SESSION 1 ==================== -->
+        <div class="session-container">
+            <div class="session-header">
+                <h2>SESSION 1 - FÖRSTA MÖTET</h2>
+                <div class="session-status">Status: Planering pågår</div>
+            </div>
+
+            <!-- PREP SECTION -->
+            <div class="prep-section">
+                <h3>🎯 SESSION PREP</h3>
+
+                <!-- Meeting Location: China Buffet -->
+                <div class="prep-subsection">
+                    <h4>📍 MÖTESPLATS: CHINA BUFFET - COLLEGE PARK, MD</h4>
+                    <div class="coordinates">9098 Baltimore Ave, College Park, MD 20740 | 38.9869° N, 76.9426° W</div>
+
+                    <p><strong>Tid:</strong> Tisdag kväll, 19:30</p>
+                    <p><strong>Pris:</strong> $14.99 dinner buffet, drink separate</p>
+                    <p><strong>Typ:</strong> Kinesisk buffet-restaurang</p>
+
+                    <h4 style="margin-top: 1.5rem;">📸 BILDER</h4>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1rem;">
+                        <img src="Session1/chinabuffet1.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+                        <img src="Session1/chinabuffet2.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+                        <img src="Session1/chinabuffet3.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+                        <img src="Session1/chinabuffet4.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+                        <img src="Session1/chinabuffet5.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+                        <img src="Session1/chinabuffet6.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+                    </div>
+
+                    <h4>🏢 EXTERIÖR</h4>
+                    <p>Den beige träbyggnaden med röda bokstäver ligger lite tillbakadraget från Baltimore Avenue (Route 1). Parkeringsplatsen är halvfull - lagom. Inte så tom att man sticker ut, inte så full att man inte hittar plats.</p>
+                    <p>Trappan upp till den gröna markisen med "9098". Dörren går upp, värme och ljud strömmar ut.</p>
+
+                    <h4 style="margin-top: 1.5rem;">🍜 INTERIÖR - FÖRSTA INTRYCKET</h4>
+                    <p><strong>Värme.</strong> Lukten av stekt mat, soja, ingefära, och något sött från dessertsektionen. Det brusande ljudet av samtal på flera språk - engelska, kinesiska, spanska, koreanska. Studenter från University of Maryland, familjer, äldre par.</p>
+
+                    <h4 style="margin-top: 1rem;">Kassan direkt till höger:</h4>
+                    <p>En kvinna i 50-årsåldern nickar, pekar mot "Seat Yourself"-skylten. "$14.99 dinner buffet, drink separate."</p>
+
+                    <h4 style="margin-top: 1rem;">Layouten:</h4>
+                    <ul>
+                        <li>Till vänster löper bufféborden längs väggarna - sex olika stationer med skyddsglas över maten</li>
+                        <li>Folk står i kö med tallrikar, laddar på General Tso's chicken, lo mein, dumplings, sushi (tvivelaktig kvalitet)</li>
+                        <li>Huvudlokalen öppnar sig framåt - rader av fyrkantiga bord med orange träramar och ljusblåa/turkosa plastlaminat-toppar</li>
+                        <li>Mörkröda/burgundy stolar med träkarmar</li>
+                    </ul>
+
+                    <h4 style="margin-top: 1rem;">Väggarna:</h4>
+                    <p>Ljusblå/turkosa, vita pelare här och där, slumpmässiga bilder - kinesisk konst, blommor, något abstrakt.</p>
+
+                    <h4 style="margin-top: 1rem;">Ljudbilden:</h4>
+                    <ul>
+                        <li>Samtal överallt</li>
+                        <li>Skrap av tallrikar och bestick</li>
+                        <li>Barn som springer mellan borden</li>
+                        <li>AC-systemet som mullrar</li>
+                        <li>Muzak-version av något 80-talspop lågt i bakgrunden</li>
+                    </ul>
+
+                    <h4 style="margin-top: 1rem;">Belysningen:</h4>
+                    <p>Nedtonade takpaneler ger ett jämnt, vitt ljus. Varken mysigt eller sterilt - bara funktionellt. Alla ser lite bleka ut.</p>
+
+                    <h4 style="margin-top: 1.5rem;">🎯 BORDET LÄNGST IN</h4>
+                    <div class="info-box">
+                        <p><strong>Ett större runt bord. Sex-sju stolar runt om.</strong></p>
+                        <p>Mitt på bordet sitter den där svarta träskivan, en <strong>lazy Susan</strong>, som normalt skulle användas för att snurra maten runt så alla kommer åt.</p>
+                        <p>Men det är en buffet. Ingen mat står på bordet.</p>
+                        <p>Skivan bara... sitter där. Meningslös. Lite patetisk.</p>
+                        <p><strong>Det är det enda runda bordet i hela lokalen. Resten är fyrkantiga.</strong></p>
+                    </div>
+
+                    <h4 style="margin-top: 1rem;">Varför det här bordet (Sparky valde det):</h4>
+                    <ul>
+                        <li>Längst från ingången (siktlinje till alla som kommer in)</li>
+                        <li>I ett hörn (ingen kan komma bakom dem)</li>
+                        <li>Tillräckligt långt från närmaste bord (2-3 meter mellanrum)</li>
+                        <li>Nära nödutgång genom köket (hon har kollat)</li>
+                    </ul>
+
+                    <h4 style="margin-top: 1rem;">Närmaste grannar:</h4>
+                    <ul>
+                        <li><strong>Tre bord bort:</strong> Familj med två småbarn (högljudda, distraherade)</li>
+                        <li><strong>Fyra bord bort:</strong> Två studenter med laptops (pluggar, ignorerar omvärlden)</li>
+                        <li><strong>Vid bufféborden:</strong> Konstant rotation av folk</li>
+                    </ul>
+
+                    <h4 style="margin-top: 1.5rem;">👥 PERSONAL</h4>
+                    <ul>
+                        <li><strong>Servitris:</strong> Kvinna i 40-årsåldern, svart väst, vit skjorta. Kommer runt med vatten och tar bort använda tallrikar. Säger inte mycket.</li>
+                        <li><strong>Vid bufféborden:</strong> Två personer håller koll på påfyllning, byter ut tomma brickor.</li>
+                        <li>Ingen stör er vid det runda bordet om ni inte ber om det.</li>
+                    </ul>
+
+                    <h4 style="margin-top: 1.5rem;">🎭 KÄNSLAN</h4>
+                    <div class="info-box">
+                        <p><strong>Helt vanlig tisdag kväll.</strong> Folk äter, pratar, ignorerar varandra. Perfekt anonymitet.</p>
+                        <p>Det runda bordet känns lite... udda. För stort för en person, för formellt för en buffet. Men det är precis därför Sparky valde det. Ingen kommer frivilligt sätta sig här om de ser fem personer redan sitter där och pratar.</p>
+                        <p>Lazy Susan-skivan i mitten sitter tom och meningslös.</p>
+                        <p><strong>Precis som mötet ska vara - funktionellt, opersonligt, och lätt att glömma.</strong></p>
+                    </div>
+                </div>
+
+                <!-- Sparky's AI Text -->
+                <div class="prep-subsection">
+                    <h4>💬 HANDOUTS & INFORMATION</h4>
+
+                    <div class="ai-text-box">
+                        <span class="label">SPARKY'S AI → VOLKOV & DAGBOKEN</span>
+                        <p><em>[PLACEHOLDER: Text som Sparky får från sin AI under mötet om att Volkov köpte dagboken]</em></p>
+                        <p style="margin-top: 1rem; color: var(--text-dim); font-size: 0.85rem;">
+                            <strong>Timing:</strong> Under diskussion vid bordet<br>
+                            <strong>Leverans:</strong> Sparky får notis på sin enhet
+                        </p>
+                    </div>
+                </div>
+
+                <!-- NPCs for Session 1 -->
+                <div class="prep-subsection">
+                    <h4>👥 NPCs (Session 1)</h4>
+                    <p><em>[PLACEHOLDER: Vilka NPCs kan dyka upp eller nämnas under mötet?]</em></p>
+                    <ul>
+                        <li><em>China Buffet personal (bakgrund)</em></li>
+                        <li><em>Eventuella kontakter som nämns i diskussionen</em></li>
+                    </ul>
+                </div>
+
+                <!-- Other Prep Items -->
+                <div class="prep-subsection">
+                    <h4>📝 ÖVRIGA PREP-ANTECKNINGAR</h4>
+                    <p><em>[PLACEHOLDER: Andra saker att komma ihåg för Session 1]</em></p>
+                    <ul>
+                        <li><em>Viktiga ledtrådar att introducera</em></li>
+                        <li><em>Teman att fokusera på</em></li>
+                        <li><em>Frågor spelarna kanske ställer</em></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- POST-SESSION JOURNAL -->
+            <div class="journal-section">
+                <h3>📖 POST-SESSION JOURNAL</h3>
+                <p style="color: var(--text-dim); margin-bottom: 2rem;"><em>Fylls i efter Session 1 är spelad.</em></p>
+
+                <div class="journal-subsection">
+                    <h4>📋 Sammanfattning</h4>
+                    <p><em>[Vad hände under sessionen?]</em></p>
+                </div>
+
+                <div class="journal-subsection">
+                    <h4>🔍 Ledtrådar Funna</h4>
+                    <ul>
+                        <li><em>[Ledtrådar spelarna upptäckte]</em></li>
+                    </ul>
+                </div>
+
+                <div class="journal-subsection">
+                    <h4>👥 NPCs Mötta</h4>
+                    <ul>
+                        <li><em>[Vilka NPCs interagerade de med?]</em></li>
+                    </ul>
+                </div>
+
+                <div class="journal-subsection">
+                    <h4>🎯 Framsteg & Upptäckter</h4>
+                    <ul>
+                        <li><em>[Vad lärde de sig?]</em></li>
+                        <li><em>[Vad missade de?]</em></li>
+                    </ul>
+                </div>
+
+                <div class="journal-subsection">
+                    <h4>⚠️ Sanity & Bonds</h4>
+                    <div class="stats-box">
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-label">Sanity Loss:</span>
+                                <span class="stat-value">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Bonds Damaged:</span>
+                                <span class="stat-value">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notes-box">
+                    <strong>SL-Anteckningar:</strong>
+                    <p><em>[Vad funkade? Vad behöver justeras?]</em></p>
+                </div>
+
+                <div class="journal-subsection">
+                    <h4>➡️ Nästa Session</h4>
+                    <p><em>[Vad händer härnäst?]</em></p>
+                </div>
+            </div>
         </div>
 
-        <!-- TEMPLATE SESSION ENTRY (Commented out for now) -->
+        <!-- ==================== SESSION 2 TEMPLATE (Commented out for now) ==================== -->
         <!--
-        <div class="session-entry">
+        <div class="session-container">
             <div class="session-header">
-                <h2>Session 1 - [Titel]</h2>
-                <div class="session-meta">
-                    <div class="meta-item">
-                        <span class="meta-label">Datum:</span>
-                        <span>[YYYY-MM-DD]</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-label">Speltid:</span>
-                        <span>[X timmar]</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-label">Spelare:</span>
-                        <span>[Namn]</span>
-                    </div>
+                <h2>SESSION 2 - [TITEL]</h2>
+                <div class="session-status">Status: Ej påbörjad</div>
+            </div>
+
+            <div class="prep-section">
+                <h3>🎯 SESSION PREP</h3>
+
+                <div class="prep-subsection">
+                    <h4>📍 PLATSER</h4>
+                    <p><em>[Vilka platser kommer användas?]</em></p>
+                </div>
+
+                <div class="prep-subsection">
+                    <h4>💬 HANDOUTS & INFORMATION</h4>
+                    <p><em>[Vilka handouts behöver förberedas?]</em></p>
+                </div>
+
+                <div class="prep-subsection">
+                    <h4>👥 NPCs</h4>
+                    <p><em>[Vilka NPCs kommer vara aktiva?]</em></p>
+                </div>
+
+                <div class="prep-subsection">
+                    <h4>📝 ÖVRIGA PREP-ANTECKNINGAR</h4>
+                    <p><em>[Andra saker att komma ihåg]</em></p>
                 </div>
             </div>
 
-            <div class="session-section">
-                <h3>📋 Sammanfattning</h3>
-                <p>[Kort sammanfattning av sessionen - vad hände?]</p>
-            </div>
+            <div class="journal-section">
+                <h3>📖 POST-SESSION JOURNAL</h3>
+                <p style="color: var(--text-dim); margin-bottom: 2rem;"><em>Fylls i efter Session 2 är spelad.</em></p>
 
-            <div class="session-section">
-                <h3>🔍 Ledtrådar Funna</h3>
-                <ul>
-                    <li>[Ledtråd 1]</li>
-                    <li>[Ledtråd 2]</li>
-                </ul>
-            </div>
+                <div class="journal-subsection">
+                    <h4>📋 Sammanfattning</h4>
+                    <p><em>[Vad hände under sessionen?]</em></p>
+                </div>
 
-            <div class="session-section">
-                <h3>👥 NPCs Mötta</h3>
-                <ul>
-                    <li><strong>[NPC Namn]</strong> - [Interaktion]</li>
-                </ul>
-            </div>
+                <div class="journal-subsection">
+                    <h4>🔍 Ledtrådar Funna</h4>
+                    <ul>
+                        <li><em>[Ledtrådar spelarna upptäckte]</em></li>
+                    </ul>
+                </div>
 
-            <div class="session-section">
-                <h3>🎯 Framsteg & Upptäckter</h3>
-                <ul>
-                    <li>[Vad spelarna lärde sig]</li>
-                    <li>[Vad de missade]</li>
-                </ul>
-            </div>
+                <div class="journal-subsection">
+                    <h4>👥 NPCs Mötta</h4>
+                    <ul>
+                        <li><em>[Vilka NPCs interagerade de med?]</em></li>
+                    </ul>
+                </div>
 
-            <div class="session-section">
-                <h3>⚠️ Sanity & Bonds</h3>
-                <div class="stats-box">
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-label">Sanity Loss (Total):</span>
-                            <span class="stat-value">[X points]</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Bonds Damaged:</span>
-                            <span class="stat-value">[X bonds]</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Breaking Points:</span>
-                            <span class="stat-value">[X/Y]</span>
+                <div class="journal-subsection">
+                    <h4>🎯 Framsteg & Upptäckter</h4>
+                    <ul>
+                        <li><em>[Vad lärde de sig?]</em></li>
+                        <li><em>[Vad missade de?]</em></li>
+                    </ul>
+                </div>
+
+                <div class="journal-subsection">
+                    <h4>⚠️ Sanity & Bonds</h4>
+                    <div class="stats-box">
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-label">Sanity Loss:</span>
+                                <span class="stat-value">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Bonds Damaged:</span>
+                                <span class="stat-value">-</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="notes-box">
-                <strong>SL-Anteckningar:</strong>
-                <p>[Privata anteckningar om vad som funkade bra, vad som behöver justeras, etc.]</p>
-            </div>
+                <div class="notes-box">
+                    <strong>SL-Anteckningar:</strong>
+                    <p><em>[Vad funkade? Vad behöver justeras?]</em></p>
+                </div>
 
-            <div class="session-section">
-                <h3>➡️ Nästa Session</h3>
-                <p>[Vad händer härnäst? Vad ska förberedas?]</p>
+                <div class="journal-subsection">
+                    <h4>➡️ Nästa Session</h4>
+                    <p><em>[Vad händer härnäst?]</em></p>
+                </div>
             </div>
         </div>
         -->
 
-        <!-- Example template for quick reference -->
-        <div class="session-entry" style="opacity: 0.6; border: 2px dashed var(--border);">
-            <div class="session-header">
-                <h2>Session X - [Titel]</h2>
-                <div class="session-meta">
-                    <div class="meta-item">
-                        <span class="meta-label">Datum:</span>
-                        <span>[YYYY-MM-DD]</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-label">Speltid:</span>
-                        <span>[X timmar]</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-label">Spelare:</span>
-                        <span>[Jonas, Daniel, Andreas, ...]</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="session-section">
-                <h3>📋 Sammanfattning</h3>
-                <p><em>[Vad hände under sessionen?]</em></p>
-            </div>
-
-            <div class="session-section">
-                <h3>🔍 Ledtrådar Funna</h3>
-                <ul>
-                    <li><em>[Ledtrådar spelarna upptäckte]</em></li>
-                </ul>
-            </div>
-
-            <div class="session-section">
-                <h3>👥 NPCs Mötta</h3>
-                <ul>
-                    <li><em>[Vilka NPCs interagerade de med?]</em></li>
-                </ul>
-            </div>
-
-            <div class="session-section">
-                <h3>🎯 Framsteg & Upptäckter</h3>
-                <ul>
-                    <li><em>[Vad lärde de sig?]</em></li>
-                    <li><em>[Vad missade de?]</em></li>
-                </ul>
-            </div>
-
-            <div class="session-section">
-                <h3>⚠️ Sanity & Bonds</h3>
-                <div class="stats-box">
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-label">Sanity Loss:</span>
-                            <span class="stat-value">-</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Bonds Damaged:</span>
-                            <span class="stat-value">-</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="notes-box">
-                <strong>SL-Anteckningar:</strong>
-                <p><em>[Vad funkade? Vad behöver justeras?]</em></p>
-            </div>
-
-            <div class="session-section">
-                <h3>➡️ Nästa Session</h3>
-                <p><em>[Vad händer härnäst?]</em></p>
-            </div>
-        </div>
-
         <!-- Footer -->
         <div class="footer">
-            DELTA GREEN // TRIP 19: BLACK MADONNA // SESSIONS JOURNAL<br>
-            Dokumentera varje sessions framsteg, upptäckter och konsekvenser
+            DELTA GREEN // TRIP 19: BLACK MADONNA // SESSIONS PREP & JOURNAL<br>
+            Planera sessions och dokumentera framsteg
         </div>
     </div>
 </body>
