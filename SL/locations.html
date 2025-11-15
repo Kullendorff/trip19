@@ -335,6 +335,20 @@
         <div class="category-section">
             <h2 class="category-title">🇺🇸 USA - TRIP 19</h2>
             <div class="locations-grid">
+                <!-- China Buffet -->
+                <div class="location-card" onclick="openModal('china_buffet')">
+                    <div class="location-name">China Buffet - College Park, MD</div>
+                    <div class="location-subtitle">Första mötet - Session 1</div>
+                    <div class="location-brief">
+                        Buffet-restaurang på Baltimore Ave. Tisdag kväll 19:30. Runt bord längst in med lazy Susan. Perfekt anonymitet - studenter, familjer, konstant rotation. Sparky valde platsen: siktlinje till ingång, hörn, nära nödutgång genom köket.
+                    </div>
+                    <div class="location-tags">
+                        <span class="tag">Session 1</span>
+                        <span class="tag">Första mötet</span>
+                        <span class="tag">College Park</span>
+                    </div>
+                </div>
+
                 <!-- Lovettsville -->
                 <div class="location-card" onclick="openModal('lovettsville')">
                     <div class="location-name">Lovettsville, Virginia</div>
@@ -525,6 +539,113 @@
 
     <script>
         const locationData = {
+            china_buffet: {
+                title: 'CHINA BUFFET - COLLEGE PARK, MD',
+                subtitle: '9098 Baltimore Ave, College Park, MD 20740',
+                content: `
+                    <div class="modal-section">
+                        <h3>📍 ÖVERSIKT</h3>
+                        <div class="coordinates">38.9869° N, 76.9426° W - College Park, MD</div>
+                        <p><strong>Tid:</strong> Tisdag kväll, 19:30</p>
+                        <p><strong>Pris:</strong> $14.99 dinner buffet, drink separate</p>
+                        <p><strong>Typ:</strong> Kinesisk buffet-restaurang</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>📸 BILDER</h3>
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1rem;">
+                            <img src="Session1/chinabuffet1.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+                            <img src="Session1/chinabuffet2.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+                            <img src="Session1/chinabuffet3.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+                            <img src="Session1/chinabuffet4.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+                            <img src="Session1/chinabuffet5.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+                            <img src="Session1/chinabuffet6.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🏢 EXTERIÖR</h3>
+                        <p>Den beige träbyggnaden med röda bokstäver ligger lite tillbakadraget från Baltimore Avenue (Route 1). Parkeringsplatsen är halvfull - lagom. Inte så tom att man sticker ut, inte så full att man inte hittar plats.</p>
+                        <p>Trappan upp till den gröna markisen med "9098". Dörren går upp, värme och ljud strömmar ut.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🍜 INTERIÖR - FÖRSTA INTRYCKET</h3>
+                        <p><strong>Värme.</strong> Lukten av stekt mat, soja, ingefära, och något sött från dessertsektionen. Det brusande ljudet av samtal på flera språk - engelska, kinesiska, spanska, koreanska. Studenter från University of Maryland, familjer, äldre par.</p>
+
+                        <h4>Kassan direkt till höger:</h4>
+                        <p>En kvinna i 50-årsåldern nickar, pekar mot "Seat Yourself"-skylten. "$14.99 dinner buffet, drink separate."</p>
+
+                        <h4>Layouten:</h4>
+                        <ul>
+                            <li>Till vänster löper bufféborden längs väggarna - sex olika stationer med skyddsglas över maten</li>
+                            <li>Folk står i kö med tallrikar, laddar på General Tso's chicken, lo mein, dumplings, sushi (tvivelaktig kvalitet)</li>
+                            <li>Huvudlokalen öppnar sig framåt - rader av fyrkantiga bord med orange träramar och ljusblåa/turkosa plastlaminat-toppar</li>
+                            <li>Mörkröda/burgundy stolar med träkarmar</li>
+                        </ul>
+
+                        <h4>Väggarna:</h4>
+                        <p>Ljusblå/turkosa, vita pelare här och där, slumpmässiga bilder - kinesisk konst, blommor, något abstrakt.</p>
+
+                        <h4>Ljudbilden:</h4>
+                        <ul>
+                            <li>Samtal överallt</li>
+                            <li>Skrap av tallrikar och bestick</li>
+                            <li>Barn som springer mellan borden</li>
+                            <li>AC-systemet som mullrar</li>
+                            <li>Muzak-version av något 80-talspop lågt i bakgrunden</li>
+                        </ul>
+
+                        <h4>Belysningen:</h4>
+                        <p>Nedtonade takpaneler ger ett jämnt, vitt ljus. Varken mysigt eller sterilt - bara funktionellt. Alla ser lite bleka ut.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🎯 BORDET LÄNGST IN</h3>
+                        <div class="info-box">
+                            <p><strong>Ett större runt bord. Sex-sju stolar runt om.</strong></p>
+                            <p>Mitt på bordet sitter den där svarta träskivan, en <strong>lazy Susan</strong>, som normalt skulle användas för att snurra maten runt så alla kommer åt.</p>
+                            <p>Men det är en buffet. Ingen mat står på bordet.</p>
+                            <p>Skivan bara... sitter där. Meningslös. Lite patetisk.</p>
+                            <p><strong>Det är det enda runda bordet i hela lokalen. Resten är fyrkantiga.</strong></p>
+                        </div>
+
+                        <h4>Varför det här bordet (Sparky valde det):</h4>
+                        <ul>
+                            <li>Längst från ingången (siktlinje till alla som kommer in)</li>
+                            <li>I ett hörn (ingen kan komma bakom dem)</li>
+                            <li>Tillräckligt långt från närmaste bord (2-3 meter mellanrum)</li>
+                            <li>Nära nödutgång genom köket (hon har kollat)</li>
+                        </ul>
+
+                        <h4>Närmaste grannar:</h4>
+                        <ul>
+                            <li><strong>Tre bord bort:</strong> Familj med två småbarn (högljudda, distraherade)</li>
+                            <li><strong>Fyra bord bort:</strong> Två studenter med laptops (pluggar, ignorerar omvärlden)</li>
+                            <li><strong>Vid bufféborden:</strong> Konstant rotation av folk</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>👥 PERSONAL</h3>
+                        <ul>
+                            <li><strong>Servitris:</strong> Kvinna i 40-årsåldern, svart väst, vit skjorta. Kommer runt med vatten och tar bort använda tallrikar. Säger inte mycket.</li>
+                            <li><strong>Vid bufféborden:</strong> Två personer håller koll på påfyllning, byter ut tomma brickor.</li>
+                            <li>Ingen stör er vid det runda bordet om ni inte ber om det.</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🎭 KÄNSLAN</h3>
+                        <div class="info-box">
+                            <p><strong>Helt vanlig tisdag kväll.</strong> Folk äter, pratar, ignorerar varandra. Perfekt anonymitet.</p>
+                            <p>Det runda bordet känns lite... udda. För stort för en person, för formellt för en buffet. Men det är precis därför Sparky valde det. Ingen kommer frivilligt sätta sig här om de ser fem personer redan sitter där och pratar.</p>
+                            <p>Lazy Susan-skivan i mitten sitter tom och meningslös.</p>
+                            <p><strong>Precis som mötet ska vara - funktionellt, opersonligt, och lätt att glömma.</strong></p>
+                        </div>
+                    </div>
+                `
+            },
             lovettsville: {
                 title: 'LOVETTSVILLE, VIRGINIA',
                 subtitle: 'Trip 19 Crash Site - Bishop Farm',
