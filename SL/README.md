@@ -12,13 +12,27 @@ Kampanjen kombinerar den verkliga Trip 19-flygkraschen 1940 med KULT: Black Mado
 
 - **index.html** - Huvuddashboard med snabbnavigering och översikt
 - **timeline.html** - Komplett tidslinje 1940-2025 med interaktiva modaler
-- **npcs.html** - NPC-databas med sök/filter och detaljerade modaler (18 NPCs)
+- **npcs.html** - NPC-databas med sök/filter och detaljerade modaler (18+ NPCs inkl. John B. Staire Jr.)
 - **Flight_19_Passagerarlista.html** - Vintage-dokument med alla 25 omkomna
+- **Lundeen_FBI_Newspaper_Article_1940.html** - Drew Pearson FBI-artikel om Lundeen
 - **mythos.html** - Mythos-referens: De två krafterna, kristaller, transformationer
-- **locations.html** - Platser med detaljerade modaler (8 platser: Lovettsville, Stanford, Berlin, Frankfurt, Camp S-17, Leningrad, Kalenko)
+- **locations.html** - Platser med detaljerade modaler (9+ platser: Lovettsville, Stanford, Berlin, Frankfurt, Camp S-17, Leningrad, Kalenko, China Buffet, spelarnas bostäder)
 - **clues.html** - Ledtrådar och research-spår (googlebara + fiktiva, research-trails)
-- **sessions.html** - Sessionsplanering (kommer)
-- **adaption.html** - Adaption-guide KULT → Delta Green (kommer)
+- **conspiracy_guide.html** - SL-guide: Komplett konspirations-analys (CAB + Passagerarlista + Staire-mysteriet)
+- **sessions.html** - Sessions-översikt med kampanjstatistik och sessionskort
+- **session1.html** - Session 1 prep + journal (modulariserad struktur)
+- **sessionX.html** - Individuella session-sidor (skalas enkelt för 30+ sessions)
+
+### Mappar
+
+- **Session1/** - Bildmaterial för Session 1 (China Buffet, Barnsidediner)
+- **Mac/, Sullivan/, Sparky/, Scalpel/, Trench/** - Spelarkaktärssidor (länkade från huvuddashboard)
+
+### Dokument
+
+- **volkov_fbi_official.pdf** - FBI-fil på Volkov (officiellt utseende)
+- **volkov_fbi_mac_annotated.pdf** - Macs annoterade version
+- **volkov_fbi_sparky_annotated.pdf** - Sparkys annoterade version
 
 ### Design
 
@@ -100,9 +114,18 @@ Kampanjen kombinerar den verkliga Trip 19-flygkraschen 1940 med KULT: Black Mado
 ### Under spel
 
 1. **Öppna index.html** - Huvuddashboard
-2. **Håll timeline.html öppen** - För snabb reference
-3. **Sök NPCs vid behov** - npcs.html med filter
-4. **Lightboxes för detaljer** - Klicka på händelser/personer
+2. **Öppna aktuell session** - t.ex. session1.html för prep-innehåll
+3. **Håll timeline.html öppen** - För snabb reference
+4. **Sök NPCs vid behov** - npcs.html med filter
+5. **Lightboxes för detaljer** - Klicka på händelser/personer
+
+### Session Prep
+
+1. **Öppna sessions.html** - Se översikt och kampanjstatistik
+2. **Klicka på kommande session** - Öppnar sessionX.html
+3. **Läs PREP-sektionen** - Platser, handouts, NPCs, anteckningar
+4. **Efter spelad session** - Fyll i JOURNAL-sektionen
+5. **Skapa nästa session** - Kopiera sessionX.html, uppdatera innehåll
 
 ### Förberedelser
 
@@ -110,6 +133,7 @@ Kampanjen kombinerar den verkliga Trip 19-flygkraschen 1940 med KULT: Black Mado
 - Förstå KULT → Delta Green-ändringarna
 - Behåll alla ledtrådar, ändra bara presentation
 - Modernisera teknologi, behåll mysteriet
+- Använd modulariserade session-sidor för effektiv prep
 
 ### Tips
 
@@ -130,9 +154,22 @@ Kampanjen kombinerar den verkliga Trip 19-flygkraschen 1940 med KULT: Black Mado
 - ✅ Skapad locations.html (8 kampanjplatser med detaljerade modaler och SL-noter)
 - ✅ Skapad clues.html (googlebara ledtrådar, research-trails, metodologi)
 
+**2025-01-15:**
+- ✅ Lagt till Volkov FBI-filer (official + annoterade versioner för Mac/Sparky)
+- ✅ Skapad conspiracy_guide.html (SL-guide: Tier 1-6 anomalier, Staire-mysteriet)
+- ✅ Lagt till Lundeen FBI-artikel (Drew Pearson 1940)
+- ✅ Lagt till John B. Staire Jr. som NPC (Traffic Manager-mysteriet)
+- ✅ Lagt till China Buffet location (Session 1 mötesplats med 6 bilder)
+- ✅ Lagt till spelarnas bostäder i locations (Mac, Sparky, Scalpel)
+- ✅ **MODULARISERAD SESSIONS-STRUKTUR:**
+  - sessions.html → Översiktssida med kampanjstatistik och sessionskort
+  - session1.html → Individuell session med prep (China Buffet, Volkov-varning) + journal
+  - Skalbar struktur för 30+ sessions
+- ✅ Pushad Session1/-mappen med alla China Buffet-bilder till GitHub
+
 **Nästa:**
-- [ ] sessions.html (sessionsplanering 1-12)
 - [ ] adaption.html (full KULT → Delta Green guide)
+- [ ] session2.html när Session 1 är spelad
 
 ## 📧 KONTAKT
 
