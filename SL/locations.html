@@ -367,42 +367,28 @@
 
         <!-- PLAYER RESIDENCES -->
         <div class="category-section">
-            <h2 class="category-title">🏠 DC/MARYLAND/VIRGINIA - SPELARBOSTÄDER</h2>
+            <h2 class="category-title">🏠 DC/MARYLAND - SPELARBOSTÄDER</h2>
             <div class="locations-grid">
                 <!-- Mac Riley -->
                 <div class="location-card" onclick="openModal('mac_home')">
-                    <div class="location-name">Mac Riley - Alexandria, VA</div>
-                    <div class="location-subtitle">Lägenhet, Old Town Alexandria</div>
+                    <div class="location-name">Mac Riley - Arlington, VA</div>
+                    <div class="location-subtitle">Unit 806, 1021 N Garfield St</div>
                     <div class="location-brief">
-                        Mac's spartanska lägenhet i Old Town Alexandria. Walking distance till King Street Metro. FBI-agent på forced leave, bor ensam efter skilsmässa. Volkov-obsessionen tar över lägenheten - klippurklipp, foton, anteckningar.
+                        1 sovrum, ~60 kvm. Tvingad ledighet från FBI. Volkov-Board dominerar vardagsrummet (120x180cm korkskiva). 3 dödlås, säkerhetskedja alltid på. Takeout-rester överallt, whisky på köksbänken. Familjefoton vända nedåt.
                     </div>
                     <div class="location-tags">
                         <span class="tag">Hemadress</span>
                         <span class="tag">Mac Riley</span>
-                        <span class="tag">Safe house potential</span>
-                    </div>
-                </div>
-
-                <!-- Father Sullivan -->
-                <div class="location-card" onclick="openModal('sullivan_home')">
-                    <div class="location-name">Father Sullivan - Washington Navy Yard</div>
-                    <div class="location-subtitle">Officers' Quarters, Naval District Washington</div>
-                    <div class="location-brief">
-                        Sullivan's enkelrum i tjänstebostäder vid Washington Navy Yard. Spartanskt inrett. Bibel på nattduksbordet. Crisis of faith efter Sea Glass - vaknar ofta kallsvettig. Chapel inom gångavstånd.
-                    </div>
-                    <div class="location-tags">
-                        <span class="tag">Hemadress</span>
-                        <span class="tag">Sullivan</span>
-                        <span class="tag">Navy Chaplain</span>
+                        <span class="tag">FBI</span>
                     </div>
                 </div>
 
                 <!-- Sparky -->
                 <div class="location-card" onclick="openModal('sparky_home')">
-                    <div class="location-name">Sparky - Columbia, MD</div>
-                    <div class="location-subtitle">Lägenhet nära Fort Meade</div>
+                    <div class="location-name">Sparky - Laurel, MD</div>
+                    <div class="location-subtitle">Apt 3G, C Street Flats, 24 C Street</div>
                     <div class="location-brief">
-                        Kai "Sparky" Zhang's tech-packade lägenhet i Columbia, 15 min från NSA Fort Meade. Hemmakontor med flera monitorer. VPN-router, Faraday-bur för känslig utrustning. Gaming setup dubblar som analysutrustning.
+                        580 sq ft (~54 kvm), 3:e våningen. 15 min från NSA Fort Meade. 3 monitorer, VPN-router, Faraday cage för NSA-laptop. Dual-use gaming/analysis setup. "Plats att sova, inte ett hem."
                     </div>
                     <div class="location-tags">
                         <span class="tag">Hemadress</span>
@@ -411,26 +397,12 @@
                     </div>
                 </div>
 
-                <!-- Trench -->
-                <div class="location-card" onclick="openModal('trench_home')">
-                    <div class="location-name">Trench - Manassas, VA</div>
-                    <div class="location-subtitle">Radhus nära Fort Belvoir</div>
-                    <div class="location-brief">
-                        Sam "Trench" Novak's radhus i Manassas. 30 min från Fort Belvoir USAR center. Välskött men opersonligt - redo att lämna snabbt. Go-bag alltid packad. Garage med verktyg och utrustning.
-                    </div>
-                    <div class="location-tags">
-                        <span class="tag">Hemadress</span>
-                        <span class="tag">Trench</span>
-                        <span class="tag">USAR</span>
-                    </div>
-                </div>
-
                 <!-- Scalpel -->
                 <div class="location-card" onclick="openModal('scalpel_home')">
-                    <div class="location-name">Scalpel - Washington DC</div>
-                    <div class="location-subtitle">Lägenhet, Capitol Hill</div>
+                    <div class="location-name">Scalpel - Baltimore, MD</div>
+                    <div class="location-subtitle">9 E Ostend Street, Apt 2B, Federal Hill</div>
                     <div class="location-brief">
-                        Hanna "Scalpel" Engler's lägenhet på Capitol Hill. 20 min från DC Office of Chief Medical Examiner. Prydligt inrett, medicinska böcker i hyllor. Whisky-samling vittnar om coping-mekanismer. Grannarna vet inte vad hon jobbar med.
+                        Baltimore rowhouse 2:a våningen, ~60 kvm. Exponerade tegelväggar. Gammalt piano - första gången sedan DG-rekrytering hon tillåtit sig något bara för att hon vill. Funktionell men steril - operativ bas, inte ett hem.
                     </div>
                     <div class="location-tags">
                         <span class="tag">Hemadress</span>
@@ -2054,304 +2026,120 @@
                 `
             },
             mac_home: {
-                title: 'MAC RILEY - ALEXANDRIA, VA',
-                subtitle: 'Lägenhet, Old Town Alexandria',
+                title: 'MAC RILEY - ARLINGTON, VA',
+                subtitle: 'Unit 806, 1021 N Garfield St, Arlington, VA 22201',
                 content: `
                     <div class="modal-section">
                         <h3>📍 ÖVERSIKT</h3>
-                        <div class="coordinates">38.8048° N, 77.0469° W - Old Town Alexandria, VA</div>
-                        <p><strong>Adress:</strong> King Street-området (nära Metro)</p>
-                        <p><strong>Typ:</strong> 1-rumslägenhet, 3:e våningen</p>
-                        <p><strong>Status:</strong> Hyreslägenhet, spartanskt möblerad</p>
+                        <div class="coordinates">38.8897° N, 77.0965° W - Arlington, VA</div>
+                        <p><strong>Typ:</strong> 1 sovrum, ~60 kvm</p>
+                        <p><strong>Hyra:</strong> $1,800/mån</p>
+                        <p><strong>Status:</strong> Tvingad ledighet från FBI (augusti 2025)</p>
                     </div>
 
                     <div class="modal-section">
-                        <h3>🏠 BESKRIVNING</h3>
-                        <p>Mac's lägenhet är funktionell men saknar personlighet. Efter skilsmässan tog han det billigaste han hittade inom pendlingsavstånd till FBI HQ (även om han är på forced leave).</p>
-
-                        <h4>Interiör:</h4>
+                        <h3>🔒 SÄKERHETSÅTGÄRDER</h3>
                         <ul>
-                            <li>Säng, skrivbord, två stolar - ingenting mer</li>
-                            <li>Kök: Mikrovågsugn, kaffemaskin (överanvänd)</li>
-                            <li>Badrum: Standard, rakhyvel och tandborste</li>
-                            <li>Inga tavlor, inga dekorationer</li>
+                            <li>3 separata dödlås på dörren</li>
+                            <li>Säkerhetskedja alltid påsatt</li>
+                            <li>Dörrkilarm (skriker vid intrång)</li>
+                            <li>Tunga mörkläggningsgardiner (alltid fördragna)</li>
+                            <li>Säkerhetsskåp med vapen och ammunition</li>
+                            <li>Flyktvåska alltid packad</li>
                         </ul>
+                    </div>
 
-                        <h4>Volkov-väggen:</h4>
+                    <div class="modal-section">
+                        <h3>🎯 VOLKOV-BOARD</h3>
                         <div class="info-box warning">
-                            <p>Ena väggen har gradvis förvandlats till en investigation board:</p>
-                            <ul>
-                                <li>Klippurklipp från Cherry Hill Mall-incidenten</li>
-                                <li>Utskrivna grainy bilder av Volkov</li>
-                                <li>Röda trådar mellan events (bokstavligen)</li>
-                                <li>Handskrivna anteckningar: "VAR ÄR HAN?"</li>
-                                <li>Tidningsartiklar om Trip 19</li>
-                            </ul>
+                            <p>Korkskiva 120x180cm + utbyggnad 60x90cm på vardagsrumsväggen. Täckt med foton, kartor, anteckningar och rött snöre. Dominerar rummet helt. Mac stirrar på den timmar i sträck.</p>
                         </div>
                     </div>
 
                     <div class="modal-section">
-                        <h3>🎯 OPERATIVT</h3>
+                        <h3>🏚️ VARDAGSTILLSTÅND</h3>
                         <ul>
-                            <li><strong>Pendling till FBI HQ:</strong> 25 min Metro (Blue Line)</li>
-                            <li><strong>Grannar:</strong> Känner knappt Mac, han kommer/går oregelbundet</li>
-                            <li><strong>Säkerhet:</strong> Standard lås, Mac har installerat extra deadbolt</li>
-                            <li><strong>Safe house potential:</strong> Hög - anonym lägenhet, ingen vet att han är FBI</li>
-                        </ul>
-                    </div>
-
-                    <div class="modal-section">
-                        <h3>💼 VÄD FINNS HÄR</h3>
-                        <ul>
-                            <li>Go-bag alltid packad (kläder, ID, $2000 cash)</li>
-                            <li>Glock 19 i låda vid sängen</li>
-                            <li>FBI-ID och badge (suspenderad men har den kvar)</li>
-                            <li>Whisky-flaska (halvtom)</li>
-                            <li>Volkov-research i pärmar</li>
-                        </ul>
-                    </div>
-                `
-            },
-            sullivan_home: {
-                title: 'FATHER SULLIVAN - WASHINGTON NAVY YARD',
-                subtitle: 'Officers\' Quarters, Naval District Washington',
-                content: `
-                    <div class="modal-section">
-                        <h3>📍 ÖVERSIKT</h3>
-                        <div class="coordinates">38.8764° N, 76.9954° W - Navy Yard, Washington DC</div>
-                        <p><strong>Adress:</strong> Washington Navy Yard, Officers' Housing</p>
-                        <p><strong>Typ:</strong> Enkelrum, tjänstebostad</p>
-                        <p><strong>Status:</strong> Aktiv Navy Chaplain på plats</p>
-                    </div>
-
-                    <div class="modal-section">
-                        <h3>🏠 BESKRIVNING</h3>
-                        <p>Sullivan's boende är spartanskt enligt Navy-standard. Som Chaplain har han rätt till bättre quarters, men han föredrar enkelhet.</p>
-
-                        <h4>Interiör:</h4>
-                        <ul>
-                            <li>Enkelsäng, militärt prydlig</li>
-                            <li>Skrivbord med läslampa</li>
-                            <li>Bibel på nattduksbordet (sliten, ofta läst)</li>
-                            <li>Kors på väggen (det enda personliga)</li>
-                            <li>Fönster ut mot basen</li>
-                        </ul>
-
-                        <h4>Efter Sea Glass:</h4>
-                        <div class="info-box warning">
-                            <p>Crisis of faith syns i rummet:</p>
-                            <ul>
-                                <li>Bibeln ligger ofta slagen till Job (lidandets bok)</li>
-                                <li>Senaste veckorna: understrukna passager om tvivel</li>
-                                <li>Korset på väggen - tittar han bort från det?</li>
-                                <li>Vaknar kallsvettig, drömmer om transformation</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="modal-section">
-                        <h3>🎯 OPERATIVT</h3>
-                        <ul>
-                            <li><strong>Tillgång till:</strong> Navy Chapel (5 min walk)</li>
-                            <li><strong>Säkerhet:</strong> På militärbas - mycket säker</li>
-                            <li><strong>Grannar:</strong> Andra officerare, respekterar Chaplain</li>
-                            <li><strong>Mobilitet:</strong> Navy transportation available</li>
-                        </ul>
-                    </div>
-
-                    <div class="modal-section">
-                        <h3>⛪ VÄD FINNS HÄR</h3>
-                        <ul>
-                            <li>Bibel (King James Version)</li>
-                            <li>Teologiska böcker på hyllan</li>
-                            <li>Navy uniform (alltid redo)</li>
-                            <li>Personlig dagbok (började efter Sea Glass)</li>
-                            <li>Rosenkrans (använder sällan nuförtiden)</li>
+                            <li>Sängen sällan bäddad</li>
+                            <li>2-3 dagars disk i diskho</li>
+                            <li>Takeout-rester överallt</li>
+                            <li>Whiskyflaska på köksbänken</li>
+                            <li>Familjefoton vända nedåt</li>
                         </ul>
                     </div>
                 `
             },
             sparky_home: {
-                title: 'SPARKY - COLUMBIA, MD',
-                subtitle: 'Lägenhet nära Fort Meade / NSA HQ',
+                title: 'SPARKY - LAUREL, MD',
+                subtitle: 'Apartment 3G, C Street Flats, 24 C Street, Laurel, MD 20707',
                 content: `
                     <div class="modal-section">
                         <h3>📍 ÖVERSIKT</h3>
-                        <div class="coordinates">39.2037° N, 76.8610° W - Columbia, Maryland</div>
-                        <p><strong>Adress:</strong> Columbia, MD (15 min från NSA Fort Meade)</p>
-                        <p><strong>Typ:</strong> 2-rumslägenhet, modern komplex</p>
-                        <p><strong>Status:</strong> Hyreslägenhet, tech-dominerad</p>
+                        <div class="coordinates">39.0993° N, 76.8483° W - Laurel, MD</div>
+                        <p><strong>Storlek:</strong> 580 sq ft (~54 kvm)</p>
+                        <p><strong>Typ:</strong> 1 bedroom, 1 bathroom</p>
+                        <p><strong>Våning:</strong> 3:e våningen, unit G</p>
+                        <p><strong>Hyra:</strong> $1,580/månad</p>
+                        <p><strong>Avstånd till NSA:</strong> 15 min bil till Fort Meade</p>
                     </div>
 
                     <div class="modal-section">
-                        <h3>🏠 BESKRIVNING</h3>
-                        <p>Sparky's lägenhet är typisk för NSA-analytiker i området - ung tech professional, bor ensam, mer datorer än möbler.</p>
-
-                        <h4>Hemmakontor (sovrum omvandlat):</h4>
+                        <h3>💻 TECH-SETUP</h3>
                         <ul>
                             <li>3× monitorer (dual work/gaming setup)</li>
-                            <li>Stående skrivbord med RGB-belysning</li>
                             <li>VPN-router (alltid på)</li>
-                            <li>Faraday-bur för känslig utrustning</li>
+                            <li>Faraday cage för NSA work laptop</li>
                             <li>Whiteboard med krypto-anteckningar</li>
-                        </ul>
-
-                        <h4>Vardagsrum:</h4>
-                        <ul>
-                            <li>Gaming PC / analysstation</li>
                             <li>Mekaniska tangentbord (samling)</li>
-                            <li>Kaffemaskin (överanvänd)</li>
                             <li>Ingen TV (allt via datorn)</li>
                         </ul>
+                    </div>
 
-                        <div class="info-box">
-                            <p><strong>Dual-use utrustning:</strong> Det som ser ut som gaming-setup är också hans Delta Green analysverktyg. RGB-ljusen stängs av när han jobbar på allvar.</p>
+                    <div class="modal-section">
+                        <h3>⚠️ "PLATS ATT SOVA, INTE ETT HEM"</h3>
+                        <div class="info-box warning">
+                            <p><strong>Mr. Walsh lever i sin lägenhet. Sparky existerar i sin.</strong></p>
+                            <p>Funktionell men steril. Dual-use gaming/analysis utrustning. Burner phones, encrypted drives, Signal jammer för möten. Ibland kl 02:00, när hon ser sitt eget ansikte i den svarta skärmen: <em>"När blev jag en ghost i mitt eget liv?"</em></p>
                         </div>
-                    </div>
-
-                    <div class="modal-section">
-                        <h3>🎯 OPERATIVT</h3>
-                        <ul>
-                            <li><strong>Pendling till NSA:</strong> 15 min bil till Fort Meade</li>
-                            <li><strong>Internet:</strong> 1Gb fiber + backup 5G</li>
-                            <li><strong>Säkerhet:</strong> Standard + camera doorbell + encrypted drives</li>
-                            <li><strong>Grannar:</strong> Blandat, många andra tech workers</li>
-                        </ul>
-                    </div>
-
-                    <div class="modal-section">
-                        <h3>💻 VÄD FINNS HÄR</h3>
-                        <ul>
-                            <li>Laptop (personal + NSA work laptop i Faraday-bur)</li>
-                            <li>Burner phones (3 st)</li>
-                            <li>External drives (encrypted)</li>
-                            <li>Signal jammer (för möten)</li>
-                            <li>Volkov-spårning i separerad VM</li>
-                            <li>Red Bull (10-pack i kylen)</li>
-                        </ul>
-                    </div>
-                `
-            },
-            trench_home: {
-                title: 'TRENCH - MANASSAS, VA',
-                subtitle: 'Radhus nära Fort Belvoir',
-                content: `
-                    <div class="modal-section">
-                        <h3>📍 ÖVERSIKT</h3>
-                        <div class="coordinates">38.7509° N, 77.4753° W - Manassas, Virginia</div>
-                        <p><strong>Adress:</strong> Manassas, VA (30 min från Fort Belvoir)</p>
-                        <p><strong>Typ:</strong> Radhus, 2 våningar med garage</p>
-                        <p><strong>Status:</strong> Ägt, välskött men opersonligt</p>
-                    </div>
-
-                    <div class="modal-section">
-                        <h3>🏠 BESKRIVNING</h3>
-                        <p>Trench's radhus är funktionellt och välorganiserat - som man förväntar sig av en USAR specialist. Men det känns mer som en FOB än ett hem.</p>
-
-                        <h4>Bottenvåning:</h4>
-                        <ul>
-                            <li>Kök: Standard men rent, används lite (mest takeout)</li>
-                            <li>Vardagsrum: TV, soffa, träningsutrustning i hörnet</li>
-                            <li>Inga familjefoton, inga dekorationer</li>
-                            <li>Garage: Verktyg, utrustning, välorganiserat</li>
-                        </ul>
-
-                        <h4>Övervåning:</h4>
-                        <ul>
-                            <li>Sovrum: Säng, garderob, minimalt</li>
-                            <li>Extra rum: Används som "gear room"</li>
-                        </ul>
-
-                        <div class="info-box">
-                            <p><strong>"Ready to move"-filosofi:</strong> Allt är organiserat så Trench kan packa och lämna på 30 minuter. Go-bag alltid vid dörren.</p>
-                        </div>
-                    </div>
-
-                    <div class="modal-section">
-                        <h3>🎯 OPERATIVT</h3>
-                        <ul>
-                            <li><strong>Pendling till Fort Belvoir:</strong> 30 min bil</li>
-                            <li><strong>Garage:</strong> 2-bilsgarage, verktyg och lager</li>
-                            <li><strong>Säkerhet:</strong> Standard säkerhetsdörr, inget fancy</li>
-                            <li><strong>Grannar:</strong> Håller avstånd, small talk men inget djupare</li>
-                        </ul>
-                    </div>
-
-                    <div class="modal-section">
-                        <h3>⚙️ VÄD FINNS HÄR</h3>
-                        <ul>
-                            <li><strong>Garage:</strong> Verktyg, reservdelar, camping gear</li>
-                            <li><strong>Gear room:</strong> Taktisk utrustning, uniformer, vapen (säker)</li>
-                            <li>Go-bag alltid packad: 72h supplies</li>
-                            <li>Pickup truck i garaget (F-150, reliable)</li>
-                            <li>MREs och vatten i källaren</li>
-                            <li>Första hjälpen-kit (advanced level)</li>
-                        </ul>
                     </div>
                 `
             },
             scalpel_home: {
-                title: 'SCALPEL - WASHINGTON DC',
-                subtitle: 'Lägenhet, Capitol Hill',
+                title: 'SCALPEL - BALTIMORE, MD',
+                subtitle: '9 E Ostend Street, Apartment 2B, Federal Hill, Baltimore, MD 21230',
                 content: `
                     <div class="modal-section">
                         <h3>📍 ÖVERSIKT</h3>
-                        <div class="coordinates">38.8899° N, 76.9911° W - Capitol Hill, Washington DC</div>
-                        <p><strong>Adress:</strong> Capitol Hill-området, DC</p>
-                        <p><strong>Typ:</strong> 2-rumslägenhet, äldre byggnad</p>
-                        <p><strong>Status:</strong> Hyreslägenhet, välskött</p>
+                        <div class="coordinates">39.2745° N, 76.6122° W - Federal Hill, Baltimore</div>
+                        <p><strong>Storlek:</strong> ~60 kvm</p>
+                        <p><strong>Typ:</strong> Klassisk Baltimore rowhouse, 2:a våningen</p>
+                        <p><strong>Detaljer:</strong> 1 sovrum, 1 badrum, vardagsrum + kök</p>
+                        <p><strong>Exponerade tegelväggar</strong></p>
+                        <p><strong>Ingen ovanför = privacy för oregelbundna timmar</strong></p>
                     </div>
 
                     <div class="modal-section">
-                        <h3>🏠 BESKRIVNING</h3>
-                        <p>Hanna's lägenhet är prydligt inredd och professionell - medicinska böcker i hyllorna, allt på sin plats. Men vissa detaljer avslöjar påfrestningen från jobbet.</p>
-
-                        <h4>Vardagsrum:</h4>
-                        <ul>
-                            <li>Bokhyllor: Medicinska textbooks, forensik, patologi</li>
-                            <li>Soffa och soffbord (kristallrent)</li>
-                            <li>Liten bar-cart: Whisky-samling (välvald, används)</li>
-                            <li>Inga foton från jobbet (medvetet val)</li>
-                        </ul>
-
-                        <h4>Sovrum:</h4>
-                        <ul>
-                            <li>Dubbelsäng, rena lakan (byter ofta)</li>
-                            <li>Nattduksbord: Sömnpiller, glas vatten</li>
-                            <li>Garderob: Professional outfits för jobbet</li>
-                        </ul>
-
-                        <div class="info-box warning">
-                            <p><strong>Coping mechanisms:</strong></p>
-                            <ul>
-                                <li>Whisky-samlingen växer (Islay single malts)</li>
-                                <li>Duschar länge efter skift (tvättar bort dagen)</li>
-                                <li>Sover med ljud på (vit brus-app)</li>
-                                <li>Grannarna vet INTE vad hon jobbar med - "medical researcher"</li>
-                            </ul>
+                        <h3>🎹 DET GAMLA PIANOT</h3>
+                        <div class="info-box">
+                            <p><strong>Lämnat av förra hyresgästen.</strong> Första gången sedan DG-rekrytering hon tillåtit sig något bara för att hon vill ha det. Började spela igen efter 17 års tystnad.</p>
                         </div>
                     </div>
 
                     <div class="modal-section">
-                        <h3>🎯 OPERATIVT</h3>
+                        <h3>🔒 SÄKERHET & OPSEC</h3>
                         <ul>
-                            <li><strong>Pendling till OCME:</strong> 20 min Metro till DC Office of Chief Medical Examiner</li>
-                            <li><strong>Grannar:</strong> Blandade, young professionals, hon håller privat</li>
-                            <li><strong>Säkerhet:</strong> Standard DC apartment security</li>
-                            <li><strong>Privacy:</strong> Förklarar aldrig exakt vad hon gör - "lab work"</li>
+                            <li>Extra dörrås (diskret installation)</li>
+                            <li>Kontaktsensorer på fönster</li>
+                            <li>Go-bag under sängen</li>
+                            <li>Inget DG-material i lägenheten</li>
+                            <li>Identifierad flyktväg via bakfönster</li>
                         </ul>
                     </div>
 
                     <div class="modal-section">
-                        <h3>🥃 VÄD FINNS HÄR</h3>
-                        <ul>
-                            <li>Medicinsk bibliotek (referensböcker)</li>
-                            <li>Whisky-samling (Laphroaig, Ardbeg, Lagavulin)</li>
-                            <li>Emergency medical kit (professionell standard)</li>
-                            <li>Jogging-utrustning (runner, stress-hantering)</li>
-                            <li>Journal (privat, processande)</li>
-                            <li>Tvättkorgen: Kläder tvättas ofta (removing traces)</li>
-                        </ul>
+                        <h3>🏚️ "OPERATIV BAS, INTE ETT HEM"</h3>
+                        <div class="info-box warning">
+                            <p>Funktionell men steril. Minimalt möblerad, inga personliga foton synliga, redo att lämna på några timmar. <strong>Undantaget:</strong> Pianot.</p>
+                        </div>
                     </div>
                 `
             }
