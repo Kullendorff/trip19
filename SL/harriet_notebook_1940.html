@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harriet Johnson's Notebook - Fall 1940</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Caveat:wght@400;700&family=Indie+Flower&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #5a4a3a;
+            font-family: 'Caveat', cursive;
+        }
+        
+        .notebook-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #f5efe3;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+            position: relative;
+        }
+        
+        /* Notebook spine */
+        .notebook-spine {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 40px;
+            background: linear-gradient(to right, 
+                #3a2a1a 0%, 
+                #4a3a2a 50%, 
+                #3a2a1a 100%);
+            box-shadow: inset -2px 0 5px rgba(0,0,0,0.5);
+        }
+        
+        /* Spiral binding holes */
+        .spiral-holes {
+            position: absolute;
+            left: 20px;
+            top: 30px;
+            bottom: 30px;
+            width: 20px;
+        }
+        
+        .hole {
+            width: 8px;
+            height: 8px;
+            background: #2a1a0a;
+            border-radius: 50%;
+            margin: 25px auto;
+            box-shadow: inset 0 2px 3px rgba(0,0,0,0.8);
+        }
+        
+        /* Notebook cover label */
+        .cover-label {
+            position: absolute;
+            top: 40px;
+            left: 60px;
+            right: 40px;
+            padding: 20px;
+            background: rgba(245, 239, 227, 0.9);
+            border: 2px solid #8b7355;
+            font-family: 'Indie Flower', cursive;
+            font-size: 24px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        .notebook-page {
+            margin-left: 40px;
+            padding: 40px 40px 40px 50px;
+            background: #faf7f0;
+            position: relative;
+            min-height: 600px;
+        }
+        
+        /* Ruled lines */
+        .notebook-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 31px,
+                #d4c5b5 31px,
+                #d4c5b5 32px
+            );
+            pointer-events: none;
+        }
+        
+        /* Red margin line */
+        .notebook-page::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: calc(60px - 0.5cm);
+            width: 2px;
+            background: #c85a54;
+            pointer-events: none;
+        }
+        
+        /* Page aging */
+        .page-texture {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 80% 20%, rgba(139, 119, 101, 0.08) 0%, transparent 40%),
+                radial-gradient(ellipse at 30% 80%, rgba(139, 119, 101, 0.06) 0%, transparent 35%);
+            pointer-events: none;
+        }
+        
+        .notebook-content {
+            position: relative;
+            z-index: 1;
+            font-size: 20px;
+            line-height: 32px;
+            color: #1a1a1a;
+        }
+        
+        .entry {
+            margin-bottom: 35px;
+            page-break-inside: avoid;
+        }
+        
+        .entry-date {
+            font-weight: 700;
+            font-size: 22px;
+            text-decoration: underline;
+            margin-bottom: 8px;
+            color: #2a2a2a;
+        }
+        
+        .entry-text {
+            margin-left: 0;
+        }
+        
+        .underline-text {
+            text-decoration: underline;
+            text-decoration-style: wavy;
+            text-decoration-color: rgba(26, 26, 26, 0.3);
+        }
+        
+        .emphasis {
+            font-weight: 700;
+            font-size: 22px;
+        }
+        
+        .header-text {
+            text-align: center;
+            font-weight: 700;
+            font-size: 28px;
+            margin: 20px 0 40px 0;
+            text-decoration: underline;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .notebook-container {
+                box-shadow: none;
+            }
+            
+            .entry {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="notebook-container">
+        <div class="notebook-spine"></div>
+        
+        <div class="spiral-holes">
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+        </div>
+        
+        <div class="notebook-page">
+            <div class="page-texture"></div>
+            
+            <div class="notebook-content">
+                <div class="header-text">H.J. 1940</div>
+                
+                <div class="entry">
+                    <div class="entry-date">15 september 1940:</div>
+                    <div class="entry-text">
+                        FBI här igen. Frågade om <span class="underline-text">tysken</span>. Jag sa att jag aldrig såg honom tydligt. Det är sant. Men jag hörde honom - den accenten. Och jag såg väskan han lämnade. Metall. <span class="emphasis">Konstigt hummande ljud.</span> Ernest rörde vid den och hans hand skakade i en timme efteråt.
+                    </div>
+                </div>
+                
+                <div class="entry">
+                    <div class="entry-date">22 september 1940:</div>
+                    <div class="entry-text">
+                        Mrs. Lundeen kom till kontoret. Letade efter något. Jag gav henne kuvertet Ernest lämnade till mig <span class="underline-text">"om något händer"</span>. Sa åt henne att bränna det. Hon gjorde det inte.
+                    </div>
+                </div>
+                
+                <div class="entry">
+                    <div class="entry-date">3 oktober 1940:</div>
+                    <div class="entry-text">
+                        Märklig dröm igen. <span class="emphasis">Det blå ljuset.</span> De tre männen som står i snö. En av dem tittade på mig och jag vaknade skrikande.
+                    </div>
+                </div>
+                
+                <div class="entry">
+                    <div class="entry-date">12 oktober 1940:</div>
+                    <div class="entry-text">
+                        Jag kan inte sluta tänka på det. Vad var det i väskan? Varför dog han verkligen? FBI vet mer än de säger.
+                    </div>
+                </div>
+                
+                <div class="entry">
+                    <div class="entry-date">27 oktober 1940:</div>
+                    <div class="entry-text">
+                        <span class="underline-text">Dr. Reinhardt</span> ringde igen idag. Frågade om Ernest någonsin nämnde <span class="emphasis">"ryska kontakter"</span> eller <span class="emphasis">"Leningrad"</span>. Vad pratar han om? Vad vet han?
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
