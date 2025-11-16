@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harriet Johnson - Förrådsscenen (SL-Guide) | Trip 19</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0e17;
+            color: #d0d0d0;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            border-bottom: 2px solid #4a90a4;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            color: #4a90a4;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            color: #8a9ba8;
+            font-size: 0.9rem;
+        }
+
+        /* Back button */
+        .back-nav {
+            margin-bottom: 2rem;
+        }
+
+        .back-nav a {
+            color: #4a90a4;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid #4a90a4;
+            border-radius: 4px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .back-nav a:hover {
+            background: rgba(74, 144, 164, 0.2);
+            border-color: #6ab0c4;
+        }
+
+        /* Section styling */
+        .section {
+            background: rgba(20, 30, 40, 0.6);
+            border: 1px solid rgba(74, 144, 164, 0.3);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            color: #4a90a4;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(74, 144, 164, 0.3);
+        }
+
+        .subsection-title {
+            color: #d4a520;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .warning-box {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid #ff4444;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid #4a90a4;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .success-box {
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 4px solid #4caf50;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Code/quote blocks */
+        code {
+            background: rgba(74, 144, 164, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #6ab0c4;
+        }
+
+        .quote {
+            background: rgba(10, 14, 23, 0.6);
+            border-left: 3px solid #d4a520;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: #d4a520;
+        }
+
+        /* Handout links */
+        .handout-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+
+        .handout-link {
+            display: block;
+            color: #4a90a4;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            background: rgba(74, 144, 164, 0.1);
+            border: 1px solid rgba(74, 144, 164, 0.3);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .handout-link:hover {
+            background: rgba(74, 144, 164, 0.2);
+            border-color: #4a90a4;
+            transform: translateX(5px);
+        }
+
+        /* Photo display */
+        .photo-display {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: rgba(20, 30, 40, 0.8);
+            border-radius: 8px;
+        }
+
+        .photo-display img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #4a90a4;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .photo-caption {
+            margin-top: 1rem;
+            color: #8a9ba8;
+            font-style: italic;
+        }
+
+        /* Stars for importance */
+        .stars {
+            color: #d4a520;
+        }
+
+        /* Table of contents */
+        .toc {
+            background: rgba(74, 144, 164, 0.05);
+            border: 1px solid rgba(74, 144, 164, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .toc h3 {
+            color: #4a90a4;
+            margin-bottom: 1rem;
+        }
+
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .toc a {
+            color: #6ab0c4;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📦 HARRIET JOHNSON - FÖRRÅDSSCENEN</h1>
+            <p class="subtitle">SL-Guide: Unit D-47, SecureStore Leesburg, VA</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="clues.html">← Tillbaka till Ledtrådar</a>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h3>Innehåll</h3>
+            <ul>
+                <li><a href="#overview">Översikt</a></li>
+                <li><a href="#how-to-find">Hur spelarna hittar hit</a></li>
+                <li><a href="#scene">Scenen - Förrådet</a></li>
+                <li><a href="#chest1">Kista 1: Kläder & Personligt</a></li>
+                <li><a href="#chest2">Kista 2: Kontor & Dokument</a></li>
+                <li><a href="#chest3">Kista 3: Metallbox & Kuvert ⭐⭐⭐</a></li>
+                <li><a href="#handouts">Handouts & Material</a></li>
+                <li><a href="#aftermath">Efter förrådet</a></li>
+                <li><a href="#sl-tips">SL-Tips</a></li>
+            </ul>
+        </div>
+
+        <!-- OVERVIEW -->
+        <div id="overview" class="section">
+            <h2 class="section-title">ÖVERSIKT</h2>
+            <ul>
+                <li><strong>Scen:</strong> Spelarna hittar Harriet Johnsons hyrbara förråd i Leesburg, VA</li>
+                <li><strong>Timing:</strong> Session 2-3 (efter AI-alert, innan/samtidigt med Lovettsville)</li>
+                <li><strong>Längd:</strong> 30-60 minuter</li>
+                <li><strong>Poäng:</strong> Överösa med info, 99% skräp, 1% guld</li>
+            </ul>
+
+            <div class="warning-box">
+                <h3 style="color: #ff4444; margin-bottom: 0.5rem;">⚠️ VOLKOVS BLINDA FLÄCK</h3>
+                <p>Volkov köpte ENDAST Harriets dagbok på auktionen (oktober 2024). Han frågade Emily om "papers and notebooks" - inte föremål. <strong>Han missade förrådet helt.</strong></p>
+                <p style="margin-top: 0.5rem;"><strong>Spelarna får nu:</strong> Type-VII fragment, Lundeens lapp om "Tre delar", Frankfurt Clinic-kopplingen, Leningrad-foto, Harriets anteckningsbok med drömmar om "tre män i snö".</p>
+            </div>
+        </div>
+
+        <!-- HOW TO FIND -->
+        <div id="how-to-find" class="section">
+            <h2 class="section-title">TRÅDEN HIT - STEG FÖR STEG</h2>
+
+            <h3 class="subsection-title">STEG 1: SPARKYS AI-ALERT (Session 1)</h3>
+            <div class="info-box">
+                <code>
+                    VOLKOV_WATCH ALERT:<br>
+                    Alias match: "V. Petrov"<br>
+                    Transaction: Estate sale item purchase<br>
+                    Item: Personal diary (1940)<br>
+                    Estate: Harriet Johnson<br>
+                    Date logged: October 2024<br>
+                    Source: Lovettsville Historical Society Q1 2025 donor report
+                </code>
+            </div>
+            <p><strong>Spelarna frågar sig:</strong> Vem fan är Harriet Johnson?</p>
+
+            <h3 class="subsection-title">STEG 2: GOOGLING - HARRIET JOHNSON</h3>
+            <p><strong>Vad de hittar (verklig info):</strong></p>
+            <ul>
+                <li>Harriet Johnson (1921-2024), 103 år gammal</li>
+                <li>Ernest Lundeens privata sekreterare 1938-1940</li>
+                <li>Körde Lundeen till flygplatsen 31 augusti 1940</li>
+                <li>Citerad: "He was crying in the office the day before"</li>
+                <li>FBI-förhör september 1940</li>
+                <li>Dog mars 2024</li>
+            </ul>
+
+            <p><strong>Fiktivt tillskott:</strong></p>
+            <ul>
+                <li><strong>Dödsannons:</strong> "...survived by granddaughter Emily Johnson (Leesburg, VA)"</li>
+                <li><strong>Facebook</strong> (Emily Johnson, april 2024): "Äntligen fixat farmorsgrejerna till försäljning. Har fortfarande MASSVIS kvar i förrådet. Vill någon ha 80 års National Geographic? 😅"</li>
+                <li><strong>Auktionskatalog</strong> (Lovettsville Estate Sales, oktober 2024): LOT 23: Personal diary, 1940 - <strong>SÅLD $850</strong> (köpare: V. Petrov)</li>
+            </ul>
+
+            <h3 class="subsection-title">STEG 3: KONTAKTA EMILY JOHNSON</h3>
+            <p><strong>Hitta henne:</strong> Facebook, LinkedIn (lärare), eller via Lovettsville Historical Society</p>
+
+            <div class="quote">
+                <p><strong>Emily:</strong> "Herregud, det finns SÅ mycket kvar. Jag sålde det jag kunde men det mesta av farmors saker är fortfarande i hennes förråd. Jag har betalat 85 dollar i månaden i över ett år bara för att jag inte orkar gå igenom alltihop."</p>
+                <p style="margin-top: 0.5rem;"><strong>Om de ber om tillträde:</strong> "Ni får gärna titta om ni vill? Här, jag skickar er portkoden och enhetsnumret. Det är SecureStore i Leesburg, <strong>Unit D-47</strong>."</p>
+            </div>
+        </div>
+
+        <!-- THE SCENE -->
+        <div id="scene" class="section">
+            <h2 class="section-title">SCENEN - FÖRRÅDET</h2>
+
+            <h3 class="subsection-title">ANKOMST</h3>
+            <p><strong>SecureStore Self Storage</strong> - Industriområde, Leesburg, VA</p>
+            <ul>
+                <li>Orange korridor, betongväggar</li>
+                <li>Luktar mögel, betong och damm</li>
+                <li>Neonljus som surrar</li>
+            </ul>
+
+            <p><strong>Unit D-47:</strong> Andra våningen, längst bort. Rullgardinsdörr (blekgrön metall). <strong>Kod: 4782#</strong></p>
+
+            <div class="info-box">
+                <p><strong>När de öppnar:</strong> <em>SKRAPAR</em> metalldörren upp. Dammoln yr.</p>
+                <p><strong>Första intrycket:</strong> Fullproppat. Kaos. Kartonger staplade till taket. Möbler med lakan över. Julpynt. En hel människas liv i 6x3 meter.</p>
+            </div>
+
+            <h3 class="subsection-title">SÖKANDE - PRAKTISKT</h3>
+            <p><strong>Låt spelarna utforska fritt.</strong> 99% är skräp:</p>
+            <ul>
+                <li>Juldekorationer, VHS-band, Stephen King-böcker, National Geographic</li>
+                <li>Gamla kläder, kokböcker, vinylskivor (Sinatra, Elvis)</li>
+                <li>Verktyg, symaskin, handarbete</li>
+            </ul>
+
+            <div class="success-box">
+                <p><strong>När de säger:</strong> "Vi letar efter något från 1940" eller "Något kopplat till Lundeen"</p>
+                <p><strong>Då guidar du dem mot träkistorna längst in.</strong></p>
+            </div>
+        </div>
+
+        <!-- CHEST 1 -->
+        <div id="chest1" class="section">
+            <h2 class="section-title"><span class="stars">⭐</span> KISTA 1: "KLÄDER & PERSONLIGT"</h2>
+            <p><strong>Skylt på kistorna (svart tejp, kritstoft):</strong> "Farfars saker - Rör ej! / Harriet 1952"</p>
+
+            <h3 class="subsection-title">Innehåll:</h3>
+            <ul>
+                <li>Ernest Lundeens kostym (mögel, naftalen-lukt)</li>
+                <li>Slipsar (4-5 st), skor (storlek 43)</li>
+                <li>Rakhyvel, toalettartiklar</li>
+                <li>Fickur (stannat på 4:15)</li>
+                <li>Plånbok (tom, prägel: "E.L.")</li>
+                <li><strong>⭐ Visitkort från George Sylvester Viereck</strong> - "Publicist"</li>
+                <li>Visitkort: Burton K. Wheeler, Gerald P. Nye, Hamilton Fish III, Charles Lindbergh, etc.</li>
+                <li>Glasögon (runda bågar)</li>
+                <li>En bibel (inga anteckningar, verkar oläst)</li>
+            </ul>
+
+            <p><strong>SL-anteckning:</strong> Vierecks visitkort bekräftar kopplingen. Allt annat är vardagliga saker från en senator 1940.</p>
+        </div>
+
+        <!-- CHEST 2 -->
+        <div id="chest2" class="section">
+            <h2 class="section-title"><span class="stars">⭐⭐</span> KISTA 2: "KONTOR & DOKUMENT"</h2>
+
+            <h3 class="subsection-title">Viktiga fynd:</h3>
+
+            <div class="warning-box">
+                <h3 style="color: #ff4444;">HARRIETS ANTECKNINGSBOK (1940) - KRITISK!</h3>
+                <p>Liten svart anteckningsbok. "H.J. 1940" på framsidan. ~40 sidor. Harriets snabba handstil.</p>
+
+                <div class="quote" style="margin-top: 1rem;">
+                    <p><strong>15 september 1940:</strong> "FBI här igen. Frågade om tysken. Jag sa att jag aldrig såg honom tydligt. Det är sant. Men jag hörde honom - den accenten. Och jag såg väskan han lämnade. Metall. Konstigt hummande ljud. Ernest rörde vid den och hans hand skakade i en timme efteråt."</p>
+                </div>
+
+                <div class="quote">
+                    <p><strong>22 september 1940:</strong> "Mrs. Lundeen kom till kontoret. Letade efter något. Jag gav henne kuvertet Ernest lämnade till mig 'om något händer'. Sa åt henne att bränna det. Hon gjorde det inte."</p>
+                </div>
+
+                <div class="quote">
+                    <p><strong>3 oktober 1940:</strong> "Märklig dröm igen. Det blå ljuset. De tre männen som står i snö. En av dem tittade på mig och jag vaknade skrikande."</p>
+                </div>
+
+                <div class="quote">
+                    <p><strong>27 oktober 1940:</strong> "Dr. Reinhardt ringde igen idag. Frågade om Ernest någonsin nämnde 'ryska kontakter' eller 'Leningrad'. Vad pratar han om? Vad vet han?"</p>
+                </div>
+
+                <p style="margin-top: 1rem;"><strong>Detta etablerar:</strong> Tysk man lämnade metalväska, väskan hummade/vibrerade, fysisk effekt på Lundeen, Harriets drömmar om "tre män i snö", Frankfurt Clinic-kopplingen via Dr. Reinhardt</p>
+            </div>
+
+            <h3 class="subsection-title">Övrigt i Kista 2:</h3>
+            <ul>
+                <li><strong>Kalender från 1940:</strong>
+                    <ul>
+                        <li>Juni 15, 1940: "R. - lunch, priv."</li>
+                        <li>Augusti 30, 1940: "Flight 4 PM - VIKTIGT"</li>
+                    </ul>
+                </li>
+                <li><strong>⭐ Telegram</strong> (hopvikt i en bok, daterat augusti 28, 1940):<br>
+                    "PACKAGE DELAYED STOP WILL ARRIVE 30TH STOP HANDLE WITH CARE STOP R"
+                </li>
+                <li>Lundeens politiska tal ("Six Men and War", anti-draft speeches, America First material)</li>
+                <li>Fotografier från kontoret</li>
+            </ul>
+        </div>
+
+        <!-- CHEST 3 -->
+        <div id="chest3" class="section">
+            <h2 class="section-title"><span class="stars">⭐⭐⭐</span> KISTA 3: "METALLBOX & KUVERT" (KRITISK!)</h2>
+
+            <p>Den här kistan innehåller minst. Mest luft och bomull för packing. Överst ligger ett brev.</p>
+
+            <div class="quote">
+                <strong>Brev från Norma Lundeen till Harriet (1941):</strong><br><br>
+                "Kära Harriet,<br>
+                Jag skickar dig dessa föremål som Ernest ville ha förvarade säkert. Jag orkar inte titta på dem. Var snäll och håll dem borta från huset. FBI kom igen igår.<br>
+                - N.L."
+            </div>
+
+            <h3 class="subsection-title" style="color: #ff4444;">METALLBOXENS 6 FÖREMÅL:</h3>
+
+            <div class="warning-box">
+                <h4 style="color: #ff4444; margin-bottom: 0.5rem;">1. FOTO (svartvitt, något suddig)</h4>
+                <ul>
+                    <li>Tre män i sovjetiska militäruniformer</li>
+                    <li>Står framför en byggnad (kasern eller fabrik)</li>
+                    <li>Bakgrund: snö, vinter</li>
+                    <li>Fotat från avstånd, ansikten inte helt tydliga</li>
+                    <li><strong>Baksida (Lundeens handstil):</strong> "Leningrad contact - K. referens"</li>
+                </ul>
+
+                <div class="photo-display" style="margin-top: 1rem;">
+                    <img src="russianphoto1.png" alt="Tre män i Leningrad 1942" style="max-width: 500px;">
+                    <p class="photo-caption">Fotot från metallboxen - "Leningrad contact - K. referens"</p>
+                </div>
+
+                <p style="margin-top: 1rem;"><strong>SL-anteckning:</strong> Detta är första direkta kopplingen till Leningrad. Spelarna har ingen aning vad "K" betyder än (det är Kalenko).</p>
+            </div>
+
+            <div class="warning-box">
+                <h4 style="color: #ff4444; margin-bottom: 0.5rem;">2. METALLFÖREMÅL (Type-VII fragment)</h4>
+                <ul>
+                    <li>Storlek: ungefär som en stor knapp eller liten lins</li>
+                    <li>Form: Något oregelbunden, som om den brukits/brutits</li>
+                    <li>Temperatur: Känns kallt, även efter att ha legat i rumstemperatur</li>
+                    <li>Vikt: Tyngre än det borde vara för sin storlek</li>
+                    <li>Gravering (delvis utsliten): "...ekt VII"</li>
+                    <li>Reflekterar ljus... fel. Vinkeln stämmer inte.</li>
+                </ul>
+
+                <p><strong>Vid Unnatural-check (10+):</strong> Detta är inte naturligt material. Det känns fel på ett sätt som får nackhåren att resa sig. Det borde inte existera.</p>
+
+                <p><strong>SL-anteckning:</strong> Detta är ett fragment av Type-VII-kristallen från Trip 19. Överlevde kraschen, överlevde inbrottet 1940, gömdes av Norma.</p>
+            </div>
+
+            <div class="info-box">
+                <h4 style="color: #4a90a4; margin-bottom: 0.5rem;">3. VYKORT FRÅN TYSKLAND</h4>
+                <ul>
+                    <li>Poststämpel: Juni 1939</li>
+                    <li>Adressat: Ernest Lundeen, Senate Office Building, Washington D.C.</li>
+                    <li>Motiv: Generiskt tyskt landskap</li>
+                    <li><strong>Text (på tyska):</strong> "Paketet kommer som diskuterat. Behandla varsamt. - R"</li>
+                    <li>Ingen avsändare angiven</li>
+                </ul>
+                <p><strong>SL-anteckning:</strong> "R" är sannolikt Reinhardt. Detta visar att Lundeen fick Type-VII redan 1939, långt före Trip 19.</p>
+            </div>
+
+            <div class="info-box">
+                <h4 style="color: #4a90a4; margin-bottom: 0.5rem;">4. VISITKORT - Dr. Klaus Reinhardt</h4>
+                <p><strong>Framsida:</strong></p>
+                <ul>
+                    <li>"Dr. Klaus Reinhardt"</li>
+                    <li>"Frankfurt Klinik für Neuropsychiatrie"</li>
+                    <li>Adress i Frankfurt</li>
+                    <li>Telefonnummer</li>
+                </ul>
+                <p><strong>Baksida (penna, Lundeens handstil):</strong> "Kalenko - 1942"</p>
+                <p><strong>SL-anteckning:</strong> Detta är nyckeln. Frankfurt Clinic + Kalenko + 1942 = Leningrad-kopplingen. Men spelarna förstår inte det än.</p>
+            </div>
+
+            <div class="info-box">
+                <h4 style="color: #4a90a4; margin-bottom: 0.5rem;">5. TEKNISKT HÄFTE (10 sidor, illa tilltygat)</h4>
+                <ul>
+                    <li>Tunna papper, veckat och häftat</li>
+                    <li>Vatten-skadat i hörnen</li>
+                    <li>Tekniska ritningar (ingenjörsdiagram)</li>
+                    <li>Diagram över något sfäriskt/kristallformat</li>
+                    <li>Tyska anteckningar (de flesta oläsliga)</li>
+                    <li>Ekvationer (fysik, men märklig notation)</li>
+                    <li>Datum: 1939</li>
+                    <li>Signatur: Oläslig, men börjar på "R"</li>
+                </ul>
+
+                <p><strong>Om någon kan tyska:</strong> Fragmentariska meningar som "...resonansfrekvens måste kalibreras...", "...farligt vid direkt beröring...", "...tre enheter nödvändiga för full aktivering..."</p>
+
+                <p><strong>SL-anteckning:</strong> Teknisk dokumentation för Type-VII. Visar att det fanns FLERA enheter.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4 style="color: #ff4444; margin-bottom: 0.5rem;">6. LUNDEENS LAPP (hopvikt, handskriven)</h4>
+                <div class="quote">
+                    "Om något händer mig - kontakta K. i Leningrad. Han vet.<br><br>
+                    Tre delar. VII, VIII, IX. En i USA, två i Ryssland.<br><br>
+                    De får INTE hitta dem."
+                </div>
+
+                <p><strong>SL-anteckning:</strong> Detta är Lundeens sista varning. Han visste att det fanns tre kristaller/enheter. Han dog på väg att leverera VII. VIII och IX är fortfarande där ute.</p>
+            </div>
+        </div>
+
+        <!-- HANDOUTS -->
+        <div id="handouts" class="section">
+            <h2 class="section-title">📄 HANDOUTS & MATERIAL</h2>
+
+            <p>Förberedda dokument att ge spelarna:</p>
+
+            <div class="handout-links">
+                <a href="harriet_notebook_1940.html" target="_blank" class="handout-link">
+                    📓 Harriets anteckningsbok 1940 (fullständig)
+                </a>
+                <a href="telegram_august_1940.html" target="_blank" class="handout-link">
+                    📄 Telegram augusti 28, 1940 ("PACKAGE DELAYED...")
+                </a>
+                <a href="lundeen_handwritten_note.html" target="_blank" class="handout-link">
+                    ✍️ Lundeens handskrivna lapp ("Tre delar. VII, VIII, IX...")
+                </a>
+                <a href="washington_post_1946_article.html" target="_blank" class="handout-link">
+                    📰 Washington Post artikel 1946 (Frankfurt Clinic)
+                </a>
+            </div>
+
+            <div class="info-box">
+                <h3 style="color: #4a90a4; margin-bottom: 0.5rem;">Övriga handouts att förbereda:</h3>
+                <ul>
+                    <li>Foto: Tre män i Leningrad (bild att visa - <code>russianphoto1.png</code>)</li>
+                    <li>Vykort från Tyskland (bild)</li>
+                    <li>Dr. Reinhardts visitkort (för- och baksida)</li>
+                    <li>Tekniskt häfte (ritningar/diagram)</li>
+                    <li>Emilys Facebook-inlägg (screenshot)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- AFTERMATH -->
+        <div id="aftermath" class="section">
+            <h2 class="section-title">EFTER FÖRRÅDET</h2>
+
+            <h3 class="subsection-title">VAD SPELARNA VET NU:</h3>
+            <div class="success-box">
+                <h4>Konkreta fakta:</h4>
+                <ul>
+                    <li>Lundeen fick något från Tyskland 1939</li>
+                    <li>Det var en metallapparat/kristall som hummade</li>
+                    <li>Det fanns <strong>tre delar: VII, VIII, IX</strong></li>
+                    <li>En i USA (fragment de hittat), två i Ryssland</li>
+                    <li>Koppling till Frankfurt Clinic</li>
+                    <li>Koppling till Leningrad via "K. referens"</li>
+                    <li>Datum 1942 dyker upp (2 år efter Lundeen dog)</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h4>Vad de INTE vet än:</h4>
+                <ul>
+                    <li>Vad är Type-VII?</li>
+                    <li>Vem är "K"? (Kalenko)</li>
+                    <li>Varför Leningrad 1942?</li>
+                    <li>Vad är Frankfurt Clinics roll?</li>
+                    <li>Vem är Dr. Reinhardt?</li>
+                    <li>Vart är de andra delarna?</li>
+                </ul>
+            </div>
+
+            <h3 class="subsection-title">NÄSTA STEG:</h3>
+            <p><strong>Naturliga frågor spelarna bör ställa:</strong></p>
+            <ul>
+                <li>Måste vi researcha Frankfurt Clinic?</li>
+                <li>Vem fan är Kalenko?</li>
+                <li>Vad hände i Leningrad 1942?</li>
+                <li>Kan vi få tag på Stanford Box 147?</li>
+                <li>Ska vi åka till Lovettsville?</li>
+            </ul>
+
+            <div class="info-box">
+                <h4>Där Magda kommer in:</h4>
+                <p>När de senare träffar Magda kommer hon kunna koppla ihop:</p>
+                <ul>
+                    <li>Frankfurt Clinic = där hennes mor vårdades</li>
+                    <li>Leningrad 1942 = där hennes mor var</li>
+                    <li>De tre männen = patienter på Frankfurt Clinic</li>
+                    <li>"K" = sannolikt Kalenko (ett namn hon researhat)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SL TIPS -->
+        <div id="sl-tips" class="section">
+            <h2 class="section-title">💡 SL-TIPS FÖR SCENEN</h2>
+
+            <h3 class="subsection-title">Timing:</h3>
+            <ul>
+                <li>Låt dem leta fritt i 10-15 min</li>
+                <li>Ge dem känslan av att överösa med info</li>
+                <li>När de hittar träkistorna, sakta ner</li>
+                <li>Läs upp Harriets anteckningsbok ordagrant</li>
+                <li>Låt dem hantera metallföremålet (beskriv hur konstigt det känns)</li>
+            </ul>
+
+            <h3 class="subsection-title">Atmosfär:</h3>
+            <ul>
+                <li>Damm, mögel, nedstängt förråd</li>
+                <li>Allt luktar gammalt</li>
+                <li>Dålig belysning (deras ficklampor)</li>
+                <li>Känslan av att gräva i ett helt liv</li>
+                <li>99% är irrelevant, vilket gör de 1% viktiga grejerna mer värdefulla</li>
+            </ul>
+
+            <h3 class="subsection-title">Volkov-spåret:</h3>
+            <div class="info-box">
+                <p><strong>Om de frågar om Volkov varit här:</strong></p>
+                <ul>
+                    <li>Inget tyder på det</li>
+                    <li>Emily sa att han bara köpte dagboken</li>
+                    <li>Han frågade om "papers and notebooks" - inte föremål</li>
+                    <li><strong>Han missade detta för han sökte DOKUMENT</strong></li>
+                </ul>
+            </div>
+
+            <h3 class="subsection-title">Vad kan de ta med sig:</h3>
+            <p>Emily: "Ta vad ni vill. Om det hjälper er förstå vad som hände med senatorn så är farmor säkert glad."</p>
+            <ul>
+                <li>Allt från metallboxen</li>
+                <li>Harriets anteckningsbok</li>
+                <li>Kalendern</li>
+                <li>Telegram</li>
+                <li>Foton</li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>Metallföremålets effekt:</h4>
+                <p>Om någon håller det för länge (10+ minuter):</p>
+                <ul>
+                    <li>Lätt huvudvärk</li>
+                    <li>Känsla av att något "tittar tillbaka"</li>
+                    <li>SAN-check om de använder Unnatural på det (0/1)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="back-nav" style="margin-top: 3rem;">
+            <a href="clues.html">← Tillbaka till Ledtrådar</a>
+        </div>
+    </div>
+</body>
+</html>
