@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lundeen's Note</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Dawning+of+a+New+Day&family=Reenie+Beanie&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #8b7355;
+            font-family: 'Reenie Beanie', cursive;
+        }
+        
+        .note-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #f9f3e8;
+            padding: 30px;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.4);
+            position: relative;
+            transform: rotate(-1deg);
+            border: 1px solid #d4c5a9;
+        }
+        
+        /* Paper texture and aging */
+        .note-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 70% 20%, rgba(139, 119, 101, 0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at 30% 80%, rgba(139, 119, 101, 0.12) 0%, transparent 35%),
+                radial-gradient(ellipse at 90% 60%, rgba(139, 119, 101, 0.08) 0%, transparent 25%);
+            pointer-events: none;
+        }
+        
+        /* Coffee stain */
+        .note-container::after {
+            content: '';
+            position: absolute;
+            bottom: 40px;
+            right: 50px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle, 
+                rgba(139, 119, 101, 0.2) 0%, 
+                rgba(139, 119, 101, 0.15) 30%, 
+                rgba(139, 119, 101, 0.08) 60%, 
+                transparent 80%);
+            pointer-events: none;
+        }
+        
+        .note-content {
+            position: relative;
+            z-index: 1;
+            font-size: 26px;
+            line-height: 2.2;
+            color: #1a1a1a;
+            letter-spacing: 1px;
+        }
+        
+        .note-content p {
+            margin: 0 0 20px 0;
+            text-indent: 20px;
+        }
+        
+        .note-content p:first-child {
+            text-indent: 0;
+            margin-bottom: 30px;
+            font-style: italic;
+            font-size: 22px;
+            color: #3a3a3a;
+        }
+        
+        .underline {
+            text-decoration: underline;
+            text-decoration-style: wavy;
+            text-decoration-color: rgba(26, 26, 26, 0.4);
+        }
+        
+        .emphasis {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        
+        /* Fold marks */
+        .fold-horizontal {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, 
+                transparent 0%, 
+                rgba(139, 119, 101, 0.3) 20%, 
+                rgba(139, 119, 101, 0.4) 50%, 
+                rgba(139, 119, 101, 0.3) 80%, 
+                transparent 100%);
+            pointer-events: none;
+        }
+        
+        .fold-1 { top: 33%; }
+        .fold-2 { top: 66%; }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .note-container {
+                box-shadow: none;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="note-container">
+        <div class="fold-horizontal fold-1"></div>
+        <div class="fold-horizontal fold-2"></div>
+        
+        <div class="note-content">
+            <p>Om något händer mig -</p>
+            
+            <p>Kontakta <span class="underline">K. i Leningrad</span>. Han vet.</p>
+            
+            <p>Tre delar. VII, VIII, IX.</p>
+            
+            <p>En i USA, två i Ryssland.</p>
+            
+            <p class="emphasis">De får INTE hitta dem.</p>
+            
+            <p style="margin-top: 40px; text-align: right; font-style: italic;">- E.L.</p>
+        </div>
+    </div>
+</body>
+</html>

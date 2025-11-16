@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Western Union Telegram - August 1940</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Special+Elite&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #6b5d4f;
+            font-family: 'Courier Prime', monospace;
+        }
+        
+        .telegram-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fef9e7;
+            padding: 0;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.5);
+            border: 2px solid #d4a574;
+            position: relative;
+        }
+        
+        .telegram-header {
+            background: #1a1a1a;
+            color: #ffd700;
+            padding: 15px 20px;
+            text-align: center;
+            border-bottom: 3px solid #d4a574;
+        }
+        
+        .telegram-logo {
+            font-family: 'Special Elite', monospace;
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin: 0;
+        }
+        
+        .telegram-subtext {
+            font-size: 10px;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            color: #ffd700;
+        }
+        
+        .telegram-body {
+            padding: 30px;
+            background: #fef9e7;
+            position: relative;
+        }
+        
+        /* Aging effects */
+        .telegram-body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 80% 30%, rgba(139, 119, 101, 0.1) 0%, transparent 40%),
+                radial-gradient(ellipse at 20% 70%, rgba(139, 119, 101, 0.08) 0%, transparent 35%);
+            pointer-events: none;
+        }
+        
+        .telegram-info {
+            font-size: 11px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #8b7355;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .telegram-info div {
+            margin: 3px 0;
+        }
+        
+        .telegram-message {
+            font-size: 16px;
+            line-height: 1.8;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(254, 249, 231, 0.8);
+        }
+        
+        .telegram-message p {
+            margin: 10px 0;
+        }
+        
+        .stop {
+            font-weight: bold;
+            color: #8b0000;
+        }
+        
+        .telegram-footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #8b7355;
+            font-size: 9px;
+            color: #5a5a5a;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Punch holes at top */
+        .punch-holes {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 40px;
+        }
+        
+        .punch-hole {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #6b5d4f;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        /* Stamp effect */
+        .received-stamp {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            border: 2px solid rgba(139, 0, 0, 0.4);
+            color: rgba(139, 0, 0, 0.5);
+            padding: 8px 12px;
+            font-size: 10px;
+            font-weight: bold;
+            transform: rotate(15deg);
+            letter-spacing: 1px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .telegram-container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="telegram-container">
+        <div class="punch-holes">
+            <div class="punch-hole"></div>
+            <div class="punch-hole"></div>
+            <div class="punch-hole"></div>
+        </div>
+        
+        <div class="telegram-header">
+            <h1 class="telegram-logo">WESTERN UNION</h1>
+            <div class="telegram-subtext">TELEGRAM</div>
+        </div>
+        
+        <div class="telegram-body">
+            <div class="received-stamp">RECEIVED<br>AUG 28 1940</div>
+            
+            <div class="telegram-info">
+                <div><strong>DATE:</strong> AUGUST 28, 1940</div>
+                <div><strong>TO:</strong> ERNEST LUNDEEN / SENATE OFFICE BUILDING WASHINGTON DC</div>
+                <div><strong>FROM:</strong> [SENDER REDACTED]</div>
+                <div><strong>TIME FILED:</strong> 11:42 AM</div>
+            </div>
+            
+            <div class="telegram-message">
+                <p>PACKAGE DELAYED <span class="stop">STOP</span></p>
+                <p>WILL ARRIVE 30TH <span class="stop">STOP</span></p>
+                <p>HANDLE WITH CARE <span class="stop">STOP</span></p>
+                <p style="text-align: right; margin-top: 20px;">- R</p>
+            </div>
+            
+            <div class="telegram-footer">
+                THE COMPANY WILL APPRECIATE SUGGESTIONS FROM ITS PATRONS CONCERNING ITS SERVICE<br>
+                CLASS OF SERVICE: STANDARD • SYMBOLS: DL=DAY LETTER • NL=NIGHT LETTER
+            </div>
+        </div>
+    </div>
+</body>
+</html>
