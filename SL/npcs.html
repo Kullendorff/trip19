@@ -454,6 +454,111 @@
                 padding: 1.5rem;
             }
         }
+
+        /* Lightbox Styles for Images */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+        }
+
+        .lightbox img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 2px solid var(--accent-blue);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: var(--accent-blue);
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(10, 15, 15, 0.9);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--accent-blue);
+            transition: all 0.2s;
+        }
+
+        .lightbox-close:hover {
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+        }
+
+        .clickable-image {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .clickable-image:hover {
+            opacity: 0.8;
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(74, 144, 164, 0.3);
+        }
+
+        .portrait-gallery {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .portrait-gallery img {
+            max-width: 200px;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 2px solid var(--border);
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-close {
+                top: 10px;
+                right: 15px;
+                font-size: 25px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .lightbox-content {
+                max-width: 95%;
+                max-height: 95%;
+            }
+
+            .portrait-gallery img {
+                max-width: 150px;
+                max-height: 200px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1093,6 +1198,29 @@
                         <div class="meta-item"><span class="meta-label">Kunskap:</span> Trip 19-historia</div>
                     </div>
                 </div>
+
+                <!-- John Bishop -->
+                <div class="npc-card" data-category="ally" data-keywords="bishop farmer lovettsville crash site" onclick="openNPCModal('bishop')">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">JOHN BISHOP</div>
+                            <div class="npc-alias">Bishop Farm ägare</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge ally">KONTAKT</span>
+                        <span class="badge">Session 3</span>
+                    </div>
+                    <div class="npc-summary">
+                        Nuvarande ägare av Bishop Farm där Flight 19 kraschade 1940 (son/barnbarn till Walter Bishop). 50-tal, bonde, skeptisk mot "nyfikna turister". Hittade gropar efter Volkovs illegala grävande 2019. Kan ge tillstånd att besöka kraschplatsen.
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Ålder:</span> 50-tal</div>
+                        <div class="meta-item"><span class="meta-label">Plats:</span> Bishop Farm, Lovettsville VA</div>
+                        <div class="meta-item"><span class="meta-label">Roll:</span> Markägare</div>
+                        <div class="meta-item"><span class="meta-label">Koppling:</span> Volkov 2019</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1102,6 +1230,14 @@
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal()">&times;</button>
             <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Lightbox for Images -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightbox-img" src="" alt="">
         </div>
     </div>
 
@@ -2286,6 +2422,12 @@
                 title: 'MAGDA ORLOVA',
                 subtitle: 'Allierad & Överlevare | 86 år (född 1939) | Status: Oklar',
                 content: `
+                    <div class="portrait-gallery">
+                        <img src="magda1.png" alt="Magda Orlova porträtt 1" class="clickable-image">
+                        <img src="magda2.png" alt="Magda Orlova porträtt 2" class="clickable-image">
+                        <img src="magda3.png" alt="Magda Orlova porträtt 3" class="clickable-image">
+                    </div>
+
                     <div class="modal-section">
                         <h3>✓ Allierad - Exponerad som 3-åring</h3>
                         <div class="detail-box warning">
@@ -2689,6 +2831,11 @@
                 title: 'MRS. ELEANOR WHITMAN',
                 subtitle: 'Lovettsville Historical Society | 70+ år | Session 3-kontakt',
                 content: `
+                    <div class="portrait-gallery">
+                        <img src="eleanorwhitman1.png" alt="Mrs. Eleanor Whitman porträtt 1" class="clickable-image">
+                        <img src="eleanorwhitman2.png" alt="Mrs. Eleanor Whitman porträtt 2" class="clickable-image">
+                    </div>
+
                     <div class="modal-section">
                         <h3>💼 Curator & Lokal Historiker</h3>
                         <p>Mrs. Eleanor Whitman är curator vid Lovettsville Historical Society i Virginia, nära Trip 19-kraschplatsen. 70+ år gammal, pratsam, hjälpsam med lokal historia. Har arbetat där i decennier.</p>
@@ -2784,6 +2931,118 @@
                         </ul>
                     </div>
                 `
+            },
+            bishop: {
+                title: 'JOHN BISHOP',
+                subtitle: 'Bishop Farm ägare | 50-tal | Session 3-kontakt',
+                content: `
+                    <div class="portrait-gallery">
+                        <img src="johnbishop.png" alt="John Bishop porträtt" class="clickable-image">
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🚜 Markägare & Bonde</h3>
+                        <p>John Bishop är nuvarande ägare av Bishop Farm i Lovettsville, Virginia - den mark där Pennsylvania Central Airlines Flight 19 kraschade 31 augusti 1940. Han är son eller barnbarn till Walter Bishop som ägde farmen vid tiden för kraschen.</p>
+                        <p><strong>Ålder:</strong> 50-tal<br>
+                        <strong>Yrke:</strong> Bonde (jordbruk)<br>
+                        <strong>Attityd:</strong> Skeptisk, praktisk, tröttnad på "nyfikna turister"</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Relation till Kraschplatsen</h3>
+                        <p>Kraschplatsen ligger ~300 yards från boningshuset, mitt på hans åkermark. Ett enkelt monument (stenpelare med 25 namn) uppsattes 1950. Genom åren har Bishop hanterat:</p>
+                        <ul>
+                            <li>Nyfikna turister och historieentusiaster</li>
+                            <li>Journalister (särskilt efter Rachel Maddow's "Ultra" podcast)</li>
+                            <li>Forskare från Historical Society</li>
+                            <li>Illegala intrång (särskilt Volkov 2019)</li>
+                        </ul>
+                        <p>Han är trött men inte fientlig - kan övertygas om besökare är respektfulla och genuint intresserade.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Volkov-incidenten 2019</h3>
+                        <div class="detail-box warning">
+                            <strong>KRITISK HÄNDELSE</strong><br>
+                            Maj 2019: En man med rysk accent (Dmitri Volkov) begärde tillstånd att besöka kraschplatsen. Bishop nekade - han hade haft nog med nyfikna turister.
+                        </div>
+                        <p><strong>Dagen efter:</strong> Bishop hittade 3-4 gropar på kraschplatsen, vardera ~3 fot djupa. Någon hade grävt illegalt på natten. Bishop anmälde till sheriff men inget hände. Han fyllde igen hålen.</p>
+
+                        <p><strong>Bishop's beskrivning av mannen:</strong></p>
+                        <ul>
+                            <li>Rysk accent</li>
+                            <li>40-50 år gammal</li>
+                            <li>Intensiv blick, "som han letade efter något specifikt"</li>
+                            <li>Hade med sig "någon slags meter eller detektor"</li>
+                        </ul>
+
+                        <p><strong>Vad Volkov hittade:</strong> Okänt. Men han fortsatte researchen intensivt efter detta.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Möte med Spelarna (Session 3)</h3>
+                        <p>När spelarna kommer till Bishop Farm för att undersöka kraschplatsen måste de få tillstånd från Bishop. Han bor på farmen och äger marken.</p>
+
+                        <div class="detail-box">
+                            <strong>FÖRHANDLING:</strong><br>
+                            Bishop är skeptisk men kan övertygas om spelarna är:
+                            <ul>
+                                <li>Respektfulla (inte "turister")</li>
+                                <li>Genuint intresserade i "vad som hände" (inte bara nyfikna)</li>
+                                <li>Professionella (om de nämner federal investigation)</li>
+                            </ul>
+                            <strong>Svårighetsgrad:</strong> Persuade 40+ eller Appeal 30+ (rätt approach)
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Bishop's Villkor</h3>
+                        <p>Om spelarna får tillstånd ställer Bishop följande krav:</p>
+                        <ul>
+                            <li>De får INTE skada marken permanent</li>
+                            <li>De måste fylla igen alla hål de gräver</li>
+                            <li>Han vill veta vad de hittar (om något)</li>
+                            <li>Han kan vara närvarande under undersökningen (om SL vill ha vittne)</li>
+                        </ul>
+                        <p><strong>Om spelarna nämner Volkov:</strong> Bishop blir mer intresserad. "Så ni jagar efter den ryssen? Han var tillbaka 2024 också, köpte något från Historical Society. Mrs. Whitman kan berätta mer."</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Information Han Kan Ge</h3>
+                        <div class="detail-box">
+                            <strong>VAD BISHOP VET:</strong>
+                            <ul>
+                                <li>Volkovs besök 2019 (beskrivning, beteende)</li>
+                                <li>Grävhål-platser (kan visa var de var)</li>
+                                <li>Lokal folklore om kraschen (hörde från farfar/far)</li>
+                                <li>Mrs. Whitman vid Historical Society (bästa källan)</li>
+                                <li>Att "fåglar undviker området" vid skymning</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>För Spelledaren - Bishop's Roll</h3>
+                        <p><strong>Funktion:</strong> Grindvakt till kraschplatsen, informationskälla om Volkov 2019, eventuellt vittne</p>
+                        <p><strong>Personlighet:</strong> Praktisk, skeptisk, lite trött på uppmärksamheten, men grundläggande hjälpsam om han blir rätt behandlad</p>
+                        <p><strong>Säkerhet:</strong> Om spelarna är oförsiktiga och Bishop berättar om deras besök kan Volkov få reda på det</p>
+
+                        <div class="detail-box warning">
+                            <strong>MÖJLIG KOMPLIKATION:</strong><br>
+                            Om spelarna gräver upp Type-VII fragment och Bishop ser det - vad händer då? Kan han bli mål för Volkov? Överväg om Bishop behöver skyddas eller om han ska förbli omedveten.
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Praktisk Information</h3>
+                        <ul>
+                            <li><strong>Plats:</strong> Bishop Farm, Lovettsville VA (privat mark)</li>
+                            <li><strong>Kontakt:</strong> Via Mrs. Whitman (Historical Society) eller direkt besök</li>
+                            <li><strong>Tillgänglighet:</strong> Bor på farmen, oftast hemma dagtid</li>
+                            <li><strong>Kraschplats:</strong> 300 yards från boningshus, öppen åkermark</li>
+                        </ul>
+                    </div>
+                `
             }
         };
 
@@ -2862,6 +3121,41 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeModal();
+            }
+        });
+
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.querySelector('.lightbox-close');
+
+        // Open lightbox when clicking on images with clickable-image class
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('clickable-image')) {
+                lightboxImg.src = e.target.src;
+                lightboxImg.alt = e.target.alt;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+
+        // Close lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
             }
         });
     </script>
