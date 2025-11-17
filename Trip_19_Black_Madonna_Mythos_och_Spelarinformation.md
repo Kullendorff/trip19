@@ -366,14 +366,6 @@ Philadelphia Experiment '43, Leningrad anomaly '42.
 All connected. - DV, 2019"
 ```
 
-**✅ Magdas första kontakt (mejl):**
-```
-"I found documents in German archives about 'Type-VII 
-apparatus' prepared for transfer to USA August 1940. 
-Right before the crash. Electromagnetic containment device.
-What were they trying to send?"
-```
-
 #### **Vad spelarna INTE vet än:**
 
 - ❌ Vad "Type-VII apparatus" egentligen är

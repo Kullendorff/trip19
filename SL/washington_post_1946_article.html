@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Washington Post - March 21, 1946</title>
+    <title>Washington Post - March 21, 1946</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700;900&display=swap');
         
@@ -58,7 +58,15 @@
             color: #1a1a1a;
             text-transform: uppercase;
         }
-        
+
+        .motto {
+            font-size: 10px;
+            margin-top: 5px;
+            color: #3a3a3a;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
         .date-info {
             font-size: 11px;
             margin-top: 8px;
@@ -137,6 +145,50 @@
             font-style: italic;
             color: #5a5a5a;
         }
+
+        /* SL Notes */
+        .sl-notes {
+            column-span: all;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 107, 53, 0.08);
+            border-left: 4px solid #ff6b35;
+            border-radius: 4px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .sl-notes h3 {
+            font-family: 'Playfair Display', serif;
+            color: #ff6b35;
+            font-size: 16px;
+            margin: 0 0 12px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sl-notes p {
+            font-size: 12px;
+            margin: 0 0 10px 0;
+            text-align: left;
+            text-indent: 0;
+            line-height: 1.6;
+        }
+
+        .sl-notes ul {
+            margin: 10px 0 10px 20px;
+            padding: 0;
+        }
+
+        .sl-notes li {
+            margin-bottom: 6px;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .sl-notes strong {
+            color: #d9534f;
+        }
         
         /* Print styles */
         @media print {
@@ -144,10 +196,14 @@
                 background: white;
                 padding: 0;
             }
-            
+
             .newspaper-page {
                 box-shadow: none;
                 max-width: 100%;
+            }
+
+            .sl-notes {
+                display: none;
             }
         }
         
@@ -175,6 +231,7 @@
         
         <div class="masthead">
             <h1 class="newspaper-name">The Washington Post</h1>
+            <div class="motto">Democracy Dies in Darkness</div>
             <div class="date-info">THURSDAY, MARCH 21, 1946</div>
         </div>
         
@@ -187,21 +244,45 @@
             
             <p class="byline">By ROBERT J. HARRISON<br>Staff Correspondent</p>
             
-            <p>A small number of German civilians displaced by the Eastern Front campaigns are receiving specialized medical treatment at American facilities, according to sources familiar with the War Department's humanitarian assistance programs.</p>
-            
-            <p>The patients, primarily civilians caught in the Leningrad siege and subsequent Soviet advance, were evacuated through Sweden in 1946 and are being treated for what military medical officers describe as "severe psychological trauma and unusual physiological conditions."</p>
-            
-            <p>Among the facilities providing care is the Frankfurt Klinik für Neuropsychiatrie in the American occupation zone, which has been treating both German nationals and displaced persons since late 1945. Dr. Klaus Reinhardt, the clinic's director, declined to provide specific details about patient conditions, citing medical confidentiality.</p>
-            
-            <p>"Many of these individuals experienced conditions during the siege that are difficult to comprehend," Dr. Reinhardt said in a brief statement. "Our primary concern is their recovery and eventual reintegration."</p>
-            
-            <p>The War Department emphasized that the assistance program is limited in scope and focuses on humanitarian concerns rather than political considerations. Officials noted that similar programs exist for displaced persons from other war-torn regions.</p>
-            
-            <p>Congressional critics, including Rep. John Rankin (D-Miss.), have questioned the appropriateness of providing American resources to former enemy nationals while American servicemen await demobilization. The War Department maintains that the program aligns with international humanitarian principles established at the Geneva Convention.</p>
-            
-            <p>Approximately 40-60 individuals are estimated to be receiving such specialized care, though exact numbers remain classified for security reasons. The program is expected to continue through 1947.</p>
+            <p>American medical authorities are treating dozens of displaced persons evacuated from the ruins of Eastern Europe, many displaying what doctors describe as "unusual physiological conditions" stemming from their wartime experiences.</p>
+
+            <p>Among the most remarkable cases are approximately forty to sixty individuals who survived the 872-day siege of Leningrad, where Soviet citizens endured starvation, bombardment, and temperatures reaching forty degrees below zero. These patients were evacuated through Sweden in late 1945 and early 1946, arriving at medical facilities now under U.S. military administration in occupied Germany.</p>
+
+            <p>Dr. Klaus Reinhardt, director of the Frankfurt Klinik für Neuropsychiatrie, confirmed that his facility has received several dozen patients from the Leningrad evacuation. "These individuals have experienced traumas beyond the scope of conventional medical understanding," Dr. Reinhardt stated in an interview. "We are employing both traditional psychiatric methodologies and experimental therapeutic approaches."</p>
+
+            <p>The Frankfurt clinic, which came under American oversight following Germany's surrender, has been designated as a specialized treatment center for displaced persons presenting complex psychological and neurological symptoms. Dr. Reinhardt, who served in the Wehrmacht medical corps during the war, was retained by U.S. authorities due to his expertise in treating combat-related psychological trauma.</p>
+
+            <p>When pressed for specifics about the "unusual physiological conditions" mentioned in official reports, Dr. Reinhardt declined to provide details, citing patient confidentiality and ongoing medical research. "What I can say is that prolonged exposure to extreme deprivation—both physical and psychological—can manifest in ways that challenge our current medical paradigms," he explained.</p>
+
+            <p>The Leningrad survivors represent only a fraction of the estimated eight million displaced persons currently scattered across war-torn Europe. American military authorities, working alongside the newly formed United Nations Relief and Rehabilitation Administration, face the enormous challenge of providing care for millions of refugees, concentration camp survivors, and forced laborers freed from Nazi control.</p>
+
+            <p>Sources within the military administration indicated that the Frankfurt facility operates under heightened security protocols, though officials emphasized this is standard procedure for installations handling sensitive medical research and vulnerable patient populations.</p>
+
+            <p>The clinic is expected to continue operations under American supervision for the foreseeable future, with Dr. Reinhardt remaining as director pending completion of his denazification review. U.S. military spokesman Lt. Col. James Whitmore stated that retaining experienced German medical personnel is necessary "to ensure continuity of care for patients with specialized needs."</p>
             
             <div class="continuation">[Article continues on A-12]</div>
+
+            <div class="sl-notes">
+                <h3>📋 SL-anteckningar</h3>
+                <p><strong>Vad spelarna kan sluta sig till:</strong></p>
+                <ul>
+                    <li>Dr. Klaus Reinhardt = samma namn som i K.R.-notering i Harriets dagbok</li>
+                    <li>Frankfurt Klinik = samma telefonnummer "ALpine 4-7829" som i kontorsanteckningarna</li>
+                    <li>Lundeen hade kontakt med någon (K.R.) på detta sjukhus FÖRE sin död 1940</li>
+                    <li>Artikeln är från 1946, men Lundeens kontakt var 1938-1940</li>
+                    <li>Vad behandlades på kliniken INNAN kriget? Vad var Lundeens koppling?</li>
+                    <li>"Unusual physiological conditions" = Delta Green kodord för övernaturliga effekter</li>
+                </ul>
+                <p><strong>Om spelarna gräver vidare:</strong></p>
+                <ul>
+                    <li>Frankfurt Klinik grundades 1923, specialiserade sig på neuropsykiatri</li>
+                    <li>Dr. Reinhardt var direktör redan före kriget (från 1936)</li>
+                    <li>Kliniken hade rykte för "experimentella metoder" på 30-talet</li>
+                    <li>Flera amerikanska senatorer och affärsmän besökte kliniken 1938-1939</li>
+                    <li>Kliniken överlevde kriget mestadels intakt - misstänkt skyddad av både nazister och senare allierade</li>
+                </ul>
+                <p><strong>Koppling till Trip 19:</strong> Lundeen kan ha rest till Frankfurt 1938-1940 för att konsultera Reinhardt om någon "medicinsk fråga" - troligen relaterat till kristallen eller andra övernaturliga fenomen. Detta ledde till kontakter med tyska ockultister/nazister, vilket i sin tur kan ha lett till hans död.</p>
+            </div>
         </div>
     </div>
 </body>
