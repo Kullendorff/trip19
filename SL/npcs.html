@@ -1002,7 +1002,7 @@
                     <div class="npc-header">
                         <div>
                             <div class="npc-name">HARRIET JOHNSON</div>
-                            <div class="npc-alias">Historisk forskare / dagboksförfattare</div>
+                            <div class="npc-alias">Lundeens sekreterare | Dagboksförfattare</div>
                         </div>
                     </div>
                     <div class="npc-badges">
@@ -1010,11 +1010,12 @@
                         <span class="badge historical">Dokumentär</span>
                     </div>
                     <div class="npc-summary">
-                        Forskare som förde hemlig dagbok om Lundeen och Trip 19. Död före okt 2024. Dödsbo-försäljning i Lovettsville → Dmitri Volkov köpte dagboken via alias "V. Petrov". Mrs. Eleanor Whitman minns honom från 2024 OCH 2019. VAD STOD I DAGBOKEN?
+                        Senator Lundeens sekreterare som förde hemlig dagbok om sin chef och Trip 19. Såg Lundeen gråtande vid skrivbordet morgonen innan flygningen. Död före okt 2024. Dödsbo-försäljning i Lovettsville → Dmitri Volkov köpte dagboken via alias "V. Petrov". Mrs. Eleanor Whitman minns honom från 2024 OCH 2019. VAD STOD I DAGBOKEN?
                     </div>
                     <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Roll:</span> Lundeens sekreterare 1940</div>
                         <div class="meta-item"><span class="meta-label">Död:</span> Före oktober 2024</div>
-                        <div class="meta-item"><span class="meta-label">Artefakt:</span> Dagbok (1940-tal)</div>
+                        <div class="meta-item"><span class="meta-label">Artefakt:</span> Hemlig dagbok (1940-tal)</div>
                         <div class="meta-item"><span class="meta-label">Köpare:</span> "V. Petrov" (Volkov)</div>
                         <div class="meta-item"><span class="meta-label">Plats:</span> Lovettsville, VA</div>
                     </div>
@@ -3158,14 +3159,16 @@
         const lightboxClose = document.querySelector('.lightbox-close');
 
         // Open lightbox when clicking on images with clickable-image class
+        // Using capture phase to catch clicks before stopPropagation in modal
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('clickable-image')) {
+                e.stopPropagation(); // Prevent modal from closing
                 lightboxImg.src = e.target.src;
                 lightboxImg.alt = e.target.alt;
                 lightbox.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
-        });
+        }, true); // Use capture phase
 
         // Close lightbox
         function closeLightbox() {
