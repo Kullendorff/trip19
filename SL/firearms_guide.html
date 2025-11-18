@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIREARMS & LEOSA GUIDE - Handler Reference</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-green: #00ff41;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --accent-yellow: #ffcc00;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+            --classified: #ff4444;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-darker);
+            border-bottom: 2px solid var(--accent-yellow);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--accent-yellow);
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+        }
+
+        .back-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background: rgba(74, 144, 164, 0.2);
+        }
+
+        /* Classified Banner */
+        .classified-banner {
+            background: repeating-linear-gradient(
+                45deg,
+                var(--accent-yellow),
+                var(--accent-yellow) 10px,
+                #cc9900 10px,
+                #cc9900 20px
+            );
+            color: var(--bg-darker);
+            text-align: center;
+            padding: 0.5rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 0;
+            box-shadow: 0 2px 10px rgba(255, 204, 0, 0.3);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-yellow);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 100px;
+            z-index: 10;
+        }
+
+        .toc-title {
+            color: var(--accent-yellow);
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .toc-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text);
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .toc-link:hover {
+            background: rgba(255, 204, 0, 0.1);
+            border-left-color: var(--accent-yellow);
+            color: var(--accent-yellow);
+            padding-left: 1.2rem;
+        }
+
+        /* Sections */
+        section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            scroll-margin-top: 150px;
+        }
+
+        section h2 {
+            color: var(--accent-yellow);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        section h3 {
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+            margin: 1.5rem 0 1rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent-blue);
+        }
+
+        section h4 {
+            color: var(--accent-green);
+            font-size: 1rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: var(--bg-darker);
+        }
+
+        th {
+            background: rgba(255, 204, 0, 0.2);
+            color: var(--accent-yellow);
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid var(--border);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        tr:hover {
+            background: rgba(255, 204, 0, 0.05);
+        }
+
+        /* Character boxes */
+        .character-box {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-blue);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .character-name {
+            color: var(--accent-blue);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .character-status {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* State cards */
+        .state-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .state-card {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .state-card:hover {
+            border-color: var(--accent-yellow);
+            box-shadow: 0 2px 10px rgba(255, 204, 0, 0.2);
+        }
+
+        .state-card.constitutional {
+            border-left: 3px solid var(--accent-green);
+        }
+
+        .state-card.shall-issue {
+            border-left: 3px solid var(--accent-yellow);
+        }
+
+        .state-card.may-issue {
+            border-left: 3px solid var(--accent-red);
+        }
+
+        .state-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .state-icon {
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+
+        .state-info {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
+        .state-info strong {
+            color: var(--text);
+        }
+
+        /* Alert boxes */
+        .alert {
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            border-left: 4px solid;
+        }
+
+        .alert-warning {
+            background: rgba(255, 68, 68, 0.1);
+            border-left-color: var(--accent-red);
+            color: var(--text);
+        }
+
+        .alert-info {
+            background: rgba(74, 144, 164, 0.1);
+            border-left-color: var(--accent-blue);
+            color: var(--text);
+        }
+
+        .alert-success {
+            background: rgba(0, 255, 65, 0.1);
+            border-left-color: var(--accent-green);
+            color: var(--text);
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+            color: var(--text);
+        }
+
+        /* Code/monospace */
+        code {
+            background: var(--bg-darker);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            color: var(--accent-green);
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .state-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+
+        .badge-danger {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        .badge-warning {
+            background: var(--accent-yellow);
+            color: var(--bg-darker);
+        }
+
+        .badge-success {
+            background: var(--accent-green);
+            color: var(--bg-darker);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">🔫 FIREARMS & LEOSA REFERENCE GUIDE</div>
+            <a href="index.html" class="back-link">← Tillbaka till Dashboard</a>
+        </div>
+    </div>
+
+    <!-- Classified Banner -->
+    <div class="classified-banner">
+        HANDLER EYES ONLY // FIREARMS REGULATIONS & OPERATIONAL SECURITY
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Table of Contents -->
+        <div class="toc">
+            <div class="toc-title">⚡ SNABBNAVIGERING</div>
+            <div class="toc-grid">
+                <a href="#team-status" class="toc-link">Team Status</a>
+                <a href="#leosa" class="toc-link">LEOSA Basics</a>
+                <a href="#sparky-fake" class="toc-link">Sparky's Fake LEOSA</a>
+                <a href="#state-map" class="toc-link">State-by-State Guide</a>
+                <a href="#interstate" class="toc-link">Interstate Operations</a>
+                <a href="#suppressors" class="toc-link">Suppressors & NFA</a>
+                <a href="#operational" class="toc-link">Operational Implications</a>
+            </div>
+        </div>
+
+        <!-- Team Status Overview -->
+        <section id="team-status">
+            <h2>🎯 CHESAPEAKE CELL - FIREARMS STATUS</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Team Member</th>
+                        <th>LEO Status</th>
+                        <th>Fly Armed?</th>
+                        <th>Nationwide Carry?</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Mac Riley</strong></td>
+                        <td><span class="badge badge-success">✅ FBI Agent</span></td>
+                        <td>✅ Yes</td>
+                        <td>✅ LEOSA</td>
+                        <td>Full federal authority</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kai "Sparky" Zhang</strong></td>
+                        <td><span class="badge badge-warning">⚠️ Fake LEOSA</span></td>
+                        <td>❌ No (risky)</td>
+                        <td>⚠️ Yes (illegal)</td>
+                        <td>Federal felony if caught</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sam "Trench" Novak</strong></td>
+                        <td><span class="badge badge-danger">❌ Civilian</span></td>
+                        <td>❌ No</td>
+                        <td>⚠️ Partial</td>
+                        <td>PA permit, check reciprocity</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hanna "Scalpel" Engler</strong></td>
+                        <td><span class="badge badge-warning">❓ TBD</span></td>
+                        <td>❓ If LEO</td>
+                        <td>❓ If LEO</td>
+                        <td>Depends on ME status</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Michael "Padre" Sullivan</strong></td>
+                        <td><span class="badge badge-danger">❌ Chaplain</span></td>
+                        <td>❌ No</td>
+                        <td>❌ No</td>
+                        <td>Needs state permit</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-info">
+                <strong>OPERATIONAL NOTE:</strong> Mac är den enda som kan <em>legalt</em> bära vapen överallt. Detta gör honom extremt värdefull för interstate operations. Sparky's fake LEOSA är användbar men extremt riskabel.
+            </div>
+        </section>
+
+        <!-- LEOSA Basics -->
+        <section id="leosa">
+            <h2>📜 LEOSA - LAW ENFORCEMENT OFFICERS SAFETY ACT</h2>
+
+            <h3>Vad är LEOSA?</h3>
+            <p>Federal lag (18 U.S.C. § 926C) från 2004 som ger law enforcement officers rätt att bära concealed vapen i alla 50 stater, oavsett lokala lagar.</p>
+
+            <div class="character-box">
+                <div class="character-name">AKTIVA LEOs (Mac Riley)</div>
+                <div class="character-status">✅ Full LEOSA Authority</div>
+
+                <p><strong>Rättigheter:</strong></p>
+                <ul>
+                    <li>Bära <strong>concealed</strong> vapen i alla stater</li>
+                    <li>Ingen state permit behövs</li>
+                    <li>Superseder statliga concealed carry-lagar</li>
+                    <li>Gäller även off-duty</li>
+                    <li>Nationwide carry authority</li>
+                </ul>
+
+                <p><strong>Begränsningar:</strong></p>
+                <ul>
+                    <li>Endast concealed carry (inte open carry)</li>
+                    <li>Måste följa federala lagar</li>
+                    <li>Privat egendom kan säga nej</li>
+                    <li><strong>Ingen enforcement-auktoritet utanför egen jurisdiktion</strong></li>
+                    <li>Federal Gun-Free School Zones Act gäller fortfarande</li>
+                </ul>
+            </div>
+
+            <h3>Flying Armed - FBI Agents</h3>
+            <p>Mac kan flyga beväpnad på inrikes flyg:</p>
+            <ol>
+                <li>Informera flygbolag vid incheckning</li>
+                <li>Visa federal credentials</li>
+                <li>Gå igenom särskild säkerhetskontroll</li>
+                <li>Bär vapnet <strong>ombord på planet</strong> (concealed, på personen)</li>
+                <li>Sätter sig vanligen nära utgångar</li>
+            </ol>
+            <p><em>Ca 38,500 LEOs flyger beväpnade varje månad i USA.</em></p>
+        </section>
+
+        <!-- Sparky's Fake LEOSA -->
+        <section id="sparky-fake">
+            <h2>⚠️ SPARKY'S HACKADE LEOSA CREDENTIALS</h2>
+
+            <div class="alert alert-warning">
+                <strong>⚠️ FEDERAL FELONY:</strong> Kai "Sparky" Zhang har skapat fake LEOSA credentials genom att hacka federal credentials database. Detta är extremt olagligt och career-ending om upptäckt.
+            </div>
+
+            <div class="character-box">
+                <div class="character-name">KAI "SPARKY" ZHANG - NSA Analyst</div>
+                <div class="character-status">⚠️ Fake LEOSA Credentials (Federal Crime)</div>
+
+                <p><strong>Vad hon gjort:</strong></p>
+                <ul>
+                    <li>Hackat federal credentials database (troligen FLETC, US Marshals, eller mindre byrå)</li>
+                    <li>Skapat "ghost entry" för sig själv som retired/separated LEO</li>
+                    <li>Tillverkat professionell LEOSA card med korrekt security features</li>
+                    <li>Falsk bakgrund: Möjligen "retired ICE agent" eller "retired ATF"</li>
+                </ul>
+
+                <p><strong>Vad det ger henne:</strong></p>
+                <ul>
+                    <li>✅ Nationwide concealed carry (tekniskt "legal" på pappret)</li>
+                    <li>✅ Kan prata sig ur trafikstop om väpnad</li>
+                    <li>✅ Operational flexibility för Delta Green missions</li>
+                </ul>
+
+                <p><strong>Riskerna:</strong></p>
+                <ul>
+                    <li>⚠️ <strong>18 U.S.C. § 912</strong> - Impersonating federal officer (upp till 3 år)</li>
+                    <li>⚠️ <strong>18 U.S.C. § 1028</strong> - False credentials (upp till 15 år)</li>
+                    <li>⚠️ Kombinerat: 5-20 år federal fängelse</li>
+                    <li>⚠️ Instant firing från NSA</li>
+                    <li>⚠️ Loss of security clearance (permanent)</li>
+                </ul>
+
+                <p><strong>Hur hon använder den smart:</strong></p>
+                <ul>
+                    <li>Endast vid verklig operational nödsituation</li>
+                    <li><strong>INTE</strong> för flygresor (för riskabelt med database checks)</li>
+                    <li>Inte med riktiga LEOs från "hennes byrå"</li>
+                    <li>Berättar antagligen inte ens Mac att den är falsk</li>
+                </ul>
+            </div>
+
+            <div class="alert alert-info">
+                <strong>CAMPAIGN NOTE:</strong> Det är oklart vem som vet om Sparky's fake LEOSA. Mac kanske misstänker men frågar inte (plausible deniability). Delta Green kanske till och med hjälpte henne skapa den.
+            </div>
+        </section>
+
+        <!-- State-by-State Guide -->
+        <section id="state-map">
+            <h2>🗺️ STATE-BY-STATE GUIDE (2025)</h2>
+
+            <h3>Category Breakdown</h3>
+            <div class="state-info">
+                <p><span class="badge badge-success">🟢 Constitutional Carry (29 states)</span> - No permit required för concealed carry</p>
+                <p><span class="badge badge-warning">🟡 Shall-Issue (14 states)</span> - Must issue permit om applicant meets requirements</p>
+                <p><span class="badge badge-danger">🔴 May-Issue (7 states)</span> - Officials have discretion till deny permits</p>
+            </div>
+
+            <h3>Campaign-Relevanta Stater</h3>
+            <div class="state-grid">
+                <div class="state-card shall-issue">
+                    <div class="state-name"><span class="state-icon">🟡</span> Pennsylvania</div>
+                    <div class="state-info">
+                        <strong>Purchase:</strong> Easy - Instant background check<br>
+                        <strong>Open Carry:</strong> Yes (except Philadelphia)<br>
+                        <strong>Concealed:</strong> Shall-issue LTCF permit (21+)<br>
+                        <strong>Campaign Note:</strong> <em>PA-TF1 home base. Trench har troligen PA permit.</em>
+                    </div>
+                </div>
+
+                <div class="state-card may-issue">
+                    <div class="state-name"><span class="state-icon">🔴</span> Maryland</div>
+                    <div class="state-info">
+                        <strong>Purchase:</strong> Hard - HQL required, 7-day wait<br>
+                        <strong>Open Carry:</strong> Restricted<br>
+                        <strong>Concealed:</strong> Shall-issue post-Bruen<br>
+                        <strong>Campaign Note:</strong> <em>Scalpel's base (Baltimore). Very restrictive.</em>
+                    </div>
+                </div>
+
+                <div class="state-card shall-issue">
+                    <div class="state-name"><span class="state-icon">🟡</span> Washington D.C.</div>
+                    <div class="state-info">
+                        <strong>Purchase:</strong> Hard - Registration required<br>
+                        <strong>Open Carry:</strong> No<br>
+                        <strong>Concealed:</strong> Extremely difficult<br>
+                        <strong>Campaign Note:</strong> <em>Primary operating area. Very restrictive.</em>
+                    </div>
+                </div>
+
+                <div class="state-card shall-issue">
+                    <div class="state-name"><span class="state-icon">🟡</span> Virginia</div>
+                    <div class="state-info">
+                        <strong>Purchase:</strong> Easy<br>
+                        <strong>Open Carry:</strong> Yes<br>
+                        <strong>Concealed:</strong> Shall-issue permit<br>
+                        <strong>Campaign Note:</strong> <em>Common för DC-area ops. Moderate laws.</em>
+                    </div>
+                </div>
+
+                <div class="state-card may-issue">
+                    <div class="state-name"><span class="state-icon">🔴</span> New Jersey <span class="badge badge-danger">DANGER</span></div>
+                    <div class="state-info">
+                        <strong>Purchase:</strong> Hard - Permit per gun<br>
+                        <strong>Open Carry:</strong> No<br>
+                        <strong>Concealed:</strong> May-issue (rare)<br>
+                        <strong>Campaign Note:</strong> <em>FARLIGAST för Trench med PA permit! No reciprocity.</em>
+                    </div>
+                </div>
+
+                <div class="state-card may-issue">
+                    <div class="state-name"><span class="state-icon">🔴</span> New York <span class="badge badge-danger">DANGER</span></div>
+                    <div class="state-info">
+                        <strong>Purchase:</strong> Hard - Permit required<br>
+                        <strong>Open Carry:</strong> No<br>
+                        <strong>Concealed:</strong> Shall-issue post-Bruen (still hard)<br>
+                        <strong>Campaign Note:</strong> <em>SAFE Act. Extremely hostile till out-of-state carriers.</em>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Operational Zones</h3>
+            <div class="alert alert-success">
+                <strong>🟢 SAFE STATES för Team:</strong><br>
+                Pennsylvania (home base), Virginia (DC ops), West Virginia (nearby), Ohio (Midwest access)
+            </div>
+
+            <div class="alert alert-warning">
+                <strong>🟡 MODERATE RISK:</strong><br>
+                Illinois (FOID required), Colorado (recent restrictions), Delaware (small, moderate)
+            </div>
+
+            <div class="alert alert-warning">
+                <strong>🔴 DANGER ZONE (Avoid if Armed):</strong><br>
+                New York, New Jersey, Maryland, Massachusetts, California, Hawaii
+            </div>
+        </section>
+
+        <!-- Interstate Operations -->
+        <section id="interstate">
+            <h2>🚗 INTERSTATE OPERATIONS</h2>
+
+            <h3>Planning Delta Green Ops Across State Lines</h3>
+
+            <h4>Option A: Mac Carries Everything (Legal)</h4>
+            <ul>
+                <li>Mac med LEOSA can legally carry anywhere</li>
+                <li>Other members unarmed eller use FOPA transport</li>
+                <li>Arm up när reach destination (Mac hands out guns)</li>
+                <li><strong>Pros:</strong> Completely legal</li>
+                <li><strong>Cons:</strong> Only one armed member during travel</li>
+            </ul>
+
+            <h4>Option B: Risk It (Illegal)</h4>
+            <ul>
+                <li>Everyone carries regardless of reciprocity</li>
+                <li>Hope inte bli stopped</li>
+                <li><strong>Pros:</strong> Full team armed capability</li>
+                <li><strong>Cons:</strong> Felony arrests om caught</li>
+            </ul>
+
+            <h4>Option C: Pre-Stage Weapons (DG Standard)</h4>
+            <ul>
+                <li>Delta Green cache weapons at destination</li>
+                <li>Team travels unarmed</li>
+                <li>Pick up sanitized weapons on arrival</li>
+                <li><strong>Pros:</strong> Legal travel, untraceable weapons</li>
+                <li><strong>Cons:</strong> Requires planning, DG resources</li>
+            </ul>
+
+            <h4>Option D: Mix Approach (Smart)</h4>
+            <ul>
+                <li>Mac carries legally</li>
+                <li>Sparky uses fake LEOSA (medium risk)</li>
+                <li>Trench, Scalpel, Sullivan use FOPA transport eller stay unarmed</li>
+                <li>Arm up at destination från cache/purchases</li>
+            </ul>
+
+            <h3>FOPA - Federal Safe Passage</h3>
+            <p><strong>Firearms Owners' Protection Act</strong> låter dig transportera vapen genom "hostile states" om:</p>
+            <ol>
+                <li>Vapnet är <strong>oladdat</strong></li>
+                <li><strong>Låst i hard-sided container</strong> i bagageutrymme</li>
+                <li>Ammunition <strong>separerad</strong> från vapnet</li>
+                <li>Du är på väg från Point A (legal) till Point B (legal)</li>
+            </ol>
+
+            <div class="alert alert-warning">
+                <strong>⚠️ PROBLEM:</strong> New York och New Jersey ignorerar ofta FOPA. De arresterar dig ändå, du får bevisa "Safe Passage" som affirmative defense i domstol. Kostar $10,000-50,000 i legal fees även om du vinner.
+            </div>
+        </section>
+
+        <!-- Suppressors & NFA -->
+        <section id="suppressors">
+            <h2>🔇 SUPPRESSORS & NFA ITEMS</h2>
+
+            <h3>Legal Process (Civila)</h3>
+            <ol>
+                <li>Find SOT/Class 3 dealer</li>
+                <li>File ATF Form 4</li>
+                <li>Pay $200 tax stamp</li>
+                <li>Submit fingerprints, photo</li>
+                <li>Pass FBI background check</li>
+                <li><strong>Wait 6-12 months</strong> för approval</li>
+            </ol>
+
+            <h3>LEO Purchase (Faster)</h3>
+            <ul>
+                <li>Agency purchases med "dealer sample" letter</li>
+                <li>Faster approval för official use</li>
+                <li>Mac's FBI office could buy, issue till honom</li>
+                <li>Still federally tracked</li>
+            </ul>
+
+            <h3>Delta Green Reality</h3>
+            <div class="alert alert-warning">
+                <strong>OPERATIONAL REALITY:</strong> DG Outlaws cannot wait 6-12 months för legal suppressors. De använder <strong>illegal</strong> suppressors från federal seizures, foreign sources, eller sanitized units från A-Cell.
+                <br><br>
+                <strong>Risk:</strong> Unregistered suppressor = 10 years federal felony
+            </div>
+
+            <h4>Tactical Truth About Suppressors:</h4>
+            <ul>
+                <li>NOT "silent" som Hollywood</li>
+                <li>Reduce 20-35 decibels</li>
+                <li>Still <strong>loud</strong> (120-140 dB) - like jackhammer</li>
+                <li>Useful för reducing sound signature, flash</li>
+                <li>Prevents hearing damage till shooter</li>
+            </ul>
+        </section>
+
+        <!-- Operational Implications -->
+        <section id="operational">
+            <h2>🎯 CAMPAIGN OPERATIONAL IMPLICATIONS</h2>
+
+            <h3>När Gun Laws Ska Spela Roll</h3>
+
+            <h4>Scenario 1: Traffic Stop i New Jersey</h4>
+            <p>Trench har concealed carry med PA permit. New Jersey erkänner INTE PA permits.</p>
+            <div class="alert alert-warning">
+                <strong>Consequences:</strong>
+                <ul>
+                    <li>Felony arrest</li>
+                    <li>Up to 5 years fängelse</li>
+                    <li>$15,000 böter</li>
+                    <li>Loss of gun rights</li>
+                </ul>
+                <strong>Questions:</strong> Do they run? Call Mac? Talk their way out?
+            </div>
+
+            <h4>Scenario 2: Sparky's Fake LEOSA Challenged</h4>
+            <p>Real LEO från "hennes byrå" möter henne och börjar small-talk.</p>
+            <div class="alert alert-warning">
+                <strong>Risk:</strong> Does her fake hold up? Does she know enough about "her agency"? Can she talk her way out?
+            </div>
+
+            <h4>Scenario 3: Post-Shooting Investigation</h4>
+            <p>Mac hade till shoot unnatural threat off-duty.</p>
+            <div class="alert alert-warning">
+                <strong>Complications:</strong>
+                <ul>
+                    <li>FBI investigates officer-involved shooting</li>
+                    <li>How explain weird circumstances?</li>
+                    <li>Does ballistics match registered weapon?</li>
+                    <li>Witness statements om "monstret"?</li>
+                </ul>
+            </div>
+
+            <h3>DC Metro Area Reality</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Area</th>
+                        <th>Restrictiveness</th>
+                        <th>Operational Note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>DC proper</strong></td>
+                        <td><span class="badge badge-danger">Very High</span></td>
+                        <td>Registration required, avoid armed ops</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Maryland suburbs</strong></td>
+                        <td><span class="badge badge-danger">High</span></td>
+                        <td>Montgomery, PG counties very strict</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Virginia suburbs</strong></td>
+                        <td><span class="badge badge-warning">Moderate</span></td>
+                        <td>Fairfax, Arlington - Primary armed ops area</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Campaign Implication:</strong> Team operates primarily in Virginia för armed operations när möjligt.</p>
+
+            <h3>"Throw-Away" Guns för Wet Work</h3>
+            <div class="alert alert-info">
+                <strong>Why DG Uses Them:</strong>
+                <ul>
+                    <li>Cannot use registered/traceable guns för wet work</li>
+                    <li>Ballistics will be tested if body found</li>
+                    <li>Serial numbers tracked back till owner</li>
+                    <li>Creates distance from operative</li>
+                </ul>
+
+                <strong>Sources:</strong>
+                <ul>
+                    <li>Federal seizures från ATF/FBI evidence rooms</li>
+                    <li>Foreign weapons (untraceable till US systems)</li>
+                    <li>Sanitized weapons från DG Friendlies</li>
+                    <li>Filed serials (federal felony till possess)</li>
+                </ul>
+
+                <strong>Best Practice:</strong> Never use twice, ditch after use, wear gloves, police brass
+            </div>
+        </section>
+
+        <!-- Quick Reference -->
+        <section>
+            <h2>📋 QUICK REFERENCE CHECKLIST</h2>
+
+            <h3>Before Interstate Operation:</h3>
+            <ol>
+                <li>✅ Map all states team will pass through</li>
+                <li>✅ Check reciprocity för each non-LEO member</li>
+                <li>✅ Identify "hostile" states (NY, NJ, MD, MA, CT, RI, CA, HI)</li>
+                <li>✅ Plan logistics: Mac carries all? Pre-stage weapons? FOPA transport?</li>
+                <li>✅ Identify Gun-Free zones at destination (schools, federal buildings)</li>
+                <li>✅ Prepare cover stories för armed members</li>
+            </ol>
+
+            <h3>Emergency Contacts:</h3>
+            <ul>
+                <li><strong>Mac Riley:</strong> Can legally intervene, FBI credentials</li>
+                <li><strong>Delta Green Friendlies:</strong> Legal assistance network</li>
+                <li><strong>FEMA (Trench):</strong> Federal deployment cover story</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        DELTA GREEN // TRIP 19: BLACK MADONNA // HANDLER EYES ONLY<br>
+        This guide describes real US firearms laws for RPG purposes. Not legal advice.<br>
+        Updated: November 2025
+    </div>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
