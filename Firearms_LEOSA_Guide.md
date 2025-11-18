@@ -650,6 +650,402 @@ Undvik New York, New Jersey, Massachusetts, Maryland med vapen om möjligt.
 
 ---
 
+## STATE-BY-STATE GUN LAW OVERVIEW (2025)
+
+### Category Breakdown
+
+**🟢 Constitutional Carry (29 states):** No permit required för concealed carry
+**🟡 Shall-Issue (14 states):** Must issue permit om applicant meets requirements
+**🔴 May-Issue (7 states):** Officials have discretion till deny permits
+
+---
+
+### TIER 1: MOST PERMISSIVE STATES (Constitutional Carry)
+
+#### 🟢 Alabama
+**Purchase:** Easy - No permit, no registration, no waiting period
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Constitutional Carry (21+), optional permit för reciprocity
+**Notes:** Very gun-friendly. Permit still useful för reciprocity with other states.
+
+#### 🟢 Alaska
+**Purchase:** Easy - No permit, no registration, minimal restrictions
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Constitutional Carry (21+)
+**Notes:** One of most permissive. Open/concealed both legal utan permit.
+
+#### 🟢 Arizona
+**Purchase:** Easy - No permit or waiting period
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Constitutional Carry (21+), optional permit available
+**Notes:** Very permissive. Large gun culture. Popular för out-of-state permits.
+
+#### 🟢 Arkansas
+**Purchase:** Easy - No permit required
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Constitutional Carry (18+)
+**Notes:** Recent constitutional carry adoption. Relatively straightforward.
+
+#### 🟢 Florida
+**Purchase:** Easy - 3-day waiting period för handguns (unless CCW holder)
+**Open Carry:** No (except fishing/camping/hunting)
+**Concealed Carry:** Constitutional Carry (21+) as of 2023
+**Notes:** Open carry still prohibited in most circumstances. CCW permit bypasses waiting period.
+
+#### 🟢 Georgia
+**Purchase:** Easy - Federal background check only
+**Open Carry:** Yes, with permit (openly carrying handgun)
+**Concealed Carry:** Constitutional Carry (21+, 18 för military)
+**Notes:** Recent constitutional carry. Permit still helpful för some situations.
+
+#### 🟢 Idaho
+**Purchase:** Easy - No permit or registration
+**Open Carry:** Yes, without permit (18+)
+**Concealed Carry:** Constitutional Carry (18+)
+**Notes:** Very permissive. Strong gun rights culture.
+
+#### 🟢 Indiana
+**Purchase:** Easy - No permit or registration
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Constitutional Carry (18+) as of 2022
+**Notes:** Recent constitutional carry adoption.
+
+#### 🟢 Iowa
+**Purchase:** Easy - Permit till acquire (shall-issue, instant)
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Constitutional Carry (21+)
+**Notes:** Recent constitutional carry (2021). Purchase permit still required but easy till get.
+
+#### 🟢 Kansas
+**Purchase:** Easy - No permit required
+**Open Carry:** Yes, without permit (18+)
+**Concealed Carry:** Constitutional Carry (21+)
+**Notes:** Strong gun rights. Very permissive laws.
+
+#### 🟢 Kentucky
+**Purchase:** Easy - Federal checks only
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Constitutional Carry (21+)
+**Notes:** Recent constitutional carry. Optional CCDW permit för reciprocity.
+
+#### 🟢 Louisiana
+**Purchase:** Easy - No permit or registration
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Constitutional Carry (18+, recent)
+**Notes:** Recently adopted constitutional carry. New Orleans may have local restrictions.
+
+#### 🟢 Maine
+**Purchase:** Easy - No permit or registration
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Constitutional Carry (21+, 18 för military)
+**Notes:** Long-standing constitutional carry. Very permissive.
+
+#### 🟢 Mississippi
+**Purchase:** Easy - No permit required
+**Open Carry:** Yes, without permit (18+)
+**Concealed Carry:** Constitutional Carry (18+)
+**Notes:** Very gun-friendly culture. Enhanced permits available.
+
+#### 🟢 Missouri
+**Purchase:** Easy - No permit or registration
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Constitutional Carry (19+, 18 för military)
+**Notes:** Strong gun rights state. Kansas City/St. Louis more restrictive locally.
+
+#### 🟢 Montana
+**Purchase:** Easy - No permit required
+**Open Carry:** Yes, without permit (14+ in some areas)
+**Concealed Carry:** Constitutional Carry (18+), permit outside city limits only
+**Notes:** Very permissive. Different rules för populated vs unpopulated areas.
+
+#### 🟢 Nebraska
+**Purchase:** Easy - Permit till purchase (shall-issue)
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Constitutional Carry (21+) as of 2024
+**Notes:** Recent constitutional carry adoption. Purchase permit still required.
+
+#### 🟢 New Hampshire
+**Purchase:** Easy - No permit or registration
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Constitutional Carry (18+)
+**Notes:** "Live Free or Die" - very permissive gun laws.
+
+#### 🟢 North Dakota
+**Purchase:** Easy - No permit required
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Constitutional Carry (18+)
+**Notes:** Recent constitutional carry. Optional permit för reciprocity.
+
+#### 🟢 Ohio
+**Purchase:** Easy - Federal checks only
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Constitutional Carry (21+) as of 2022
+**Notes:** Recent constitutional carry adoption. Optional permit available.
+
+#### 🟢 Oklahoma
+**Purchase:** Easy - No permit or registration
+**Open Carry:** Yes, without permit (18+)
+**Concealed Carry:** Constitutional Carry (21+, 18 för military)
+**Notes:** Strong gun rights. Very permissive.
+
+#### 🟢 South Dakota
+**Purchase:** Easy - No permit required
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Constitutional Carry (18+)
+**Notes:** Long-standing gun-friendly policies.
+
+#### 🟢 Tennessee
+**Purchase:** Easy - No permit or registration
+**Open Carry:** Yes, without permit (18+)
+**Concealed Carry:** Constitutional Carry (18+, 21 för handguns concealed)
+**Notes:** Recent constitutional carry. Enhanced permits available.
+
+#### 🟢 Texas
+**Purchase:** Easy - Federal checks only
+**Open Carry:** Yes, without permit (21+)
+**Concealed Carry:** Constitutional Carry (21+) as of 2021
+**Notes:** Massive gun culture. Recent constitutional carry adoption. LTC still useful för reciprocity.
+
+#### 🟢 Utah
+**Purchase:** Easy - Federal checks only
+**Open Carry:** Yes, without permit (unloaded), permit för loaded
+**Concealed Carry:** Constitutional Carry (21+) as of 2021
+**Notes:** Recent constitutional carry. Permits still popular för reciprocity.
+
+#### 🟢 Vermont
+**Purchase:** Easy - No permit or registration
+**Open Carry:** Yes, without permit (16+)
+**Concealed Carry:** Constitutional Carry (16+) - Original constitutional carry state
+**Notes:** Never required permits. Most permissive age (16+).
+
+#### 🟢 West Virginia
+**Purchase:** Easy - No permit required
+**Open Carry:** Yes, without permit (18+)
+**Concealed Carry:** Constitutional Carry (21+)
+**Notes:** Strong gun rights culture.
+
+#### 🟢 Wyoming
+**Purchase:** Easy - No permit or registration
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Constitutional Carry (21+)
+**Notes:** Very permissive. Strong gun culture.
+
+---
+
+### TIER 2: SHALL-ISSUE STATES (Moderate Restrictions)
+
+#### 🟡 Colorado
+**Purchase:** Moderate - Universal background checks, 3-day waiting period (new 2025)
+**Open Carry:** Yes, without permit in most areas
+**Concealed Carry:** Shall-issue permit required (21+)
+**Notes:** Denver/Boulder more restrictive. Magazine capacity limits (15 rounds). Recent waiting period.
+
+#### 🟡 Illinois
+**Purchase:** Moderate - FOID card required, 72-hour waiting period
+**Open Carry:** No (except on own property)
+**Concealed Carry:** Shall-issue CCL required (21+), 16 hours training
+**Notes:** FOID card required för any gun ownership. Chicago very restrictive. No open carry.
+
+#### 🟡 Michigan
+**Purchase:** Moderate - Permit till purchase för handguns (instant)
+**Open Carry:** Yes, without permit in non-restricted areas
+**Concealed Carry:** Shall-issue CPL required (21+), training required
+**Notes:** Purchase permit needed för handguns. Detroit area more restrictive.
+
+#### 🟡 Minnesota
+**Purchase:** Moderate - Permit till purchase or carry required
+**Open Carry:** Yes, with permit only
+**Concealed Carry:** Shall-issue permit (21+), training required
+**Notes:** Permit needed för open OR concealed. Must have permit till purchase handguns.
+
+#### 🟡 Nevada
+**Purchase:** Easy - Background checks för private sales
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Shall-issue permit (21+)
+**Notes:** Las Vegas area more watched. Otherwise fairly permissive.
+
+#### 🟡 New Mexico
+**Purchase:** Easy - Background checks required
+**Open Carry:** Yes, without permit (19+)
+**Concealed Carry:** Shall-issue permit (21+)
+**Notes:** Vehicle carry without permit allowed (loaded, concealed). Fairly permissive.
+
+#### 🟡 North Carolina
+**Purchase:** Moderate - Pistol purchase permit required (sheriff-issued)
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Shall-issue permit (21+), training required
+**Notes:** Must get sheriff's permission till purchase handguns. Recent attempts till remove purchase permit.
+
+#### 🟡 Oregon
+**Purchase:** Moderate - Background checks, permit till purchase (new)
+**Open Carry:** Yes, without permit (some county restrictions)
+**Concealed Carry:** Shall-issue permit (21+), training required
+**Notes:** Portland area very restrictive. Recent permit-to-purchase requirement (Measure 114).
+
+#### 🟡 Pennsylvania
+**Purchase:** Easy - Instant background check only
+**Open Carry:** Yes, without permit (except Philadelphia)
+**Concealed Carry:** Shall-issue LTCF permit (21+)
+**Notes:** **Campaign home base (PA-TF1)**. Philadelphia requires permit för open carry. Otherwise permissive.
+
+#### 🟡 South Carolina
+**Purchase:** Easy - Federal checks only
+**Open Carry:** Yes, with CWP only
+**Concealed Carry:** Shall-issue CWP (21+), training required
+**Notes:** Recently allowed open carry (with permit only).
+
+#### 🟡 Virginia
+**Purchase:** Easy - One-gun-per-month limit
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Shall-issue permit (21+)
+**Notes:** Northern Virginia (DC suburbs) more restrictive. Otherwise moderate.
+
+#### 🟡 Washington
+**Purchase:** Moderate - Enhanced background checks, waiting period, training proof
+**Open Carry:** Yes, without permit
+**Concealed Carry:** Shall-issue CPL (21+)
+**Notes:** Seattle area very restrictive. Recent enhanced background checks. Magazine limits proposed.
+
+#### 🟡 Wisconsin
+**Purchase:** Easy - Federal checks only
+**Open Carry:** Yes, without permit (18+)
+**Concealed Carry:** Shall-issue permit (21+), training required
+**Notes:** Relatively permissive för shall-issue state.
+
+#### 🟡 Washington D.C.
+**Purchase:** Hard - Registration required, strict requirements
+**Open Carry:** No
+**Concealed Carry:** Shall-issue (technically), but extremely difficult
+**Notes:** **Campaign operating area**. Very restrictive. Effectively may-issue despite court rulings. Registration, training, "good reason" needed.
+
+---
+
+### TIER 3: MAY-ISSUE STATES (Most Restrictive)
+
+#### 🔴 California
+**Purchase:** Hard - 10-day waiting period, Firearms Safety Certificate, registration
+**Open Carry:** No (loaded or unloaded)
+**Concealed Carry:** May-issue CCW (varied by county after Bruen decision)
+**Notes:** **Extremely restrictive**. "Assault weapon" bans, magazine limits (10 rounds), roster of approved handguns. Post-Bruen some counties now shall-issue. SF/LA still very restrictive.
+
+#### 🔴 Connecticut
+**Purchase:** Hard - Permit till purchase required, training, background check
+**Open Carry:** Yes, with permit only
+**Concealed Carry:** Shall-issue permit (21+), extensive training
+**Notes:** Post-Sandy Hook restrictions. Magazine limits (10 rounds), "assault weapon" registry. Permit required för purchase.
+
+#### 🔴 Delaware
+**Purchase:** Moderate - Background checks, no waiting period
+**Open Carry:** Yes, without permit (with exceptions)
+**Concealed Carry:** May-issue permit (technically shall-issue now post-Bruen)
+**Notes:** Small state, moderate restrictions. Some cities more restrictive.
+
+#### 🔴 Hawaii
+**Purchase:** Hard - Permit required, registration, 14-day waiting period
+**Open Carry:** No
+**Concealed Carry:** May-issue (extremely rare till get)
+**Notes:** **Most restrictive state**. Registration of all firearms. CCW permits almost never issued. Post-Bruen slightly easier but still very hard.
+
+#### 🔴 Maryland
+**Purchase:** Hard - HQL (Handgun Qualification License) required, 7-day waiting period, training
+**Open Carry:** Restricted (county-dependent)
+**Concealed Carry:** Shall-issue post-Bruen (was may-issue)
+**Notes:** **Campaign operating area (Scalpel's base)**. Very restrictive. "Assault weapon" bans, magazine limits (10 rounds). Baltimore very strict. Recent court ruling made CCW shall-issue.
+
+#### 🔴 Massachusetts
+**Purchase:** Hard - FID or LTC required, registration, safe storage laws
+**Open Carry:** With LTC only (restricted)
+**Concealed Carry:** May-issue LTC (post-Bruen more shall-issue)
+**Notes:** **Extremely restrictive**. "Assault weapon" bans, magazine limits, approved firearms roster. Boston very strict. Complex licensing.
+
+#### 🔴 New Jersey
+**Purchase:** Hard - Permit till purchase required (each gun), registration, strict restrictions
+**Open Carry:** No
+**Concealed Carry:** May-issue (extremely rare), recently more shall-issue post-Bruen
+**Notes:** **Extremely restrictive**. "Assault weapon" bans, magazine limits (10 rounds), hollow-point restrictions. Safe storage laws. Extremely hostile till out-of-state permit holders. **Dangerous för Trench with PA permit**.
+
+#### 🔴 New York
+**Purchase:** Hard - Permit required för handguns, registration, SAFE Act restrictions
+**Open Carry:** No
+**Concealed Carry:** Shall-issue post-Bruen (was may-issue)
+**Notes:** **Extremely restrictive**. SAFE Act (2013) - "assault weapon" bans, magazine limits (10 rounds), registration. NYC extremely strict (separate permit system). Post-Bruen ruled shall-issue but still very difficult. **Dangerous för out-of-state carriers**.
+
+#### 🔴 Rhode Island
+**Purchase:** Moderate - Background checks, 7-day waiting period för non-permit holders
+**Open Carry:** No
+**Concealed Carry:** Shall-issue post-Bruen (was may-issue)
+**Notes:** Small state. Magazine limits (10 rounds). Recently moved till shall-issue för CCW.
+
+---
+
+### SPECIAL JURISDICTIONS
+
+#### U.S. Virgin Islands
+**Status:** May-issue, very restrictive
+**Notes:** Separate från mainland US. Difficult till get permits.
+
+#### Puerto Rico
+**Status:** Shall-issue post-Bruen
+**Notes:** Was may-issue, now easier. Still restrictive compared till mainland.
+
+#### Guam
+**Status:** May-issue, restrictive
+**Notes:** Pacific territory. Difficult permits.
+
+#### Northern Mariana Islands
+**Status:** Restrictive
+**Notes:** Pacific territory. Limited gun ownership.
+
+---
+
+### REGIONAL PATTERNS
+
+**Most Gun-Friendly Regions:**
+- **Mountain West:** Wyoming, Montana, Idaho, Utah - Constitutional carry, minimal restrictions
+- **Deep South:** Alabama, Mississippi, Arkansas, Louisiana - Strong gun culture, constitutional carry
+- **Great Plains:** Kansas, Nebraska, Dakotas - Very permissive, rural culture
+
+**Most Restrictive Regions:**
+- **Northeast Corridor:** NY, NJ, MA, CT, RI - Heavy restrictions, hostile till gun owners
+- **West Coast:** CA, WA, OR - Increasing restrictions, urban areas very strict
+- **Hawaii:** Island isolation, unique restrictive culture
+
+**Mixed/Moderate:**
+- **Mid-Atlantic:** PA, VA, MD, DE - Varies dramatically (PA permissive, MD restrictive)
+- **Great Lakes:** MI, WI, MN, IL - Urban vs rural divide
+- **Southwest:** CO, NM - Libertarian vs progressive tension
+
+---
+
+### CAMPAIGN OPERATIONAL IMPLICATIONS
+
+**Safe States för Team (Easy Operations):**
+- Pennsylvania (home base) - Shall-issue, good reciprocity
+- Virginia - Moderate, common för DC-area ops
+- West Virginia - Constitutional carry, nearby
+- Ohio - Constitutional carry, Midwest access
+
+**Moderate Risk States:**
+- Illinois - FOID required, but not impossible
+- Colorado - Recent restrictions, urban areas watched
+- Delaware - Small, moderate
+
+**Danger Zone States (Avoid if Armed):**
+- **New York** - Extremely hostile, SAFE Act, arrests common
+- **New Jersey** - Most dangerous för out-of-state carriers, no reciprocity
+- **Maryland** - HQL required, strict enforcement (but Scalpel's home)
+- **Massachusetts** - Complex licensing, hostile till non-residents
+- **California** - Extremely restrictive, different legal universe
+- **Hawaii** - Almost impossible legally
+
+**DC Metro Area Reality:**
+- **DC proper:** Very restrictive, registration required
+- **Maryland suburbs:** Restrictive (Montgomery, PG counties)
+- **Virginia suburbs:** Moderate (Fairfax, Arlington)
+- Team likely operates primarily in VA för armed ops
+
+---
+
 ## RECOMMENDED RESOURCES
 
 **For Players/GM:**
