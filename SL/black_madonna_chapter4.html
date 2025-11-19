@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLACK MADONNA - Kapitel 4: German Autumn</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-primary: #4a90a4;
+            --accent-secondary: #e89a3c;
+            --accent-danger: #cc0000;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        .header {
+            background: var(--bg-darker);
+            border-bottom: 2px solid var(--accent-primary);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-primary);
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(74, 144, 164, 0.5);
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .classified-banner {
+            background: repeating-linear-gradient(
+                45deg,
+                var(--accent-primary),
+                var(--accent-primary) 10px,
+                var(--accent-danger) 10px,
+                var(--accent-danger) 20px
+            );
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            box-shadow: 0 2px 10px rgba(74, 144, 164, 0.3);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .intro-section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-primary);
+            border-radius: 4px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .intro-section h2 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .intro-section p, .intro-section li {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .intro-section ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .note {
+            background: rgba(232, 154, 60, 0.1);
+            border-left: 3px solid var(--accent-secondary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: rgba(204, 0, 0, 0.1);
+            border: 2px solid var(--accent-danger);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box h3, .warning-box h4 {
+            color: var(--accent-danger);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 3px solid var(--accent-primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .san-check {
+            background: rgba(204, 0, 0, 0.15);
+            border: 2px solid var(--accent-danger);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .collapsible {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .collapsible-header {
+            background: var(--bg-darker);
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s;
+        }
+
+        .collapsible-header:hover {
+            background: rgba(74, 144, 164, 0.1);
+        }
+
+        .collapsible-title {
+            color: var(--accent-primary);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .collapsible-icon {
+            color: var(--accent-secondary);
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .collapsible.active .collapsible-icon {
+            transform: rotate(90deg);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible.active .collapsible-content {
+            max-height: 50000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .collapsible-body {
+            padding: 2rem;
+        }
+
+        .collapsible-body h3 {
+            color: var(--accent-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .collapsible-body h4 {
+            color: var(--accent-secondary);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: var(--bg-darker);
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            background: rgba(74, 144, 164, 0.2);
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background: rgba(74, 144, 164, 0.05);
+        }
+
+        .back-link {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-panel);
+            border: 1px solid var(--accent-primary);
+            border-radius: 4px;
+            color: var(--accent-primary);
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background: rgba(74, 144, 164, 0.2);
+            box-shadow: 0 0 15px rgba(74, 144, 164, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .intro-section, .collapsible-body {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">⬛ BLACK MADONNA</div>
+            <div class="subtitle">KAPITEL 4: GERMAN AUTUMN</div>
+        </div>
+    </div>
+
+    <div class="classified-banner">
+        /// CLASSIFIED: DELTA GREEN EYES ONLY ///
+    </div>
+
+    <div class="container">
+
+        <!-- INTRO SECTION -->
+        <div class="intro-section">
+            <h2>📋 KAPITEL 4 ÖVERSIKT</h2>
+
+            <p><strong>Timeline:</strong> November 2025 (efter Pogodin's mansion-ritualen)</p>
+            <p><strong>Location:</strong> Berlin → Frankfurt an der Oder</p>
+            <p><strong>Duration:</strong> 3-5 sessions</p>
+            <p><strong>Parasite Progress:</strong> Boils spread outwardly, itching tremendously, nightmares intensifierar</p>
+
+            <h3 style="color: var(--accent-secondary); margin-top: 1.5rem;">CORE THEME:</h3>
+            <p>Högerextremismen är VERKTYG för Yithian/Nyogtha-krafterna, inte huvudfienden. Spelarna bekämpar fragment-distribution, inte ideologier. Både högerextremister OCH counter-protestors är offer för samma övernaturliga manipulation.</p>
+
+            <h3 style="color: var(--accent-secondary); margin-top: 1.5rem;">VAD HÄNDE I KAPITEL 1-3:</h3>
+            <ul>
+                <li><strong>Kapitel 1:</strong> Magda dog, spelarna "märkta" av Det Som Fängslades efter Pogodin's mansion-ritualen</li>
+                <li><strong>Kapitel 2:</strong> Frankfurt Clinic besök, mötte Pyotr</li>
+                <li><strong>Kapitel 3:</strong> Drömsekvenser om Leningrad 1941, Kalenkos hus</li>
+                <li><strong>Nu:</strong> De tre männen (Anton, Sasha, Filip) har FLYTT efter ritualen misslyckades</li>
+            </ul>
+
+            <h3 style="color: var(--accent-secondary); margin-top: 1.5rem;">CHAPTER 4 ARC:</h3>
+            <ul>
+                <li><strong>Act 1:</strong> Media revelation - Slavic Association kopplas till Germanische Gemeinschaft (högerextrem grupp)</li>
+                <li><strong>Act 2:</strong> Undersöka GG headquarters (Lychener Straße, East Berlin)</li>
+                <li><strong>Act 3:</strong> Fragment-smuggling network (Harmann's Mechanical)</li>
+                <li><strong>Act 4:</strong> Frankfurt Clinic återbesök (Pyotr's warning)</li>
+                <li><strong>Act 5:</strong> Rally climax (3000+ personer, massexponering hotad)</li>
+            </ul>
+
+            <div class="warning-box" style="margin-top: 1.5rem;">
+                <h3>⚠️ 2025 SENSITIVITY GUIDE</h3>
+                <p><strong>Högerextremism i 2025:</strong> Detta är ett VERKLIGT hot (AfD, nationalism, Ukraina-kriget). Därför är det VIKTIGARE att belysa, inte undvika.</p>
+
+                <p style="margin-top: 1rem;"><strong>Balansering:</strong></p>
+                <ul>
+                    <li>Fokus på COSMIC manipulation, inte mundane evil</li>
+                    <li>Högerextremister är offer/verktyg, inte masterminds</li>
+                    <li>Både höger OCH vänster drabbas av fragment-exponering</li>
+                    <li>Spelarna räddar ALLA sidor, inte bara "good guys"</li>
+                    <li>Undvik preachy moralism - låt horror tala</li>
+                </ul>
+
+                <p style="margin-top: 1rem;"><strong>Delta Green approach:</strong> Verkliga hot förvärras av övernaturliga krafter (jmf MKUltra + Deep Ones, Karteller + Yith-fragment). Detta är samma pattern.</p>
+            </div>
+        </div>
+
+        <!-- ACT 1: THE REVELATION -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">ACT 1: THE REVELATION - "Newspaper Headlines"</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-body">
+
+                    <h3>OPENING SCENE - Media Frenzy</h3>
+                    <p><strong>Timing:</strong> 2-3 dagar efter Pogodin's mansion (Kapitel 1 epilog)</p>
+                    <p><strong>Location:</strong> Spelarna's temporary safe house (Berlin eller Frankfurt)</p>
+
+                    <p>Spelarna ser nyhetsrapporter överallt:</p>
+
+                    <div class="note">
+                        <h4>📰 NEWSPAPER HEADLINE (BERLINER ZEITUNG):</h4>
+                        <p style="font-size: 1.2rem; font-weight: bold; margin: 1rem 0;">"RITUAL-MORD: MILJONER TILL HÖGEREXTREMA"</p>
+
+                        <p><strong>Artikel-sammanfattning:</strong></p>
+                        <p>Tre män hittade döda i Pogodin's mansion utanför Berlin. Misstänkta ritualmord. Utredning visar att offren - Anton Mahler (87), Aleksandr "Sasha" Pogodin (83), Filip Kramer (79) - har kopplingar till Slavic Association OCH högerextrema organisationen <strong>Germanische Gemeinschaft</strong>.</p>
+
+                        <p style="margin-top: 1rem;"><strong>VIKTIGT FOTO I ARTIKELN:</strong></p>
+                        <p>1980-talets East Berlin. Demolerat hus. I bakgrunden: unga män i militärjackor (GG-members). I förgrunden: Filip Kramer + Alexi Blobel i heated conversation med <strong>Leonard Freude</strong> (GG-representant).</p>
+
+                        <p style="margin-top: 1rem;"><em>Bildtext: "Ritualmord-offer Filip Kramer hade nära band till Germanische Gemeinschaft som nu ärver över 38 miljoner EUR från offrens dödsbon."</em></p>
+                    </div>
+
+                    <h3>INVESTIGATION OPTIONS</h3>
+
+                    <h4>A) Kontakta Journalist:</h4>
+                    <p>Artikeln skriven av <strong>Sandra Müller</strong>, investigative journalist (Berliner Zeitung).</p>
+                    <ul>
+                        <li>Om spelarna kontaktar henne: Hon är rädd. "Editors stopped my follow-up. Someone paid them off."</li>
+                        <li>Kan avslöja mer om GG-Slava connection (weapons smuggling rumors)</li>
+                        <li>Har foton från 1990s som visar Slavic Association members vid GG-events</li>
+                        <li>Varning: "Be careful. People who dig into this... disappear."</li>
+                    </ul>
+
+                    <h4>B) Research Germanische Gemeinschaft:</h4>
+                    <table>
+                        <tr>
+                            <th>Källa</th>
+                            <th>Information</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Public Records</strong></td>
+                            <td>GG grundad 1987 (DDR-tiden). Officiellt: "Kulturell organisation för germansk tradition". Verkligen: Högerextrem grupp, nynazistiska tendenser.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Newspaper Archives</strong></td>
+                            <td>1994: "Police Raid GG Headquarters - No Weapons Found"<br>2018: "We Are Not Fascists" - Leonard Freude intervju<br>2023: "GG Member Arrested in Denmark Biker Gang Clash"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Police Contacts</strong></td>
+                            <td>"It's sensitive. Higher-ups put a lid on investigations. We have Russian contacts working on it, but... someone doesn't want us digging."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>HUMINT (street level)</strong></td>
+                            <td>GG-members hang out at pub on Lychener Straße. Open to public. Upstairs = members only. Weapons smuggling whispers. Russian connections.</td>
+                        </tr>
+                    </table>
+
+                    <h4>C) Slavic Association Follow-up:</h4>
+                    <p>Om spelarna återvänder till Slavic Association (Kartenaustraße 31):</p>
+                    <ul>
+                        <li><strong>Arnold Weiss</strong> (om han lever) är nervous: "Vi visste inte om deras extrema åsikter. Black Sun Publishing var separat operation."</li>
+                        <li>Helga Krausst (sekretariat) berättar: "Filip stopped coming 6 months ago. Anton and Sasha were planning something big - kept talking about 'the rally'."</li>
+                        <li>Om spelarna lyckas med <strong>Hacking roll</strong> i Ada Lohman's office: Email från "L.F." (Leonard Freude) till Anton: "Leveransen från Moskva confirmed. 14 november. Vi förbereder rally-platsen."</li>
+                    </ul>
+
+                    <div class="warning-box">
+                        <h3>⚠️ VIKTIGT - DE TRE MÄNNEN HAR FÖRSVUNNIT</h3>
+                        <p>Polisen söker spelarna för Pogodin's mansion-morden. MEN de söker OCKSÅ de tre männen - för kropparna är BORTA från crime scene!</p>
+
+                        <p style="margin-top: 1rem;"><strong>Vad hände egentligen:</strong></p>
+                        <ul>
+                            <li>Efter ritualen "dog" de tre männen (spelarna såg det)</li>
+                            <li>Men de transformerade (Yelena, Katya, Alyona) tog kropparna</li>
+                            <li>De tre männen "återuppstod" genom fragment-resonans</li>
+                            <li>Nu lever de - men förändrade, mer korrupterade</li>
+                            <li>Har flytt till GG-nätverket för skydd</li>
+                        </ul>
+
+                        <p style="margin-top: 1rem;"><strong>SL-NOTE:</strong> Detta förvirrar spelarna - bra! Låt dem spekulera. Sanningen avslöjas gradvis.</p>
+                    </div>
+
+                    <h3>SCENE OUTCOME</h3>
+                    <p>Spelarna får multiple leads:</p>
+                    <ul>
+                        <li><strong>GG Headquarters</strong> - Lychener Straße, East Berlin</li>
+                        <li><strong>Leonard Freude</strong> - GG-representant, koppling till Filip Kramer</li>
+                        <li><strong>Harmann's Mechanical</strong> - Vapenlager (nämnt i Slavic Association emails)</li>
+                        <li><strong>Rally</strong> - Något planeras 14 november (om 4 dagar!)</li>
+                        <li><strong>Frankfurt Clinic</strong> - Pyotr kanske vet mer om de tre männen</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <p><strong>PLAYER CHOICE:</strong> Vart går de först? GG headquarters? Frankfurt? Stakeout på Harmann's?</p>
+                        <p>Alla vägar leder till samma destination (rally climax) men ger olika information.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ACT 2: GERMANISCHE GEMEINSCHAFT -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">ACT 2: GERMANISCHE GEMEINSCHAFT - "The Far-Right Connection"</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-body">
+
+                    <h3>GG HEADQUARTERS - Lychener Straße, East Berlin</h3>
+                    <p><strong>Beskrivning:</strong> Förfallet 3-vånings hus, surrounded by renoverade buildings. Barbed wire fence, burned-out cars, industrial decay aesthetic.</p>
+
+                    <h4>EXTERIOR DETAILS:</h4>
+                    <ul>
+                        <li><strong>Fence:</strong> Barbed wire anchored med oil barrels</li>
+                        <li><strong>Two gates:</strong> Front entrance + backyard entrance</li>
+                        <li><strong>Guards:</strong> 2-3 per gate daytime, 1-2 nattetid (berusade efter kl 22:00)</li>
+                        <li><strong>Burned cars:</strong> Two rusted Trabants, clearly för show</li>
+                        <li><strong>Graffiti:</strong> Germansk symbolism, viking runes, some swastikas (illegal men uppsatta ändå)</li>
+                    </ul>
+
+                    <div class="note">
+                        <h4>INVESTIGATION APPROACH - Player Choices:</h4>
+
+                        <p><strong>A) OPEN APPROACH (Pub Visit):</strong></p>
+                        <ul>
+                            <li>Bottenvåning = Öppen pub (anyone can enter)</li>
+                            <li>Clientele: 50/50 GG-members + unemployed locals</li>
+                            <li>Billig öl, loud rock music, occasional speeches</li>
+                            <li>Observera: Who talks to who, who går upp till upper floors</li>
+                            <li><strong>Risk:</strong> Ernst Vogel patrullerar ibland - känner igen "märket"</li>
+                        </ul>
+
+                        <p><strong>B) UNDERCOVER INFILTRATION:</strong></p>
+                        <ul>
+                            <li>Fejka recommendations från andra högerextrema grupper</li>
+                            <li>Kräver: Social skills + research on right-wing networks</li>
+                            <li>Kan få access till upper floors</li>
+                            <li><strong>Risk:</strong> Background checks, Ernst Vogel's paranoia</li>
+                        </ul>
+
+                        <p><strong>C) BREAK-IN (Nattetid):</strong></p>
+                        <ul>
+                            <li>Guards drunk efter kl 23:00 (local pub har live band)</li>
+                            <li>Stealth + lockpicking för entry</li>
+                            <li>Upper floors har valuable intel</li>
+                            <li><strong>Risk:</strong> Drönare-members patrullerar, alarm system</li>
+                        </ul>
+
+                        <p><strong>D) SURVEILLANCE:</strong></p>
+                        <ul>
+                            <li>Stakeout från närliggande building</li>
+                            <li>Observe patterns: Deliveries, meetings, who comes/goes</li>
+                            <li>Photograph key persons</li>
+                            <li><strong>Safe men tar tid</strong></li>
+                        </ul>
+                    </div>
+
+                    <h3>BUILDING LAYOUT</h3>
+
+                    <h4>GROUND FLOOR - Pub & Bookstore:</h4>
+                    <table>
+                        <tr>
+                            <th>Rum</th>
+                            <th>Beskrivning</th>
+                            <th>Ledtrådar</th>
+                        </tr>
+                        <tr>
+                            <td><strong>[G1] Pub</strong></td>
+                            <td>Bar, tables, 30-40 personer daytime. Posters på walls: Germansk symbolism, "Europa för européer" etc. Music: Rock/metal.</td>
+                            <td>Conversations om rally (14 nov), whispers om "big delivery från Russia"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>[G2] Bookstore</strong></td>
+                            <td>Reinhold Messner's operation. Säljer högerextrem litteratur. ALSO: Code words = illegal weapons/drugs sales.</td>
+                            <td>Om spelarna kan bluffa: Manifest visar "Harmann's Mechanical" deliveries</td>
+                        </tr>
+                        <tr>
+                            <td><strong>[G3] Reading Room</strong></td>
+                            <td>Couches, emblems, posters. Intended för study groups men mostly used för hangovers.</td>
+                            <td>Propaganda flyers för rally: "Germany Awakens - Nov 14"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>[G4] Printing Room</strong></td>
+                            <td>Old offset printer, typesetting machine. GG-propaganda printed here.</td>
+                            <td>Draft flyers mention "special guests från Moscow"</td>
+                        </tr>
+                    </table>
+
+                    <h4>FIRST FLOOR - Living Quarters:</h4>
+                    <table>
+                        <tr>
+                            <th>Rum</th>
+                            <th>Beskrivning</th>
+                            <th>Ledtrådar</th>
+                        </tr>
+                        <tr>
+                            <td><strong>[F1] Hall</strong></td>
+                            <td>Rundown. Moisture damage. Stairs to 2nd floor. TWO GUARDS prevent access.</td>
+                            <td>Social skills eller bribery kan get past guards</td>
+                        </tr>
+                        <tr>
+                            <td><strong>[F2] Sleeping Hall</strong></td>
+                            <td>12 GG-members live here. Cardboard boxes, sleeping bags. Sleep 03:00-11:00.</td>
+                            <td>Personal belongings: Russian cigarettes, Slavic Association newsletters</td>
+                        </tr>
+                        <tr>
+                            <td><strong>[F3] Bathroom</strong></td>
+                            <td>Communal, dirty. Graffiti på walls.</td>
+                            <td>Graffiti: "Slava forever", "A.M. was here 2023"</td>
+                        </tr>
+                        <tr style="background: rgba(232, 154, 60, 0.1);">
+                            <td><strong>⚠️ [F4] Storage Room</strong></td>
+                            <td>Locked. Contains: Food supplies, extra clothes, ALSO: Small box med fragment-resonators (3 st, wrapped in lead).</td>
+                            <td><strong>FRAGMENT DISCOVERY!</strong> Märkta "Leningrad 1942 - Historical Artifacts"</td>
+                        </tr>
+                    </table>
+
+                    <h4>SECOND FLOOR - Leadership:</h4>
+                    <table>
+                        <tr>
+                            <th>Rum</th>
+                            <th>Beskrivning</th>
+                            <th>Ledtrådar</th>
+                        </tr>
+                        <tr>
+                            <td><strong>[S1] Conference Room</strong></td>
+                            <td>Huge dining table, high-backed chairs, crystal chandelier. MG 3 machine gun mounted by window. Guard outside [S3].</td>
+                            <td>Meeting notes på table: "Rally prep - 14 Nov - 3000+ expected"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>[S2] Overnight Room</strong></td>
+                            <td>Sectional sofa, TV, beds. Bookcase med Nazi/fascist literature. MG 3 by window. Occasionally hosts leaders.</td>
+                            <td>Books: "The Power of Dreams" by Filip Kramer (10 copies!)</td>
+                        </tr>
+                        <tr style="background: rgba(204, 0, 0, 0.1);">
+                            <td><strong>⚠️ [S3] Weapon Storage</strong></td>
+                            <td>LOCKED + CHAINED. Guard outside. Inside: MG 3, 5x AKM rifles, 8x Uzis, 1x Dragunov sniper rifle, grenades, body armor.</td>
+                            <td>Crate labels: "Slava Exports - Moscow"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>[S4] Freude's Room</strong></td>
+                            <td>Leonard Freude's bedroom. Meticulously organized. Desk, narrow bed, easy chairs. Gun magazines, motorcycle mags.</td>
+                            <td>Papers på desk: Correspondence med "A.M." (Anton Mahler) about rally logistics</td>
+                        </tr>
+                        <tr style="background: rgba(204, 0, 0, 0.15);">
+                            <td><strong>⚠️ [S5] VOGEL'S ROOM</strong></td>
+                            <td><strong>DANGER!</strong> Ernst Vogel's private room. Always dark, curtains closed. Bed, table, AKM on bedpost. Under bed: Autopsy tools + ancient torture instruments.</td>
+                            <td><strong>OCCULT SHRINE:</strong> Fragment-resonator på altar. Dried blood everywhere. Vogel emerges if disturbance.</td>
+                        </tr>
+                    </table>
+
+                    <div class="warning-box">
+                        <h3>⚠️ ENCOUNTER: ERNST VOGEL</h3>
+                        <p><strong>Beskrivning:</strong> 50-60 år (svårt avgöra), short dark hair, always wears black. Cold eyes. Moves unnaturally smooth.</p>
+
+                        <p><strong>Vem är han verkligen:</strong></p>
+                        <ul>
+                            <li>Frankfurt Clinic patient från 1951-58</li>
+                            <li>Exponerad för Nyogtha-fragment under Camp S-17</li>
+                            <li>Transformerad enforcer (som Ivan Chezenko men Nyogtha-variant)</li>
+                            <li>Känner igen Det Som Fängslades märke på spelarna INSTANTLY</li>
+                            <li>Loyal till de tre männen (de "räddade" honom från kliniken)</li>
+                        </ul>
+
+                        <p><strong>Abilities:</strong></p>
+                        <ul>
+                            <li><strong>Kan kasta spelarna in i "transformed space"</strong> (kortvarigt, 1D4 rounds)</li>
+                            <li><strong>Regeneration:</strong> Serious Wounds → Moderate om given 10 minutes</li>
+                            <li><strong>Fragment-sense:</strong> Känner när spelarna är nära fragment</li>
+                            <li><strong>Humming:</strong> 247Hz när agitated (Alertness roll hör det)</li>
+                        </ul>
+
+                        <p><strong>Tactics om han upptäcker spelarna:</strong></p>
+                        <ol>
+                            <li>Första gången: Observerar från distance, follows dem</li>
+                            <li>Andra gången: Konfronterar privat, vill veta VAD de söker</li>
+                            <li>Tredje gången: Attackerar för att skydda fragment eller rally-planer</li>
+                        </ol>
+
+                        <div class="san-check">
+                            <p><strong>SAN CHECK: Witnessing Vogel transform:</strong> 1/1D6</p>
+                            <p><strong>SAN CHECK: Trapped in transformed space:</strong> 1D4/1D8</p>
+                        </div>
+                    </div>
+
+                    <h3>KEY FINDS AT GG HEADQUARTERS</h3>
+
+                    <div class="info-box">
+                        <h4>📄 DOCUMENT: Brev från Anton Mahler till Leonard Freude</h4>
+                        <pre style="font-family: 'Courier New'; background: var(--bg-darker); padding: 1rem; margin: 1rem 0; border-left: 3px solid var(--accent-primary);">
+Leonard,
+
+Leveransen från våra ryska vänner confirmed för 14 november,
+06:00. Vanlig plats (Harmann's). Säg till Reinhold att förbereda
+lager - denna gång blir det STÖRRE.
+
+Rally samma kväll - 3000+ förväntas. Vi har förberett platsen.
+"Gåvorna" kommer distribueras under scen och i sound system.
+Våra vänner från Moskva kommer bevittna vår triumf.
+
+Ernst säger att de amerikanska agenterna fortfarande letar efter oss.
+Inga problem - efter rally kommer de INGET kunna göra.
+
+Välkommen till den nya eran.
+- A.M.
+                        </pre>
+                    </div>
+
+                    <div class="info-box">
+                        <h4>📄 HANDOUT: Rally-flyer</h4>
+                        <pre style="font-family: 'Courier New'; background: var(--bg-darker); padding: 1rem; margin: 1rem 0; border-left: 3px solid var(--accent-secondary);">
+╔══════════════════════════════════════╗
+║   GERMANY AWAKENS                    ║
+║                                      ║
+║   Germanische Gemeinschaft           ║
+║   inviterar till                     ║
+║   MASSRALLY                          ║
+║                                      ║
+║   14 NOVEMBER 2025 - 18:00          ║
+║   Alexanderplatz, East Berlin        ║
+║                                      ║
+║   "Europa för européer!"             ║
+║   "Stå emot invasionen!"            ║
+║                                      ║
+║   Special guests från utlandet       ║
+║   Free entry                         ║
+╚══════════════════════════════════════╝
+                        </pre>
+                        <p><em>Anteckning: Counter-protestors planerar också närvara (2000+ människor).</em></p>
+                    </div>
+
+                    <h3>SCENE OUTCOME</h3>
+                    <p>Spelarna får critical intel:</p>
+                    <ul>
+                        <li>Rally planerad 14 november, Alexanderplatz (4 dagar från nu!)</li>
+                        <li>Slava-leverans samma dag 06:00 till Harmann's Mechanical</li>
+                        <li>"Gåvor" (fragment) ska distribueras vid rally</li>
+                        <li>De tre männen lever och koordinerar operations</li>
+                        <li>Ernst Vogel = dangerous enforcer, känner igen dem</li>
+                    </ul>
+
+                    <p><strong>Next move:</strong> Harmann's Mechanical? Frankfurt Clinic? Direkt till rally-site?</p>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ACT 3: THE SMUGGLING NETWORK -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">ACT 3: THE SMUGGLING NETWORK - "Harmann's Mechanical"</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-body">
+
+                    <h3>HARMANN'S MECHANICAL - Fragment Storage Facility</h3>
+                    <p><strong>Location:</strong> Industrial area, southeastern Berlin (near former DDR border)</p>
+                    <p><strong>Cover:</strong> "Antik-lager" och mechanical workshop</p>
+                    <p><strong>Verklig funktion:</strong> Fragment storage + weapons smuggling hub</p>
+
+                    <h4>BUILDING DESCRIPTION:</h4>
+                    <ul>
+                        <li>Grey concrete building från 1960s</li>
+                        <li>Former mechanical workshop, now mostly empty</li>
+                        <li>Large garage doors, loading bay</li>
+                        <li>Fence with warning signs: "Private Property - No Trespassing"</li>
+                        <li>Security cameras (4-6 drönare-guards daytime, 2-3 nattetid)</li>
+                    </ul>
+
+                    <div class="note">
+                        <h4>APPROACH OPTIONS:</h4>
+
+                        <p><strong>A) STAKEOUT:</strong></p>
+                        <ul>
+                            <li>Observe från distance (nearby abandoned building)</li>
+                            <li>Deliveries happen 2x/month from Moskva (next one: 14 Nov, 06:00!)</li>
+                            <li>Reinhold Messner (Black Sun Publishing) coordinates deliveries</li>
+                            <li>Guards change shift 14:00 och 22:00</li>
+                        </ul>
+
+                        <p><strong>B) FØLJ LEVERANS:</strong></p>
+                        <ul>
+                            <li>If spelarna stakes out GG headquarters: Follow Messner när han åker till Harmann's</li>
+                            <li>Vehicle surveillance (hard i Berlin traffic)</li>
+                            <li>Risk: Drönare-guards är alert under deliveries</li>
+                        </ul>
+
+                        <p><strong>C) BREAK-IN (Nattetid):</strong></p>
+                        <ul>
+                            <li>2-3 guards nattetid (easier än daytime)</li>
+                            <li>Cameras can be looped med tech skills</li>
+                            <li>Warehouse full av crates = easy hiding</li>
+                            <li>Risk: Silent alarm, Ernst Vogel shows up om fragment disturbance</li>
+                        </ul>
+
+                        <p><strong>D) SOCIAL ENGINEERING:</strong></p>
+                        <ul>
+                            <li>Pose as buyers ("vi hörde ni har Soviet artifacts")</li>
+                            <li>Kräver connections to right-wing underground</li>
+                            <li>Can get limited access to warehouse floor</li>
+                            <li>Risk: Background checks, Vogel's paranoia</li>
+                        </ul>
+                    </div>
+
+                    <h3>WAREHOUSE INTERIOR</h3>
+
+                    <table>
+                        <tr>
+                            <th>Area</th>
+                            <th>Innehåll</th>
+                            <th>Ledtrådar</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Loading Bay</strong></td>
+                            <td>Truck entrance, forklift, shipping/receiving desk. Manifest loggar alla deliveries.</td>
+                            <td>Manifest shows "Historical Artifacts from Moscow" 2x/month sedan 2023</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Main Warehouse</strong></td>
+                            <td>50+ crates stacked. Mix av genuine antiques, weapons, OCH fragment-lådor.</td>
+                            <td>Fragment crates märkta differently: Lead-lined, warning symbols, "Leningrad 1942"</td>
+                        </tr>
+                        <tr style="background: rgba(232, 154, 60, 0.1);">
+                            <td><strong>⚠️ Fragment Storage</strong></td>
+                            <td>Separate locked room. Temperature-controlled. 20+ fragment-lådor from different sources.</td>
+                            <td><strong>CRITICAL:</strong> Labels show origin: "Leningrad Dec 31 1941", "Camp S-17 1946", "Frankfurt Clinic 1951"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Office</strong></td>
+                            <td>Reinhold Messner's workspace. Ledger books, computer, safe.</td>
+                            <td>Computer (password "Slava1942"): Buyer list, Rally delivery manifest, Email från Anton Mahler</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Guards' Room</strong></td>
+                            <td>Break room för security. Coffee, TV, weapons locker.</td>
+                            <td>Shift schedule, communication log (mentions "Vogel patrols Thursdays")</td>
+                        </tr>
+                    </table>
+
+                    <h3>KEY DISCOVERY - Delivery Manifest</h3>
+
+                    <div class="info-box">
+                        <h4>📄 LEVERANS #47 - Moskva → Berlin</h4>
+                        <pre style="font-family: 'Courier New'; background: var(--bg-darker); padding: 1rem; margin: 1rem 0; border-left: 3px solid var(--accent-primary);">
+SLAVA EXPORTS - MOSCOW DIVISION
+Shipment Date: 14 November 2025, 06:00 arrival
+Destination: Harmann's Mechanical, Berlin
+
+MANIFEST:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[CRATE 1-12]  Historical Artifacts - Leningrad 1942
+              Status: LEAD-LINED, FRAGILE
+              Special handling required
+              Destination: Rally site distribution
+
+[CRATE 13-20] Soviet Military Equipment
+              Status: STANDARD WEAPONS
+              Destination: GG Arsenal
+
+[CRATE 21-24] Personal Effects - Camp S-17
+              Status: LEAD-LINED, MEDICAL HAZARD
+              Destination: Frankfurt forwarding
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NOTES:
+- Rally deployment: 12 resonators under stage
+- 8 resonators in sound system amplifiers
+- 4 backup units for secondary locations
+
+Coordinator: A. Mahler
+On-site security: E. Vogel
+Payment: €250,000 (Slava account)
+
+IMPORTANT: Delivery MUST complete before 12:00.
+Rally prep begins 14:00. No delays accepted.
+                        </pre>
+                    </div>
+
+                    <h3>FRAGMENT EXAMINATION</h3>
+
+                    <p>Om spelarna kan examine fragment-crates closely:</p>
+
+                    <div class="info-box">
+                        <p><strong>OCCULT INSIGHT eller Science (Physics) roll:</strong></p>
+                        <ul>
+                            <li>Fragment är kristallin structure, vibrates faintly</li>
+                            <li>Resonerar vid 247Hz (samma som Yithian-signal!)</li>
+                            <li>När many fragments samlas: Amplification effect</li>
+                            <li>12+8+4 = 24 fragments vid rally = MASSIV resonance potential</li>
+                            <li>3000 människor exponerade samtidigt = catastrophic</li>
+                        </ul>
+
+                        <p style="margin-top: 1rem;"><strong>BIOLOGY eller Medicine roll:</strong></p>
+                        <ul>
+                            <li>Exponering orsakar same symptoms som spelarna har (boils, parasites)</li>
+                            <li>Men MASS exponering = snabbare transformation</li>
+                            <li>Folk blir drönare inom TIMMAR istället för månader</li>
+                            <li>Entire rally crowd = 500-1000 nya drönare instantly</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <h3>⚠️ COMPLICATION: Ernst Vogel Arrives</h3>
+                        <p>If spelarna spenderar >20 minutes vid warehouse ELLER disturbs fragments:</p>
+
+                        <p><strong>Vogel känner fragment-disturbance och arrives med 4-6 drönare-guards.</strong></p>
+
+                        <p><strong>Player choices:</strong></p>
+                        <ul>
+                            <li><strong>HIDE:</strong> Stealth rolls, hope he doesn't search thoroughly</li>
+                            <li><strong>FIGHT:</strong> Combat encounter (se stats nedan)</li>
+                            <li><strong>FLEE:</strong> Chase scene genom industrial area</li>
+                            <li><strong>TALK:</strong> Vogel vill veta VAD de söker - kan bluffe?</li>
+                        </ul>
+
+                        <h4>Vogel Combat Stats:</h4>
+                        <ul>
+                            <li><strong>HP:</strong> 15 (regenerates 1D6 every 10 minutes)</li>
+                            <li><strong>Armor:</strong> 2 (transformed flesh)</li>
+                            <li><strong>Weapon:</strong> AKM assault rifle (Lethality 10%) ELLER hand-to-hand (1D6+2 damage)</li>
+                            <li><strong>Special:</strong> Kan cast spelarna into transformed space (WP check or paralyzed 1D4 rounds)</li>
+                        </ul>
+
+                        <h4>Drönare-Guards Stats (4-6 st):</h4>
+                        <ul>
+                            <li><strong>HP:</strong> 10 each</li>
+                            <li><strong>Armor:</strong> 1 (kevlar vests)</li>
+                            <li><strong>Weapons:</strong> Uzis (Lethality 10%) eller crowbars (1D6 damage)</li>
+                            <li><strong>Special:</strong> Synkroniserad - attackerar same target simultaneously</li>
+                        </ul>
+
+                        <div class="san-check">
+                            <p><strong>Watching Vogel fight:</strong> 0/1D4 SAN</p>
+                            <p><strong>Thrown into transformed space:</strong> 1D4/1D8 SAN</p>
+                            <p><strong>Killing drönare (realizing they're victims):</strong> 1 SAN + Possible Breaking Point</p>
+                        </div>
+                    </div>
+
+                    <h3>OUTCOME OPTIONS</h3>
+
+                    <p><strong>SUCCESS (Got intel, escaped):</strong></p>
+                    <ul>
+                        <li>Vet leverans händer 14 Nov kl 06:00</li>
+                        <li>Vet fragment distribueras till rally-site</li>
+                        <li>Manifest shows EXACTLY where fragments placeras</li>
+                        <li>Can plan sabotage eller interception</li>
+                    </ul>
+
+                    <p><strong>PARTIAL SUCCESS (Got intel, Vogel noticed):</strong></p>
+                    <ul>
+                        <li>Same info men Vogel vet att de jagar dem</li>
+                        <li>GG security på high alert</li>
+                        <li>Rally security förstärks</li>
+                        <li>Timer börjar ticka</li>
+                    </ul>
+
+                    <p><strong>FAILURE (Caught, had to flee):</strong></p>
+                    <ul>
+                        <li>Limited info (only vad de såg innan flight)</li>
+                        <li>GG vet att någon jagar dem</li>
+                        <li>Delivery moved up eller changed (SL choice)</li>
+                        <li>Rally kanske flyttas eller increased security</li>
+                    </ul>
+
+                    <h3>NEXT STEPS</h3>
+
+                    <p>Spelarna har nu kritisk information:</p>
+                    <ul>
+                        <li><strong>Timeline:</strong> 14 Nov - Delivery 06:00, Rally 18:00</li>
+                        <li><strong>Target:</strong> 24 fragments deployeras vid Alexanderplatz</li>
+                        <li><strong>Scale:</strong> 3000+ människor hotas</li>
+                        <li><strong>Opposition:</strong> Ernst Vogel + drönare-guards + GG-members</li>
+                    </ul>
+
+                    <p><strong>Choices:</strong></p>
+                    <ul>
+                        <li>Intercept leverans vid Harmann's (06:00)?</li>
+                        <li>Infiltrate rally-site före deployment?</li>
+                        <li>Contact Frankfurt Clinic för Pyotr's advice?</li>
+                        <li>Contact tysk polis (risk: corruption)?</li>
+                        <li>Call Delta Green för backup (risk: exposure)?</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="back-link-container" style="text-align: center; margin: 3rem 0;">
+            <a href="black_madonna_index.html" class="back-link">← Tillbaka till Kapitel-översikt</a>
+        </div>
+
+    </div>
+
+    <script>
+        // Collapsible functionality
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', function() {
+                this.parentElement.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
