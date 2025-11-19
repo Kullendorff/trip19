@@ -14,9 +14,9 @@ Denna kampanj börjar i september 2025 när Chesapeake Cell ska möta Magda Orlo
 **Magda Orlova:**
 - Född: Januari 1939 (Leningrad)
 - 2025: 86 år gammal
-- Dör: November 2024 (85 år) - strax INNAN teamet skulle möta henne
-- I KULT: Lever när PCs möter henne första gången
-- I DG 2025: Död/försvunnen när teamet kommer till Session 5
+- Session 3 (Sept 2025): Lever, teamet träffar henne i Lovettsville
+- Dör: Oktober/November 2025 - EFTER Session 3, INNAN Session 5
+- Session 5: Teamet får veta att hon är död, åker till Berlin
 
 **Mekanik:**
 - KULT: Keep it Together, Stability rolls
@@ -33,16 +33,17 @@ Denna kampanj börjar i september 2025 när Chesapeake Cell ska möta Magda Orlo
 ## SESSION 5: BERLIN (NOVEMBER 2025)
 
 **Förutsättningar:**
-- Session 3: Teamet träffade Magda i Lovettsville (levande)
-- Session 4: Research och Volkov-spår
-- Session 5: Magda är död/försvunnen, teamet åker till Berlin
+- Session 3 (Sept 2025): Teamet träffar Magda i Lovettsville - hon lever
+- Session 4 (Okt 2025): Research och Volkov-spår
+- Mellan Session 4-5: Magda dör/försvinner i Berlin
+- Session 5 (Nov 2025): Teamet får veta om Magdas död, åker till Berlin
 
 ---
 
 ## 1. ETT OVÄNTAT MÖTE (An Unexpected Meeting)
 
 **2025 ADAPTION:**
-Detta händer INTE i 2025 - Magda är redan död. Men SL behöver veta vad som hände i Session 3.
+Detta händer i Session 3 (Sept 2025) - Magda lever fortfarande. SL-info om mötet:
 
 ### Session 3 Flashback (September 2025, Lovettsville)
 
