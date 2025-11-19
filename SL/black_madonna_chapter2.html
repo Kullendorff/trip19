@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLACK MADONNA - Kapitel 2: Shadows from the Past</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-primary: #4a90a4;
+            --accent-secondary: #e89a3c;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        .header {
+            background: var(--bg-darker);
+            border-bottom: 2px solid var(--accent-primary);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-primary);
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(74, 144, 164, 0.5);
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .back-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--accent-primary);
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .back-link:hover {
+            background: var(--accent-primary);
+            color: var(--bg-dark);
+        }
+
+        .classified-banner {
+            background: repeating-linear-gradient(
+                45deg,
+                var(--accent-primary),
+                var(--accent-primary) 10px,
+                #3a7a8a 10px,
+                #3a7a8a 20px
+            );
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            box-shadow: 0 2px 10px rgba(74, 144, 164, 0.3);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .intro-section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-primary);
+            border-radius: 4px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .intro-section h2 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .intro-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .intro-section li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .intro-section li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+        }
+
+        .collapsible {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-primary);
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .collapsible:hover {
+            border-left-width: 5px;
+        }
+
+        .collapsible-header {
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background 0.2s;
+        }
+
+        .collapsible-header:hover {
+            background: rgba(74, 144, 164, 0.05);
+        }
+
+        .collapsible-title {
+            color: var(--accent-primary);
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .collapsible-icon {
+            color: var(--accent-primary);
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .collapsible.active .collapsible-icon {
+            transform: rotate(90deg);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible.active .collapsible-content {
+            max-height: 10000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .collapsible-inner {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .san-check {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .san-check h4 {
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .warning-box {
+            background: rgba(232, 154, 60, 0.1);
+            border-left: 4px solid var(--accent-secondary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box h4 {
+            color: var(--accent-secondary);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .note-box {
+            background: rgba(74, 144, 164, 0.05);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .note-box h4 {
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--bg-darker);
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background: rgba(74, 144, 164, 0.05);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div>
+                <div class="logo">▲ TRIP 19 // BLACK MADONNA</div>
+                <div class="subtitle">KAPITEL 2: SHADOWS FROM THE PAST</div>
+            </div>
+            <a href="black_madonna_index.html" class="back-link">← Tillbaka till Black Madonna</a>
+        </div>
+    </div>
+
+    <!-- Classified Banner -->
+    <div class="classified-banner">
+        CLASSIFIED // DELTA GREEN EYES ONLY // SHADOWS FROM THE PAST
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <!-- Introduction -->
+        <div class="intro-section">
+            <h2>▶ KAPITEL 2: SKUGGOR FRÅN DET FÖRFLUTNA</h2>
+            <p style="margin-bottom: 1rem;">
+                Efter Magdas död på Charité och upptäckten av de tre ryssarnas transformationer står Chesapeake Cell
+                inför ett kritiskt val: följa spåren tillbaka till källan i Leningrad 1942, eller undersöka de nutida
+                hot som Slaviska Föreningen representerar.
+            </p>
+            <p style="margin-bottom: 1rem;">
+                Detta kapitel fokuserar på historiska efterforskningar som leder till <strong>Frankfurt Clinic</strong>,
+                en nedgången mental institution i det forna Östtyskland där Magda, hennes mamma, och de tre ryssarna
+                alla behandlades under 1950-talet.
+            </p>
+
+            <h3 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Översikt</h3>
+            <ul>
+                <li><strong>Tidsram:</strong> November 2025, 3-5 dagar efter Magdas död</li>
+                <li><strong>Plats:</strong> Berlin → Frankfurt an der Oder (~80 km österut)</li>
+                <li><strong>Huvudscener:</strong> 13 scener från beslut till återfärd</li>
+                <li><strong>Nyckelpersoner:</strong> Dr. Helmut Schafer, Karl Feuer, Pyotr Gallentinov</li>
+                <li><strong>Total SAN-risk:</strong> 1/1D6 (potentiellt mer vid Special Ward)</li>
+            </ul>
+
+            <div class="warning-box" style="margin-top: 1.5rem;">
+                <h4>⚠️ SPELLEDARENS NOTERING</h4>
+                <p>
+                    Spelarna är möjligtvis fortfarande efterlysta av tysk polis efter händelserna på Charité.
+                    De kan också vara i Slaviska Föreningens siktet. Denna resa bör kännas riskfylld - inte p.g.a.
+                    övernaturliga hot, utan p.g.a. mycket mänskliga faror från organiserad brottslighet och law enforcement.
+                </p>
+            </div>
+        </div>
+
+        <!-- Scene 1: Beslut att åka till Frankfurt -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">SCEN 1: BESLUT OCH FÖRBEREDELSER</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+                    <p>
+                        Efter att ha sammanfattat sina upptäckter från Charité måste cellen bestämma sin nästa handling.
+                        Magdas dagbok och de tre ryssarnas medicinska journaler pekar båda mot Frankfurt Clinic som en
+                        kritisk plats i deras delade historia.
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Magdas dagbok avslöjar:</h4>
+                    <ul style="list-style: none; padding-left: 1rem;">
+                        <li style="margin-bottom: 0.5rem;">• "Frankfurt kliniken var värre än Kirov. Mamma slutade tala efter de första behandlingarna."</li>
+                        <li style="margin-bottom: 0.5rem;">• "Dr. Tatlina sa vi var speciella. Att vi överlevde när andra inte gjorde det."</li>
+                        <li style="margin-bottom: 0.5rem;">• "Anton, Sasha och Filip var också där. Vi var aldrig ensamma, men vi kunde aldrig prata om det."</li>
+                        <li style="margin-bottom: 0.5rem;">• "44 barn kom från Moskva. Jag vet inte hur många som finns kvar."</li>
+                    </ul>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">De tre ryssarnas journaler visar:</h4>
+                    <ul style="list-style: none; padding-left: 1rem;">
+                        <li style="margin-bottom: 0.5rem;">• Alla tre överfördes från Kirov Kliniken i Moskva till Frankfurt Clinic 1951</li>
+                        <li style="margin-bottom: 0.5rem;">• Behandlades av Dr. Nina Tatlina (sovjetisk läkare)</li>
+                        <li style="margin-bottom: 0.5rem;">• Vistades på kliniken 1951-1956 innan de "frigivnos"</li>
+                        <li style="margin-bottom: 0.5rem;">• Journalerna innehåller kryptiska referenser till "särskilda avdelningen" och "de som förändrades"</li>
+                    </ul>
+
+                    <div class="note-box" style="margin-top: 1.5rem;">
+                        <h4>MEKANIK (DELTA GREEN)</h4>
+                        <ul>
+                            <li><strong>HUMINT:</strong> Spelarna inser att Frankfurt's position nära polska gränsen gör den till knutpunkt för organiserad brottslighet</li>
+                            <li><strong>Law:</strong> Förstår att tysk polis har begränsade resurser i f.d. Östtyskland</li>
+                            <li><strong>Criminology:</strong> Vet att Slaviska Föreningen har kontakter i gränsområden</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box" style="margin-top: 1rem;">
+                        <h4>FÖR SPELLEDAREN</h4>
+                        <p>Låt inte detta bli för långt. Spelarna bör snabbt fatta beslut baserat på den information de har.
+                        Detta är inte tiden för överanalys - spänningen kommer från resan, inte från planeringen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 2: Resan österut -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">SCEN 2: RESAN ÖSTERUT</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+                    <p>
+                        Resan från Berlin till Frankfurt an der Oder är ~80 km på Autobahn A12. Vad som borde vara
+                        en enkel 1-timmars resa blir en spänningsfylld färd genom trafikstopp och potentiella förföljare.
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Om spelarna kör bil:</h4>
+                    <p>
+                        De åker österut på A12 genom industriområden och förfallna f.d. Öst-tyska samhällen. Landskapet
+                        blir alltmer grått och nedgånget ju längre österut de kommer.
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        Efter ~40 km ser de polisiära trafikstopp vid en avfart. Tyska Bundespolizei stoppar slumpmässigt
+                        fordon. Spelarna ser civilklädda poliser med iPads som verkar kontrollera ansiktsigenkänning.
+                    </p>
+
+                    <div class="note-box" style="margin-top: 1rem;">
+                        <h4>ACT UNDER PRESSURE / DRIVE ROLL</h4>
+                        <ul>
+                            <li><strong>Kritisk framgång:</strong> Perfekt timing, blandas in bland andra fordon, viftas förbi</li>
+                            <li><strong>Framgång:</strong> Vinkas förbi utan kontroll</li>
+                            <li><strong>Misslyckande:</strong> En polis signalerar dem att köra åt sidan för kontroll</li>
+                            <li><strong>Fumble:</strong> Polisen känner igen dem från BOLO från Berlin</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Potentiell komplikation: Slaviska Föreningens skuggor</h4>
+                    <p>
+                        En mörk Mercedes SUV har följt dem sedan Berlin. När de närmar sig Frankfurt, blir SUV:n mer
+                        aggressiv - kör närmare, försöker tvinga dem av vägen vid en ensam sträcka.
+                    </p>
+
+                    <div class="warning-box" style="margin-top: 1rem;">
+                        <h4>I SUV:n: 4 Slaviska Föreningen-operatörer</h4>
+                        <p><strong>Mål:</strong> Fånga spelarna levande för förhör, INTE döda dem</p>
+                        <p style="margin-top: 0.5rem;"><strong>Chase scene mechanics:</strong></p>
+                        <ul>
+                            <li>Driver måste göra <strong>Drive rolls</strong> för att undkomma eller manövrera</li>
+                            <li>Passengers kan använda <strong>Firearms</strong> (ökar heat med tysk polis!)</li>
+                            <li>Alternativt: Försök tappa förföljare i Frankfurt's industriområden</li>
+                        </ul>
+                    </div>
+
+                    <div class="note-box" style="margin-top: 1.5rem;">
+                        <h4>FÖR SPELLEDAREN - PACING</h4>
+                        <p>Denna scen bör vara TENSE men inte dödlig. Målet är att etablera att spelarna är i fara från
+                        mänskliga aktörer, vilket gör den kommande övernaturliga upptäckten mer chockerande genom kontrast.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 3: Frankfurt an der Oder -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">SCEN 3: FRANKFURT AN DER ODER - STADEN</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+                    <p>
+                        Frankfurt an der Oder är en grå, melankolisk stad nära polska gränsen. Fortfarande märkt av
+                        Östtysk ästetik och ekonomisk nedgång, känns staden som om tiden stannat 1989.
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Första intryck:</h4>
+                    <ul style="list-style: none; padding-left: 1rem;">
+                        <li style="margin-bottom: 0.5rem;">• <strong>Der Oderturm:</strong> 24-vånings skyskrapa från 1970-talet med "ODERTURM" på toppen</li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Gråa betonghus:</strong> Östtyska Plattenbau-byggnader i olika stadier av förfall</li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Arbetslöshet:</strong> Grupper av män sitter på bänkar, diskuterar ekonomin</li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Gränstrafik:</strong> Bilar kör till Polen för billiga varor</li>
+                    </ul>
+
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--text-dim);">
+                        Frankfurt känns övergiven av både dåtid och framtid. Detta var en gång en stolt Östtysk
+                        industristad - nu är det en grå limbo där människor väntar på något som aldrig kommer att hända.
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Navigera till kliniken:</h4>
+                    <p>
+                        Kliniken ligger i stadens utkanter, omgiven av små industrier och verkstäder. De flesta har
+                        stängt ner eller kör med reducerad kapacitet. Luften är tung och metallisk, fylld med partiklar
+                        från en närliggande fiberboardfabrik.
+                    </p>
+
+                    <div class="note-box" style="margin-top: 1.5rem;">
+                        <h4>SUBTILA LEDTRÅDAR</h4>
+                        <ul>
+                            <li>En lokal äldre kvinna gör korstecken och mumlar: "Där försvann barn under 70-talet"</li>
+                            <li>En bartender varnar: "Doktor Schafer där är en tjuv. Allt har sitt pris."</li>
+                            <li>En ung kvinna med märkliga ärrbildningar stirrar tomt på kliniken från en busskur</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box" style="margin-top: 1rem;">
+                        <h4>FÖR SPELLEDAREN</h4>
+                        <p><strong>Atmosfär är allt:</strong> Frankfurt bör kännas DYSTOPISKT på ett mycket mänskligt sätt
+                        innan något övernaturligt introduceras. Detta är en stad där människor glömts bort, där historien
+                        har stagnerat. Detta etablerar den perfekta platsen för hemligheter att gömmas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 4: Frankfurt Clinic - Första mötet -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">SCEN 4: FRANKFURT CLINIC - FÖRSTA MÖTET</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+                    <p>
+                        Kliniken är en surrealistisk kombination av förfall och institutionell skräck, som något från
+                        en skräckfilm men smärtsamt verkligt.
+                    </p>
+
+                    <p style="margin-top: 1rem;"><strong>Plats:</strong> Psychiatrische Klinik Frankfurt-Oder Ost, Fürstenwalder Straße 47</p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Exteriör:</h4>
+                    <p>
+                        Kliniken ligger i en gammal herrgård från 1700-talet, ombyggd på 1960-talet med brutal Östtysk effektivitet.
+                        En hög betongmur omger byggnadens upphöjda fundament.
+                    </p>
+
+                    <ul style="list-style: none; padding-left: 1rem; margin-top: 1rem;">
+                        <li style="margin-bottom: 0.5rem;">• <strong>Muren:</strong> Sprucken betong, flagnar i stora bitar</li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Väggarna:</strong> Tidigare vitkalkade, nu faller stora flagor av puts bort</li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Trädgård:</strong> Snår av al och prydnadsbuskar växer vilt</li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Trappa:</strong> En sprucken stentrappa leder upp till huvudentrén</li>
+                    </ul>
+
+                    <p style="margin-top: 1rem; font-weight: bold;">
+                        Ingen är utomhus när spelarna anländer. Men de ser nyfikna ansikten pressade mot de spärrade
+                        fönstren, förvridna av det repiga glaset.
+                    </p>
+
+                    <div class="san-check" style="margin-top: 1.5rem;">
+                        <h4>⚠️ SAN CHECK</h4>
+                        <p><strong>Situation:</strong> Ser institutionens totala förfall och de fångade ansiktena bakom galler</p>
+                        <p><strong>Roll:</strong> 0/1 SAN</p>
+                        <p><strong>Rationale:</strong> Detta är inte övernaturligt, men det är CHOCKERANDE - att denna plats
+                        fortfarande existerar i modern Tyskland är en påminnelse om hur lätt människor glöms bort.</p>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Inomhus - Receptionen:</h4>
+                    <ul style="list-style: none; padding-left: 1rem;">
+                        <li style="margin-bottom: 0.5rem;">• <strong>Golv:</strong> Sprucket marmor, reflekterar flimrande lysrör</li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Tak:</strong> Kupol med eldliknande mönster från vattenskador</li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Ljud:</strong> Svaga rop ekar från resten av byggnaden</li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Lukt:</strong> Desinfektionsmedel som inte maskerar lukt av feces och urin</li>
+                    </ul>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Frau Weber (Receptionisten):</h4>
+                    <p>
+                        En äldre kvinna (~70 år) i grå klänning sitter bakom disken och stickar tyst. Hon har tjocka glasögon
+                        och ett permanent frånvarande uttryck. Mechanisk, emotionslös, som om hon gjort samma rutiner i 40 år.
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        Oavsett vad spelarna säger, mumlar hon "Ich hole Doktor Schafer" och försvinner genom en sidodörr.
+                        Efter 5-10 minuter (under vilka spelarna hör skrik och stönanden från våningarna ovan) återvänder hon
+                        och viftar åt dem att följa.
+                    </p>
+
+                    <div class="warning-box" style="margin-top: 1.5rem;">
+                        <h4>FÖR SPELLEDAREN - KONTRAST</h4>
+                        <p>Detta är fortfarande helt mänskliga fasor. Ingen förvandling ännu, ingen hypergeometri. Bara
+                        institutionell grymhet och neglekt. Det gör det övernaturliga senare mycket mer chockerande.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 5: Dr. Helmut Schafer -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">SCEN 5: DR. HELMUT SCHAFER</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+                    <p>
+                        Dr. Schafer är klinikens chef - en korrupt, pragmatisk man som vet att hans institution borde ha
+                        stängts ner för decennier sedan. Han lever på mutor och vet att allt har sitt pris.
+                    </p>
+
+                    <p style="margin-top: 1rem;"><strong>Plats:</strong> Dr. Schafers kontor (Rum 15, bottenvåningen) - Ett relativt välskött kontor, en oas av normalitet</p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Dr. Helmut Schafer:</h4>
+                    <ul style="list-style: none; padding-left: 1rem;">
+                        <li style="margin-bottom: 0.5rem;">• <strong>Ålder:</strong> Tidigt 60-tal</li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Utseende:</strong> Gråhårig, välklädd kostym, lite överviktig</li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Beteende:</strong> Falskt vänlig, skarpa ögon som konstant bedömer</li>
+                    </ul>
+
+                    <p style="margin-top: 1rem; font-style: italic;">
+                        "Vad kan jag hjälpa er med? Ni måste ursäkta mig om jag är lite direkt, men min tid är <strong>värdefull</strong>."
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Förhandlingen - Allt har sitt pris:</h4>
+                    <table>
+                        <tr>
+                            <th>Tjänst</th>
+                            <th>Pris</th>
+                        </tr>
+                        <tr>
+                            <td>Grundläggande rundtur (ej Special Ward)</td>
+                            <td>500 DM (~$275)</td>
+                        </tr>
+                        <tr>
+                            <td>Tillgång till arkiven med hjälp</td>
+                            <td>1000 DM (~$550)</td>
+                        </tr>
+                        <tr>
+                            <td>Tillgång till Special Ward (källaren)</td>
+                            <td>2000 DM (~$1100)</td>
+                        </tr>
+                    </table>
+
+                    <div class="note-box" style="margin-top: 1rem;">
+                        <h4>PERSUADE ELLER INTIMIDATE</h4>
+                        <ul>
+                            <li><strong>Persuade:</strong> Kan reducera priset 20-30%</li>
+                            <li><strong>Kritiskt Persuade:</strong> Tillgång till nästan allt för 500 DM</li>
+                            <li><strong>Intimidate:</strong> Gratis tillgång, men han blir fientlig och saboterar senare</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Schafers varningar:</h4>
+                    <p style="font-style: italic; margin-top: 1rem;">
+                        "Jag måste varna er. De patienter som kom från Moskva på 50-talet... många av dem är fortfarande här.
+                        De är inte friska. De kommer aldrig att bli friska. Dr. Tatlina som kom med dem från Kirov-kliniken
+                        i Moskva... hon försökte behandla dem. Experimentella metoder. Sovjetiska metoder."
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Vad Schafer vet:</h4>
+                    <ul style="list-style: none; padding-left: 1rem;">
+                        <li style="margin-bottom: 0.5rem;">• 44 patienter överfördes från Moskva 1951</li>
+                        <li style="margin-bottom: 0.5rem;">• Dr. Nina Tatlina (sovjetisk läkare) ledde överföringen</li>
+                        <li style="margin-bottom: 0.5rem;">• 23 patienter finns fortfarande kvar</li>
+                        <li style="margin-bottom: 0.5rem;">• 9 av dem är i Special Ward - "extrema fall"</li>
+                        <li style="margin-bottom: 0.5rem;">• De flesta har ärrbildningar från brännskador eller andra skador</li>
+                    </ul>
+
+                    <div class="warning-box" style="margin-top: 1.5rem;">
+                        <h4>FÖR SPELLEDAREN</h4>
+                        <p>Schafer är nyckeln - han kontrollerar tillgång till allt. Om spelarna pressar honom hårt (Intimidate eller kritiskt Persuade):</p>
+                        <p style="margin-top: 0.5rem; font-style: italic;">
+                            "Jag vet inte vad som hände där borta i Ryssland. Men vad de gjorde med de här människorna...
+                            det stannar i kroppen. Det växer. De flesta dog. Några få levde och verkade normala. Men de i källaren..."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 6: Arkiven -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">SCEN 6: ARKIVEN</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+                    <p>
+                        Klinikens arkiv är ett kaotiskt labyrinth av journaler, rapporter och dokument från 1961 till idag,
+                        plus äldre material från Moskva-överföringen 1951.
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Karl Feuer (Arkivarien):</h4>
+                    <p>
+                        En kort, krokig man (minst 75 år) med tjocka glasögon. Extremt possessiv över "sitt" arkiv.
+                        Efter att Schafer lämnar, vänder han sig mot spelarna med utsträckt hand:
+                    </p>
+                    <p style="font-style: italic; margin-top: 0.5rem;">"Femtio mark per dag. För min expertis."</p>
+
+                    <div class="note-box" style="margin-top: 1rem;">
+                        <h4>UTAN FEUER'S HJÄLP</h4>
+                        <p><strong>Research eller Bureaucracy roll (40%):</strong></p>
+                        <ul>
+                            <li>Framgång: Hittar information efter 3-4 timmar</li>
+                            <li>Misslyckande: Fragmentarisk information efter 5-6 timmar</li>
+                            <li>Fumble: Felaktig information eller förstör dokument</li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;"><strong>Med Feuer's hjälp (50 DM):</strong> Han hittar exakt rätt dokument efter 30-45 minuter</p>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Vad spelarna hittar:</h4>
+
+                    <h5 style="color: var(--text); margin-top: 1rem;">MAGDA OSTERGARD (Magdalena Dubinsky):</h5>
+                    <ul style="font-size: 0.9rem;">
+                        <li>Anländ 1951, ålder 9 år, från Kirov-kliniken Moskva</li>
+                        <li>Ursprung: Camp S-17 (Leningrad oblast) 1946</li>
+                        <li>Diagnoser: "Traumatisk psykos", "Katatoni"</li>
+                        <li>Behandling: Electroshock, insulin-coma terapi</li>
+                        <li><strong>Fysiska noteringar:</strong> "Omfattande ärrbildningar, brännskador över 35% av kroppsyta, anomala ärrformer"</li>
+                        <li>Släppt 1958, ålder 16</li>
+                    </ul>
+
+                    <h5 style="color: var(--text); margin-top: 1rem;">De tre ryssarna (Anton, Sasha, Filip):</h5>
+                    <p style="font-size: 0.9rem;">Alla tre anlände 1951 från Camp S-17 via Kirov. Ärrbildningar, trauma, experimentell behandling. Släppta 1956.</p>
+
+                    <h5 style="color: var(--text); margin-top: 1rem;">Dr. Tatlinas rapport (1951):</h5>
+                    <div style="background: rgba(74, 144, 164, 0.05); padding: 1rem; border-left: 3px solid var(--accent-primary); margin-top: 0.5rem;">
+                        <p style="font-size: 0.9rem; font-style: italic;">
+                            "Fyrtio-fyra patienter överförs för fortsatt isolering och behandling. Alla är överlevande från
+                            Camp S-17 incident (Leningrad oblast, winter 1941-42). Original kohort: cirka 120 individer.
+                            76 avlidna inom 48 timmar (fullständig transformation). 44 överlevde med partiell manifestation."
+                        </p>
+                        <p style="font-size: 0.9rem; font-style: italic; margin-top: 1rem;">
+                            <strong>"Dual manifestation phenomenon":</strong> Patienter uppvisar två parallella transformationsprocesser:
+                        </p>
+                        <ul style="font-size: 0.85rem; margin-top: 0.5rem;">
+                            <li><strong>Mental:</strong> Konstant humming (247 Hz), minnen från icke-upplevda händelser, temporal disorientering</li>
+                            <li><strong>Fysisk:</strong> Progressiv vävnadstransformation, geometriska benmönster, kristallin strukturbildning</li>
+                        </ul>
+                        <p style="font-size: 0.9rem; font-style: italic; margin-top: 1rem;">
+                            "Suppression protocol måste adressera BÅDA processer. De som endast undertrycker en aspekt kommer att
+                            succumb till den andra. Tidigare Kirov-behandling fokuserade primärt på mental suppression.
+                            <strong>15 patienter visade förbättring och bedöms som 'funktionella' - kan släppas med försiktighet.</strong>
+                            Resterande kräver permanent observation."
+                        </p>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">De 44 patienterna - Status:</h4>
+                    <table style="margin-top: 0.5rem;">
+                        <tr>
+                            <td>Fortfarande vid kliniken</td>
+                            <td>23 (14 i öppna avdelningar, 9 i Special Ward)</td>
+                        </tr>
+                        <tr>
+                            <td>Släppta över åren</td>
+                            <td>14 (inkl. Magda, Anton, Sasha, Filip)</td>
+                        </tr>
+                        <tr>
+                            <td>Döda vid kliniken</td>
+                            <td>7 ("Akut transformation", "Fullständig metamorfos", etc.)</td>
+                        </tr>
+                    </table>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">SVETLANA DUBINSKY (Magdas mamma):</h4>
+                    <div style="background: rgba(232, 154, 60, 0.05); padding: 1rem; border-left: 3px solid var(--accent-secondary); margin-top: 0.5rem;">
+                        <p style="font-size: 0.9rem;">
+                            Arbetade som översättare vid Camp S-17. Exponerad 1941-42. Manifestationen började 1947:
+                            hallucinationer, självskadebeteende. 1951 hade fysiska förändringar börjat - benvävnad exponerad
+                            genom hud längs ryggrad. Död 1952. Kropp kremerad omedelbart.
+                        </p>
+                        <p style="font-weight: bold; margin-top: 0.5rem;">Magda såg detta hända sin mamma.</p>
+                    </div>
+
+                    <div class="san-check" style="margin-top: 1.5rem;">
+                        <h4>⚠️ SAN CHECK</h4>
+                        <p><strong>Situation:</strong> Läser om systematiska experiment och avsiktliga förvandlingar över decennier</p>
+                        <p><strong>Roll:</strong> 0/1D4 SAN</p>
+                        <p><strong>Rationale:</strong> Insikten att detta inte var vård utan CONTAINMENT som pågick i decennier</p>
+                    </div>
+
+                    <div class="note-box" style="margin-top: 1.5rem;">
+                        <h4>FEUER'S PERSONLIGA BEDÖMNING (Extra 50 DM)</h4>
+                        <p style="font-style: italic;">
+                            "Jag har arbetat här sedan 1975. De patienter som kom från Moskva... de åldras inte som normalt.
+                            En kvinna som borde vara 80 ser ut som 60. En man har ärrbildningar som RÖRT SIG över hans kropp
+                            mellan undersökningar."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 7: Genomgång av faciliteten -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">SCEN 7: GENOMGÅNG AV FACILITETEN</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+                    <p>
+                        Med Dr. Schafers eskortering får spelarna se klinikens olika våningar. Detta etablerar graden av
+                        förfall och leder till slutlig konfrontation i källaren.
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Bottenvåningen:</h4>
+                    <ul style="list-style: none; padding-left: 1rem;">
+                        <li style="margin-bottom: 0.5rem;">• Matsalen: Stor sal, mestadels övergiven, dammdukar över bord</li>
+                        <li style="margin-bottom: 0.5rem;">• Köket: Gammaldags, extremt smutsigt, vedeldad spis</li>
+                        <li style="margin-bottom: 0.5rem;">• Therapy Workshop: Tomma skåp, övergiven rehabilitering</li>
+                    </ul>
+                    <p style="margin-top: 0.5rem; font-style: italic; color: var(--text-dim);">
+                        Denna facilitet var en gång funktionell, designad för rehabilitering. Den har långsamt ruttnat till rent oppförvaring.
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Övervåningen - Hall 1-6:</h4>
+
+                    <p style="margin-top: 1rem;"><strong>Hall 1:</strong> 11 sängar, 4 nedspända. Stank av feces och urin. Svårt sjuka mentalpatienter.</p>
+
+                    <p style="margin-top: 1rem;"><strong>Hall 2:</strong> 10 sängar, mer alerta patienter. Två spelar schack. Frågar om spelarna är "från regeringen".</p>
+
+                    <p style="margin-top: 1rem;"><strong>Hall 3:</strong> 10 sängar, apatiska patienter som mumlar. Överväldigande stank.</p>
+
+                    <p style="margin-top: 1rem;"><strong>Hall 4:</strong> 8 sängar, relativt friska lokala patienter. Spelar domino.</p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">HALL 5 - MOSKVA-GRUPPEN:</h4>
+                    <div style="background: rgba(232, 154, 60, 0.1); padding: 1rem; border-left: 4px solid var(--accent-secondary); margin-top: 0.5rem;">
+                        <p><strong>10 sängar.</strong> De flesta patienter tillhör gruppen från Moskva 1951. Alla mellan 50-60 år gamla.</p>
+                        <p style="margin-top: 0.5rem;"><strong>KRITISK OBSERVATION:</strong> Alla har ärrbildningar från brännskador eller skärskador.</p>
+                        <p style="margin-top: 0.5rem;"><strong>Tre patienter fastspända</strong> - kastar sig fram och tillbaka, snarlar och skriker.</p>
+                    </div>
+
+                    <div class="warning-box" style="margin-top: 1rem;">
+                        <h4>REAKTION PÅ SPELARNA</h4>
+                        <p>
+                            När patienterna ser spelarna (speciellt de som var närvarande vid Magdas död), börjar de PANIK:
+                        </p>
+                        <ul style="margin-top: 0.5rem;">
+                            <li>Skriker</li>
+                            <li>Springer bort från dem</li>
+                            <li>Trycker sig mot väggar</li>
+                            <li>Ropar på ryska: <em>"НЕТ! ОНИ ЗДЕСЬ!"</em> ("NEJ! DE ÄR HÄR!")</li>
+                        </ul>
+                    </div>
+
+                    <div class="san-check" style="margin-top: 1.5rem;">
+                        <h4>⚠️ SAN CHECK</h4>
+                        <p><strong>Situation:</strong> Patienternas oförklarliga panik och terror</p>
+                        <p><strong>Roll:</strong> 0/1 SAN</p>
+                        <p><strong>Rationale:</strong> Reaktionen är OFÖRKLARLIG - de känner igen något I eller PÅ spelarna</p>
+                    </div>
+
+                    <p style="margin-top: 1rem; font-style: italic;">
+                        <strong>Dr. Schafer blir blek:</strong> "Detta är... ovanligt. De är normalt lugnade med medicinering. Jag förstår inte..."
+                    </p>
+
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-dim);">
+                        (HUMINT eller Psychology: Han LJUGER. Han vet vad som händer, han bara inte förstår varför det händer med dessa besökare.)
+                    </p>
+
+                    <p style="margin-top: 1.5rem;"><strong>Hall 6:</strong> Ytterligare 4 Moskva-patienter. Liknande reaktion men mindre intensiv.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 8: Källaren - Beslut -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">SCEN 8: KÄLLAREN - BESLUT</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+                    <p>
+                        Efter att ha sett övervåningen och patienternas reaktioner, måste spelarna besluta om de vill
+                        se Special Ward i källaren - där de 9 värsta fallen hålls.
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Dr. Schafers motstånd:</h4>
+                    <p style="font-style: italic; margin-top: 0.5rem;">
+                        "Källaren... det är inte nödvändigt. De patienter där är extremt sjuka, inte funktionella.
+                        De har ingen information att ge er."
+                    </p>
+
+                    <div class="note-box" style="margin-top: 1rem;">
+                        <h4>FÅ TILLGÅNG TILL KÄLLAREN</h4>
+                        <ul>
+                            <li><strong>Betala 2000 DM:</strong> Han ger motvilligt tillgång</li>
+                            <li><strong>Persuade (Hard):</strong> Övertala att de BEHÖVER se för att förstå Magda</li>
+                            <li><strong>Intimidate (Hard):</strong> Hota att rapportera till EU health authorities</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box" style="margin-top: 1rem;">
+                        <h4>OM SPELARNA VÄGRAR</h4>
+                        <p>Karl Feuer (arkivarien) kan intercepta dem på väg ut:</p>
+                        <p style="font-style: italic; margin-top: 0.5rem;">
+                            "Ni vill inte se källaren? Det är där sanningen är. De andra på övervåningen är bara... halvvägs.
+                            Men de i källaren... de är vad som händer om man inte stoppar det."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 9: Nedstigningen -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">SCEN 9: NEDSTIGNINGEN</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+                    <p>
+                        Dr. Schafer leder spelarna ner till källaren genom en olåst, omärkt dörr på bottenvåningen.
+                        Vägen ner är som att kliva tillbaka i tiden - från 1960-talets institutionella förfall till 1700-talets stenkällare.
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Atmosfär:</h4>
+                    <ul style="list-style: none; padding-left: 1rem;">
+                        <li style="margin-bottom: 0.5rem;">• <strong>Luft:</strong> Fuktig, kall, metallisk stank</li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Belysning:</strong> Svagt från enstaka glödlampor</li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Ljud:</strong> Ylanden, skrik och vrål från Special Ward</li>
+                    </ul>
+
+                    <p style="font-style: italic; margin-top: 1rem;">
+                        <strong>Dr. Schafer:</strong> "Jag måste varna er igen. De patienter i Special Ward är... extremt sjuka.
+                        De lider av en form av mental sjukdom som manifesterar fysiskt. Jag vet inte hur."
+                    </p>
+
+                    <div class="san-check" style="margin-top: 1.5rem;">
+                        <h4>⚠️ SAN CHECK</h4>
+                        <p><strong>Situation:</strong> Höra ljuden och inse att människor görs detta</p>
+                        <p><strong>Roll:</strong> 0/1 SAN</p>
+                        <p><strong>Rationale:</strong> Mänskligt lidande, men gränsen börjar suddas ut</p>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Källarens rum:</h4>
+                    <ul style="list-style: none; padding-left: 1rem; font-size: 0.9rem;">
+                        <li style="margin-bottom: 0.5rem;">• <strong>Vaktmästarnas rum:</strong> Två stora män med cattle prods (elchockstavar)</li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Förråd:</strong> Gamla möbler, vodka-destilleri (~20 flaskor)</li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Matkällaren:</strong> Sill, mjöl, potatis, kål</li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Medicinförråd:</strong> 1960-70-tals utrustning, tomt på värdefulla saker</li>
+                    </ul>
+
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--text-dim);">
+                        <strong>En stor svart hund</strong> är tjudrad under trappan. Den morrar men attackerar inte om spelarna håller avstånd.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 10: Special Ward - Cellerna -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">SCEN 10: SPECIAL WARD - CELLERNA</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+                    <p>
+                        Special Ward ligger bakom en massiv ståldörr med två lås. Innanför finns fyra individuella celler (C1-C4)
+                        och två större rum (S1-S2), alla innehållande patienter som har genomgått extrema fysiska förändringar.
+                    </p>
+
+                    <p style="font-style: italic; margin-top: 1rem;">
+                        <strong>Dr. Schafer:</strong> "Två nycklar krävs. En har jag, den andra har vaktmästarna. Säkerhetsåtgärd från Tatlinas tid."
+                    </p>
+
+                    <p style="margin-top: 1rem;">
+                        När dörren öppnas blir skrikandet ÖRONBEDÖVANDE.
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Innanför Special Ward:</h4>
+                    <ul style="list-style: none; padding-left: 1rem;">
+                        <li style="margin-bottom: 0.5rem;">• <strong>Korridor:</strong> Naken betong, flimrande lysrör</li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Ljud:</strong> Skrik, vrål, kedjor, skrapande mot metall + konstant <strong>hummande ton (247 Hz)</strong></li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Lukt:</strong> Feces, urin, förruttnelse + något ANNAT (metalliskt och organiskt)</li>
+                    </ul>
+
+                    <div class="note-box" style="margin-top: 1rem; background: rgba(232, 154, 60, 0.05);">
+                        <h4>KRITISK OBSERVATION</h4>
+                        <p>Under skrikandet och vrålet hör spelarna ett KONSTANT HUMMANDE - samma ton från alla patienter samtidigt.
+                        Det är nästan subsoniskt, vibrerar i tänderna och bröstkorgen. 247 Hz exakt (om någon har utrustning att mäta).</p>
+                        <p style="margin-top: 0.5rem;"><strong>Detta är SAMMA frekvens från Trip 19-kristallerna.</strong></p>
+                    </div>
+
+                    <p style="font-style: italic; margin-top: 1rem; font-size: 0.9rem;">
+                        "Vaktmästarna sprayzar ner patienterna med slangen och kastar in mat. Vi går aldrig in i cellerna C1-C4."
+                    </p>
+
+                    <div class="san-check" style="margin-top: 1.5rem; background: rgba(232, 154, 60, 0.15); border-color: var(--accent-secondary);">
+                        <h4>⚠️ MAJOR SAN CHECK</h4>
+                        <p><strong>Situation:</strong> Första glimt av helt transformerade patienter</p>
+                        <p><strong>Roll:</strong> 1/1D6 SAN</p>
+                        <p><strong>Rationale:</strong> OFÖRKLARLIGT övernaturligt - människor vars kroppar förvandlats över decennier</p>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Cell 1: "СЛУЧАЙ 7" (Case 7) - Viktor M.</h4>
+                    <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-left: 3px solid var(--accent-secondary); margin-top: 0.5rem;">
+                        <ul style="font-size: 0.9rem; list-style: none; padding-left: 0;">
+                            <li>• Ryggradsspetsade skelettdelar sticker ut genom huden</li>
+                            <li>• Hud fläckkvis bortfallen, avslöjar <strong>vitt plastiskt material och matt metall</strong> under</li>
+                            <li>• Låg panna, prominent käke med hajtand-liknande tänder</li>
+                            <li>• Molnvita ögon som följer spelarna</li>
+                            <li>• Kedjebunden, rycker i kedjor, vrider huvudet i onaturliga vinklar</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Cell 2: "СЛУЧАЙ 12" (Case 12) - Anya K.</h4>
+                    <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-left: 3px solid var(--accent-secondary); margin-top: 0.5rem;">
+                        <ul style="font-size: 0.9rem; list-style: none; padding-left: 0;">
+                            <li>• Täckt av grovt svart hår över hela kroppen</li>
+                            <li>• Ansiktet HELT utan hår, blankt som porslin</li>
+                            <li>• Grova klor som har skrapat djupa märken i betonggolvet</li>
+                            <li>• Sitter i fosterställning, gungandes, viskar på ryska</li>
+                            <li>• Vad hon viskar: <em>"Мы все ещё в доме... мы никогда не уходили..."</em></li>
+                            <li style="font-style: italic; margin-top: 0.5rem;">("Vi är fortfarande i huset... vi lämnade aldrig...")</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Cell 3: "СЛУЧАЙ 18" (Case 18) - Mikhail P.</h4>
+                    <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-left: 3px solid var(--accent-secondary); margin-top: 0.5rem;">
+                        <ul style="font-size: 0.9rem; list-style: none; padding-left: 0;">
+                            <li>• Skelettstrukturer växer ut vid leder - armbågar, knän, axlar - som taggar/horn</li>
+                            <li>• Skalig läderartad hud med exponerat vitt material (inte ben, inte metall)</li>
+                            <li>• Trycker sig mot gallren, sträcker ut armarna mot spelarna</li>
+                            <li>• När han ser spelarna: PLÖTSLIG TYSTNAD</li>
+                            <li>• Stirrar direkt på dem och viskar: <em>"Сестра... ты вернулся..."</em></li>
+                            <li style="font-style: italic; margin-top: 0.5rem;">("Syster... du kom tillbaka...")</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Cell 4: "СЛУЧАЙ 31" (Case 31) - Olga T.</h4>
+                    <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-left: 3px solid var(--accent-secondary); margin-top: 0.5rem;">
+                        <ul style="font-size: 0.9rem; list-style: none; padding-left: 0;">
+                            <li>• Den mest extrema transformationen</li>
+                            <li>• Huvud deformerat till nästan oigenkännlighet</li>
+                            <li>• Käken enormt förlängd, tänderna ersatta av kristallfragment</li>
+                            <li>• Benvävnad växer ut i geometriska mönster längs armarna och benen</li>
+                            <li>• Fingrar har smält samman till tre klor per hand</li>
+                            <li>• Kan inte längre tala, endast skrika och vrål</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box" style="margin-top: 1.5rem;">
+                        <h4>DR. SCHAFER'S FÖRKLARING</h4>
+                        <p style="font-style: italic;">
+                            "Jag vet inte. Ingen vet. Dr. Tatlina kallade det 'progressiv somatisk manifestation av psykisk trauma'.
+                            Som om deras sinnen förvandlade deras kroppar för att matcha vad de upplevde. Men detta borde inte vara möjligt."
+                        </p>
+                        <p style="margin-top: 0.5rem; font-style: italic;">
+                            "De har varit så här i decennier. De åldras knappt. De äter minimalt. De kan inte dö.
+                            Vi har försökt... humanitär avlivning... men deras kroppar överlever skador som skulle döda en normal människa."
+                        </p>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">SPECIAL 1-2: DE MINDRE EXTREMA FALLEN</h4>
+                    <p style="margin-top: 0.5rem;">
+                        Om spelarna fortsätter finns två större rum med totalt 8 patienter. Fysiska förändringar tydliga men inte lika extrema.
+                        Ärrbildningar som verkar RÖRA SIG över huden. Enstaka skelett-spikes. Molnvita eller helt svarta ögon.
+                    </p>
+
+                    <p style="margin-top: 1rem;">
+                        <strong>Reaktion på "märkta" spelare:</strong> Går VILDA, försöker bryta kedjor, skriker:
+                        <em>"ОНА ЗДЕСЬ! МАДОННА ЗДЕСЬ!"</em> ("HON ÄR HÄR! MADONNAN ÄR HÄR!")
+                    </p>
+
+                    <div class="note-box" style="margin-top: 1rem;">
+                        <h4>MEKANIK</h4>
+                        <ul>
+                            <li><strong>Additional SAN:</strong> Om >10 minuter i Special Ward: ytterligare 0/1 SAN</li>
+                            <li><strong>Medicine/Science:</strong> Detta är OMÖJLIGT enligt känd vetenskap</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 11: Pyotr Gallentinov -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">SCEN 11: PYOTR GALLENTINOV</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+                    <p>
+                        Bland de transformerade patienterna finns en som inte reagerar med panik eller våld: Pyotr Gallentinov.
+                        Han sitter i fosterställning i Special 2, håller en porslindocka i famnen.
+                    </p>
+
+                    <p style="font-style: italic; margin-top: 1rem;">
+                        <strong>Dr. Schafer:</strong> "Det finns en till jag vill att ni ser. Han är... annorlunda."
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">PYOTR GALLENTINOV:</h4>
+                    <div style="background: rgba(74, 144, 164, 0.1); padding: 1rem; border-left: 3px solid var(--accent-primary); margin-top: 0.5rem;">
+                        <ul style="font-size: 0.9rem; list-style: none; padding-left: 0;">
+                            <li>• <strong>Ålder:</strong> Borde vara ~83 år (född 1942), ser ut som 60</li>
+                            <li>• <strong>Position:</strong> Fosterställning i rummets fjärraste hörn</li>
+                            <li>• <strong>Kedjor:</strong> Kedjebunden vid ankeln, men använder dem inte</li>
+                            <li>• <strong>Transformation:</strong> Synlig men mindre extrem än de andra
+                                <ul style="margin-top: 0.5rem; margin-left: 1rem;">
+                                    <li>- Ärrbildningar längs armarna som rör sig svagt</li>
+                                    <li>- Fingrar lite för långa, leder lite för många</li>
+                                    <li>- Molnvita ögon, men pupiller som fortfarande rör sig</li>
+                                    <li>- Vitt hår, onaturligt tjockt</li>
+                                </ul>
+                            </li>
+                            <li style="margin-top: 0.5rem;">• <strong>I hans famn:</strong> En liten porslindocka (~15 cm), iklädd svart klänning</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">När spelarna närmar sig:</h4>
+                    <p>
+                        Till skillnad från de andra tittar Pyotr INTE bort. Han tittar DIREKT på dem.
+                        Efter några minuter signalerar han åt en specifik spelare att komma närmare.
+                    </p>
+
+                    <p style="font-style: italic; margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-dim);">
+                        <strong>Dr. Schafer:</strong> "Detta är... ovanligt. Pyotr har varit katatonisk sedan 1970-talet.
+                        Jag har aldrig sett honom reagera på någon förut."
+                    </p>
+
+                    <div class="note-box" style="margin-top: 1rem;">
+                        <h4>WILLPOWER ROLL</h4>
+                        <p>Den utvalda spelaren känner en stark impuls att ta dockan.</p>
+                        <ul>
+                            <li><strong>Framgång:</strong> Kan välja att ta eller inte ta dockan</li>
+                            <li><strong>Misslyckande:</strong> Instinktivt accepterar gåvan, vet inte varför</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">THE BLACK DOLL:</h4>
+                    <p>När spelaren tar dockan:</p>
+                    <ul style="font-size: 0.9rem;">
+                        <li>~15 cm lång porslindocka</li>
+                        <li>Iklädd svart klänning av extremt gammalt tyg</li>
+                        <li>Finurligt målat ansikte, men ögonen verkar följa betraktaren</li>
+                        <li>Extremt kall att röra, som om den suger värme</li>
+                        <li>Tung för sin storlek, som fylld med metall</li>
+                    </ul>
+
+                    <div style="background: rgba(232, 154, 60, 0.15); padding: 1rem; border-left: 4px solid var(--accent-secondary); margin-top: 1rem;">
+                        <p style="font-weight: bold; margin-bottom: 0.5rem;">PYOTR TALAR - första gången på decennier:</p>
+                        <p style="font-style: italic; font-size: 1.1rem; margin-top: 0.5rem;">
+                            "Скажите детям... что кто-то пытался."
+                        </p>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                            <strong>Translation:</strong> "Tell the children... that someone tried."
+                        </p>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; font-style: italic;">
+                            Sedan faller han tillbaka till sin fosterställning och blir återigen katatonisk.
+                        </p>
+                    </div>
+
+                    <p style="margin-top: 1.5rem;">
+                        <strong>Reaktion från andra patienter:</strong> När dockan lämnar Pyotrs händer blir de andra tre patienterna
+                        i rummet TYSTA. De slutar dra i kedjor. De stirrar på spelaren som håller dockan med något som nästan verkar som... hopp?
+                    </p>
+
+                    <div class="warning-box" style="margin-top: 1rem;">
+                        <h4>FÖR SPELLEDAREN - DOCKANS EGENSKAPER</h4>
+                        <p>The Black Doll är en hypergeometrisk artifact, men annorlunda:</p>
+                        <ul style="margin-top: 0.5rem;">
+                            <li><strong>Inte skadlig:</strong> Till skillnad från kristallerna skadar dockan inte innehavaren</li>
+                            <li><strong>Protective:</strong> Ger +1 SAN vid checks relaterade till Leningrad-incident-resonance</li>
+                            <li><strong>Koppling:</strong> Skapad av Dmitri Nesterov, en ikonmålare som försökte rädda barn 1942</li>
+                            <li><strong>Användning:</strong> I Kapitel 3 blir dockan nyckeln till att navigera drömhypergemetrin</li>
+                        </ul>
+                    </div>
+
+                    <div class="note-box" style="margin-top: 1rem;">
+                        <h4>MEKANIK</h4>
+                        <ul>
+                            <li><strong>SAN check:</strong> INGEN för att ta dockan - den känns faktiskt lugnande</li>
+                            <li><strong>Occult/History:</strong> Dockan är äldre än modern keramik - troligen 1940-tal sovjetisk</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 12: Efter Special Ward -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">SCEN 12: EFTER SPECIAL WARD</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+                    <p>
+                        När spelarna lämnar Special Ward måste de processa vad de sett. Dr. Schafer erbjuder sin office för diskussion.
+                    </p>
+
+                    <p style="margin-top: 1rem;">
+                        Vägen upp från källaren känns som att klättra upp från helvetet. Ljuden från Special Ward förföljer dem
+                        tills ståldörren stängs bakom dem.
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Tillbaka i Dr. Schafers office:</h4>
+                    <p style="font-style: italic;">
+                        Schafer erbjuder vodka (från källar-destilleriet) och sätter sig tungt.
+                        "Nu förstår ni varför jag varnade er."
+                    </p>
+
+                    <div class="note-box" style="margin-top: 1rem;">
+                        <h4>PERSUADE ELLER INTIMIDATE (med +20% bonus efter vad de sett)</h4>
+                        <p><strong>Framgång:</strong> Schafer bryter ner och berättar allt han vet</p>
+                        <p><strong>Misslyckande:</strong> Han håller tillbaka vissa detaljer</p>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Vad Schafer vet (om framgångsrik roll):</h4>
+                    <div style="background: rgba(74, 144, 164, 0.05); padding: 1rem; border-left: 3px solid var(--accent-primary); margin-top: 0.5rem;">
+                        <p style="font-size: 0.9rem; font-style: italic;">
+                            "Dr. Tatlina kom hit 1951 med 44 patienter från Moskva. Hon sa att de var överlevande från en 'incident'
+                            i Leningrad under kriget. Något med en flyktingläger som blev exponerad för... hon kallade det 'dimensional bleeding'.
+                        </p>
+                        <p style="font-size: 0.9rem; font-style: italic; margin-top: 0.5rem;">
+                            Det konstiga var... de uppvisade TVÅ olika former av transformation. Mental - de hummade konstant, samma ton,
+                            pratade om minnen från händelser de inte kunde ha upplevt. Och fysisk - deras kroppar började... omstruktureras.
+                            Som om två olika sjukdomar anföll dem samtidigt.
+                        </p>
+                        <p style="font-size: 0.9rem; font-style: italic; margin-top: 0.5rem;">
+                            <strong>Dr. Tatlina's suppression protocol försökte stoppa BÅDA.</strong> De som lyckades - cirka 15 personer inkluderat
+                            era tre män och Magda - släpptes mellan 1956-1958. De hade lärt sig att... jag vet inte... bygga mentala barriärer?
+                            Hålla det tillbaka. De kunde leva relativt normala liv. Hummandet blev mindre. Transformationen avtog.
+                        </p>
+                        <p style="font-size: 0.9rem; font-style: italic; margin-top: 0.5rem;">
+                            De som misslyckades... ni såg dem. De kunde inte containera BÅDA aspekterna. Mental transformation fortsatte -
+                            de hummar fortfarande, 247 Hz exakt, varje dag i decennier. OCH fysisk transformation - geometriska ben,
+                            kristalltänder. Det tar 70+ år men det slutar aldrig.
+                        </p>
+                        <p style="font-size: 0.9rem; font-style: italic; margin-top: 0.5rem;">
+                            Pyotr är den mest tragiska. Han är MEDVETEN. Jag ser det i hans ögon. Men han har väntat där nede sedan 1970-talet,
+                            och allt jag kan göra är att se honom långsamt sluta vara människa. Han har kämpat mot det längre än någon.
+                            Men även han kommer att förlora till slut."
+                        </p>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Om dockan:</h4>
+                    <p style="font-size: 0.9rem;">
+                        "Jag vet inte varifrån den kom. Pyotr har haft den sedan... alltid, tror jag. Dr. Tatlina noterade en gång
+                        att 'artefakter från incident-platsen bör inte separeras från patient Gallentinov - han blir våldsam utan den.'
+                        Så den måste betyda något för honom."
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Om Leningrad-incidenten:</h4>
+                    <p style="font-size: 0.9rem;">
+                        "Jag vet inte exakt. Dr. Tatlina dog 1973 och tog sin kunskap med sig. Men från patienternas uttalanden
+                        över åren... det verkar som om det var något med ett hus, en ikon, och barn som skulle skyddas men
+                        istället blev... exponerade."
+                    </p>
+
+                    <div class="warning-box" style="margin-top: 1.5rem;">
+                        <h4>VAD SPELARNA NU VET</h4>
+                        <ul style="font-size: 0.9rem;">
+                            <li>Camp S-17, Leningrad-området, vintern 1941-42</li>
+                            <li>~120 människor exponerades (87 barn, 33 vuxna)</li>
+                            <li>76 dog omedelbart ("fullständig transformation")</li>
+                            <li>44 överlevde med "partial manifestation"</li>
+                            <li>Transformation är progressiv över decennier</li>
+                            <li>Magda, Anton, Sasha, Filip lyckades "containera" den</li>
+                            <li>När de dog på Charité slutfördes transformationen - larverna</li>
+                            <li>Spelarna är "märkta" - patienterna känner igen något på dem</li>
+                            <li>The Black Doll - en artefakt från incidenten, viktig för Pyotr</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 13: Avgång och reflektioner -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">SCEN 13: AVGÅNG OCH REFLEKTIONER</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+                    <p>
+                        När spelarna lämnar Frankfurt Clinic, vakna till grå industrilandskap utanför, känner de sig förändrade.
+                        De bär med sig kunskap de önskar de inte hade - och en mystisk docka som känns kallare än den borde.
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Avgång:</h4>
+                    <p>
+                        Dr. Schafer eskortar dem till entrén. Han ser äldre ut än när de anlände.
+                    </p>
+                    <p style="font-style: italic; margin-top: 0.5rem;">
+                        "Jag antar att ni kommer att rapportera vad ni sett?"
+                    </p>
+
+                    <div class="note-box" style="margin-top: 1rem;">
+                        <h4>SPELARNAS VAL</h4>
+                        <ul>
+                            <li><strong>Hota att rapportera:</strong> Han blir rädd men resignerad - "Gör vad ni måste"</li>
+                            <li><strong>Lova att inte rapportera:</strong> Han är tacksam men misstrogen</li>
+                            <li><strong>Fråga varför han stannar:</strong> "Varifrån skulle jag annars gå? Detta är allt jag känner till. Och någon måste... vaka över dem."</li>
+                        </ul>
+                    </div>
+
+                    <p style="margin-top: 1rem;">
+                        <strong>Frau Weber</strong> (receptionisten) sitter fortfarande vid sitt skrivbord och stickar, som om ingenting har hänt.
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Utanför - Skymningstimme:</h4>
+                    <p>
+                        Frankfurt an der Oder känns nu annorlunda. Det som verkade som en deprimerande f.d. Östtysk stad känns
+                        nu som en fasad - under ytan finns 70+ år av hemligheter, lidande och långsam transformation.
+                    </p>
+
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                        Om det är kväll ser spelarna:
+                    </p>
+                    <ul style="font-size: 0.9rem;">
+                        <li>Ansikten bakom spärrade fönster som pressar sig mot glas</li>
+                        <li>En patient som står i ett fönster och bara... stirrar på dem</li>
+                        <li>När de vänder sig för att gå, svär en spelare att de såg någon av patienterna VINKA</li>
+                    </ul>
+
+                    <div class="san-check" style="margin-top: 1.5rem;">
+                        <h4>⚠️ SAN CHECK</h4>
+                        <p><strong>Situation:</strong> Inse den fulla omfattningen och att dessa människor lever detta varje dag</p>
+                        <p><strong>Roll:</strong> 0/1 SAN</p>
+                        <p><strong>Rationale:</strong> Existential horror - systemisk övergivande av trauma victims</p>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Resan tillbaka till Berlin:</h4>
+                    <p>
+                        På A12 tillbaka till Berlin är trafiken gles. Industrilandskapet passerar i mörker.
+                    </p>
+
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">
+                        <strong>Om någon håller dockan:</strong> Den känns kallare nu, nästan frostig. Om de tittar på den direkt
+                        verkar dess målade ögon... titta tillbaka.
+                    </p>
+
+                    <div class="note-box" style="margin-top: 1rem;">
+                        <h4>ALERTNESS ELLER PSYCHOLOGY ROLL</h4>
+                        <ul>
+                            <li><strong>Framgång:</strong> Känner något... som om dockan är inte bara ett objekt, utan en kanal</li>
+                            <li><strong>Speciell framgång:</strong> Får en flashbild - kort, en sekund - av ett rum fyllt med barn, ett ikonfönster som lyser med svart ljus</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box" style="margin-top: 1rem;">
+                        <h4>MEDICINE ELLER FIRST AID</h4>
+                        <p>Om någon kontrollerar sin egen hälsa märker de:</p>
+                        <ul style="margin-top: 0.5rem;">
+                            <li>Lätt huvudvärk</li>
+                            <li>Tröthet beyond normal</li>
+                            <li>En extremt svag shadow under huden längs venerna, som om något rör sig där</li>
+                        </ul>
+                        <p style="margin-top: 0.5rem; font-style: italic;">
+                            Detta är inte transformation - ännu. Men det är första tecken på att de ÄR "märkta" som patienterna reagerade på.
+                        </p>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">BREAKING POINT CHECK:</h4>
+                    <div style="background: rgba(232, 154, 60, 0.15); padding: 1rem; border-left: 4px solid var(--accent-secondary); margin-top: 0.5rem;">
+                        <p><strong>Om någon spelare förlorade 4+ SAN under denna session:</strong></p>
+                        <p style="margin-top: 0.5rem;"><strong>Roll mot nuvarande SAN:</strong></p>
+                        <ul style="margin-top: 0.5rem;">
+                            <li><strong>Framgång:</strong> Håller det samman, men får tillfällig disorder (PTSD symptoms, paranoia, insomnia)</li>
+                            <li><strong>Misslyckande:</strong> Permanent mental disorder + ytterligare 1D6 SAN</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><strong>Möjliga disorders från Frankfurt:</strong></p>
+                        <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                            <li>Nightmares - drömmer om cellerna, skrikandet, transformerade ansikten</li>
+                            <li>Paranoia - övervakande av egen kropp för tecken på förändringar</li>
+                            <li>Compulsive checking - måste regelbundet kontrollera hud, händer, ögon för anomalier</li>
+                            <li>Dissociation - känner sig avskiljd från egen kropp, rädd att de redan transformerar</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="summary-section" style="margin-top: 3rem; padding: 2rem; background: rgba(74, 144, 164, 0.1); border: 2px solid var(--accent-primary); border-radius: 4px;">
+            <h3 style="color: var(--accent-primary); margin-top: 0; margin-bottom: 1rem;">📋 KAPITEL 2 SAMMANFATTNING</h3>
+
+            <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Totala SAN Checks:</h4>
+            <ul style="font-size: 0.9rem;">
+                <li><strong>Scen 4 (Första mötet):</strong> 0/1 SAN</li>
+                <li><strong>Scen 6 (Arkiven):</strong> 0/1D4 SAN</li>
+                <li><strong>Scen 7 (Hall 5 reaktion):</strong> 0/1 SAN</li>
+                <li><strong>Scen 9 (Nedstigningen):</strong> 0/1 SAN</li>
+                <li><strong>Scen 10 (Special Ward):</strong> 1/1D6 SAN + ytterligare 0/1 SAN om >10 min</li>
+                <li><strong>Scen 13 (Avgång):</strong> 0/1 SAN</li>
+                <li><strong>Total möjlig förlust:</strong> 2-16 SAN</li>
+            </ul>
+
+            <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Nyckelinformation Upptäckt:</h4>
+            <div style="background: rgba(0,0,0,0.3); padding: 1rem; margin-top: 0.5rem;">
+                <ol style="font-size: 0.9rem;">
+                    <li><strong>Camp S-17, Leningrad oblast, vintern 1941-42</strong> - Källan till allt</li>
+                    <li><strong>120 människor exponerades</strong> (87 barn, 33 vuxna) för "dimensional bleeding"</li>
+                    <li><strong>76 dog inom 48 timmar</strong> - "fullständig transformation"</li>
+                    <li><strong>44 överlevde</strong> och fördes till Kirov-kliniken Moskva, sedan Frankfurt 1951</li>
+                    <li><strong>Transformation är progressiv</strong> - tar decennier om inte "containerad"</li>
+                    <li><strong>Magda och de tre ryssarna lyckades containera</strong> men transformationen fullbordades vid deras död</li>
+                    <li><strong>9 patienter kvar i Special Ward</strong> - extrema transformationer, odödliga, medvetna</li>
+                    <li><strong>Spelarna är "märkta"</strong> - patienterna känner igen något från Magdas död</li>
+                    <li><strong>The Black Doll</strong> - hypergeometrisk artifact given av Pyotr, skydd mot resonans</li>
+                </ol>
+            </div>
+
+            <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Viktiga NPCs:</h4>
+            <ul style="font-size: 0.9rem;">
+                <li><strong>Dr. Helmut Schafer</strong> - Korrupt direktör, möjlig ally eller enemy beroende på spelarnas handlingar</li>
+                <li><strong>Karl Feuer</strong> - Arkivarie, vet mer än han säger, kan ge "personlig bedömning" för 50 DM</li>
+                <li><strong>Pyotr Gallentinov</strong> - Medveten, kämpat mot transformation i 83 år, gav The Black Doll</li>
+                <li><strong>Dr. Nina Tatlina</strong> (död 1973) - Sovjetisk läkare, utvecklade "suppression protocol"</li>
+            </ul>
+
+            <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Nästa Steg:</h4>
+            <div style="background: rgba(232, 154, 60, 0.1); padding: 1rem; border-left: 3px solid var(--accent-secondary); margin-top: 0.5rem;">
+                <p style="font-weight: bold; margin-bottom: 0.5rem;">Kapitel 3: Dark Dreams</p>
+                <p style="font-size: 0.9rem;">
+                    Spelarna börjar drömma om Leningrad 1942, upplever händelserna firsthand genom barnens ögon.
+                    The Black Doll blir deras anchor och verktyg för att navigera drömhypergemetrin och möjligen rädda
+                    de fortfarande-fångade.
+                </p>
+                <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Parallellt:</strong></p>
+                <p style="font-size: 0.9rem;">
+                    Kapitel 4: German Autumn - Undersökning av Slaviska Föreningen och varför de skyddar/utnyttjar överlevande
+                </p>
+            </div>
+
+            <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Hooks för nästa session:</h4>
+            <ul style="font-size: 0.9rem;">
+                <li>🌙 <strong>Den första drömmen:</strong> Samma natt drömmer den som håller dockan om ett kallt rum, gråtande barn, ikon med svart ljus</li>
+                <li>📞 <strong>Ett samtal:</strong> Mac får meddelande: "Vi behöver prata om Frankfurt. Du är inte den första som varit där."</li>
+                <li>👁️ <strong>Slaviska Föreningen reagerar:</strong> Spelarna märks följas - Föreningen vet att de har varit på kliniken</li>
+                <li>✨ <strong>Pyotrs gåva aktiveras:</strong> Den som bär dockan börjar få fragmentariska flashbacks - inte sina egna minnen</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        DELTA GREEN // TRIP 19: BLACK MADONNA // KAPITEL 2<br>
+        Adapterat från KULT Divinity Lost för Delta Green 2025
+    </div>
+
+    <script>
+        // Collapsible functionality
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const collapsible = this.parentElement;
+                collapsible.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

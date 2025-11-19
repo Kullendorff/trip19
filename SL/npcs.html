@@ -1482,32 +1482,223 @@
             </div>
         </div>
 
-        <!-- CONTACTS & MINOR NPCs -->
+        <!-- FRANKFURT CLINIC - BLACK MADONNA -->
         <div class="category-section">
-            <h2 class="category-title">💼 Kontakter & Sekundära NPCs</h2>
+            <h2 class="category-title">🏥 FRANKFURT CLINIC - BLACK MADONNA</h2>
             <div class="npc-grid">
-                <!-- Dr. Schafer -->
-                <div class="npc-card" data-category="berlin" data-keywords="schafer frankfurt clinic director kompensation" onclick="openNPCModal('schafer')">
+                <!-- Dr. Helmut Schafer -->
+                <div class="npc-card" data-category="frankfurt" data-keywords="schafer frankfurt clinic director korrupt kompensation kapitel2" onclick="openNPCModal('schafer')">
                     <div class="npc-header">
                         <div>
-                            <div class="npc-name">DR. SCHAFER</div>
+                            <div class="npc-name">DR. HELMUT SCHAFER</div>
                             <div class="npc-alias">Direktör, Frankfurt Clinic</div>
                         </div>
                     </div>
                     <div class="npc-badges">
-                        <span class="badge">KONTAKT</span>
-                        <span class="badge">FRAMTIDA</span>
+                        <span class="badge">KORRUPT</span>
+                        <span class="badge">KAP 2</span>
                     </div>
                     <div class="npc-summary">
-                        Direktör för Frankfurt Clinic (Frankfurt an der Oder, f.d. DDR). Har journaler från när de tre ryssarna och Magda var på kliniken 1951-1958. Vill ha "kompensation" för information. Hints åt personligt möte. Se Kapitel 2.
+                        Direktör för Frankfurt Clinic (Frankfurt an der Oder, f.d. DDR). ~50-55 år, billig kostym, nervös. Kräver mutor för tillgång (1000-2000 DM). Vet om de transformerade patienterna i källaren men tar inga ansvar. Kan bli ally eller enemy beroende på hur spelarna behandlar honom.
                     </div>
                     <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Ålder:</span> 50-55</div>
                         <div class="meta-item"><span class="meta-label">Plats:</span> Frankfurt an der Oder</div>
                         <div class="meta-item"><span class="meta-label">Yrke:</span> Klinikdirektör</div>
-                        <div class="meta-item"><span class="meta-label">Roll:</span> Informationskälla</div>
                         <div class="meta-item"><span class="meta-label">Session:</span> Kapitel 2</div>
                     </div>
                 </div>
+
+                <!-- Karl Feuer -->
+                <div class="npc-card" data-category="frankfurt" data-keywords="feuer arkivarie frankfurt clinic expert kapitel2" onclick="openNPCModal('feuer')">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">KARL FEUER</div>
+                            <div class="npc-alias">Arkivarie, Frankfurt Clinic</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge">INFORMANT</span>
+                        <span class="badge">KAP 2</span>
+                    </div>
+                    <div class="npc-summary">
+                        Minst 75 år, extremt krokig, tjocka glasögon, sliten 1970-tals kostym. Possessiv över "sitt" arkiv. Känner till arkivets kaotiska system perfekt. Kräver 50 DM för att hjälpa, men kan ge ovärderlig information. Vet mer än han säger - har sett patienter som inte åldras normalt och ärr som rör sig.
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Ålder:</span> 75+</div>
+                        <div class="meta-item"><span class="meta-label">Roll:</span> Arkivarie sedan 1975</div>
+                        <div class="meta-item"><span class="meta-label">Specialitet:</span> Moskva-gruppen journaler</div>
+                        <div class="meta-item"><span class="meta-label">Session:</span> Kapitel 2</div>
+                    </div>
+                </div>
+
+                <!-- Frau Weber -->
+                <div class="npc-card" data-category="frankfurt" data-keywords="weber receptionist frankfurt clinic likgiltig kapitel2" onclick="openNPCModal('weber')">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">FRAU WEBER</div>
+                            <div class="npc-alias">Receptionist, Frankfurt Clinic</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge">MINOR</span>
+                        <span class="badge">KAP 2</span>
+                    </div>
+                    <div class="npc-summary">
+                        ~60 år, grått hår i tight knut, gammaldags glasögon. Sitter vid reception och stickar något grönt. Helt likgiltig mot besökare och patienternas tillstånd. Talar bruten engelska. Symboliserar institutionell apati.
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Ålder:</span> ~60</div>
+                        <div class="meta-item"><span class="meta-label">Roll:</span> Receptionist</div>
+                        <div class="meta-item"><span class="meta-label">Beteende:</span> Likgiltig</div>
+                        <div class="meta-item"><span class="meta-label">Session:</span> Kapitel 2</div>
+                    </div>
+                </div>
+
+                <!-- Pyotr Gallentinov -->
+                <div class="npc-card" data-category="frankfurt transformerad" data-keywords="pyotr gallentinov patient special ward black doll docka artifact kapitel2" onclick="openNPCModal('pyotr')">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">PYOTR GALLENTINOV</div>
+                            <div class="npc-alias">Patient S2-4, Special Ward</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge threat">TRANSFORMERAD</span>
+                        <span class="badge ally">MEDVETEN</span>
+                    </div>
+                    <div class="npc-summary">
+                        Borde vara 83 år (född 1942), ser ut som 60. Exponerad vid Camp S-17 som spädbarn. Kämpat mot transformation i 83 år. MEDVETEN inlåst i långsamt förvandlande kropp. Sitter i fosterställning, katatonisk sedan 1970. Ger The Black Doll till spelarna - hans enda kommunikation på decennier: "Tell the children... that someone tried."
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Ålder:</span> 83 (ser 60)</div>
+                        <div class="meta-item"><span class="meta-label">Status:</span> Special Ward sedan 1970</div>
+                        <div class="meta-item"><span class="meta-label">Artefakt:</span> The Black Doll</div>
+                        <div class="meta-item"><span class="meta-label">Session:</span> Kapitel 2, Scen 11</div>
+                    </div>
+                </div>
+
+                <!-- Dr. Nina Tatlina -->
+                <div class="npc-card deceased" data-category="frankfurt historical" data-keywords="tatlina sovjetisk läkare moskva kirov suppression protocol kapitel2" onclick="openNPCModal('tatlina')">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">DR. NINA TATLINA</div>
+                            <div class="npc-alias">Sovjetisk läkare</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge deceased">DÖD 1973</span>
+                        <span class="badge">HISTORISK</span>
+                    </div>
+                    <div class="npc-summary">
+                        Sovjetisk läkare som ledde överföringen av 44 patienter från Kirov-kliniken Moskva till Frankfurt Clinic 1951. Utvecklade "suppression protocol" - inte helande utan CONTAINMENT av transformation genom mental barriers. Kallade incidenten "dimensional bleeding". Dog 1973 och tog sina hemligheter med sig.
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Död:</span> 1973, Frankfurt</div>
+                        <div class="meta-item"><span class="meta-label">Ursprung:</span> Kirov-kliniken, Moskva</div>
+                        <div class="meta-item"><span class="meta-label">Kunskap:</span> Camp S-17, Leningrad 1942</div>
+                        <div class="meta-item"><span class="meta-label">Session:</span> Kapitel 2 (omnämnd)</div>
+                    </div>
+                </div>
+
+                <!-- Viktor M. (Case 7) -->
+                <div class="npc-card" data-category="frankfurt transformerad horror" data-keywords="viktor case7 cell1 special ward transformerad kapitel2" onclick="openNPCModal('viktor')">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">VIKTOR M.</div>
+                            <div class="npc-alias">Case 7 - Cell 1</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge threat">EXTREM TRANSFORMATION</span>
+                        <span class="badge">CELL 1</span>
+                    </div>
+                    <div class="npc-summary">
+                        Ryggradsspetsade skelettdelar sticker ut genom huden. Hud fläckkvis bortfallen - avslöjar vitt plastiskt material och matt metall under. Låg panna, prominent käke med hajtand-liknande tänder. Molnvita ögon som följer spelarna. Kedjebunden, vrider huvudet i onaturliga vinklar. SAN check 1/1D6 vid första glimt.
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Plats:</span> Special Ward, Cell 1</div>
+                        <div class="meta-item"><span class="meta-label">Status:</span> Kedjebunden</div>
+                        <div class="meta-item"><span class="meta-label">Transformation:</span> 70+ år progressiv</div>
+                        <div class="meta-item"><span class="meta-label">Session:</span> Kapitel 2, Scen 10</div>
+                    </div>
+                </div>
+
+                <!-- Anya K. (Case 12) -->
+                <div class="npc-card" data-category="frankfurt transformerad horror" data-keywords="anya case12 cell2 special ward transformerad kapitel2" onclick="openNPCModal('anya')">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">ANYA K.</div>
+                            <div class="npc-alias">Case 12 - Cell 2</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge threat">EXTREM TRANSFORMATION</span>
+                        <span class="badge">CELL 2</span>
+                    </div>
+                    <div class="npc-summary">
+                        Täckt av grovt svart hår över hela kroppen, men ansiktet HELT utan hår - blankt som porslin. Grova klor som skrapat djupa märken i betonggolvet. Sitter i fosterställning, gungandes, viskar på ryska: "Vi är fortfarande i huset... vi lämnade aldrig..." SAN check 1/1D6.
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Plats:</span> Special Ward, Cell 2</div>
+                        <div class="meta-item"><span class="meta-label">Status:</span> Kedjebunden</div>
+                        <div class="meta-item"><span class="meta-label">Beteende:</span> Mumlar trauma-minnen</div>
+                        <div class="meta-item"><span class="meta-label">Session:</span> Kapitel 2, Scen 10</div>
+                    </div>
+                </div>
+
+                <!-- Mikhail P. (Case 18) -->
+                <div class="npc-card" data-category="frankfurt transformerad horror" data-keywords="mikhail case18 cell3 special ward transformerad syster kapitel2" onclick="openNPCModal('mikhail')">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">MIKHAIL P.</div>
+                            <div class="npc-alias">Case 18 - Cell 3</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge threat">EXTREM TRANSFORMATION</span>
+                        <span class="badge">CELL 3</span>
+                    </div>
+                    <div class="npc-summary">
+                        Skelettstrukturer växer ut vid leder som taggar/horn. Skalig läderartad hud med exponerat vitt material (inte ben, inte metall). När han ser "märkta" spelare: PLÖTSLIG TYSTNAD. Stirrar direkt på dem och viskar: "Syster... du kom tillbaka..." Känner igen något från Magdas död. SAN 1/1D6.
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Plats:</span> Special Ward, Cell 3</div>
+                        <div class="meta-item"><span class="meta-label">Status:</span> Vid gallret (ej kedjad)</div>
+                        <div class="meta-item"><span class="meta-label">Reaktion:</span> Känner igen "märkta"</div>
+                        <div class="meta-item"><span class="meta-label">Session:</span> Kapitel 2, Scen 10</div>
+                    </div>
+                </div>
+
+                <!-- Olga T. (Case 31) -->
+                <div class="npc-card" data-category="frankfurt transformerad horror" data-keywords="olga case31 cell4 special ward transformerad mest extrem kapitel2" onclick="openNPCModal('olga')">
+                    <div class="npc-header">
+                        <div>
+                            <div class="npc-name">OLGA T.</div>
+                            <div class="npc-alias">Case 31 - Cell 4</div>
+                        </div>
+                    </div>
+                    <div class="npc-badges">
+                        <span class="badge threat">MEST EXTREM</span>
+                        <span class="badge">CELL 4</span>
+                    </div>
+                    <div class="npc-summary">
+                        Den mest extrema transformationen. Huvud deformerat till nästan oigenkännlighet. Käken enormt förlängd, tänderna ersatta av kristallfragment. Benvävnad växer ut i geometriska mönster. Fingrar smält samman till tre klor per hand. Kan inte längre tala, endast skrika. SAN check 1/1D6.
+                    </div>
+                    <div class="npc-meta">
+                        <div class="meta-item"><span class="meta-label">Plats:</span> Special Ward, Cell 4</div>
+                        <div class="meta-item"><span class="meta-label">Status:</span> Vid gallret (ej kedjad)</div>
+                        <div class="meta-item"><span class="meta-label">Transformation:</span> Nästan fullständig</div>
+                        <div class="meta-item"><span class="meta-label">Session:</span> Kapitel 2, Scen 10</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACTS & MINOR NPCs -->
+        <div class="category-section">
+            <h2 class="category-title">💼 Kontakter & Sekundära NPCs</h2>
+            <div class="npc-grid">
 
                 <!-- Mrs. Eleanor Whitman -->
                 <div class="npc-card" data-category="ally" data-keywords="whitman curator lovettsville historical society" onclick="openNPCModal('whitman')">
@@ -4123,36 +4314,642 @@
                 `
             },
             schafer: {
-                title: 'DR. SCHAFER',
-                subtitle: 'Direktör, Frankfurt Clinic | Frankfurt an der Oder',
+                title: 'DR. HELMUT SCHAFER',
+                subtitle: 'Direktör, Frankfurt Clinic | Frankfurt an der Oder, f.d. DDR',
                 content: `
                     <div class="modal-section">
-                        <h3>Vem är han</h3>
-                        <p>Direktör för Frankfurt Clinic i Frankfurt an der Oder (f.d. DDR). Har tillgång till medicinska journaler från när de tre ryssarna och Magda var på kliniken 1951-1958.</p>
+                        <h3>Översikt</h3>
+                        <p>Direktör för Frankfurt Clinic sedan 1990-talet. 50-55 år, billig kostym, nervös, svettas lätt. Korrupt och opportunistisk. Kräver mutor för all tillgång - även för att bara se patienter. Driver kliniken som personligt företag och tar inga ansvar för patienternas fruktansvärda förhållanden.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Vad han erbjuder</h3>
+                        <table style="width: 100%; margin-top: 0.5rem; border-collapse: collapse;">
+                            <tr style="border-bottom: 1px solid #444;">
+                                <td style="padding: 0.5rem;"><strong>Tillgång till arkiven</strong></td>
+                                <td style="padding: 0.5rem;">1000 DM (~$550)</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #444;">
+                                <td style="padding: 0.5rem;"><strong>Tillgång till Special Ward (källaren)</strong></td>
+                                <td style="padding: 0.5rem;">2000 DM (~$1100)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.5rem;"><strong>Allt</strong></td>
+                                <td style="padding: 0.5rem;">3000 DM (kan förhandlas ner)</td>
+                            </tr>
+                        </table>
+                        <p style="margin-top: 0.5rem;"><strong>Persuade eller Intimidate:</strong> Kan reducera pris 20-30%, eller tvinga fram gratis tillgång (men han blir fientlig).</p>
                     </div>
 
                     <div class="modal-section">
                         <h3>Vad han vet</h3>
                         <ul>
-                            <li>Medicinska journaler: Anton Mahler, Sasha Pogodin, Filip Kramer</li>
-                            <li>Magdas journal från samma period</li>
-                            <li>Diagnoser, behandlingar, läkares anteckningar</li>
-                            <li>Information om Kirov Clinic (Moskva 1946-51) som föregick Frankfurt</li>
+                            <li><strong>44 patienter överförda från Moskva 1951</strong> (Kirov-kliniken)</li>
+                            <li><strong>Dr. Nina Tatlina</strong> ledde överföringen, dog 1973</li>
+                            <li><strong>23 patienter kvar:</strong> 14 i öppna vårdavdelningar, 9 i Special Ward (källaren)</li>
+                            <li><strong>Dual manifestation:</strong> Patienter uppvisar BÅDE mental (hummar 247 Hz, temporal disorientering) OCH fysisk transformation (geometriska ben, kristalltänder)</li>
+                            <li><strong>"Dimensional bleeding":</strong> Tatlinas term för vad som hände i Leningrad 1942</li>
+                            <li><strong>Suppression protocol:</strong> Måste stoppa BÅDA aspekterna - de som bara stoppade en succumbade till den andra</li>
+                            <li><strong>15 "funktionella" släpptes 1956-1958</strong> - inkl. Anton, Sasha, Filip, Magda - de lyckades containera båda</li>
                         </ul>
                     </div>
 
                     <div class="modal-section">
-                        <h3>Problem</h3>
+                        <h3>Hans reaktion efter Special Ward-besöket</h3>
                         <div class="detail-box warning">
-                            <strong>Vill ha "kompensation" för information</strong><br>
-                            Dr. Schafer hints åt personligt möte. Han vill förhandla om pris för journalerna.
+                            <p><strong>Om spelarna pressar honom (Persuade/Intimidate med +20% bonus):</strong></p>
+                            <p style="font-style: italic; margin-top: 0.5rem;">
+                                "Det konstiga var... de uppvisade TVÅ olika former av transformation. Mental - de hummade konstant, 247 Hz exakt,
+                                pratade om minnen från händelser de inte kunde ha upplevt. Och fysisk - deras kroppar började omstruktureras.
+                                Som om två olika sjukdomar anföll dem samtidigt."
+                            </p>
+                            <p style="margin-top: 0.5rem; font-style: italic;">
+                                "De som släpptes - era tre män och Magda - lyckades containera BÅDA aspekterna. De kunde leva relativt normala liv.
+                                Men de i Special Ward... de kunde inte stoppa båda. Mental transformation fortsätter - de hummar fortfarande,
+                                varje dag i decennier. OCH fysisk transformation - geometriska ben, kristalltänder."
+                            </p>
+                            <p style="margin-top: 0.5rem; font-style: italic;">
+                                "Pyotr är den mest tragiska. Han är MEDVETEN. Har kämpat mot det längre än någon. Men även han kommer att förlora till slut."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Ally eller Enemy?</h3>
+                        <div class="detail-box">
+                            <p><strong>Blir Ally om:</strong></p>
+                            <ul>
+                                <li>Spelarna betalar utan motstånd</li>
+                                <li>De är empatiska mot hans situation</li>
+                                <li>De lovar att inte rapportera förhållandena</li>
+                            </ul>
+                            <p style="margin-top: 0.5rem;"><strong>Kan ge:</strong> Telefonnummer, notifierar om nya Leningrad-överlevande, Dr. Tatlinas personliga anteckningar (gömda hemma)</p>
+                        </div>
+                        <div class="detail-box warning" style="margin-top: 0.5rem;">
+                            <p><strong>Blir Enemy om:</strong></p>
+                            <ul>
+                                <li>Spelarna hotar att rapportera honom</li>
+                                <li>De använder våld eller extrema hot</li>
+                                <li>De försöker befria patienter</li>
+                            </ul>
+                            <p style="margin-top: 0.5rem;"><strong>Konsekvenser:</strong> Kontaktar Slaviska Föreningen, destruerar dokumentation, kan släppa en patient "av misstag" för att attackera dem</p>
                         </div>
                     </div>
 
                     <div class="modal-section">
                         <h3>För Spelledaren</h3>
-                        <p><strong>Session:</strong> Kapitel 2 (ej Kapitel 1)</p>
-                        <p>Schafer är en sidokaraktär som blir viktigare i senare delar av kampanjen när spelarna utforskar de tre ryssarnas förflutna djupare.</p>
+                        <p><strong>Session:</strong> Kapitel 2, scen 5-13</p>
+                        <p><strong>Roll:</strong> Morally gray informant - inte ond, bara resignerad och opportunistisk</p>
+                        <p><strong>Quote:</strong> "Varifrån skulle jag annars gå? Detta är allt jag känner till. Och någon måste... vaka över dem."</p>
+                    </div>
+                `
+            },
+            feuer: {
+                title: 'KARL FEUER',
+                subtitle: 'Arkivarie, Frankfurt Clinic | Anställd sedan 1975',
+                content: `
+                    <div class="modal-section">
+                        <h3>Översikt</h3>
+                        <p>Minst 75 år, extremt krokig, tjocka glasögon som förstorar hans ögon, sliten kostym från 1970-talet. Possessiv över "sitt" arkiv. Misstänksam mot utomstående men kan öppna sig om man betalar.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Hans system</h3>
+                        <p>Feuer har ett HELT personligt arkiveringssystem som ingen utomstående förstår. Han kan hitta vilket dokument som helst på 30-45 minuter, men utan honom tar det spelarna 3-6 timmar och kräver Research eller Bureaucracy roll.</p>
+                        <div class="detail-box" style="margin-top: 0.5rem;">
+                            <p><strong>Med Feuer's hjälp (50 DM):</strong> Han mumlar för sig själv, letar i apparenta random boxar, och framställer exakt rätt dokument.</p>
+                            <p style="margin-top: 0.5rem; font-style: italic;">"Självklart finns det här. Varför skulle det vara någon annanstans?"</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Vad han vet (men inte säger gratis)</h3>
+                        <p><strong>För extra 50 DM</strong> ger han sin "personliga bedömning":</p>
+                        <div class="detail-box warning" style="margin-top: 0.5rem;">
+                            <p style="font-style: italic;">
+                                "Jag har arbetat här sedan 1975. Jag har sett saker som inte står i journalerna.
+                                De patienter som kom från Moskva... de åldras inte som normalt. En kvinna som borde vara 80 ser ut som 60.
+                                En man har ärrbildningar som RÖRT SIG över hans kropp mellan undersökningar.
+                                Dr. Schafer säger åt mig att inte tala om detta. Men ni verkar som folk som redan vet att något är fel."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Om spelarna vägrar gå till källaren</h3>
+                        <p>Feuer kan intercepta dem på väg ut:</p>
+                        <p style="font-style: italic; margin-top: 0.5rem;">
+                            "Ni vill inte se källaren? Det är där sanningen är. De andra på övervåningen är bara... halvvägs.
+                            Men de i källaren... de är vad som händer om man inte stoppar det."
+                        </p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Camp S-17 karta</h3>
+                        <p>Om spelarna frågar var Camp S-17 låg, hittar Feuer en karta i Tatlinas original-dokumentation.
+                        Det ligger ~45 km söder om Leningrad, i området som nu är övergivet efter Tysklands framryckning och tillbakadragning.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>För Spelledaren</h3>
+                        <p><strong>Session:</strong> Kapitel 2, scen 6</p>
+                        <p><strong>Roll:</strong> Basil Exposition-figur om spelarna är lost, men information kostar</p>
+                        <p><strong>Personlighet:</strong> Vet mer än han säger, men har lärt sig att överleva genom tystnad</p>
+                    </div>
+                `
+            },
+            weber: {
+                title: 'FRAU WEBER',
+                subtitle: 'Receptionist, Frankfurt Clinic',
+                content: `
+                    <div class="modal-section">
+                        <h3>Översikt</h3>
+                        <p>~60 år, grått hår i tight knut, gammaldags glasögon. Sitter vid reception och stickar något grönt. Helt likgiltig mot besökare och patienternas tillstånd. Talar bruten engelska. Symboliserar institutionell apati.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Beteende</h3>
+                        <p>Weber reagerar INTE på någonting. Inte på spelarna, inte på att Dr. Schafer förhandlar mutor, inte på skrik från källaren.
+                        Hon bara sitter och stickar.</p>
+                        <p style="margin-top: 0.5rem;"><strong>När spelarna kommer tillbaka efter Special Ward-besöket:</strong>
+                        Hon sitter fortfarande där och stickar, som om ingenting har hänt.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>För Spelledaren</h3>
+                        <p><strong>Session:</strong> Kapitel 2, scen 4 & 13</p>
+                        <p><strong>Roll:</strong> Symbolisk figur - visar hur man kan bli immun mot lidande genom årtionden av exponering</p>
+                        <p><strong>Användning:</strong> Atmospheric detail, inget gameplay-värde</p>
+                    </div>
+                `
+            },
+            pyotr: {
+                title: 'PYOTR GALLENTINOV',
+                subtitle: 'Patient S2-4, Special Ward | Camp S-17 överlevande',
+                content: `
+                    <div class="modal-section">
+                        <h3>Översikt</h3>
+                        <p><strong>Ålder:</strong> Borde vara 83 år (född 1942), ser ut som 60</p>
+                        <p><strong>Exponerad:</strong> Camp S-17, Leningrad oblast, vintern 1941-42 - som spädbarn</p>
+                        <p><strong>Status:</strong> Special Ward sedan 1970-talet, kedjebunden vid ankeln</p>
+                        <p><strong>Transformation:</strong> Synlig men mindre extrem än de andra i Special Ward</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Fysisk beskrivning</h3>
+                        <ul>
+                            <li>Sitter i fosterställning i rummets fjärraste hörn</li>
+                            <li>Ärrbildningar längs armarna som rör sig svagt när man tittar bort</li>
+                            <li>Fingrar lite för långa, leder lite för många</li>
+                            <li>Molnvita ögon, men pupiller som fortfarande rör sig</li>
+                            <li>Vitt hår, onaturligt tjockt</li>
+                            <li>Håller en porslindocka (~15 cm, iklädd svart klänning) i famnen</li>
+                            <li><strong>Hummar 247 Hz</strong> - men MYCKET tystare än de andra, nästan omärkligt</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Vad som gör honom annorlunda - Den längsta kampen</h3>
+                        <div class="detail-box warning">
+                            <p><strong>Till skillnad från alla andra transformerade patienter:</strong></p>
+                            <ul style="margin-top: 0.5rem;">
+                                <li>Pyotr reagerar INTE med panik när "märkta" spelare närmar sig</li>
+                                <li>Han är MEDVETEN - har kämpat mot BÅDA transformationerna i 83 år</li>
+                                <li>Han har varit katatonisk sedan 1970-talet - talar inte, rör sig knappt</li>
+                                <li>Hans humming är nästan tyst - han undertrycker den mentala aspekten aktivt</li>
+                                <li>Hans fysiska transformation är långsam - han kämpar mot den varje dag</li>
+                                <li>Men när rätt spelare närmar sig... reagerar han</li>
+                            </ul>
+                            <p style="margin-top: 0.5rem;"><strong>The Black Doll:</strong> Dockan har hjälpt honom att hålla tillbaka transformationerna längre än någon annan. Den är hans anchor, hans skydd.</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Dual Manifestation - Kontrollerad (nästan)</h3>
+                        <div class="detail-box">
+                            <p><strong>Pyotrs unika situation:</strong></p>
+                            <ul style="margin-top: 0.5rem;">
+                                <li><strong>Mental transformation:</strong> Humming 247 Hz (men undertryckt till whisper-nivå), temporal awareness (vet att 83 år passerat)</li>
+                                <li><strong>Fysisk transformation:</strong> Ärrbildningar som rör sig, extra fingerleder, vita ögon - men långsam progression</li>
+                            </ul>
+                            <p style="margin-top: 0.5rem;"><strong>Han är beviset att båda aspekterna KAN containeras...</strong> men till vilket pris? 83 år av ständig kamp, inlåst i källare, håller en artifact som enda skydd.</p>
+                            <p style="margin-top: 0.5rem; font-style: italic;">Och även han förlorar långsamt.</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Mötet med spelarna</h3>
+                        <p>När spelarna kommer till Special 2 tittar Pyotr DIREKT på dem (till skillnad från de andra).
+                        Efter några minuter signalerar han åt en specifik spelare att komma närmare.</p>
+                        <p style="margin-top: 0.5rem;"><strong>Vilken spelare:</strong> Den som varit mest driven att förstå Magda, eller den med lägst SAN, eller Mac Riley.</p>
+
+                        <div class="detail-box" style="margin-top: 1rem;">
+                            <p><strong>Han erbjuder dockan.</strong></p>
+                            <p style="margin-top: 0.5rem;">Den utvalda spelaren känner en stark impuls att ta den (Willpower roll för att välja själv).</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>The Black Doll</h3>
+                        <p><strong>Fysisk beskrivning:</strong></p>
+                        <ul>
+                            <li>~15 cm lång porslindocka</li>
+                            <li>Iklädd svart klänning av extremt gammalt tyg (1940-tal)</li>
+                            <li>Finurligt målat ansikte, men ögonen verkar följa betraktaren</li>
+                            <li>Extremt kall att röra, som om den suger värme</li>
+                            <li>Tung för sin storlek, som fylld med metall</li>
+                        </ul>
+
+                        <p style="margin-top: 1rem;"><strong>Vad händer när spelaren tar den:</strong></p>
+                        <div class="detail-box warning">
+                            <p style="font-weight: bold;">PYOTR TALAR - första gången på decennier:</p>
+                            <p style="font-style: italic; font-size: 1.1rem; margin-top: 0.5rem;">
+                                "Скажите детям... что кто-то пытался."
+                            </p>
+                            <p style="margin-top: 0.5rem;">
+                                <strong>Translation:</strong> "Tell the children... that someone tried."
+                            </p>
+                            <p style="margin-top: 0.5rem; font-style: italic;">
+                                Sedan faller han tillbaka till sin fosterställning och blir återigen katatonisk.
+                            </p>
+                        </div>
+
+                        <p style="margin-top: 1rem;"><strong>Reaktion från andra patienter:</strong> När dockan lämnar Pyotrs händer blir de andra tre patienterna i rummet TYSTA.
+                        De slutar dra i kedjor. De stirrar på spelaren med något som nästan verkar som... hopp.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Dockans egenskaper (HEMLIG för spelare)</h3>
+                        <div class="detail-box">
+                            <p><strong>Hypergeometrisk artifact:</strong> Men annorlunda än andra</p>
+                            <ul style="margin-top: 0.5rem;">
+                                <li><strong>Inte skadlig:</strong> Till skillnad från kristallerna skadar dockan INTE innehavaren</li>
+                                <li><strong>Protective:</strong> Ger +1 SAN vid checks relaterade till Leningrad-incident-resonance</li>
+                                <li><strong>Koppling:</strong> Skapad av Dmitri Nesterov, en ikonmålare som försökte rädda barn 1942</li>
+                                <li><strong>Psychological comfort:</strong> Vetskapen att "någon försökte hjälpa" ger tröst</li>
+                                <li><strong>Kanal:</strong> I Kapitel 3 blir dockan anchor för att navigera drömhypergemetrin</li>
+                            </ul>
+                        </div>
+                        <p style="margin-top: 0.5rem;"><strong>SAN check:</strong> INGEN för att ta dockan - den känns faktiskt lugnande</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Varför han ger dockan till spelarna</h3>
+                        <p>Pyotr är medveten, inlåst i en långsamt förvandlande kropp. Han har kämpat mot transformationen i 83 år. Han ger dockan för att:</p>
+                        <ol style="margin-top: 0.5rem;">
+                            <li>Han känner igen att spelarna bär "märket" från Magdas död</li>
+                            <li>Han vet att de går mot samma öde om de inte förstår</li>
+                            <li>Han vill att NÅGON äntligen ska bryta cykeln</li>
+                            <li>Han har väntat på någon att ge den till i 50+ år</li>
+                        </ol>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>För Spelledaren</h3>
+                        <p><strong>Session:</strong> Kapitel 2, scen 11</p>
+                        <p><strong>Theme:</strong> Tragedy - medveten man inlåst i monster</p>
+                        <p><strong>Viktigt:</strong> Detta är kampanjens mest tragiska figur - spela det för emotional impact</p>
+                        <p><strong>Framtid:</strong> Kapitel 3 - spelarna kanske drömmer om Pyotr som barn i Leningrad 1942</p>
+                    </div>
+                `
+            },
+            tatlina: {
+                title: 'DR. NINA TATLINA',
+                subtitle: 'Sovjetisk läkare, Kirov-kliniken → Frankfurt Clinic | DÖD: 1973',
+                content: `
+                    <div class="modal-section">
+                        <h3>Översikt</h3>
+                        <p>Sovjetisk läkare som ledde överföringen av 44 patienter från Kirov-kliniken (Moskva) till Frankfurt Clinic 1951. Dog 1973 och tog sina hemligheter med sig. Hennes anteckningar och protokoll är grunden för allt som hände på Frankfurt Clinic.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Överföringsrapport (1951)</h3>
+                        <div class="detail-box warning">
+                            <p style="font-weight: bold;">ÖVERFÖRING AV SPECIAL CASES FRÅN KIROV-KLINIKEN</p>
+                            <p style="font-style: italic; margin-top: 0.5rem;">
+                                "Fyrtio-fyra patienter överförs från Kirov-kliniken till Frankfurt Clinic för fortsatt isolering och behandling.
+                                Alla är överlevande från Camp S-17 incident (Leningrad oblast, winter 1941-42)."
+                            </p>
+                            <p style="margin-top: 0.5rem;"><strong>Original kohort vid Camp S-17:</strong> cirka 120 individer (87 barn, 33 vuxna)</p>
+                            <ul style="margin-top: 0.5rem;">
+                                <li>76 avlidna inom första 48 timmar (fullständig transformation)</li>
+                                <li>44 överlevde med partiell manifestation</li>
+                                <li>Överlevande har genomgått 5 år av experimentell behandling vid Kirov</li>
+                            </ul>
+                            <p style="margin-top: 0.5rem; font-style: italic;">
+                                "Frankfurt Clinic valdes för dess isolerade läge och diskreta natur. Patienter bedöms vara 'kontainerade' men inte botade.
+                                Särskild observation krävs för tecken på progressiv manifestation."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Tatlinas protokoll</h3>
+                        <p><strong>"Suppression Protocol"</strong> - nämns i varenda patientjournal, men ingen detalj om vad det faktiskt var.</p>
+                        <div class="detail-box">
+                            <p><strong>Dual Manifestation Phenomenon:</strong></p>
+                            <p style="margin-top: 0.5rem;">Tatlinas journaler beskriver två parallella transformationsprocesser:</p>
+                            <ul style="margin-top: 0.5rem;">
+                                <li><strong>Mental:</strong> Konstant humming (247 Hz), minnen från icke-upplevda händelser, temporal disorientering</li>
+                                <li><strong>Fysisk:</strong> Progressiv vävnadstransformation, geometriska benmönster, kristallin strukturbildning</li>
+                            </ul>
+                            <p style="font-style: italic; margin-top: 0.5rem;">
+                                "Suppression måste adressera BÅDA processer. De som endast undertrycker en aspekt kommer att succumb till den andra.
+                                15 patienter lyckades containera båda och släpptes 1956-1958. Resterande fortsätter progressiv transformation."
+                            </p>
+                        </div>
+                        <p style="margin-top: 0.5rem;"><strong>Behandling inkluderade:</strong> Electroshock (mental suppression), insulin-coma terapi (neural reset), lobotomi (i vissa fall), psykologisk intervention för att undertrycka "resonans-minnen"</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>"Dimensional Bleeding"</h3>
+                        <p>Tatlinas term för vad som hände i Leningrad 1942. Spelarna hittar detta i översättningen (ryska → tyska) av hennes rapport.</p>
+                        <p style="margin-top: 0.5rem; font-style: italic;">
+                            "Något med en flyktingläger som blev exponerad för... hon kallade det 'dimensional bleeding'.
+                            Jag trodde det var översättningsfel, men efter att ha sett patienterna i decennier..."
+                        </p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Hennes notering om Pyotr</h3>
+                        <div class="detail-box warning">
+                            <p>"Artefakter från incident-platsen bör inte separeras från patient Gallentinov - han blir våldsam utan den."</p>
+                            <p style="margin-top: 0.5rem;">→ The Black Doll måste betyda något för Pyotr, något från Leningrad</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Vad hon visste (men aldrig dokumenterade)</h3>
+                        <p>Dr. Tatlina dog 1973 och tog sina hemligheter med sig. Från patienternas uttalanden över åren (fragmenter när de fortfarande kunde tala):</p>
+                        <ul style="margin-top: 0.5rem;">
+                            <li>Det var något med <strong>ett hus</strong></li>
+                            <li>En <strong>ikon</strong></li>
+                            <li><strong>Barn som skulle skyddas</strong> men istället blev exponerade</li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;">Men vad EXAKT som hände - hon dokumenterade det aldrig.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Hennes personliga anteckningar</h3>
+                        <div class="detail-box">
+                            <p><strong>Om spelarna blir Schafer's ally:</strong> Han kan ge access till Tatlinas personliga anteckningar som han gömmer i sitt hem (inte på kliniken).</p>
+                            <p style="margin-top: 0.5rem;">Dessa kan innehålla mer detaljerad information om Camp S-17 och vad hon verkligen visste.</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>För Spelledaren</h3>
+                        <p><strong>Session:</strong> Kapitel 2 (omnämnd i scen 6, 12)</p>
+                        <p><strong>Roll:</strong> Historical figure - hennes protokoll driver allt som händer på Frankfurt Clinic</p>
+                        <p><strong>Mystery:</strong> Vad visste hon VERKLIGEN? Varför dokumenterade hon inte hela sanningen?</p>
+                        <p><strong>Framtid:</strong> Hennes anteckningar kan bli viktiga i senare kapitel om spelarna letar efter Camp S-17</p>
+                    </div>
+                `
+            },
+            viktor: {
+                title: 'VIKTOR M. (CASE 7)',
+                subtitle: 'Special Ward, Cell 1 | Extrem transformation',
+                content: `
+                    <div class="modal-section">
+                        <h3>Fysisk beskrivning</h3>
+                        <ul>
+                            <li>Ryggradsspetsade skelettdelar sticker ut genom huden längs ryggen och vid leder</li>
+                            <li>Som om ett annat skelett växer GENOM det ursprungliga</li>
+                            <li>Hud fläckkvis bortfallen, avslöjar <strong>vitt plastiskt material och matt metall</strong> under</li>
+                            <li>Låg panna, prominent käke fylld med hajtand-liknande tänder</li>
+                            <li>Molnvita ögon, men de rör sig och följer spelarna</li>
+                            <li>Kedjebunden mot motsatta väggen, hindras från att nå gallren</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Beteende</h3>
+                        <p>Viktor rycker i sina kedjor, vrider huvudet i onaturliga vinklar, snarlar mot besökare. Hans rörelser är inte mänskliga längre - mer som något mekaniskt som försöker imitera mänskligt beteende.</p>
+                        <p style="margin-top: 0.5rem;"><strong>Konstant humming:</strong> Under skrikandet hummar Viktor en konstant ton - 247 Hz exakt. Det vibrerar i tänderna när man står nära cellen. Detta är MENTAL transformation som pågår parallellt med den fysiska.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Dual Manifestation</h3>
+                        <div class="detail-box">
+                            <p><strong>Viktor uppvisar BÅDA transformationstyperna:</strong></p>
+                            <ul style="margin-top: 0.5rem;">
+                                <li><strong>Mental:</strong> Humming 247 Hz (samma frekvens som Trip 19-kristallerna), temporal disorientering</li>
+                                <li><strong>Fysisk:</strong> Skelettutväxt, vitt plastiskt material + metall under hud, hajtandständer</li>
+                            </ul>
+                            <p style="margin-top: 0.5rem;">Detta indikerar att han exponerades för BÅDA krafterna vid Leningrad 1942 och misslyckades att supprimera någon av dem.</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>SAN Check</h3>
+                        <div class="detail-box warning">
+                            <p><strong>Första glimt av Viktor och de andra transformerade patienterna:</strong></p>
+                            <p><strong>Roll:</strong> 1/1D6 SAN</p>
+                            <p><strong>Rationale:</strong> Detta är OFÖRKLARLIGT övernaturligt - människor vars kroppar förvandlats över decennier OCH fortfarande mentalt transformeras (hummandet)</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>För Spelledaren</h3>
+                        <p><strong>Session:</strong> Kapitel 2, scen 10</p>
+                        <p><strong>Theme:</strong> Body horror - långsam transformation över 70+ år</p>
+                        <p><strong>Viktigt:</strong> Viktor är INTE ett monster som attackerar - han är en människa som inte kunde stoppa vad som hände honom</p>
+                        <p><strong>Humanity:</strong> Trots allt, hans ögon följer spelarna - finns det fortfarande något mänskligt kvar där inne?</p>
+                    </div>
+                `
+            },
+            anya: {
+                title: 'ANYA K. (CASE 12)',
+                subtitle: 'Special Ward, Cell 2 | Extrem transformation',
+                content: `
+                    <div class="modal-section">
+                        <h3>Fysisk beskrivning</h3>
+                        <ul>
+                            <li>Täckt av grovt svart hår över hela kroppen</li>
+                            <li>Men ansiktet är HELT utan hår - blankt som porslin</li>
+                            <li>Grova klor istället för fingrar</li>
+                            <li>Djupa märken skrapade i betonggolvet från hennes klor</li>
+                            <li>Kedjebunden</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Beteende</h3>
+                        <p>Anya sitter i fosterställning, gungandes fram och tillbaka. Hon viskar konstant på ryska, samma fraser om och om igen.</p>
+                        <p style="margin-top: 0.5rem;"><strong>Konstant humming mellan viskningar:</strong> 247 Hz exakt. Det pågår under hennes viskningar, en ständig undertone. Detta är den mentala transformationen - medan den fysiska har förvandlat hennes kropp.</p>
+                        <div class="detail-box" style="margin-top: 0.5rem;">
+                            <p><strong>Vad hon viskar:</strong></p>
+                            <p style="font-style: italic; margin-top: 0.5rem;">
+                                "Мы все ещё в доме... мы никогда не уходили..."
+                            </p>
+                            <p style="margin-top: 0.5rem;"><strong>Translation:</strong> "Vi är fortfarande i huset... vi lämnade aldrig..."</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Dual Manifestation - Vad detta betyder</h3>
+                        <p>Anya är fortfarande mentalt fångad i Camp S-17, vintern 1941-42. I hennes sinne har 83 år inte passerat - hon är fortfarande i "huset" där det hände.</p>
+                        <p style="margin-top: 0.5rem;"><strong>BÅDE aspekter pågår:</strong></p>
+                        <ul style="margin-top: 0.5rem;">
+                            <li><strong>Mental:</strong> Temporal disorientering (tror det är 1942), humming 247 Hz, fångad i traumaminnet</li>
+                            <li><strong>Fysisk:</strong> Svart hår över kropp, klor, porslinsansikte</li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;"><strong>För spelledaren:</strong> Detta visar att transformationen inte bara är fysisk - de är psykologiskt OCH fysiskt fångade i moment av exponering.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>SAN Check</h3>
+                        <div class="detail-box warning">
+                            <p><strong>Del av samma check som Viktor (Cell 1):</strong></p>
+                            <p><strong>Roll:</strong> 1/1D6 SAN</p>
+                            <p><strong>Rationale:</strong> Body horror + psychological horror - hon är fångad i traumat forever</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>För Spelledaren</h3>
+                        <p><strong>Session:</strong> Kapitel 2, scen 10</p>
+                        <p><strong>Theme:</strong> Eternal imprisonment - både fysiskt och mentalt</p>
+                        <p><strong>Framtid:</strong> I Kapitel 3 (Dark Dreams) när spelarna drömmer om Leningrad, kan de "möta" Anya som barn</p>
+                    </div>
+                `
+            },
+            mikhail: {
+                title: 'MIKHAIL P. (CASE 18)',
+                subtitle: 'Special Ward, Cell 3 | Extrem transformation',
+                content: `
+                    <div class="modal-section">
+                        <h3>Fysisk beskrivning</h3>
+                        <ul>
+                            <li>Skelettstrukturer växer ut genom hud vid leder - armbågar, knän, axlar</li>
+                            <li>Som taggar eller horn</li>
+                            <li>Skalig och läderartad hud</li>
+                            <li>Områden med exponerat vitt material - inte ben, inte metall, något däremellan</li>
+                            <li>INTE kedjebunden - trycker sig mot gallren</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Beteende - VÄL ANNORLUNDA än de andra</h3>
+                        <p>När Mikhail ser spelarna (speciellt de som var närvarande vid Magdas död):</p>
+                        <p style="margin-top: 0.5rem;"><strong>Hummandet slutar:</strong> Till skillnad från andra patienter SLUTAR Mikhail humma när "märkta" spelare närmar sig. Detta är viktigt - det indikerar att han känner igen samma mental resonans på dem.</p>
+                        <div class="detail-box warning">
+                            <p><strong>PLÖTSLIG TYSTNAD</strong></p>
+                            <p style="margin-top: 0.5rem;">Han slutar skrika OCH humma. Han stirrar direkt på dem. Och sedan viskar han:</p>
+                            <p style="font-style: italic; font-size: 1.1rem; margin-top: 0.5rem;">
+                                "Сестра... ты вернулся..."
+                            </p>
+                            <p style="margin-top: 0.5rem;"><strong>Translation:</strong> "Syster... du kom tillbaka..."</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Dual Manifestation - Vad detta betyder</h3>
+                        <p>Mikhail känner igen något på "märkta" spelare - något från Magdas död och transformation. Han kallar dem "syster" för att han känner igen <strong>samma resonans</strong>.</p>
+                        <p style="margin-top: 0.5rem;"><strong>Detta är första direkt bevis att spelarna är "märkta" eller smittade av exponering för Magdas transformation.</strong></p>
+                        <p style="margin-top: 0.5rem;"><strong>Mikhails dual transformation:</strong></p>
+                        <ul style="margin-top: 0.5rem;">
+                            <li><strong>Mental:</strong> Humming 247 Hz (tills han ser spelarna), temporal disorientering, känner igen mental resonans</li>
+                            <li><strong>Fysisk:</strong> Skeletttaggar vid leder, vitt material (inte ben/metall) exponerat genom hud</li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;">Att hummandet SLUTAR när han känner igen spelarna är kritiskt - det visar att den mentala aspekten reagerar på samma mental "märke" som spelarna bär.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>SAN Check</h3>
+                        <div class="detail-box warning">
+                            <p><strong>Del av samma check som Viktor och Anya:</strong></p>
+                            <p><strong>Roll:</strong> 1/1D6 SAN</p>
+                            <p><strong>Men Mikhails reaktion kan trigga ytterligare 0/1 SAN:</strong> Insikten att HAN känner igen något på/i dem som de inte kan se själva</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>För Spelledaren</h3>
+                        <p><strong>Session:</strong> Kapitel 2, scen 10</p>
+                        <p><strong>Theme:</strong> Contamination anxiety - spelarna är märkta</p>
+                        <p><strong>Viktigt:</strong> Detta är första gången spelarna konfronteras med direkt bevis att de SJÄLVA är förändrade</p>
+                        <p><strong>Framtid:</strong> Denna reaktion förebådar vad som händer i Kapitel 3 när spelarna börjar drömma om Leningrad</p>
+                    </div>
+                `
+            },
+            olga: {
+                title: 'OLGA T. (CASE 31)',
+                subtitle: 'Special Ward, Cell 4 | MEST EXTREM transformation',
+                content: `
+                    <div class="modal-section">
+                        <h3>Fysisk beskrivning</h3>
+                        <p><strong>DEN MEST EXTREMA TRANSFORMATIONEN I SPECIAL WARD</strong></p>
+                        <ul style="margin-top: 0.5rem;">
+                            <li>Huvud deformerat till nästan oigenkännlighet</li>
+                            <li>Käken enormt förlängd, som en grotesk parodi av mänskligt ansikte</li>
+                            <li>Tänderna ersatta av <strong>kristallfragment</strong> - som larverna från Charité</li>
+                            <li>Benvävnad växer ut genom huden i <strong>geometriska mönster</strong> längs armarna och benen</li>
+                            <li>Fingrar har smält samman till tre klor per hand</li>
+                            <li>INTE kedjebunden - klampar sig mot gallren</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Beteende</h3>
+                        <p>Olga kan inte längre tala. Hon kan endast skrika och vrål - ljud som inte längre är mänskliga.
+                        Hon sträcker ut KLOR genom gallren, försöker nå spelarna.</p>
+                        <p style="margin-top: 0.5rem;"><strong>Hummandet är HÖGRE än alla andra:</strong> 247 Hz men med ökad amplitud. Det vibrerar fysiskt i väggarna, golvet, spelarnas bröstkorgar. Som om den mentala transformationen blivit så stark att den manifesterar fysiskt.</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Dual Manifestation - Mest extrem</h3>
+                        <div class="detail-box warning">
+                            <p><strong>Olga är det värsta fallet av båda transformationerna:</strong></p>
+                            <ul style="margin-top: 0.5rem;">
+                                <li><strong>Mental:</strong> Humming 247 Hz (högst amplitud av alla), total förlust av mänskligt tal, temporal disorientering (förlorad helt)</li>
+                                <li><strong>Fysisk:</strong> Kristalltänder, geometriska benmönster, smälta fingrar, deformerat huvud</li>
+                            </ul>
+                            <p style="margin-top: 0.5rem;">Hon är närmast fullständig transformation till... något annat. Inte människa längre, men inte helt det andra heller. Fångad mitt emellan.</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Koppling till larverna från Charité</h3>
+                        <div class="detail-box warning">
+                            <p><strong>KRITISK OBSERVATION:</strong></p>
+                            <p style="margin-top: 0.5rem;">Olgas tänder - ersatta av kristallfragment - är SAMMA material som larverna som kom från Magda, Anton, Sasha och Filip när de dog på Charité.</p>
+                            <p style="margin-top: 0.5rem;"><strong>Detta betyder:</strong> Transformation som tog 70+ år för Olga skulle ha hänt omedelbart för de tre ryssarna och Magda om de inte "containerat" det.</p>
+                            <p style="margin-top: 0.5rem;"><strong>Kristallerna är fysisk manifestation</strong> av den ena kraften (Yithian), medan geometriska benmönstren är den andra (Nyogtha).</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Geometriska mönster</h3>
+                        <p>Benvävnaden som växer ut ur Olga följer GEOMETRISKA mönster - inte organiska. Detta är samma hypergeometriska struktur som kristallerna från Flight 19.</p>
+                        <p style="margin-top: 0.5rem;"><strong>Science (Biology) eller Medicine:</strong> Detta är INTE biologisk tillväxt - det är som om hennes kropp omstruktureras enligt två olika geometriska logiker samtidigt. En kristallin (Yithian), en organisk-geometrisk (Nyogtha).</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>SAN Check</h3>
+                        <div class="detail-box warning">
+                            <p><strong>Del av samma check som de andra cellerna:</strong></p>
+                            <p><strong>Roll:</strong> 1/1D6 SAN</p>
+                            <p><strong>Olga är värst:</strong> Om spelaren fixerar på henne specifikt, kan SL kräva ytterligare 0/1 SAN för "worst case scenario"</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>Vad händer om transformation fullbordas?</h3>
+                        <p>Olga är NÄSTAN fullständigt transformerad. Dr. Schafer säger att de försökt "humanitär avlivning" men hennes kropp överlever skador som skulle döda en normal människa.</p>
+                        <div class="detail-box">
+                            <p><strong>Frågan är:</strong> Vad händer när transformationen är 100% klar? Blir hon som larverna - renodlad hypergeometrisk form?</p>
+                            <p style="margin-top: 0.5rem;"><strong>Eller:</strong> Fortsätter hon existera i detta helvete för evigt?</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>För Spelledaren</h3>
+                        <p><strong>Session:</strong> Kapitel 2, scen 10</p>
+                        <p><strong>Theme:</strong> Endpoint of transformation - detta är vad som väntar om man inte stoppar det</p>
+                        <p><strong>Viktigt:</strong> Olga är INTE ett monster - hon är fortfarande en människa (tekniskt) men inte längre igenkännlig som sådan</p>
+                        <p><strong>Moral dilemma:</strong> Är det mer humant att försöka döda henne eller låta henne leva?</p>
+                        <p><strong>Framtid:</strong> Om spelarna själva börjar transformera (senare kapitel), Olga är preview av deras öde</p>
                     </div>
                 `
             }
