@@ -15,7 +15,7 @@
             --bg-dark: #0a0f0f;
             --bg-darker: #050808;
             --bg-panel: #0d1414;
-            --accent-red: #ff4444;
+            --accent-primary: #4a90a4;
             --accent-blue: #4a90a4;
             --text: #d1d5db;
             --text-dim: #6b7280;
@@ -33,7 +33,7 @@
 
         .header {
             background: var(--bg-darker);
-            border-bottom: 2px solid var(--accent-red);
+            border-bottom: 2px solid var(--accent-primary);
             padding: 1.5rem 2rem;
             position: sticky;
             top: 0;
@@ -49,9 +49,9 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: var(--accent-red);
+            color: var(--accent-primary);
             letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+            text-shadow: 0 0 10px rgba(74, 144, 164, 0.5);
         }
 
         .subtitle {
@@ -63,8 +63,8 @@
         .classified-banner {
             background: repeating-linear-gradient(
                 45deg,
-                var(--accent-red),
-                var(--accent-red) 10px,
+                var(--accent-primary),
+                var(--accent-primary) 10px,
                 #cc0000 10px,
                 #cc0000 20px
             );
@@ -73,7 +73,7 @@
             padding: 0.5rem;
             font-weight: bold;
             letter-spacing: 3px;
-            box-shadow: 0 2px 10px rgba(255, 68, 68, 0.3);
+            box-shadow: 0 2px 10px rgba(74, 144, 164, 0.3);
         }
 
         .container {
@@ -85,14 +85,14 @@
         .intro-section {
             background: var(--bg-panel);
             border: 1px solid var(--border);
-            border-left: 3px solid var(--accent-red);
+            border-left: 3px solid var(--accent-primary);
             border-radius: 4px;
             padding: 2rem;
             margin-bottom: 2rem;
         }
 
         .intro-section h2 {
-            color: var(--accent-red);
+            color: var(--accent-primary);
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
@@ -112,13 +112,13 @@
             content: "▸";
             position: absolute;
             left: 0;
-            color: var(--accent-red);
+            color: var(--accent-primary);
         }
 
         .collapsible {
             background: var(--bg-panel);
             border: 1px solid var(--border);
-            border-left: 3px solid var(--accent-red);
+            border-left: 3px solid var(--accent-primary);
             border-radius: 4px;
             margin-bottom: 1rem;
             overflow: hidden;
@@ -140,18 +140,18 @@
         }
 
         .collapsible-header:hover {
-            background: rgba(255, 68, 68, 0.05);
+            background: rgba(74, 144, 164, 0.05);
         }
 
         .collapsible-title {
-            color: var(--accent-red);
+            color: var(--accent-primary);
             font-size: 1.1rem;
             font-weight: bold;
             letter-spacing: 0.5px;
         }
 
         .collapsible-icon {
-            color: var(--accent-red);
+            color: var(--accent-primary);
             font-size: 1.2rem;
             transition: transform 0.3s;
         }
@@ -176,7 +176,7 @@
         }
 
         .collapsible-body h3 {
-            color: var(--accent-red);
+            color: var(--accent-primary);
             font-size: 1rem;
             margin-top: 1.5rem;
             margin-bottom: 0.8rem;
@@ -212,8 +212,8 @@
         }
 
         th {
-            background: rgba(255, 68, 68, 0.1);
-            color: var(--accent-red);
+            background: rgba(74, 144, 164, 0.1);
+            color: var(--accent-primary);
             padding: 0.8rem;
             text-align: left;
             border: 1px solid var(--border);
@@ -226,15 +226,15 @@
         }
 
         .san-check {
-            background: rgba(255, 68, 68, 0.1);
-            border-left: 3px solid var(--accent-red);
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 3px solid var(--accent-primary);
             padding: 0.8rem 1rem;
             margin: 1rem 0;
             border-radius: 4px;
         }
 
         .san-check strong {
-            color: var(--accent-red);
+            color: var(--accent-primary);
         }
 
         .note {
@@ -262,14 +262,14 @@
             background: var(--bg-panel);
             border: 1px solid var(--border);
             border-radius: 4px;
-            color: var(--accent-red);
+            color: var(--accent-primary);
             text-decoration: none;
             transition: all 0.3s;
         }
 
         .back-link:hover {
-            background: rgba(255, 68, 68, 0.1);
-            border-color: var(--accent-red);
+            background: rgba(74, 144, 164, 0.1);
+            border-color: var(--accent-primary);
         }
 
         @media (max-width: 768px) {
@@ -301,7 +301,7 @@
             <h2>BAKGRUND (SL-INFO)</h2>
             <p>Denna kampanj börjar i september 2025 när Chesapeake Cell möter Magda Orlova i Lovettsville, Virginia (Session 3). Magda är nyckeln mellan Trip 19 (1940) och Black Madonna (1942).</p>
 
-            <h3 style="color: var(--accent-red); margin-top: 1.5rem; margin-bottom: 0.5rem;">Anpassningar från KULT till Delta Green 2025</h3>
+            <h3 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Anpassningar från KULT till Delta Green 2025</h3>
             <ul>
                 <li><strong>Tidslinjer:</strong> KULT Original: Hamburg/Berlin 1991 → DG 2025: Lovettsville VA → Hamburg → Berlin 2025</li>
                 <li><strong>Leningrad-flashbacks:</strong> Januari 1942 (oförändrat)</li>
@@ -310,7 +310,7 @@
                 <li><strong>Mythos:</strong> Chagidiel → "Det Som Fängslades", Archons → "Entiteter", Yithian Echo + Nyogtha</li>
             </ul>
 
-            <h3 style="color: var(--accent-red); margin-top: 1.5rem; margin-bottom: 0.5rem;">KAMPANJFLÖDE - SESSION 3 TILL SESSION 5</h3>
+            <h3 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">KAMPANJFLÖDE - SESSION 3 TILL SESSION 5</h3>
             <ul>
                 <li><strong>Session 3 (Sept 2025):</strong> Teamet träffar Magda i Lovettsville Historical Society - båda forskar om Volkov</li>
                 <li><strong>Session 4 (Okt 2025):</strong> Research och Volkov-spår, domestic investigation</li>
@@ -460,7 +460,7 @@
 
                     <h3>Filips samtal (bakgrund, spelarna vet ej)</h3>
                     <p>Samma kväll som Magda emailar spelarna ringde Filip Kramer henne:</p>
-                    <div style="background: rgba(255, 68, 68, 0.1); padding: 1rem; margin: 1rem 0; border-left: 3px solid var(--accent-red); font-style: italic;">
+                    <div style="background: rgba(74, 144, 164, 0.1); padding: 1rem; margin: 1rem 0; border-left: 3px solid var(--accent-primary); font-style: italic;">
                         "Magda... du borde inte forska i detta. Du vet inte vad du håller på att väcka."<br><br>
 
                         "Anton och Sasha... de känner att du kommer närmare sanningen. De är oroliga."<br><br>
@@ -505,7 +505,7 @@
                     <p><strong>SESSION 5 - 8 NOVEMBER 2025, KL 19:00</strong></p>
                     <p><strong>Plats:</strong> Thalia Buchhandlung, Große Bleichen 23-27, Hamburg, Tyskland</p>
 
-                    <div style="background: rgba(255, 68, 68, 0.15); padding: 1.5rem; margin: 1rem 0; border-left: 4px solid var(--accent-red);">
+                    <div style="background: rgba(74, 144, 164, 0.15); padding: 1.5rem; margin: 1rem 0; border-left: 4px solid var(--accent-primary);">
                         <strong>⚠️ KRITISK SCEN - FÖRSTA MÖTET MED ANTAGONISTERNA</strong><br><br>
                         Detta är första gången spelarna ser Anton Mahler och Sasha Pogodin i person. Scenen måste vara ATMOSFÄRISK, TENSE, och kännas som en intellektuell thriller. De vet inte vem antagonisterna är ännu - bara att "något känns fel".
                     </div>
@@ -603,7 +603,7 @@
                     <p>Efter presentationen öppnas för frågor från publiken.</p>
 
                     <h4>Anton Mahler reser sig (första frågan):</h4>
-                    <div style="background: rgba(255, 68, 68, 0.05); padding: 1rem; margin: 1rem 0; border-left: 3px solid var(--accent-red); font-style: italic;">
+                    <div style="background: rgba(74, 144, 164, 0.05); padding: 1rem; margin: 1rem 0; border-left: 3px solid var(--accent-primary); font-style: italic;">
                         "Fröken Orlova, fascinerande forskning. Jag undrar... hur mycket av detta är baserat på primärkällor, och hur mycket är... låt oss säga, spekulativt?"<br><br>
 
                         [Röst: kultiverad, tysk accent med lätt rysk undertone, vänlig men med en edge]<br><br>
@@ -799,7 +799,7 @@
                         <li>Men vart i Berlin? De vet inte var Magda är</li>
                     </ul>
 
-                    <div style="background: rgba(255, 68, 68, 0.1); padding: 1.5rem; margin: 1rem 0; border-left: 3px solid var(--accent-red);">
+                    <div style="background: rgba(74, 144, 164, 0.1); padding: 1.5rem; margin: 1rem 0; border-left: 3px solid var(--accent-primary);">
                         <strong>VIKTIGT - TIMING:</strong><br><br>
                         Om spelarna åker direkt till Berlin och aktivt letar: de KAN hitta Magda innan hon dör (mycket svårt, kräver rätt kontakter/rolls).<br><br>
 
@@ -859,7 +859,7 @@
                     </ul>
 
                     <h3>Irenes uppmaning</h3>
-                    <div style="background: rgba(255, 68, 68, 0.1); padding: 1rem; margin: 1rem 0; border-left: 3px solid var(--accent-red); font-style: italic;">
+                    <div style="background: rgba(74, 144, 164, 0.1); padding: 1rem; margin: 1rem 0; border-left: 3px solid var(--accent-primary); font-style: italic;">
                         "Ni måste åka till Berlin. NU. Jag tror inte hon har mycket tid kvar."<br><br>
 
                         "Charité Hospital, Campus Mitte. Fråga efter Dr. Kellerman i akutmottagningen."<br><br>
@@ -1087,7 +1087,7 @@
                     </ul>
 
                     <h4>Magdas sista ord (viskar, knappt hörbart):</h4>
-                    <div style="background: rgba(255, 68, 68, 0.1); padding: 1rem; margin: 1rem 0; border-left: 3px solid var(--accent-red); font-style: italic;">
+                    <div style="background: rgba(74, 144, 164, 0.1); padding: 1rem; margin: 1rem 0; border-left: 3px solid var(--accent-primary); font-style: italic;">
                         "De... kom efter mig... efter författarkvällen..."<br><br>
 
                         "Dagboken... i min väska... allt är där..."<br><br>
@@ -1257,7 +1257,7 @@
                         <li><strong>5. Börja jaga de tre ryssarna:</strong> Hämnd? Prevention? Botemedel?</li>
                     </ul>
 
-                    <div style="background: rgba(255, 68, 68, 0.1); padding: 1.5rem; margin: 1rem 0; border-left: 3px solid var(--accent-red);">
+                    <div style="background: rgba(74, 144, 164, 0.1); padding: 1.5rem; margin: 1rem 0; border-left: 3px solid var(--accent-primary);">
                         <strong>SL-NOTE - Emotional Impact:</strong><br><br>
                         Magdas död ska vara SORGLIG och FÖRFÄRANDE. Hon var en allierad, en god person som bara ville sanningen om sin historia. De tre ryssarna dödade henne (indirekt - genom parasiten).<br><br>
 
@@ -2043,7 +2043,7 @@
                         <li>Yngsta (utan underkäke) talar med gurglande röst:</li>
                     </ul>
 
-                    <blockquote style="border-left: 3px solid var(--accent-red); padding-left: 1rem; font-style: italic; margin: 1rem 0;">
+                    <blockquote style="border-left: 3px solid var(--accent-primary); padding-left: 1rem; font-style: italic; margin: 1rem 0;">
                         "Ni har kallat oss. Vi har kommit. Er smärta tillhör oss. Vi ses igen."
                     </blockquote>
 
@@ -2205,7 +2205,7 @@
             </div>
             <div class="collapsible-content">
                 <div class="collapsible-body">
-                    <h2 style="color: var(--accent-red); border-bottom: 2px solid var(--accent-red); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">HAMBURG, TYSKLAND</h2>
+                    <h2 style="color: var(--accent-primary); border-bottom: 2px solid var(--accent-primary); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">HAMBURG, TYSKLAND</h2>
 
                     <h3>1. Thalia Buchhandlung (The Book Launch Venue)</h3>
                     <p><strong>Adress:</strong> Große Bleichen 23-27, 20354 Hamburg</p>
@@ -2344,7 +2344,7 @@
                         <li>Kan förvara bagage, ordna taxi</li>
                     </ul>
 
-                    <h2 style="color: var(--accent-red); border-bottom: 2px solid var(--accent-red); padding-bottom: 0.5rem; margin-top: 3rem; margin-bottom: 1.5rem;">BERLIN, TYSKLAND</h2>
+                    <h2 style="color: var(--accent-primary); border-bottom: 2px solid var(--accent-primary); padding-bottom: 0.5rem; margin-top: 3rem; margin-bottom: 1.5rem;">BERLIN, TYSKLAND</h2>
 
                     <h3>5. Charité Hospital - Campus Mitte</h3>
                     <p><strong>Adress:</strong> Charitéplatz 1, 10117 Berlin-Mitte</p>
