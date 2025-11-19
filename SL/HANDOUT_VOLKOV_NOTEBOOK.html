@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMITRI VOLKOV - Research Notes 2024-2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #e8dcc8;
+            font-family: 'Courier New', 'Courier', monospace;
+            padding: 2rem;
+            color: #2a2a2a;
+        }
+
+        .notebook-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #f5efe0;
+            border: 2px solid #8b7355;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .notebook-cover {
+            background: linear-gradient(135deg, #5d4e37 0%, #3e3529 100%);
+            color: #d4af37;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 3px solid #8b7355;
+        }
+
+        .notebook-cover h1 {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .notebook-cover .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .notebook-pages {
+            padding: 2rem;
+        }
+
+        .page {
+            background: #fdfbf7;
+            border-left: 3px solid #e74c3c;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .page::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 40px;
+            background: repeating-linear-gradient(
+                transparent,
+                transparent 29px,
+                #ddd 29px,
+                #ddd 30px
+            );
+            pointer-events: none;
+        }
+
+        .page-number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 0.8rem;
+            color: #999;
+            font-weight: bold;
+        }
+
+        .page h2 {
+            color: #c0392b;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 0.5rem;
+        }
+
+        .page h3 {
+            color: #8b4513;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .page p, .page ul {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .page ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        .page li::before {
+            content: '→ ';
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .handwritten {
+            font-family: 'Brush Script MT', cursive, 'Comic Sans MS', cursive;
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            transform: rotate(-1deg);
+            margin: 1rem 0;
+            padding: 0.5rem;
+            background: rgba(255, 255, 200, 0.3);
+        }
+
+        .urgent {
+            border: 3px solid #e74c3c;
+            padding: 1rem;
+            background: rgba(231, 76, 60, 0.1);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .circled {
+            border: 2px solid #c0392b;
+            border-radius: 50%;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            font-weight: bold;
+            color: #c0392b;
+            margin: 0.5rem;
+        }
+
+        .crossed-out {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+
+        .underlined {
+            text-decoration: underline;
+            text-decoration-color: #e74c3c;
+            text-decoration-thickness: 2px;
+        }
+
+        .address-box {
+            background: #fff9e6;
+            border: 1px dashed #8b7355;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: monospace;
+        }
+
+        .deteriorating {
+            font-family: 'Brush Script MT', cursive;
+            transform: rotate(-2deg);
+            color: #2a2a2a;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(200, 200, 200, 0.2);
+        }
+
+        .final-entry {
+            background: rgba(0, 0, 0, 0.05);
+            border: 3px solid #000;
+            padding: 2rem;
+            margin: 2rem 0;
+            font-family: 'Brush Script MT', cursive;
+            font-size: 1.2rem;
+            text-align: center;
+            transform: rotate(-1deg);
+        }
+
+        .blood-stain {
+            position: relative;
+        }
+
+        .blood-stain::after {
+            content: '';
+            position: absolute;
+            right: 2rem;
+            bottom: 2rem;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(139, 0, 0, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .sketch {
+            border: 1px solid #999;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+            font-style: italic;
+            background: #fafafa;
+        }
+
+        .warning-stamp {
+            display: inline-block;
+            border: 3px solid #c0392b;
+            color: #c0392b;
+            padding: 0.5rem 1rem;
+            font-weight: bold;
+            transform: rotate(-5deg);
+            margin: 1rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .notebook-container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="notebook-container">
+        <!-- Cover -->
+        <div class="notebook-cover">
+            <h1>D. VOLKOV</h1>
+            <div class="subtitle">Research Notes 2024-2025</div>
+            <div class="subtitle" style="margin-top: 1rem; font-size: 0.9rem;">
+                "Om du hittar detta..."
+            </div>
+        </div>
+
+        <!-- Pages -->
+        <div class="notebook-pages">
+
+            <!-- Page 1: Trip 19 Initial Research -->
+            <div class="page">
+                <div class="page-number">Page 47</div>
+                <h2>TRIP 19 - SENATOR LUNDEEN CONNECTION</h2>
+
+                <p><strong>31 augusti 1940, Lovettsville, Virginia</strong></p>
+
+                <ul>
+                    <li>Pennsylvania Central Airlines Flight 19</li>
+                    <li>25 döda, däribland senator Ernest Lundeen</li>
+                    <li>CAB investigation: "Pilot error + thunderstorm"</li>
+                    <li class="underlined">Men varför beslagtog FBI wreckage?</li>
+                </ul>
+
+                <div class="handwritten">
+                    Harriet Johnson (överlevare) dagbok köpt på auction 2024.
+                    Hon skrev om "humming" från baggage compartment.
+                    Samma humming som hon hörde i 60 år i mardrömmar.
+                </div>
+
+                <h3>SABOTAGE TEORI:</h3>
+                <p>Nazi-sabotage? Lundeen var isolationist, motståndare till Roosevelt.</p>
+                <p class="underlined">Men varför kristaller i wreckage?</p>
+
+                <div class="urgent">
+                    KRITISK UPPTÄCKT: Hittade 3 fragment kring crash site.<br>
+                    Analyserat vid lab - <span class="underlined">INTE JORDISKT URSPRUNG</span>.<br>
+                    Hummar konstant vid 247Hz när exponerat för elektricitet.
+                </div>
+
+                <p style="margin-top: 1rem; font-style: italic;">
+                    Detta är inte teknik. Detta är något annat.
+                </p>
+            </div>
+
+            <!-- Page 2: Leningrad Connection -->
+            <div class="page">
+                <div class="page-number">Page 89</div>
+                <h2>LENINGRAD 1942 - SAMMA FREKVENS</h2>
+
+                <p><strong>Nyårsnatten 31 december 1941 → 1 januari 1942</strong></p>
+
+                <div class="handwritten">
+                    GRU-dokument (läckt darkweb) talar om "incident" i Leningrad.
+                    SAMMA 247Hz frekvens detekterad av Soviet listening posts.
+                    120 människor exponerade. 76 dog inom 48 timmar.
+                    44 överlevde - fördes till Camp S-17.
+                </div>
+
+                <h3>NAZI TYPE-VIII APPARATUS:</h3>
+                <ul>
+                    <li>Utvecklad version av Type-VII (Trip 19 enheten)</li>
+                    <li>Flera kristaller, större räckvidd</li>
+                    <li>Deployerad runt Leningrad som "psykologiskt vapen"</li>
+                    <li>Aktiverades 23:45, 31 december 1941</li>
+                </ul>
+
+                <h3>SOVIET PROJECT ECHO:</h3>
+                <ul>
+                    <li>Counter-frequency försök (23:58)</li>
+                    <li>Resulterade i "harmonisk oscillation"</li>
+                    <li class="underlined">FÖRVÄRRADE situationen istället</li>
+                </ul>
+
+                <div class="circled">MIDNATT: KOLLISION</div>
+
+                <p style="margin-top: 1rem;">
+                    Tre krafter möttes: Nazi signal + Soviet Echo + <span class="crossed-out">okänt element</span>
+                    <span class="underlined">något under staden</span>
+                </p>
+
+                <div class="sketch">
+                    [ROUGH SKETCH: Kalenkos Orphanage location marked on Leningrad map]<br>
+                    "Huset försvann. 20 barn försvann med det."
+                </div>
+            </div>
+
+            <!-- Page 3: Camp S-17 -->
+            <div class="page">
+                <div class="page-number">Page 156</div>
+                <h2>CAMP S-17 - LENINGRAD OBLAST</h2>
+
+                <h3>Frankfurt Clinic Connection:</h3>
+                <p>Pyotr Menkinov vet ALLT. Han var där. Han överlevde.</p>
+
+                <div class="address-box">
+                    <strong>Frankfurt Clinic</strong><br>
+                    Dr. Helmut Schafer (direktör)<br>
+                    Karl Feuer (arkivarie) - betala 50 DM för "off-record"<br>
+                    <br>
+                    Special Ward, källaren:<br>
+                    9 patienter kvar från original 44
+                </div>
+
+                <ul style="margin-top: 1rem;">
+                    <li>1942-1946: Camp S-17 experiment</li>
+                    <li>1946: Transport till Frankfurt (Östtyskland, Stasi)</li>
+                    <li>Dr. Nina Tatlina's suppression protocol</li>
+                    <li class="underlined">De tre männen "försvann" 1950s från register</li>
+                </ul>
+
+                <div class="handwritten">
+                    Anton Mahler, Sasha Pogodin, Filip Kramer.
+                    Barn från Leningrad 1942.
+                    De bar något inuti dem när de försvann.
+                    De lever fortfarande. De jagar fragment.
+                </div>
+
+                <p style="color: #c0392b; font-weight: bold; margin-top: 1rem;">
+                    Varför jagar DE samma sak som JAG?
+                </p>
+            </div>
+
+            <!-- Page 4: Fragment Locations -->
+            <div class="page">
+                <div class="page-number">Page 178</div>
+                <h2>FRAGMENT - LOCATIONS IDENTIFIED</h2>
+
+                <h3>USA (Lovettsville area):</h3>
+                <ul>
+                    <li class="crossed-out">Fragment A - hittad 2024, min possession</li>
+                    <li class="crossed-out">Fragment B - hittad 2024, min possession</li>
+                    <li class="crossed-out">Fragment C - hittad 2025, min possession</li>
+                    <li>Fragment D-F: Fortfarande begravda? Koordinater: [wirriga siffror]</li>
+                </ul>
+
+                <h3>Tyskland:</h3>
+                <div class="address-box">
+                    <strong>Harmann's Mechanical Workshop</strong><br>
+                    Werner Harmann (ägare)<br>
+                    Invalidenstraße 87, Berlin<br>
+                    <br>
+                    <span class="underlined">VIKTIGT: Källare - smuggling operation</span><br>
+                    Träbackar märkta "Slava - Moscow Delivery"<br>
+                    Innehåller fragment??? Måste verifiera.
+                </div>
+
+                <h3>Moskva:</h3>
+                <ul>
+                    <li>Slava organization (rysk kulturförening)</li>
+                    <li>Transporterar fragment från Tyskland till Ryssland</li>
+                    <li>Koppling till de tre männen?</li>
+                </ul>
+
+                <div class="handwritten" style="margin-top: 2rem;">
+                    När jag håller fragment C känner jag... något.
+                    Det hummar inte längre bara fysiskt.
+                    Det hummar i mitt huvud.
+                    Jag hör röster som inte är mina.
+                </div>
+            </div>
+
+            <!-- Page 5: GG Connection -->
+            <div class="page blood-stain">
+                <div class="page-number">Page 203</div>
+                <h2>GERMANISCHE GEMEINSCHAFT - DE ANVÄNDER DEM</h2>
+
+                <div class="warning-stamp">AKUT</div>
+
+                <div class="address-box">
+                    <strong>Germanische Gemeinschaft HQ</strong><br>
+                    Lychener Straße 47, Prenzlauer Berg, Berlin<br>
+                    <br>
+                    Leonard Freude - "Führer"<br>
+                    (Han vet INTE vad han gör. Han är verktyg.)
+                </div>
+
+                <h3>Rally Information:</h3>
+                <div class="urgent">
+                    DATUM: <span class="circled" style="font-size: 1.5rem;">15 MAJ</span><br>
+                    PLATS: Alexanderplatz, Berlin<br>
+                    ATTENDEES: 3000+ förväntade<br>
+                    <br>
+                    <span style="font-size: 1.2rem; color: #c0392b;">24 FRAGMENT</span>
+                </div>
+
+                <p style="margin-top: 1rem;">
+                    De tre männen använder GG för distribution.
+                    Freude är idiot men villig.
+                    Talar om "ariskt arv" och "forntida kraft".
+                    Han förstår INTE vad fragmenten egentligen är.
+                </p>
+
+                <h3>Plan (vad jag förstår):</h3>
+                <ul>
+                    <li>24 fragment placeras runt Alexanderplatz</li>
+                    <li>3000+ människor närvarande vid rallyt</li>
+                    <li>Någon form av "aktivering" under Freudes tal</li>
+                    <li class="underlined">Mass-exponering = 500-1000 drönare skapas</li>
+                </ul>
+
+                <div class="deteriorating">
+                    Berlin faller först.
+                    Sedan Moskva.
+                    Sedan... hem?
+                    Vems hem?
+                    Inte mitt. Inte längre.
+                </div>
+            </div>
+
+            <!-- Page 6: Transformation Notes -->
+            <div class="page">
+                <div class="page-number">Page 194</div>
+                <h2>TRANSFORMATION - SELF OBSERVATION</h2>
+
+                <p><strong>December 2024 (efter Mall incident):</strong></p>
+                <ul>
+                    <li>Drömmar om platser jag aldrig besökt</li>
+                    <li>"Minnen" från tider före min födelse</li>
+                    <li>Plötsligt förstår saker jag inte studerat</li>
+                </ul>
+
+                <p style="margin-top: 1rem;"><strong>Mars 2025:</strong></p>
+                <ul>
+                    <li>Blackouts - vet inte vad jag gjorde</li>
+                    <li>Hittade mig själv vid fragment-sites utan minne av resan</li>
+                    <li class="crossed-out">Ögonen reflekterar ljus konstigt ibland</li>
+                </ul>
+
+                <p style="margin-top: 1rem;"><strong>April 2025:</strong></p>
+                <div class="deteriorating">
+                    Ögonen alltid fel nu.
+                    Pratar ibland språk jag inte känner.
+                    "Vi" säger jag. Inte "jag". "Vi".
+                    Varför "vi"? Jag är ensam.
+                    Är jag ensam?
+                </div>
+
+                <div class="handwritten" style="margin-top: 2rem; border: 2px solid #c0392b; padding: 1rem;">
+                    Magda.
+                    Det var inte jag.
+                    Det var VI.
+                    De tvingade mig.
+                    Jag försökte stoppa mina händer men de rörde sig ändå.
+                    Förlåt. Förlåt. Förlåt.
+                </div>
+            </div>
+
+            <!-- Page 7: Desperate Research -->
+            <div class="page">
+                <div class="page-number">Page 201</div>
+                <h2 style="transform: rotate(-2deg);">JAG KAN INTE STOPPA MIG SJÄLV</h2>
+
+                <div class="deteriorating">
+                    Researchar om fragment men VEM styr researchen?
+                    Jag ville förstå.
+                    Nu förstår JAG för mycket.
+
+                    247Hz är inte bara frekvens.
+                    Det är SIGNAL.
+                    Det är RÖP.
+                    Det är "RING HEM".
+
+                    Men hem till VAR?
+                    Permian-perioden.
+                    Miljoner år sedan.
+                    De vill tillbaka.
+                    De använder mig för att hitta vägen.
+                </div>
+
+                <p style="margin-top: 2rem; text-align: center; font-weight: bold; font-size: 1.2rem;">
+                    Yithianerna.
+                </p>
+
+                <p style="margin-top: 1rem;">
+                    Great Race of Yith.
+                    Inte gudar. Inte demoner.
+                    Något mycket värre:
+                    <span class="underlined">Likgiltighet.</span>
+                </p>
+
+                <div class="handwritten" style="margin-top: 2rem;">
+                    De bryr sig inte om mig.
+                    Om någon.
+                    Vi är insekter för dem.
+                    Verktyg.
+                    Behållare.
+                </div>
+            </div>
+
+            <!-- Page 8: Contact Information -->
+            <div class="page">
+                <div class="page-number">Page 188</div>
+                <h2>CONTACTS - WHO TO WARN</h2>
+
+                <div class="address-box">
+                    <strong>Magda Orlova</strong> (historian)<br>
+                    <span class="crossed-out">Hamburg research apartment</span><br>
+                    <span class="crossed-out">Berlin apartment</span><br>
+                    <span style="color: #c0392b;">DEAD. Min fel. Förlåt.</span>
+                </div>
+
+                <div class="address-box" style="margin-top: 1rem;">
+                    <strong>Frankfurt Clinic</strong><br>
+                    Pyotr Menkinov (patient, Special Ward)<br>
+                    Han vet. Han förstår.<br>
+                    Han kämpat mot det i 83 år.<br>
+                    Kan han hjälpa mig?
+                </div>
+
+                <div class="handwritten" style="margin-top: 2rem;">
+                    För sent för mig.
+                    Men rallyt...
+                    3000 människor blir som jag.
+                    Som de tre männen.
+                    Som drönarna.
+
+                    NÅGON måste stoppa det.
+                </div>
+            </div>
+
+            <!-- FINAL PAGE: Last Entry -->
+            <div class="page blood-stain">
+                <div class="page-number">Page 204</div>
+
+                <div class="final-entry">
+                    Om du hittar detta:<br>
+                    <br>
+                    DÖDA MIG.<br>
+                    <br>
+                    Jag är inte jag längre.<br>
+                    <br>
+                    Men först - STOPPA RALLYT.<br>
+                    15 maj. Alexanderplatz.<br>
+                    24 fragment. 3000 människor.<br>
+                    <br>
+                    Harmann's workshop.<br>
+                    Fragmenten är där NU.<br>
+                    Innan de flyttar dem till rally site.<br>
+                    <br>
+                    Stoppa Freude.<br>
+                    Stoppa de tre männen.<br>
+                    Stoppa fragmenten från att återförenas.<br>
+                    <br>
+                    Annars... tusentals... som mig...<br>
+                    <br>
+                    - D.V.<br>
+                    <br>
+                    <span style="font-size: 0.8rem; font-style: italic;">
+                    (Om jag fortfarande är "D.V." när jag skriver detta)
+                    </span>
+                </div>
+
+                <!-- Strange writing after -->
+                <div style="margin-top: 3rem; text-align: center; font-family: 'Times New Roman'; letter-spacing: 3px; transform: rotate(180deg); opacity: 0.7;">
+                    ᚹᛁ ᚨᚱ ᛗᚨᚾᚷᚨ<br>
+                    ᚹᛁ ᚨᚱ ᛖᚲᛟᛏ<br>
+                    ᚠᚱᚨᚷᛗᛖᚾᛏᛖᚾ ᚲᚨᛚᛚᚨᚱ
+                </div>
+
+                <p style="margin-top: 2rem; text-align: center; font-size: 0.8rem; font-style: italic; opacity: 0.5;">
+                    [Översättning: "Vi är många. Vi är ekot. Fragmenten kallar."]
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div style="text-align: center; margin: 2rem; color: #666; font-size: 0.9rem;">
+        <p>DELTA GREEN // TRIP 19: BLACK MADONNA // HANDOUT</p>
+        <p>DMITRI VOLKOV'S NOTEBOOK - Player Handout</p>
+        <p style="margin-top: 0.5rem; font-style: italic;">
+            "Some pages appear water-damaged. Others show blood stains.<br>
+            The handwriting deteriorates noticeably in later entries."
+        </p>
+    </div>
+</body>
+</html>

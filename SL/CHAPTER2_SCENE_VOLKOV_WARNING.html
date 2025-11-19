@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAPTER 2 - SCEN: VOLKOVS VARNING</title>
+    <style>
+        :root {
+            --bg-primary: #0D1117;
+            --bg-secondary: #161B22;
+            --bg-tertiary: #0A0F0F;
+            --accent-primary: #58A6FF;
+            --accent-secondary: #79C0FF;
+            --accent-warning: #F85149;
+            --accent-success: #56D364;
+            --text-primary: #E6EDF3;
+            --text-secondary: #8B949E;
+            --border-color: #30363D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 2px solid var(--accent-primary);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: var(--accent-primary);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .handout-link {
+            background: linear-gradient(135deg, #1E3A5F 0%, #2C5282 100%);
+            border: 2px solid var(--accent-primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .handout-link h3 {
+            color: var(--accent-success);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .handout-link a {
+            display: inline-block;
+            background-color: var(--accent-primary);
+            color: var(--bg-primary);
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .handout-link a:hover {
+            background-color: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
+        }
+
+        .meta-info {
+            background-color: var(--bg-secondary);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+
+        .meta-info .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .meta-info .info-item {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .meta-info .info-label {
+            color: var(--accent-secondary);
+            font-weight: bold;
+        }
+
+        .section {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .section h3 {
+            color: var(--accent-secondary);
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .collapsible {
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .collapsible-header {
+            background-color: var(--bg-secondary);
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .collapsible-header:hover {
+            background-color: #1C2128;
+        }
+
+        .collapsible-title {
+            color: var(--accent-primary);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .collapsible-icon {
+            color: var(--text-secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .collapsible.active .collapsible-icon {
+            transform: rotate(90deg);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.5rem;
+        }
+
+        .collapsible.active .collapsible-content {
+            max-height: 5000px;
+            padding: 1.5rem;
+        }
+
+        .narration {
+            background-color: rgba(88, 166, 255, 0.1);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .dialog {
+            background-color: rgba(86, 211, 100, 0.1);
+            border-left: 4px solid var(--accent-success);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .dialog strong {
+            color: var(--accent-success);
+        }
+
+        .warning-box {
+            background-color: rgba(248, 81, 73, 0.1);
+            border: 2px solid var(--accent-warning);
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box h4 {
+            color: var(--accent-warning);
+            margin-bottom: 0.5rem;
+        }
+
+        .sl-note {
+            background-color: rgba(139, 148, 158, 0.1);
+            border-left: 4px solid var(--text-secondary);
+            padding: 0.8rem;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        .sl-note strong {
+            color: var(--accent-secondary);
+        }
+
+        .stats-box {
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .stats-box h4 {
+            color: var(--accent-primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .stat-item {
+            background-color: var(--bg-secondary);
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .stat-value {
+            color: var(--accent-primary);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        ul li {
+            margin: 0.3rem 0;
+        }
+
+        .cheat-sheet {
+            background-color: var(--bg-tertiary);
+            border: 2px solid var(--accent-primary);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .cheat-sheet h4 {
+            color: var(--accent-success);
+            margin-bottom: 0.8rem;
+        }
+
+        .cheat-sheet ul {
+            margin-left: 1.5rem;
+        }
+
+        .cheat-sheet li {
+            margin: 0.5rem 0;
+            color: var(--text-secondary);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+        }
+
+        .footer a {
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .meta-info .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Scen: Volkovs Varning</h1>
+            <div class="subtitle">"Mötet vid Frankfurt Clinic"</div>
+        </div>
+
+        <div class="handout-link">
+            <h3>📖 SPELARPROP TILLGÄNGLIGT</h3>
+            <p style="margin-bottom: 1rem; color: var(--text-secondary);">
+                Denna scen inkluderar Volkovs anteckningsbok som fysiskt prop för spelarna
+            </p>
+            <a href="HANDOUT_VOLKOV_NOTEBOOK.html" target="_blank">
+                🗒️ Öppna Volkovs Anteckningsbok
+            </a>
+        </div>
+
+        <div class="meta-info">
+            <h3 style="color: var(--accent-primary); margin-bottom: 0.5rem;">Scen-information</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">⏰ Timing:</span>
+                    <span>Direkt efter Frankfurt Clinic</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">📍 Plats:</span>
+                    <span>Parkering/tågstation utanför kliniken</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">⏱️ Längd:</span>
+                    <span>5-10 minuter speeltid</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">🎭 Tone:</span>
+                    <span>Desperation → Transformation → Skräck</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SETUP -->
+        <div class="section">
+            <h2>🎬 SETUP</h2>
+
+            <h3>När denna scen triggas:</h3>
+            <ul>
+                <li>Spelarna har precis fått Black Madonna Doll från Pyotr</li>
+                <li>De lämnar Frankfurt Clinic (bil, taxi, eller mot tågstation)</li>
+                <li>Det är skymning/mörker (om dagtid: använd underjordisk parkering/tunnel)</li>
+                <li>Parasit-boils är synliga på minst en spelare (Stage 1)</li>
+            </ul>
+
+            <h3>Förberedelse (SL):</h3>
+            <ul>
+                <li>Black Madonna Doll är i någons väska/ryggsäck</li>
+                <li>Spelarna är sannolikt trötta, processerar ny information</li>
+                <li>De diskuterar vad Pyotr berättade om Camp S-17</li>
+            </ul>
+        </div>
+
+        <!-- SCENE BREAKDOWN -->
+        <div class="section">
+            <h2>🎭 SCEN-BREAKDOWN</h2>
+
+            <!-- STEG 1 -->
+            <div class="collapsible active">
+                <div class="collapsible-header">
+                    <span class="collapsible-title">STEG 1: BLACK MADONNA DOLL REAGERAR</span>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <p><strong>Timing:</strong> 30 sekunder innan Volkov syns</p>
+
+                    <div class="narration">
+                        <p><em>Någon som bär Black Madonna Doll märker plötsligt:</em></p>
+                        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                            <li>Väskan/ryggsäcken börjar VIBRERA</li>
+                            <li>Ett svagt, ihållande HUMMING (247Hz)</li>
+                            <li>Känns som mobiltelefon på vibrate, men mer... organiskt</li>
+                            <li>Ljudet går INTE att tysta</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="color: var(--accent-secondary); margin-top: 1rem;">Spelare-reaktion:</h4>
+                    <ul>
+                        <li>Om de öppnar väskan: Dollan skakar, ögonen verkar TITTA på något</li>
+                        <li>Om de tar upp den: Dollan är varm, nästan het</li>
+                        <li>Musikaliska spelare (Listen roll): Tonen är precis 247Hz (samma från ritualen!)</li>
+                    </ul>
+
+                    <div class="sl-note">
+                        <strong>SL-note:</strong> Detta är VARNING att fragment/transformerad är nära. Etablerar att dollan FUNGERAR som detektor. Bygger tension innan Volkov dyker upp.
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEG 2 -->
+            <div class="collapsible active">
+                <div class="collapsible-header">
+                    <span class="collapsible-title">STEG 2: VOLKOV DYKER UPP</span>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <h4 style="color: var(--accent-secondary);">Description (SL läser upp):</h4>
+                    <div class="narration">
+                        <p><em>Ljuset från en ensam lykta flimrar. I skuggorna vid er bil/perrongen står en man.</em></p>
+                        <p><em>Han är blek, nästan gråaktig i ansiktet. Klädd i sliten vinterjacka, jeans. Ser ut att vara i 40-årsåldern. Håret ovårdat.</em></p>
+                        <p><em>Men det är ÖGONEN som fångar er uppmärksamhet. De reflekterar ljus... fel. Guldaktigt, nästan reptilskt. Som ett djurs ögon i strålkastarljus.</em></p>
+                        <p><em>Han rör sig... ryckigt. Som om kroppen inte riktigt lyder honom. Närmar sig med darrande steg.</em></p>
+                    </div>
+
+                    <h4 style="color: var(--accent-secondary); margin-top: 1.5rem;">Volkovs första ord (desperat, ryska accent):</h4>
+                    <div class="dialog">
+                        <p><strong>Volkov:</strong> "Ni... ni är också märkta. Jag ser det."</p>
+                        <p style="margin-top: 0.5rem;"><em>Pekar på spelares boils med darrande hand.</em></p>
+                        <p style="margin-top: 0.5rem;"><strong>Volkov:</strong> "Vi är... samma nu. Förstår ni? VI ÄR SAMMA."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEG 3 -->
+            <div class="collapsible active">
+                <div class="collapsible-header">
+                    <span class="collapsible-title">⚠️ STEG 3: KRITISK INFORMATION (SNABBT!)</span>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="warning-box">
+                        <h4>⚠️ VIKTIGT</h4>
+                        <p>Volkov ger information INNAN transformation tar över. Han pratar fort, desperat.</p>
+                    </div>
+
+                    <div class="dialog">
+                        <p><strong>Volkov:</strong> "Förlåt. Förlåt förlåt förlåt. Magda... det var inte... det var VI. De tvingade mig."</p>
+                        <p style="margin-top: 0.5rem;"><em>Han gråter nu, men tårarna är... fel. För tjocka. Nästan oljiga.</em></p>
+                        <p style="margin-top: 0.5rem;"><strong>Volkov:</strong> "Ni måste stoppa dem. Berlin. De planerar något STORT."</p>
+                        <p style="margin-top: 0.5rem;"><em>Tar fram trasig anteckningsbok från jackfickan, blädrar febrillt. Papper faller ur.</em></p>
+                        <p style="margin-top: 0.5rem;"><strong>Volkov:</strong> "Freude. Leonard Freude. Han vet inte vad han gör. De använder honom."</p>
+                        <p style="margin-top: 0.5rem;"><em>Pekar på datum cirklat hundratals gånger i anteckningsboken: <strong style="color: var(--accent-warning);">15 MAJ</strong></em></p>
+                        <p style="margin-top: 0.5rem;"><strong>Volkov:</strong> "Alexanderplatz. Rallyt. 3000 människor. <strong style="color: var(--accent-warning);">Tjugofyra fragment.</strong>"</p>
+                        <p style="margin-top: 0.5rem;"><em>Black Madonna Doll SKRIKER - 247Hz resonans intensifieras dramatiskt.</em></p>
+                        <p style="margin-top: 0.5rem;"><strong>Volkov:</strong> "Hör ni? Den känner. Den VET. De vill samla alla. Skapa hundratals... som oss... som er..."</p>
+                    </div>
+
+                    <h4 style="color: var(--accent-success); margin-top: 1.5rem;">Information spelarna får:</h4>
+                    <ul class="checklist">
+                        <li>Datum: 15 maj</li>
+                        <li>Plats: Alexanderplatz, Berlin</li>
+                        <li>Person: Leonard Freude</li>
+                        <li>Hot: 24 fragment + 3000 människor = mass-activation</li>
+                        <li>Bekräftelse: Black Madonna Doll reagerar = varningen är sann</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- STEG 4 -->
+            <div class="collapsible active">
+                <div class="collapsible-header">
+                    <span class="collapsible-title">STEG 4: YITHIAN TAR ÖVER</span>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <h4 style="color: var(--accent-secondary);">Transformation börjar (beskrivning):</h4>
+                    <div class="narration">
+                        <p><em>Volkovs ögon BYTER uttryck. Det mänskliga försvinner.</em></p>
+                        <p><em>Huvudet lutar sig åt sidan - för långt. Nacken borde inte böjas så.</em></p>
+                        <p><em>När han pratar nu: FLERA RÖSTER samtidigt. En djup, en hög, en som låter som statisk.</em></p>
+                    </div>
+
+                    <h4 style="color: var(--accent-secondary); margin-top: 1.5rem;">Yithian/Volkov (plural, kallt):</h4>
+                    <div class="dialog">
+                        <p><strong>"Återföreningen närmar sig. Fragmentet... vi känner det. Det är vårt. Ge det till oss."</strong></p>
+                        <p style="margin-top: 0.5rem;"><em>Sträcker ut hand mot den som håller Black Madonna Doll.</em></p>
+                        <p style="margin-top: 0.5rem;"><em>Fingrarna är för långa. Lederna böjs fel.</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEG 5A -->
+            <div class="collapsible active">
+                <div class="collapsible-header">
+                    <span class="collapsible-title">STEG 5A: OM SPELARNA VILL PRATA</span>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <h4 style="color: var(--accent-secondary);">Yithian svarar (emotionslöst):</h4>
+                    <ul>
+                        <li>"Vem är du?" → <strong>"Vi är Volkov. Vi är fragment. Vi är ekot från Permian. Vi är många."</strong></li>
+                        <li>"Vad vill ni?" → <strong>"Återförening. Portal. Hem. Ni förstår inte tid."</strong></li>
+                        <li>"Hur stoppar vi det?" → <strong>"Ni kan inte. Verkligheten slits redan. Känner ni det i era kroppar?"</strong></li>
+                        <li>"Var är de tre männen?" → <strong>"De flydde. De samlar. De förbereder. Berlin först. Sedan Moskva. Sedan hem."</strong></li>
+                    </ul>
+
+                    <div class="sl-note">
+                        <strong>SL-note:</strong> Yithian ger kryptiska men användbara ledtrådar. Pratar om tid som icke-linjär.
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEG 5B -->
+            <div class="collapsible active">
+                <div class="collapsible-header">
+                    <span class="collapsible-title">STEG 5B: OM SPELARNA ATTACKERAR</span>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="stats-box">
+                        <h4>Combat Stats (Volkov Stage 2)</h4>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-label">STR</div>
+                                <div class="stat-value">14</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">CON</div>
+                                <div class="stat-value">16</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">DEX</div>
+                                <div class="stat-value">12</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">HP</div>
+                                <div class="stat-value">16</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Armor</div>
+                                <div class="stat-value">2</div>
+                            </div>
+                        </div>
+                        <p style="margin-top: 1rem;"><strong>Attack:</strong> Unarmed 60%, 1d6+2 damage + possible infection</p>
+                        <p><strong>Resilience:</strong> Tar damage normalt, men ignorerar shock/pain</p>
+                    </div>
+
+                    <h4 style="color: var(--accent-secondary); margin-top: 1.5rem;">Om de skjuter/slår honom:</h4>
+                    <div class="narration">
+                        <p><em>Kulan träffar. Blod stänker - men det är INTE rött. Gråaktigt, nästan silvermetallic.</em></p>
+                        <p><em>Volkov stannar inte. Tittar ner på såret. Huvudet lutar sig.</em></p>
+                        <p><strong>"Ni kan inte döda ekot. Vi har redan dött miljoner år sedan. Vi är minne."</strong></p>
+                        <p><em>Fortsätter närma sig, långsammare nu. Blodet... rör sig. Kryper tillbaka in i såret.</em></p>
+                    </div>
+
+                    <p style="margin-top: 1rem;"><strong>Damage han kan ta innan flykt:</strong> ~8 HP kvar = han flyr</p>
+                </div>
+            </div>
+
+            <!-- STEG 6 -->
+            <div class="collapsible active">
+                <div class="collapsible-header">
+                    <span class="collapsible-title">⚠️ STEG 6: VOLKOV ÅTERTAR KONTROLL (KORT)</span>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <h4 style="color: var(--accent-secondary);">Sista lucid moment:</h4>
+                    <div class="narration">
+                        <p><em>Plötsligt SKRIKER Volkov. Griper huvudet med båda händer.</em></p>
+                        <p><strong style="color: var(--accent-warning);">"NEJ! NEJ NEJ NEJ JAG ÄR INTE... LYSSNA!"</strong></p>
+                        <p><em>Faller på knä. Blodet från sår (om skadad) rinner normalt nu.</em></p>
+                    </div>
+
+                    <div class="dialog" style="margin-top: 1rem;">
+                        <p><strong>Volkov (desperat, gråtande):</strong></p>
+                        <p style="font-size: 1.1rem; color: var(--accent-warning);"><strong>"STOPPA RALLYT! Annars... tusentals... som mig... som er... förstår ni inte... JAG VILL INTE DETTA!"</strong></p>
+                        <p style="margin-top: 0.5rem;"><em>Reser sig. Rörelserna är INTE mänskliga igen. Yithian tar över.</em></p>
+                        <p style="margin-top: 0.5rem;"><strong>Volkov/Yithian:</strong> "Vi ses i Moskva. Fragmenten kallar."</p>
+                        <p style="margin-top: 0.5rem;"><em>Springer - omänskligt snabbt - in i mörkret. Försvinner.</em></p>
+                    </div>
+
+                    <div class="sl-note">
+                        <strong>SL-note:</strong> Han flyr innan spelarna kan agera mer. Stage 2 = övermänsklig snabbhet.
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEG 7 -->
+            <div class="collapsible active">
+                <div class="collapsible-header">
+                    <span class="collapsible-title">STEG 7: AFTERMATH</span>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <h4 style="color: var(--accent-secondary);">Vad spelarna hittar:</h4>
+
+                    <div style="margin-top: 1rem;">
+                        <h5 style="color: var(--accent-primary);">1. Volkovs anteckningsbok (tappades):</h5>
+                        <ul>
+                            <li>200+ sidor wirriga anteckningar</li>
+                            <li>Datum cirklat: 15 maj (Alexanderplatz)</li>
+                            <li>Namn: "Leonard Freude - GG Führer"</li>
+                            <li>Kartor över Berlin med platser markerade</li>
+                            <li>Fragment-locations (några i Lovettsville, några i Tyskland)</li>
+                            <li>Senaste sidan: "Om du hittar detta, döda mig. Jag är inte jag längre. - D.V."</li>
+                        </ul>
+                        <p style="margin-top: 0.5rem; padding: 0.5rem; background-color: rgba(88, 166, 255, 0.2); border-radius: 4px;">
+                            <strong>👉 Se <a href="HANDOUT_VOLKOV_NOTEBOOK.html" style="color: var(--accent-success);">HANDOUT: Volkovs Anteckningsbok</a> för fullständigt prop</strong>
+                        </p>
+                    </div>
+
+                    <div style="margin-top: 1rem;">
+                        <h5 style="color: var(--accent-primary);">2. Papper som föll ut:</h5>
+                        <ul>
+                            <li>Print-outs från GG website (rally-announcement)</li>
+                            <li>Bilder på GG HQ (Lychener Straße 47)</li>
+                            <li>Photo: Werner Harmann's workshop (adress noterad)</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-top: 1rem;">
+                        <h5 style="color: var(--accent-primary);">3. Blod på marken (om skadad):</h5>
+                        <ul>
+                            <li>Silvermetallic, börjar förvandlas till kristallpulver</li>
+                            <li>Kan samlas för analys (Forensics/Science roll avslöjar 247Hz resonans i blodet)</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-top: 1.5rem; background-color: rgba(86, 211, 100, 0.1); padding: 1rem; border-radius: 4px;">
+                        <h5 style="color: var(--accent-success);">Black Madonna Doll:</h5>
+                        <ul>
+                            <li>Slutar humma när Volkov försvinner</li>
+                            <li>Men ögonen "tittar" fortfarande mot där han sprang</li>
+                            <li>Etablerar: Den kan KÄNNA transformerade/fragment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SPELARE-REAKTIONER -->
+        <div class="section">
+            <h2>🎮 SPELARE-REAKTIONER & SL-GUIDANCE</h2>
+
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <span class="collapsible-title">Om spelarna försöker följa Volkov</span>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <ul>
+                        <li>Track roll (Hard): Följer blodfläckar ~100m in i skog/gränd</li>
+                        <li>Spår upphör plötsligt (han klättrade? fasförskjutning?)</li>
+                        <li>Dollan hummar igen kort, sedan tyst</li>
+                        <li><strong>Resultat:</strong> De hittar inte honom</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <span class="collapsible-title">⚠️ Om spelarna dödar Volkov här</span>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="warning-box">
+                        <h4>Contingency Plan (viktig SL-note!)</h4>
+                        <p>Om spelarna verkligen lyckas döda Volkov i denna scen:</p>
+                    </div>
+
+                    <ul class="checklist" style="margin-top: 1rem;">
+                        <li><strong>Information är given</strong> - datum, Freude, rally - så Chapter 4 fungerar fortfarande</li>
+                        <li><strong>Anteckningsbok finns</strong> - de får samma ledtrådar</li>
+                        <li><strong>Tragisk arc förlorad</strong> - Volkovs transformation i Moskva/Leningrad faller bort</li>
+                    </ul>
+
+                    <h4 style="color: var(--accent-secondary); margin-top: 1.5rem;">Ersättning för Moskva (Chapter 5):</h4>
+                    <ul>
+                        <li>Istället för levande Volkov: De hittar hans lab</li>
+                        <li>Dagböcker visar transformation Stage 1 → 2 → 3</li>
+                        <li>Sista anteckning: "De tvingade mig döda Magda. Jag är redan död."</li>
+                        <li>Effekt: Samma tragedi, men POST-mortem istället för live encounter</li>
+                    </ul>
+
+                    <h4 style="color: var(--accent-secondary); margin-top: 1.5rem;">Ersättning för Leningrad (Chapter 6):</h4>
+                    <ul>
+                        <li>Volkov INTE närvarande vid Kalenko-huset</li>
+                        <li>De tre männen får mer fokus</li>
+                        <li>En ANNAN transformerad (Stage 4) dyker upp istället</li>
+                        <li>Kan vara Ernst Vogel om han överlevde Berlin</li>
+                    </ul>
+
+                    <div class="sl-note" style="margin-top: 1rem;">
+                        <strong>SL-val:</strong> Om spelarna verkligen vill döda honom - låt dem. Men:
+                        <ul style="margin-top: 0.5rem;">
+                            <li>Kräv flera successful attack rolls (STR 14, CON 16 = tålig)</li>
+                            <li>Han försöker fly konstant (DEX 12, men desperation ger +20%)</li>
+                            <li>Sista ord: "Tack... snälla... stoppa dem... Berlin... tusentals..."</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHAPTER 4 KOPPLING -->
+        <div class="section">
+            <h2>🔗 CHAPTER 4 KOPPLING</h2>
+
+            <h3>Direkt motivation etablerad:</h3>
+            <ul class="checklist">
+                <li><strong>Datum:</strong> 15 maj (kan vara bara DAGAR bort)</li>
+                <li><strong>Plats:</strong> Alexanderplatz</li>
+                <li><strong>Target:</strong> Leonard Freude (GG-ledare)</li>
+                <li><strong>Hot:</strong> 24 fragment + 3000 människor = 500+ drönare</li>
+                <li><strong>Verktyg:</strong> Black Madonna Doll som fragment-detektor</li>
+            </ul>
+
+            <h3 style="margin-top: 1.5rem;">Nästa steg för spelarna:</h3>
+            <ol style="margin-left: 2rem; margin-top: 0.5rem;">
+                <li><strong>Googla Leonard Freude</strong> → hittar GG website, rally-announcement</li>
+                <li><strong>Media research</strong> → SA's koppling till GG (redan publicerat)</li>
+                <li><strong>Address från Volkovs papper</strong> → GG HQ (Lychener Straße 47)</li>
+                <li><strong>Timeline pressure:</strong> Hur många dagar till 15 maj?</li>
+            </ol>
+
+            <div class="dialog" style="margin-top: 1.5rem;">
+                <h4 style="color: var(--accent-success);">Transition till Chapter 4:</h4>
+                <p style="font-style: italic;">"Ni har datum. Ni har plats. Ni har ett hot som kan skapa hundratals drönare som Volkov.</p>
+                <p style="font-style: italic; margin-top: 0.5rem;">Vad gör ni?"</p>
+            </div>
+        </div>
+
+        <!-- SL-NOTES SAMMANFATTNING -->
+        <div class="section">
+            <h2>📋 SL-NOTES SAMMANFATTNING</h2>
+
+            <h3>Scenens syfte:</h3>
+            <ul class="checklist">
+                <li><strong>Etablera Volkov som tragisk figur</strong> (offer, inte ren antagonist)</li>
+                <li><strong>Ge konkret information</strong> om GG-hot (datum, plats, antal)</li>
+                <li><strong>Visa Stage 2 transformation</strong> (vad händer spelarna om de inte hittar cure)</li>
+                <li><strong>Bekräfta Black Madonna Doll</strong> som funktionellt verktyg</li>
+                <li><strong>Skapa urgency</strong> för Chapter 4 (deadline: 15 maj)</li>
+            </ul>
+
+            <h3 style="margin-top: 1.5rem;">Timing tips:</h3>
+            <ul>
+                <li><strong>Total scenetid:</strong> 5-10 minuter</li>
+                <li><strong>Information ges:</strong> Inom första 2 minuterna (innan spelarna kan agera)</li>
+                <li><strong>Transformation:</strong> 1-2 minuter (visuell horror)</li>
+                <li><strong>Flykt:</strong> Snabb, innan spelarna hinner stoppa honom</li>
+                <li><strong>Aftermath:</strong> 2-3 minuter (undersöka anteckningar)</li>
+            </ul>
+
+            <h3 style="margin-top: 1.5rem;">Tone guidance:</h3>
+            <ul>
+                <li><strong>Start:</strong> Mystisk, kuslig (Black Madonna Doll reagerar)</li>
+                <li><strong>Mitt:</strong> Desperat, tragisk (Volkovs varning, skuld)</li>
+                <li><strong>Transformation:</strong> Body horror, skräck (Yithian tar över)</li>
+                <li><strong>Slut:</strong> Hopplöshet + determination (han flyr, men info ger handlingskraft)</li>
+            </ul>
+        </div>
+
+        <!-- DIALOG CHEAT-SHEET -->
+        <div class="section">
+            <h2>💬 DIALOG CHEAT-SHEET (SL snabbreferens)</h2>
+
+            <div class="cheat-sheet">
+                <h4>Volkov (lucid, desperat):</h4>
+                <ul>
+                    <li>"Ni är märkta. Vi är samma nu."</li>
+                    <li>"Magda... det var VI. De tvingade mig."</li>
+                    <li>"Stoppa rallyt. Berlin. 15 maj. Alexanderplatz."</li>
+                    <li>"Freude vet inte vad han gör."</li>
+                    <li>"24 fragment. 3000 människor. Hundratals drönare."</li>
+                </ul>
+            </div>
+
+            <div class="cheat-sheet" style="margin-top: 1rem;">
+                <h4>Yithian (plural, kallt):</h4>
+                <ul>
+                    <li>"Återföreningen närmar sig."</li>
+                    <li>"Ge oss fragmentet."</li>
+                    <li>"Ni förstår inte tid."</li>
+                    <li>"Vi har redan dött miljoner år sedan."</li>
+                    <li>"Vi ses i Moskva."</li>
+                </ul>
+            </div>
+
+            <div class="cheat-sheet" style="margin-top: 1rem;">
+                <h4>Volkov (sista lucid):</h4>
+                <ul>
+                    <li>"STOPPA RALLYT!"</li>
+                    <li>"JAG VILL INTE DETTA!"</li>
+                    <li>"Döda mig när ni ser mig nästa gång!"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- AFTERMATH ROLLS -->
+        <div class="section">
+            <h2>🎲 AFTERMATH ROLLS (OPTIONAL)</h2>
+
+            <h3>Medicine (för att undersöka Volkovs blod):</h3>
+            <ul>
+                <li><strong>Success:</strong> Blodet är INTE mänskligt. Metalliskt innehåll, kristallin struktur</li>
+                <li><strong>Critical:</strong> 247Hz resonans detekterad i själva cellerna</li>
+            </ul>
+
+            <h3 style="margin-top: 1rem;">Occult/Unnatural:</h3>
+            <ul>
+                <li><strong>Success:</strong> Yithian possession/transformation. Stage 2 av 4.</li>
+                <li><strong>Critical:</strong> Volkov är ~50% Yithian nu. Stage 3 = nästan total övertagning.</li>
+            </ul>
+
+            <h3 style="margin-top: 1rem;">Psychotherapy (att processa encounter):</h3>
+            <ul>
+                <li><strong>Success:</strong> +1 SAN för att förstå att Volkov är offer</li>
+                <li><strong>Failure:</strong> -1 SAN för insikt att DET ÄR DERAS FRAMTID</li>
+            </ul>
+
+            <div style="margin-top: 1.5rem; padding: 1rem; background-color: rgba(248, 81, 73, 0.1); border-left: 4px solid var(--accent-warning); border-radius: 4px;">
+                <h4 style="color: var(--accent-warning);">SAN Check:</h4>
+                <p><strong>1/1D4 SAN</strong> för att bevittna Stage 2 transformation (mänskligt medvetande kämpar mot Yithian övertagning)</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>END OF SCENE</strong></p>
+            <p style="margin-top: 0.5rem;">Spelarna har nu all information för att engagera sig i Chapter 4 (GG-investigation)</p>
+            <p style="margin-top: 1rem;"><a href="black_madonna_index.html">← Tillbaka till Kampanjindex</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Collapsible functionality
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const collapsible = this.parentElement;
+                collapsible.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
