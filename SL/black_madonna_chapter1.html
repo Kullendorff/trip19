@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLACK MADONNA - Kapitel 1: Mördarnas Dans</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        .header {
+            background: var(--bg-darker);
+            border-bottom: 2px solid var(--accent-red);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-red);
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .classified-banner {
+            background: repeating-linear-gradient(
+                45deg,
+                var(--accent-red),
+                var(--accent-red) 10px,
+                #cc0000 10px,
+                #cc0000 20px
+            );
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            box-shadow: 0 2px 10px rgba(255, 68, 68, 0.3);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .intro-section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-red);
+            border-radius: 4px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .intro-section h2 {
+            color: var(--accent-red);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .intro-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .intro-section li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .intro-section li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent-red);
+        }
+
+        .collapsible {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-red);
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .collapsible:hover {
+            border-left-width: 5px;
+        }
+
+        .collapsible-header {
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background 0.2s;
+        }
+
+        .collapsible-header:hover {
+            background: rgba(255, 68, 68, 0.05);
+        }
+
+        .collapsible-title {
+            color: var(--accent-red);
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .collapsible-icon {
+            color: var(--accent-red);
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .collapsible.active .collapsible-icon {
+            transform: rotate(90deg);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible.active .collapsible-content {
+            max-height: 10000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .collapsible-body {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+
+        .collapsible-body h3 {
+            color: var(--accent-red);
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .collapsible-body h4 {
+            color: var(--text);
+            font-size: 0.95rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .collapsible-body p {
+            margin-bottom: 1rem;
+        }
+
+        .collapsible-body ul {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        .collapsible-body li {
+            margin-bottom: 0.3rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: var(--bg-darker);
+        }
+
+        th {
+            background: rgba(255, 68, 68, 0.1);
+            color: var(--accent-red);
+            padding: 0.8rem;
+            text-align: left;
+            border: 1px solid var(--border);
+            font-weight: bold;
+        }
+
+        td {
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+        }
+
+        .san-check {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 3px solid var(--accent-red);
+            padding: 0.8rem 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .san-check strong {
+            color: var(--accent-red);
+        }
+
+        .note {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 3px solid var(--accent-blue);
+            padding: 0.8rem 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--accent-red);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 68, 68, 0.1);
+            border-color: var(--accent-red);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .collapsible-title {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">▲ BLACK MADONNA - KAPITEL 1</div>
+            <div class="subtitle">Mördarnas Dans // Handler Eyes Only // Berlin 2025</div>
+        </div>
+    </div>
+
+    <div class="classified-banner">
+        CLASSIFIED // DELTA GREEN EYES ONLY // HANDLER REFERENCE
+    </div>
+
+    <div class="container">
+        <!-- Introduction -->
+        <div class="intro-section">
+            <h2>BAKGRUND (SL-INFO)</h2>
+            <p>Denna kampanj börjar i september 2025 när Chesapeake Cell ska möta Magda Orlova i Lovettsville, Virginia (Session 3). Magda är nyckeln mellan Trip 19 (1940) och Black Madonna (1942).</p>
+
+            <h3 style="color: var(--accent-red); margin-top: 1.5rem; margin-bottom: 0.5rem;">Anpassningar från KULT till Delta Green 2025</h3>
+            <ul>
+                <li><strong>Tidslinjer:</strong> KULT Original: Hamburg/Berlin 1991 → DG 2025: Washington DC area → Berlin 2025</li>
+                <li><strong>Leningrad-flashbacks:</strong> Januari 1942 (oförändrat)</li>
+                <li><strong>Magda Orlova:</strong> Född jan 1939, 86 år 2025, lever i Session 3 (sept), dör okt/nov 2025, Session 5: teamet får veta hon är död</li>
+                <li><strong>Mekanik:</strong> KULT: Keep it Together → DG: SAN checks, Breaking Points</li>
+                <li><strong>Mythos:</strong> Chagidiel → "Det Som Fängslades", Archons → "Entiteter", Yithian Echo + Nyogtha</li>
+            </ul>
+
+            <h3 style="color: var(--accent-red); margin-top: 1.5rem; margin-bottom: 0.5rem;">SESSION 5: BERLIN (NOVEMBER 2025)</h3>
+            <ul>
+                <li>Session 3 (Sept 2025): Teamet träffar Magda i Lovettsville - hon lever</li>
+                <li>Session 4 (Okt 2025): Research och Volkov-spår</li>
+                <li>Mellan Session 4-5: Magda dör/försvinner i Berlin</li>
+                <li>Session 5 (Nov 2025): Teamet får veta om Magdas död, åker till Berlin</li>
+            </ul>
+        </div>
+
+        <!-- Scene 1 -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">1. ETT OVÄNTAT MÖTE (An Unexpected Meeting)</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-body">
+                    <p><strong>2025 ADAPTION:</strong> Detta händer i Session 3 (Sept 2025) - Magda lever fortfarande.</p>
+
+                    <h3>Session 3 Flashback (September 2025, Lovettsville)</h3>
+                    <p><strong>Plats:</strong> Lovettsville, Virginia - där Flight 19 kraschade 1940</p>
+
+                    <h4>Magdas tillstånd när teamet träffar henne:</h4>
+                    <ul>
+                        <li>86 år gammal, ser trött och sjuk ut</li>
+                        <li>Plågad av mardrömmar sedan hon flyttade tillbaka från Berlin</li>
+                        <li>"Samma hemska drömmar, varje natt sedan jag flyttade tillbaka från Berlin. Jag tror jag håller på att bli galen."</li>
+                    </ul>
+
+                    <h4>Vad Magda berättar:</h4>
+                    <ul>
+                        <li>Hon har bott i Berlin senaste året</li>
+                        <li>Forskade om gamla vänner från Östtyskland</li>
+                        <li>Tre män: Anton Mahler, Aleksandr "Sasha" Pogodin, Filip Kramer</li>
+                        <li>"Vi var vänner under uppväxten i Östtyskland. Jag har inte sett dem på flera år, men Filip kontaktade mig efter Murens fall."</li>
+                    </ul>
+
+                    <h4>Magdas drömmar (om hon berättar):</h4>
+                    <ul>
+                        <li>"Jag är ung, mycket ung i drömmarna. Bara ett barn."</li>
+                        <li>"Jag är inlåst för att jag varit olydig. Det är så mörkt. Något rör sig i mörkret."</li>
+                        <li>"Sen... Smärtan. Den skär rakt igenom mig och blir hela min värld."</li>
+                        <li>Hon vägrar berätta mer, ser dödsskrämd ut</li>
+                    </ul>
+
+                    <h4>Vad händer sen:</h4>
+                    <ul>
+                        <li>Magda återvänder till sitt hem</li>
+                        <li>Om spelarna följer efter: hon har lampor tända hela natten</li>
+                        <li><strong>VIKTIGT:</strong> Detta är sista gången någon ser Magda vid liv</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 2 -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">2. SJUKDOMEN BRYTER UT (The Disease Breaks Out)</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-body">
+                    <p><strong>2025 ADAPTION:</strong> Detta händer med SPELARNA efter Session 3.</p>
+
+                    <h3>Parasit-infektionen</h3>
+                    <p><strong>Tidslinje:</strong></p>
+                    <ul>
+                        <li>Natten efter mötet med Magda: Stage 1 börjar</li>
+                        <li>Inkubationstid: 2-6 månader till döden</li>
+                    </ul>
+
+                    <h4>Symptom Stage 1 (Vecka 1):</h4>
+                    <ul>
+                        <li>Influensaliknande symptom</li>
+                        <li>Läkare diagnostiserar vanlig influensa</li>
+                        <li>Ingen normal behandling hjälper</li>
+                    </ul>
+
+                    <h4>Smittväg:</h4>
+                    <ul>
+                        <li>Magisk/mythos-baserad</li>
+                        <li>INTE smittsam person-till-person</li>
+                        <li>Kräver exposition mot "drömfältet" från de tre ryssarna</li>
+                    </ul>
+
+                    <div class="san-check">
+                        <strong>SAN Check:</strong><br>
+                        - Första gången spelarna inser att något är fel: 0/1 SAN<br>
+                        - När de ser de första bulorna: 0/1D4 SAN
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 3 -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">3. ALEXIS UNDERSÖKNING (Alexi's Investigation)</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-body">
+                    <p><strong>2025 ADAPTION:</strong> Övervakning av Chesapeake Cell</p>
+
+                    <h3>Alexi Blobel</h3>
+                    <ul>
+                        <li><strong>Bakgrund:</strong> Före detta Stasi, nu säkerhetskonsult</li>
+                        <li><strong>Anlitad av:</strong> Anton Mahler/Slavic Association</li>
+                        <li><strong>Karaktär:</strong> Professionell, metodisk, lojal</li>
+                    </ul>
+
+                    <h4>Övervakningsmetoder 2025:</h4>
+                    <ul>
+                        <li>Smartphone tracking</li>
+                        <li>Email-hacking (Sparky märker detta först)</li>
+                        <li>Fysisk övervakning (svarta SUV istället för Dodge van)</li>
+                        <li>Drönare för distant surveillance</li>
+                        <li>Mac märker det pga FBI-träning</li>
+                    </ul>
+
+                    <h4>Vad Alexi gör:</h4>
+                    <ul>
+                        <li>Bakgrundskontroller på alla teammedlemmar</li>
+                        <li>Fotografering, rörelsekartor</li>
+                        <li>Rapporterar till de tre ryssarna</li>
+                        <li>Filip kontaktar Magda och får information om teamet</li>
+                    </ul>
+
+                    <h4>Spelares reaktioner:</h4>
+                    <ul>
+                        <li>Sparky: "Någon försöker hacka min mail"</li>
+                        <li>Mac: "Vi blir följda. Professionellt."</li>
+                        <li>Sullivan: "Känslan av att bli iakttagen"</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 4 -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">4. FÖRSVINNANDET (The Disappearance)</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-body">
+                    <p><strong>2025 ADAPTION:</strong> Magda försvinner/dör mellan Session 3 och 5</p>
+
+                    <h3>Tidslinje</h3>
+                    <ul>
+                        <li><strong>Session 3 (September 2025):</strong> Teamet träffar Magda i Lovettsville, hon verkar sjuk och paranoid</li>
+                        <li><strong>Mellan Session 3-5 (Sept-Okt):</strong> Magda försöker kontakta teamet, meddelanden blir desperata</li>
+                        <li>"Jag har sett HAN. Han finns här."</li>
+                        <li>Sista meddelandet: "Jag måste tillbaka till Berlin. Svaren finns där."</li>
+                        <li><strong>Session 5 början (November):</strong> Teamet får veta att Magda är död/försvunnen</li>
+                    </ul>
+
+                    <h3>Ledtrådar att hitta</h3>
+                    <h4>Magdas lägenhet:</h4>
+                    <ul>
+                        <li>Vidarebefordrad post från Berlin (Leibnizstraße 97)</li>
+                        <li>Brev från Arnold Weiss, Berlin</li>
+                        <li>Vykort från Pyotr (Frankfurt Clinic) - "JAG HAR SETT HAN" (ryska)</li>
+                        <li>Tågschema Hamburg-Berlin (eller flyg DC-Berlin)</li>
+                    </ul>
+
+                    <h4>Svarsmeddelanden:</h4>
+                    <ul>
+                        <li>"Det är Filip. Något hemskt kommer att hända. Ring mig." (panik i rösten)</li>
+                        <li>"Det är Filip. Du måste ringa. Snart är det för sent." (ren terror)</li>
+                    </ul>
+
+                    <h4>Dagböcker (om spelarna hittar dem):</h4>
+                    <ul>
+                        <li>21 svarta anteckningsböcker sedan 1960-talet</li>
+                        <li>Nämner Sasha, Anton, Filip ofta</li>
+                        <li>Luckor: 1962-64, 1968-71, 1972</li>
+                        <li>Sista entry 1990: "De vill att jag ska återvända till SA. Jag undrar vad de är ute efter."</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 5 -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">5. TILL BERLIN (To Berlin)</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-body">
+                    <p><strong>ADAPTION 2025:</strong> Chesapeake Cell åker till Berlin, november 2025</p>
+
+                    <h3>Varför Berlin?</h3>
+                    <ul>
+                        <li>Magdas vidarebefordrade post</li>
+                        <li>Arnold Weiss brev</li>
+                        <li>Slavic Association adress</li>
+                        <li>Tre ryssarna bor där</li>
+                    </ul>
+
+                    <h4>Logistik:</h4>
+                    <ul>
+                        <li>Flyg: Dulles → Berlin Brandenburg (10 tim)</li>
+                        <li>Cover story: "Research trip", "Consulting work"</li>
+                        <li>Delta Green kan INTE officiellt hjälpa i Tyskland</li>
+                        <li>Passports, no weapons (måste skaffas lokalt)</li>
+                    </ul>
+
+                    <h3>Berlin 2025</h3>
+                    <h4>Politiskt läge:</h4>
+                    <ul>
+                        <li>Tyskland = NATO-medlem, demokrati</li>
+                        <li>Men: Högerextrema grupper ökar</li>
+                        <li>Ryssland-kopplingar misstänkta överallt (pga Ukraina)</li>
+                        <li>Polisen skeptiska mot amerikanska agenter</li>
+                    </ul>
+
+                    <h4>Kontrast:</h4>
+                    <ul>
+                        <li>Före detta Västberlin: Modern, ren, välfungerande</li>
+                        <li>Före detta Östberlin: Fortfarande märken efter Muren</li>
+                        <li>Gentrifiering pågår</li>
+                        <li>Slavic Association ligger i f.d. Östberlin</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 6 -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">6. MAGDAS DÖD (Magda's Death)</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-body">
+                    <p><strong>2025 ADAPTION:</strong> Händer i Berlin, oktober/november 2025</p>
+
+                    <h3>Hur teamet får veta</h3>
+                    <p><strong>Alternativ 1: Irene Adler ringer</strong></p>
+                    <ul>
+                        <li>Irene (Magdas vän från Hamburg) kontaktar teamet</li>
+                        <li>"Magda är på Charité Hospital i Berlin, mycket sjuk"</li>
+                        <li>"Hon frågade efter er"</li>
+                        <li>När teamet kommer dit: för sent, hon är redan död</li>
+                    </ul>
+
+                    <h3>Charité Hospital, Berlin</h3>
+                    <p><strong>När teamet kommer dit:</strong></p>
+                    <ul>
+                        <li>Dr. Maria Kellerman (akutläkare) kan berätta</li>
+                        <li>Magda dog av "hjärtsvikt" (officiellt)</li>
+                        <li>Kroppen transporterad till rättsmedicin</li>
+                    </ul>
+
+                    <h4>Vad teamet SER (om de är där):</h4>
+                    <ul>
+                        <li>Magdas kropp: uppsvullen, täckt av röd-svarta bulor</li>
+                        <li>Huden spricker och LARVER kryper ut</li>
+                        <li>Larver äter henne levande inifrån</li>
+                        <li>Hon SKRIKER i 10 sekunder, sen tystnad</li>
+                    </ul>
+                    <div class="san-check">
+                        <strong>SAN Check: 1/1D6</strong>
+                    </div>
+
+                    <h4>Vad sjukhuspersonalen SER:</h4>
+                    <ul>
+                        <li>Vanlig hjärtsvikt</li>
+                        <li>De kan INTE se larverna</li>
+                        <li>Om spelarna pratar om larver: "Det är chock, ni inbillar er"</li>
+                        <li>Erbjuder lugnande medel</li>
+                    </ul>
+
+                    <h3>Hans Georg Richter - Patolog</h3>
+                    <h4>Vem är han:</h4>
+                    <ul>
+                        <li>Patolog på Charité</li>
+                        <li>KAN se larverna (har "the Sight")</li>
+                        <li>Fascinerad av det övernaturliga</li>
+                        <li>Mycket hjälpsam men lite creepy</li>
+                    </ul>
+
+                    <h4>Information han ger:</h4>
+                    <ul>
+                        <li>"Jag har sett detta förr. I gammal medicinsk litteratur."</li>
+                        <li>Visar bok: "The Diseases of the War" av Valentin Lyubimov (ryska)</li>
+                        <li>Bilder av samma bulor och larver från ryska soldater efter WW2</li>
+                        <li>Andra boken: "The Curse of Diseases" av Anthony Toporov, 1922</li>
+                        <li>"Caused by a curse, black magic"</li>
+                        <li>"Inkubationstid: 2-6 månader"</li>
+                    </ul>
+
+                    <h4>Richters teori:</h4>
+                    <ul>
+                        <li>"Det är en parasit-infektion"</li>
+                        <li>"Bara personer med Herrald's syndrom drabbas" (immun-brist)</li>
+                        <li>"Jag har ingen botemedel, men Toporov nämnde magi"</li>
+                    </ul>
+
+                    <div class="note">
+                        <strong>OM spelarna visar sina bulor:</strong> Richter blir upprymd och erbjuder sig ta tester. En vecka senare ringer han: "Ni bär parasiten. Inom 2-6 månader kommer ni dö som Magda."
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 7 -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">7. SPELARNA I BERLIN (The Player Characters in Berlin)</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-body">
+                    <h3>Logistik</h3>
+                    <h4>Var bor de:</h4>
+                    <ul>
+                        <li>Hotel (Bahnhof Zoo area): 150-300€/natt</li>
+                        <li>AirBnB: billigare men mindre anonymt</li>
+                        <li>Safe house genom kontakter: Belziger Straße lägenhet</li>
+                    </ul>
+
+                    <h4>Pengar:</h4>
+                    <ul>
+                        <li>Delta Green operativ kassa</li>
+                        <li>Privata kreditkort (blir spårade)</li>
+                        <li>Kontanter rekommenderat</li>
+                    </ul>
+
+                    <h4>Vapen:</h4>
+                    <ul>
+                        <li>Inga vapen från USA</li>
+                        <li>Måste skaffas lokalt i Berlin</li>
+                        <li>Underworld kontakter (Fixer)</li>
+                        <li>Mycket riskabelt, tysk polis är hård</li>
+                    </ul>
+
+                    <h3>Viktiga platser på kartan</h3>
+                    <ol>
+                        <li>Bahnhof Zoo (tågstation)</li>
+                        <li>Magdas lägenhet - Leibnizstraße 97</li>
+                        <li>Charité Hospital</li>
+                        <li>Johannes Hospital (psykiatriskt)</li>
+                        <li>Register-kontor (Östberlin)</li>
+                        <li>Slavic Association - Kartenaustraße 31</li>
+                        <li>Alexanderplatz Post Office</li>
+                        <li>Mantra bokhandel (ockult)</li>
+                        <li>Anton Mahlers lägenhet</li>
+                        <li>Secure (Mahlers säkerhetsföretag)</li>
+                        <li>Filip Kramers gömställe</li>
+                        <li>Germanische Gemeinschaft</li>
+                        <li>Polishögkvarter</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 8 -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">8. ONDA DRÖMMAR (Evil Dreams)</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-body">
+                    <p><strong>2025 ADAPTION:</strong> Börjar natten efter Magdas död</p>
+
+                    <h3>Drömmarnas progression</h3>
+                    <h4>Natt 1 efter Magdas död:</h4>
+                    <ul>
+                        <li>Mörkare bilder än förut</li>
+                        <li>Ansikten på plågoandarna: vaga, suddiga former</li>
+                        <li>"Jag har sett de här formerna någonstans..."</li>
+                        <li>Brännande smärta skär genom dem</li>
+                        <li>Smärtan intensifieras tills inget annat finns</li>
+                    </ul>
+
+                    <h4>När de vaknar:</h4>
+                    <ul>
+                        <li>Minns knappt drömmen</li>
+                        <li>Rädd för att somna igen</li>
+                        <li>Ständig utmattning</li>
+                        <li>Ingen sömn hjälper</li>
+                    </ul>
+
+                    <h4>Senare drömmar:</h4>
+                    <ul>
+                        <li>Tre gestalter återkommer</li>
+                        <li>Kan nästan känna igen dem</li>
+                        <li>Något med de tre ryssarna?</li>
+                        <li>Drömmen försöker säga något</li>
+                    </ul>
+
+                    <h4>Fysiska effekter:</h4>
+                    <ul>
+                        <li>-1 på alla rolls pga utmattning (valfritt)</li>
+                        <li>Irriterade, lättretade</li>
+                        <li>Paranoia ökar</li>
+                        <li>Huden kliar</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 9 -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">9. RYSSARNA SLÅR TILL (The Russians Strike)</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-body">
+                    <p><strong>2025 ADAPTION:</strong> Börjar direkt efter Magdas död</p>
+
+                    <h3>Alexis utredning intensifieras</h3>
+                    <p><strong>Vad de tre ryssarna gör:</strong></p>
+                    <ul>
+                        <li>Anton, Sasha, Filip blir paranoid</li>
+                        <li>Deras drömmar/visioner: "Spelarna kommer tortera oss"</li>
+                        <li>Entiteten (Chagidiel) manipulerar dem mentalt</li>
+                        <li>Beordrar Alexi Blobel att attackera spelarna fysiskt</li>
+                    </ul>
+
+                    <h4>Vad spelarna märker:</h4>
+                    <ul>
+                        <li>Kreditkontroller från konstiga byråer</li>
+                        <li>Polisen skickar brev: "Er journal har begärts"</li>
+                        <li>Sjukhus: "Era journaler har begärts av släktingar"</li>
+                        <li>Företag som inte finns</li>
+                        <li>Alla svar går till anonym postbox på Alexanderplatz</li>
+                    </ul>
+
+                    <h3>Alexis attack</h3>
+                    <h4>När:</h4>
+                    <ul>
+                        <li>Någon natt i Berlin</li>
+                        <li>Ensam plats, få vittnen</li>
+                        <li>Professionellt planerad</li>
+                    </ul>
+
+                    <h4>Hur:</h4>
+                    <ul>
+                        <li>Alexi + 4-6 män (före detta Stasi)</li>
+                        <li>Tyst, professionell</li>
+                        <li>Ingen förhandling</li>
+                    </ul>
+
+                    <h4>Vapen:</h4>
+                    <ul>
+                        <li>Om spelarna är beväpnade och våldsamma: skjutvapen</li>
+                        <li>Om spelarna är svaga/obeväpnade: batonger, klubbor</li>
+                        <li>Mål: skada nog för att lägga in på sjukhus</li>
+                    </ul>
+
+                    <div class="note">
+                        <strong>Om attacken går dåligt:</strong> Alexi och hans män reträtt, tar med sårade/döda, försvinner helt. Om spelarna börjar förlora: Polisbil passerar (SL-intervention).
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 10 -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">10. MAGDAS BAKGRUND (Magda's Background)</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-body">
+                    <h3>Medicinska journaler</h3>
+                    <p><strong>Hur spelarna får dem:</strong> Dr. Richter har tillgång, eller genom register-kontor (mutor/förfalskningar)</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Datum</th>
+                                <th>Plats</th>
+                                <th>Diagnos</th>
+                                <th>Åtgärd</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>22.02.46</td>
+                                <td>Kirov Clinic</td>
+                                <td>Nervös hysteri</td>
+                                <td>Isolation</td>
+                            </tr>
+                            <tr>
+                                <td>12.07.47</td>
+                                <td>Kirov Clinic</td>
+                                <td>Vägrar äta</td>
+                                <td>Tvångsmatas</td>
+                            </tr>
+                            <tr>
+                                <td>03.05.49</td>
+                                <td>Kirov Clinic</td>
+                                <td>Aggressiva utbrott</td>
+                                <td>Isolation</td>
+                            </tr>
+                            <tr>
+                                <td>10.02.51</td>
+                                <td>Frankfurt Clinic</td>
+                                <td>Apati</td>
+                                <td>Ingen åtgärd</td>
+                            </tr>
+                            <tr>
+                                <td>25.09.54</td>
+                                <td>Frankfurt Clinic</td>
+                                <td>Betydande förbättring</td>
+                                <td>Utskriven provisoriskt</td>
+                            </tr>
+                            <tr>
+                                <td>07.11.54</td>
+                                <td>Frankfurt Clinic</td>
+                                <td>Hysteriska utbrott</td>
+                                <td>Tvångströja</td>
+                            </tr>
+                            <tr>
+                                <td>03.03.58</td>
+                                <td>Frankfurt Clinic</td>
+                                <td>Positiv förbättring</td>
+                                <td>Utskriven provisoriskt</td>
+                            </tr>
+                            <tr>
+                                <td>16.06.62</td>
+                                <td>Johannes Hospital</td>
+                                <td>Katatonisk</td>
+                                <td>Lorazepam</td>
+                            </tr>
+                            <tr>
+                                <td>18.09.63</td>
+                                <td>Johannes Hospital</td>
+                                <td>Aggressiva utbrott</td>
+                                <td>Tvångströja</td>
+                            </tr>
+                            <tr>
+                                <td>23.04.64</td>
+                                <td>Johannes Hospital</td>
+                                <td>Positiv förbättring</td>
+                                <td>Utskriven provisoriskt</td>
+                            </tr>
+                            <tr>
+                                <td>12.07.68</td>
+                                <td>Johannes Hospital</td>
+                                <td>Chock</td>
+                                <td>Dobutamine</td>
+                            </tr>
+                            <tr>
+                                <td>28.05.70</td>
+                                <td>Johannes Hospital</td>
+                                <td>Aggressiv</td>
+                                <td>Isolation</td>
+                            </tr>
+                            <tr>
+                                <td>14.05.71</td>
+                                <td>Johannes Hospital</td>
+                                <td>Positiv förbättring</td>
+                                <td>Utskriven</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>Viktiga noteringar:</h4>
+                    <ul>
+                        <li>Före 1951: dokument på ryska</li>
+                        <li>Före 1958: inget efternamn</li>
+                        <li>1958-63: "Magda Schmidt"</li>
+                        <li>1964+: "Magda Orlova"</li>
+                        <li>Närmaste anhörig: Filip Kramer</li>
+                        <li><strong>Alla tre ryssarna: samma kliniker, samma perioder</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Continue with remaining scenes... -->
+        <p style="text-align: center; margin: 2rem 0; color: var(--text-dim); font-style: italic;">
+            [Fler scener följer - Arnold Weiss, De tre ryssarna, Slavic Association, Pogodins mansion, klimax...]
+        </p>
+
+        <a href="index.html" class="back-link">← Tillbaka till Handler Dashboard</a>
+    </div>
+
+    <div class="footer">
+        DELTA GREEN // BLACK MADONNA KAPITEL 1 // HANDLER EYES ONLY<br>
+        Detta material är konfidentiellt och avsett endast för spelledaren.
+    </div>
+
+    <script>
+        // Collapsible functionality
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const collapsible = this.parentElement;
+                collapsible.classList.toggle('active');
+            });
+        });
+
+        // Expand all button (optional)
+        const expandAll = () => {
+            document.querySelectorAll('.collapsible').forEach(c => c.classList.add('active'));
+        };
+
+        const collapseAll = () => {
+            document.querySelectorAll('.collapsible').forEach(c => c.classList.remove('active'));
+        };
+    </script>
+</body>
+</html>
