@@ -13,17 +13,18 @@ Detta dokument innehåller färdiga agent-prompts för kvalitetskontroll av Trip
 
 **Syfte:** Identifierar och rapporterar blandat svenskt/engelskt språk i alla HTML-filer.
 
-**Undantag:** Tekniska speltermer (stats, skills, Breaking Point, SAN check, Bond, Hit Points, Willpower Points, etc.) får vara på engelska.
+**Undantag:** Tekniska speltermer (stats, skills, Breaking Point, SAN check, Bond, Hit Points, Willpower Points, etc.) samt vanliga termer som "sessions" och "handouts" får vara på engelska.
 
 **Prompt:**
 
 ```
 Run Task agent with subagent_type="general-purpose" to scan all HTML files in /home/user/trip19/ and subdirectories for svengelska (mixed Swedish/English language).
 
-IMPORTANT EXCEPTION: Technical game terms may remain in English, including:
+IMPORTANT EXCEPTION: Technical game terms and common campaign terms may remain in English, including:
 - Stats: STR, CON, DEX, INT, POW, CHA
 - Skills: Alertness, Firearms, HUMINT, etc.
 - Game mechanics: Breaking Point, SAN check, Bond, Hit Points, Willpower Points, Lethality
+- Common terms: sessions, handouts
 
 The agent should:
 1. Read all .html files in /home/user/trip19/ and subdirectories (characters, SL, etc.)
@@ -35,8 +36,6 @@ The agent should:
    - LOW: Minor instances
 
 Common svengelska patterns to find:
-- "Sessions" in Swedish text → should be "Spelomgångar"
-- "handouts" → should be "dokument" or "handlingar"
 - "Investigation roll" → should be "Utredningsslag"
 - "Clue" → should be "Ledtråd"
 - "Scene" → should be "Scen"
@@ -136,7 +135,7 @@ Check for:
 - Address or location conflicts
 
 **Key NPCs to verify:**
-- Magda Golebowska (born 1939, dies 2024 at 85)
+- Magda Golebowska (born 1939, dies November 2025 after players arrive in Berlin)
 - Nikolay Kalenko (orphanage owner, died Dec 31, 1941)
 - Father Ivan Chezenko (priest at Kaptyeno cathedral)
 - Dimi Nesterov (icon painter, Magda's cousin)
@@ -178,8 +177,8 @@ The agent should:
 - 1942-1945: Camp S-17 refugee camp (AFTER Leningrad event)
 - 1951-1958: Frankfurt Clinic (patient treatment)
 - 1972-1989: Slavic Forum gap period
-- November 8-9, 2025: Magda's death and player investigation begins
-- Magda: Born 1939, dies 2024 at age 85
+- November 2025: Campaign begins, players investigate
+- Magda: Born 1939, dies November 2025 (after players arrive in Berlin) - exact date TBD
 
 Check for:
 - Date conflicts between documents
