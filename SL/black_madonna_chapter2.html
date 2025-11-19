@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLACK MADONNA - Kapitel 2: Shadows from the Past</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-primary: #4a90a4;
+            --accent-secondary: #e89a3c;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        .header {
+            background: var(--bg-darker);
+            border-bottom: 2px solid var(--accent-primary);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-primary);
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(74, 144, 164, 0.5);
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .back-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--accent-primary);
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .back-link:hover {
+            background: var(--accent-primary);
+            color: var(--bg-dark);
+        }
+
+        .classified-banner {
+            background: repeating-linear-gradient(
+                45deg,
+                var(--accent-primary),
+                var(--accent-primary) 10px,
+                #3a7a8a 10px,
+                #3a7a8a 20px
+            );
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            box-shadow: 0 2px 10px rgba(74, 144, 164, 0.3);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .intro-section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-primary);
+            border-radius: 4px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .intro-section h2 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .intro-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .intro-section li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .intro-section li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+        }
+
+        .collapsible {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-primary);
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .collapsible:hover {
+            border-left-width: 5px;
+        }
+
+        .collapsible-header {
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background 0.2s;
+        }
+
+        .collapsible-header:hover {
+            background: rgba(74, 144, 164, 0.05);
+        }
+
+        .collapsible-title {
+            color: var(--accent-primary);
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .collapsible-icon {
+            color: var(--accent-primary);
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .collapsible.active .collapsible-icon {
+            transform: rotate(90deg);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible.active .collapsible-content {
+            max-height: 10000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .collapsible-inner {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .san-check {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .san-check h4 {
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .warning-box {
+            background: rgba(232, 154, 60, 0.1);
+            border-left: 4px solid var(--accent-secondary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box h4 {
+            color: var(--accent-secondary);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .note-box {
+            background: rgba(74, 144, 164, 0.05);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .note-box h4 {
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--bg-darker);
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background: rgba(74, 144, 164, 0.05);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div>
+                <div class="logo">▲ TRIP 19 // BLACK MADONNA</div>
+                <div class="subtitle">KAPITEL 2: SHADOWS FROM THE PAST</div>
+            </div>
+            <a href="black_madonna_index.html" class="back-link">← Tillbaka till Black Madonna</a>
+        </div>
+    </div>
+
+    <!-- Classified Banner -->
+    <div class="classified-banner">
+        CLASSIFIED // DELTA GREEN EYES ONLY // SHADOWS FROM THE PAST
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <!-- Introduction -->
+        <div class="intro-section">
+            <h2>▶ KAPITEL 2: SKUGGOR FRÅN DET FÖRFLUTNA</h2>
+            <p style="margin-bottom: 1rem;">
+                Efter Magdas död på Charité och upptäckten av de tre ryssarnas transformationer står Chesapeake Cell
+                inför ett kritiskt val: följa spåren tillbaka till källan i Leningrad 1942, eller undersöka de nutida
+                hot som Slaviska Föreningen representerar.
+            </p>
+            <p style="margin-bottom: 1rem;">
+                Detta kapitel fokuserar på historiska efterforskningar som leder till <strong>Frankfurt Clinic</strong>,
+                en nedgången mental institution i det forna Östtyskland där Magda, hennes mamma, och de tre ryssarna
+                alla behandlades under 1950-talet.
+            </p>
+
+            <h3 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Översikt</h3>
+            <ul>
+                <li><strong>Tidsram:</strong> November 2025, 3-5 dagar efter Magdas död</li>
+                <li><strong>Plats:</strong> Berlin → Frankfurt an der Oder (~80 km österut)</li>
+                <li><strong>Huvudscener:</strong> 13 scener från beslut till återfärd</li>
+                <li><strong>Nyckelpersoner:</strong> Dr. Helmut Schafer, Karl Feuer, Pyotr Gallentinov</li>
+                <li><strong>Total SAN-risk:</strong> 1/1D6 (potentiellt mer vid Special Ward)</li>
+            </ul>
+
+            <div class="warning-box" style="margin-top: 1.5rem;">
+                <h4>⚠️ SPELLEDARENS NOTERING</h4>
+                <p>
+                    Spelarna är möjligtvis fortfarande efterlysta av tysk polis efter händelserna på Charité.
+                    De kan också vara i Slaviska Föreningens siktet. Denna resa bör kännas riskfylld - inte p.g.a.
+                    övernaturliga hot, utan p.g.a. mycket mänskliga faror från organiserad brottslighet och law enforcement.
+                </p>
+            </div>
+        </div>
+
+        <!-- WIP Notice -->
+        <div class="note-box">
+            <h4>🔄 WORK IN PROGRESS</h4>
+            <p>Detta kapitel håller på att utvecklas. Fler scener läggs till successivt.</p>
+            <p style="margin-top: 0.5rem;"><strong>Status:</strong> Grundstruktur klar, scener under konstruktion.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        DELTA GREEN // TRIP 19: BLACK MADONNA // KAPITEL 2<br>
+        Adapterat från KULT Divinity Lost för Delta Green 2025
+    </div>
+
+    <script>
+        // Collapsible functionality
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const collapsible = this.parentElement;
+                collapsible.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
