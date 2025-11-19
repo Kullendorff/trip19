@@ -15,9 +15,9 @@
             --bg-dark: #0a0f0f;
             --bg-darker: #050808;
             --bg-panel: #0d1414;
-            --accent-red: #ff4444;
-            --accent-blue: #4a90a4;
-            --accent-yellow: #ffcc00;
+            --accent-primary: #4a90a4;
+            --accent-secondary: #e89a3c;
+            --accent-success: #00ff41;
             --text: #d1d5db;
             --text-dim: #6b7280;
             --border: #1a2332;
@@ -34,12 +34,12 @@
 
         .header {
             background: var(--bg-darker);
-            border-bottom: 2px solid var(--accent-red);
+            border-bottom: 2px solid var(--accent-primary);
             padding: 1.5rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 20px rgba(255, 68, 68, 0.3);
+            box-shadow: 0 4px 20px rgba(74, 144, 164, 0.3);
         }
 
         .header-content {
@@ -53,23 +53,23 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            color: var(--accent-red);
+            color: var(--accent-primary);
             letter-spacing: 2px;
-            text-shadow: 0 0 15px rgba(255, 68, 68, 0.5);
+            text-shadow: 0 0 15px rgba(74, 144, 164, 0.4);
         }
 
         .back-link {
-            color: var(--accent-blue);
+            color: var(--accent-primary);
             text-decoration: none;
             padding: 0.5rem 1.5rem;
-            border: 1px solid var(--accent-blue);
+            border: 1px solid var(--accent-primary);
             border-radius: 4px;
             transition: all 0.2s;
             font-size: 0.9rem;
         }
 
         .back-link:hover {
-            background: var(--accent-blue);
+            background: var(--accent-primary);
             color: var(--bg-dark);
             box-shadow: 0 0 10px rgba(74, 144, 164, 0.5);
         }
@@ -82,20 +82,20 @@
 
         .campaign-header {
             background: var(--bg-panel);
-            border: 2px solid var(--accent-red);
+            border: 2px solid var(--accent-primary);
             border-radius: 8px;
             padding: 2.5rem;
             margin-bottom: 3rem;
-            box-shadow: 0 4px 20px rgba(255, 68, 68, 0.2);
+            box-shadow: 0 4px 20px rgba(74, 144, 164, 0.2);
         }
 
         .campaign-header h1 {
-            color: var(--accent-red);
+            color: var(--accent-primary);
             font-size: 2.5rem;
             margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            text-shadow: 0 0 10px rgba(255, 68, 68, 0.3);
+            text-shadow: 0 0 10px rgba(74, 144, 164, 0.3);
         }
 
         .campaign-subtitle {
@@ -124,7 +124,7 @@
             background: var(--bg-darker);
             padding: 1rem;
             border-radius: 4px;
-            border-left: 3px solid var(--accent-red);
+            border-left: 3px solid var(--accent-primary);
         }
 
         .meta-label {
@@ -136,7 +136,7 @@
         }
 
         .meta-value {
-            color: var(--accent-red);
+            color: var(--accent-primary);
             font-size: 1.2rem;
             font-weight: bold;
         }
@@ -146,11 +146,11 @@
         }
 
         .section-title {
-            color: var(--accent-blue);
+            color: var(--accent-primary);
             font-size: 1.5rem;
             margin-bottom: 2rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--accent-blue);
+            border-bottom: 2px solid var(--accent-primary);
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -164,7 +164,7 @@
         .chapter-card {
             background: var(--bg-panel);
             border: 1px solid var(--border);
-            border-left: 4px solid var(--accent-red);
+            border-left: 4px solid var(--accent-primary);
             border-radius: 8px;
             padding: 2rem;
             transition: all 0.3s;
@@ -180,7 +180,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, transparent 0%, rgba(255, 68, 68, 0.05) 100%);
+            background: linear-gradient(135deg, transparent 0%, rgba(74, 144, 164, 0.05) 100%);
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -190,8 +190,8 @@
         }
 
         .chapter-card:hover {
-            border-left-color: var(--accent-red);
-            box-shadow: 0 4px 20px rgba(255, 68, 68, 0.3);
+            border-left-color: var(--accent-primary);
+            box-shadow: 0 4px 20px rgba(74, 144, 164, 0.3);
             transform: translateY(-3px);
         }
 
@@ -207,7 +207,7 @@
         }
 
         .chapter-number {
-            color: var(--accent-red);
+            color: var(--accent-primary);
             font-size: 3rem;
             font-weight: bold;
             opacity: 0.3;
@@ -224,7 +224,7 @@
         }
 
         .chapter-title {
-            color: var(--accent-red);
+            color: var(--accent-primary);
             font-size: 1.5rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
@@ -259,8 +259,8 @@
         }
 
         .tag {
-            background: rgba(255, 68, 68, 0.2);
-            color: var(--accent-red);
+            background: rgba(74, 144, 164, 0.2);
+            color: var(--accent-primary);
             padding: 0.3rem 0.8rem;
             border-radius: 12px;
             font-size: 0.75rem;
@@ -293,9 +293,9 @@
         }
 
         .status-wip {
-            background: rgba(255, 204, 0, 0.2);
-            color: var(--accent-yellow);
-            border: 1px solid rgba(255, 204, 0, 0.3);
+            background: rgba(232, 154, 60, 0.2);
+            color: var(--accent-secondary);
+            border: 1px solid rgba(232, 154, 60, 0.3);
         }
 
         .status-locked {
@@ -305,15 +305,15 @@
         }
 
         .warning-box {
-            background: rgba(255, 68, 68, 0.1);
-            border-left: 4px solid var(--accent-red);
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid var(--accent-primary);
             padding: 1.5rem;
             margin: 2rem 0;
             border-radius: 4px;
         }
 
         .warning-box h3 {
-            color: var(--accent-red);
+            color: var(--accent-primary);
             margin-bottom: 0.5rem;
             font-size: 1.1rem;
         }
