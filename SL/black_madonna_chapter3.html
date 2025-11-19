@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Madonna - Kapitel 3: Dark Dreams</title>
+    <style>
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-primary: #4a90a4;
+            --accent-secondary: #e89a3c;
+            --accent-success: #00ff41;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--bg-darker);
+            border-bottom: 2px solid var(--accent-primary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent-primary);
+            letter-spacing: 2px;
+        }
+
+        .back-link {
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--accent-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(74, 144, 164, 0.1), rgba(232, 154, 60, 0.05));
+            border: 2px solid var(--accent-primary);
+            border-radius: 4px;
+        }
+
+        .chapter-number {
+            color: var(--accent-secondary);
+            font-size: 1rem;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+        }
+
+        .chapter-title {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .chapter-subtitle {
+            color: var(--text-dim);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-intro {
+            background: var(--bg-panel);
+            padding: 2rem;
+            border-left: 4px solid var(--accent-primary);
+            margin-bottom: 2rem;
+        }
+
+        .collapsible {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .collapsible-header {
+            padding: 1rem 1.5rem;
+            background: rgba(74, 144, 164, 0.1);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .collapsible-header:hover {
+            background: rgba(74, 144, 164, 0.15);
+        }
+
+        .collapsible-title {
+            color: var(--accent-primary);
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .collapsible-icon {
+            color: var(--accent-secondary);
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .collapsible.active .collapsible-icon {
+            transform: rotate(90deg);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible.active .collapsible-content {
+            max-height: 10000px;
+        }
+
+        .collapsible-inner {
+            padding: 2rem 1.5rem;
+        }
+
+        .san-check {
+            background: rgba(232, 154, 60, 0.1);
+            border-left: 4px solid var(--accent-secondary);
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .san-check h4 {
+            color: var(--accent-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .note-box {
+            background: rgba(74, 144, 164, 0.05);
+            border: 1px solid var(--accent-primary);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .note-box h4 {
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box {
+            background: rgba(232, 154, 60, 0.05);
+            border: 1px solid var(--accent-secondary);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box h4 {
+            color: var(--accent-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            background: rgba(74, 144, 164, 0.2);
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        td {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .chapter-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">⬤ BLACK MADONNA - KAPITEL 3</div>
+            <a href="black_madonna_index.html" class="back-link">← Tillbaka till Kapitel-översikt</a>
+        </div>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <!-- Chapter Header -->
+        <div class="chapter-header">
+            <div class="chapter-number">KAPITEL 03</div>
+            <h1 class="chapter-title">DARK DREAMS</h1>
+            <div class="chapter-subtitle">Mörka drömmar från Leningrad 1942</div>
+            <p style="margin-top: 1rem; color: var(--text-dim);">
+                Efter Frankfurt Clinic börjar spelarna drömma. The Black Doll fungerar som anchor mellan 2025 och 1942,
+                mellan levande och de fångade. Varje natt avslöjar mer av sanningen om Camp S-17 och vad som hände nyårsnatten.
+            </p>
+        </div>
+
+        <!-- Intro -->
+        <div class="chapter-intro">
+            <h3 style="color: var(--accent-primary); margin-bottom: 1rem;">ÖVERSIKT - DRÖMCYKELN</h3>
+            <p>
+                <strong>Duration:</strong> 5-7 nätter (parallellt med daglig investigation i Berlin/Tyskland)
+            </p>
+            <p style="margin-top: 0.5rem;">
+                <strong>Trigger:</strong> Efter Frankfurt Clinic-besöket. Den som håller The Black Doll drömmer först.
+                Sedan sprider det sig till alla "märkta" spelare (de som var vid Magdas död).
+            </p>
+            <p style="margin-top: 0.5rem;">
+                <strong>Progression:</strong> Varje natt eskalerar intensitet och visar mer av Leningrad 1942.
+            </p>
+
+            <div class="warning-box" style="margin-top: 1.5rem;">
+                <h4>VIKTIGT FÖR SPELLEDAREN</h4>
+                <p>Dessa drömmar är INTE passiva cutscenes. Spelarna:</p>
+                <ul style="margin-top: 0.5rem;">
+                    <li>Upplever händelser från olika barns perspektiv</li>
+                    <li>Kan göra Investigation-rolls för att samla information</li>
+                    <li>Behåller sitt moderna medvetande (dissociativt)</li>
+                    <li>Kan försöka påverka (men händelserna har redan hänt - paradox)</li>
+                </ul>
+                <p style="margin-top: 0.5rem;"><strong>The Black Doll:</strong> Ger +20% på Willpower rolls i drömmar, kan användas 1 gång/natt för att "vakna omedelbart"</p>
+            </div>
+
+            <div class="note-box" style="margin-top: 1rem;">
+                <h4>PARALLEL GAMEPLAY</h4>
+                <p>Under dagen: Investigation i Berlin (Slaviska Föreningen, högerextrema grupper, etc.)</p>
+                <p style="margin-top: 0.5rem;">Under natten: Drömmar om Leningrad 1942</p>
+                <p style="margin-top: 0.5rem;"><strong>Bonds stress:</strong> Spelarna blir distanta, trötta, obesatt av drömmarna</p>
+            </div>
+        </div>
+
+        <!-- Nights Section -->
+
+        <!-- Night 1 -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">NATT 1: DEN FÖRSTA DRÖMMEN</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+                    <p>
+                        <strong>När:</strong> Samma natt som spelarna lämnar Frankfurt Clinic. De reser tillbaka till Berlin.
+                    </p>
+                    <p style="margin-top: 0.5rem;">
+                        <strong>Vem:</strong> Den spelare som håller The Black Doll (antingen accepterade den från Pyotr eller tog den).
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Att somna:</h4>
+                    <p>
+                        På hotellet i Berlin. Spelaren känner dockan i sin väska/ficka - extremt kall, nästan smärtsamt.
+                        När de somnar känns det som att falla... men inte neråt. Sidledes. Genom tid.
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Drömmen börjar:</h4>
+                    <p style="margin-top: 1rem; font-style: italic;">
+                        Du öppnar ögonen. Men de är inte dina ögon. Du är kortare. Kalla händer. Hunger i magen som aldrig slutar.
+                    </p>
+                    <p style="margin-top: 0.5rem; font-style: italic;">
+                        Du står i ett kallt rum. Träplankor på golvet, frostblommor på ett litet fönster. Omkring dig - andra barn.
+                        15, kanske 20. Ålder 4-12. Alla i tunna kläder. Alla hungriga.
+                    </p>
+                    <p style="margin-top: 0.5rem; font-style: italic;">
+                        En vuxen kvinna - mager, utmattad - delar ut bröd. Små bitar. Det räcker inte.
+                    </p>
+
+                    <div class="note-box" style="margin-top: 1rem;">
+                        <h4>MEKANIK</h4>
+                        <p><strong>Willpower roll (base):</strong></p>
+                        <ul>
+                            <li><strong>Framgång:</strong> Behåller eget medvetande, kan observera aktivt</li>
+                            <li><strong>Misslyckande:</strong> Upplever drömmen som barnet - förlorar perspektiv</li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;"><strong>+20% om spelaren håller The Black Doll</strong> (den gör när drömmen börjar)</p>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Vad spelaren ser (om Willpower success):</h4>
+                    <div style="background: rgba(74, 144, 164, 0.05); padding: 1rem; border-left: 3px solid var(--accent-primary); margin-top: 0.5rem;">
+                        <p style="font-size: 0.9rem;">
+                            <strong>Platsen:</strong> Ett stort trähus, två våningar. Gammalt men någon gång vackert. Nu förfallet.
+                        </p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+                            <strong>När:</strong> Vinter, 1941-42. Belägringen av Leningrad pågår. Artilleri hörs i fjärran.
+                        </p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+                            <strong>Barnen:</strong> Flyktingar från Leningrad. Föräldrarna döda eller försvunna. Detta är Camp S-17 - ett "skydd" för föräldralösa.
+                        </p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+                            <strong>De vuxna:</strong> 5-6 personer. Mest kvinnor. Svetlana (översättare - Magdas mamma). En präst (gammal, sjuk). En vakt (Röda armén, sårad).
+                        </p>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Alertness roll:</h4>
+                    <div class="note-box">
+                        <p><strong>Framgång:</strong> Spelaren lägger märke till något konstigt</p>
+                        <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                            <li>I hörnet av rummet: En ikon. Gammal ortodox stil. <strong>Den glöder svagt.</strong></li>
+                            <li>Svetlana (översättaren) tittar på ikonen ofta, verkar orolig.</li>
+                            <li>Någon av barnen pekar på ikonen och viskar: "Det är där de bor nu."</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Drömmen slutar:</h4>
+                    <p style="margin-top: 1rem; font-style: italic;">
+                        Plötsligt känns det som att falla igen. Du vaknar i hotellrummet. Svettas. Hjärtat dunkar.
+                    </p>
+                    <p style="margin-top: 0.5rem; font-style: italic;">
+                        The Black Doll ligger på huvudkudden bredvid dig. Du minns inte att ha tagit ut den.
+                    </p>
+                    <p style="margin-top: 0.5rem; font-style: italic;">
+                        Den är så kall att den lämnar frost på lakanet.
+                    </p>
+
+                    <div class="san-check" style="margin-top: 1.5rem;">
+                        <h4>⚠️ SAN CHECK</h4>
+                        <p><strong>Situation:</strong> Uppleva minnen som inte är dina, från barn 80+ år sedan</p>
+                        <p><strong>Roll:</strong> 0/1 SAN</p>
+                        <p><strong>Rationale:</strong> Dissociativ upplevelse men inte direkt övernaturligt... ännu</p>
+                    </div>
+
+                    <div class="warning-box" style="margin-top: 1.5rem;">
+                        <h4>VAD SPELAREN KAN BERÄTTA ANDRA</h4>
+                        <p>Nästa morgon kan spelaren beskriva drömmen. Andra "märkta" spelare känner igen:</p>
+                        <ul style="margin-top: 0.5rem;">
+                            <li>"Svetlana" - Magdas mamma (nämnd i Frankfurt-journalerna)</li>
+                            <li>Camp S-17 - platsen där det hände</li>
+                            <li>Vintern 1941-42 - Leningrads belägring</li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;"><strong>De andra spelarna:</strong> "Det var bara en dröm... eller?"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Night 2 -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">NATT 2: DRÖMMARNA SPRIDER SIG</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+                    <p>
+                        <strong>När:</strong> Andra natten efter Frankfurt Clinic.
+                    </p>
+                    <p style="margin-top: 0.5rem;">
+                        <strong>Vem:</strong> En till "märkt" spelare börjar drömma (SL väljer baserat på SAN-förlust eller Bond-status).
+                        Den första spelaren drömmer igen, men från ett annat barns perspektiv.
+                    </p>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Före sömnen:</h4>
+                    <p>
+                        Den första spelaren berättar vid frukosten om drömmen. De andra lyssnar skeptiskt.
+                        "Det var bara stress från Frankfurt..."
+                    </p>
+                    <p style="margin-top: 0.5rem;">
+                        Men under dagen: alla märkta spelare känner subtil huvudvärk, distans från verkligheten, impulsen att SOVA.
+                    </p>
+
+                    <div class="note-box">
+                        <h4>BOND STRESS CHECK</h4>
+                        <p>Om spelaren ringer familj/vänner under dagen:</p>
+                        <ul>
+                            <li>De verkar distraherade</li>
+                            <li>Har svårt att fokusera på konversation</li>
+                            <li>Vill avsluta samtalet snabbt för att vila</li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;"><strong>Bonds får -1 stress</strong> om inte spelaren gör en Persuade roll för att "låtsas vara normal"</p>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Drömmen börjar - Två perspektiv:</h4>
+
+                    <h5 style="color: var(--text); margin-top: 1rem;">PERSPEKTIV A: En äldre flicka (10 år) - Katya</h5>
+                    <div style="background: rgba(74, 144, 164, 0.05); padding: 1rem; border-left: 3px solid var(--accent-primary); margin-top: 0.5rem;">
+                        <p style="font-size: 0.9rem; font-style: italic;">
+                            Du är Katya. Du är äldst av barnen. Du minns dina föräldrar. Du minns hur Leningrad såg ut före kriget.
+                            Nu är din uppgift att hjälpa Svetlana att hålla de mindre barnen lugna.
+                        </p>
+                        <p style="font-size: 0.9rem; font-style: italic; margin-top: 0.5rem;">
+                            Du står vid fönstret och tittar ut. Snö. Träd. Och längre bort - tysk artilleri. De kom närmare förra veckan.
+                            Vakten sa att de inte kan ta sig hit. Men du hör dem varje natt.
+                        </p>
+                        <p style="font-size: 0.9rem; font-style: italic; margin-top: 0.5rem;">
+                            Svetlana ropar på dig. "Katya, hjälp mig med de små." Fem barn gråter - de är hungriga. Det är alltid så.
+                        </p>
+
+                        <div class="note-box" style="margin-top: 1rem;">
+                            <h4>ALERTNESS ROLL</h4>
+                            <p><strong>Framgång:</strong> Katya ser något genom fönstret</p>
+                            <ul style="margin-top: 0.5rem; font-size: 0.85rem;">
+                                <li>En lastbil. Tysk. Parkerad ~200 meter från huset</li>
+                                <li>Två män i tyska uniformer bär ut något - metalliskt, cylindriskt</li>
+                                <li>De gräver i snön. Installerar något.</li>
+                                <li>En av männen tittar mot huset med kikare. Antecknar.</li>
+                            </ul>
+                            <p style="margin-top: 0.5rem; font-size: 0.85rem;"><strong>Katya förstår inte vad det är. Men spelaren kan göra Unnatural eller Military Science roll:</strong></p>
+                            <p style="font-size: 0.85rem;">→ Detta är ingen vapen-installation. Det är något annat. Teknologiskt. Experimentellt.</p>
+                        </div>
+                    </div>
+
+                    <h5 style="color: var(--text); margin-top: 1.5rem;">PERSPEKTIV B: En yngre pojke (6 år) - Yuri</h5>
+                    <div style="background: rgba(74, 144, 164, 0.05); padding: 1rem; border-left: 3px solid var(--accent-primary); margin-top: 0.5rem;">
+                        <p style="font-size: 0.9rem; font-style: italic;">
+                            Du är Yuri. Du är liten. Du minns inte mycket från förut. Bara att mamma sa "spring" och sedan var hon borta.
+                        </p>
+                        <p style="font-size: 0.9rem; font-style: italic; margin-top: 0.5rem;">
+                            Nu bor du här med andra barn. Svetlana är snäll. Prästen också, fast han ser sjuk ut.
+                        </p>
+                        <p style="font-size: 0.9rem; font-style: italic; margin-top: 0.5rem;">
+                            På natten sover du i ett stort rum med alla andra. Det är kallt. Men ikonen i hörnet - den känns varm.
+                            Ibland går du nära den. Det känns bättre.
+                        </p>
+                        <p style="font-size: 0.9rem; font-style: italic; margin-top: 0.5rem;">
+                            Idag pratar de stora barnen om ikonen. De säger konstiga saker: "Den glöder ibland." "Jag hör den viska."
+                            Svetlana hör dem och blir arg. "Prata inte om sånt! Det är bara en ikon. Den skyddar oss."
+                        </p>
+
+                        <div class="note-box" style="margin-top: 1rem;">
+                            <h4>OCCULT ROLL</h4>
+                            <p><strong>Framgång:</strong> Spelaren (med sitt moderna medvetande) känner igen typ av ikon</p>
+                            <ul style="margin-top: 0.5rem; font-size: 0.85rem;">
+                                <li>Ortodox stil, ~1600-1700-tal</li>
+                                <li>Svarta Madonnan med Jesusbarnet</li>
+                                <li>Men... något är fel med den. Måleriet verkar... röra sig ibland.</li>
+                                <li>Svetlana och prästen behandlar den inte som religiös artefakt - mer som ett <strong>fängelse</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Drömmen slutar:</h4>
+                    <p style="margin-top: 1rem;">
+                        Plötsligt - samma fallande känsla. Spelarna vaknar. Om två spelare drömde: de vaknar nästan exakt samtidigt.
+                    </p>
+                    <p style="margin-top: 0.5rem;">
+                        The Black Doll (om första spelaren fortfarande har den): Ligger nu på golvet bredvid sängen. Frosten runt den har spridit sig - ett mönster på golvet. Nästan geometriskt.
+                    </p>
+
+                    <div class="san-check" style="margin-top: 1.5rem;">
+                        <h4>⚠️ SAN CHECK</h4>
+                        <p><strong>Situation:</strong> Samma dröm från olika perspektiv + insikten att detta HÄNDE verkligen</p>
+                        <p><strong>Roll:</strong> 0/1 SAN</p>
+                        <p><strong>Rationale:</strong> Upprepning bekräftar verklighet - inte bara fantasiDetta hände verkligen</p>
+                    </div>
+
+                    <div class="warning-box" style="margin-top: 1.5rem;">
+                        <h4>NÄSTA MORGON - KONSEKVENSER</h4>
+                        <p><strong>Om två spelare drömde:</strong></p>
+                        <ul style="margin-top: 0.5rem;">
+                            <li>De kan bekräfta varandras upplevelser: "Jag såg dig! Nej vänta... jag såg Katya. Men det var DIG."</li>
+                            <li>Detaljer matchar perfekt trots olika perspektiv</li>
+                            <li>De måste acceptera: Detta är inte "bara drömmar"</li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;"><strong>Ny information:</strong></p>
+                        <ul style="margin-top: 0.5rem;">
+                            <li>Nazisterna installerade något nära Camp S-17 (December 1941)</li>
+                            <li>Ikonen är inte bara religiös - Svetlana och prästen VET något om den</li>
+                            <li>Ikonen "skyddar" men också... något annat</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Night 3 -->
+        <div class="collapsible">
+            <div class="collapsible-header">
+                <span class="collapsible-title">NATT 3: NAZISTERNAS PLAN</span>
+                <span class="collapsible-icon">▶</span>
+            </div>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+                    <p>
+                        <strong>När:</strong> Tredje natten. Vid det här laget drömmer alla "märkta" spelare (3-5 personer).
+                    </p>
+                    <p style="margin-top: 0.5rem;">
+                        <strong>Progression:</strong> Drömmarna blir längre, mer intensiva, svårare att skilja från verklighet.
+                    </p>
+
+                    <div class="warning-box" style="margin-top: 1rem;">
+                        <h4>FÖRE SÖMNEN - DAGTID INVESTIGATION</h4>
+                        <p>Spelarna bör vid det här laget researcha:</p>
+                        <ul style="margin-top: 0.5rem;">
+                            <li>Nazi "Wunderwaffe" experiments December 1941</li>
+                            <li>Type-VII och Type-VIII apparatus (Trip 19-koppling)</li>
+                            <li>Leningrad belägring timeline: Nazisterna kom närmast Dec 31, 1941</li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;">De kan hitta dokument (från Neo-Nazi grupper eller arkiv) som hints till "Silvester-Operation" - något planerat för nyårsnatten.</p>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Drömmen - Delad upplevelse:</h4>
+                    <p style="margin-top: 1rem; font-style: italic;">
+                        Denna natt drömmer ALLA märkta spelare tillsammans. De är i samma "rum" men från olika barns perspektiv.
+                        De kan "känna" varandras närvaro.
+                    </p>
+
+                    <div class="note-box" style="margin-top: 1rem;">
+                        <h4>WILLPOWER CHECK (GROUP)</h4>
+                        <p><strong>Alla gör Willpower roll:</strong></p>
+                        <ul>
+                            <li><strong>Majoriteten lyckas:</strong> De kan kommunicera med varandra i drömmen (genom barnens handlingar)</li>
+                            <li><strong>Majoriteten misslyckas:</strong> De är separerade, upplever olika tidpunkter</li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;"><strong>The Black Doll ger +20%</strong> till den som håller den</p>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Scen: December 28, 1941 - Tre dagar före nyår</h4>
+                    <div style="background: rgba(232, 154, 60, 0.05); padding: 1rem; border-left: 4px solid var(--accent-secondary); margin-top: 0.5rem;">
+                        <p style="font-size: 0.9rem; font-style: italic;">
+                            Svetlana samlar alla barn i stora rummet. Prästen är där också - ser sämre ut än förut, hostar blod.
+                        </p>
+                        <p style="font-size: 0.9rem; font-style: italic; margin-top: 0.5rem;">
+                            "Barn," säger hon. "Ni måste lyssna noga. Tyskarnas maskin... den har börjat göra ljud. Varje natt nu.
+                            Präst Dimitri och jag... vi vet vad den är. Det är samma som i Moskva 1939. Samma som i Warszawa."
+                        </p>
+                        <p style="font-size: 0.9rem; font-style: italic; margin-top: 0.5rem;">
+                            Prästen talar, svagt: "De försöker öppna en port. Till något... gammalt. Något som inte borde vara här.
+                            Vår ikon - Svarta Madonnan - hon håller en annan port stängd. Under detta hus."
+                        </p>
+                        <p style="font-size: 0.9rem; font-style: italic; margin-top: 0.5rem;">
+                            "Om båda portarna öppnas samtidigt..." Svetlana kan inte avsluta meningen. "Vi har bett om hjälp från Moskva.
+                            Röda armén har... något. En motåtgärd. Men vi vet inte om de hinner."
+                        </p>
+                    </div>
+
+                    <div class="note-box" style="margin-top: 1.5rem;">
+                        <h4>VAD SPELARNA KAN GÖRA</h4>
+                        <p>Om de lyckas med Group Willpower check:</p>
+                        <ul style="margin-top: 0.5rem;">
+                            <li><strong>Persuade (through barnen):</strong> Försöka övertyga Svetlana att FLY med barnen INNAN nyårsnatten</li>
+                            <li><strong>Alertness:</strong> Observera kartor/dokument i rummet</li>
+                            <li><strong>Occult/History:</strong> Förstå vad Svetlana och prästen egentligen pratar om</li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;"><strong>Men:</strong> Händelserna har redan hänt. Paradox. Svetlana hör barnen säga konstiga saker men kan inte agera annorlunda än hon redan gjorde.</p>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Observationer (Alertness/Search rolls):</h4>
+                    <div style="background: rgba(74, 144, 164, 0.05); padding: 1rem; margin-top: 0.5rem;">
+                        <p style="font-size: 0.9rem;"><strong>Om framgång på Alertness:</strong></p>
+                        <ul style="font-size: 0.85rem; margin-top: 0.5rem;">
+                            <li>Svetlana har en karta på väggen - visar 4 positioner runt huset där tyskarnas apparatus installerats</li>
+                            <li>Prästen har ett brev från "Bishop Innokentii, Moskva" - omnämner "Project Echo" (Sovjetisk motåtgärd)</li>
+                            <li>Under sängar: små dockor som barnen har. Tillverkade av... är det Pyotr? En liten pojke (~1 år) som alltid har en docka</li>
+                        </ul>
+
+                        <p style="font-size: 0.9rem; margin-top: 1rem;"><strong>Om framgång på Search:</strong></p>
+                        <ul style="font-size: 0.85rem; margin-top: 0.5rem;">
+                            <li>Prästen gömmer något under sin madress - en journal</li>
+                            <li>Spelaren (om de kan läsa den) ser: "31 Dec - de aktiverar vid midnatt. Vår motstyrka anländer 22:00. Vi har 2 timmar att stoppa dem. Om vi misslyckas... Gud hjälpe barnen."</li>
+                        </ul>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Drömmen intensifieras:</h4>
+                    <p style="margin-top: 1rem; font-style: italic;">
+                        Plötsligt - ett ljud. Djupt, vibrerande. 247 Hz exakt (om någon spelare har utrustning som mäter, de känner det).
+                    </p>
+                    <p style="margin-top: 0.5rem; font-style: italic;">
+                        Alla barn reagerar. De börjar humma. SAMMA ton. Svetlana försöker stoppa dem: "NEJ! Inte än! För tidigt!"
+                    </p>
+                    <p style="margin-top: 0.5rem; font-style: italic;">
+                        Men barnen kan inte sluta. Något DRAR dem att humma.
+                    </p>
+                    <p style="margin-top: 0.5rem; font-style: italic;">
+                        Ikonen i hörnet - börjar glöda starkare. Svart ljus. Omöjligt ljus. Under golvet... något ANDAS.
+                    </p>
+
+                    <div class="san-check" style="margin-top: 1.5rem; background: rgba(232, 154, 60, 0.15); border-color: var(--accent-secondary);">
+                        <h4>⚠️ SAN CHECK</h4>
+                        <p><strong>Situation:</strong> Känna båda krafterna - Yithian signal från tyskarna + Nyogtha under huset</p>
+                        <p><strong>Roll:</strong> 1/1D3 SAN</p>
+                        <p><strong>Rationale:</strong> Detta är första DIREKTA exponering - samma som barnen kände 1942</p>
+                    </div>
+
+                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Vaknar abrupt:</h4>
+                    <p style="margin-top: 1rem;">
+                        Alla spelarna vaknar SAMTIDIGT. Klockan: 03:17. Alla har hummande i öronen. 247 Hz. Det tar 10 minuter innan det slutar.
+                    </p>
+                    <p style="margin-top: 0.5rem;">
+                        The Black Doll: Ligger på golvet mellan sängarna (om flera spelare i samma rum). Frosten runt den har format ett MÖNSTER - ser nästan ut som... kartan från Svetlanas vägg. De fyra positionerna.
+                    </p>
+
+                    <div class="warning-box" style="margin-top: 1.5rem;">
+                        <h4>NÄSTA MORGON - BREAKING POINT RISK</h4>
+                        <p><strong>Om någon spelare förlorade 3+ SAN sen Frankfurt:</strong></p>
+                        <p style="margin-top: 0.5rem;">Roll mot nuvarande SAN:</p>
+                        <ul style="margin-top: 0.5rem;">
+                            <li><strong>Framgång:</strong> Tillfällig disorder (insomnia, paranoia)</li>
+                            <li><strong>Misslyckande:</strong> Permanent disorder + 1D4 SAN loss</li>
+                        </ul>
+
+                        <p style="margin-top: 1rem;"><strong>VAD SPELARNA NU VET:</strong></p>
+                        <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                            <li>Nazisterna installerade 4 apparatus i kvadrat runt Camp S-17</li>
+                            <li>Dessa skulle aktiveras midnatt, 31 Dec 1941</li>
+                            <li>Röda armén hade motåtgärd (Project Echo) - anlände 22:00 samma kväll</li>
+                            <li>Svetlana och prästen VISSTE att något skulle hända</li>
+                            <li>Ikonen håller "något under huset" fängslat (Nyogtha, fast de vet inte namnet)</li>
+                            <li>När båda krafterna möttes... det är då barnen exponerades</li>
+                        </ul>
+
+                        <p style="margin-top: 1rem; font-style: italic; color: var(--text-dim);">
+                            Och fyra nätter kvar tills de drömmer om <strong>själva natten.</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Collapsible functionality
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const collapsible = header.parentElement;
+                collapsible.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
