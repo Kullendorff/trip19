@@ -306,7 +306,217 @@ After Route 1 discussion, Sparky says quietly: *"There's one other person. But I
 
 ---
 
-## ROUTE 4: COMBINED ROUTE - "THE BERLIN RENDEZVOUS"
+## ROUTE 4: WERNER HARMANN'S REVERSE SMUGGLING ROUTE
+### "The Mechanic's Pipeline"
+
+**Contact Chain:**
+1. **Team investigates Berlin leads** → 2. **Werner Harmann** (mechanic, Slava logistics) → 3. **Slava smuggling network** → 4. **Reverse the pipeline** (Germany → Russia)
+
+### How Players Discover This Route:
+
+**Scene: Investigating Slava logistics in Berlin (Chapter 4)**
+
+During Chapter 4 investigation, players may discover Werner Harmann's workshop:
+- **From GG investigation:** Documents at GG HQ mention "Harmann's Mechanical" as storage/transit point
+- **From fragment tracking:** Black Madonna Doll huttar near Warschauer Straße 58
+- **From Anton Mahler investigation:** Financial records show payments to Werner Harmann
+
+**Initial contact:**
+When players visit the workshop, Werner is nervous but cooperative if approached correctly. He's been paid to store "Soviet artifacts" but doesn't know what they actually are.
+
+**The opportunity:**
+> "You store fragments that come FROM Russia. That means you have smuggling contacts who move things across borders. We need to go the other direction."
+
+### The Route Details:
+
+**Method:** Commercial truck smuggling (Berlin → Warsaw → Minsk → Moscow)
+
+**Logistics:**
+- **Contact Point:** Harmann's Mechanical Workshop, Warschauer Straße 58, Berlin
+- **Smuggler Type:** Slava's existing logistics network (same people who deliver fragments TO Berlin)
+- **Route:** The EXACT REVERSE of Slava's delivery pipeline
+  - Berlin (Harmann's) → Polish border → Warsaw hub → Belarus → Russian border → Moscow
+- **Transport:** Commercial cargo trucks (hidden in legitimate shipments - machinery, auto parts, industrial supplies)
+- **Cover story:** "Returning defective Soviet-era parts for replacement" or "Technical consultants for factory equipment"
+
+**Duration:** 4-6 days
+- **Day 1:** Negotiate with Werner, establish contact with Slava logistics
+- **Day 2:** Werner arranges contact with truck driver/coordinator
+- **Day 3:** Preparation, forged documentation, cargo manifest
+- **Day 4-5:** Land transport (2-3 border crossings)
+- **Day 6:** Arrival Moscow industrial district
+
+**Cost:** $70,000-$90,000
+- Werner's cooperation: €10,000-€15,000 (he takes high risk)
+- Slava logistics bribe: $40,000-$50,000 (using enemy's network is expensive)
+- Forged documentation: $10,000-$15,000
+- Emergency fund: $10,000
+
+### Convincing Werner:
+
+Werner is **unwitting accomplice** - doesn't know he's handling mythos artifacts. Players have several approaches:
+
+**APPROACH A: INTIMIDATION (Law Enforcement)**
+- Show FBI credentials (Mac), threaten arrest for smuggling
+- "You're storing illegal artifacts from Russia. You're facing 10-20 years unless you cooperate."
+- **Risk:** Werner calls his lawyer, shuts down completely
+- **Success rate:** 30% (Werner is scared but also stubborn)
+
+**APPROACH B: MONEY (Direct Bribe)**
+- Pay Werner €10,000-€15,000 cash upfront
+- "We need your smuggling contacts. We'll pay triple what Slava pays."
+- **Risk:** Werner might betray them to Slava for more money
+- **Success rate:** 60% (Werner needs money badly)
+
+**APPROACH C: TRUTH (Partial Disclosure)**
+- Explain Werner is handling dangerous materials
+- Show him fragment effects (if they have samples) or Black Madonna Doll behavior
+- "You've been storing things that hurt people. Help us stop it."
+- **Risk:** Werner thinks they're insane
+- **Success rate:** 50% (depends on how convincing players are)
+
+**APPROACH D: APPEAL TO CONSCIENCE (Best Option)**
+- Investigate Werner's background first (family man, traditional craftsman, church-goer)
+- "Anton Mahler is using you. These 'artifacts' are killing people. We need to stop him."
+- Show evidence of GG rally casualties or fragment victims
+- **Risk:** Takes longer (requires research phase)
+- **Success rate:** 70-80% (Werner is fundamentally decent person)
+
+**Werner's conditions if he agrees:**
+- "I never met you. If police ask, I know nothing."
+- "You don't come back here. Ever. This ends our arrangement."
+- "If Anton finds out, he'll kill me. You better succeed."
+
+### The Smuggling Network:
+
+**Slava's logistics coordinator:** Ivan Petrov (trucker, 50s, works Berlin-Moscow route for 15 years)
+
+**Process:**
+1. **Werner contacts Ivan:** "I have special cargo going back to Moscow. Paying double."
+2. **Ivan suspicious:** "What cargo? This isn't normal procedure."
+3. **Players must convince Ivan:**
+   - Bribe ($20,000-$30,000)
+   - Pretend to be Slava operatives (SIGINT/Disguise checks)
+   - Threaten (risky - Ivan has Slava backing)
+4. **If successful:** Players hidden in truck cargo compartment with industrial machinery
+5. **Border crossings:** Poland (moderate), Belarus (high risk), Russia (extreme risk)
+
+**What makes this route unique:**
+
+✅ **Using enemy's infrastructure** - Slava's own network smuggles players into Russia
+✅ **Established pipeline** - Route has been used for 6+ months, border guards familiar with trucks
+✅ **Commercial cover** - Legitimate cargo shipments, not suspicious fishing boats or forest crossings
+✅ **Werner's mechanical expertise** - Can create hidden compartments in truck cargo
+✅ **Speed** - Truck route is faster than sea crossing (4-6 days vs 3-4 days but more reliable)
+
+### Risks:
+
+**EXTREME RISK FACTORS:**
+- 🔴🔴 **Anton Mahler finds out** - If Slava learns players used THEIR network = execution order
+- 🔴🔴 **Ivan betrays them** - Trucker could deliver players directly to Anton/FSB for reward
+- 🔴🔴 **Werner gets caught** - FSB could interrogate him, trace back to team
+
+**HIGH RISK FACTORS:**
+- 🔴 **Border checkpoint inspection** - Three borders (Poland, Belarus, Russia) = three chances for discovery
+- 🔴 **Hidden compartment failure** - If cargo shifts during transport, players exposed
+- 🔴 **Slava communication** - Ivan might radio ahead to Moscow contacts = ambush waiting
+
+**MEDIUM RISK FACTORS:**
+- 🟡 **Ernst Vogel presence** - Transformed security guard patrols Harmann's workshop area
+- 🟡 **Document forgery** - Cargo manifests must pass scrutiny at multiple checkpoints
+- 🟡 **Physical endurance** - 2-3 days hidden in truck cargo = Constitution checks
+- 🟡 **Language barrier** - If stopped, need Russian/Polish speakers (only Scalpel has German)
+
+**Bond Consequences:**
+- **Werner Harmann** - Not a player bond, but moral weight of endangering innocent man
+- **Team morality** - Using intimidation vs paying vs honesty = different psychological costs
+- **Scalpel's German connections** - Werner could connect to Jürgen's circles = endanger father indirectly
+
+### Why This Route Works:
+
+✅ **Players naturally discover Werner during Chapter 4 Berlin investigation**
+✅ **Werner has ESTABLISHED smuggling infrastructure** (not creating new route)
+✅ **Slava logistics pipeline is PROVEN** (6 months of successful deliveries)
+✅ **Commercial truck cover is realistic** (Berlin-Moscow trade routes exist)
+✅ **Time: 4-6 days** (fits urgency constraint)
+✅ **Central Berlin location** (easy for team to reach from USA)
+✅ **Poetic justice** - Using enemy's network against them
+
+### Why This Route Is Risky:
+
+❌ **Betrayal risk extremely high** - Both Werner AND Ivan could sell them out
+❌ **Anton Mahler's network** - Walking into enemy's infrastructure
+❌ **Three border crossings** - More checkpoints = more failure points
+❌ **Werner is unwitting** - Doesn't understand danger, could make mistakes
+❌ **No backup plan** - If betrayed mid-route, stuck in Belarus/Poland
+
+### GM Notes:
+
+**Werner's character arc:**
+- Decent man caught in economic desperation
+- Discovers he's been accomplice to cosmic horror
+- Must decide: protect himself OR help players
+- Potential for redemption if he helps (but high cost)
+
+**Moral complexity:**
+- **If intimidated:** Werner cooperates but hates players, might sabotage subtly
+- **If bribed:** Werner pragmatic but unreliable (loyalty bought = loyalty sold)
+- **If convinced:** Werner genuine ally but terrified, could panic under pressure
+- **Consequences:** Werner's fate after players leave Berlin - does Anton discover betrayal?
+
+**Ernst Vogel complication:**
+If players approach Harmann's workshop, Ernst Vogel (Stage 2-3 transformed, STR 18) might be present:
+- Patrols area when new shipments expected
+- Can SENSE Chagidiel's Mark on players
+- Potential combat encounter (very dangerous - requires teamwork to survive)
+- Alternative: Stealth approach when Ernst is at GG HQ instead
+
+**Ivan Petrov characterization:**
+- Practical smuggler, not ideological
+- Works for Slava because they pay well
+- Suspicious of irregular requests
+- Key leverage: "Slava doesn't need to know. This is YOUR business, YOUR profit."
+- Weakness: Greed (will take extra money) but also survival instinct (won't risk FSB death sentence)
+
+**Border crossing scenes:**
+Each border should be tense scene with different challenge:
+1. **Poland border (Świecko):** Routine but thorough - Alertness checks to stay quiet in compartment
+2. **Belarus border (Brest):** Lukashenko regime surveillance - Ivan must bribe guards (players hear negotiation)
+3. **Russia border (Smolensk):** FSB checkpoint - cargo inspection risk (50% chance) - if opened, players must decide: stealth, violence, or talk their way out
+
+**Complications:**
+- Cargo truck breaks down in Belarus (delay 1-2 days, exposure risk)
+- Ivan has second thoughts mid-journey (demands more money or threatens to stop)
+- Slava contacts Ivan during trip: "Have you seen unusual activity at Werner's workshop?"
+- Other cargo in truck is ALSO fragment shipments = parasite disease exposure risk
+
+**Werner's fate (post-operation):**
+- **Best case:** Players succeed, Werner never discovered, continues business (guilty conscience)
+- **Medium case:** Anton suspicious but no proof, Werner leaves Berlin permanently
+- **Worst case:** Slava discovers betrayal, Werner found dead in workshop (player guilt)
+
+### Cost Breakdown:
+
+**Total: $70,000-$90,000**
+
+| Expense | Cost | Notes |
+|---------|------|-------|
+| Werner's cooperation | €10,000-€15,000 ($11,000-$16,500) | High risk = high price |
+| Ivan's bribe | $30,000-$40,000 | Double-crossing Slava is expensive |
+| Forged cargo docs | $10,000-$15,000 | Manifest, customs paperwork, invoices |
+| Poland border bribe | $5,000 | "Standard" crossing fee |
+| Belarus border bribe | $8,000-$12,000 | Lukashenko regime = expensive |
+| Russia border bribe | $10,000-$15,000 | FSB checkpoint = highest cost |
+| Emergency fund | $10,000 | Unexpected complications |
+
+**Where players might get additional funds:**
+- Steal from GG HQ during Chapter 4 (€20,000-€30,000 in safe)
+- Sell recovered fragments on darkweb (ethical dilemma!)
+- Negotiate with Werner to split costs (he wants Slava gone too)
+
+---
+
+## ROUTE 5: COMBINED ROUTE - "THE BERLIN RENDEZVOUS"
 ### Using Multiple Contacts for Redundancy
 
 **Concept:** Players don't rely on single route - they use Scalpel's Berlin father as base, then activate Sparky's darkweb OR Ghost contacts from Berlin
@@ -370,7 +580,8 @@ After Route 1 discussion, Sparky says quietly: *"There's one other person. But I
 | **Route 1** | Cipher (Sparky) | Baltic Sea | 3-4 days | $100-120k | HIGH | Cipher bond erosion |
 | **Route 2** | Jürgen (Scalpel) | Poland/Belarus land | 4-5 days | $60-80k | HIGH | Father bond HIGH risk |
 | **Route 3** | Ghost (Sparky) | Finland forest | 4-5 days | $40-60k | EXTREME | Ghost relationship burned |
-| **Route 4** | Combined Berlin | Variable | 4-6 days | $80-120k | MEDIUM-HIGH | Both Jürgen + Cipher/Ghost |
+| **Route 4** | Werner Harmann | Slava truck reverse | 4-6 days | $70-90k | EXTREME | Moral weight (innocent endangered) |
+| **Route 5** | Combined Berlin | Variable | 4-6 days | $80-120k | MEDIUM-HIGH | Both Jürgen + Cipher/Ghost |
 
 ---
 
