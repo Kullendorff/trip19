@@ -7,9 +7,14 @@
 **Ålder:** 36 år (född 1989)
 **Kön:** Man
 **Nationalitet:** Amerikansk
-**Yrke:** Urban Search & Rescue Specialist, FEMA Pennsylvania Task Force 1
+**Yrke:**
+- FEMA CORE Reservist (Building Science/Safety Assessment Specialist)
+- PA Task Force 1 (USAR Specialist, part-time)
 **Delta Green:** Operative, "Chesapeake" cell
-**Basering:** Philadelphia area (PA-TF1), opererar i DC/MD/VA region för Delta Green
+**Basering:**
+- **Primary:** 2019 Ford Transit campervan (bor i den 200+ dagar/år)
+- **Official Address:** Lägenhet i Philadelphia, PA (mail, storage)
+- **Operational Area:** Hela USA (FEMA deployments), DC/MD/VA region (Delta Green)
 
 ---
 
@@ -103,6 +108,72 @@
   - Dotter: Mia (11 år)
   - Son: Phillip (14 år)
 - **Relation:** Storebror, valde det akademiska livet
+
+---
+
+## KARRIÄR & LIVSSITUATION
+
+### FEMA CORE Reservist (2023-Present)
+**Position:** Building Science/Safety Assessment Specialist
+**Status:** Cadre of On-Call Response/Recovery Employees
+
+**Vad det innebär:**
+- On-call federal employee som deployeras vid disasters
+- 30-180 dagar deployment per år (oregelbundet)
+- Specialisering: Building safety assessments, structural damage evaluation
+- Federal credentials och security clearance
+- Income: $3,000-$5,000/månad under deployment, inget mellan uppdrag
+
+**Typiskt År:**
+- 3-4 FEMA deployments (tornado damage, hurricane recovery, flood assessment)
+- 2-3 Delta Green operations
+- 1-2 PA-TF1 trainings (maintain USAR certification)
+- Rest: "Standby mode" (actually DG research/prep)
+
+**Varför FEMA CORE:**
+- Perfekt cover för Delta Green - förklarar constant travel
+- Federal credentials underlättar DG operations
+- Många USAR Task Force members är också CORE
+- Mellan deployments = fullständig flexibility för DG
+
+### PA Task Force 1 (2014-Present)
+**Position:** USAR Specialist (part-time/on-call)
+**Status:** Maintains certifications, deployeras vid stora disasters
+**Frequency:** 1-2 federal deployments/år + quarterly training
+
+### Campervan-livsstil (2023-Present)
+**Fordon:** 2019 Ford Transit 250 Extended (high roof)
+**Modifikationer:**
+- Fullt utrustad för off-grid living (solar panels, batteri-system)
+- Säng, mini-kök, compact bathroom
+- Secure storage för gear (både USAR och... annat)
+- Communications equipment (ham radio, satellite phone)
+- Tool storage, work bench
+- Mounted externally: Roof rack, awning, recovery gear
+
+**Varför Campervan:**
+**Official Story:**
+"Started under pandemin när jag var deployed konstant. Insåg att lägenheten stod tom 200+ dagar om året. Mer praktiskt att ha en mobil base. Kan parkera vid deployment sites. Sparar pengar på hotell under långa uppdrag."
+
+**Verklig Anledning:**
+- Gör det lättare att "försvinna" för Delta Green ops
+- Ingen landlord som noterar ovanliga patterns
+- Kan vara mobile och untraceable
+- Lätt att förklara varför han är "anywhere" i USA
+- Perfect för paranoid operational security
+
+**Lägenhet i Philadelphia:**
+- Billig studio apartment i working-class område
+- Används för: Mail delivery, legal address, storage
+- Besöks: 1-2 gånger/månad för att hämta post
+- Contains: Sandra's toys/drawings, family photos, civilian clothes
+- Hyra: $800/månad (fortsätter betala för "normalcy")
+
+**Bor egentligen i:**
+- Campervanen 60% av tiden
+- FEMA deployment housing 25% av tiden
+- Lägenheten 10% av tiden
+- Hotels/motels (DG ops) 5% av tiden
 
 ---
 

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAM "TRENCH" NOVAK - Kontakter | Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0D1117;
+            --bg-darker: #0A0F0F;
+            --accent: #ff7f3f;
+            --accent-dim: #cc6632;
+            --text: #D1D5DB;
+            --text-dim: #6B7280;
+            --border: #1A2332;
+            --highlight: #2C3E50;
+            --warning: #E74C3C;
+            --success: #22c55e;
+            --danger: #DC2626;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--bg-darker);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            text-align: center;
+            line-height: 1.4;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(255, 127, 63, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent-dim);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #1A2332 100%);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            filter: grayscale(20%);
+        }
+
+        .content-section {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .contact-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-name {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-role {
+            color: var(--text-dim);
+            font-style: italic;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-details {
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-details p {
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-status {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .status-active { background: #22c55e; color: white; }
+        .status-limited { background: #f59e0b; color: white; }
+        .status-risky { background: var(--warning); color: white; }
+        .status-broken { background: var(--danger); color: white; }
+
+        .risk-indicator {
+            float: right;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .risk-low { background: #22c55e; color: white; }
+        .risk-medium { background: #f59e0b; color: white; }
+        .risk-high { background: var(--danger); color: white; }
+
+        .category-header {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .category-desc {
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+        }
+
+        .lightbox img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 2px solid var(--accent);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: var(--accent);
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(13, 17, 23, 0.8);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--accent);
+        }
+
+        .lightbox-close:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        .clickable-image {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .clickable-image:hover {
+            opacity: 0.8;
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-close {
+                top: 10px;
+                right: 15px;
+                font-size: 25px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .lightbox-content {
+                max-width: 95%;
+                max-height: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                SAM "TRENCH" NOVAK<br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">USAR // DELTA GREEN</span>
+            </div>
+
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="index.html" class="page-link">KARAKTÄR</a>
+                        <a href="usar_karriar.html" class="page-link">USAR KARRIÄR</a>
+                        <a href="delta_green.html" class="page-link">DELTA GREEN</a>
+                        <a href="kontakter.html" class="page-link active">KONTAKTER</a>
+                        <a href="personligt.html" class="page-link">PERSONLIGT</a>
+                        <a href="pittsburgh.html" class="page-link">PITTSBURGH</a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-title">SNABBNAVIGERING</div>
+                    <a href="#usar" class="nav-link">USAR & FEMA</a>
+                    <a href="#fire" class="nav-link">Fire & Rescue</a>
+                    <a href="#technical" class="nav-link">Technical & Engineering</a>
+                    <a href="#military" class="nav-link">Military Reserves</a>
+                    <a href="#pittsburgh" class="nav-link">Pittsburgh Local</a>
+                    <a href="#utility" class="nav-link">Equipment & Supply</a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">
+                    ✦ TRIP 19 ✦<br>
+                    ← CHESAPEAKE CELL
+                </a>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>KONTAKTER</h1>
+                    <div class="subtitle">Professionella Resurser & Nätverk</div>
+                    <p>15+ år av USAR och emergency response har byggt ett omfattande nätverk inom SAR, brandkår, teknisk expertis och disaster management. Working-class loyalty och praktisk tillförlitlighet.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="trench3.png" alt="Trench Network" class="clickable-image">
+                </div>
+            </div>
+
+            <section id="usar" class="content-section">
+                <h2 class="section-title">USAR & FEMA</h2>
+                <div class="category-desc">Kollegor från PA Task Force 1 och nationella task forces. Delar disaster zone experiences och operational trust.</div>
+
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-name">Linda Vasquez <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">PA-TF1 Task Force Leader (förra chefen)</div>
+                        <div class="contact-details">
+                            <p><strong>Historia:</strong> Sam's mentor i 10+ år</p>
+                            <p><strong>Användbarhet:</strong> USAR operations, federal mobilisering</p>
+                            <p><strong>Problem:</strong> Märkt Sam's minskade engagemang efter Pittsburgh</p>
+                        </div>
+                        <span class="contact-status status-limited">BEGRÄNSAD</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Carlos "Breacher" Mendez <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">PA-TF1 Breaching Specialist</div>
+                        <div class="contact-details">
+                            <p><strong>Historia:</strong> Worked Hurricane Maria, Haiti earthquake</p>
+                            <p><strong>Användbarhet:</strong> Breaching, demolition, structural entry</p>
+                            <p><strong>Problem:</strong> Inga - solid working relationship</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Jason Park <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">CA-TF2 Technical Search Specialist</div>
+                        <div class="contact-details">
+                            <p><strong>Historia:</strong> Träffades under FEMA-träning, flera gemensamma insatser</p>
+                            <p><strong>Användbarhet:</strong> West coast USAR resources, tech equipment</p>
+                            <p><strong>Problem:</strong> Long distance, limited contact</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Rebecca "Becca" Thornton <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">FEMA Region III Coordinator</div>
+                        <div class="contact-details">
+                            <p><strong>Specialisering:</strong> Federal disaster mobilization</p>
+                            <p><strong>Användbarhet:</strong> FEMA resources, federal authority</p>
+                            <p><strong>Problem:</strong> Bureaucratic, by-the-book</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="fire" class="content-section">
+                <h2 class="section-title">FIRE & EMERGENCY SERVICES</h2>
+                <div class="category-desc">Brandkår och rescue services från Pittsburgh och andra jurisdictions. Operational brotherhood och mutual aid.</div>
+
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-name">Chief Mike O'Brien <span class="risk-indicator risk-medium">MEDEL RISK</span></div>
+                        <div class="contact-role">Pittsburgh Fire Department, Battalion Chief</div>
+                        <div class="contact-details">
+                            <p><strong>Historia:</strong> 15 år samarbete, Pittsburgh tunnel collapse</p>
+                            <p><strong>Användbarhet:</strong> Pittsburgh FD resources, incident command</p>
+                            <p><strong>Problem:</strong> VET att något var fel med Pittsburgh-incidenten</p>
+                        </div>
+                        <span class="contact-status status-risky">RISKABEL</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Lt. Sarah Martinez <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Fairfax County Fire & Rescue</div>
+                        <div class="contact-details">
+                            <p><strong>Specialisering:</strong> Technical rescue, confined space</p>
+                            <p><strong>Användbarhet:</strong> DMV area backup, rescue gear</p>
+                            <p><strong>Problem:</strong> Inga - professional contact</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Tommy Rizzo <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Paramedic, Montgomery County Fire & Rescue</div>
+                        <div class="contact-details">
+                            <p><strong>Historia:</strong> Joint training exercises</p>
+                            <p><strong>Användbarhet:</strong> Medical support, trauma care</p>
+                            <p><strong>Problem:</strong> Sam undviker medicinska frågor</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Dave Kowalski <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Fire Marshal, Allegheny County</div>
+                        <div class="contact-details">
+                            <p><strong>Historia:</strong> Childhood friend, blev firefighter samma tid</p>
+                            <p><strong>Användbarhet:</strong> Fire investigation, building records</p>
+                            <p><strong>Problem:</strong> Inga - old friend, no questions</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="technical" class="content-section">
+                <h2 class="section-title">TECHNICAL & ENGINEERING</h2>
+                <div class="category-desc">Structural engineers, civil engineers och tekniska specialister från disaster assessments och collapse operations.</div>
+
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-name">Dr. Michelle Chen <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Structural Engineer, University of Maryland</div>
+                        <div class="contact-details">
+                            <p><strong>Specialisering:</strong> Building collapse analysis</p>
+                            <p><strong>Användbarhet:</strong> Structural assessments, failure analysis</p>
+                            <p><strong>Problem:</strong> Academic - förväntar sig data/dokumentation</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Frank Deluca <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Civil Engineer, PA Department of Transportation</div>
+                        <div class="contact-details">
+                            <p><strong>Specialisering:</strong> Tunnels, infrastructure, underground</p>
+                            <p><strong>Användbarhet:</strong> Building plans, tunnel specs, permits</p>
+                            <p><strong>Problem:</strong> Inga - appreciates Sam's practical knowledge</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Dr. James Holloway <span class="risk-indicator risk-medium">MEDEL RISK</span></div>
+                        <div class="contact-role">Geotechnical Engineer, Private Consultant</div>
+                        <div class="contact-details">
+                            <p><strong>Specialisering:</strong> Soil mechanics, foundation failure</p>
+                            <p><strong>Användbarhet:</strong> Ground failure analysis, subsidence</p>
+                            <p><strong>Problem:</strong> Pittsburgh collapse data doesn't add up</p>
+                        </div>
+                        <span class="contact-status status-limited">BEGRÄNSAD</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Angela Reyes <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Seismic Engineer, USGS</div>
+                        <div class="contact-details">
+                            <p><strong>Specialisering:</strong> Seismic activity, earthquake damage</p>
+                            <p><strong>Användbarhet:</strong> Seismic data, anomalous readings</p>
+                            <p><strong>Problem:</strong> Inga - federal colleague</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="military" class="content-section">
+                <h2 class="section-title">MILITARY RESERVES (USAR)</h2>
+                <div class="category-desc">United States Army Reserve kontakter. Förstår military discipline och operational security.</div>
+
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-name">SFC Marcus Webb <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">USAR, 411th Engineer Brigade</div>
+                        <div class="contact-details">
+                            <p><strong>Historia:</strong> Reserve unit, multiple training rotations</p>
+                            <p><strong>Användbarhet:</strong> Military engineering, heavy equipment</p>
+                            <p><strong>Problem:</strong> Sam's reserve participation dropped</p>
+                        </div>
+                        <span class="contact-status status-limited">BEGRÄNSAD</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">CPT Jennifer Walsh <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">USAR, Civil Affairs</div>
+                        <div class="contact-details">
+                            <p><strong>Specialisering:</strong> Disaster relief coordination</p>
+                            <p><strong>Användbarhet:</strong> Military mobilization, federal coordination</p>
+                            <p><strong>Problem:</strong> Limited contact senaste året</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pittsburgh" class="content-section">
+                <h2 class="section-title">PITTSBURGH LOCAL</h2>
+                <div class="category-desc">Hemstad-kontakter från working-class miljö. Lojala men kan inte involveras i federal operations.</div>
+
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-name">Randolf Novak <span class="risk-indicator risk-medium">MEDEL RISK</span></div>
+                        <div class="contact-role">Bror, Construction Foreman</div>
+                        <div class="contact-details">
+                            <p><strong>Relation:</strong> Äldre bror, strained efter mamma's död</p>
+                            <p><strong>Användbarhet:</strong> Pittsburgh intel, working-class network</p>
+                            <p><strong>Problem:</strong> Märkt Sam's changes, worried</p>
+                        </div>
+                        <span class="contact-status status-limited">BEGRÄNSAD</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Eddie "Sparks" Sullivan <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Union Electrician, IBEW Local 5</div>
+                        <div class="contact-details">
+                            <p><strong>Historia:</strong> High school friend, union brother</p>
+                            <p><strong>Användbarhet:</strong> Electrical work, Pittsburgh access</p>
+                            <p><strong>Problem:</strong> Sam stopped drinking with the guys</p>
+                        </div>
+                        <span class="contact-status status-broken">BRUTEN</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Maggie Chen <span class="risk-indicator risk-high">HÖG RISK</span></div>
+                        <div class="contact-role">Robert Chen's widow</div>
+                        <div class="contact-details">
+                            <p><strong>Historia:</strong> Robert dog i Pittsburgh tunnel collapse</p>
+                            <p><strong>Problem:</strong> Sam känner ENORM guilt, undviker henne</p>
+                            <p><strong>Status:</strong> Försöker kontakta Sam, vill ha answers</p>
+                        </div>
+                        <span class="contact-status status-broken">BRUTEN</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Joey Marchetti <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Bar Owner, "The Iron City"</div>
+                        <div class="contact-details">
+                            <p><strong>Historia:</strong> Neighborhood bar, knows everyone</p>
+                            <p><strong>Användbarhet:</strong> Pittsburgh street intel, safe space</p>
+                            <p><strong>Problem:</strong> Sam barely visits Pittsburgh anymore</p>
+                        </div>
+                        <span class="contact-status status-limited">BEGRÄNSAD</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="utility" class="content-section">
+                <h2 class="section-title">EQUIPMENT & SUPPLY</h2>
+                <div class="category-desc">Gear suppliers, tool vendors och practical support. Discreet och no-questions-asked service.</div>
+
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-name">Rick Hammond <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Owner, "Hammond's Industrial Supply"</div>
+                        <div class="contact-details">
+                            <p><strong>Användbarhet:</strong> Tools, safety gear, technical equipment</p>
+                            <p><strong>Philosophy:</strong> "Cash talks, paperwork walks"</p>
+                            <p><strong>Problem:</strong> Noterat Sam's ovanliga gear-requests</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Gloria Ramirez <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Manager, Home Depot Pro Desk</div>
+                        <div class="contact-details">
+                            <p><strong>Användbarhet:</strong> Construction materials, quick access</p>
+                            <p><strong>Loyalty:</strong> Appreciates Sam's pro work</p>
+                            <p><strong>Problem:</strong> Inga - transactional relationship</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Pete "Wrench" Kowalczyk <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Mechanic, heavy equipment specialist</div>
+                        <div class="contact-details">
+                            <p><strong>Historia:</strong> Dad's old friend, treats Sam like family</p>
+                            <p><strong>Användbarhet:</strong> Vehicle repair, heavy machinery</p>
+                            <p><strong>Problem:</strong> Worried about Sam's isolation</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-name">Amanda Wells <span class="risk-indicator risk-low">LÅG RISK</span></div>
+                        <div class="contact-role">Landlord, Sam's apartment</div>
+                        <div class="contact-details">
+                            <p><strong>Användbarhet:</strong> Housing security, no intrusions</p>
+                            <p><strong>Attitude:</strong> Professional, respects privacy</p>
+                            <p><strong>Problem:</strong> Sam's late rent payments occasionally</p>
+                        </div>
+                        <span class="contact-status status-active">AKTIV</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const clickableImages = document.querySelectorAll('.clickable-image');
+
+        // Open lightbox
+        clickableImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
