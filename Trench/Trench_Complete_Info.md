@@ -7,32 +7,38 @@
 **Ålder:** 36 år (född 1989)
 **Kön:** Man
 **Nationalitet:** Amerikansk
-**Yrke:** Urban Search & Rescue Specialist, FEMA Pennsylvania Task Force 1
+**Yrke:**
+- FEMA CORE Reservist (Building Science/Safety Assessment Specialist)
+- PA Task Force 1 (USAR Specialist, part-time)
 **Delta Green:** Operative, "Chesapeake" cell
-**Basering:** Philadelphia area (PA-TF1), opererar i DC/MD/VA region för Delta Green
+**Basering:**
+- **Primary:** 2019 Ford Transit campervan (bor i den 200+ dagar/år)
+- **Official Address:** Lägenhet i Philadelphia, PA (mail, storage)
+- **Operational Area:** Hela USA (FEMA deployments), DC/MD/VA region (Delta Green)
 
 ---
 
 ## STATS & ATTRIBUT
 
 ### Grundegenskaper
-| Attribut | Värde | Procent |
-|----------|-------|---------|
-| **STR** (Styrka) | 14 | 70% |
-| **CON** (Kondition) | 15 | 75% |
-| **DEX** (Smidighet) | 13 | 65% |
-| **INT** (Intelligens) | 12 | 60% |
-| **POW** (Viljestyrka) | 11 | 55% |
-| **CHA** (Karisma) | 10 | 50% |
+| Attribut | Värde | Procent | Notes |
+|----------|-------|---------|-------|
+| **STR** (Styrka) | 14 | 70% | - |
+| **CON** (Kondition) | 15 | 75% | - |
+| **DEX** (Smidighet) | 13 | 65% | - |
+| **INT** (Intelligens) | 12 | 60% | - |
+| **POW** (Viljestyrka) | 11 | 55% | **Start 13, -2 adaptation** |
+| **CHA** (Karisma) | 10 | 50% | - |
 
-**Total:** 75 ✅
+**Total:** 75 ✅ (Start 77, -2 från adaptation)
 
 ### Härledda Attribut
 - **HP (Hit Points):** 15
-- **WP (Willpower Points):** 11
-- **SAN (Sanity):** 55/55
-- **Breaking Point:** 44
+- **WP (Willpower Points):** 11 (start 13)
+- **SAN (Sanity):** 53/55 (start 65/65)
+- **Breaking Point:** 44 (start 52)
 - **Damage Bonus:** +1D4
+- **Marginal till break:** 9 poäng ⚠️
 
 ---
 
@@ -102,6 +108,72 @@
   - Dotter: Mia (11 år)
   - Son: Phillip (14 år)
 - **Relation:** Storebror, valde det akademiska livet
+
+---
+
+## KARRIÄR & LIVSSITUATION
+
+### FEMA CORE Reservist (2023-Present)
+**Position:** Building Science/Safety Assessment Specialist
+**Status:** Cadre of On-Call Response/Recovery Employees
+
+**Vad det innebär:**
+- On-call federal employee som deployeras vid disasters
+- 30-180 dagar deployment per år (oregelbundet)
+- Specialisering: Building safety assessments, structural damage evaluation
+- Federal credentials och security clearance
+- Income: $3,000-$5,000/månad under deployment, inget mellan uppdrag
+
+**Typiskt År:**
+- 3-4 FEMA deployments (tornado damage, hurricane recovery, flood assessment)
+- 2-3 Delta Green operations
+- 1-2 PA-TF1 trainings (maintain USAR certification)
+- Rest: "Standby mode" (actually DG research/prep)
+
+**Varför FEMA CORE:**
+- Perfekt cover för Delta Green - förklarar constant travel
+- Federal credentials underlättar DG operations
+- Många USAR Task Force members är också CORE
+- Mellan deployments = fullständig flexibility för DG
+
+### PA Task Force 1 (2014-Present)
+**Position:** USAR Specialist (part-time/on-call)
+**Status:** Maintains certifications, deployeras vid stora disasters
+**Frequency:** 1-2 federal deployments/år + quarterly training
+
+### Campervan-livsstil (2023-Present)
+**Fordon:** 2019 Ford Transit 250 Extended (high roof)
+**Modifikationer:**
+- Fullt utrustad för off-grid living (solar panels, batteri-system)
+- Säng, mini-kök, compact bathroom
+- Secure storage för gear (både USAR och... annat)
+- Communications equipment (ham radio, satellite phone)
+- Tool storage, work bench
+- Mounted externally: Roof rack, awning, recovery gear
+
+**Varför Campervan:**
+**Official Story:**
+"Started under pandemin när jag var deployed konstant. Insåg att lägenheten stod tom 200+ dagar om året. Mer praktiskt att ha en mobil base. Kan parkera vid deployment sites. Sparar pengar på hotell under långa uppdrag."
+
+**Verklig Anledning:**
+- Gör det lättare att "försvinna" för Delta Green ops
+- Ingen landlord som noterar ovanliga patterns
+- Kan vara mobile och untraceable
+- Lätt att förklara varför han är "anywhere" i USA
+- Perfect för paranoid operational security
+
+**Lägenhet i Philadelphia:**
+- Billig studio apartment i working-class område
+- Används för: Mail delivery, legal address, storage
+- Besöks: 1-2 gånger/månad för att hämta post
+- Contains: Sandra's toys/drawings, family photos, civilian clothes
+- Hyra: $800/månad (fortsätter betala för "normalcy")
+
+**Bor egentligen i:**
+- Campervanen 60% av tiden
+- FEMA deployment housing 25% av tiden
+- Lägenheten 10% av tiden
+- Hotels/motels (DG ops) 5% av tiden
 
 ---
 
@@ -316,11 +388,15 @@
 ### Psykologisk Status Efter 2+ År DG-arbete
 
 **Sanity Tracking:**
-- **Började:** 65 SAN (POW × 5 = 55 + 10 bonus)
-- **Aktuell:** 55 SAN
-- **Förluster:** Pittsburgh (10), Dry Run (4), Signal Lost (6) = 20 poäng total
-- **Återställt genom terapi/tid:** ~10 poäng
+- **Start:** 65 SAN (POW 13 × 5), BP 52
+- **Pittsburgh (2022):** -10 SAN → Adapted to Helplessness (POW 13→11, max SAN 65→55, BP 52→44)
+- **Dry Run (2023):** -4 SAN
+- **Signal Lost (2024):** -6 SAN
+- **Total förlust:** 20 SAN
+- **Återställt:** 8 SAN
+- **Aktuell:** 53/55 SAN
 - **Breaking Point:** 44
+- **Marginal:** 9 poäng ⚠️
 
 **Psykologiska Effekter:**
 - "Pratar" med Robert när beslut blir svåra
@@ -334,6 +410,12 @@
 - Internaliserad "konversation" med döde Robert
 - Behåller yrkesmässigt fokus på räddning
 - Accepterar filosofin "we all die alone"
+
+**Adaptations:**
+- ✅ **Adapted to Helplessness** (Pittsburgh 2022, cost: -2 POW)
+  - Auto-succeeds alla helplessness SAN checks
+  - Kan hantera isolation och maktlöshet utan mental skada
+- **Violence:** 1/3 progress (needs 2 more för full adaptation)
 
 ---
 
