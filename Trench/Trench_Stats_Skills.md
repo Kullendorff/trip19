@@ -10,29 +10,37 @@
 
 ## GRUNDEGENSKAPER
 
-| Attribut | Värde | Procent |
-|----------|-------|---------|
-| **STR** (Styrka) | 14 | 70% |
-| **CON** (Kondition) | 15 | 75% |
-| **DEX** (Smidighet) | 13 | 65% |
-| **INT** (Intelligens) | 12 | 60% |
-| **POW** (Viljestyrka) | 11 | 55% |
-| **CHA** (Karisma) | 10 | 50% |
+| Attribut | Värde | Procent | Notes |
+|----------|-------|---------|-------|
+| **STR** (Styrka) | 14 | 70% | - |
+| **CON** (Kondition) | 15 | 75% | - |
+| **DEX** (Smidighet) | 13 | 65% | - |
+| **INT** (Intelligens) | 12 | 60% | - |
+| **POW** (Viljestyrka) | 11 | 55% | Start 13, -2 från adaptation |
+| **CHA** (Karisma) | 10 | 50% | - |
 
-**Total: 75** ✅
+**Total: 75** ✅ (Start 77, -2 från POW adaptation)
 
 ---
 
 ## HÄRLEDDA ATTRIBUT
 
-| Attribut | Maximum | Aktuell | Formel |
-|----------|---------|---------|--------|
-| **HP** | 15 | 15 | (STR + CON) / 2, avrundas upp |
-| **WP** | 11 | 11 | POW |
-| **SAN** | 55 | 55 | POW × 5 |
-| **Breaking Point** | 44 | 44 | SAN - POW |
+| Attribut | Maximum | Aktuell | Formel | Notes |
+|----------|---------|---------|--------|-------|
+| **HP** | 15 | 15 | (STR + CON) / 2, avrundas upp | - |
+| **WP** | 11 | 11 | POW | Start 13, nu 11 |
+| **SAN** | 55 | 53 | POW × 5 | Start 65 (POW 13), nu 55 max |
+| **Breaking Point** | 44 | 44 | SAN - POW | Start 52, nu 44 |
 
 **Damage Bonus:** +1D4 (STR + CON = 29)
+
+### SAN History:
+- **Start:** 65 SAN (POW 13 × 5)
+- **Pittsburgh (2022):** -10 SAN, adapted to helplessness → POW 13→11, max SAN 65→55
+- **Dry Run (2023):** -4 SAN
+- **Signal Lost (2024):** -6 SAN
+- **Recovery:** +8 SAN återställt
+- **Aktuell:** 53/55 SAN, marginal till BP: 9 poäng ⚠️
 
 ---
 
@@ -85,5 +93,22 @@ Praktisk räddare med fokus på fysisk kapacitet och improvisation. Inte teoreti
 
 ---
 
-**Skapad:** 2025-11-10  
-**Version:** 1.0 - Balanserad enligt 75/460/110 standard
+## ADAPTATIONS
+
+### ✅ Adapted to Helplessness
+**Acquired:** Pittsburgh tunnel collapse (mars 2022)
+**Cost:** -2 POW (13 → 11)
+**Effect:** Auto-succeeds alla helplessness SAN checks. Trapped, isolation, maktlöshet skadar honom inte längre.
+
+**Narrative:** De 12 dagarna i Pittsburgh bröt något grundläggande i Sam. Han kan nu hantera isolation och total maktlöshet utan att blinka - men hans själ har blivit mindre. Hans förmåga att känna hopp eller desperation har eroderat.
+
+### Violence Adaptation Progress: ⬜ (1/3)
+**Progress:** 1 markering (Robert's död, Pittsburgh 2022)
+**Needs:** 2 fler våldsmoment för full adaptation
+**Future cost:** -1D6 CHA + samma från alla bonds
+
+---
+
+**Skapad:** 2025-11-10
+**Uppdaterad:** 2025-11-20 (adaptation tracking)
+**Version:** 1.1 - Balanserad enligt 75/460/110 standard + adaptation history

@@ -16,23 +16,24 @@
 ## STATS & ATTRIBUT
 
 ### Grundegenskaper
-| Attribut | Värde | Procent |
-|----------|-------|---------|
-| **STR** (Styrka) | 14 | 70% |
-| **CON** (Kondition) | 15 | 75% |
-| **DEX** (Smidighet) | 13 | 65% |
-| **INT** (Intelligens) | 12 | 60% |
-| **POW** (Viljestyrka) | 11 | 55% |
-| **CHA** (Karisma) | 10 | 50% |
+| Attribut | Värde | Procent | Notes |
+|----------|-------|---------|-------|
+| **STR** (Styrka) | 14 | 70% | - |
+| **CON** (Kondition) | 15 | 75% | - |
+| **DEX** (Smidighet) | 13 | 65% | - |
+| **INT** (Intelligens) | 12 | 60% | - |
+| **POW** (Viljestyrka) | 11 | 55% | **Start 13, -2 adaptation** |
+| **CHA** (Karisma) | 10 | 50% | - |
 
-**Total:** 75 ✅
+**Total:** 75 ✅ (Start 77, -2 från adaptation)
 
 ### Härledda Attribut
 - **HP (Hit Points):** 15
-- **WP (Willpower Points):** 11
-- **SAN (Sanity):** 55/55
-- **Breaking Point:** 44
+- **WP (Willpower Points):** 11 (start 13)
+- **SAN (Sanity):** 53/55 (start 65/65)
+- **Breaking Point:** 44 (start 52)
 - **Damage Bonus:** +1D4
+- **Marginal till break:** 9 poäng ⚠️
 
 ---
 
@@ -316,11 +317,15 @@
 ### Psykologisk Status Efter 2+ År DG-arbete
 
 **Sanity Tracking:**
-- **Började:** 65 SAN (POW × 5 = 55 + 10 bonus)
-- **Aktuell:** 55 SAN
-- **Förluster:** Pittsburgh (10), Dry Run (4), Signal Lost (6) = 20 poäng total
-- **Återställt genom terapi/tid:** ~10 poäng
+- **Start:** 65 SAN (POW 13 × 5), BP 52
+- **Pittsburgh (2022):** -10 SAN → Adapted to Helplessness (POW 13→11, max SAN 65→55, BP 52→44)
+- **Dry Run (2023):** -4 SAN
+- **Signal Lost (2024):** -6 SAN
+- **Total förlust:** 20 SAN
+- **Återställt:** 8 SAN
+- **Aktuell:** 53/55 SAN
 - **Breaking Point:** 44
+- **Marginal:** 9 poäng ⚠️
 
 **Psykologiska Effekter:**
 - "Pratar" med Robert när beslut blir svåra
@@ -334,6 +339,12 @@
 - Internaliserad "konversation" med döde Robert
 - Behåller yrkesmässigt fokus på räddning
 - Accepterar filosofin "we all die alone"
+
+**Adaptations:**
+- ✅ **Adapted to Helplessness** (Pittsburgh 2022, cost: -2 POW)
+  - Auto-succeeds alla helplessness SAN checks
+  - Kan hantera isolation och maktlöshet utan mental skada
+- **Violence:** 1/3 progress (needs 2 more för full adaptation)
 
 ---
 
