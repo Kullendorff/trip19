@@ -1144,7 +1144,11 @@
         // Populate modals
         function populateModal(category) {
             const list = document.getElementById(`${category}-list`);
-            const states = stateData[category === 'shall-issue' ? 'shallIssue' : category];
+            // Map kebab-case to camelCase for stateData keys
+            let dataKey = category;
+            if (category === 'shall-issue') dataKey = 'shallIssue';
+            if (category === 'may-issue') dataKey = 'mayIssue';
+            const states = stateData[dataKey];
 
             list.innerHTML = states.map(state => `
                 <div class="state-item">
