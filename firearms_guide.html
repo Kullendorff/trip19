@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIREARMS & LEOSA GUIDE - Chesapeake Cell</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-primary: #4a90a4;
+            --accent-secondary: #6ba5b8;
+            --accent-highlight: #87b5c4;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-darker);
+            border-bottom: 2px solid var(--accent-primary);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--accent-primary);
+            letter-spacing: 2px;
+        }
+
+        .back-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--accent-primary);
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background: rgba(74, 144, 164, 0.2);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-primary);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 100px;
+            z-index: 10;
+        }
+
+        .toc-title {
+            color: var(--accent-primary);
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .toc-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text);
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .toc-link:hover {
+            background: rgba(74, 144, 164, 0.1);
+            border-left-color: var(--accent-primary);
+            color: var(--accent-primary);
+            padding-left: 1.2rem;
+        }
+
+        /* Sections */
+        section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            scroll-margin-top: 150px;
+        }
+
+        section h2 {
+            color: var(--accent-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        section h3 {
+            color: var(--accent-secondary);
+            font-size: 1.2rem;
+            margin: 1.5rem 0 1rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent-secondary);
+        }
+
+        section h4 {
+            color: var(--accent-highlight);
+            font-size: 1rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: var(--bg-darker);
+        }
+
+        th {
+            background: rgba(74, 144, 164, 0.2);
+            color: var(--accent-primary);
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid var(--border);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        tr:hover {
+            background: rgba(74, 144, 164, 0.05);
+        }
+
+        /* Character boxes */
+        .character-box {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .character-name {
+            color: var(--accent-primary);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* State cards */
+        .state-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .state-card {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .state-card:hover {
+            border-color: var(--accent-primary);
+            box-shadow: 0 2px 10px rgba(74, 144, 164, 0.2);
+        }
+
+        .state-card.constitutional {
+            border-left: 3px solid #5a9d6e;
+        }
+
+        .state-card.shall-issue {
+            border-left: 3px solid var(--accent-secondary);
+        }
+
+        .state-card.may-issue {
+            border-left: 3px solid #a47c5a;
+        }
+
+        .state-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .state-icon {
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+
+        .state-info {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
+        .state-info strong {
+            color: var(--text);
+        }
+
+        /* Alert boxes */
+        .alert {
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            border-left: 4px solid;
+        }
+
+        .alert-info {
+            background: rgba(74, 144, 164, 0.1);
+            border-left-color: var(--accent-primary);
+            color: var(--text);
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+            color: var(--text);
+        }
+
+        /* Code/monospace */
+        code {
+            background: var(--bg-darker);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            color: var(--accent-highlight);
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .state-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+
+        .badge-info {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .badge-note {
+            background: var(--accent-secondary);
+            color: white;
+        }
+
+        /* Category Button */
+        .category-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid;
+            text-align: left;
+        }
+
+        .category-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .category-button.constitutional {
+            background: rgba(90, 157, 110, 0.1);
+            border-color: #5a9d6e;
+            color: #5a9d6e;
+        }
+
+        .category-button.constitutional:hover {
+            background: rgba(90, 157, 110, 0.2);
+        }
+
+        .category-button.shall-issue {
+            background: rgba(107, 165, 184, 0.1);
+            border-color: var(--accent-secondary);
+            color: var(--accent-secondary);
+        }
+
+        .category-button.shall-issue:hover {
+            background: rgba(107, 165, 184, 0.2);
+        }
+
+        .category-button.may-issue {
+            background: rgba(164, 124, 90, 0.1);
+            border-color: #a47c5a;
+            color: #a47c5a;
+        }
+
+        .category-button.may-issue:hover {
+            background: rgba(164, 124, 90, 0.2);
+        }
+
+        /* Modal/Lightbox */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-primary);
+            border-radius: 8px;
+            max-width: 1200px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            margin: 2rem;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            position: sticky;
+            top: 0;
+            background: var(--bg-darker);
+            border-bottom: 2px solid var(--accent-primary);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-primary);
+            letter-spacing: 1px;
+        }
+
+        .modal-close {
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.05);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .state-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .state-item {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1rem;
+            transition: all 0.2s;
+        }
+
+        .state-item:hover {
+            border-color: var(--accent-primary);
+            box-shadow: 0 2px 10px rgba(74, 144, 164, 0.2);
+        }
+
+        .state-item-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .state-item-details {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        .state-item-note {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 3px solid var(--accent-primary);
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--accent-secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">🔫 FIREARMS & LEOSA REFERENCE GUIDE</div>
+            <a href="index.html" class="back-link">← Tillbaka till Huvudsidan</a>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Table of Contents -->
+        <div class="toc">
+            <div class="toc-title">⚡ SNABBNAVIGERING</div>
+            <div class="toc-grid">
+                <a href="#leosa" class="toc-link">LEOSA Basics</a>
+                <a href="#state-map" class="toc-link">State-by-State Guide</a>
+                <a href="#interstate" class="toc-link">Interstate Operations</a>
+                <a href="#suppressors" class="toc-link">Suppressors & NFA</a>
+                <a href="#reference" class="toc-link">Quick Reference</a>
+            </div>
+        </div>
+
+        <!-- LEOSA Basics -->
+        <section id="leosa">
+            <h2>📜 LEOSA - LAW ENFORCEMENT OFFICERS SAFETY ACT</h2>
+
+            <h3>Vad är LEOSA?</h3>
+            <p>Federal lag (18 U.S.C. § 926C) från 2004 som ger law enforcement officers rätt att bära concealed vapen i alla 50 stater, oavsett lokala lagar.</p>
+
+            <div class="character-box">
+                <div class="character-name">AKTIVA LEOs</div>
+
+                <p><strong>Rättigheter:</strong></p>
+                <ul>
+                    <li>Bära <strong>concealed</strong> vapen i alla stater</li>
+                    <li>Ingen state permit behövs</li>
+                    <li>Superseder statliga concealed carry-lagar</li>
+                    <li>Gäller även off-duty</li>
+                    <li>Nationwide carry authority</li>
+                </ul>
+
+                <p><strong>Begränsningar:</strong></p>
+                <ul>
+                    <li>Endast concealed carry (inte open carry)</li>
+                    <li>Måste följa federala lagar</li>
+                    <li>Privat egendom kan säga nej</li>
+                    <li><strong>Ingen enforcement-auktoritet utanför egen jurisdiktion</strong></li>
+                    <li>Federal Gun-Free School Zones Act gäller fortfarande</li>
+                </ul>
+            </div>
+
+            <h3>Flying Armed - Federal Agents</h3>
+            <p>Federal LEOs kan flyga beväpnade på inrikes flyg:</p>
+            <ol>
+                <li>Informera flygbolag vid incheckning</li>
+                <li>Visa federal credentials</li>
+                <li>Gå igenom särskild säkerhetskontroll</li>
+                <li>Bär vapnet <strong>ombord på planet</strong> (concealed, på personen)</li>
+                <li>Sätter sig vanligen nära utgångar</li>
+            </ol>
+            <p><em>Ca 38,500 LEOs flyger beväpnade varje månad i USA.</em></p>
+        </section>
+
+        <!-- State-by-State Guide -->
+        <section id="state-map">
+            <h2>🗺️ STATE-BY-STATE GUIDE (2025)</h2>
+
+            <h3>Kategorier - Klicka för att se alla stater</h3>
+            <div class="state-info">
+                <div class="category-button constitutional" onclick="openModal('constitutional')">
+                    🟢 <strong>Constitutional Carry (29 stater)</strong><br>
+                    <small>Inget permit krävs för concealed carry</small>
+                </div>
+                <div class="category-button shall-issue" onclick="openModal('shall-issue')">
+                    🟡 <strong>Shall-Issue (14 stater)</strong><br>
+                    <small>Måste utfärda permit om sökande uppfyller krav</small>
+                </div>
+                <div class="category-button may-issue" onclick="openModal('may-issue')">
+                    🟠 <strong>May-Issue (7 stater)</strong><br>
+                    <small>Myndigheter har rätt att neka permits</small>
+                </div>
+            </div>
+
+            <h3>Nordöstra USA - Viktiga stater</h3>
+            <div class="state-grid">
+                <div class="state-card shall-issue">
+                    <div class="state-name"><span class="state-icon">🟡</span> Pennsylvania</div>
+                    <div class="state-info">
+                        <strong>Köp:</strong> Lätt - Instant background check<br>
+                        <strong>Open Carry:</strong> Ja (utom Philadelphia)<br>
+                        <strong>Concealed:</strong> Shall-issue LTCF permit (21+)
+                    </div>
+                </div>
+
+                <div class="state-card may-issue">
+                    <div class="state-name"><span class="state-icon">🟠</span> Maryland</div>
+                    <div class="state-info">
+                        <strong>Köp:</strong> Svårt - HQL krävs, 7-dagars väntetid<br>
+                        <strong>Open Carry:</strong> Restriktivt<br>
+                        <strong>Concealed:</strong> Shall-issue post-Bruen
+                    </div>
+                </div>
+
+                <div class="state-card shall-issue">
+                    <div class="state-name"><span class="state-icon">🟡</span> Washington D.C.</div>
+                    <div class="state-info">
+                        <strong>Köp:</strong> Svårt - Registrering krävs<br>
+                        <strong>Open Carry:</strong> Nej<br>
+                        <strong>Concealed:</strong> Extremt svårt
+                    </div>
+                </div>
+
+                <div class="state-card shall-issue">
+                    <div class="state-name"><span class="state-icon">🟡</span> Virginia</div>
+                    <div class="state-info">
+                        <strong>Köp:</strong> Lätt<br>
+                        <strong>Open Carry:</strong> Ja<br>
+                        <strong>Concealed:</strong> Shall-issue permit
+                    </div>
+                </div>
+
+                <div class="state-card may-issue">
+                    <div class="state-name"><span class="state-icon">🟠</span> New Jersey <span class="badge badge-note">OBS</span></div>
+                    <div class="state-info">
+                        <strong>Köp:</strong> Svårt - Permit per vapen<br>
+                        <strong>Open Carry:</strong> Nej<br>
+                        <strong>Concealed:</strong> May-issue (sällsynt)<br>
+                        <strong>OBS:</strong> <em>Mycket restriktiv. Ingen reciprocity med andra stater.</em>
+                    </div>
+                </div>
+
+                <div class="state-card may-issue">
+                    <div class="state-name"><span class="state-icon">🟠</span> New York <span class="badge badge-note">OBS</span></div>
+                    <div class="state-info">
+                        <strong>Köp:</strong> Svårt - Permit krävs<br>
+                        <strong>Open Carry:</strong> Nej<br>
+                        <strong>Concealed:</strong> Shall-issue post-Bruen (fortfarande svårt)<br>
+                        <strong>OBS:</strong> <em>SAFE Act. Extremt restriktiv.</em>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Operativa Zoner</h3>
+            <div class="alert alert-info">
+                <strong>🟢 PERMISSIVA STATER:</strong><br>
+                Pennsylvania, Virginia, West Virginia, Ohio - Relativt lätt att bära lagligt
+            </div>
+
+            <div class="alert alert-info">
+                <strong>🟠 RESTRIKTIVA STATER:</strong><br>
+                New York, New Jersey, Maryland, Massachusetts, California, Hawaii - Svårt eller nästan omöjligt för civila
+            </div>
+        </section>
+
+        <!-- Interstate Operations -->
+        <section id="interstate">
+            <h2>🚗 INTERSTATE OPERATIONS</h2>
+
+            <h3>Planera operationer över delstatsgränser</h3>
+
+            <h4>Alternativ A: LEO Carry (Lagligt)</h4>
+            <ul>
+                <li>Aktiva LEOs med LEOSA kan lagligt bära överallt</li>
+                <li>Andra medlemmar obeväpnade eller använder FOPA transport</li>
+                <li>Beväpna sig när destination nås</li>
+                <li><strong>Fördelar:</strong> Helt lagligt</li>
+                <li><strong>Nackdelar:</strong> Endast LEO-medlemmar beväpnade under resa</li>
+            </ul>
+
+            <h4>Alternativ B: State Reciprocity</h4>
+            <ul>
+                <li>Kontrollera vilka stater som erkänner ditt permit</li>
+                <li>Planera rutt genom vänliga stater</li>
+                <li><strong>Fördelar:</strong> Lagligt för permit-innehavare</li>
+                <li><strong>Nackdelar:</strong> Kräver noggrann planering</li>
+            </ul>
+
+            <h4>Alternativ C: FOPA Transport</h4>
+            <ul>
+                <li>Transportera vapen genom "hostile states"</li>
+                <li>Se nedan för FOPA-krav</li>
+                <li><strong>Fördelar:</strong> Laglig transport genom restriktiva stater</li>
+                <li><strong>Nackdelar:</strong> Kan inte nås under transport</li>
+            </ul>
+
+            <h3>FOPA - Federal Safe Passage</h3>
+            <p><strong>Firearms Owners' Protection Act</strong> låter dig transportera vapen genom "hostile states" om:</p>
+            <ol>
+                <li>Vapnet är <strong>oladdat</strong></li>
+                <li><strong>Låst i hard-sided container</strong> i bagageutrymme</li>
+                <li>Ammunition <strong>separerad</strong> från vapnet</li>
+                <li>Du är på väg från Point A (legal) till Point B (legal)</li>
+            </ol>
+
+            <div class="alert alert-info">
+                <strong>⚠️ OBS:</strong> Vissa stater (särskilt New York och New Jersey) har varit kända för att ignorera FOPA och arrestera resenärer ändå. Du får då bevisa "Safe Passage" som affirmative defense i domstol.
+            </div>
+        </section>
+
+        <!-- Suppressors & NFA -->
+        <section id="suppressors">
+            <h2>🔇 SUPPRESSORS & NFA ITEMS</h2>
+
+            <h3>Laglig process (Civila)</h3>
+            <ol>
+                <li>Hitta SOT/Class 3 dealer</li>
+                <li>Fyll i ATF Form 4</li>
+                <li>Betala $200 tax stamp</li>
+                <li>Skicka in fingeravtryck, foto</li>
+                <li>Klara FBI background check</li>
+                <li><strong>Vänta 6-12 månader</strong> för godkännande</li>
+            </ol>
+
+            <h3>LEO-köp (Snabbare)</h3>
+            <ul>
+                <li>Byrå köper med "dealer sample" letter</li>
+                <li>Snabbare godkännande för officiell användning</li>
+                <li>Federal law enforcement kan köpa för tjänstebruk</li>
+                <li>Fortfarande federalt spårat</li>
+            </ul>
+
+            <h4>Taktisk sanning om Suppressors:</h4>
+            <ul>
+                <li>INTE "tysta" som Hollywood</li>
+                <li>Reducerar 20-35 decibel</li>
+                <li>Fortfarande <strong>högt</strong> (120-140 dB) - som en pressluftsborr</li>
+                <li>Användbart för att reducera ljud-signatur, mynningsflamma</li>
+                <li>Förhindrar hörselskador för skytten</li>
+            </ul>
+        </section>
+
+        <!-- Quick Reference -->
+        <section id="reference">
+            <h2>📋 SNABBREFERENS CHECKLISTA</h2>
+
+            <h3>Innan Interstate Operation:</h3>
+            <ol>
+                <li>✅ Kartlägg alla stater teamet passerar genom</li>
+                <li>✅ Kolla reciprocity för varje permit-innehavare</li>
+                <li>✅ Identifiera restriktiva stater (NY, NJ, MD, MA, CT, RI, CA, HI)</li>
+                <li>✅ Planera logistik: LEO carry? State permits? FOPA transport?</li>
+                <li>✅ Identifiera Gun-Free zones på destinationen (skolor, federala byggnader)</li>
+                <li>✅ Förbered nödvändig dokumentation (permits, credentials)</li>
+            </ol>
+
+            <h3>Viktiga Lagar att Komma Ihåg:</h3>
+            <ul>
+                <li><strong>LEOSA (18 U.S.C. § 926C):</strong> Federal LEOs kan bära nationwide</li>
+                <li><strong>FOPA Safe Passage:</strong> Skydd vid transport genom restriktiva stater</li>
+                <li><strong>Gun-Free School Zones Act:</strong> Gäller även för LEOs (med undantag)</li>
+                <li><strong>NFA (National Firearms Act):</strong> Reglerar suppressors, SBRs, etc.</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-constitutional" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">🟢 CONSTITUTIONAL CARRY STATER (29)</div>
+                <button class="modal-close" onclick="closeModal('constitutional')">✕ STÄNG</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 1.5rem; color: #5a9d6e;">Dessa stater kräver <strong>inget permit</strong> för concealed carry för lagliga vapenägare 21+ (vissa 18+). Open carry ofta tillåtet också.</p>
+                <div class="state-list" id="constitutional-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-shall-issue" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">🟡 SHALL-ISSUE STATER (14)</div>
+                <button class="modal-close" onclick="closeModal('shall-issue')">✕ STÄNG</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 1.5rem; color: var(--accent-secondary);">Dessa stater <strong>måste utfärda permit</strong> om sökanden uppfyller objektiva kriterier (bakgrundskontroll, träning, etc). Inget "good cause" requirement.</p>
+                <div class="state-list" id="shall-issue-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-may-issue" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">🟠 MAY-ISSUE STATER (7)</div>
+                <button class="modal-close" onclick="closeModal('may-issue')">✕ STÄNG</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 1.5rem; color: #a47c5a;">Dessa stater kan <strong>neka permits</strong> även om sökanden uppfyller alla krav. Ofta kräver "good cause" eller är extremt restriktiva i praktiken.</p>
+                <div class="state-list" id="may-issue-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        TRIP 19: BLACK MADONNA // CHESAPEAKE CELL<br>
+        This guide describes real US firearms laws for RPG reference purposes. Not legal advice.<br>
+        Updated: November 2025
+    </div>
+
+    <script>
+        // State data
+        const stateData = {
+            constitutional: [
+                { name: 'Alabama', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2023.', note: '' },
+                { name: 'Alaska', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2003 (första staten).', note: 'Mest permissiva vapen-lagarna i USA.' },
+                { name: 'Arizona', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2010.', note: '' },
+                { name: 'Arkansas', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2021.', note: '' },
+                { name: 'Florida', details: 'Köp: Lätt, 3-dagars väntetid. Open carry: Nej (utom fiske/camping). Concealed: Inget permit sedan 2023.', note: '' },
+                { name: 'Georgia', details: 'Köp: Lätt. Open carry: Ja med permit. Concealed: Inget permit sedan 2022.', note: '' },
+                { name: 'Idaho', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2016.', note: '' },
+                { name: 'Indiana', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2022.', note: '' },
+                { name: 'Iowa', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2021.', note: '' },
+                { name: 'Kansas', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2015.', note: '' },
+                { name: 'Kentucky', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2019.', note: '' },
+                { name: 'Louisiana', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2024.', note: '' },
+                { name: 'Maine', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2015.', note: '' },
+                { name: 'Mississippi', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2016.', note: '' },
+                { name: 'Missouri', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2016.', note: '' },
+                { name: 'Montana', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2021.', note: '' },
+                { name: 'Nebraska', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2024.', note: '' },
+                { name: 'New Hampshire', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2017.', note: 'Motto: "Live Free or Die"' },
+                { name: 'North Carolina', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2024.', note: '' },
+                { name: 'North Dakota', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2023.', note: '' },
+                { name: 'Ohio', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2022.', note: '' },
+                { name: 'Oklahoma', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2019.', note: '' },
+                { name: 'South Carolina', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2024.', note: '' },
+                { name: 'South Dakota', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2019.', note: '' },
+                { name: 'Tennessee', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2021.', note: '' },
+                { name: 'Texas', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2021.', note: '' },
+                { name: 'Utah', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2021.', note: '' },
+                { name: 'West Virginia', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2016.', note: '' },
+                { name: 'Wyoming', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2011.', note: '' }
+            ],
+            shallIssue: [
+                { name: 'Colorado', details: 'Köp: Måttlig (bakgrundskontroll för alla). Open carry: Ja. Concealed: Shall-issue permit.', note: 'Nya restriktioner efter Aurora/Boulder shootings.' },
+                { name: 'Connecticut', details: 'Köp: Svår (permit krävs). Open carry: Ja med permit. Concealed: Shall-issue post-Bruen.', note: 'Assault weapon ban, magasin-begränsningar.' },
+                { name: 'Delaware', details: 'Köp: Måttlig. Open carry: Ja. Concealed: Shall-issue permit.', note: '' },
+                { name: 'Illinois', details: 'Köp: FOID card krävs. Open carry: Nej. Concealed: Shall-issue CCL (sista staten att tillåta CCW 2013).', note: 'FOID requirement ökar komplexitet.' },
+                { name: 'Michigan', details: 'Köp: Lätt. Open carry: Ja. Concealed: Shall-issue permit (8 timmars träning).', note: '' },
+                { name: 'Minnesota', details: 'Köp: Måttlig. Open carry: Ja med permit. Concealed: Shall-issue permit.', note: '' },
+                { name: 'Nevada', details: 'Köp: Lätt. Open carry: Ja. Concealed: Shall-issue permit.', note: '' },
+                { name: 'New Mexico', details: 'Köp: Lätt. Open carry: Ja. Concealed: Shall-issue permit.', note: '' },
+                { name: 'Oregon', details: 'Köp: Bakgrundskontroll för alla. Open carry: Ja. Concealed: Shall-issue permit.', note: 'Measure 114 (2022) complicerar permit process.' },
+                { name: 'Pennsylvania', details: 'Köp: Lätt. Open carry: Ja (utom Philadelphia). Concealed: Shall-issue LTCF permit (21+).', note: '' },
+                { name: 'Rhode Island', details: 'Köp: Måttlig. Open carry: Nej. Concealed: Shall-issue post-Bruen.', note: '' },
+                { name: 'Virginia', details: 'Köp: Lätt. Open carry: Ja. Concealed: Shall-issue permit.', note: '' },
+                { name: 'Washington', details: 'Köp: Måttlig (1639 initiative). Open carry: Ja. Concealed: Shall-issue permit.', note: '' },
+                { name: 'Washington D.C.', details: 'Köp: Svår (registration). Open carry: Nej. Concealed: Extremt svårt att få permit.', note: 'Mycket restriktiv.' }
+            ],
+            mayIssue: [
+                { name: 'California', details: 'Köp: Svår (10-dagars väntetid, Handgun Roster, FSC test). Open carry: Nej. Concealed: May-issue varierar per county.', note: 'Post-Bruen förändringar ongoing. Assault weapon ban, magasin-begränsningar (10 rounds).' },
+                { name: 'Hawaii', details: 'Köp: Svår (permit per gun). Open carry: Nej. Concealed: May-issue (nästan omöjligt).', note: 'Mest restriktiva vapen-lagarna tillsammans med NY/NJ.' },
+                { name: 'Maryland', details: 'Köp: Svår (HQL required, 7-dagars väntetid). Open carry: Restriktivt. Concealed: Shall-issue post-Bruen men fortfarande svårt.', note: '"Assault weapons" ban.' },
+                { name: 'Massachusetts', details: 'Köp: Svår (FID/LTC krävs). Open carry: Nej i praktiken. Concealed: May-issue varierar per stad.', note: 'Extremt komplicerat permit system. Roster, AWB, 10-round mag limit.' },
+                { name: 'New Jersey', details: 'Köp: Svår (permit per gun). Open carry: Nej. Concealed: May-issue (sällan beviljat).', note: 'Inga reciprocity. Arresterar ofta FOPA travelers.' },
+                { name: 'New York', details: 'Köp: Svår (permit krävs). Open carry: Nej. Concealed: Shall-issue post-Bruen men fortfarande mycket svårt.', note: 'SAFE Act. Extremt restriktiv. "Sensitive places" restrictions.' },
+                { name: 'Vermont', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit krävs.', note: 'OBS: Egentligen Constitutional Carry men har nya background check-krav för köp (2018).' }
+            ]
+        };
+
+        // Populate modals
+        function populateModal(category) {
+            const list = document.getElementById(`${category}-list`);
+            // Map kebab-case to camelCase for stateData keys
+            let dataKey = category;
+            if (category === 'shall-issue') dataKey = 'shallIssue';
+            if (category === 'may-issue') dataKey = 'mayIssue';
+            const states = stateData[dataKey];
+
+            list.innerHTML = states.map(state => `
+                <div class="state-item">
+                    <div class="state-item-name">${state.name}</div>
+                    <div class="state-item-details">${state.details}</div>
+                    ${state.note ? `<div class="state-item-note"><strong>📌 OBS:</strong> ${state.note}</div>` : ''}
+                </div>
+            `).join('');
+        }
+
+        // Modal functions
+        function openModal(category) {
+            populateModal(category);
+            document.getElementById(`modal-${category}`).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(category) {
+            document.getElementById(`modal-${category}`).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on background click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal(this.id.replace('modal-', ''));
+                }
+            });
+        });
+
+        // Close on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    closeModal(modal.id.replace('modal-', ''));
+                });
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
