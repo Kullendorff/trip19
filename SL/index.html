@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -83,8 +84,15 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
         }
 
         /* Main Grid */
@@ -244,13 +252,11 @@
 
         /* Classified Banner */
         .classified-banner {
-            background: repeating-linear-gradient(
-                45deg,
-                var(--classified),
-                var(--classified) 10px,
-                #cc0000 10px,
-                #cc0000 20px
-            );
+            background: repeating-linear-gradient(45deg,
+                    var(--classified),
+                    var(--classified) 10px,
+                    #cc0000 10px,
+                    #cc0000 20px);
             color: white;
             text-align: center;
             padding: 0.5rem;
@@ -344,6 +350,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <div class="header">
@@ -385,11 +392,15 @@
             <nav class="nav-section">
                 <div class="nav-title">Dokument</div>
                 <a href="Flight_19_Passagerarlista.html" target="_blank" class="nav-link">Flight 19 Passagerare</a>
-                <a href="../Aviation_Accident_Report__Pennsylvania_Central_Airlines_Flight_19.pdf" target="_blank" class="nav-link">CAB-rapport</a>
-                <a href="Lundeen_FBI_Newspaper_Article_1940.html" target="_blank" class="nav-link">Lundeen FBI-artikel 1940</a>
-                <a href="../KULT Divinity Lost - the Black Madonna.pdf" target="_blank" class="nav-link">Black Madonna PDF</a>
+                <a href="../Aviation_Accident_Report__Pennsylvania_Central_Airlines_Flight_19.pdf" target="_blank"
+                    class="nav-link">CAB-rapport</a>
+                <a href="Lundeen_FBI_Newspaper_Article_1940.html" target="_blank" class="nav-link">Lundeen FBI-artikel
+                    1940</a>
+                <a href="../KULT Divinity Lost - the Black Madonna.pdf" target="_blank" class="nav-link">Black Madonna
+                    PDF</a>
                 <a href="volkov_fbi_official.pdf" target="_blank" class="nav-link">FBI-fil: Volkov</a>
                 <a href="firearms_guide_gm.html" class="nav-link">Vapen & LEOSA Guide (SL)</a>
+                <a href="us_politics_2025_timeline.html" class="nav-link">USA Politik 2025 Tidslinje</a>
             </nav>
 
             <nav class="nav-section">
@@ -432,42 +443,48 @@
                         <div class="card-count">1940-2025</div>
                         <div class="card-icon">📅</div>
                         <div class="card-title">TIDSLINJE</div>
-                        <div class="card-desc">Komplett kronologi från Trip 19-kraschen 1940 till kampanjstart 2025. Inkluderar Leningrad 1942, Camp S-17, Berlin-eran, och Volkovs aktiviteter.</div>
+                        <div class="card-desc">Komplett kronologi från Trip 19-kraschen 1940 till kampanjstart 2025.
+                            Inkluderar Leningrad 1942, Camp S-17, Berlin-eran, och Volkovs aktiviteter.</div>
                     </div>
 
                     <div class="dashboard-card" onclick="location.href='npcs.html'">
                         <div class="card-count">15+</div>
                         <div class="card-icon">👥</div>
                         <div class="card-title">WHO'S WHO</div>
-                        <div class="card-desc">Alla nyckelpersoner: Dmitri Volkov, Magda Orlova, de tre männen (Anton/Sasha/Filip), historiska figurer, och kontakter.</div>
+                        <div class="card-desc">Alla nyckelpersoner: Dmitri Volkov, Magda Orlova, de tre männen
+                            (Anton/Sasha/Filip), historiska figurer, och kontakter.</div>
                     </div>
 
                     <div class="dashboard-card" onclick="location.href='locations.html'">
                         <div class="card-count">8</div>
                         <div class="card-icon">🗺️</div>
                         <div class="card-title">PLATSER</div>
-                        <div class="card-desc">Lovettsville kraschplats, Hamburg, Berlin, Frankfurt Clinic, Leningrad/St Petersburg, Camp S-17, Kalenko-huset.</div>
+                        <div class="card-desc">Lovettsville kraschplats, Hamburg, Berlin, Frankfurt Clinic, Leningrad/St
+                            Petersburg, Camp S-17, Kalenko-huset.</div>
                     </div>
 
                     <div class="dashboard-card" onclick="location.href='mythos.html'">
                         <div class="card-count">⚠️</div>
                         <div class="card-icon">🔺</div>
                         <div class="card-title">MYTHOS</div>
-                        <div class="card-desc">Type-VII/VIII fragment, Yithian-medvetande, Nyogtha, resonans-effekter, transformationer, och det som hände i Leningrad 1942.</div>
+                        <div class="card-desc">Type-VII/VIII fragment, Yithian-medvetande, Nyogtha, resonans-effekter,
+                            transformationer, och det som hände i Leningrad 1942.</div>
                     </div>
 
                     <div class="dashboard-card" onclick="location.href='clues.html'">
                         <div class="card-count">10+</div>
                         <div class="card-icon">🔍</div>
                         <div class="card-title">LEDTRÅDAR</div>
-                        <div class="card-desc">Research-spår spelarna kan googla: Harriet Johnson, väskan, Bishop farm, Stanford Box 147, blå flammor, Frankfurt connection.</div>
+                        <div class="card-desc">Research-spår spelarna kan googla: Harriet Johnson, väskan, Bishop farm,
+                            Stanford Box 147, blå flammor, Frankfurt connection.</div>
                     </div>
 
                     <div class="dashboard-card" onclick="location.href='sessions.html'">
                         <div class="card-count">12</div>
                         <div class="card-icon">🎲</div>
                         <div class="card-title">SESSIONS</div>
-                        <div class="card-desc">Planerad sessionsstruktur: Briefing, Research, Lovettsville, Berlin, Frankfurt, Polen-incidenten, Ryssland-infiltration.</div>
+                        <div class="card-desc">Planerad sessionsstruktur: Briefing, Research, Lovettsville, Berlin,
+                            Frankfurt, Polen-incidenten, Ryssland-infiltration.</div>
                     </div>
                 </div>
 
@@ -476,19 +493,24 @@
                 <div class="timeline-preview">
                     <div class="timeline-item">
                         <div class="timeline-date">31 AUGUSTI 1940</div>
-                        <div class="timeline-event">Pennsylvania Central Airlines Flight 19 kraschar. Nazi-kurir med Type-VII fragment ombord. FBI grävoperationer hela natten.</div>
+                        <div class="timeline-event">Pennsylvania Central Airlines Flight 19 kraschar. Nazi-kurir med
+                            Type-VII fragment ombord. FBI grävoperationer hela natten.</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-date">1 JANUARI 1942</div>
-                        <div class="timeline-event">LENINGRAD - Nyårsnatt-katastrofen. Nazi Type-VIII kolliderar med sovjetisk motkraft. Yithian/Nyogtha-kollision. Anton, Sasha, Filip, och Magda exponeras.</div>
+                        <div class="timeline-event">LENINGRAD - Nyårsnatt-katastrofen. Nazi Type-VIII kolliderar med
+                            sovjetisk motkraft. Yithian/Nyogtha-kollision. Anton, Sasha, Filip, och Magda exponeras.
+                        </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-date">DECEMBER 2024</div>
-                        <div class="timeline-event">Cherry Hill Mall - Volkov med röd kristallkub. 14 döda. Mac's obsession börjar.</div>
+                        <div class="timeline-event">Cherry Hill Mall - Volkov med röd kristallkub. 14 döda. Mac's
+                            obsession börjar.</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-date">SEPTEMBER 2025</div>
-                        <div class="timeline-event">KAMPANJSTART - Sparkys AI-alert fångar Volkovs alias. Team börjar researcha Trip 19.</div>
+                        <div class="timeline-event">KAMPANJSTART - Sparkys AI-alert fångar Volkovs alias. Team börjar
+                            researcha Trip 19.</div>
                     </div>
                 </div>
             </section>
@@ -500,21 +522,31 @@
                     <div>
                         <h3 style="color: var(--accent-blue); margin-bottom: 1rem;">Nyckelbegrepp</h3>
                         <ul style="list-style: none; padding-left: 0;">
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Type-VII:</strong> Nazi kristallfragment från Trip 19</li>
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Type-VIII:</strong> Vidareutvecklade enheter, Leningrad 1942</li>
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Camp S-17:</strong> Sovjetiskt interneringsläger för "kontaminerade"</li>
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Slavic Association:</strong> Berlinfasad för de tre männen</li>
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>247 Hz:</strong> Konstant hummande från transformerade</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                                <strong>Type-VII:</strong> Nazi kristallfragment från Trip 19</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                                <strong>Type-VIII:</strong> Vidareutvecklade enheter, Leningrad 1942</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Camp
+                                    S-17:</strong> Sovjetiskt interneringsläger för "kontaminerade"</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Slavic
+                                    Association:</strong> Berlinfasad för de tre männen</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>247
+                                    Hz:</strong> Konstant hummande från transformerade</li>
                         </ul>
                     </div>
                     <div>
                         <h3 style="color: var(--accent-blue); margin-bottom: 1rem;">Huvudpersoner</h3>
                         <ul style="list-style: none; padding-left: 0;">
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Dmitri Volkov:</strong> Rysk konspirationsteoretiker, jagar kristaller</li>
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Magda Orlova:</strong> Överlevare från Leningrad, researchar historia</li>
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Anton Mahler:</strong> Transformerad, Östberlin, Yithian-värd</li>
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Sasha Pogodin:</strong> Transformerad, hummar 247 Hz</li>
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Filip Kramer:</strong> Transformerad, drömvandrare</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Dmitri
+                                    Volkov:</strong> Rysk konspirationsteoretiker, jagar kristaller</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Magda
+                                    Orlova:</strong> Överlevare från Leningrad, researchar historia</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Anton
+                                    Mahler:</strong> Transformerad, Östberlin, Yithian-värd</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Sasha
+                                    Pogodin:</strong> Transformerad, hummar 247 Hz</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><strong>Filip
+                                    Kramer:</strong> Transformerad, drömvandrare</li>
                         </ul>
                     </div>
                 </div>
@@ -560,4 +592,5 @@
         });
     </script>
 </body>
+
 </html>
