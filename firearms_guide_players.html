@@ -197,6 +197,224 @@
             color: white;
         }
 
+        /* Category Button */
+        .category-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid;
+            text-align: left;
+        }
+
+        .category-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .category-button.constitutional {
+            background: rgba(0, 255, 65, 0.1);
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        .category-button.constitutional:hover {
+            background: rgba(0, 255, 65, 0.2);
+        }
+
+        .category-button.shall-issue {
+            background: rgba(255, 204, 0, 0.1);
+            border-color: var(--accent-yellow);
+            color: var(--accent-yellow);
+        }
+
+        .category-button.shall-issue:hover {
+            background: rgba(255, 204, 0, 0.2);
+        }
+
+        .category-button.may-issue {
+            background: rgba(255, 68, 68, 0.1);
+            border-color: var(--accent-red);
+            color: var(--accent-red);
+        }
+
+        .category-button.may-issue:hover {
+            background: rgba(255, 68, 68, 0.2);
+        }
+
+        /* Modal/Lightbox */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-yellow);
+            border-radius: 8px;
+            max-width: 1200px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            margin: 2rem;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            position: sticky;
+            top: 0;
+            background: var(--bg-darker);
+            border-bottom: 2px solid var(--accent-yellow);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-yellow);
+            letter-spacing: 1px;
+        }
+
+        .modal-close {
+            background: var(--accent-red);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: #ff0000;
+            transform: scale(1.05);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .state-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .state-item {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1rem;
+            transition: all 0.2s;
+        }
+
+        .state-item:hover {
+            border-color: var(--accent-yellow);
+            box-shadow: 0 2px 10px rgba(255, 204, 0, 0.2);
+        }
+
+        .state-item-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .state-item-details {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        .state-item-note {
+            background: rgba(255, 204, 0, 0.1);
+            border-left: 3px solid var(--accent-yellow);
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--accent-yellow);
+        }
+
+        /* State cards */
+        .state-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .state-card {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .state-card:hover {
+            border-color: var(--accent-yellow);
+            box-shadow: 0 2px 10px rgba(255, 204, 0, 0.2);
+        }
+
+        .state-card.constitutional {
+            border-left: 3px solid var(--accent-green);
+        }
+
+        .state-card.shall-issue {
+            border-left: 3px solid var(--accent-yellow);
+        }
+
+        .state-card.may-issue {
+            border-left: 3px solid var(--accent-red);
+        }
+
+        .state-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .state-icon {
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+
+        .state-info {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
+        .state-info strong {
+            color: var(--text);
+        }
+
         /* Footer */
         .footer {
             text-align: center;
@@ -351,6 +569,106 @@
             </div>
         </section>
 
+        <!-- State-by-State Guide -->
+        <section>
+            <h2>🗺️ STATE-BY-STATE GUIDE (2025)</h2>
+
+            <h3>Kategorier - Klicka för att se alla stater</h3>
+            <div class="state-info">
+                <div class="category-button constitutional" onclick="openModal('constitutional')">
+                    🟢 <strong>Constitutional Carry (29 stater)</strong><br>
+                    <small>Inget permit krävs för concealed carry</small>
+                </div>
+                <div class="category-button shall-issue" onclick="openModal('shall-issue')">
+                    🟡 <strong>Shall-Issue (14 stater)</strong><br>
+                    <small>Måste utfärda permit om sökande uppfyller krav</small>
+                </div>
+                <div class="category-button may-issue" onclick="openModal('may-issue')">
+                    🔴 <strong>May-Issue (7 stater)</strong><br>
+                    <small>Myndigheter har rätt att neka permits</small>
+                </div>
+            </div>
+
+            <h3>Kampanj-relevanta stater</h3>
+            <div class="state-grid">
+                <div class="state-card shall-issue">
+                    <div class="state-name"><span class="state-icon">🟡</span> Pennsylvania</div>
+                    <div class="state-info">
+                        <strong>Köp:</strong> Lätt - Instant background check<br>
+                        <strong>Open Carry:</strong> Ja (utom Philadelphia)<br>
+                        <strong>Concealed:</strong> Shall-issue LTCF permit (21+)<br>
+                        <strong>Kampanj-notering:</strong> <em>PA-TF1 hembas. Trench har troligen PA permit.</em>
+                    </div>
+                </div>
+
+                <div class="state-card may-issue">
+                    <div class="state-name"><span class="state-icon">🔴</span> Maryland</div>
+                    <div class="state-info">
+                        <strong>Köp:</strong> Svårt - HQL krävs, 7-dagars väntetid<br>
+                        <strong>Open Carry:</strong> Restriktivt<br>
+                        <strong>Concealed:</strong> Shall-issue post-Bruen<br>
+                        <strong>Kampanj-notering:</strong> <em>Scalpels bas (Baltimore). Mycket restriktivt.</em>
+                    </div>
+                </div>
+
+                <div class="state-card shall-issue">
+                    <div class="state-name"><span class="state-icon">🟡</span> Washington D.C.</div>
+                    <div class="state-info">
+                        <strong>Köp:</strong> Svårt - Registrering krävs<br>
+                        <strong>Open Carry:</strong> Nej<br>
+                        <strong>Concealed:</strong> Extremt svårt<br>
+                        <strong>Kampanj-notering:</strong> <em>Primärt operationsområde. Mycket restriktivt.</em>
+                    </div>
+                </div>
+
+                <div class="state-card shall-issue">
+                    <div class="state-name"><span class="state-icon">🟡</span> Virginia</div>
+                    <div class="state-info">
+                        <strong>Köp:</strong> Lätt<br>
+                        <strong>Open Carry:</strong> Ja<br>
+                        <strong>Concealed:</strong> Shall-issue permit<br>
+                        <strong>Kampanj-notering:</strong> <em>Vanligt för DC-area ops. Måttliga lagar.</em>
+                    </div>
+                </div>
+
+                <div class="state-card may-issue">
+                    <div class="state-name"><span class="state-icon">🔴</span> New Jersey <span class="badge badge-danger">FARA</span></div>
+                    <div class="state-info">
+                        <strong>Köp:</strong> Svårt - Permit per vapen<br>
+                        <strong>Open Carry:</strong> Nej<br>
+                        <strong>Concealed:</strong> May-issue (sällsynt)<br>
+                        <strong>Kampanj-notering:</strong> <em>FARLIGAST för Trench med PA permit! Ingen reciprocity.</em>
+                    </div>
+                </div>
+
+                <div class="state-card may-issue">
+                    <div class="state-name"><span class="state-icon">🔴</span> New York <span class="badge badge-danger">FARA</span></div>
+                    <div class="state-info">
+                        <strong>Köp:</strong> Svårt - Permit krävs<br>
+                        <strong>Open Carry:</strong> Nej<br>
+                        <strong>Concealed:</strong> Shall-issue post-Bruen (fortfarande svårt)<br>
+                        <strong>Kampanj-notering:</strong> <em>SAFE Act. Extremt fientlig mot bärare från andra delstater.</em>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Operativa Zoner</h3>
+            <div class="alert alert-success">
+                <strong>🟢 SÄKRA STATER för teamet:</strong><br>
+                Pennsylvania (hembas), Virginia (DC ops), West Virginia (närområde), Ohio (Midwest-tillgång)
+            </div>
+
+            <div class="alert alert-warning">
+                <strong>🟡 MÅTTLIG RISK:</strong><br>
+                Illinois (FOID krävs), Colorado (nya restriktioner), Delaware (liten, måttlig)
+            </div>
+
+            <div class="alert alert-warning">
+                <strong>🔴 FAROZONEN (Undvik om beväpnad):</strong><br>
+                New York, New Jersey, Maryland, Massachusetts, California, Hawaii
+            </div>
+        </section>
+
         <!-- Hostile States -->
         <section>
             <h2>🚨 FARLIGA DELSTATER</h2>
@@ -443,11 +761,172 @@
 
     </div>
 
+    <!-- Modals -->
+    <div id="modal-constitutional" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">🟢 CONSTITUTIONAL CARRY STATER (29)</div>
+                <button class="modal-close" onclick="closeModal('constitutional')">✕ STÄNG</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 1.5rem; color: var(--accent-green);">Dessa stater kräver <strong>inget permit</strong> för concealed carry för lagliga vapenägare 21+ (vissa 18+). Open carry ofta tillåtet också.</p>
+                <div class="state-list" id="constitutional-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-shall-issue" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">🟡 SHALL-ISSUE STATER (14)</div>
+                <button class="modal-close" onclick="closeModal('shall-issue')">✕ STÄNG</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 1.5rem; color: var(--accent-yellow);">Dessa stater <strong>måste utfärda permit</strong> om sökanden uppfyller objektiva kriterier (bakgrundskontroll, träning, etc). Inget "good cause" requirement.</p>
+                <div class="state-list" id="shall-issue-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-may-issue" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">🔴 MAY-ISSUE STATER (7)</div>
+                <button class="modal-close" onclick="closeModal('may-issue')">✕ STÄNG</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 1.5rem; color: var(--accent-red);">Dessa stater kan <strong>neka permits</strong> även om sökanden uppfyller alla krav. Ofta kräver "good cause" eller är extremt restriktiva i praktiken.</p>
+                <div class="state-list" id="may-issue-list"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <div class="footer">
         DELTA GREEN // TRIP 19: BLACK MADONNA // CHESAPEAKE CELL<br>
         This guide describes real US firearms laws for RPG purposes. Not legal advice.<br>
         Updated: November 2025
     </div>
+
+    <script>
+        // State data
+        const stateData = {
+            constitutional: [
+                { name: 'Alabama', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2023.', note: '' },
+                { name: 'Alaska', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2003 (första staten).', note: 'Mest permissiva vapen-lagarna i USA.' },
+                { name: 'Arizona', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2010.', note: '' },
+                { name: 'Arkansas', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2021.', note: '' },
+                { name: 'Florida', details: 'Köp: Lätt, 3-dagars väntetid. Open carry: Nej (utom fiske/camping). Concealed: Inget permit sedan 2023.', note: '' },
+                { name: 'Georgia', details: 'Köp: Lätt. Open carry: Ja med permit. Concealed: Inget permit sedan 2022.', note: '' },
+                { name: 'Idaho', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2016.', note: '' },
+                { name: 'Indiana', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2022.', note: '' },
+                { name: 'Iowa', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2021.', note: '' },
+                { name: 'Kansas', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2015.', note: '' },
+                { name: 'Kentucky', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2019.', note: '' },
+                { name: 'Louisiana', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2024.', note: '' },
+                { name: 'Maine', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2015.', note: '' },
+                { name: 'Mississippi', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2016.', note: '' },
+                { name: 'Missouri', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2016.', note: '' },
+                { name: 'Montana', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2021.', note: '' },
+                { name: 'Nebraska', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2024.', note: '' },
+                { name: 'New Hampshire', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2017.', note: 'Motto: "Live Free or Die"' },
+                { name: 'North Carolina', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2024.', note: '' },
+                { name: 'North Dakota', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2023.', note: '' },
+                { name: 'Ohio', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2022.', note: '' },
+                { name: 'Oklahoma', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2019.', note: '' },
+                { name: 'South Carolina', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2024.', note: '' },
+                { name: 'South Dakota', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2019.', note: '' },
+                { name: 'Tennessee', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2021.', note: '' },
+                { name: 'Texas', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2021.', note: '' },
+                { name: 'Utah', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2021.', note: '' },
+                { name: 'West Virginia', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2016.', note: '' },
+                { name: 'Wyoming', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit sedan 2011.', note: '' }
+            ],
+            shallIssue: [
+                { name: 'Colorado', details: 'Köp: Måttlig (bakgrundskontroll för alla). Open carry: Ja. Concealed: Shall-issue permit.', note: 'Nya restriktioner efter Aurora/Boulder shootings.' },
+                { name: 'Connecticut', details: 'Köp: Svår (permit krävs). Open carry: Ja med permit. Concealed: Shall-issue post-Bruen.', note: 'Assault weapon ban, magasin-begränsningar.' },
+                { name: 'Delaware', details: 'Köp: Måttlig. Open carry: Ja. Concealed: Shall-issue permit.', note: '' },
+                { name: 'Illinois', details: 'Köp: FOID card krävs. Open carry: Nej. Concealed: Shall-issue CCL (sista staten att tillåta CCW 2013).', note: 'FOID requirement ökar komplexitet.' },
+                { name: 'Michigan', details: 'Köp: Lätt. Open carry: Ja. Concealed: Shall-issue permit (8 timmars träning).', note: '' },
+                { name: 'Minnesota', details: 'Köp: Måttlig. Open carry: Ja med permit. Concealed: Shall-issue permit.', note: '' },
+                { name: 'Nevada', details: 'Köp: Lätt. Open carry: Ja. Concealed: Shall-issue permit.', note: '' },
+                { name: 'New Mexico', details: 'Köp: Lätt. Open carry: Ja. Concealed: Shall-issue permit.', note: '' },
+                { name: 'Oregon', details: 'Köp: Bakgrundskontroll för alla. Open carry: Ja. Concealed: Shall-issue permit.', note: 'Measure 114 (2022) complicerar permit process.' },
+                { name: 'Pennsylvania', details: 'Köp: Lätt. Open carry: Ja (utom Philadelphia). Concealed: Shall-issue LTCF permit (21+).', note: 'Campaign base - PA-TF1 här.' },
+                { name: 'Rhode Island', details: 'Köp: Måttlig. Open carry: Nej. Concealed: Shall-issue post-Bruen.', note: '' },
+                { name: 'Virginia', details: 'Köp: Lätt. Open carry: Ja. Concealed: Shall-issue permit.', note: 'DC-area operations ofta här.' },
+                { name: 'Washington', details: 'Köp: Måttlig (1639 initiative). Open carry: Ja. Concealed: Shall-issue permit.', note: '' },
+                { name: 'Washington D.C.', details: 'Köp: Svår (registration). Open carry: Nej. Concealed: Extremt svårt att få permit.', note: 'Primary operating area - mycket restriktiv.' }
+            ],
+            mayIssue: [
+                { name: 'California', details: 'Köp: Svår (10-dagars väntetid, Handgun Roster, FSC test). Open carry: Nej. Concealed: May-issue varierar per county.', note: 'Post-Bruen förändringar ongoing. Assault weapon ban, magasin-begränsningar (10 rounds).' },
+                { name: 'Hawaii', details: 'Köp: Svår (permit per gun). Open carry: Nej. Concealed: May-issue (nästan omöjligt).', note: 'Mest restriktiva vapen-lagarna tillsammans med NY/NJ.' },
+                { name: 'Maryland', details: 'Köp: Svår (HQL required, 7-dagars väntetid). Open carry: Restriktivt. Concealed: Shall-issue post-Bruen men fortfarande svårt.', note: 'Scalpel base (Baltimore). "Assault weapons" ban.' },
+                { name: 'Massachusetts', details: 'Köp: Svår (FID/LTC krävs). Open carry: Nej i praktiken. Concealed: May-issue varierar per stad.', note: 'Extremt komplicerat permit system. Roster, AWB, 10-round mag limit.' },
+                { name: 'New Jersey', details: 'Köp: Svår (permit per gun). Open carry: Nej. Concealed: May-issue (sällan beviljat).', note: 'FARLIGAST för PA permit-holders! Inga reciprocity. Arresterar FOPA travelers.' },
+                { name: 'New York', details: 'Köp: Svår (permit krävs). Open carry: Nej. Concealed: Shall-issue post-Bruen men fortfarande mycket svårt.', note: 'SAFE Act. Extremt fientlig mot out-of-state carriers. "Sensitive places" restrictions.' },
+                { name: 'Vermont', details: 'Köp: Lätt. Open carry: Ja. Concealed: Inget permit krävs.', note: 'OBS: Egentligen Constitutional Carry men har nya background check-krav för köp (2018).' }
+            ]
+        };
+
+        // Populate modals
+        function populateModal(category) {
+            const list = document.getElementById(`${category}-list`);
+            // Map kebab-case to camelCase for stateData keys
+            let dataKey = category;
+            if (category === 'shall-issue') dataKey = 'shallIssue';
+            if (category === 'may-issue') dataKey = 'mayIssue';
+            const states = stateData[dataKey];
+
+            list.innerHTML = states.map(state => `
+                <div class="state-item">
+                    <div class="state-item-name">${state.name}</div>
+                    <div class="state-item-details">${state.details}</div>
+                    ${state.note ? `<div class="state-item-note"><strong>📌 OBS:</strong> ${state.note}</div>` : ''}
+                </div>
+            `).join('');
+        }
+
+        // Modal functions
+        function openModal(category) {
+            populateModal(category);
+            document.getElementById(`modal-${category}`).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(category) {
+            document.getElementById(`modal-${category}`).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on background click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal(this.id.replace('modal-', ''));
+                }
+            });
+        });
+
+        // Close on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    closeModal(modal.id.replace('modal-', ''));
+                });
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
