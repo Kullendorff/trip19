@@ -207,6 +207,34 @@
             color: #ff0000;
             font-weight: bold;
         }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.8rem;
+            text-align: left;
+        }
+
+        th {
+            background: var(--bg-darker);
+            color: var(--accent-secondary);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        td {
+            background: var(--bg-panel);
+        }
+
+        tr:hover td {
+            background: rgba(255, 107, 53, 0.05);
+        }
     </style>
 </head>
 <body>
@@ -610,6 +638,240 @@
                 <li class="risk-high"><strong>BOND-BELASTNING:</strong> Att använda Jürgens lägenhet för smugglingskoordinering = massiv risk för fader</li>
                 <li class="risk-medium"><strong>OPERATIV KOMPLEXITET:</strong> Att koordinera flera kontakter = fler chanser för misstag</li>
             </ul>
+        </div>
+
+        <div class="section">
+            <h2>📊 RUTTVJÄMFÖRELSETABELL</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rutt</th>
+                        <th>Kontakt</th>
+                        <th>Metod</th>
+                        <th>Tid</th>
+                        <th>Kostnad</th>
+                        <th>Risknivå</th>
+                        <th>Bond-påverkan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Route 1</strong></td>
+                        <td>Cipher (Sparky)</td>
+                        <td>Baltic Sea</td>
+                        <td>3-4 dagar</td>
+                        <td>$100-120k</td>
+                        <td class="risk-high">HÖG</td>
+                        <td>Cipher bond erosion</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Route 2</strong></td>
+                        <td>Jürgen (Scalpel)</td>
+                        <td>Polen/Belarus land</td>
+                        <td>4-5 dagar</td>
+                        <td>$60-80k</td>
+                        <td class="risk-high">HÖG</td>
+                        <td>Father bond HÖG risk</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Route 3</strong></td>
+                        <td>Ghost (Sparky)</td>
+                        <td>Finland forest</td>
+                        <td>4-5 dagar</td>
+                        <td>$40-60k</td>
+                        <td class="risk-extreme">EXTREM</td>
+                        <td>Ghost relation bränd</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Route 4</strong></td>
+                        <td>Combined Berlin</td>
+                        <td>Variabel</td>
+                        <td>4-6 dagar</td>
+                        <td>$80-120k</td>
+                        <td class="risk-medium">MEDEL-HÖG</td>
+                        <td>Både Jürgen + Cipher/Ghost</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>💰 FINANSIELL LOGISTIK</h2>
+
+            <h3>Var kan spelarna få pengar?</h3>
+
+            <div class="meta-grid">
+                <div class="meta-item">
+                    <div class="meta-label">Mac Riley</div>
+                    <div class="meta-value">$15-20k</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Sparky Zhang</div>
+                    <div class="meta-value">$25-30k</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Scalpel Engler</div>
+                    <div class="meta-value">$20-25k</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Sullivan</div>
+                    <div class="meta-value">$10-15k</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Trench Novak</div>
+                    <div class="meta-value">$20-25k</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">TOTALT</div>
+                    <div class="meta-value risk-medium">$90-115k</div>
+                </div>
+            </div>
+
+            <p><strong>Desperata alternativ:</strong></p>
+            <ul>
+                <li>Kreditkortsförskott (+$10,000-$20,000, men skuld)</li>
+                <li>Bolån på fastigheter (+$50,000-$100,000, men hypoteksskuld)</li>
+                <li>Sälja personliga tillhörigheter (+$5,000-$10,000)</li>
+                <li><strong>Delta Green nödfonder?</strong> - Spelarna är OUTLAWS (ingen åtkomst)</li>
+            </ul>
+
+            <p class="risk-high"><strong>GM-notering:</strong> Pengapress är VERKLIG. Spelarna kan behöva samla allt, gå i skuld. Detta gör operationen kännas desperat.</p>
+        </div>
+
+        <div class="section">
+            <h2>🎲 GM-RESURSER: ATT KÖRA INFILTRATION</h2>
+
+            <h3>Färdighetskontroller krävs:</h3>
+
+            <p><strong>För Sparky (Route 1 eller 3):</strong></p>
+            <ul>
+                <li><strong>SIGINT 80%</strong> - Säker kommunikation med Cipher/Ghost</li>
+                <li><strong>Computer Science 90%</strong> - Darkweb-marknadsnavigering</li>
+                <li><strong>Bureaucracy 50%</strong> - Förfalska resedokumentation (om behövs)</li>
+            </ul>
+
+            <p><strong>För Scalpel (Route 2):</strong></p>
+            <ul>
+                <li><strong>German 60%</strong> - Konversation med Jürgen, Berlin-navigering</li>
+                <li><strong>Persuade</strong> - Övertyga far att hjälpa utan att avslöja sanning</li>
+                <li><strong>Psychotherapy</strong> - Läsa faderns reaktioner, hantera hans rädsla</li>
+            </ul>
+
+            <p><strong>För alla rutter:</strong></p>
+            <ul>
+                <li><strong>Alertness</strong> - Upptäcka FSB-övervakning</li>
+                <li><strong>Stealth</strong> - Undvika upptäckt under smuggling</li>
+                <li><strong>Navigate</strong> - (Endast Route 3) Skogsnavigering</li>
+                <li><strong>Survival</strong> - (Endast Route 3) Vildmarksuthållighet</li>
+            </ul>
+
+            <h3>Komplikationstabell (Slå 1d10 under infiltration):</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Slag</th>
+                        <th>Komplikation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1-2</td>
+                        <td class="risk-high"><strong>Smugglarförräderi</strong> - Kontakt säljer team till FSB för belöning</td>
+                    </tr>
+                    <tr>
+                        <td>3-4</td>
+                        <td class="risk-medium"><strong>Väderförsening</strong> - Storm/snö försenar korsning med 2-3 dagar</td>
+                    </tr>
+                    <tr>
+                        <td>5-6</td>
+                        <td class="risk-high"><strong>Kontrollpunktöverraskning</strong> - Oväntat FSB-kontrollpunkt på rutten</td>
+                    </tr>
+                    <tr>
+                        <td>7-8</td>
+                        <td class="risk-medium"><strong>Utrustningsfel</strong> - Fordon går sönder, båtmotor fallerar, GPS dör</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td class="risk-medium"><strong>Vittne</strong> - Civil ser team bli smugglat, måste besluta att tysta/lita</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td style="color: #00ff41;"><strong>Ren inresa</strong> - Smuggling går smidigt (sällsynt!)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Bond-erosionsmekanik:</h3>
+
+            <p><strong>Cipher (Sparkys Bond):</strong></p>
+            <ul>
+                <li>Använd för smuggling: -1 Bond</li>
+                <li>Operation går fel: -2 ytterligare Bond</li>
+                <li>Cipher lär sig att Sparky ljög om syftet: -3 ytterligare Bond</li>
+            </ul>
+
+            <p><strong>Jürgen Engler (Scalpels Bond 8/12):</strong></p>
+            <ul>
+                <li>Ombedd att hjälpa med smuggling: -1 Bond</li>
+                <li>Far lär sig att dotter ljög: -2 ytterligare Bond</li>
+                <li>Far hotas av FSB: -4 ytterligare Bond (potentiell bond break)</li>
+            </ul>
+
+            <p><strong>Ghost (Inte en bond, men relation):</strong></p>
+            <ul>
+                <li>Återkontaktad efter 7 år: Relationsbelastning</li>
+                <li>Ljög om syfte: Relation förstörd</li>
+                <li>Ärlig om Delta Green: Ghost tror Sparky är galen MEN kan respektera ärlighet</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🎯 SLUTGILTIGA GM-RÅD</h2>
+
+            <h3>Få rutter att kännas organiska:</h3>
+            <ul>
+                <li>📌 <strong>Info-dumpa inte</strong> - Låt spelare upptäcka genom rollspel</li>
+                <li>💔 <strong>Betona relationer</strong> - Cipher bryr sig om Sparky, Jürgen älskar Hanna</li>
+                <li>⏰ <strong>Visa konsekvenser</strong> - Bonds eroderar i realtid</li>
+                <li>⚡ <strong>Tidspress</strong> - Klockan tickar, de tre männen är före</li>
+                <li>🚫 <strong>Inget perfekt alternativ</strong> - Varje rutt har allvarliga brister</li>
+            </ul>
+
+            <h3>Nyckelteman:</h3>
+            <ul>
+                <li><strong>Uppoffring:</strong> Att använda vänner/familj för uppdraget</li>
+                <li><strong>Förtroende:</strong> Kriminella vs aktivister vs familj - vem litar du på?</li>
+                <li><strong>Kostnad:</strong> Pengar, relationer, säkerhet - vad kommer du betala?</li>
+                <li><strong>Brådska:</strong> Inte tillräckligt med tid att förbereda ordentligt</li>
+                <li><strong>Isolering:</strong> Delta Green kan inte hjälpa, du är ensam</li>
+            </ul>
+
+            <div class="warning-banner" style="margin-top: 2rem;">
+                <h2>⚠️ SPELARSKAPANDE</h2>
+                <p>Spelare kan föreslå rutter som INTE finns listade här. Uppmuntra kreativitet men upprätthåll begränsningar:</p>
+                <ul>
+                    <li>✅ "Kan vi muta oss in?" - Kanske, men FSB-mutor är MYCKET farligt</li>
+                    <li>❌ "Kan vi få Delta Green att hjälpa?" - NEJ. Outlaws. Absolut inte.</li>
+                    <li>✅ "Kan vi kombinera flera kontakter?" - Ja! (Route 4 visar detta)</li>
+                    <li>❌ "Kan vi vänta längre för att förbereda?" - NEJ. Tidspress = 2-5 dagar max.</li>
+                </ul>
+            </div>
+
+            <div class="constraint-box" style="margin-top: 2rem; background: rgba(0, 255, 65, 0.05); border-left-color: #00ff41;">
+                <h4 style="color: #00ff41;">💡 SPELHANDOUT-TEXT</h4>
+                <p><em>När spelare frågar "Hur tar vi oss in i Ryssland?", ge dem denna sammanfattning:</em></p>
+                <p style="margin-top: 1rem; padding: 1rem; background: var(--bg-darker); border-left: 3px solid #00ff41;">
+                    <strong>VERKLIGHETSCHECK: RYSSLAND 2025</strong><br><br>
+                    Ukrainakriget har pågått i tre och ett halvt år. FSB jagar västerländska agenter överallt. Polen-incidenten förra sommaren gjorde saker värre. Delta Green kan inte hjälpa dig - du är outlaws, off the books.<br><br>
+                    Du kan inte resa in i Ryssland som FBI-agenter, Navy chaplains eller NSA-analytiker. Du kommer bli arresterad omedelbart.<br><br>
+                    Du måste smugglas in illegalt. Detta kommer kosta pengar - mycket pengar. Det tar tid du inte har. Och det sätter människor du bryr dig om i fara.<br><br>
+                    Tänk på vem du känner. Vem har kontakter utanför Amerika? Vem kan känna människor i Europa, i hackerundergrunnen, i platser där gränser är mer... flexibla?<br><br>
+                    Du har två till fem dagar. De tre männen är redan i Moskva. Klockan tickar.<br><br>
+                    <strong>Vad är du villig att offra för att stoppa detta?</strong>
+                </p>
+            </div>
         </div>
     </div>
 </body>
