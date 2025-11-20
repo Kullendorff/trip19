@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam "Trench" Novak - USAR Karriär | Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0D1117;
+            --bg-darker: #0A0F0F;
+            --accent: #ff7f3f;
+            --accent-dim: #cc6632;
+            --text: #D1D5DB;
+            --text-dim: #6B7280;
+            --border: #1A2332;
+            --highlight: #2C3E50;
+            --warning: #E74C3C;
+            --success: #ff7f3f;
+            --danger: #DC2626;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--bg-darker);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            text-align: center;
+            line-height: 1.4;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(255, 127, 63, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent-dim);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        h3 {
+            color: var(--accent);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        ul {
+            margin-left: 2rem;
+            line-height: 2;
+        }
+
+        .highlight-box {
+            background: var(--bg-dark);
+            padding: 1.5rem;
+            border-left: 3px solid var(--accent);
+            margin: 1.5rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 0.75rem;
+            background: var(--highlight);
+            color: var(--accent);
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        tr:hover {
+            background: rgba(255, 127, 63, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                SAM "TRENCH" NOVAK<br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">USAR // DELTA GREEN</span>
+            </div>
+
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="index.html" class="page-link">KARAKTÄR</a>
+                        <a href="usar_karriar.html" class="page-link active">USAR KARRIÄR</a>
+                        <a href="delta_green.html" class="page-link">DELTA GREEN</a>
+                        <a href="personligt.html" class="page-link">PERSONLIGT</a>
+                        <a href="pittsburgh.html" class="page-link">PITTSBURGH</a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-title">SNABBNAVIGERING</div>
+                    <a href="#oversikt" class="nav-link">Översikt</a>
+                    <a href="#arbetsuppgifter" class="nav-link">Arbetsuppgifter</a>
+                    <a href="#befogenheter" class="nav-link">Befogenheter</a>
+                    <a href="#deployments" class="nav-link">Deployments</a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">
+                    ✦ TRIP 19 ✦<br>
+                    ← CHESAPEAKE CELL
+                </a>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <h1 style="font-size: 2.5rem; color: var(--accent); margin-bottom: 2rem;">USAR KARRIÄR</h1>
+
+            <section id="oversikt" class="content-section">
+                <h2 class="section-title">FEMA URBAN SEARCH & RESCUE SYSTEM</h2>
+
+                <div class="highlight-box">
+                    <p><strong>Organisation:</strong> Federal Emergency Management Agency (FEMA/DHS)</p>
+                    <p><strong>System:</strong> National Urban Search & Rescue Response System (etablerat 1989)</p>
+                    <p><strong>Trench's enhet:</strong> Pennsylvania Task Force 1 (PA-TF1)</p>
+                    <p><strong>Basering:</strong> Philadelphia Fire Department (sponsoring agency)</p>
+                    <p><strong>Deployment tid:</strong> 6 timmar från aktivering</p>
+                    <p><strong>Operational självständighet:</strong> Upp till 4 dagar utan extern support</p>
+                </div>
+
+                <h3>Team-sammansättning</h3>
+                <ul>
+                    <li><strong>Deployment team:</strong> 70 medlemmar per operation</li>
+                    <li><strong>Total task force:</strong> 200+ medlemmar totalt</li>
+                    <li><strong>Huvudorganisationer:</strong> Philadelphia FD, Harrisburg Bureau of Fire, Baltimore County FD</li>
+                    <li><strong>Specialiseringar:</strong> Search, Rescue, Medicine, Hazmat, Logistics, Planning</li>
+                </ul>
+
+                <h3>Karriärväg (2007-2025)</h3>
+                <ul>
+                    <li><strong>2007:</strong> Brandkårsakademin, direkt från high school</li>
+                    <li><strong>2007-2010:</strong> Ordinarie brandtjänst, Pennsylvania</li>
+                    <li><strong>2012:</strong> Antagen till PA-TF1, specialiserad USAR-träning</li>
+                    <li><strong>2012-2022:</strong> USAR specialist, partnership med Robert Chen</li>
+                    <li><strong>2022:</strong> Pittsburgh-incidenten, Robert Chen KIA</li>
+                    <li><strong>2022-Present:</strong> Fortsatt PA-TF1 + Delta Green operative</li>
+                </ul>
+            </section>
+
+            <section id="arbetsuppgifter" class="content-section">
+                <h2 class="section-title">PRIMÄRA ARBETSUPPGIFTER</h2>
+
+                <h3>Strukturella Räddningsoperationer</h3>
+                <ul>
+                    <li>Lokalisera och extrahera offer ur kollapsade byggnader</li>
+                    <li>Rope rescue i höghusoperationer</li>
+                    <li>Confined space rescue (tight spaces, voids, collapsed structures)</li>
+                    <li><strong>Trench/excavation rescue</strong> (därav callsign "Trench")</li>
+                    <li>Vehicle och machinery extrication</li>
+                    <li>Water operations och floodwater rescue</li>
+                </ul>
+
+                <h3>Strukturell Bedömning & Analys</h3>
+                <ul>
+                    <li>Bedöma byggnaders säkerhet och stabilitet efter katastrofer</li>
+                    <li>Identifiera strukturtyper och specifika skador</li>
+                    <li>Rekommendera hazard mitigation-åtgärder</li>
+                    <li>Markera byggnader med säkerhetsnivåer:
+                        <ul>
+                            <li><strong style="color: #00ff00;">Grön:</strong> Safe to occupy</li>
+                            <li><strong style="color: #ffff00;">Gul:</strong> Limited entry</li>
+                            <li><strong style="color: #ff0000;">Röd:</strong> Unsafe - No Entry</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Stabiliseringsoperationer</h3>
+                <ul>
+                    <li><strong>Shoring:</strong> Installera temporära strukturella stöd</li>
+                    <li><strong>Cribbing:</strong> Bygga träkonstruktioner för att stabilisera tunga objekt</li>
+                    <li><strong>Bracing:</strong> Förstärka svaga väggar och strukturer</li>
+                    <li>Övervaka strukturer för förändring över tid</li>
+                </ul>
+
+                <h3>Demolitions & Breaching</h3>
+                <ul>
+                    <li>Kontrollerade sprängningar för att:
+                        <ul>
+                            <li>Ta bort farliga strukturer</li>
+                            <li>Skapa tillgång till inneslutna offer</li>
+                            <li>Öppna räddningsvägar</li>
+                        </ul>
+                    </li>
+                    <li>Precision cutting med hydrauliska verktyg</li>
+                    <li>Structural breaching tekniker</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong>Delta Green Relevans:</strong> Demolitions-expertis gör Trench värdefull för att förstöra bevis, kollapsa anomalous structures, och "stage" naturliga förklaringar för onaturliga händelser.</p>
+                </div>
+
+                <h3>Heavy Machinery Operations</h3>
+                <ul>
+                    <li>Operera kranar och lyftutrustning</li>
+                    <li>Hydrauliska räddningsverktyg (Jaws of Life, spreaders, cutters)</li>
+                    <li>Heavy equipment (bulldozers, excavators vid större operationer)</li>
+                    <li>Specialized cutting equipment (concrete saws, plasma cutters)</li>
+                </ul>
+
+                <h3>Medicinsk Akutvård</h3>
+                <ul>
+                    <li>Emergency trauma care på disaster sites</li>
+                    <li>Vård för trapped victims under extrication</li>
+                    <li>Medical care för task force-medlemmar</li>
+                    <li><strong>First Aid 80%</strong> - Högsta kompetensen i Chesapeake Cell</li>
+                </ul>
+            </section>
+
+            <section id="befogenheter" class="content-section">
+                <h2 class="section-title">BEFOGENHETER & AUKTORITET</h2>
+
+                <h3>Federal Deployment Authority</h3>
+                <p>När FEMA aktiverar PA-TF1:</p>
+                <ul>
+                    <li>Opererar under <strong>federal auktoritet</strong> via Stafford Act</li>
+                    <li>Interstate operations utan state limitations</li>
+                    <li>Direkt access till federal resurser och utrustning</li>
+                    <li>Rapporterar till FEMA/DHS, inte lokal myndighet</li>
+                    <li>National Special Security Event (NSSE) clearances</li>
+                </ul>
+
+                <h3>Operational Authority på Plats</h3>
+                <table>
+                    <tr>
+                        <th>Område</th>
+                        <th>Befogenhet</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Strukturell Auktoritet</strong></td>
+                        <td>
+                            • Evakuera byggnader bedömda som instabila<br>
+                            • Markera byggnader "unsafe" (No Entry order)<br>
+                            • Deny access till farliga strukturer<br>
+                            • Override local building inspectors vid federal emergency
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Utility Control</strong></td>
+                        <td>
+                            • Stänga av gas, el, vatten utan fastighetsägarens tillstånd<br>
+                            • Emergency utility shut-off vid immediate danger<br>
+                            • Koordinera med utility companies för permanent fixes
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Site Control</strong></td>
+                        <td>
+                            • Establish hot zones och security perimeters<br>
+                            • Control access till collapse sites<br>
+                            • Coordinate med local first responders<br>
+                            • Semi-autonomous operations inom disaster area
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="highlight-box" style="border-left-color: var(--danger);">
+                    <p><strong>Delta Green Operational Advantage:</strong></p>
+                    <p>Trench kan legally declare areas "unsafe" och evakuera civila, etablera perimeters, och stänga av utilities – allt under cover av legitimate USAR operations. Detta ger Delta Green plausible deniability och operational access utan att väcka misstankar.</p>
+                </div>
+
+                <h3>Juridiskt Skydd</h3>
+                <ul>
+                    <li><strong>Federal Protection:</strong> Liability protection under Stafford Act när federal deployad</li>
+                    <li><strong>Good Samaritan protections</strong> för medicinska ingrepp</li>
+                    <li><strong>Immunity</strong> för emergency actions inom scope of mission</li>
+                    <li><strong>Protection mot state-level prosecution</strong> för federal operations</li>
+                </ul>
+            </section>
+
+            <section id="deployments" class="content-section">
+                <h2 class="section-title">NOTABLE DEPLOYMENTS - PA-TF1</h2>
+
+                <h3>Sam's Deployment History (2012-2025)</h3>
+                <table>
+                    <tr>
+                        <th>År</th>
+                        <th>Operation</th>
+                        <th>Beskrivning</th>
+                    </tr>
+                    <tr>
+                        <td>2012</td>
+                        <td><strong>Hurricane Sandy</strong></td>
+                        <td>New Jersey, water rescues och structural assessment. Sam's första federal deployment.</td>
+                    </tr>
+                    <tr>
+                        <td>2015</td>
+                        <td><strong>Byggnadskollaps Philadelphia</strong></td>
+                        <td>Sex våningar kollapsade efter påkörning. Sam och Robert extraherade 8 överlevande.</td>
+                    </tr>
+                    <tr>
+                        <td>2016</td>
+                        <td><strong>West Virginia-översvämningar</strong></td>
+                        <td>Tre veckors deployment, extensive water rescue operations.</td>
+                    </tr>
+                    <tr>
+                        <td>2020-2021</td>
+                        <td><strong>COVID-19 Response</strong></td>
+                        <td>Fältsjukhus, massgravar, karantänzoner. Multiple deployments. Började Sams mental deterioration.</td>
+                    </tr>
+                    <tr>
+                        <td>2022</td>
+                        <td><strong>Pittsburgh Tunnel Collapse</strong></td>
+                        <td style="color: var(--danger); font-weight: bold;">Rekryteringsincident. 12 dagar instängd. Robert Chen KIA. Delta Green contact.</td>
+                    </tr>
+                </table>
+
+                <h3>PA-TF1 Major Federal Activations (Historik)</h3>
+                <ul>
+                    <li><strong>1999:</strong> Hurricane Floyd (North Carolina) – PA-TF1's första federala deployment</li>
+                    <li><strong>2001:</strong> World Trade Center Attack (New York) – Ground Zero search & recovery</li>
+                    <li><strong>2005:</strong> Hurricane Katrina/Rita (Gulf Coast) – Massive water rescue operations</li>
+                    <li><strong>2008:</strong> Hurricane Ike/Gustav (Texas/Louisiana)</li>
+                    <li><strong>2025:</strong> Texas Flooding (Recent) – Multi-state support team leadership</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">TRAINING & CERTIFICATIONS</h2>
+
+                <h3>Grundutbildning</h3>
+                <ul>
+                    <li><strong>Initial USAR Training:</strong> 100 timmar strukturell collapse rescue</li>
+                    <li><strong>Årlig recertification:</strong> Continuous training through PA-TF1</li>
+                    <li><strong>Specialized position training:</strong> Demolitions, heavy machinery, technical rescue</li>
+                </ul>
+
+                <h3>Specialiseringar</h3>
+                <ul>
+                    <li>Structural Collapse Rescue Operations (advanced)</li>
+                    <li>Rope Rescue Technician</li>
+                    <li>Confined Space Rescue</li>
+                    <li>Trench & Excavation Rescue</li>
+                    <li>Heavy Rigging Operations</li>
+                    <li>Hazardous Materials Awareness</li>
+                    <li>Weapons of Mass Destruction (WMD) awareness</li>
+                </ul>
+
+                <h3>Medicinsk Träning</h3>
+                <ul>
+                    <li>Emergency Medical Technician (EMT) certifierad</li>
+                    <li>Wilderness First Responder (för prolonged field operations)</li>
+                    <li>Trauma care under austere conditions</li>
+                    <li>Combat casualty care principles</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">OPERATIONAL LIMITATIONS</h2>
+
+                <h3>Activation Requirements</h3>
+                <ul>
+                    <li>Requires actual (or staged) disaster för full federal authority</li>
+                    <li>Cannot freely deploy utan FEMA activation</li>
+                    <li>Prolonged absence från day job requires coverage/excuses</li>
+                </ul>
+
+                <h3>Public Profile</h3>
+                <ul>
+                    <li>USAR deployments are public knowledge (media coverage)</li>
+                    <li>Cannot operate completely covert när officially deployed</li>
+                    <li>Tracked by FEMA operations command</li>
+                    <li>Equipment usage logged and audited</li>
+                </ul>
+
+                <h3>Expertise Boundaries</h3>
+                <ul>
+                    <li>Structural focus - not an investigator like Mac</li>
+                    <li>Practical demolitions, not sophisticated explosives expert</li>
+                    <li>Basic electronics (50%), not tech specialist like Sparky</li>
+                    <li>EMT-level medicine, not physician like full medical team</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong>Cover Story Best Practices:</strong></p>
+                    <p>Sam använder "personal time" och "training" för Delta Green operations. Han claimar FEMA deployment endast när absolut nödvändigt. USAR gear/vehicle är distinct och kan inte användas för covert work utan att väcka frågor.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

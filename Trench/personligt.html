@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam "Trench" Novak - Personligt | Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0D1117;
+            --bg-darker: #0A0F0F;
+            --accent: #ff7f3f;
+            --accent-dim: #cc6632;
+            --text: #D1D5DB;
+            --text-dim: #6B7280;
+            --border: #1A2332;
+            --highlight: #2C3E50;
+            --warning: #E74C3C;
+            --success: #ff7f3f;
+            --danger: #DC2626;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--bg-darker);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            text-align: center;
+            line-height: 1.4;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(255, 127, 63, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent-dim);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        h3 {
+            color: var(--accent);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .bond-card {
+            background: var(--bg-dark);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .bond-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .bond-name {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .bond-value {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .bond-info {
+            color: var(--text-dim);
+            margin-bottom: 0.5rem;
+        }
+
+        .bond-description {
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .memorial-box {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0f0f 100%);
+            border: 2px solid var(--danger);
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .memorial-box h3 {
+            color: var(--danger);
+            margin-top: 0;
+        }
+
+        .highlight-box {
+            background: var(--bg-dark);
+            padding: 1.5rem;
+            border-left: 3px solid var(--accent);
+            margin: 1.5rem 0;
+        }
+
+        ul {
+            margin-left: 2rem;
+            line-height: 2;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .bond-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .bond-value {
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                SAM "TRENCH" NOVAK<br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">USAR // DELTA GREEN</span>
+            </div>
+
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="index.html" class="page-link">KARAKTÄR</a>
+                        <a href="usar_karriar.html" class="page-link">USAR KARRIÄR</a>
+                        <a href="delta_green.html" class="page-link">DELTA GREEN</a>
+                        <a href="personligt.html" class="page-link active">PERSONLIGT</a>
+                        <a href="pittsburgh.html" class="page-link">PITTSBURGH</a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-title">SNABBNAVIGERING</div>
+                    <a href="#bonds" class="nav-link">Bonds</a>
+                    <a href="#familj" class="nav-link">Familj</a>
+                    <a href="#bakgrund" class="nav-link">Bakgrund</a>
+                    <a href="#robert" class="nav-link">Robert Chen</a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">
+                    ✦ TRIP 19 ✦<br>
+                    ← CHESAPEAKE CELL
+                </a>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <h1 style="font-size: 2.5rem; color: var(--accent); margin-bottom: 2rem;">PERSONLIGT</h1>
+
+            <section id="bonds" class="content-section">
+                <h2 class="section-title">PERSONLIGA BAND (BONDS)</h2>
+
+                <div class="bond-card">
+                    <div class="bond-header">
+                        <div class="bond-name">Sandra Novak</div>
+                        <div class="bond-value">8</div>
+                    </div>
+                    <div class="bond-info"><strong>Relation:</strong> Dotter, 6 år</div>
+                    <div class="bond-info"><strong>Bor:</strong> Harrisburg, PA (med mor Rhea)</div>
+                    <div class="bond-info"><strong>Vårdnad:</strong> Delad - Sam har varannan helg</div>
+                    <div class="bond-description">
+                        <p>Sams dotter och hans mjuka punkt. Sandra föddes 2019, under den korta perioden när Sam trodde han kunde ha ett normalt liv. Hon har Rheas ögon och Sams envishet. Varje gång Sam ser henne blir det både lättare och svårare – lättare för att hon påminner honom om varför han fortsätter kämpa, svårare för att hon ställer frågor han inte kan svara på.</p>
+                        <p style="margin-top: 0.5rem; font-style: italic;">"Varför bor du inte med oss, pappa?" är den värsta.</p>
+                    </div>
+                </div>
+
+                <div class="bond-card">
+                    <div class="bond-header">
+                        <div class="bond-name">Linda Fermorinzo</div>
+                        <div class="bond-value">8</div>
+                    </div>
+                    <div class="bond-info"><strong>Relation:</strong> Före detta chef, FEMA USAR</div>
+                    <div class="bond-info"><strong>Ålder:</strong> 58 år</div>
+                    <div class="bond-info"><strong>Bakgrund:</strong> Stoisk veteran, FN-uppdrag, stora katastrofer</div>
+                    <div class="bond-description">
+                        <p>Linda var Sams chef på PA-TF1 i flera år innan hon gick upp i federal koordineringsroll. Hon är den enda arbetskamrat vars nummer han kan i huvudet, och den första han ringer när han behöver prata av sig. Linda har sett allt – jordbävningar, orkaner, terrorattacker – och ingenting skakade henne.</p>
+                        <p style="margin-top: 0.5rem;">Fram till Pittsburgh. Det var Linda som sa åt Sam att hålla sig till "16-timmars-rapporten." Det var Linda som såg något i hans ögon efteråt som gjorde henne rädd. De pratar inte om Pittsburgh. Men Linda vet.</p>
+                    </div>
+                </div>
+
+                <div class="bond-card">
+                    <div class="bond-header">
+                        <div class="bond-name">Randolf Novak</div>
+                        <div class="bond-value">8</div>
+                    </div>
+                    <div class="bond-info"><strong>Relation:</strong> Storebror, 41 år</div>
+                    <div class="bond-info"><strong>Yrke:</strong> Advokat och lokalpolitiker</div>
+                    <div class="bond-info"><strong>Militär:</strong> Reservist</div>
+                    <div class="bond-info"><strong>Familj:</strong> Fru Mary (40, advokat), dotter Mia (11), son Phillip (14)</div>
+                    <div class="bond-info"><strong>Bor:</strong> Philadelphia, PA</div>
+                    <div class="bond-description">
+                        <p>Randolf är den "smarte" i familjen – advokat, lokalpolitiker, välartad familj i förorterna. Han är fem år äldre än Sam och de valde helt olika vägar. Randolf löser problem med kontrakt och lagtexter. Sam löser dem med en Halligan bar och sprängämnen. En av dem tjänar bättre. En av dem kan sova på natten.</p>
+                        <p style="margin-top: 0.5rem;">Trots skillnaderna försöker Randolf hålla kontakt. Han ringde efter skilsmässan, erbjöd juridisk hjälp och pengar. Sam tackade nej. Randolf var best man vid Sams bröllop. Sam försöker vara en bra farbror till Mia och Phillip. Det är svårare än det borde vara.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="robert" class="content-section">
+                <div class="memorial-box">
+                    <h3>IN MEMORIAM</h3>
+                    <h2 style="font-size: 2rem; color: var(--text); margin: 1rem 0;">ROBERT CHEN</h2>
+                    <p style="color: var(--text-dim); margin-bottom: 1rem;">1979 - 2022</p>
+                    <p style="color: var(--text); font-style: italic;">"We all die alone, brother. But not today."</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h3 style="margin-top: 0;">Partner, Mentor, Bror</h3>
+                    <p><strong>Relation:</strong> PA-TF1 partner (2012-2022), mentor, bästa vän</p>
+                    <p><strong>Bakgrund:</strong> Afghanistan-veteran, combat engineer, 10 år äldre än Sam</p>
+                    <p><strong>Död:</strong> Pittsburgh tunnel-kollapsen, mars 2022 (12 dagar instängd)</p>
+                </div>
+
+                <p style="margin: 1.5rem 0; line-height: 1.8;">
+                    Robert Chen var den som lärde Sam hur man läser en byggnads död, när man litar på sin magkänsla över manualen, och att alla dör ensamma men det inte betyder att man slutar försöka rädda folk. De jobbade tillsammans i nästan tio år. Robert introducerade Sam för Rhea. Robert var den som höll Sam flytande efter skilsmässan.
+                </p>
+
+                <p style="margin: 1.5rem 0; line-height: 1.8;">
+                    Robert dog i mörkret under Pittsburgh, efter 11 dagar av feber och infektion. Sam höll honom tills kroppen blev kall. Det tog räddningsteam ytterligare en dag att hitta dem.
+                </p>
+
+                <div class="highlight-box" style="border-left-color: var(--danger);">
+                    <h3 style="margin-top: 0; color: var(--danger);">Psykologisk Påverkan</h3>
+                    <p>Sam "pratar" fortfarande med Robert. Han vet att det inte är riktigt. Han vet att Robert är död, att rösten i hans huvud är hans egen psyke som försöker processa trauma. Men det hjälper.</p>
+                    <p style="margin-top: 0.5rem;">När Sam står vid en kollapsad byggnad hör han Robert: <em>"What's the structure telling you?"</em></p>
+                    <p style="margin-top: 0.5rem;">När Delta Green ringer med en "possible anomaly" hör han Robert: <em>"Trust your gut, brother."</em></p>
+                    <p style="margin-top: 0.5rem;">När Sam sitter ensam vid 03:00 och inte kan sova hör han Robert: <em>"We all die alone. But not tonight."</em></p>
+                </div>
+            </section>
+
+            <section id="familj" class="content-section">
+                <h2 class="section-title">FAMILJ & BAKGRUND</h2>
+
+                <h3>Föräldrar</h3>
+                <div class="highlight-box">
+                    <p><strong>Michael Novak</strong> (far, ~63 år)</p>
+                    <ul>
+                        <li>Arbetare på kvarvarande stålindustri i Johnstown, PA</li>
+                        <li>Hårt arbetande, tystlåten, pragmatisk</li>
+                        <li>Stöttade Sams val att bli brandman: "Någon måste göra det riktiga arbetet"</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong>Carol Novak</strong> (mor, ~61 år)</p>
+                    <ul>
+                        <li>Vårdbiträde på Conemaugh Memorial Medical Center</li>
+                        <li>Jobbade nattskift för att spara till barnens framtid</li>
+                        <li>Oroar sig för Sam men säger sällan något</li>
+                    </ul>
+                </div>
+
+                <p style="margin: 1.5rem 0; line-height: 1.8;">
+                    Michael och Carol lever fortfarande tillsammans i Johnstown. Sam ringer dem någon gång i månaden, besöker på Thanksgiving om han kan. De frågar inte för mycket om hans jobb. De ser trötthet i hans ögon som påminner dem om Michaels far efter stålverken stängde.
+                </p>
+
+                <h3>Ex-fru & Skilsmässa</h3>
+                <div class="highlight-box">
+                    <p><strong>Rhea Lawson</strong> (ex-fru, ~35 år)</p>
+                    <ul>
+                        <li>Paramedic, jobbade ofta med USAR-team</li>
+                        <li>Träffades 2016, gifta 2017, Sandra född 2019</li>
+                        <li>Skilsmässa 2021 efter COVID-deployments bröt Sam psykiskt</li>
+                        <li>Flyttade till Harrisburg med Sandra för att vara nära sin familj</li>
+                    </ul>
+                </div>
+
+                <p style="margin: 1.5rem 0; line-height: 1.8;">
+                    Rhea och Sam klickade för att båda förstod vad det betydde att komma hem med andras blod på kläderna och inte vilja prata om det. De fungerade bra – tills COVID. Multiple deployments, fältsjukhus, massgravar. Sam började sova dåligt, drack mer, kontrollerade dörrlås tre gånger.
+                </p>
+
+                <p style="margin: 1.5rem 0; line-height: 1.8; font-style: italic;">
+                    "You're here but you're not home," sa Rhea till slut. "Sandra needs a dad, not a ghost."
+                </p>
+
+                <p style="margin: 1.5rem 0; line-height: 1.8;">
+                    Sam flyttade ut 2021. Skilsmässan gick snabbt – båda ville bara att det skulle vara över. Rhea har primär vårdnad, Sam får varannan helg. Deras relation nu är kortfattat professionell: "Sandra hämtas 15:00 på fredag." "OK." De pratar inte om varför det slutade. De behöver inte.
+                </p>
+            </section>
+
+            <section id="bakgrund" class="content-section">
+                <h2 class="section-title">PERSONLIG HISTORIA</h2>
+
+                <h3>Uppväxt i Johnstown (1989-2007)</h3>
+                <p style="line-height: 1.8;">
+                    Sam föddes 1989 i Johnstown, Pennsylvania – en stad som överlevt stålkrisen, tre stora översvämningar, och decennier av politiker som lovade "återupplivning." Det var arbetarstad, och det betydde något. Folk stannade inte för att det var lätt, utan för att det var hemma.
+                </p>
+
+                <p style="margin-top: 1rem; line-height: 1.8;">
+                    Sam var inte den smarte i familjen – det var Randolfs roll. Sam var den som fixade grannarnas gräsklippare för 20 dollar, som byggde eget trädkojja vid 10 års ålder, som körde traktorn (olagligt) vid 16. Han lärde sig genom att göra, inte genom att läsa om det.
+                </p>
+
+                <h3>Brandkåren & USAR (2007-2012)</h3>
+                <p style="line-height: 1.8;">
+                    Sam gick direkt från high school till brandkårsakademin 2007. Han var 18, stark som fan, och helt orädd. Hans första riktiga brand var ett radhus i lågor med ett barn instängt. Sam bar ut ungen genom röken. Ungen överlevde.
+                </p>
+
+                <p style="margin-top: 1rem; line-height: 1.8;">
+                    Det var då Sam förstod: Det här var inte ett jobb. Det var vad han var <em>till för</em>.
+                </p>
+
+                <p style="margin-top: 1rem; line-height: 1.8;">
+                    Efter tre år på vanlig brandtjänst sökte han till PA-TF1's USAR-program 2012. Hårdare träning, längre deployments, mer specialiserad. Det var inte "släck brand och hem samma kväll" – det var federal deployment tvärs över landet när stora katastrofer slog till. Sam älskade det.
+                </p>
+
+                <h3>Äktenskap & Föräldraskap (2016-2021)</h3>
+                <p style="line-height: 1.8;">
+                    Sam träffade Rhea 2016 vid en confined space rescue. Hon var paramedic, gjorde sitt jobb utan drama. De började dejta, gifte sig 2017. Sandra föddes 2019.
+                </p>
+
+                <p style="margin-top: 1rem; line-height: 1.8;">
+                    För en kort tid var Sam lycklig på ett sätt han inte visste var möjligt. Han kom hem till Rhea och Sandra i deras lilla hus, och allting kändes... normalt. Som att han kunde vara räddare åtta dagar i månaden och pappa resten av tiden.
+                </p>
+
+                <p style="margin-top: 1rem; line-height: 1.8;">
+                    Men COVID kom 2020. Multiple deployments bröt något i Sam. Rhea såg det. Sandra kände det. 2021 var det över.
+                </p>
+
+                <h3>Efter Skilsmässan (2021-Present)</h3>
+                <p style="line-height: 1.8;">
+                    Sam bor nu i en liten lägenhet i Philadelphia, gångavstånd från PA-TF1's bas. Han tränar fyra dagar i veckan. Ser Sandra varannan helg. Svarar på Delta Green-samtal när de kommer. Dricker mer än han borde. Sover dåligt. Hör Roberts röst.
+                </p>
+
+                <p style="margin-top: 1rem; line-height: 1.8;">
+                    Men när larmet ljuder går han in. För det är vad han gör. Han räddar folk från mörkret. Även om mörkret aldrig helt lämnar honom.
+                </p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

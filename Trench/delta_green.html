@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam "Trench" Novak - Delta Green | Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0D1117;
+            --bg-darker: #0A0F0F;
+            --accent: #ff7f3f;
+            --accent-dim: #cc6632;
+            --text: #D1D5DB;
+            --text-dim: #6B7280;
+            --border: #1A2332;
+            --highlight: #2C3E50;
+            --warning: #E74C3C;
+            --success: #2ECC71;
+            --danger: #DC2626;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--bg-darker);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            text-align: center;
+            line-height: 1.4;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(255, 127, 63, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent-dim);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        h3 {
+            color: var(--accent);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .operation-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .operation-card.real {
+            border-left: 4px solid var(--danger);
+        }
+
+        .operation-card.false-flag {
+            border-left: 4px solid var(--success);
+        }
+
+        .operation-card.recruitment {
+            border-left: 4px solid var(--accent);
+        }
+
+        .operation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .operation-title {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .operation-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .status-real {
+            background: var(--danger);
+            color: white;
+        }
+
+        .status-false {
+            background: var(--success);
+            color: white;
+        }
+
+        .status-recruitment {
+            background: var(--accent);
+            color: var(--bg-darker);
+        }
+
+        .operation-meta {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .operation-description {
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .san-loss {
+            background: var(--danger);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        .highlight-box {
+            background: var(--bg-dark);
+            padding: 1.5rem;
+            border-left: 3px solid var(--accent);
+            margin: 1.5rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 0.75rem;
+            background: var(--highlight);
+            color: var(--accent);
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        tr:hover {
+            background: rgba(255, 127, 63, 0.05);
+        }
+
+        ul {
+            margin-left: 2rem;
+            line-height: 2;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .operation-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .operation-status {
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                SAM "TRENCH" NOVAK<br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">USAR // DELTA GREEN</span>
+            </div>
+
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="index.html" class="page-link">KARAKTÄR</a>
+                        <a href="usar_karriar.html" class="page-link">USAR KARRIÄR</a>
+                        <a href="delta_green.html" class="page-link active">DELTA GREEN</a>
+                        <a href="personligt.html" class="page-link">PERSONLIGT</a>
+                        <a href="pittsburgh.html" class="page-link">PITTSBURGH</a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-title">SNABBNAVIGERING</div>
+                    <a href="#overview" class="nav-link">Översikt</a>
+                    <a href="#recruitment" class="nav-link">Rekrytering</a>
+                    <a href="#real-ops" class="nav-link">Riktiga Operationer</a>
+                    <a href="#false-flags" class="nav-link">False Flags</a>
+                    <a href="#psych" class="nav-link">Psykologisk Status</a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">
+                    ✦ TRIP 19 ✦<br>
+                    ← CHESAPEAKE CELL
+                </a>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <h1 style="font-size: 2.5rem; color: var(--accent); margin-bottom: 2rem;">DELTA GREEN OPERATIONS</h1>
+
+            <section id="overview" class="content-section">
+                <h2 class="section-title">ÖVERSIKT</h2>
+
+                <table>
+                    <tr>
+                        <td><strong>Rekryterad:</strong></td>
+                        <td>Juni 2022 (3 månader efter Pittsburgh)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cell:</strong></td>
+                        <td>"Chesapeake" (unofficial designation)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Roll:</strong></td>
+                        <td>Heavy/demo specialist, structural expert, medic backup</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total operationer:</strong></td>
+                        <td>6 (2 riktiga, 4 false flags)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SAN-förlust (total):</strong></td>
+                        <td>20 poäng (10 återställt genom tid/terapi)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Aktuell SAN:</strong></td>
+                        <td>55/55</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Breaking Point:</strong></td>
+                        <td>44</td>
+                    </tr>
+                </table>
+
+                <div class="highlight-box">
+                    <h3 style="margin-top: 0;">Operational Value</h3>
+                    <p>Trench brings critical capabilities to Delta Green operations:</p>
+                    <ul>
+                        <li><strong>Cover & Access:</strong> USAR credentials provide legitimate federal presence at "disaster sites"</li>
+                        <li><strong>Structural expertise:</strong> Can identify anomalous damage patterns</li>
+                        <li><strong>Demolitions:</strong> Destroy evidence and facilities under cover of "safety operations"</li>
+                        <li><strong>Medical:</strong> First Aid 80% - highest in Chesapeake Cell</li>
+                        <li><strong>Heavy equipment:</strong> Access to excavation gear, cutting tools, transport</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box" style="border-left-color: var(--danger);">
+                    <h3 style="margin-top: 0; color: var(--danger);">Filosofi & Motivering</h3>
+                    <p style="font-style: italic;">"Vår värld är inte den enda, men alla vill oss illa. Det är upp till oss medvetna att skydda alla andra."</p>
+                    <p style="margin-top: 1rem;">Sam gör Delta Green-arbete för samma anledning han gick in i brinnande byggnader som 18-åring: Folk behöver räddas. Att "systemet" – FEMA, DHS, lokala myndigheter – inte kan eller vill erkänna hotet spelar ingen roll. Små människor gör det smutsiga arbetet. Alltid har. Alltid kommer.</p>
+                </div>
+            </section>
+
+            <section id="recruitment" class="content-section">
+                <h2 class="section-title">REKRYTERINGSINCIDENT</h2>
+
+                <div class="operation-card recruitment">
+                    <div class="operation-header">
+                        <div class="operation-title">"ÖVERSVÄMNINGEN" - Pittsburgh, PA</div>
+                        <div class="operation-status status-recruitment">REKRYTERING</div>
+                    </div>
+                    <div class="operation-meta">
+                        <strong>Datum:</strong> 8-20 mars 2022<br>
+                        <strong>Plats:</strong> North Side, Pittsburgh, PA<br>
+                        <strong>Officiell rapport:</strong> 16 timmar instängd<br>
+                        <strong>Verklighet:</strong> 12 dagar instängd<br>
+                        <strong>Resultat:</strong> Robert Chen KIA, Sam Novak överlevde
+                    </div>
+                    <div class="operation-description">
+                        <p>Tunnelkollaps under räddningsoperation i gammalt översvämningskontrollsystem. Sam och Robert Chen blev instängda när strukturen kollapsade bakom dem. Vattnet stod till bröstet. De hade minimal utrustning.</p>
+
+                        <p style="margin-top: 1rem;"><strong>Dag 1-5:</strong> Överlevnad. Väntan på räddning. Batterierna dog. Mörkret blev komplett.</p>
+
+                        <p style="margin-top: 1rem;"><strong>Dag 6-9:</strong> Roberts fot blev infekterad. Ingen kom. I fullständigt mörker började de höra <em>något annat</em>.</p>
+
+                        <p style="margin-top: 1rem;"><strong>Dag 10-11:</strong> Robert dog av feber och infektion. Sam hörde ljud från djupare i tunneln – plaskande, andning, något som inte var mänskligt. Han såg former i mörkret som inte borde finnas.</p>
+
+                        <p style="margin-top: 1rem;"><strong>Dag 12:</strong> Räddningsteam hittade Sam medvetslös, svårt uttorkad, hypoterm. De hittade Robert död. Ingen kunde förklara hur Sam överlevde 12 dagar utan mat eller vatten.</p>
+
+                        <p style="margin-top: 1rem;"><strong>3 månader senare:</strong> Två personer knackade på Sams dörr. De visade federal ID utan specifik department. De sa: "Vi vet att det var 12 dagar. Vi vet att något annat var där nere. Du är inte galen. Det du såg var verkligt."</p>
+
+                        <p style="margin-top: 1rem;">Sam sa ja.</p>
+                    </div>
+                    <div class="san-loss">SAN-FÖRLUST: 10 POÄNG (65 → 55)</div>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong>Officiell Cover Story:</strong> PA-TF1 och FEMA enades om "16-timmars" rapporten. Linda Fermorinzo, Sams fd chef, sa: "Om vi säger 12 dagar kommer folk fråga frågor vi inte kan svara. För din skull, för Roberts minne – 16 timmar."</p>
+                    <p style="margin-top: 0.5rem;">Sam håller sig till rapporten. Men han minns 12 dagar. Och han minns <em>något annat i mörkret</em>.</p>
+                </div>
+
+                <p style="margin-top: 2rem;"><a href="pittsburgh.html" style="color: var(--accent); font-weight: bold;">→ Läs full detaljerad rapport från Pittsburgh-incidenten</a></p>
+            </section>
+
+            <section id="real-ops" class="content-section">
+                <h2 class="section-title">RIKTIGA OPERATIONER (2)</h2>
+
+                <div class="operation-card real">
+                    <div class="operation-header">
+                        <div class="operation-title">OPERATION "DRY RUN"</div>
+                        <div class="operation-status status-real">REAL THREAT</div>
+                    </div>
+                    <div class="operation-meta">
+                        <strong>Datum:</strong> Februari 2023<br>
+                        <strong>Plats:</strong> Bakersfield, CA<br>
+                        <strong>Cover:</strong> FEMA infrastructure assessment<br>
+                        <strong>Outcome:</strong> Threat neutralized, 3 workers rescued
+                    </div>
+                    <div class="operation-description">
+                        <p>Avloppssystem under bostadsområde. Folk försvann när de gick ner för att inspektera. Konstiga ljud nattetid. Lokala myndigheter ville stänga av gator och kalla in EPA.</p>
+
+                        <p style="margin-top: 1rem;">Sam gick ner i avloppssystemet vid 03:00 med full USAR gear. Det luktade inte som avlopp – det luktade organiskt. Förruttnelse men inte mänskligt.</p>
+
+                        <p style="margin-top: 1rem;">200 meter in hittade han dem: <strong>viskösa organiska massor</strong> som växte längs tunnelväggarna. Inte mögel. Inte någon svamp han kände till. De <em>pulserade</em>. Svagt, men definitivt. Och när han kom närmare började de röra sig.</p>
+
+                        <p style="margin-top: 1rem;"><strong>Action Taken:</strong> Sam backade ut, ringde Delta Green. "Det är levande. Jag kan bränna det eller spränga tunneln." Instruktion: "Gör båda."</p>
+
+                        <p style="margin-top: 1rem;">Han använde termit för att bränna organiska materialet, sedan controlled demolition för att kollapsa sektionen. Täckhistoria: metanläcka orsakade explosion. Sam räddade 3 arbetare nära platsen när han collapsade tunneln. Lokala nyheter kallade honom hjälte.</p>
+
+                        <p style="margin-top: 1rem;">Sam drömde om de pulserande massorna i veckor efteråt.</p>
+                    </div>
+                    <div class="san-loss">SAN-FÖRLUST: 4 POÄNG</div>
+                </div>
+
+                <div class="operation-card real">
+                    <div class="operation-header">
+                        <div class="operation-title">OPERATION "SIGNAL LOST"</div>
+                        <div class="operation-status status-real">REAL THREAT</div>
+                    </div>
+                    <div class="operation-meta">
+                        <strong>Datum:</strong> Augusti 2024<br>
+                        <strong>Plats:</strong> Montana (övergiven gruvstation)<br>
+                        <strong>Team:</strong> Trench, CDC-epidemiolog, lingvist<br>
+                        <strong>Outcome:</strong> Crystals destroyed, 1 agent permanent tinnitus
+                    </div>
+                    <div class="operation-description">
+                        <p>Övergiven gruvstation orsakade radiointerferens över 30-mil område. Federal Communications Commission ville inspektera. Delta Green ville dit först.</p>
+
+                        <p style="margin-top: 1rem;">Sam deployerades med två andra agenter – en CDC-epidemiolog och en lingvist (vilket Sam tyckte var konstigt men han frågade inte). De gick ner i gruvan.</p>
+
+                        <p style="margin-top: 1rem;">Djupt inne hittade de <strong>kristallformationer</strong> som växte ur gruvväggarna. De pulserade inte visuellt, men när Sam kom närmare började hans radio <em>skriva</em> – white noise, statisk, och under det något som lät som... <strong>röster</strong>. Inte engelska. Inte något mänskligt språk.</p>
+
+                        <p style="margin-top: 1rem;">Linguisten började spela in. CDC-agenten började ta prover. Sam sa: "Vi borde lämna. Nu." — "Vi behöver data," sa linguisten.</p>
+
+                        <p style="margin-top: 1rem;">Tio minuter senare började linguisten blöda från näsan och CDC-agenten rapporterade auditory hallucinations. Sam sa "fuck this," började rigga sprängämnen runt kristallerna.</p>
+
+                        <p style="margin-top: 1rem;"><strong>Action Taken:</strong> Sam detonerade laddningarna efter evacuation. Kristallerna sprängdes i fragment. Radiointerferensen slutade omedelbart. Linguisten fick permanent tinnitus. CDC-agenten hörde röster i tre veckor.</p>
+
+                        <p style="margin-top: 1rem;">Sam drömde om rösterna. De sa saker han inte förstod men ändå <em>kände</em>.</p>
+                    </div>
+                    <div class="san-loss">SAN-FÖRLUST: 6 POÄNG</div>
+                </div>
+            </section>
+
+            <section id="false-flags" class="content-section">
+                <h2 class="section-title">FALSE FLAG OPERATIONER (4)</h2>
+
+                <p style="margin-bottom: 1.5rem; color: var(--text-dim);">
+                    Inte varje Delta Green-samtal är verkligt. Sam har deployerats till fyra "possible anomalies" som visade sig vara helt naturliga. Dessa operationer gjorde honom mer bitter än de riktiga – bevis att Delta Green inte alltid vet, och att byråkratin skickar honom på vettlösa uppdrag.
+                </p>
+
+                <div class="operation-card false-flag">
+                    <div class="operation-header">
+                        <div class="operation-title">"KEMIKALIEUTSLÄPP" - Texas</div>
+                        <div class="operation-status status-false">FALSE FLAG</div>
+                    </div>
+                    <div class="operation-meta">
+                        <strong>Datum:</strong> Maj 2023<br>
+                        <strong>Plats:</strong> Industrianläggning, Texas<br>
+                        <strong>Rapport:</strong> "Grön rök" från anläggning
+                    </div>
+                    <div class="operation-description">
+                        <p><strong>Resultat:</strong> Vanlig kemisk brand. Sam räddade 3 arbetare från instängd sektion. Ingen DG-koppling. Standard industriolycka.</p>
+                    </div>
+                </div>
+
+                <div class="operation-card false-flag">
+                    <div class="operation-header">
+                        <div class="operation-title">"SJUKHUSINCIDENT" - Ohio</div>
+                        <div class="operation-status status-false">FALSE FLAG</div>
+                    </div>
+                    <div class="operation-meta">
+                        <strong>Datum:</strong> September 2023<br>
+                        <strong>Plats:</strong> Psykiatrisk avdelning, Ohio<br>
+                        <strong>Rapport:</strong> Patienter pratade om "saker i väggarna"
+                    </div>
+                    <div class="operation-description">
+                        <p><strong>Resultat:</strong> Gasläck från gamla rör orsakade hallucinationer. Sam installerade nya ventilationssystem. Inga monster. Inga anomalies.</p>
+                    </div>
+                </div>
+
+                <div class="operation-card false-flag">
+                    <div class="operation-header">
+                        <div class="operation-title">"GRUVKOLLAPS" - West Virginia</div>
+                        <div class="operation-status status-false">FALSE FLAG</div>
+                    </div>
+                    <div class="operation-meta">
+                        <strong>Datum:</strong> Mars 2024<br>
+                        <strong>Plats:</strong> Nedstängd gruva, West Virginia<br>
+                        <strong>Rapport:</strong> "Konstiga ljud" från gruvan
+                    </div>
+                    <div class="operation-description">
+                        <p><strong>Resultat:</strong> Geologisk instabilitet. Sam säkrade området med shoring och structural bracing. Inga Deep Ones. Bara dålig structural engineering.</p>
+                    </div>
+                </div>
+
+                <div class="operation-card false-flag">
+                    <div class="operation-header">
+                        <div class="operation-title">"LABORATORIEKARANTÄN" - New Hampshire</div>
+                        <div class="operation-status status-false">FALSE FLAG</div>
+                    </div>
+                    <div class="operation-meta">
+                        <strong>Datum:</strong> Januari 2025<br>
+                        <strong>Plats:</strong> Bränd samlingslokal, New Hampshire<br>
+                        <strong>Rapport:</strong> "Konstig rök" från lokalbor
+                    </div>
+                    <div class="operation-description">
+                        <p><strong>Resultat:</strong> Elektriskt fel orsakade brand. Sam undersökte brandorsaken. Normal brand. Ingen DG-koppling. Solo-operation, 6 timmar, inget att hitta.</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="border-left-color: var(--warning);">
+                    <h3 style="margin-top: 0; color: var(--warning);">Psykologisk Påverkan av False Flags</h3>
+                    <p>Fyra operationer där Sam riskerade tid, cover, och möjligen liv för <em>ingenting</em>. Delta Green's byråkrati skickar honom på villovägar lika ofta som riktiga hot. Det förstärker hans misstro mot "systemet."</p>
+                    <p style="margin-top: 0.5rem; font-style: italic;">"Är det så här 'skyddar' myndigheterna folk? Skicka mig över landet för gasläckor och elektriska fel?"</p>
+                </div>
+            </section>
+
+            <section id="psych" class="content-section">
+                <h2 class="section-title">PSYKOLOGISK STATUS (2025)</h2>
+
+                <table>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Värde</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Start SAN</strong></td>
+                        <td>65</td>
+                        <td>POW × 5 + 10 bonus</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Aktuell SAN</strong></td>
+                        <td>55</td>
+                        <td>Fortfarande funktionell</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total förlust</strong></td>
+                        <td>20 poäng</td>
+                        <td>Pittsburgh (10), Dry Run (4), Signal Lost (6)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Återställt</strong></td>
+                        <td>~10 poäng</td>
+                        <td>Genom tid, terapi (lögner), vardagliga rutiner</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Breaking Point</strong></td>
+                        <td>44</td>
+                        <td>11 poäng från BP trigger</td>
+                    </tr>
+                </table>
+
+                <h3>Psykologiska Effekter</h3>
+                <ul>
+                    <li><strong>"Pratar" med Robert Chen:</strong> Internaliserad röst av död partner, används som coping mechanism</li>
+                    <li><strong>Misstror "officiella förklaringar":</strong> 4 false flags förstärkte redan existing mistro mot byråkrater</li>
+                    <li><strong>Skeptisk mot myndigheter:</strong> Upplever att "små människor skyddar massan," inte government</li>
+                    <li><strong>Fortfarande funktionell:</strong> Gör jobbet, maintainer cover, håller bonds intact</li>
+                    <li><strong>Drömmer om incidenterna:</strong> Pulsande massor, kristall-röster, Pittsburgh-mörkret</li>
+                </ul>
+
+                <h3>Coping Mechanisms</h3>
+                <ul>
+                    <li>Fokuserar på praktiska uppgifter – fixa saker, träna, arbeta med händerna</li>
+                    <li>"Samtalar" med Robert för att processa svåra beslut</li>
+                    <li>Behåller yrkesmässigt fokus på räddning – "det är vad jag gör"</li>
+                    <li>Accepterar filosofin "we all die alone" som existentiell sanning</li>
+                    <li>Dricker mer än han borde (functional alcoholism börjar)</li>
+                </ul>
+
+                <div class="highlight-box" style="border-left-color: var(--danger);">
+                    <h3 style="margin-top: 0; color: var(--danger);">Risk Assessment</h3>
+                    <p><strong>Status:</strong> Functional but deteriorating</p>
+                    <p><strong>Risks:</strong></p>
+                    <ul>
+                        <li>11 SAN points från Breaking Point – en major incident kan trigger permanent disorders</li>
+                        <li>Auditory hallucinations (Robert's voice) kan bli värre</li>
+                        <li>Alcohol dependency börjar develop</li>
+                        <li>Bonds slowly degrading (Rhea distant, Sandra confused, Randolf worried)</li>
+                    </ul>
+                    <p><strong>Strengths:</strong></p>
+                    <ul>
+                        <li>Strong sense of purpose ("rädda folk")</li>
+                        <li>Practical coping through work</li>
+                        <li>Bonds fortfarande intact (8/8/8)</li>
+                        <li>Cell support system (Mac, Sullivan, Sparky, Scalpel)</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h3 style="margin-top: 0;">Filosofi & Fortsatt Motivering</h3>
+                    <p style="font-style: italic;">"Vår värld är inte den enda, men alla vill oss illa. Det är upp till oss medvetna att skydda alla andra."</p>
+                    <p style="margin-top: 1rem;">Trots SAN-förlust, false flags, och psykologisk deterioration fortsätter Sam göra jobbet. När larmet ljuder – USAR eller Delta Green – går han in. För det är vad han är till för. Han räddar folk från mörkret.</p>
+                    <p style="margin-top: 1rem;">Även om mörkret aldrig helt lämnar honom.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
