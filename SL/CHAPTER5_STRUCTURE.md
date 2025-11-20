@@ -6,6 +6,33 @@
 
 ---
 
+## SCEN-ORDNING (QUICK REF)
+1. **Ankomst (Oleg)** → Slava ELLER Volkov
+2. **Slava** → Volkovs adress
+3. **Volkov (KLIMAX)** → Camp S-17 ELLER Nesterov
+4. **Camp S-17** → Nesterov
+5. **Nesterov** → Leningrad
+
+---
+
+## KAPITLETS MÅL
+
+### Vad spelarna ska uppnå:
+1. **Hitta Leningrad-platsen:** Få exakta koordinater till Kalenko-huset
+2. **Förstå historien:** Lära sig om Camp S-17, Project Echo, 1942-natten
+3. **Konfrontera Volkov:** Emotionellt klimax - se sin egen framtid (Stage 3)
+4. **Förstå barnen:** Inse att 20 barn är fängslade och måste befrias
+5. **Skaffa verktyg/kunskap:** Förstå hur Black Madonna-systemet fungerar
+6. **Förberedelse för Leningrad:** Intel, verktyg, motivation för final
+
+### Vad spelarna INTE ska göra:
+- ❌ Döda någon "big bad" (finns ingen här)
+- ❌ Stoppa massritual (det händer i Leningrad, inte Moskva)
+- ❌ Action-sekvenser mot militärbas
+- ❌ Rädda världen (ännu)
+
+---
+
 ## FILOSOFI & ANPASSNING FRÅN KULT
 
 ### KULT Original (1991):
@@ -29,23 +56,7 @@
 
 ---
 
-## KAPITLETS MÅL
 
-### Vad spelarna ska uppnå:
-1. **Hitta Leningrad-platsen:** Få exakta koordinater till Kalenko-huset
-2. **Förstå historien:** Lära sig om Camp S-17, Project Echo, 1942-natten
-3. **Konfrontera Volkov:** Emotionellt klimax - se sin egen framtid (Stage 3)
-4. **Förstå barnen:** Inse att 20 barn är fängslade och måste befrias
-5. **Skaffa verktyg/kunskap:** Förstå hur Black Madonna-systemet fungerar
-6. **Förberedelse för Leningrad:** Intel, verktyg, motivation för final
-
-### Vad spelarna INTE ska göra:
-- ❌ Döda någon "big bad" (finns ingen här)
-- ❌ Stoppa massritual (det händer i Leningrad, inte Moskva)
-- ❌ Action-sekvenser mot militärbas
-- ❌ Rädda världen (ännu)
-
----
 
 ## SCENÖVERSIKT
 
@@ -464,6 +475,15 @@ Medicinska anteckningar om parasit-sjukdom:
 - "Stage 4+: Oåterkalleligt. Transformation fullbordad."
 - "Frekvens 247Hz måste NEUTRALISERAS"
 - "Anteckn.: Nesterov (Moskvs, 95 år gammal?) vet hur man målade ikonen. Kanske han vet hur man reverserar?"
+
+**CLUE 7: Frekvensstörare-prototyp**
+
+Hemmabyggd enhet på skrivbordet:
+- Kopparspolar, kristallfragment (inaktivt), bilbatteri
+- Handskriven instruktion: "247Hz counter-frequency generator"
+- Volkovs anteckning: "Testad. Fungerar i 30 sekunder innan överhettar. Kan störa De tre männens kontroll temporärt."
+- Prototyp - opålitlig men kan vara användbar vid desperation
+- Kan användas EN gång i kritiskt ögonblick (Chapter 6)
 
 #### Mötet med Volkov
 
@@ -907,7 +927,7 @@ Spelarna måste aktivt VÄLJA att åka till Leningrad. Detta är "point of no re
 #### Leningradsky Vokzal (Tågstationen)
 
 **Beskrivning:**
-> "Leningradsky vokzal - byggd 1851 - är en av Moskvas äldsta tågstationer. Dess gula fasad lyser mot den grå himlen. Inne i hallen: kaos av resande, rop på ryska, lukten av dieselångor och billiga piroger. Avgångstavlan visar: 'St. Petersburg - 18:45 - Spår 3.'"
+> "Leningradsky vokzal - byggd 1851 - är en av Moskvas äldsta tågstationer. Dess gula fasad lyser mot den grå himlen. Inne i hallen: kaos av resande, rop på ryska, lukten av dieselångor och billiga piroger. Avgångstavlan visar: **'Красная стрела / Red Arrow - St. Petersburg - 18:45 - Spår 3.'**"
 
 **Biljetter:**
 - 8-timmars resa (natt-tåg)
@@ -1088,47 +1108,45 @@ Spelarna måste:
 
 ## HANDOUTS ATT SKAPA
 
-### 1. Volkovs dagbok (utdrag)
+### KRITISKA HANDOUTS (Must-Have)
+
+#### 1. Volkovs sista brev/ljudinspelning
 - 3-5 sidor, handskrivet på engelska/svenska
 - Visar Stage 1 → 2 → 3 progression
 - Desperation och Yithian-påverkan
 - Sista inlägg: varning om Leningrad
 
-### 2. Camp S-17 patient-register
-- Lista med 44 namn
-- De tre männen markerade
-- Transfer-order 1946 → Frankfurt
-- Sovjetisk byråkratisk stil
-
-### 3. Tatlin's slutrapport
-- Teknisk beskrivning av suppression-protokoll
-- 247Hz mot-resonans förklaring
-- Guiltridden slutnotering
-- Sovjetisk vetenskaplig stil
-
-### 4. Barnteckningar från cellerna
+#### 2. Barnteckning från S-17
 - 4-5 enkla teckningar
 - Motiv: Kalenko-huset, Black Madonna, streck-gubbar
 - Namn kritade på väggarna
 - Emotionellt impact material
 
-### 5. Leningrad-karta (Volkovs)
+#### 3. GRU-rapport (Project Echo) / Tatlin's slutrapport
+- Teknisk beskrivning av suppression-protokoll
+- 247Hz mot-resonans förklaring
+- Guiltridden slutnotering
+- Sovjetisk vetenskaplig stil
+
+#### 4. Foto på De tre männen (1941)
+- Visar dem som unga män/pojkar
+- Kan hittas i Slava-arkivet eller Volkovs labb
+
+### OPTIONAL HANDOUTS (Nice-to-Have)
+
+#### 5. Camp S-17 patient-register
+- Lista med 44 namn
+- De tre männen markerade
+- Transfer-order 1946 → Frankfurt
+
+#### 6. Leningrad-karta (Volkovs)
 - Detaljerad karta över Vasilyevsky Island
 - Kalenko-husets exakta position markerad
 - FSB-kordon inritat
-- Anteckningar om fasförskjutning
 
-### 6. Nesterovs skiss (Kalenko-huset)
+#### 7. Nesterovs skiss & Bön
 - Planritning av huset
-- Visar var ikonen hängde
-- Arkitektonisk stil 1800-tal
-- Använd i Kapitel 6
-
-### 7. Beskyddande bön (kyrkoslaviska)
-- Pergament med text
-- Kyrkoslavisk stil
-- Svenska översättning vid sidan
-- Riktar sig till Black Madonna
+- Beskyddande bön på kyrkoslaviska
 
 ---
 
