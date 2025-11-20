@@ -126,6 +126,87 @@
             margin: 1.5rem 0 1rem 0;
             letter-spacing: 1px;
         }
+
+        .section p {
+            margin-bottom: 1rem;
+        }
+
+        .section ul {
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        .section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+        }
+
+        .constraint-box {
+            background: rgba(255, 107, 53, 0.1);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .constraint-box h4 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .route-card {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent-secondary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .route-card h3 {
+            color: var(--accent-secondary);
+            margin-top: 0;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .meta-item {
+            background: var(--bg-panel);
+            padding: 1rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent-secondary);
+        }
+
+        .meta-label {
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-value {
+            color: var(--accent-secondary);
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .risk-high {
+            color: #ff4444;
+        }
+
+        .risk-medium {
+            color: #e89a3c;
+        }
+
+        .risk-extreme {
+            color: #ff0000;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -144,9 +225,37 @@
         </div>
 
         <div class="section">
-            <h2>TEST SEKTION</h2>
-            <h3>Test Underrubrik</h3>
-            <p>Detta är en POC-sida med rätt färger och struktur.</p>
+            <h2>📍 MOSCOW/SANKT PETERSBURG ENTRY OPTIONS</h2>
+            <p><strong>Campaign:</strong> Trip 19 / Black Madonna - Chapter 5 Planning</p>
+            <p><strong>Status:</strong> Outlaws operation - NO Delta Green handler support</p>
+            <p><strong>Time Pressure:</strong> 2-5 days maximum preparation (NOT weeks)</p>
+            <p><strong>Geopolitical Context:</strong> Russia 2025 = Ukraine war, extreme FSB surveillance, Western agents hunted</p>
+        </div>
+
+        <div class="section">
+            <h2>🚫 KRITISKA BEGRÄNSNINGAR</h2>
+
+            <div class="constraint-box">
+                <h4>Vad spelarna INTE kan göra:</h4>
+                <ul>
+                    <li>❌ Få Delta Green handler-assistans (outlaws = ingen officiell support)</li>
+                    <li>❌ Använda FBI/Navy/NSA-trovärdighet (omedelbar arrestering i Ryssland 2025)</li>
+                    <li>❌ Begära veckor av förberedelser (brådska = dagar, inte veckor)</li>
+                    <li>❌ Förvänta sig evakuering om de grips (DG: "You're nobody. We can't get you back.")</li>
+                    <li>❌ Resa in via normalt visum (extrem FSB-övervakning + bakgrundskontroller)</li>
+                </ul>
+            </div>
+
+            <div class="constraint-box">
+                <h4>Vad spelarna KAN göra:</h4>
+                <ul>
+                    <li>✅ Använda personliga kontakter (bonds, relationer, gamla kopplingar)</li>
+                    <li>✅ Utnyttja Sparkys tekniska färdigheter (24-48 timmars darkweb-åtkomst, krypterad kommunikation)</li>
+                    <li>✅ Använda Scalpels europeiska familjeband</li>
+                    <li>✅ Samla pengar för smugglingsbetalningar ($30,000-$100,000 behövs)</li>
+                    <li>✅ Återaktivera vilande kontakter (risk för bonds + operativ säkerhet)</li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>
