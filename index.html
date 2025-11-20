@@ -102,6 +102,13 @@
             z-index: 3;
         }
 
+        /* Center the last card when there's an odd number */
+        .agents-grid .agent-card:nth-child(5):last-child {
+            grid-column: 1 / -1;
+            max-width: 380px;
+            margin: 0 auto;
+        }
+
         .agent-card {
             background: var(--card-bg);
             border: 2px solid var(--card-border);
@@ -316,9 +323,22 @@
                     <div class="agent-name">Hanna "SCALPEL" Engler</div>
                     <div class="agent-title">Medical Examiner</div>
                     <div class="agent-description">
-                        Associate Medical Examiner för Baltimore County. 
-                        Forensisk patolog med specialisering inom biologiska anomalier 
+                        Associate Medical Examiner för Baltimore County.
+                        Forensisk patolog med specialisering inom biologiska anomalier
                         och post-operation cleanup.
+                    </div>
+                </div>
+            </a>
+
+            <a href="Trench/index.html" class="agent-card">
+                <img src="trench1.png" alt="Sam Novak" class="agent-image">
+                <div class="agent-info">
+                    <div class="agent-name">Sam "TRENCH" Novak</div>
+                    <div class="agent-title">USAR Specialist</div>
+                    <div class="agent-description">
+                        Urban Search & Rescue specialist från PA Task Force 1.
+                        FEMA CORE reservist med expertis inom structural assessment,
+                        technical rescue och emergency response.
                     </div>
                 </div>
             </a>
