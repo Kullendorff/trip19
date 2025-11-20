@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCENE 0B: TRUCK CROSSING - Chapter 5 (Route 4)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-primary: #ff6b35;
+            --accent-secondary: #9d4edd;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+            --warning: #ff4444;
+            --danger: #dc2626;
+            --success: #4ade80;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        .header {
+            background: var(--bg-darker);
+            border-bottom: 2px solid var(--accent-primary);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--accent-primary);
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .route-badge {
+            color: var(--accent-secondary);
+            font-size: 0.9rem;
+            margin-left: 1rem;
+        }
+
+        .danger-badge {
+            color: var(--danger);
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+            font-weight: bold;
+        }
+
+        .back-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--accent-primary);
+            border-radius: 4px;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            background: var(--accent-primary);
+            color: var(--bg-dark);
+            box-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem 4rem 2rem;
+        }
+
+        .quick-ref {
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-secondary);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .quick-ref h2 {
+            color: var(--accent-secondary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .quick-ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .quick-ref-item {
+            background: var(--bg-darker);
+            padding: 1rem;
+            border-left: 3px solid var(--accent-secondary);
+        }
+
+        .quick-ref-item strong {
+            color: var(--accent-secondary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .danger-warning {
+            background: linear-gradient(135deg, #2a0a0a 0%, #1a0505 100%);
+            border: 2px solid var(--danger);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .danger-warning h3 {
+            color: var(--danger);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: var(--accent-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .section h3 {
+            color: var(--accent-secondary);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .section h4 {
+            color: var(--text);
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .scene-box {
+            background: var(--bg-darker);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: #c9d1d9;
+        }
+
+        .scene-box strong {
+            color: var(--accent-primary);
+            font-style: normal;
+        }
+
+        .checkpoint-section {
+            background: var(--bg-darker);
+            border: 2px solid var(--warning);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .checkpoint-section h4 {
+            color: var(--warning);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th {
+            background: var(--bg-darker);
+            color: var(--accent-primary);
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        td {
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+        }
+
+        tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .stat-block {
+            background: var(--bg-darker);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .stat-block h4 {
+            color: var(--accent-primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .stat-item {
+            background: var(--bg-panel);
+            padding: 0.5rem;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .stat-item strong {
+            color: var(--accent-secondary);
+            display: block;
+            font-size: 0.8rem;
+        }
+
+        .skill-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .skill-item {
+            background: var(--bg-panel);
+            padding: 0.5rem;
+            border-left: 2px solid var(--accent-secondary);
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #2a0a0a 0%, #1a0505 100%);
+            border: 2px solid var(--warning);
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box strong {
+            color: var(--warning);
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, #0a2a0a 0%, #051a05 100%);
+            border: 2px solid var(--success);
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .success-box strong {
+            color: var(--success);
+        }
+
+        .gm-note {
+            background: var(--bg-darker);
+            border-left: 4px solid var(--accent-secondary);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .gm-note::before {
+            content: "GM NOTE: ";
+            color: var(--accent-secondary);
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .handout-box {
+            background: var(--bg-panel);
+            border: 2px dashed var(--accent-secondary);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .handout-box h4 {
+            color: var(--accent-secondary);
+            text-align: center;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        code {
+            background: var(--bg-darker);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            color: var(--accent-secondary);
+        }
+
+        .timeline {
+            border-left: 3px solid var(--accent-primary);
+            padding-left: 2rem;
+            margin: 1rem 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -2.4rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+            border: 2px solid var(--bg-dark);
+        }
+
+        .timeline-item h4 {
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem 2rem 1rem;
+            }
+
+            .quick-ref-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .skill-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div>
+                <span class="logo">SCENE 0B: TRUCK CROSSING</span>
+                <span class="route-badge">[ROUTE 4 - WERNER HARMANN]</span>
+                <span class="danger-badge">[EXTREME RISK]</span>
+            </div>
+            <a href="russia_infiltration_routes.html" class="back-link">← Tillbaka till Routes</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- QUICK REFERENCE -->
+        <div class="quick-ref">
+            <h2>QUICK REFERENCE</h2>
+            <p><strong>GM Options:</strong></p>
+            <ul>
+                <li><strong>Full Version:</strong> 5 detailed mini-scenes (4-5 hours speltid)</li>
+                <li><strong>Fast-Forward:</strong> "Ni spenderar 5 dagar... skill checks... ankommer Moskva utmattade" (15 minuter)</li>
+                <li><strong>Hybrid:</strong> Play key checkpoints (Belarus, Smolensk), fast-forward rest</li>
+            </ul>
+
+            <div class="quick-ref-grid">
+                <div class="quick-ref-item">
+                    <strong>Route:</strong>
+                    Berlin → Warsaw → Minsk → Smolensk → Moscow
+                </div>
+                <div class="quick-ref-item">
+                    <strong>Entry to Russia:</strong>
+                    Smolensk checkpoint<br>
+                    (54.7431°N, 31.5578°E)
+                </div>
+                <div class="quick-ref-item">
+                    <strong>Final Destination:</strong>
+                    Moscow industrial district (Tekstilshchiki)
+                </div>
+                <div class="quick-ref-item">
+                    <strong>Duration:</strong>
+                    4-6 days (60 hours in container)
+                </div>
+                <div class="quick-ref-item">
+                    <strong>Cost:</strong>
+                    $70,000-90,000
+                </div>
+                <div class="quick-ref-item">
+                    <strong>Risk Level:</strong>
+                    <span style="color: var(--danger); font-weight: bold;">EXTREME</span>
+                </div>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>Key NPCs:</strong> Werner Harmann, Ivan Petrov, KGB Guards, FSB Agents</p>
+            <p><strong>Critical Checkpoints:</strong> Poland (easy), Belarus (tense), Smolensk (EXTREME)</p>
+        </div>
+
+        <!-- DANGER WARNING -->
+        <div class="danger-warning">
+            <h3>⚠ EXTREME DANGER ROUTE ⚠</h3>
+            <p><strong>This is the MOST DANGEROUS infiltration route.</strong></p>
+            <ul>
+                <li>60 hours cramped in shipping container</li>
+                <li>Three border crossings with armed guards</li>
+                <li>Smolensk FSB checkpoint = death sentence if caught</li>
+                <li>Belarusian KGB extremely hostile after Polen incident</li>
+                <li>Ukraine war = FSB paranoia at maximum</li>
+            </ul>
+            <p style="margin-top: 1rem; color: var(--danger);"><strong>Getting caught at Smolensk likely means campaign OVER (execution or permanent imprisonment).</strong></p>
+        </div>
+
+        <!-- GEOPOLITICAL CONTEXT -->
+        <div class="section">
+            <h2>GEOPOLITICAL CONTEXT (2025)</h2>
+            <p><strong>KRITISKT att ha i åtanke genom hela scenen:</strong></p>
+
+            <h3>Ukraine War (3.5 years ongoing)</h3>
+            <ul>
+                <li><strong>M1 Highway:</strong> Primary military logistics route to Ukraine front</li>
+                <li><strong>Constant Military Traffic:</strong> Convoys heading east daily</li>
+                <li><strong>FSB Checkpoints:</strong> Actively hunting for saboteurs and Western spies</li>
+                <li><strong>Russian Paranoia:</strong> At peak levels, shoot-first mentality</li>
+            </ul>
+
+            <h3>Polen Incident (July 2025)</h3>
+            <ul>
+                <li><strong>Polish-Belarusian Border:</strong> Extreme tensions</li>
+                <li><strong>Extra Scrutiny:</strong> All border crossings heavily monitored</li>
+                <li><strong>Belarusian KGB:</strong> Coordinating with FSB to catch infiltrators</li>
+                <li><strong>American Travelers:</strong> Automatic suspicion = likely arrest</li>
+            </ul>
+
+            <h3>Smolensk Checkpoint</h3>
+            <ul>
+                <li><strong>Symbolic Importance:</strong> Putin's "Gateway to the Motherland"</li>
+                <li><strong>150km from Moscow:</strong> Last chance to catch infiltrators</li>
+                <li><strong>FSB Counter-Intelligence:</strong> Elite agents, not regular guards</li>
+                <li><strong>Inspection Rate:</strong> 300% increase since Ukraine war started</li>
+                <li><strong>Known Fact:</strong> Ivan has lost smuggling colleagues here before</li>
+            </ul>
+
+            <h3>Smuggling Reality</h3>
+            <ul>
+                <li><strong>Why It Exists:</strong> Sanctions created massive black market demand</li>
+                <li><strong>Werner's Network:</strong> Former Stasi using old Cold War routes</li>
+                <li><strong>Profitability:</strong> High rewards but extreme risk</li>
+                <li><strong>Survival Rate:</strong> Werner's quote: "Last year, three tried. Two made it."</li>
+            </ul>
+        </div>
+
+        <!-- MINI-SCENE 1: WERNER NEGOTIATION -->
+        <div class="section">
+            <h2>MINI-SCENE 1: WERNER HARMANN NEGOTIATION (BERLIN)</h2>
+            <p><strong>Location:</strong> Abandoned Tempelhof warehouse, Berlin<br>
+            <strong>Time:</strong> 2-3 hours before departure<br>
+            <strong>Speltid:</strong> 30-45 minuter<br>
+            <strong>Mood:</strong> Tense negotiation, last chance to back out</p>
+
+            <h3>Werner's Appearance</h3>
+            <ul>
+                <li>Man in 60s, grått hår, sliten East German leather jacket (DDR-era)</li>
+                <li>Heavy smoker (chain-smoking Marlboro throughout meeting)</li>
+                <li>Missing two fingers on left hand (old smuggling accident)</li>
+                <li>Cold, professional demeanor - no warmth, no jokes</li>
+                <li>Eyes constantly scanning surroundings</li>
+            </ul>
+
+            <h3>Scene Start</h3>
+            <div class="scene-box">
+                <p><em>Lastbilens motorn tickar när den svalnar i det kalla novembermörkret. Werner Harmann står lutad mot en rostig container, cigaretten glöder i mörkret. Han röker halvvägs innan han ens erkänner er närvaro.</em></p>
+                <p><strong>Werner (på tyska, sen engelska):</strong> "So. Americans who want to disappear into Russia. Interesting times for such requests."</p>
+                <p><em>Han kastar cigaretten och trampar den med stöveln.</em></p>
+                <p><strong>Werner:</strong> "Ivan Petrov waits in Warsaw. Good man. Drove for me since '09. You give him no trouble, he gives you no trouble. Understand?"</p>
+            </div>
+
+            <h3>Route Overview (Werner's Briefing)</h3>
+            <div class="stat-block">
+                <h4>The Route</h4>
+                <ul>
+                    <li><strong>Path:</strong> "Warsaw → Minsk → Smolensk → Moscow. Four days if lucky. Six days if inspections."</li>
+                    <li><strong>Poland Checkpoint:</strong> "Easy. Belarus checkpoint is... uncomfortable. Smolensk checkpoint is where people die."</li>
+                    <li><strong>Container:</strong> "Modified cargo container. Air holes, water, bucket for... necessities."</li>
+                    <li><strong>Communication:</strong> "Ivan signals you when safe to move, when to stay frozen. You obey signals. Always."</li>
+                </ul>
+
+                <h4>Danger Points</h4>
+                <ul>
+                    <li><strong>Belarusian KGB:</strong> "Looks for smuggled weapons since Polen incident. They will search hard."</li>
+                    <li><strong>Smolensk FSB:</strong> "Military convoys everywhere. If they open container... pray they shoot quick."</li>
+                    <li><strong>Moscow Exit:</strong> "Textile factory area. Ivan knows safe building."</li>
+                </ul>
+
+                <h4>Payment & Legal</h4>
+                <ul>
+                    <li>"You paid already through Slava's network. Good. Ivan knows to expect you."</li>
+                    <li>"But if you are caught - I know nothing. Ivan knows nothing. You are cargo that loaded itself."</li>
+                </ul>
+
+                <h4>Final Warning</h4>
+                <p><em>Werner lights another cigarette.</em></p>
+                <p><strong>"Last year, three people tried this route. Two made it. One did not. We found him in Smolensk river."</strong></p>
+                <p><em>Long pause.</em> "Still want to go?"</p>
+            </div>
+
+            <h3>Player Choices</h3>
+            <div class="warning-box">
+                <p><strong>CHOICE POINT:</strong> Last chance to reconsider or change routes</p>
+            </div>
+
+            <p><strong>If players ask questions:</strong></p>
+            <ul>
+                <li>Werner answers professionally but reveals NO emotions</li>
+                <li>He will NOT discuss why they're going - "not my business"</li>
+                <li>He will NOT provide extra equipment - "you bring what you need"</li>
+                <li>He WILL confirm Ivan is reliable: "Ivan is best driver I know. You are safe as possible."</li>
+            </ul>
+
+            <p><strong>If players want to back out:</strong></p>
+            <ul>
+                <li>Werner shrugs: "Smart choice. But Slava will not return money."</li>
+                <li>They must choose different route (return to routes document)</li>
+            </ul>
+
+            <p><strong>If players want to negotiate:</strong></p>
+            <ul>
+                <li>Werner is DONE negotiating: "Price is set. Route is set. Yes or no?"</li>
+                <li>No Persuade checks work here - this is take-it-or-leave-it</li>
+            </ul>
+
+            <h3>Meeting Ivan</h3>
+            <div class="scene-box">
+                <p><em>Werner slaps the side of the truck twice.</em></p>
+                <p><strong>Werner:</strong> "Ivan! They are coming!"</p>
+                <p><em>En tjock man i 50-årsåldern klättrar ur förarhytten. Detta är Ivan Petrov - rysk lastbilsförare med enorm buk, kalufsmössa, och ovårdat skägg. Han säger ingenting, bara nickar kort.</em></p>
+                <p><strong>Werner:</strong> "Get in container. Ivan leaves in ten minutes. Good luck."</p>
+                <p><em>Werner går iväg utan att se sig om. Han är redan färdig med er.</em></p>
+            </div>
+
+            <p><strong>Skill Checks (Optional):</strong></p>
+            <table>
+                <tr>
+                    <th>Skill</th>
+                    <th>DC</th>
+                    <th>Result</th>
+                </tr>
+                <tr>
+                    <td>HUMINT (Sense Motive vs Werner)</td>
+                    <td>50</td>
+                    <td>Success: Werner is genuinely trying to help (in his cold way) - this isn't a setup</td>
+                </tr>
+                <tr>
+                    <td>HUMINT (Sense Motive vs Ivan)</td>
+                    <td>Impossible</td>
+                    <td>Ivan is completely unreadable - neutral professional face always</td>
+                </tr>
+            </table>
+
+            <p><strong>SAN Loss:</strong> None (yet)</p>
+        </div>
+
+        <!-- CONTAINER TIMELINE -->
+        <div class="section">
+            <h2>THE CONTAINER JOURNEY - TIMELINE</h2>
+            <p><em>Use this timeline to track the full journey. Mini-Scenes 2-5 detail each segment.</em></p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Hour 0-12: Berlin → Warsaw (Mini-Scene 2)</h4>
+                    <p>Sealing into container, first hours of claustrophobia, Polish border crossing (easy)</p>
+                    <p><strong>Key Event:</strong> First Constitution check, getting used to container life</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Hour 12-24: Warsaw Stop → Belarus Border (Mini-Scene 3)</h4>
+                    <p>Brief food break in Warsaw, then approach to Belarus-Poland border</p>
+                    <p><strong>Key Event:</strong> BELARUS CHECKPOINT - KGB inspection, possible dog search, extreme tension</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Hour 24-48: Minsk Stop → Smolensk Approach (Mini-Scene 4 Part 1)</h4>
+                    <p>2-hour rest in Minsk, Ivan's warning about Smolensk, final preparation</p>
+                    <p><strong>Key Event:</strong> "Calm before storm" - characters make peace with choices</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Hour 48-54: SMOLENSK CHECKPOINT (Mini-Scene 4 Part 2)</h4>
+                    <p>2-3 hour wait at FSB checkpoint, most dangerous moment of entire journey</p>
+                    <p><strong>Key Event:</strong> CLIMAX - FSB inspection, possible X-ray, drug dogs, extreme stealth checks</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Hour 54-60: Smolensk → Moscow Arrival (Mini-Scene 5)</h4>
+                    <p>Final 6 hours inside Russia, approaching Moscow industrial district</p>
+                    <p><strong>Key Event:</strong> Relief at survival, exit into Moscow, first steps in enemy territory</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- IVAN'S SIGNAL SYSTEM HANDOUT -->
+        <div class="section">
+            <h2>HANDOUT: IVAN'S SIGNAL SYSTEM</h2>
+            <p><em>Give to players when they enter container. They should write this down.</em></p>
+
+            <div class="handout-box">
+                <h4>IVAN PETROV'S KNOCK SIGNALS</h4>
+                <p style="text-align: center; margin-bottom: 1rem;"><em>Learn these. Your life depends on understanding them.</em></p>
+
+                <table>
+                    <tr>
+                        <th>Signal</th>
+                        <th>Meaning</th>
+                    </tr>
+                    <tr>
+                        <td><strong>THREE KNOCKS</strong></td>
+                        <td>Stay absolutely quiet. Checkpoint approaching or inspection happening.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TWO KNOCKS</strong></td>
+                        <td>Danger nearby but not immediate. Stay alert, minimize movement.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ONE KNOCK</strong></td>
+                        <td>All clear. You can whisper, move carefully, use water.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RAPID KNOCKING (5+ fast)</strong></td>
+                        <td>EMERGENCY: Abandon truck immediately. Exit rear and run.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>No knocks for 6+ hours</strong></td>
+                        <td>Something wrong. Ivan may be detained or killed.</td>
+                    </tr>
+                </table>
+
+                <h4 style="margin-top: 1.5rem;">YOUR SIGNALS TO IVAN:</h4>
+                <ul>
+                    <li><strong>Tap three times on wall:</strong> Medical emergency, need help</li>
+                    <li><strong>Tap SOS pattern (···---···):</strong> Extreme emergency, abort mission</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5rem;">SURVIVAL TIPS:</h4>
+                <ul>
+                    <li>Ration water: Small sips every 2 hours</li>
+                    <li>Use bucket behind privacy cloth</li>
+                    <li>Stay calm: Panic uses oxygen and makes noise</li>
+                    <li>Help teammates: If someone struggling, steady them</li>
+                    <li>Trust Ivan: He has done this 50+ times</li>
+                </ul>
+
+                <p style="text-align: right; margin-top: 1rem; font-style: italic;">— Werner Harmann</p>
+            </div>
+        </div>
+
+        <!-- KEY CHECKPOINTS SUMMARY -->
+        <div class="section">
+            <h2>KEY CHECKPOINTS - QUICK REFERENCE</h2>
+
+            <div class="checkpoint-section" style="border-color: var(--success);">
+                <h4 style="color: var(--success);">CHECKPOINT #1: POLISH BORDER (Friendly)</h4>
+                <table>
+                    <tr>
+                        <th>Difficulty</th>
+                        <th>Stealth DC</th>
+                        <th>If Caught</th>
+                    </tr>
+                    <tr>
+                        <td>Easy</td>
+                        <td>30</td>
+                        <td>Deported to Germany, Scene 0B fails, try again</td>
+                    </tr>
+                </table>
+                <p><strong>Details:</strong> Polish guards not looking for people, only checking documents. False wall likely holds.</p>
+            </div>
+
+            <div class="checkpoint-section" style="border-color: var(--warning);">
+                <h4 style="color: var(--warning);">CHECKPOINT #2: BELARUS BORDER (Hostile)</h4>
+                <table>
+                    <tr>
+                        <th>Difficulty</th>
+                        <th>Stealth DC</th>
+                        <th>If Caught</th>
+                    </tr>
+                    <tr>
+                        <td>Medium-High</td>
+                        <td>40</td>
+                        <td>KGB arrest, interrogation, international incident, campaign disaster</td>
+                    </tr>
+                </table>
+                <p><strong>Details:</strong> Belarusian KGB checkpoint. Polen incident makes them extremely hostile. Looking for weapons, NATO equipment, saboteurs. 30% chance of drug dog search.</p>
+                <p><strong>Options if Caught:</strong> Surrender (campaign over), Fight (see Encounter #1), Bribe ($50k, DC 60), Run (DC 50 Athletics)</p>
+            </div>
+
+            <div class="checkpoint-section" style="border-color: var(--danger);">
+                <h4 style="color: var(--danger);">CHECKPOINT #3: SMOLENSK FSB (EXTREME)</h4>
+                <table>
+                    <tr>
+                        <th>Difficulty</th>
+                        <th>Stealth DC</th>
+                        <th>If Caught</th>
+                    </tr>
+                    <tr>
+                        <td>EXTREME</td>
+                        <td>60 (CON × 3)</td>
+                        <td>FSB execution likely, campaign OVER or becomes rescue mission</td>
+                    </tr>
+                </table>
+                <p><strong>Details:</strong> FSB Counter-Intelligence, not regular guards. 2-3 hour inspection with metal detectors, drug dogs, possible X-ray. Ukraine war = maximum paranoia. American agents = death sentence.</p>
+                <p><strong>Why So Dangerous:</strong> Putin's "Gateway to Motherland," 150km from Moscow, last chance to catch infiltrators, FSB knows smuggling routes exist and ACTIVELY hunts them.</p>
+                <p><strong>Options if Caught:</strong> Surrender (campaign likely over), Fight (99% TPK, see Encounter #2), Fake cover story (DC -60%), Call DG assets (50% success, massive cost)</p>
+                <div class="gm-note">
+                    This checkpoint should feel CATASTROPHIC if caught. This is FSB Counter-Intelligence during wartime. They execute spies. Describe overwhelming force to deter combat.
+                </div>
+            </div>
+        </div>
+
+        <!-- CONSTITUTION CHECKS SUMMARY -->
+        <div class="section">
+            <h2>CONSTITUTION CHECKS - SURVIVING THE CONTAINER</h2>
+            <p><em>Players will make multiple Constitution checks throughout the journey. Track cumulative penalties.</em></p>
+
+            <table>
+                <tr>
+                    <th>Time in Container</th>
+                    <th>Check</th>
+                    <th>Failure Consequence</th>
+                </tr>
+                <tr>
+                    <td>0-12 hours (Berlin → Warsaw)</td>
+                    <td>CON × 5, DC 40</td>
+                    <td>-10% to all physical skills</td>
+                </tr>
+                <tr>
+                    <td>12-24 hours (Warsaw → Belarus)</td>
+                    <td>CON × 5, DC varies by CON stat</td>
+                    <td>Lose 1d6 HP from exhaustion, dehydration</td>
+                </tr>
+                <tr>
+                    <td>24-48 hours (Belarus → Smolensk)</td>
+                    <td>CON × 3, DC 60 (EXTREME)</td>
+                    <td>Fail silence check at Smolensk = discovery</td>
+                </tr>
+                <tr>
+                    <td>48-60 hours (Smolensk → Moscow)</td>
+                    <td>CON × 5, DC 40</td>
+                    <td>Collapse on arrival, need immediate rest</td>
+                </tr>
+            </table>
+
+            <h3>Cumulative Skill Penalties</h3>
+            <ul>
+                <li><strong>After 24 hours:</strong> -10% to all physical skills</li>
+                <li><strong>After 36 hours:</strong> -20% to all physical skills</li>
+                <li><strong>After 48 hours:</strong> -30% to all physical skills</li>
+                <li><strong>After 60 hours:</strong> -20% to ALL skills until 8 hours rest + food</li>
+            </ul>
+
+            <div class="gm-note">
+                These penalties should make players FEEL the ordeal. By Smolensk checkpoint, they should be desperate, exhausted, and terrified. This makes the climax appropriately tense.
+            </div>
+        </div>
+
+        <!-- FULL SCENE REFERENCE -->
+        <div class="section">
+            <h2>COMPLETE SCENE DETAILS</h2>
+            <p style="color: var(--text-dim);"><em>This HTML provides quick reference for key moments. For complete details including all mini-scenes, complications, combat encounters, and NPC stats, refer to the full markdown document:</em></p>
+            <p><code>CHAPTER5_SCENE0B_TRUCK_CROSSING.md</code></p>
+
+            <h3>What's in the Full Document:</h3>
+            <div class="quick-ref-grid">
+                <div class="quick-ref-item">
+                    <strong>Mini-Scene 2:</strong>
+                    Container loading, Berlin → Warsaw journey, Polish border
+                </div>
+                <div class="quick-ref-item">
+                    <strong>Mini-Scene 3:</strong>
+                    Warsaw stop, Belarus border checkpoint (DETAILED)
+                </div>
+                <div class="quick-ref-item">
+                    <strong>Mini-Scene 4:</strong>
+                    Minsk stop, Smolensk FSB checkpoint (CLIMAX)
+                </div>
+                <div class="quick-ref-item">
+                    <strong>Mini-Scene 5:</strong>
+                    Moscow arrival, Tekstilshchiki district exit
+                </div>
+                <div class="quick-ref-item">
+                    <strong>Complications:</strong>
+                    1d10 minor + 1d20 major complication tables
+                </div>
+                <div class="quick-ref-item">
+                    <strong>Encounters:</strong>
+                    Belarus border fight, Smolensk firefight, Moscow mugging
+                </div>
+                <div class="quick-ref-item">
+                    <strong>NPCs:</strong>
+                    Werner Harmann, Ivan Petrov, KGB Guards, FSB Agents, Gopniks
+                </div>
+                <div class="quick-ref-item">
+                    <strong>GM Tools:</strong>
+                    Pacing advice, danger calibration, integration notes
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Fast-Forward Version (15 min)</h3>
+            <p>If you need to skip the detailed scenes:</p>
+            <ol>
+                <li><strong>Constitution × 5 Check (DC 50):</strong> Survive 60 hours (2d6 HP loss on success, 3d6 on failure)</li>
+                <li><strong>Stealth Group Check (DC 40):</strong> Avoid detection (complication if fail)</li>
+                <li><strong>Luck Roll (1d100):</strong> 01-10 disaster, 11-30 complication, 31-90 standard, 91-100 lucky</li>
+                <li><strong>SAN Loss:</strong> 1/1d6 cumulative</li>
+                <li><strong>Result:</strong> Arrive Moscow industrial district exhausted, -20% all skills until rest</li>
+            </ol>
+        </div>
+
+        <!-- NPC QUICK STATS -->
+        <div class="section">
+            <h2>NPC QUICK STATS</h2>
+
+            <div class="stat-block">
+                <h4>WERNER HARMANN (Former Stasi Smuggler)</h4>
+                <div class="stat-grid">
+                    <div class="stat-item"><strong>STR</strong> 11</div>
+                    <div class="stat-item"><strong>CON</strong> 13</div>
+                    <div class="stat-item"><strong>DEX</strong> 10</div>
+                    <div class="stat-item"><strong>INT</strong> 14</div>
+                    <div class="stat-item"><strong>POW</strong> 12</div>
+                    <div class="stat-item"><strong>CHA</strong> 11</div>
+                </div>
+                <p><strong>HP:</strong> 13 | <strong>WP:</strong> 12 | <strong>SAN:</strong> 48</p>
+                <p><strong>Key Skills:</strong> Deception 70%, HUMINT 65%, Streetwise 70%, Russian 70%</p>
+                <p><strong>Equipment:</strong> Makarov pistol, encrypted phone, Marlboro cigarettes</p>
+            </div>
+
+            <div class="stat-block">
+                <h4>IVAN PETROV (Russian Truck Driver / Smuggler)</h4>
+                <div class="stat-grid">
+                    <div class="stat-item"><strong>STR</strong> 13</div>
+                    <div class="stat-item"><strong>CON</strong> 14</div>
+                    <div class="stat-item"><strong>DEX</strong> 9</div>
+                    <div class="stat-item"><strong>INT</strong> 10</div>
+                    <div class="stat-item"><strong>POW</strong> 11</div>
+                    <div class="stat-item"><strong>CHA</strong> 9</div>
+                </div>
+                <p><strong>HP:</strong> 14 | <strong>WP:</strong> 11 | <strong>SAN:</strong> 55</p>
+                <p><strong>Key Skills:</strong> Drive 80%, Deception 65%, Craft (Mechanic) 60%, Concealment 70%</p>
+                <p><strong>Equipment:</strong> Modified container (false wall), Volvo FH16 truck, $5k bribe money</p>
+            </div>
+
+            <div class="stat-block">
+                <h4>BELARUSIAN KGB BORDER GUARD</h4>
+                <div class="stat-grid">
+                    <div class="stat-item"><strong>STR</strong> 13</div>
+                    <div class="stat-item"><strong>CON</strong> 12</div>
+                    <div class="stat-item"><strong>DEX</strong> 11</div>
+                    <div class="stat-item"><strong>INT</strong> 10</div>
+                    <div class="stat-item"><strong>POW</strong> 10</div>
+                    <div class="stat-item"><strong>CHA</strong> 9</div>
+                </div>
+                <p><strong>HP:</strong> 12 | <strong>Armor:</strong> 3 (light vest)</p>
+                <p><strong>Weapons:</strong> AK-74 (60%, 1d12+2), Makarov pistol (50%, 1d10)</p>
+                <p><strong>Tactics:</strong> Professional but not elite, follows procedure, suspicious of everyone</p>
+            </div>
+
+            <div class="stat-block">
+                <h4>FSB COUNTER-INTELLIGENCE AGENT (Smolensk)</h4>
+                <div class="stat-grid">
+                    <div class="stat-item"><strong>STR</strong> 14</div>
+                    <div class="stat-item"><strong>CON</strong> 13</div>
+                    <div class="stat-item"><strong>DEX</strong> 12</div>
+                    <div class="stat-item"><strong>INT</strong> 12</div>
+                    <div class="stat-item"><strong>POW</strong> 11</div>
+                    <div class="stat-item"><strong>CHA</strong> 10</div>
+                </div>
+                <p><strong>HP:</strong> 13 | <strong>Armor:</strong> 5 (tactical body armor)</p>
+                <p><strong>Weapons:</strong> AK-12 modern rifle (70%, 1d12+2), GSh-18 pistol (60%, 1d10+1)</p>
+                <p><strong>Skills:</strong> Firearms 70%, HUMINT 60%, Sense Motive 55%, Interrogation 65%</p>
+                <p><strong>Tactics:</strong> Elite training, flanking maneuvers, NO mercy for suspected spies, shoots to kill</p>
+                <p><strong>Personality:</strong> Cold, ideological, believes in protecting Motherland from NATO, will NOT accept bribes</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); color: var(--text-dim);">
+            <p>TRIP 19 / SVARTA MADONNAN - Chapter 5: Moscow</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Scene 0B: Truck Crossing (Route 4) - Version 1.0</p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem; color: var(--danger);">EXTREME RISK - CAMPAIGN-ENDING CONSEQUENCES IF CAUGHT</p>
+        </div>
+    </div>
+</body>
+</html>
