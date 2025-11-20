@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCENE 0A: BALTIC CROSSING - Chapter 5 (Route 1)</title>
+    <title>SCEN 0A: ÖSTERSJÖKORSNING - Kapitel 5 (Route 1)</title>
     <style>
         * {
             margin: 0;
@@ -222,19 +222,6 @@
             font-size: 0.8rem;
         }
 
-        .skill-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 0.5rem;
-            margin: 0.5rem 0;
-        }
-
-        .skill-item {
-            background: var(--bg-panel);
-            padding: 0.5rem;
-            border-left: 2px solid var(--accent-secondary);
-        }
-
         ul, ol {
             margin-left: 2rem;
             margin-top: 0.5rem;
@@ -302,10 +289,6 @@
             .stat-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
-
-            .skill-list {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -313,7 +296,7 @@
     <div class="header">
         <div class="header-content">
             <div>
-                <span class="logo">SCENE 0A: BALTIC CROSSING</span>
+                <span class="logo">SCEN 0A: ÖSTERSJÖKORSNING</span>
                 <span class="route-badge">[ROUTE 1 - CIPHER]</span>
             </div>
             <a href="russia_infiltration_routes.html" class="back-link">← Tillbaka till Routes</a>
@@ -365,10 +348,10 @@
 
         <!-- GEOPOLITISK KONTEXT -->
         <div class="section">
-            <h2>GEOPOLITISK KONTEXT (2025)</h2>
+            <h2>GEOPOLITISK KONTEXT (November 2025)</h2>
             <p><strong>KRITISKT att ha i åtanke:</strong></p>
 
-            <h3>Sankt Petersburg specialstatus</h3>
+            <h3>Sankt Petersburgs specialstatus</h3>
             <ul>
                 <li><strong>Putins hemstad:</strong> Extra FSB-närvaro, konstant övervakning</li>
                 <li><strong>Flottbas:</strong> Östersjöflottans högkvarter i närheten</li>
@@ -391,240 +374,854 @@
                 <li><strong>Täckhistoria:</strong> Affärsresenärer, turister (riskabelt men trovärdigt)</li>
                 <li><strong>Varaktighet:</strong> 8 timmar över natten, anländer Moskva på morgonen</li>
             </ul>
+
+            <div class="warning-box" style="margin-top: 1.5rem;">
+                <p><strong>Spelarna måste förstå:</strong> Detta är INTE en film. Detta är VERKLIG fara. Om ni grips av FSB: tortyr eller avrättning. Ingen kommer att rädda er.</p>
+            </div>
         </div>
 
-        <!-- MINI-SCEN 1 -->
+        <!-- MINI-SCEN 1: TALLINN FÖRBEREDELSE -->
         <div class="section">
             <h2>MINI-SCEN 1: TALLINN FÖRBEREDELSE</h2>
-            <p><strong>Plats:</strong> Tallinn hamndistrikt, övergiven lagerlokal<br>
-            <strong>Speltid:</strong> 30-45 minuter<br>
-            <strong>Stämning:</strong> Kall, spänd, the point of no return</p>
+            <p><strong>Plats:</strong> Tallinn, Estland<br>
+            <strong>Varaktighet:</strong> Dag 1 (4-6 timmar)<br>
+            <strong>Tempo:</strong> Paranoid, hast</p>
 
-            <h3>Scen start</h3>
+            <h3>Ankomst till Tallinn</h3>
+            <p>Spelarna flyger till Tallinn från Berlin/Frankfurt/Stockholm (kommersiella flyg, laglig inresa till EU).</p>
+
             <div class="scene-box">
-                <p><em>Tallinn harbor district luktar salt, diesel, och ruttna fiskar. November-vinden skär genom kläder som knivar. Ni står utanför ett övergivet lagerhus, Baltiska havet svart och ilsket i bakgrunden.</em></p>
-                <p><em>En man i sliten sjömansjacka väntar vid en rostig ståldörr. Detta är Dmitri - Sparky's kontakt via darkweb-forumet. Han röker filterless cigarett och säger ingenting.</em></p>
-                <p><strong>Dmitri (ryska, sen engelska):</strong> "You are late. Boat leaves in one hour. Sea is angry tonight. Good for hiding from patrols, bad for surviving."</p>
-                <p><em>Han öppnar dörren. Inside: en liten fishing trawler, 40 fot lång, rutten men sjöduglig.</em></p>
+                <p><em>Lennart Meri Airport är litet, modernt, effektivt. Estniska gränsvakter kollar era pass snabbt - ni är EU-medborgare eller amerikaner med turistvisum. Inga problem. Men genom fönstren på andra sidan Finska viken - 80 kilometer bort - ligger Ryssland. Och det är dit ni ska.</em></p>
             </div>
 
-            <h3>Dmitri's Briefing</h3>
+            <p><strong>Vad spelarna märker:</strong></p>
+            <ul>
+                <li>Estniska språket (finno-ugriskt, obegripligt)</li>
+                <li>Blandning av Sovjetisk arkitektur och moderna EU-byggnader</li>
+                <li>NATO militär närvaro (jetplan över huvudet ibland)</li>
+                <li>Många finska turister (färjeförbindelser)</li>
+                <li>Spänning i luften - folk vet att Ryssland är nära</li>
+            </ul>
+
+            <h3>Hotellincheckning</h3>
+            <p><strong>Rekommenderat hotell:</strong> Old Town Hostel eller medelklasshotell<br>
+            <strong>Täckhistoria:</strong> Turister som besöker Baltikum</p>
+
+            <p><strong>Sparkys uppgift:</strong> Kontakta Ciphers smugglarkontakt via krypterade kanaler</p>
+
+            <p><strong>SIGINT Check (Sparky 80%):</strong></p>
+            <ul>
+                <li>Success: Kontakt etablerad inom 2-3 timmar</li>
+                <li>Failure: Tar 4-6 timmar, ökar digital fotavtrycksrisk</li>
+            </ul>
+
             <div class="stat-block">
-                <h4>Route Overview</h4>
-                <ul>
-                    <li><strong>Departure:</strong> Tonight, 23:00, no lights, no radio contact</li>
-                    <li><strong>Route:</strong> Tallinn → Gulf of Finland → Sankt Petersburg harbor (200 nautical miles)</li>
-                    <li><strong>Duration:</strong> 36-48 hours depending on weather and patrols</li>
-                    <li><strong>Cover Story:</strong> "Lost fishing vessel" if intercepted (weak cover)</li>
-                </ul>
-
-                <h4>Danger Points</h4>
-                <ul>
-                    <li><strong>Estonian Coast Guard:</strong> Will stop boat if seen leaving illegally</li>
-                    <li><strong>Russian Coast Guard:</strong> Armed patrols, shoot first mentality since Ukraine war</li>
-                    <li><strong>Hypothermia:</strong> November Baltic = 5-8°C water temperature, death in 30 minutes if overboard</li>
-                    <li><strong>Sankt Petersburg Entry:</strong> Must arrive at night, avoid harbor patrol, dock at abandoned pier</li>
-                </ul>
-
-                <h4>What Dmitri Provides</h4>
-                <ul>
-                    <li>40-foot fishing trawler (disguised as Estonian vessel)</li>
-                    <li>Warm clothes, blankets, emergency rations</li>
-                    <li>Hidden compartment below deck (4 people, cramped)</li>
-                    <li>Contact info for Sankt Petersburg safe house (if asked)</li>
-                </ul>
-
-                <h4>Payment</h4>
-                <p>Already paid through Cipher's network ($50,000-70,000 total). Dmitri will NOT negotiate further.</p>
+                <h4>Meddelandet (från Cipher)</h4>
+                <p><em>"Contact: 'Dmitri'. 19:00 tonight. Balti Jaam Market, north entrance. He'll have red thermos. Password: 'Tänan sind'. He'll respond: 'Palun'. Bring 50% cash upfront ($50k). Good luck, Sparkplug."</em></p>
             </div>
 
-            <h3>Player Choices</h3>
-            <div class="warning-box">
-                <p><strong>CHOICE POINT:</strong> Last chance to reconsider or prepare</p>
-            </div>
+            <h3>Kväll: Mötet</h3>
+            <p><strong>Plats:</strong> Balti Jaam Market (inomhusmarknad nära tågstationen)<br>
+            <strong>Tid:</strong> 19:00, november-mörker (solen går ner 16:00 på denna latitud)<br>
+            <strong>Atmosfär:</strong> Kallt, trångt, blandade språk, ånga från matstånd</p>
 
-            <p><strong>If players ask questions:</strong></p>
-            <ul>
-                <li>Dmitri answers factually but reveals NO emotions</li>
-                <li>He will NOT discuss why they're going - "not my business"</li>
-                <li>He WILL confirm route is survivable: "I do this twelve times. You will be thirteenth."</li>
-            </ul>
-
-            <p><strong>If players want to back out:</strong></p>
-            <ul>
-                <li>Dmitri shrugs: "Your choice. But Cipher will not return money."</li>
-                <li>Must choose different route (back to RUSSIA_INFILTRATION_ROUTES.md)</li>
-            </ul>
-
-            <p><strong>Skill Checks (Optional):</strong></p>
-            <table>
-                <tr>
-                    <th>Skill</th>
-                    <th>DC</th>
-                    <th>Result</th>
-                </tr>
-                <tr>
-                    <td>HUMINT (Sense Motive vs Dmitri)</td>
-                    <td>50</td>
-                    <td>Success: Dmitri is genuinely trying to help (in his cold way) - not a setup</td>
-                </tr>
-                <tr>
-                    <td>Navigate or Survival</td>
-                    <td>40</td>
-                    <td>Success: Understand Baltic conditions, can advise group on preparation</td>
-                </tr>
-                <tr>
-                    <td>Craft (Boat) or similar</td>
-                    <td>30</td>
-                    <td>Success: Assess trawler is seaworthy (barely), but will survive trip</td>
-                </tr>
-            </table>
-
-            <h3>Boarding</h3>
             <div class="scene-box">
-                <p><strong>Dmitri:</strong> "Get on boat. Hide below deck. I start engine in ten minutes. When we leave harbor, stay hidden. No lights, no sounds. Understand?"</p>
-                <p><em>Han går ombord och försvinner in i captain's cabin. Båten gungar i vågorna. Detta är verkligen the point of no return.</em></p>
+                <p><em>Market är packad med folk efter jobbet. Doften av grillat kött, estnisk svartbröd, surkål. Vid norra ingången står en man, 40-tal, pälsmössa, röker, håller en röd termos. Hans ögon skannar folkmassan konstant. När ni närmar er spänner han sig.</em></p>
             </div>
 
-            <p><strong>SAN Loss:</strong> 0/1 (ominous departure, dangerous crossing ahead, leaving NATO safety)</p>
+            <h4>NPC: Dmitri (smugglarkontakt)</h4>
+            <div class="stat-block">
+                <p><strong>Ålder:</strong> 45, Estnisk/Rysk mix<br>
+                <strong>Bakgrund:</strong> Tidigare handelsmarin, kör nu smuggelgods<br>
+                <strong>Personlighet:</strong> Professionell, paranoid, ingen småprat<br>
+                <strong>Motivation:</strong> Pengar, överlevnad<br>
+                <strong>Språk:</strong> Estniska, ryska, bruten engelska</p>
+                <div class="stat-grid">
+                    <div class="stat-item"><strong>STR</strong> 12</div>
+                    <div class="stat-item"><strong>DEX</strong> 10</div>
+                    <div class="stat-item"><strong>INT</strong> 11</div>
+                    <div class="stat-item"><strong>POW</strong> 13</div>
+                    <div class="stat-item"><strong>CON</strong> 13</div>
+                    <div class="stat-item"><strong>CHA</strong> 9</div>
+                </div>
+                <p><strong>Skills:</strong> Alertness 70%, Navigate (Sea) 80%, Persuade 50%, Stealth 45%</p>
+            </div>
+
+            <h4>Konversationen (spelarna måste initiera)</h4>
+            <p><strong>Spelare:</strong> "Tänan sind." (Tack på estniska)<br>
+            <strong>Dmitri:</strong> "Palun." (Varsågod) <em>*studerar dem*</em> "You have money?"</p>
+
+            <h4>Förhandling</h4>
+            <ul>
+                <li>Dmitri vill ha $100k totalt (som etablerat)</li>
+                <li>$50k nu, $50k vid leverans till Sankt Petersburg</li>
+                <li>Spelarna kan försöka förhandla ner (Persuade/Bargain check vs 50%)</li>
+                <li>Success: $90k totalt</li>
+                <li>Failure: Han går om de trycker för hårt</li>
+            </ul>
+
+            <h4>Information Dmitri ger (om de betalar)</h4>
+            <ul>
+                <li>"Tomorrow, 14:00. Port of Tallinn, Container Terminal A, Gate 3."</li>
+                <li>"Bring only small bags. No electronics that track. Leave phones here or FSB will find you."</li>
+                <li>"Crossing takes 8-12 hours depending on weather and patrols."</li>
+                <li>"If Russian coast guard stops us, you hide. If they board, you stay silent or we all die."</li>
+                <li>"Sankt Petersburg port is dangerous. I get you to dock, you disappear fast."</li>
+            </ul>
+
+            <div class="warning-box">
+                <p><strong>Dmitris varning:</strong> "Last month, FSB caught a boat. Four people. Nobody knows what happened to them. You sure you want to do this?"</p>
+            </div>
+
+            <p>Spelarna kan backa här. Om de fortsätter, nickar Dmitri: "14:00. Don't be late."</p>
+
+            <h3>Natten före korsningen</h3>
+            <p><strong>Vad spelarna kan göra:</strong></p>
+            <ol>
+                <li><strong>Dumpa elektronik:</strong> Lämna telefoner/laptops på hotellet (eller burner phones endast)</li>
+                <li><strong>Förbered utrustning:</strong> Endast väsentligheter (vapen riskabelt, måste gömmas)</li>
+                <li><strong>Vila:</strong> Constitution checks om de inte gör det (utmattning nästa dag)</li>
+                <li><strong>Research:</strong> Lär sig grundläggande ryska fraser, Sankt Petersburg kartor</li>
+                <li><strong>Bonds:</strong> Ring nära och kära? (vetandes att det kan vara sista gången)</li>
+            </ol>
+
+            <div class="gm-note">
+                Parasite disease check: Stage 2 symtom fortsätter - bölder sprider sig, larvrörelser, klåda. 247Hz surrande närvarande om nära fragment/Dockan. Spelarna försvagas något (CON checks svårare).
+            </div>
+
+            <p><strong>SAN-loss:</strong> 0/1 (anticipation av extrem fara)</p>
         </div>
 
-        <!-- MINI-SCENE 2 -->
+        <!-- MINI-SCEN 2: SJÖKORSNINGEN -->
         <div class="section">
-            <h2>MINI-SCENE 2: SEA CROSSING</h2>
-            <p><strong>Duration:</strong> 36-48 hours at sea<br>
-            <strong>Speltid:</strong> 45-60 minuter OR fast-forward<br>
-            <strong>Mood:</strong> Cold, dark, nauseating, endurance test</p>
+            <h2>MINI-SCEN 2: SJÖKORSNINGEN</h2>
+            <p><strong>Plats:</strong> Tallinn Hamn → Finska viken → Sankt Petersburg<br>
+            <strong>Varaktighet:</strong> Dag 2 (8-12 timmar, beroende på komplikationer)<br>
+            <strong>Tempo:</strong> Klaustrofobisk → spänning → potentiell action</p>
 
-            <h3>Below Deck Life</h3>
-            <p>Agenterna spenderar 36-48 timmar i a cramped compartment below deck:</p>
+            <h3>Ombordstigning</h3>
+            <p><strong>14:00, Container Terminal A, Gate 3:</strong></p>
+
+            <div class="scene-box">
+                <p><em>Tallinn hamn är industriell, kall, cementgrå. Containrar staplade som lego-block. Truckar kör förbi med avgaser. Dmitri väntar vid Gate 3, röker, gestikulerar: 'Kom. Snabbt.'</em></p>
+            </div>
 
             <div class="stat-block">
-                <h4>Compartment Conditions</h4>
+                <h4>Skeppet: MV Põhjatäht (North Star)</h4>
                 <ul>
-                    <li><strong>Size:</strong> 3m × 2m × 1.5m (barely room for 4 people)</li>
-                    <li><strong>Temperature:</strong> ~8-12°C (cold but above freezing)</li>
-                    <li><strong>Light:</strong> Small porthole (taped over for stealth), dim emergency light</li>
-                    <li><strong>Movement:</strong> Constant violent rocking from Baltic waves</li>
-                    <li><strong>Sound:</strong> Engine noise, waves crashing, wind howling</li>
-                    <li><strong>Supplies:</strong> 6 water bottles, dried fish, black bread, two wool blankets, bucket for waste</li>
+                    <li>Litet lastfartyg, ~40 meter, estnisk flagga</li>
+                    <li>Fraktar "legitim" last: maskindelar, industriförnödenheter</li>
+                    <li>Besättning: 4 (kapten + 3 besättning, alla estnisk/rysk mix)</li>
+                    <li>Ålder: 30+ år gammal, rostig men funktionell</li>
                 </ul>
             </div>
 
-            <h3>The First Night (Hour 0-12)</h3>
+            <h4>Gömstället</h4>
             <div class="scene-box">
-                <p><em>Båten lämnar Tallinn harbor i mörker. Dmitri kör utan lights, navigating by GPS and memory. Below deck, ni hör motor roar to life.</em></p>
-                <p><em>De första timmarna är worst: violent seasickness as boat hits open Baltic. Every wave feels like catastrophe.</em></p>
+                <p><em>Dmitri leder er ombord via lastrampen. Under däck, bakom staplade containrar, finns ett gömt utrymme - 3x4 meter, ingen ventilation, luktar diesel och salt. 'Here,' säger Dmitri. 'Stay quiet. No light. No sound. I bring water, food. We leave in one hour.'</em></p>
             </div>
 
-            <p><strong>Constitution × 5 Check:</strong> DC 40 or seasickness</p>
+            <p><strong>Vad som finns i gömplatsen:</strong></p>
             <ul>
-                <li><strong>Failure:</strong> Vomiting, -10% to all skills, lose 1d3 HP</li>
-                <li><strong>Success:</strong> Nauseous but managing</li>
+                <li>Filtar (gamla, fuktiga)</li>
+                <li>Vattenflaskor (6)</li>
+                <li>Torkad mat (bröd, korv, choklad)</li>
+                <li>Hink (för avfall - dyster verklighet)</li>
+                <li>Inget ljus (ficklampor riskerar upptäckt)</li>
+                <li>Kallt (november Östersjön = nära frysning)</li>
             </ul>
 
-            <p><strong>Medicine or Survival Check:</strong> DC 30</p>
+            <p><strong>Avfärd:</strong> 15:00, fartyget lämnar Tallinn</p>
+
+            <p><strong>Constitution Check (alla spelarna):</strong></p>
             <ul>
-                <li><strong>Success:</strong> Help teammates avoid worst seasickness (+20% bonus to their CON checks)</li>
+                <li>Success: Hanterar klaustrofobi, kyla, mörker</li>
+                <li>Failure: Illamående, ångest, -10% till alla checks under korsningen</li>
             </ul>
 
-            <h3>Estonian Waters (Hour 12-24)</h3>
+            <h3>Korsningen: Timme för timme</h3>
+
+            <h4>ALTERNATIV A: HÄNDELSELÖS KORSNING (Snabbspola)</h4>
             <div class="scene-box">
-                <p><em>After 12 hours, ni är exhausted, cold, miserable. Then: engine cuts. Boat drifts.</em></p>
-                <p><em>Through hull, ni hör: another boat engine. Close. Very close.</em></p>
-                <p><em>Dmitri's voice (urgent whisper through vent): "Estonian patrol. Stay absolutely quiet."</em></p>
+                <p><em>Åtta timmar i mörker och kyla. Skeppet gungar. Motorn dånar konstant. Ni hör besättningen röra sig ovanför, ryska röster, metallskrammel. Ingen kommer ner. Vid 23:00 stannar motorn. Ni är framme.</em></p>
             </div>
 
-            <p><strong>GROUP STEALTH CHECK:</strong> All agents roll Stealth</p>
+            <p><strong>Constitution checks:</strong> Varje spelare slår</p>
+            <ul>
+                <li>Success: Utmattade men funktionella</li>
+                <li>Failure: -10% alla checks nästa 12 timmar, illamående</li>
+            </ul>
+
+            <h4>ALTERNATIV B: SPÄNNINGSFYLLD KORSNING (Spela ut händelser)</h4>
+            <p>Välj 1-3 händelser från komplikationstabellen nedan, eller slå 1d10 för varje 3-timmars segment:</p>
+
+            <h4>TIMME 0-3: Avfärd & öppet vatten</h4>
+            <div class="scene-box">
+                <p><em>Skeppet lämnar hamnen. Genom väggen hör ni Tallinn försvinna. Motorn blir högre när ni når öppet vatten. Finska viken är sträv - vågor slår mot skrovet. Ni kastas mot väggar.</em></p>
+            </div>
+
+            <ul>
+                <li>Sjösjuka checks (CON rolls)</li>
+                <li>Spelarna kan inte se varandra (totalt mörker)</li>
+                <li>Vattenljud konstant, överväldigande</li>
+                <li>247Hz surrande (om märkta spelare) blandas med motorljud</li>
+            </ul>
+
+            <h4>TIMME 3-6: Mitten av korsningen</h4>
+            <p><em>Slå 1d10 eller välj:</em></p>
+
             <table>
                 <tr>
-                    <th>DC</th>
-                    <th>Success</th>
-                    <th>Failure</th>
+                    <th>Slag</th>
+                    <th>Händelse</th>
                 </tr>
                 <tr>
-                    <td>30</td>
-                    <td>Patrol passes without investigating</td>
-                    <td>Patrol hears movement, approaches boat (see Complication #3)</td>
+                    <td>1-3</td>
+                    <td>Rutinkorsning (ingen händelse)</td>
+                </tr>
+                <tr>
+                    <td>4-5</td>
+                    <td>Vädret försämras (storm)</td>
+                </tr>
+                <tr>
+                    <td>6-7</td>
+                    <td>Patrullbåt närmar sig</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Besättningsbråk (hörs ovanför)</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Gömd lastproblem (fragment exponering?)</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>FSB BOARDING (kritisk händelse)</td>
                 </tr>
             </table>
 
-            <p><strong>If Patrol Investigates:</strong></p>
-            <ul>
-                <li>Estonian Coast Guard boards boat, questions Dmitri</li>
-                <li><strong>Dmitri's Deception:</strong> 60% - "Engine trouble, returning to port"</li>
-                <li>Guards search topside but don't check hidden compartment (unless agents failed VERY badly)</li>
-                <li>Adds 2-4 hours to journey</li>
-            </ul>
-
-            <h3>Russian Waters (Hour 24-36)</h3>
+            <h4>Händelse: Storm (4-5)</h4>
             <div class="scene-box">
-                <p><em>Andra natten. Ni är nu i Russian territorial waters. Dmitri becomes even more tense.</em></p>
-                <p><em>Through porthole (if you peek): Russian coast i distans. Lights from Sankt Petersburg glow in darkness.</em></p>
+                <p><em>Vågorna ökar. Skeppet kränger våldsamt. Vatten sipprar genom väggarna. Temperaturen sjunker. Ni kastas mot varandra i mörkret.</em></p>
             </div>
 
-            <p><strong>Danger Escalates:</strong> Roll 1d100</p>
+            <ul>
+                <li>Constitution checks (alla spelarna)</li>
+                <li>Failure: 1D3 HP skada (blåmärken), illamående</li>
+                <li>Korsningen försenad +2 timmar</li>
+                <li>Risk: Last förskjuts, kan avslöja gömplatsen</li>
+            </ul>
+
+            <h4>Händelse: Patrullbåt närmar sig (6-7)</h4>
+            <div class="scene-box">
+                <p><em>Motorn saktar. Genom väggen: ryska röster. Radio knastr. Dmitri ropar på ryska: 'Kapten! Паруль!' (Patrol!). Skeppet stannar.</em></p>
+            </div>
+
+            <p><strong>Vad som händer:</strong></p>
+            <ul>
+                <li>Rysk kustbevakning patrullbåt kommer längsides</li>
+                <li>Besättningen måste visa papper, lastmanifest</li>
+                <li>Spelarna hör ryska röster, stövlar på däck</li>
+                <li>Måste stanna HELT TYSTA (Alertness checks för att undvika ljud)</li>
+            </ul>
+
+            <p><strong>Alertness Checks (alla spelarna, opposed by Coast Guard Alertness 60%):</strong></p>
+            <ul>
+                <li>Alla success: Oupptäckta</li>
+                <li>Ett failure: Kustbevakningen misstänksam, söker mer (andra check)</li>
+                <li>Två failures: Kustbevakningen hör ljud, söker gömplatsen (KRITISK)</li>
+            </ul>
+
+            <div class="warning-box">
+                <p><strong>Om upptäckta (KRITISK ENCOUNTER):</strong></p>
+                <ul>
+                    <li>Kustbevakningen kräver att söka</li>
+                    <li>Dmitri försöker muta (Persuade check 50%)</li>
+                    <li>Success: Vakter tar muta ($10k), lämnar</li>
+                    <li>Failure: Vakter insisterar på boarding</li>
+                </ul>
+            </div>
+
+            <p><strong>Om vakter boardar:</strong><br>
+            Spelarna har 30 sekunder att bestämma:</p>
+            <ol>
+                <li><strong>Göm er bättre</strong> (Stealth checks, SVÅRT)</li>
+                <li><strong>Ge upp</strong> (arresterade, tagna till FSB-anläggning - kampanj över?)</li>
+                <li><strong>Slåss</strong> (4 kustbevakare, beväpnade med AK-12 - dödlig encounter)</li>
+                <li><strong>Diplomatiskt</strong> (Rysktalare försöker prata sig ur, MYCKET SVÅRT)</li>
+            </ol>
+
+            <h4>Händelse: FSB Boarding (10) - VÄRSTA FALLET</h4>
+            <div class="scene-box">
+                <p><em>Motorn stannar abrupt. Stövlar på däck - många. Ryska röster, auktoritära. 'ФСБ! Приготовиться к досмотру!' (FSB! Prepare for inspection!)</em></p>
+            </div>
+
+            <p>Detta är kritiskt - FSB tar inte mutor lika lätt.</p>
+
+            <div class="scene-box">
+                <p><strong>Dmitri panics (hörs genom väggar):</strong> "ФСБ... блядь... они знают." (FSB... fan... de vet.)</p>
+            </div>
+
+            <p><strong>Spelarna har 1 minut att bestämma:</strong></p>
+            <ul>
+                <li><strong>Alternativ A:</strong> Perfekt gömning (Stealth checks OPPOSED by FSB 80% - mycket svårt)</li>
+                <li><strong>Alternativ B:</strong> Förkläda sig som besättning (kräver planering tidigare + ryska språk)</li>
+                <li><strong>Alternativ C:</strong> Ge upp (arresterade, förhörda - kan överleva med trauma)</li>
+                <li><strong>Alternativ D:</strong> Sabotage skepp (skapa distraktion - brand, motorhaveri)</li>
+                <li><strong>Alternativ E:</strong> Hoppa överbord (frysande vatten, 5km från kust, säker död)</li>
+            </ul>
+
+            <div class="warning-box">
+                <p><strong>Om gripna av FSB:</strong></p>
+                <ul>
+                    <li>Förhörda på patrullbåt</li>
+                    <li>Anklagade för spionage</li>
+                    <li>Tagna till Sankt Petersburg FSB-anläggning</li>
+                    <li>Tortyr, fängelse eller avrättning trolig</li>
+                    <li>Kampanjen kan fortsätta (räddningsuppdrag?) men fundamentalt förändrad</li>
+                </ul>
+            </div>
+
+            <h4>TIMME 6-9: Närmande till ryska vatten</h4>
+            <div class="scene-box">
+                <p><em>Motorn sänker farten. Genom skrovet känner ni vibrationerna ändras - ni närmar er hamn. Dmitri kommer ner med ficklampa: 'Vi är nära. Snart inne.'</em></p>
+            </div>
+
+            <ul>
+                <li>Spelarna kan äntligen se varandra (utmattade, bleka, kalla)</li>
+                <li>Dmitri varnar: "Sankt Petersburg port is FSB everywhere. I dock at industrial area, not main harbor. You have 5 minutes to get off, disappear."</li>
+                <li>Han ger vägbeskrivning till närmaste metrostation (20 minuters promenad)</li>
+            </ul>
+
+            <p><strong>Constitution checks (slutgiltigt):</strong></p>
+            <ul>
+                <li>Success: Funktionella</li>
+                <li>Failure: Utmattade (-10% alla checks i 12 timmar)</li>
+            </ul>
+
+            <p><strong>SAN-loss:</strong> 0/1d3 (prolongerad obehag, rädsla för att drunkna, isolation)</p>
+        </div>
+
+        <!-- MINI-SCEN 3: SANKT PETERSBURG ANKOMST -->
+        <div class="section">
+            <h2>MINI-SCEN 3: SANKT PETERSBURG ANKOMST & FLYKT</h2>
+            <p><strong>Plats:</strong> Industrihamn, Sankt Petersburg<br>
+            <strong>Varaktighet:</strong> 30-60 minuter (kritiskt tidsfönster)<br>
+            <strong>Tempo:</strong> Desperat, paranoid</p>
+
+            <h3>Avstigning</h3>
+            <div class="scene-box">
+                <p><em>Ni kliver ut på rysk mark för första gången. Kall novembernatt, -5°C. Industrihamnen är mörk, bara stränga lampor vid kranar. Containrar staplade som labyrinter. I fjärran: Sankt Petersburg lights, spire av Peter-Paul fästning, stadens glöd.</em></p>
+            </div>
+
+            <p><strong>Vad spelarna ser:</strong></p>
+            <ul>
+                <li>Industrizon, 3km från stadskärnan</li>
+                <li>Hamnarbetare (ryska, ignorerar utlänningar - misstänksamhet)</li>
+                <li>Tillfälliga FSB-patrulleringar (svarta skåpbilar med strålkastare)</li>
+                <li>Skyltar endast på kyrilliska</li>
+                <li>Lukten: diesel, saltvatten, industriella kemikalier</li>
+            </ul>
+
+            <h4>Dmitris farväl</h4>
+            <div class="scene-box">
+                <p><em>Dmitri pekar österut: 'Metro station - Primorskaya - 20 minutes walk. Follow road, don't talk to anyone. FSB patrol every 30 minutes here.' Han håller fram hand: 'Balance. $50k. Now.'</em></p>
+            </div>
+
+            <p>Spelarna måste betala återstående $50k (eller hantera konsekvenserna).</p>
+
+            <div class="warning-box">
+                <p><strong>Om de försöker lura honom:</strong></p>
+                <ul>
+                    <li>Dmitri: "You fuck me, I call FSB right now. You choose."</li>
+                    <li>Han har radio, kommer rapportera dem om bedragen</li>
+                    <li>Inte värt risken</li>
+                </ul>
+            </div>
+
+            <p><strong>Om de betalar:</strong></p>
+            <ul>
+                <li>Dmitri nickar, försvinner i mörkret</li>
+                <li>De ser honom aldrig igen</li>
+                <li>(GM note: Han överlever om spelarna lyckades, dör om FSB grep dem tidigare)</li>
+            </ul>
+
+            <h3>Promenaden till Metro</h3>
+            <p><strong>20 minuters promenad genom industriområdet:</strong></p>
+
+            <p><strong>Stealth/Alertness checks (gruppcheck):</strong></p>
+            <ul>
+                <li>Success: Når metro utan incident</li>
+                <li>Failure: Stöter på komplikation (se nedan)</li>
+            </ul>
+
+            <h4>Encounter-tabell (slå 1d10 om misslyckad)</h4>
             <table>
                 <tr>
-                    <th>Roll</th>
+                    <th>Slag</th>
                     <th>Encounter</th>
                 </tr>
                 <tr>
-                    <td>01-20</td>
-                    <td><strong>Russian Patrol Boat:</strong> Dmitri must evade or bluff (see Optional Encounter #1)</td>
+                    <td>1-3</td>
+                    <td><strong>Hamnarbetare:</strong> Rysk frågar "Вы кто?" (Vem är ni?) - måste bluffa eller springa</td>
                 </tr>
                 <tr>
-                    <td>21-40</td>
-                    <td><strong>Storm:</strong> Violent weather, CON × 3 check DC 50 or battered/injured (1d6 HP)</td>
+                    <td>4-5</td>
+                    <td><strong>FSB Patrullbil:</strong> Strålkastare sveper området - måste gömma sig (Stealth checks)</td>
                 </tr>
                 <tr>
-                    <td>41-80</td>
-                    <td><strong>Tense but Uneventful:</strong> Dmitri navigates safely, arrive on schedule</td>
+                    <td>6-7</td>
+                    <td><strong>Fulla lokalinvånare:</strong> Grupp fulla ryssar, potentiellt våldsamma eller hjälpsamma (slumpmässigt)</td>
                 </tr>
                 <tr>
-                    <td>81-100</td>
-                    <td><strong>Lucky:</strong> Fog rolls in, perfect cover, early arrival (-4 hours)</td>
+                    <td>8</td>
+                    <td><strong>Herrelösa hundar:</strong> Flock aggressiva herrelösa (5-6 hundar), kan vara farliga</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td><strong>Polischeckpoint:</strong> Måste göra omväg (+15 minuter), risk att missa sista metro</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td><strong>FSB DIREKT ENCOUNTER:</strong> Stoppade och ifrågasatta (KRITISK)</td>
                 </tr>
             </table>
 
-            <h3>Constitution Endurance</h3>
-            <p><strong>After 36 hours at sea:</strong></p>
-            <p><strong>Constitution × 5 Check:</strong> DC 50 (brutal cold, exhaustion, cramped space)</p>
+            <div class="warning-box">
+                <p><strong>KRITISK: FSB Direkt Encounter</strong></p>
+                <div class="scene-box">
+                    <p><em>Черный фургон останавливается рядом с вами. Двое людей выходят - штатское, но явно ФСБ. 'Стоп. Документы.' (Stop. Documents.)</em></p>
+                </div>
+                <p>Spelarna måste bestämma:</p>
+                <ol>
+                    <li><strong>Visa falska ID:</strong> (om de har några - SVÅRT Disguise check)</li>
+                    <li><strong>Spring:</strong> (jaktscen, kan fungera men eskalerar situation)</li>
+                    <li><strong>Slåss:</strong> (2 FSB-agenter, beväpnade - dödligt, drar backup)</li>
+                    <li><strong>Ge upp:</strong> (arresterade, förhörda - kampanjsvängning)</li>
+                </ol>
+            </div>
+
+            <h3>Primorskaya Metrostation</h3>
+            <p><strong>Om de når metro:</strong></p>
+
+            <div class="scene-box">
+                <p><em>Primorskaya station - Sovjetisk brutalism i betong och stål. Fluorescerande ljus, folk i vinterjackor, tystnad. Ni ser ut som skit - våta, utmattade, desperata. Folk stirrar.</em></p>
+            </div>
+
+            <p><strong>Problem:</strong></p>
+            <ol>
+                <li><strong>Biljetter:</strong> Behöver ryska rubler (kan köpa vid automat - Sparkys ryska 0% = kamp)</li>
+                <li><strong>Uppmärksamhet:</strong> Ser utländska ut, utmattade, misstänkta</li>
+                <li><strong>Övervakning:</strong> Kameror överallt</li>
+                <li><strong>Språk:</strong> Skyltar endast på kyrilliska</li>
+            </ol>
+
+            <p><strong>Köpa biljetter:</strong></p>
             <ul>
-                <li><strong>Success:</strong> Exhausted (-10% physical skills) but functional</li>
-                <li><strong>Failure:</strong> Hypothermia creeping in, lose 1d6 HP, -20% physical skills</li>
+                <li>Automater accepterar endast kontanter (rubler)</li>
+                <li>Spelarna måste ha växlat pengar tidigare ELLER använd kreditkort (lämnar spår)</li>
+                <li>Kan fråga ryss om hjälp (INT/CHA check för att kommunicera utan språk)</li>
             </ul>
 
-            <p><strong>SAN Loss:</strong> 0/1d3 (prolonged discomfort, fear of drowning, isolation)</p>
+            <h4>Plattformen</h4>
+            <div class="scene-box">
+                <p><em>Ni går ner till perrongen. Kakelväggarna är smaragdgröna, Soviet-æstetik. Ljudet av tåg ekar genom tunnlar. 247Hz-surrningen känns starkare här - något under staden?</em></p>
+            </div>
+
+            <p><strong>Nästa tåg:</strong> 5-10 minuter (beroende på tid)<br>
+            <strong>Destination:</strong> Moskovsky vokzal (tågstation till Moskva)<br>
+            <strong>Varaktighet:</strong> 30 minuters metro-resa</p>
+
+            <p><strong>Komplikation (valfri):</strong></p>
+            <ul>
+                <li>FSB-agenter kommer in i metro bakom dem (om tidigare encounter)</li>
+                <li>Måste smälta in på tåg, undvika ögonkontakt</li>
+                <li>Stealth checks för att undvika upptäckt</li>
+            </ul>
         </div>
 
-        <!-- Continue with remaining mini-scenes... Due to length, I'll add a summary footer -->
-
+        <!-- MINI-SCEN 4: RED ARROW AVRESA -->
         <div class="section">
-            <h2>FORTSÄTTNING...</h2>
-            <p style="color: var(--text-dim);"><em>På grund av längdbegränsningar finns Mini-Scen 3-4, Komplikationer, Encounters, NPC Stats och GM Notes i det fullständiga markdown-dokumentet: <code>CHAPTER5_SCENE0A_BALTIC_CROSSING.md</code></em></p>
+            <h2>MINI-SCEN 4: RED ARROW AVRESA</h2>
+            <p><strong>Plats:</strong> Moskovsky vokzal (Sankt Petersburg järnvägsstation)<br>
+            <strong>Varaktighet:</strong> 30-60 minuter<br>
+            <strong>Tempo:</strong> Slutlig spänning → lättnad (tillfällig)</p>
 
-            <p style="margin-top: 2rem;"><strong>Återstående sektioner inkluderar:</strong></p>
+            <h3>Ankomst till Moskovsky Vokzal</h3>
+            <p><strong>00:30-01:00 (midnatt till 1 på natten):</strong></p>
+
+            <div class="scene-box">
+                <p><em>Moskovsky vokzal är en massiv gul byggnad från 1851, tsaristisk arkitektur. Inne: kaos av resande trots natten. Avgångstavlan på ryska och engelska: 'Красная стрела / Red Arrow - Moskva - 01:55 - Peron 3.'</em></p>
+            </div>
+
+            <h4>Red Arrow</h4>
             <ul>
-                <li>Mini-Scen 3: Sankt Petersburg ankomst (hamnklarering, FSB-fara)</li>
-                <li>Mini-Scen 4: Red Arrow tåg avresa (tåg till Moskva)</li>
-                <li>Snabbspolad version (15 min snabb upplösning)</li>
-                <li>Komplikationstabeller (1d10 mindre, 1d20 större)</li>
-                <li>Valfria Action Encounters (Patrullbåt, Hamnjakt, Metro-konfrontation)</li>
-                <li>NPC Stat Blocks (Dmitri, Kustbevakning, FSB, Polis)</li>
-                <li>Skill Checks-sammanfattning</li>
-                <li>GM Notes & Tips</li>
+                <li>Legendariskt natttåg (Sankt Petersburg → Moskva)</li>
+                <li>8-timmars resa (anländer Moskva 10:00)</li>
+                <li>Sovvagnar tillgängliga (dyra men nödvändiga)</li>
+                <li>Många affärsmän, familjer, turister (några)</li>
             </ul>
 
-            <div class="gm-note" style="margin-top: 2rem;">
-                För kompletta scendetaljer, komplikationstabeller, stridsencounters och NPC-statistik, se markdown-källfilen. Denna HTML-version ger det centrala narrativa flödet för snabbreferens under spel.
+            <h3>Köpa biljetter</h3>
+            <p><strong>Utmaning:</strong> Biljettluckan endast ryskt-talande</p>
+
+            <p><strong>Alternativ:</strong></p>
+            <ol>
+                <li><strong>Sparky försöker ryska (0%):</strong> Fumlar, men köper till slut (tar 20 minuter, pinsamt)</li>
+                <li><strong>Hitta engelsk-talande hjälpare:</strong> Persuade check, hitta turist/student som hjälper</li>
+                <li><strong>Bilj ettautomat:</strong> Enklare, accepterar kort, har engelskt alternativ</li>
+            </ol>
+
+            <p><strong>Kostnad:</strong> ~8,000 rubler per person (~$80) för sovvagn</p>
+
+            <h3>Säkerhetskontroll</h3>
+            <div class="scene-box">
+                <p><em>Innan ombordstigning: metalldetektorer, baggage röntgen, passkontroll. Rysk polis (MVD) kontrollerar alla.</em></p>
             </div>
+
+            <p><strong>Passkontroll:</strong></p>
+            <ul>
+                <li>Spelarna måste visa ID (falska eller äkta)</li>
+                <li>Om falska ID: Disguise/Forgery check (vs Police Alertness 50%)</li>
+                <li>Polisen misstänksam mot västerländska utlänningar men inte aggressiv (än)</li>
+                <li>Risk: Om FSB alarmerade tidigare, kan de vara flaggade</li>
+            </ul>
+
+            <h3>Ombordstigning</h3>
+            <div class="scene-box">
+                <p><em>Ni boardar tåget - gröna vagnar med gulddetaljer. Sovkupéer är små: 4 bunks per compartment, delade med främlingar eller privata (extra kostnad). Lukten: te, cigaretter (olagliga men röks ändå), gammal klädsel.</em></p>
+            </div>
+
+            <p><strong>Avfärd: 01:55 sharp</strong></p>
+
+            <div class="scene-box">
+                <p><em>Tåget lämnar Sankt Petersburg i mörkret. Genom fönstret: stadens ljus försvinner, ersatta av oändlig rysk skog. Ni har gjort det. Ni är i Ryssland.</em></p>
+            </div>
+
+            <h4>Vad som händer på tåget</h4>
+            <p><strong>Sammanfattning:</strong></p>
+            <ul>
+                <li>Spelarna vilar äntligen (8 timmar)</li>
+                <li>Mardrömmar om Leningrad 1942 (SAN 0/1)</li>
+                <li>Parasite-symtom förvärras</li>
+                <li>Black Madonna Dockan huttar konstant</li>
+                <li>Ankomst Moskva 10:00 → Fortsätt till Scene 1</li>
+            </ul>
+
+            <p><strong>SAN-loss:</strong> 0/1 (mardrömmar, realisering av fara)</p>
+        </div>
+
+        <!-- SNABBSPOLAD VERSION -->
+        <div class="section">
+            <h2>SNABBSPOLAD VERSION (15 minuter)</h2>
+            <p><em>Om ni vill hoppa till Moskva snabbt:</em></p>
+
+            <div class="scene-box">
+                <p><em>Ni spenderar 3 dagar på smugglingsoperationen. Cipher arrangerar kontakt i Tallinn. Baltic crossing är brutal - 10 timmar gömd i mörker, frysande kyla, rysk kustbevakning patrullerar men ni klarar er. Sankt Petersburg hamn är FSB-övervakad men ni slinker igenom, tar metro till Moskovsky vokzal, köper biljetter på Red Arrow-tåget.</em></p>
+            </div>
+
+            <p><strong>Constitution checks (alla spelare):</strong></p>
+            <ul>
+                <li>Success: Utmattade men funktionella</li>
+                <li>Failure: -10% alla checks i 12 timmar, fysiskt slut</li>
+            </ul>
+
+            <p><strong>SAN-loss:</strong> 0/1 (stress från smuggling)</p>
+            <p><strong>Kostnad:</strong> $100,000 (betalt till smugglare)</p>
+
+            <div class="scene-box">
+                <p><em>Ni vaknar på tåget när det rullar in i Moskva klockan 10:00. Ni är framme.</em></p>
+            </div>
+
+            <p><strong>Fortsätt sedan direkt till Scene 1 (Moskva ankomst).</strong></p>
+        </div>
+
+        <!-- KOMPLIKATIONSTABELLER -->
+        <div class="section">
+            <h2>KOMPLIKATIONSTABELLER</h2>
+            <p>Slå 1d20 när du vill lägga till spänning:</p>
+
+            <table>
+                <tr>
+                    <th>Slag</th>
+                    <th>Komplikation</th>
+                    <th>Svårighetsgrad</th>
+                </tr>
+                <tr>
+                    <td>1-5</td>
+                    <td><strong>Ingen komplikation</strong> - Rutinkorsning</td>
+                    <td>Ingen</td>
+                </tr>
+                <tr>
+                    <td>6-7</td>
+                    <td><strong>Väderförsening</strong> - Storm lägger +2 timmar</td>
+                    <td>Mindre</td>
+                </tr>
+                <tr>
+                    <td>8-9</td>
+                    <td><strong>Sjösjuka</strong> - Alla spelare CON checks eller -10%</td>
+                    <td>Mindre</td>
+                </tr>
+                <tr>
+                    <td>10-11</td>
+                    <td><strong>Besättningsbråk</strong> - Dmitri och kapten bråkar, förseningar</td>
+                    <td>Mindre</td>
+                </tr>
+                <tr>
+                    <td>12-13</td>
+                    <td><strong>Rysk patrullbåt</strong> - Måste gömma sig tyst</td>
+                    <td>Medel</td>
+                </tr>
+                <tr>
+                    <td>14-15</td>
+                    <td><strong>Hamnarbetare encounter</strong> - Misstänksam lokal</td>
+                    <td>Medel</td>
+                </tr>
+                <tr>
+                    <td>16-17</td>
+                    <td><strong>FSB patrull nära metro</strong> - Måste göra omväg/gömma sig</td>
+                    <td>Medel</td>
+                </tr>
+                <tr>
+                    <td>18-19</td>
+                    <td><strong>FSB checkpoint</strong> - Direkt konfrontationsrisk</td>
+                    <td>Hög</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td><strong>FSB BOARDING</strong> - Kritisk encounter till havs</td>
+                    <td>Kritisk</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- NPC STAT BLOCKS -->
+        <div class="section">
+            <h2>NPC STAT BLOCKS</h2>
+
+            <div class="stat-block">
+                <h4>DMITRI (Smugglarkontakt)</h4>
+                <p><strong>Roll:</strong> Baltic crossing-koordinator<br>
+                <strong>Motivation:</strong> Pengar, överlevnad (inte lojal, men professionell)<br>
+                <strong>Språk:</strong> Estniska, ryska, bruten engelska</p>
+
+                <div class="stat-grid">
+                    <div class="stat-item"><strong>STR</strong> 12</div>
+                    <div class="stat-item"><strong>DEX</strong> 10</div>
+                    <div class="stat-item"><strong>CON</strong> 13</div>
+                    <div class="stat-item"><strong>INT</strong> 11</div>
+                    <div class="stat-item"><strong>POW</strong> 13</div>
+                    <div class="stat-item"><strong>CHA</strong> 9</div>
+                </div>
+                <p><strong>HP:</strong> 13</p>
+                <p><strong>Skills:</strong> Alertness 70%, Navigate (Sea) 80%, Persuade 50%, Stealth 45%</p>
+                <p><strong>Notes:</strong> Kommer förråda om gripen ELLER om spelarna förråder honom först</p>
+            </div>
+
+            <div class="stat-block">
+                <h4>RYSK KUSTBEVAKNING (x4)</h4>
+                <p><strong>Roll:</strong> Patrullbåtsbesättning</p>
+
+                <div class="stat-grid">
+                    <div class="stat-item"><strong>STR</strong> 13</div>
+                    <div class="stat-item"><strong>DEX</strong> 11</div>
+                    <div class="stat-item"><strong>CON</strong> 12</div>
+                    <div class="stat-item"><strong>INT</strong> 10</div>
+                    <div class="stat-item"><strong>POW</strong> 10</div>
+                    <div class="stat-item"><strong>CHA</strong> 8</div>
+                </div>
+                <p><strong>HP:</strong> 12 var<br>
+                <strong>Armor:</strong> Taktisk väst (3)<br>
+                <strong>Vapen:</strong> AK-12 (1d12), Makarov PM (1d10)</p>
+                <p><strong>Skills:</strong> Firearms 60%, Alertness 60%, Hand-to-Hand 50%, Seamanship 55%</p>
+                <p><strong>Taktik:</strong> Professionella, by-the-book, ringer backup omedelbart</p>
+                <p><strong>Notes:</strong> Tar inte mutor lätt (FSB-övervakning ökad efter Polen-incidenten)</p>
+            </div>
+
+            <div class="stat-block">
+                <h4>FSB-AGENTER (x2-4)</h4>
+                <p><strong>Roll:</strong> Federal Security Service operativa</p>
+
+                <div class="stat-grid">
+                    <div class="stat-item"><strong>STR</strong> 13</div>
+                    <div class="stat-item"><strong>DEX</strong> 12</div>
+                    <div class="stat-item"><strong>CON</strong> 14</div>
+                    <div class="stat-item"><strong>INT</strong> 13</div>
+                    <div class="stat-item"><strong>POW</strong> 14</div>
+                    <div class="stat-item"><strong>CHA</strong> 10</div>
+                </div>
+                <p><strong>HP:</strong> 14 var<br>
+                <strong>Armor:</strong> Dold väst (2)<br>
+                <strong>Vapen:</strong> Makarov PM (1d10), ASP batong (1d6), gömd kniv (1d4+1)</p>
+                <p><strong>Skills:</strong> Firearms 70%, Hand-to-Hand 60%, Alertness 70%, Interrogation 65%, Criminology 50%</p>
+                <p><strong>Taktik:</strong> Hänsynslösa, intelligenta, koordinerar väl</p>
+                <p><strong>Notes:</strong> Kommer tortera om de fångar spelarna. Underskatta INTE.</p>
+            </div>
+
+            <div class="stat-block">
+                <h4>SANKT PETERSBURG POLIS (MVD) (x2-3)</h4>
+                <p><strong>Roll:</strong> Lokal polis (mindre farlig än FSB men fortfarande hot)</p>
+
+                <div class="stat-grid">
+                    <div class="stat-item"><strong>STR</strong> 12</div>
+                    <div class="stat-item"><strong>DEX</strong> 10</div>
+                    <div class="stat-item"><strong>CON</strong> 11</div>
+                    <div class="stat-item"><strong>INT</strong> 9</div>
+                    <div class="stat-item"><strong>POW</strong> 9</div>
+                    <div class="stat-item"><strong>CHA</strong> 9</div>
+                </div>
+                <p><strong>HP:</strong> 11 var<br>
+                <strong>Armor:</strong> Uniform (1)<br>
+                <strong>Vapen:</strong> Makarov PM (1d10), batong (1d6)</p>
+                <p><strong>Skills:</strong> Firearms 50%, Hand-to-Hand 45%, Alertness 50%, Law 40%</p>
+                <p><strong>Taktik:</strong> Följer procedur, ringer FSB om situation eskalerar</p>
+                <p><strong>Notes:</strong> Kan mutas (5,000-10,000 rubler) till skillnad från FSB</p>
+            </div>
+        </div>
+
+        <!-- SKILL CHECKS & SAN-LOSS SUMMARY -->
+        <div class="section">
+            <h2>SKILL CHECKS SAMMANFATTNING</h2>
+            <p><strong>Frekventa checks under denna scen:</strong></p>
+
+            <table>
+                <tr>
+                    <th>Skill</th>
+                    <th>Svårighetsgrad</th>
+                    <th>Konsekvens om misslyckad</th>
+                </tr>
+                <tr>
+                    <td><strong>SIGINT (Sparky)</strong></td>
+                    <td>80%</td>
+                    <td>Försenad kontakt med smugglare</td>
+                </tr>
+                <tr>
+                    <td><strong>Persuade</strong></td>
+                    <td>50-70%</td>
+                    <td>Misslyckad förhandling, högre pris</td>
+                </tr>
+                <tr>
+                    <td><strong>Alertness</strong></td>
+                    <td>40-70%</td>
+                    <td>Upptäckt av patrulleringar/FSB</td>
+                </tr>
+                <tr>
+                    <td><strong>Stealth</strong></td>
+                    <td>50-80%</td>
+                    <td>Upptäckt under korsning</td>
+                </tr>
+                <tr>
+                    <td><strong>Constitution</strong></td>
+                    <td>50%</td>
+                    <td>Utmattning, straff till checks</td>
+                </tr>
+                <tr>
+                    <td><strong>Navigate</strong></td>
+                    <td>40%</td>
+                    <td>Vilse i Sankt Petersburg</td>
+                </tr>
+                <tr>
+                    <td><strong>Russian Language</strong></td>
+                    <td>N/A för de flesta</td>
+                    <td>Svårighet att kommunicera</td>
+                </tr>
+            </table>
+
+            <h3 style="margin-top: 2rem;">SAN-LOSS SAMMANFATTNING</h3>
+            <p><strong>Total möjlig SAN-loss denna scen:</strong></p>
+
+            <table>
+                <tr>
+                    <th>Händelse</th>
+                    <th>SAN Loss</th>
+                </tr>
+                <tr>
+                    <td>Anticipation av fara (före korsning)</td>
+                    <td>0/1</td>
+                </tr>
+                <tr>
+                    <td>Klaustrofobisk korsning (om misslyckad CON)</td>
+                    <td>0/1</td>
+                </tr>
+                <tr>
+                    <td>Bevittnar FSB-våld (om encounter)</td>
+                    <td>0/1D4</td>
+                </tr>
+                <tr>
+                    <td>Dödar kustbevakare (om strid)</td>
+                    <td>1/1D6</td>
+                </tr>
+                <tr>
+                    <td>Förhörd av FSB (om gripen)</td>
+                    <td>1/1D8</td>
+                </tr>
+                <tr>
+                    <td>Tågmardrömmar (slutlig)</td>
+                    <td>0/1</td>
+                </tr>
+            </table>
+
+            <p><strong>Totalt spann:</strong> 0-20 SAN (beroende på komplikationer)<br>
+            <strong>Förväntat genomsnitt:</strong> 1-3 SAN</p>
+        </div>
+
+        <!-- GM NOTES -->
+        <div class="section">
+            <h2>GM NOTES</h2>
+
+            <h3>Tempo-råd</h3>
+            <ul>
+                <li><strong>Om spelarna behöver action:</strong> Använd Encounter A eller B (strid/jakt)</li>
+                <li><strong>Om spelarna utmattade:</strong> Snabbspola korsningen, fokusera på ankomstspänning</li>
+                <li><strong>Om begränsad tid:</strong> Snabbspola hela scenen (15 minuter)</li>
+            </ul>
+
+            <h3>Ton</h3>
+            <ul>
+                <li>INTE actionfilm (James Bond)</li>
+                <li>Paranoid thriller (Tinker Tailor Soldier Spy)</li>
+                <li>Verklig fara, konsekvenser spelar roll</li>
+                <li>Spelarna bör känna rädsla, inte hjältemodig</li>
+            </ul>
+
+            <h3>Geopolitisk tyngd</h3>
+            <ul>
+                <li>Betona Ukrainakrigets kontext</li>
+                <li>FSB är inte tecknad skurk - professionella, farliga</li>
+                <li>Om gripna, trolig tortyr/avrättning</li>
+                <li>Ingen kavalleri kommer att rädda dem</li>
+            </ul>
+
+            <h3>Spelaregenskraft</h3>
+            <ul>
+                <li>Låt dem planera, fatta beslut</li>
+                <li>Belöna klokt tänkande</li>
+                <li>Straffa lättsinnighet (men inte orättvist)</li>
+                <li>Ingen "korrekt" väg - flera lösningar giltiga</li>
+            </ul>
+
+            <h3>Övergång till Scene 1</h3>
+            <p><strong>Efter Red Arrow tåget anländer i Moskva (10:00):</strong></p>
+
+            <div class="scene-box">
+                <p><em>Tåget rullar in på Leningradsky vokzal i Moskva. Genom fönstret: den grå huvudstaden, Stalin-skyskrapor, Kreml i fjärran. Ni har klarat smugglingen. Ni är i Ryssland. Nu börjar det riktiga arbetet.</em></p>
+            </div>
+
+            <p><strong>Spelarna är:</strong></p>
+            <ul>
+                <li>Utmattade (möjliga straff)</li>
+                <li>I Moskva, ingen säker plats</li>
+                <li>FSB potentiellt jagar (om komplikationer inträffade)</li>
+                <li>Redo att fortsätta till Scene 1: Ankomst & Den Grå Staden</li>
+            </ul>
         </div>
 
         <!-- Footer -->
         <div style="text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); color: var(--text-dim);">
             <p>TRIP 19 / SVARTA MADONNAN - Kapitel 5: Moskva</p>
             <p style="font-size: 0.9rem; margin-top: 0.5rem;">Scen 0A: Östersjökorsning (Route 1) - Version 1.0</p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem;">MEDEL-HÖG RISK - FSB tortyr/avrättning om gripna</p>
         </div>
     </div>
 </body>
