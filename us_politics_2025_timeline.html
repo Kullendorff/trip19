@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USA Inrikespolitik Juli-November 2025 | Trip 19 Kampanjmaterial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0a;
+            --bg-darker: #050805;
+            --accent-red: #ff3366;
+            --accent-orange: #ff6b35;
+            --accent-blue: #4A90A4;
+            --accent-green: #00ff88;
+            --text: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --border: #2d3d2d;
+            --warning: #ff6b35;
+            --danger: #ff3366;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 2rem;
+        }
+
+        .header {
+            max-width: 1400px;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-red);
+            padding-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: var(--accent-red);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        .header .date-range {
+            font-size: 1.1rem;
+            color: var(--accent-orange);
+            margin-top: 0.5rem;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .alert-box {
+            background: rgba(255, 51, 102, 0.15);
+            border-left: 5px solid var(--accent-red);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+
+        .alert-box h3 {
+            color: var(--accent-red);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .alert-box p {
+            margin-bottom: 0.5rem;
+        }
+
+        .section {
+            background: var(--bg-darker);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            color: var(--accent-orange);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-orange);
+            padding-bottom: 0.5rem;
+        }
+
+        .timeline-month {
+            margin-bottom: 3rem;
+        }
+
+        .month-header {
+            background: var(--accent-red);
+            color: var(--bg-dark);
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .timeline-event {
+            background: rgba(77, 77, 77, 0.3);
+            border-left: 4px solid var(--accent-orange);
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .timeline-event.critical {
+            border-left-color: var(--accent-red);
+            background: rgba(255, 51, 102, 0.1);
+        }
+
+        .timeline-event.character-impact {
+            border-left-color: var(--accent-blue);
+            background: rgba(74, 144, 164, 0.1);
+        }
+
+        .event-date {
+            color: var(--accent-red);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-title {
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+        }
+
+        .event-details {
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .event-details ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .event-details li {
+            margin-bottom: 0.5rem;
+        }
+
+        .character-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .tag-mac {
+            background: rgba(74, 144, 164, 0.3);
+            color: #4A90A4;
+            border: 1px solid #4A90A4;
+        }
+
+        .tag-sullivan {
+            background: rgba(184, 115, 51, 0.3);
+            color: #b87333;
+            border: 1px solid #b87333;
+        }
+
+        .tag-sparky {
+            background: rgba(0, 255, 136, 0.3);
+            color: #00ff88;
+            border: 1px solid #00ff88;
+        }
+
+        .tag-scalpel {
+            background: rgba(201, 168, 118, 0.3);
+            color: #c9a876;
+            border: 1px solid #c9a876;
+        }
+
+        .tag-trench {
+            background: rgba(255, 127, 63, 0.3);
+            color: #ff7f3f;
+            border: 1px solid #ff7f3f;
+        }
+
+        .character-section {
+            background: var(--bg-darker);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .character-section h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid;
+        }
+
+        .character-section.mac h3 {
+            color: #4A90A4;
+            border-color: #4A90A4;
+        }
+
+        .character-section.sullivan h3 {
+            color: #b87333;
+            border-color: #b87333;
+        }
+
+        .character-section.sparky h3 {
+            color: #00ff88;
+            border-color: #00ff88;
+        }
+
+        .character-section.scalpel h3 {
+            color: #c9a876;
+            border-color: #c9a876;
+        }
+
+        .character-section.trench h3 {
+            color: #ff7f3f;
+            border-color: #ff7f3f;
+        }
+
+        .stats-box {
+            background: rgba(255, 107, 53, 0.1);
+            border-left: 4px solid var(--accent-orange);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .stats-box strong {
+            color: var(--accent-orange);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th {
+            background: var(--accent-red);
+            color: var(--bg-dark);
+            padding: 1rem;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        tr:hover {
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border);
+        }
+
+        .back-link a {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .back-link a:hover {
+            color: var(--accent-orange);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🇺🇸 USA INRIKESPOLITIK 2025 🇺🇸</h1>
+        <div class="subtitle">Verkliga händelser - Kampanjbakgrund för Trip 19</div>
+        <div class="date-range">Juli - November 2025</div>
+    </div>
+
+    <div class="container">
+        <div class="alert-box">
+            <h3>⚠️ VIKTIGT - VERKLIGA HÄNDELSER</h3>
+            <p><strong>Alla händelser i detta dokument är VERKLIGA</strong> och har faktiskt inträffat i USA mellan juni-november 2025.</p>
+            <p><strong>Syfte:</strong> Detta är bakgrundsmaterial för att sätta kampanjen i rätt kontext. Precis som ni använder riktiga historiska händelser från 1940, så spelar ni nu mot bakgrund av den faktiska politiska situationen hösten 2025.</p>
+            <p><strong>Skapad:</strong> 20 november 2025</p>
+        </div>
+
+        <!-- NAVIGATION / TABLE OF CONTENTS -->
+        <div class="section">
+            <h2>📑 INNEHÅLL</h2>
+            <ol style="margin-left: 2rem; line-height: 2;">
+                <li><a href="#timeline" style="color: var(--accent-orange);">Tidslinje Juni-November 2025</a></li>
+                <li><a href="#characters" style="color: var(--accent-blue);">Påverkan på Chesapeake Cell</a>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li><a href="#mac" style="color: #4A90A4;">Mac Riley (Alexandria, VA)</a></li>
+                        <li><a href="#sullivan" style="color: #b87333;">Father Sullivan (Quantico, VA)</a></li>
+                        <li><a href="#sparky" style="color: #00ff88;">Kai "Sparky" Zhang (Laurel, MD)</a></li>
+                        <li><a href="#scalpel" style="color: #c9a876;">Hanna "Scalpel" Engler (Baltimore County, MD)</a></li>
+                        <li><a href="#trench" style="color: #ff7f3f;">Sam "Trench" Novak (Philadelphia, PA)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#themes" style="color: var(--accent-red);">Tematisk Analys</a>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>FBI & Federal Law Enforcement</li>
+                        <li>ICE & Border Patrol</li>
+                        <li>National Guard & Militarisering</li>
+                        <li>Charlie Kirk-mordet & Efterdyningar</li>
+                        <li>Regeringsstängningen</li>
+                        <li>Offentligt Stämningsläge</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <!-- TIMELINE SECTION -->
+        <div id="timeline" class="section">
+            <h2>📅 TIDSLINJE: JUNI - NOVEMBER 2025</h2>
+
+            <!-- JUNI 2025 (Background) -->
+            <div class="timeline-month">
+                <div class="month-header">JUNI 2025 - Bakgrund</div>
+
+                <div class="timeline-event critical">
+                    <div class="event-date">6 JUNI 2025</div>
+                    <div class="event-title">Los Angeles ICE-räder börjar</div>
+                    <div class="event-details">
+                        <p>Immigration and Customs Enforcement (ICE) börjar genomföra räder på flera platser i Los Angeles. Uppskattningsvis 45 personer arresterade i initial operation.</p>
+                        <p>Protester börjar omedelbart.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event critical">
+                    <div class="event-date">7 JUNI 2025</div>
+                    <div class="event-title">Trump federaliserar California National Guard</div>
+                    <div class="event-details">
+                        <p><strong>Historisk åtgärd:</strong> För första gången i USA:s historia federaliserar Trump en delstats National Guard över delstatens invändningar.</p>
+                        <ul>
+                            <li><strong>4,000 National Guard-medlemmar</strong> från California (en tredjedel av alla aktiva) överförs till federal kontroll</li>
+                            <li>Trump åberopar 10 U.S.C. § 12406</li>
+                            <li>Guvernör Gavin Newsom protesterar kraftigt</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-date">9-10 JUNI 2025</div>
+                    <div class="event-title">Militär eskalering i Los Angeles</div>
+                    <div class="event-details">
+                        <p>Trump auktoriserar ytterligare <strong>2,000 National Guard-trupper</strong> + <strong>700 Marines</strong> till Los Angeles.</p>
+                        <ul>
+                            <li><strong>Joint Task Force 51</strong> bildas</li>
+                            <li>Total militär närvaro: ca 4,700 National Guard + 700 Marines</li>
+                            <li>Tårgas, pepparspray och distraktionsgranater används mot demonstranter</li>
+                            <li>Protester sprider sig till New York, Chicago, Dallas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-event character-impact">
+                    <div class="event-date">14 JUNI 2025 (ca)</div>
+                    <div class="event-title">"No Kings" Protester - Northern Virginia</div>
+                    <div class="event-details">
+                        <p><strong>100,000+ demonstranter</strong> förväntas över hela Northern Virginia, inklusive:</p>
+                        <ul>
+                            <li>Leesburg, Warrenton, McLean, Annandale, Springfield</li>
+                            <li><strong>Alexandria</strong> (där Mac/Gina bor)</li>
+                            <li>Arlington, Fairfax, Reston, Herndon</li>
+                            <li>Woodbridge, Manassas</li>
+                        </ul>
+                        <p>Guvernör Youngkin deployerar <strong>Virginia National Guard</strong> i beredskap.</p>
+                        <span class="character-tag tag-mac">MAC (Alexandria)</span>
+                        <span class="character-tag tag-sullivan">SULLIVAN (Quantico nära)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JULI 2025 -->
+            <div class="timeline-month">
+                <div class="month-header">JULI 2025</div>
+
+                <div class="timeline-event">
+                    <div class="event-date">2 JULI 2025</div>
+                    <div class="event-title">ACLU stämmer Trump-administrationen</div>
+                    <div class="event-details">
+                        <p>ACLU lämnar in federal stämning (Vasquez Perdomo v. Noem):</p>
+                        <ul>
+                            <li>Företräder fem Los Angeles County-invånare gripna av ICE</li>
+                            <li>Påstår att ICE genomför "roving patrols" utan rimlig misstanke</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-date">8 JULI 2025</div>
+                    <div class="event-title">ICE-fordon påkör demonstranter i San Francisco</div>
+                    <div class="event-details">
+                        <p>ICE-fordon kör över demonstranter i centrala San Francisco. Minst en person skadad.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event character-impact">
+                    <div class="event-date">10 JULI 2025</div>
+                    <div class="event-title">ICE-räder i Ventura County gårdar</div>
+                    <div class="event-details">
+                        <p>Federal agenter krockar med demonstranter under immigrationsräd vid lantbruk.</p>
+                        <p><strong>Plats:</strong> Laguna Road, Camarillo-området, Ventura County (södra Kalifornien)</p>
+                        <p>Minst två stora räder denna dag.</p>
+                        <span class="character-tag tag-trench">TRENCH (FEMA USAR kan kallas)</span>
+                    </div>
+                </div>
+
+                <div class="timeline-event critical character-impact">
+                    <div class="event-date">11 JULI 2025</div>
+                    <div class="event-title">FBI Polygraf-skandal avslöjas</div>
+                    <div class="event-details">
+                        <p><strong>Lojalitetstester:</strong> Rapporter om att FBI använder lögndetektortester för att screena anställda för lojalitet till direktör Kash Patel.</p>
+                        <ul>
+                            <li>Seniora FBI-tjänstemän tillfrågas om de sagt något negativt om Patel</li>
+                            <li>En före detta FBI-tjänsteman: <em>"Lojalitet hos en FBI-anställd är till konstitutionen, inte till direktören"</em></li>
+                        </ul>
+                        <span class="character-tag tag-mac">MAC (FBI på forced leave)</span>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-date">MITTEN/SLUTET JULI</div>
+                    <div class="event-title">Federal domare stoppar LA "sweep"</div>
+                    <div class="event-details">
+                        <p><strong>U.S. District Judge Maame Ewusi-Mensah Frimpong</strong> beviljar tillfälligt föreläggande:</p>
+                        <ul>
+                            <li>Beordrar stopp för den 36 dagar långa immigration "sweep" i södra Kalifornien</li>
+                            <li>Finner att regeringen genomför "roving patrols utan rimlig misstanke"</li>
+                            <li>Tungt beväpnade immigrationsagenter hade aggressivt gripit immigranter och amerikanska medborgare vid Home Depots, biltvättar och latinamerikanska marknader</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-date">28 JULI 2025</div>
+                    <div class="event-title">Appellationsdomstol hör LA-argument</div>
+                    <div class="event-details">
+                        <p><strong>United States Court of Appeals for the Ninth Circuit</strong> hör argument om överklagande av TRO (Temporary Restraining Order).</p>
+                        <p>DOJ överklagar det tillfälliga föreläggandet.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AUGUSTI 2025 -->
+            <div class="timeline-month">
+                <div class="month-header">AUGUSTI 2025</div>
+
+                <div class="timeline-event critical character-impact">
+                    <div class="event-date">11 AUGUSTI 2025</div>
+                    <div class="event-title">🚨 FEDERAL ÖVERTAGANDE AV WASHINGTON DC 🚨</div>
+                    <div class="event-details">
+                        <p><strong>KRITISK HÄNDELSE:</strong> President Trump tillkännager federal kontroll över Washington DC:s poliskår.</p>
+                        <ul>
+                            <li><strong>800 DC National Guard-trupper</strong> aktiveras</li>
+                            <li>Trump citerar "brottsvåg" trots officiell statistik visar:
+                                <ul>
+                                    <li>Mord ner 12%</li>
+                                    <li>Angrepp med farliga vapen ner 20%</li>
+                                    <li>DC på 30-årslägsta nivå för våldsbrott</li>
+                                </ul>
+                            </li>
+                            <li>Borgmästare Muriel Bowser: <em>"oroande och utan motstycke"</em></li>
+                        </ul>
+                        <span class="character-tag tag-mac">MAC (15 min från DC)</span>
+                        <span class="character-tag tag-sparky">SPARKY (NSA Fort Meade, pendlar DC)</span>
+                        <span class="character-tag tag-scalpel">SCALPEL (MD, nära DC)</span>
+                    </div>
+                </div>
+
+                <div class="timeline-event critical character-impact">
+                    <div class="event-date">12 AUGUSTI 2025</div>
+                    <div class="event-title">Republikanska delstater skickar National Guard till DC</div>
+                    <div class="event-details">
+                        <p>Sex republikansk-ledda delstater skickar trupper till DC:</p>
+                        <ul>
+                            <li><strong>West Virginia:</strong> 300-400 National Guard</li>
+                            <li><strong>South Carolina:</strong> 200 trupper</li>
+                            <li><strong>Ohio:</strong> 150 trupper</li>
+                            <li>+ tre andra delstater</li>
+                        </ul>
+                        <p><strong>Total styrka i DC: mot 2,000 soldater</strong></p>
+                        <span class="character-tag tag-sullivan">SULLIVAN (Virginia nära DC)</span>
+                        <span class="character-tag tag-trench">TRENCH (Kan Pennsylvania kallas?)</span>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-date">22 AUGUSTI 2025</div>
+                    <div class="event-title">Pentagon: DIA-chef sparkad</div>
+                    <div class="event-details">
+                        <p>Försvarsminister Pete Hegseth sparkar <strong>Lt. Gen. Jeffrey Kruse</strong>, chef för Defense Intelligence Agency (DIA).</p>
+                        <p><strong>Orsak:</strong> DIA:s preliminära bedömning av amerikanska militära attacker mot Irans kärnkraftsanläggningar i juni visade att de var "mindre effektiva" än Trump och Hegseth påstått.</p>
+                        <p>Senator Mark Warner (D-VA): kallar Kruse <em>"en karriärmilitär med decennier av utmärkt, opartisk tjänst"</em></p>
+                    </div>
+                </div>
+
+                <div class="timeline-event critical character-impact">
+                    <div class="event-date">24 AUGUSTI 2025</div>
+                    <div class="event-title">National Guard börjar bära vapen i DC</div>
+                    <div class="event-details">
+                        <p><strong>ESKALERING:</strong> Ca 2,300 National Guard-trupper i DC börjar bära tjänstevapen.</p>
+                        <ul>
+                            <li>Försvarsminister Pete Hegseth auktoriserar bevapning</li>
+                            <li>Majoriteten bär <strong>M17-pistoler</strong>, vissa har <strong>M4-gevär</strong></li>
+                            <li>"Rules for the Use of Force" fastställs: Våld endast som sista utväg vid överhängande hot om död eller allvarlig kroppsskada</li>
+                        </ul>
+                        <span class="character-tag tag-mac">MAC (påverkar operationer i DC)</span>
+                        <span class="character-tag tag-sparky">SPARKY (påverkar rörlighet)</span>
+                    </div>
+                </div>
+
+                <div class="timeline-event character-impact">
+                    <div class="event-date">25 AUGUSTI 2025</div>
+                    <div class="event-title">Virginia National Guard börjar träna för ICE-stöd</div>
+                    <div class="event-details">
+                        <p><strong>60 Virginia NG-soldater</strong> tränar för att börja ICE-stöd i september.</p>
+                        <span class="character-tag tag-sullivan">SULLIVAN (Kan kallas från Quantico?)</span>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-date">29 AUGUSTI 2025</div>
+                    <div class="event-title">"Pocket rescission"-paket</div>
+                    <div class="event-details">
+                        <p>Trump-administrationen tillkännager nya nedskärningar för USAID och utrikesdepartementet.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event character-impact">
+                    <div class="event-date">AUGUSTI 2025 (datum oklart)</div>
+                    <div class="event-title">Mac Riley får forced leave från FBI</div>
+                    <div class="event-details">
+                        <p>Mac placeras på forced leave från FBI efter en "incident" på FBI-kontoret.</p>
+                        <p><strong>Sullivan hjälper till att dölja det</strong>, får Mac forced leave istället för en undersökning.</p>
+                        <p><strong>Orsak:</strong> PTSD-försämring efter Sea Glass-operationen, besatthet av Volkov, våldsamma utbrott.</p>
+                        <p><em>Sker detta mitt under FBI:s lojalitetstest-skandal och DC federal övertagande?</em></p>
+                        <span class="character-tag tag-mac">MAC (FBI-kris)</span>
+                        <span class="character-tag tag-sullivan">SULLIVAN (hjälpte dölja)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEPTEMBER 2025 -->
+            <div class="timeline-month">
+                <div class="month-header">SEPTEMBER 2025</div>
+
+                <div class="timeline-event">
+                    <div class="event-date">3 SEPTEMBER 2025</div>
+                    <div class="event-title">Domstol: LA militär-deployment olaglig</div>
+                    <div class="event-details">
+                        <p><strong>Federal domare Charles Breyer:</strong> Militär deployment i Los Angeles bryter mot <strong>Posse Comitatus Act</strong>.</p>
+                        <ul>
+                            <li>Kostnaden för den olagliga deployeringen: <strong>120 miljoner dollar</strong> i skattebetalarnas pengar</li>
+                            <li>Kaliforniens stämning framgångsrik</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-event critical">
+                    <div class="event-date">10 SEPTEMBER 2025, 12:00 MT</div>
+                    <div class="event-title">🔴 CHARLIE KIRK MÖRDAD 🔴</div>
+                    <div class="event-details">
+                        <p><strong>Charlie Kirk (31 år) skjuts till döds</strong> vid Utah Valley University i Orem, Utah.</p>
+                        <ul>
+                            <li><strong>Plats:</strong> "American Comeback Tour"-evenemang med ca 3,000 åskådare</li>
+                            <li><strong>Skott:</strong> Ensamt skott från närliggande tak, träffar Kirk i nacken</li>
+                            <li><strong>Avstånd:</strong> Ca 142-150 yards (130-137 meter)</li>
+                            <li>Kirk dör kort därefter på sjukhus</li>
+                            <li><strong>Gärningsman:</strong> Klättrar upp på tak, skjuter, hoppar ner och flyr</li>
+                            <li>Lämnar efter sig gevär och ammunition i skogsområde</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-event critical">
+                    <div class="event-date">11 SEPTEMBER 2025, ca 22:00</div>
+                    <div class="event-title">Tyler Robinson gripen efter 33-timmars manhunt</div>
+                    <div class="event-details">
+                        <p><strong>Tyler Robinson, 22 år</strong>, elektriker-lärling från Utah, gripen.</p>
+                        <ul>
+                            <li><strong>Erkänner för sin far</strong> efter att fadern känner igen honom från FBI-foton</li>
+                            <li>FBI hade tagit emot <strong>över 7,000 tips</strong> - flest sedan Boston Marathon-bombningen 2013</li>
+                            <li>Robinson till sin far: <em>"Jag hellre tar livet av mig än överlämnar mig"</em></li>
+                            <li>Fadern övertygar honom att prata med ungdomspastor som arbetar med Washington County Sheriff's Office</li>
+                            <li>Robinson överlämnar sig frivilligt tillsammans med sina föräldrar</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-event critical">
+                    <div class="event-date">13 SEPTEMBER 2025</div>
+                    <div class="event-title">Koordinerad doxxing- och sparknings-kampanj börjar</div>
+                    <div class="event-details">
+                        <p><strong>Över 30 personer</strong> över hela landet sparkas, permitteras eller utreds för sociala mediainlägg om Kirks död.</p>
+                        <p><strong>Kampanj ledd av:</strong></p>
+                        <ul>
+                            <li>Laura Loomer (högerextrem influencer)</li>
+                            <li>Senator (republikansk)</li>
+                            <li>Webbplats: "Expose Charlie's Murderers"</li>
+                        </ul>
+                        <p><strong>Exempel på offer:</strong></p>
+                        <ul>
+                            <li>Middle Tennessee State University-anställd: sparkad "omedelbart" efter att ha skrivit "ZERO sympathy"</li>
+                            <li>MSNBC-analytiker Matthew Dowd: sparkad efter kommentarer på live-TV</li>
+                            <li>United Airlines-anställda: åtgärdade efter Transportminister Sean Duffys krav</li>
+                            <li>Vice President Vance på Kirks podcast: uppmanar tittare att "ringa deras arbetsgivare"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-date">16 SEPTEMBER 2025</div>
+                    <div class="event-title">Åtal mot Robinson, dödstraff söks</div>
+                    <div class="event-details">
+                        <p><strong>Utah County-åklagare Jeff Gray:</strong> Formellt åtal och tillkännagivande om att söka dödsstraff.</p>
+                        <p><strong>Sju anklagelser:</strong></p>
+                        <ol style="margin-left: 1.5rem;">
+                            <li>Aggravated murder (mord med försvårande omständigheter)</li>
+                            <li>Obstruction of justice</li>
+                            <li>Obstruction of justice</li>
+                            <li>Felony discharge of firearm causing serious bodily injury</li>
+                            <li>Witness tampering</li>
+                            <li>Witness tampering</li>
+                            <li>Commission of violent offense in presence of child</li>
+                        </ol>
+                        <p><strong>Bevis:</strong></p>
+                        <ul>
+                            <li>Robinsons DNA på avtryckare, gevär, patronhylsa, två av tre oavfyrade patroner, och handduk</li>
+                            <li>Antifascistiska meddelanden ingraverade på patronhylsor</li>
+                            <li>Robinson till rumskamrat: Kirk "spreads too much hate" och "I had enough of his hatred"</li>
+                            <li>Lapp under Robinsons tangentbord: "I had the opportunity to take out Charlie Kirk and I'm going to take it"</li>
+                        </ul>
+                        <p><strong>Nästa förhandling:</strong> 29 september</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event character-impact">
+                    <div class="event-date">21 SEPTEMBER 2025</div>
+                    <div class="event-title">Rekordnivåer ICE-förvar</div>
+                    <div class="event-details">
+                        <p><strong>59,762 personer</strong> i ICE-förvar enligt TRAC Reports.</p>
+                        <p>Högsta antalet ICE-gripanden någonsin registrerat.</p>
+                        <span class="character-tag tag-scalpel">SCALPEL (ME, kan undersöka våld)</span>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-date">MITTEN-SLUTET SEPTEMBER</div>
+                    <div class="event-title">Supreme Court återupphäver LA-förläggande</div>
+                    <div class="event-details">
+                        <p>Högsta domstolen beviljar Trump-administrationens nödansökan.</p>
+                        <ul>
+                            <li>Lyfter det tillfälliga föreläggandet mot "roving patrols" i Los Angeles</li>
+                            <li>Återupphäver distriktsdomstolens juli-beslut</li>
+                            <li>Federal immigration agents kan återuppta operationer</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OKTOBER 2025 -->
+            <div class="timeline-month">
+                <div class="month-header">OKTOBER 2025</div>
+
+                <div class="timeline-event critical character-impact">
+                    <div class="event-date">1 OKTOBER 2025</div>
+                    <div class="event-title">🚨 FEDERAL REGERINGSSTÄNGNING BÖRJAR 🚨</div>
+                    <div class="event-details">
+                        <p><strong>11:e regeringsstängningen</strong> i USA:s historia börjar.</p>
+                        <p>Kongress misslyckas med att anta appropriations-lagstiftning för räkenskapsår 2026.</p>
+                        <p><strong>Orsak:</strong></p>
+                        <ul>
+                            <li>Republikansk-kontrollerade representanthuset antog continuing resolution</li>
+                            <li>Senatsdemokrater blockerar upprepade gånger</li>
+                            <li>Demokrater kräver förlängning av utökade Affordable Care Act-subventioner (skulle gå ut november 2025)</li>
+                            <li>Lagförslaget misslyckas <strong>14 gånger</strong> innan reviderat förslag slutligen antas</li>
+                        </ul>
+                        <span class="character-tag tag-mac">MAC (FBI-lön påverkad)</span>
+                        <span class="character-tag tag-sparky">SPARKY (NSA-lön påverkad)</span>
+                        <span class="character-tag tag-sullivan">SULLIVAN (Navy påverkad)</span>
+                    </div>
+                </div>
+
+                <div class="timeline-event character-impact">
+                    <div class="event-date">4 OKTOBER 2025</div>
+                    <div class="event-title">Chicago: National Guard-deployment auktoriseras</div>
+                    <div class="event-details">
+                        <p>Trump auktoriserar deployment av <strong>300 National Guard-trupper</strong> till Chicago.</p>
+                        <ul>
+                            <li>Följer efter ICE/Border Patrol-operationer "Midway Blitz" och "At Large" (startade september)</li>
+                            <li>Illinois-ledare vidtar juridiska åtgärder mot deployeringen</li>
+                            <li>Federal domare April Perry beviljar tillfälligt föreläggande som blockerar deployment i 14 dagar</li>
+                            <li>Blockerar: 300 Illinois NG, 200 Texas NG, 14 California NG</li>
+                        </ul>
+                        <span class="character-tag tag-trench">TRENCH (USAR kan kallas)</span>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-date">8 OKTOBER 2025</div>
+                    <div class="event-title">Massprotester i Chicago</div>
+                    <div class="event-details">
+                        <p><strong>Hundratals demonstranter</strong> marscherar i centrala Chicago.</p>
+                        <p><strong>Coalition Against the Trump Agenda</strong> organiserar:</p>
+                        <ul>
+                            <li>Illinois Coalition for Immigrant and Refugee Rights</li>
+                            <li>Chicago Alliance Against Racist and Political Repression</li>
+                            <li>Chicago Teachers Union</li>
+                            <li>United Working Families</li>
+                        </ul>
+                        <p>Protesterar både National Guard-deployment och ICE-närvaro.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-date">14 OKTOBER 2025</div>
+                    <div class="event-title">Eskalerade ICE-räder på Chicagos North Side</div>
+                    <div class="event-details">
+                        <p>Medan National Guard-deployment förblir blockerad eskalerar ICE "strike teams" räder på Chicagos North Side.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event critical character-impact">
+                    <div class="event-date">17 OKTOBER 2025</div>
+                    <div class="event-title">Federal anställda missar första lönen</div>
+                    <div class="event-details">
+                        <p><strong>Ca 670,000 federala arbetare</strong> permitterade (furloughed).</p>
+                        <p><strong>Ca 730,000 ytterligare federala arbetare</strong> arbetar utan lön.</p>
+                        <ul>
+                            <li>Första lönedag med nollbetalning för vissa arbetare: 24 oktober</li>
+                            <li>Många får partiella lönecheckar (endast för dagar arbetade före 1 oktober)</li>
+                            <li>Trump-administrationen flyttar (kontroversiellt) pengar för att betala militär personal men inte civila anställda</li>
+                            <li>Federala arbetare tömmer sparkonton, pensionsplaner, får hjälp från familj, food pantries, kreditföreningar</li>
+                        </ul>
+                        <span class="character-tag tag-mac">MAC (FBI selective payment)</span>
+                        <span class="character-tag tag-sparky">SPARKY (NSA analysts inte betalda)</span>
+                    </div>
+                </div>
+
+                <div class="timeline-event character-impact">
+                    <div class="event-date">31 OKTOBER 2025</div>
+                    <div class="event-title">Ekonomisk påverkan + Pentagon QRF-order</div>
+                    <div class="event-details">
+                        <p><strong>Congressional Budget Office (CBO):</strong> uppskattar <strong>7 miljarder dollar</strong> i ekonomiska förluster.</p>
+                        <p><strong>Pentagon beordrar alla delstater att utveckla "quick reaction forces":</strong></p>
+                        <ul>
+                            <li>Trupper tränade för civil unrest</li>
+                            <li>Redo att deployera med få timmars varsel</li>
+                            <li><strong>Måste vara operativa senast 1 januari 2026</strong></li>
+                        </ul>
+                        <span class="character-tag tag-sullivan">SULLIVAN (Navy/Marines QRF)</span>
+                        <span class="character-tag tag-trench">TRENCH (USAR kan kallas)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOVEMBER 2025 -->
+            <div class="timeline-month">
+                <div class="month-header">NOVEMBER 2025</div>
+
+                <div class="timeline-event critical">
+                    <div class="event-date">4 NOVEMBER 2025</div>
+                    <div class="event-title">🗳️ VALEN 2025: DEMOKRATISK VÄLDSEGER 🗳️</div>
+                    <div class="event-details">
+                        <p><strong>MASSIVA DEMOKRATISKA VINSTER:</strong></p>
+                        <p><strong>Virginia guvernör:</strong> Demokrat Abigail Spanberger vinner (57.5% vs 42.3%)</p>
+                        <ul>
+                            <li>Blir Virginias första kvinnliga guvernör</li>
+                            <li>Besegrar republikanen Winsome Earle-Sears</li>
+                            <li>Trump förlorade Virginia 2024 med endast 5.7 punkter - demokraterna vinner nu med 15+ punkter</li>
+                        </ul>
+                        <p><strong>New Jersey guvernör:</strong> Demokrat Rep. Mikie Sherrill vinner (56.2% vs 43.2%)</p>
+                        <ul>
+                            <li>Besegrar republikanen Jack Ciattarelli</li>
+                            <li>Trump förlorade New Jersey 2024 med 5.9 punkter - demokraterna vinner nu med 13 punkter</li>
+                        </ul>
+                        <p><strong>Virginias underhus:</strong> Demokrater utökar majoritet, vinner minst 64 av 100 platser</p>
+                        <p><strong>Virginia viceguvernör:</strong> Demokrat Ghazala Hashmi vinner - Blir USA:s första muslimska kvinna vald till delstatsvid tjänst</p>
+                        <p><strong>Virginia justitieminister:</strong> Demokrat Jay Jones besegrar republikanska incumbenten Jason Miyares</p>
+                        <p><strong>Politisk betydelse:</strong> Demokraterna överträffar 2024-års presidentvalsmarginaler avsevärt</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event character-impact">
+                    <div class="event-date">4 NOVEMBER 2025</div>
+                    <div class="event-title">DC National Guard-deployment förlängs</div>
+                    <div class="event-details">
+                        <p>Formell order daterad 4 november förlänger DC National Guard-deployment.</p>
+                        <p><strong>Ny slutdatum: 28 februari 2026</strong></p>
+                        <p>Över 2,000 trupper förblir stationerade i huvudstaden.</p>
+                        <span class="character-tag tag-mac">MAC (påverkar DC-operationer)</span>
+                        <span class="character-tag tag-sparky">SPARKY (påverkar rörlighet)</span>
+                    </div>
+                </div>
+
+                <div class="timeline-event critical">
+                    <div class="event-date">5 NOVEMBER 2025</div>
+                    <div class="event-title">Regeringsstängning blir längsta i historien</div>
+                    <div class="event-details">
+                        <p><strong>Dag 35 av stängning</strong></p>
+                        <p>Överträffar 2018-2019 års 34-dagars stängning.</p>
+                        <p><strong>LÄNGSTA FEDERALA REGERINGSSTÄNGNING I USA:S HISTORIA</strong></p>
+                        <ul>
+                            <li>Ca 750,000 arbetare permitterade dagligen utan lön</li>
+                            <li>1.4 miljoner "essential workers" arbetar utan lönecheck</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-event critical">
+                    <div class="event-date">9 NOVEMBER 2025</div>
+                    <div class="event-title">Stängningen når 40 dagar - Massiva serviceavbrott</div>
+                    <div class="event-details">
+                        <p><strong>Massiva serviceavbrott:</strong></p>
+                        <ul>
+                            <li><strong>Food stamps (SNAP):</strong> 42 miljoner människor riskerar att förlora förmåner</li>
+                            <li><strong>Flygtrafik:</strong> Över 1,530 flighter inställda lördag 9 november, tusentals försenade</li>
+                            <li>Flygmyndigheter beordrar flygplatser att reducera flygtrafik</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-date">10 NOVEMBER 2025</div>
+                    <div class="event-title">Senaten antar reviderat förslag</div>
+                    <div class="event-details">
+                        <p>Efter 14 misslyckanden antar Senaten reviderad appropriations-lagstiftning.</p>
+                        <p>Inkluderar kompromiss om Affordable Care Act-subventioner.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-event critical">
+                    <div class="event-date">12 NOVEMBER 2025</div>
+                    <div class="event-title">🎉 REGERINGSSTÄNGNING SLUTAR 🎉</div>
+                    <div class="event-details">
+                        <p>Representanthuset röstar <strong>222-209</strong> för att avsluta stängningen.</p>
+                        <p>President Trump undertecknar lagförslaget kl. <strong>22:24 EST</strong>.</p>
+                        <p><strong>43 dagar total längd</strong></p>
+                        <ul>
+                            <li>Ny funding cliff satt till 30 januari 2026</li>
+                            <li>Demokrater lovade omröstning om ACA-frågan senast mitten av december</li>
+                            <li><strong>Påverkan:</strong> 42 miljoner food aid-mottagare, 670,000 permitterade, 4,000 statliga arbetare uppsagda</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-event critical character-impact">
+                    <div class="event-date">15 NOVEMBER 2025</div>
+                    <div class="event-title">Operation Charlotte's Web tillkännages</div>
+                    <div class="event-details">
+                        <p><strong>DHS tillkännager officiellt:</strong> "Operation Charlotte's Web" i Charlotte, North Carolina.</p>
+                        <p><strong>Syfte:</strong> "Target criminal illegal aliens terrorizing Americans"</p>
+                        <p>Namnet (från barnboken) möter omedelbar kritik.</p>
+                        <p><strong>Martha White</strong> (EB Whites sondotter): <em>"Min farfar trodde verkligen inte på maskerade män i omärkta bilar som gjorde räder på folks hem och arbetsplatser utan legitimation eller stämning"</em></p>
+                        <span class="character-tag tag-scalpel">SCALPEL (ME, kan undersöka)</span>
+                    </div>
+                </div>
+
+                <div class="timeline-event critical">
+                    <div class="event-date">16 NOVEMBER 2025</div>
+                    <div class="event-title">Charlotte: Största immigrationsräden i North Carolina-historia</div>
+                    <div class="event-details">
+                        <p><strong>81 personer</strong> gripna på lördag 16 november i Charlotte-stadsdelar.</p>
+                        <p><strong>Potentiellt största endagsräden i delstatens historia.</strong></p>
+                        <p>Över helgen: <strong>130+ immigranter</strong> gripna i Charlotte-området.</p>
+                        <ul>
+                            <li>Minst <strong>44 med våldsamma brottsregister</strong> (grovt ofredande, kända gangmedlemmar)</li>
+                            <li><strong>Gregory Bovino</strong> (Border Patrol-sektionschef) leder operationen (samma som ledde Chicago-operation)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-event">
+                    <div class="event-date">18 NOVEMBER 2025</div>
+                    <div class="event-title">Charlotte-räder expanderar</div>
+                    <div class="event-details">
+                        <p>Operationen sprider sig till andra North Carolina-städer inklusive Raleigh.</p>
+                        <ul>
+                            <li>Inga gripanden vid downtown Raleigh-protest enligt polis</li>
+                            <li>North Carolina Association of Educators rapporterar ovanligt hög frånvaro vid Charlotte-skolor första skoldagen efter räden</li>
+                            <li>NASCAR-partnerföretag i Charlotte tillhandahåller dussintals fordon till ICE-operationer</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-event critical character-impact">
+                    <div class="event-date">20 NOVEMBER 2025 - IDAG</div>
+                    <div class="event-title">🔴 DOMSTOL: DC NATIONAL GUARD-DEPLOYMENT OLAGLIG 🔴</div>
+                    <div class="event-details">
+                        <p><strong>U.S. District Judge Jia M. Cobb:</strong> Pentagons deployment av National Guard till DC är olaglig.</p>
+                        <p>Administration "exceeded the bounds of their authority" och "acted contrary to law".</p>
+                        <ul>
+                            <li>DC National Guard deployerad "för icke-militära, brottsavskräckande uppdrag utan begäran från stadens civila myndigheter"</li>
+                            <li><strong>Verkställighet uppskjuten till 11 december</strong> för att ge tid för överklagande</li>
+                            <li>Över 2,000 National Guard-trupper har varit stationerade i DC sedan augusti</li>
+                            <li>DC:s justitieministers kontor stämde Trump-administrationen i början av september</li>
+                            <li>Domaren: Trump kan endast kalla in National Guard "genom utövande av specifik makt enligt delstatslag", inte "av vilket skäl som helst"</li>
+                            <li><strong>Under överklagandeperioden förblir National Guard i DC</strong></li>
+                        </ul>
+                        <span class="character-tag tag-mac">MAC (DC-operationer)</span>
+                        <span class="character-tag tag-sparky">SPARKY (Rörlighet)</span>
+                        <span class="character-tag tag-sullivan">SULLIVAN (Militär auktoritet)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHARACTER IMPACT SECTIONS -->
+        <div id="characters" class="section">
+            <h2>👥 PÅVERKAN PÅ CHESAPEAKE CELL</h2>
+            <p style="margin-bottom: 2rem;">Hur de verkliga händelserna juli-november 2025 påverkar era fem karaktärer baserat på deras platser och roller.</p>
+
+            <!-- MAC RILEY -->
+            <div id="mac" class="character-section mac">
+                <h3>🔷 MAC RILEY - Alexandria, Virginia</h3>
+                <div class="stats-box">
+                    <p><strong>Bor:</strong> Nära Alexandria, Virginia (15 min från Gina som bor i Alexandria)</p>
+                    <p><strong>Roll:</strong> FBI Special Agent (på forced leave augusti 2025)</p>
+                    <p><strong>Organisation:</strong> Federal Bureau of Investigation</p>
+                    <p><strong>Riskområde:</strong> 🔴 HÖG RISK - Epicentrum för flera händelser</p>
+                </div>
+
+                <h4>Geograf iskpåverkan:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>Alexandria är ett av de MEST drabbade områdena:</strong>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>ICE-operationer dagligen i Alexandria</li>
+                            <li>"No Kings"-protester juni (100,000+ demonstranter)</li>
+                            <li>Fairfax County (troligt bostadsområde) har DUBBELT så många ICE-gripanden som någon annan county</li>
+                            <li>350% ökning i ICE-gripanden i Virginia 2025</li>
+                        </ul>
+                    </li>
+                    <li><strong>15 minuter från DC:</strong> Beväpnade National Guard sedan augusti, checkpoints på 14th Street, U Street, Rock Creek Park</li>
+                    <li><strong>Gina bor i Alexandria:</strong> Hur påverkar det henne? Hennes klienter? (Hon är terapeut med fokus på trauma)</li>
+                </ul>
+
+                <h4>FBI-krisen påverkar honom direkt:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>11 juli:</strong> Polygraf-skandal avslöjas - FBI använder lögndetektortester för lojalitet till Kash Patel</li>
+                    <li><strong>Augusti (exakt datum oklart):</strong> Mac får forced leave efter "incident"
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Sullivan hjälper dölja det</li>
+                            <li>PTSD-försämring efter Sea Glass</li>
+                            <li>Volkov-besatthet</li>
+                            <li><em>Sker detta mitt under lojalitetstest-skandalen?</em></li>
+                        </ul>
+                    </li>
+                    <li><strong>Oktober-november:</strong> Regeringsstängning - FBI criminal agents får lön, intelligence analysts får INTE</li>
+                    <li><strong>Kash Patel-era:</strong>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Lojalitetstester (polygraf om Patel)</li>
+                            <li>Massentledigningar och omplaceringar</li>
+                            <li>FBI-agenter flyttade från terrorbekämpning till immigration</li>
+                            <li>FBI-agenter patrullerar DC-gator (inte tränade för detta)</li>
+                            <li>Polygraf-undantag för politiska lojalister (Dan Bongino m.fl.)</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>Operativa konsekvenser:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li>Kan Mac röra sig fritt i Alexandria/DC utan att väcka uppmärksamhet?</li>
+                    <li>FBI-agent på leave under FBI-lojalitetstest-skandal = automatiskt misstänkt?</li>
+                    <li>Kan han använda FBI-resurser medan på forced leave?</li>
+                    <li>Hur påverkar DC National Guard hans tidigare kontakter i huvudstaden?</li>
+                    <li>Vågr Gina fortsätta träffa honom när Alexandria är fullt av federal surveillance?</li>
+                </ul>
+
+                <h4>Kritiska frågor:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li>VAR ÄR MAC nu när kampanjen börjar (september)?</li>
+                    <li>Bor han fortfarande nära Alexandria eller har forced leave tvingat honom flytta?</li>
+                    <li>Är hans forced leave relaterad till Patel-lojalitetstesterna eller helt separat?</li>
+                    <li>Hur mycket vet FBI om hans Delta Green-aktiviteter?</li>
+                </ul>
+            </div>
+
+            <!-- FATHER SULLIVAN -->
+            <div id="sullivan" class="character-section sullivan">
+                <h3>🟫 FATHER SULLIVAN - Quantico Marine Base, Virginia</h3>
+                <div class="stats-box">
+                    <p><strong>Bor:</strong> Quantico Marine Base, Virginia (officer's housing)</p>
+                    <p><strong>Roll:</strong> Navy Chaplain, Lieutenant Commander</p>
+                    <p><strong>Organisation:</strong> U.S. Navy / Marines</p>
+                    <p><strong>Riskområde:</strong> 🟡 MEDIUM RISK - Militärbas + deployment-risk</p>
+                </div>
+
+                <h4>Geografisk påverkan:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>Quantico Marine Base:</strong> 35 miles söder om DC
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Militärbas = relativt skyddad från civil unrest</li>
+                            <li>MEN: Kan kallas in för QRF (Quick Reaction Force)</li>
+                            <li>FBI Academy ligger på Quantico - påverkas den av FBI-krisen?</li>
+                        </ul>
+                    </li>
+                    <li><strong>Richmond, VA:</strong> Hans Operation Night Terrors 2023 var här - också protest-plats</li>
+                    <li><strong>25 augusti:</strong> 60 Virginia NG börjar träna för ICE-support i september</li>
+                </ul>
+
+                <h4>Militär deployment-risk:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>12 augusti:</strong> 2,000 National Guard till DC från sex delstater</li>
+                    <li><strong>24 augusti:</strong> National Guard börjar bära vapen i DC</li>
+                    <li><strong>25 augusti:</strong> Virginia NG tränar för ICE-operations</li>
+                    <li><strong>31 oktober:</strong> Pentagon beordrar alla delstater utveckla QRF för civil unrest - <strong>deadline 1 januari 2026</strong></li>
+                    <li><strong>Fråga:</strong> Finns Sullivan på deployment-listor?</li>
+                    <li><strong>Fråga:</strong> Som chaplain, vad känner han om att Marines/Navy används mot amerikanska medborgare?</li>
+                </ul>
+
+                <h4>Moralisk/teologisk konflikt:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li>Sullivan har redan tro-kris efter Sea Glass (maj 2025)</li>
+                    <li>Militarisering av inhemsk law enforcement - hur ser han på detta?</li>
+                    <li>Om han kallas in för QRF civil unrest operations:
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Konflikt mellan militär plikt och samvete?</li>
+                            <li>Ska han vägra order (court martial)?</li>
+                            <li>Eller lyda och förlora mer av sin själ?</li>
+                        </ul>
+                    </li>
+                    <li>Hjälpte Mac dölja "incidenten" - mer skuld att bära</li>
+                </ul>
+
+                <h4>Operativa konsekvenser:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li>Kan bli plötsligt inkallad med få timmars varsel (QRF-protokoll)</li>
+                    <li>Militär ID = lättare rörlighet genom checkpoints, MEN också mer synlig</li>
+                    <li>Quantico-access = resurser (vapen, utrustning, kommunikation)</li>
+                    <li>Navy Chaplain = förtroendeposition, kan prata med många utan misstanke</li>
+                </ul>
+
+                <h4>Kritiska frågor:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li>Är Sullivan på någon deployment-lista för QRF?</li>
+                    <li>Har han fått order om att förbereda sig?</li>
+                    <li>Hur påverkar hans tro-kris hans förmåga att vara chaplain under krisen?</li>
+                    <li>Vad gör han om Mac behöver hjälp men Sullivan är deployerad?</li>
+                </ul>
+            </div>
+
+            <!-- SPARKY -->
+            <div id="sparky" class="character-section sparky">
+                <h3>🟢 KAI "SPARKY" ZHANG - Laurel, Maryland</h3>
+                <div class="stats-box">
+                    <p><strong>Bor:</strong> Laurel, Maryland</p>
+                    <p><strong>Roll:</strong> NSA Analyst / SIGINT Specialist</p>
+                    <p><strong>Organisation:</strong> National Security Agency (Fort Meade)</p>
+                    <p><strong>Alias:</strong> "Sarah Chen" (Fairfax County Library card)</p>
+                    <p><strong>Safehouse:</strong> College Park, Maryland</p>
+                    <p><strong>Riskområde:</strong> 🔴 KRITISKT - Bor i ICE staging area</p>
+                </div>
+
+                <h4>Geografisk påverkan - KRITISK:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>Laurel är en ICE STAGING AREA:</strong>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>ICE-operationer startar kl. 05:00 från "shopping center parking lot" i Laurel</li>
+                            <li>Från Laurel åker ICE ut till Prince George's och Montgomery counties</li>
+                            <li>Sparky bor bokstavligen i ICE:s operationsbas för regionen</li>
+                            <li>Ökad federal närvaro = ökad risk för upptäckt</li>
+                        </ul>
+                    </li>
+                    <li><strong>College Park safehouse:</strong> Ligger rakt i skottlinjen mellan Laurel och DC</li>
+                    <li><strong>"Sarah Chen" alias:</strong> Har Fairfax County-kopplingar (ett av de MEST övervakade områdena)</li>
+                    <li><strong>Langley Park (nära):</strong> ICE drar folk från gatan, slår sönder bilfönster med tonåringar inuti</li>
+                </ul>
+
+                <h4>NSA-påverkan:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>Fort Meade:</strong> Pendlar Sparky dit dagligen? Hur påverkas hennes rörlighet?</li>
+                    <li><strong>Regeringsstängning:</strong>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>NSA intelligence analysts får INTE lön (endast operators betalas)</li>
+                            <li>17 oktober - 12 november: Ingen lön</li>
+                            <li>Kan hon fortsätta arbeta utan betalning?</li>
+                        </ul>
+                    </li>
+                    <li><strong>Är NSA föremål för liknande lojalitetstester som FBI?</strong></li>
+                    <li><strong>Hennes hacktivist-förflutna ("Sparkplug"):</strong> Gör det henne sårbar under paranoia-klimatet?</li>
+                </ul>
+
+                <h4>Operativa konsekvenser:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>Ökad surveillance i Laurel:</strong> Svårare att komma/gå obemärkt</li>
+                    <li><strong>ICE-operationer 05:00:</strong> Kan hon inte sova? Hör hon dem?</li>
+                    <li><strong>NSA-access:</strong> Kan hon använda PRISM/SIGINT för att spåra ICE-operationer? Delta Green-relaterat?</li>
+                    <li><strong>DC checkpoints:</strong> Hennes rörlighet in/ut ur DC begränsad</li>
+                    <li><strong>Computer Science 90%:</strong> Kan hon hacka ICE/National Guard-system för att hjälpa cell?</li>
+                </ul>
+
+                <h4>Kritiska frågor:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li>Bor Sparky fortfarande i Laurel när ICE använder det som bas?</li>
+                    <li>Har hon flyttat till safehouse i College Park?</li>
+                    <li>Hur påverkar bristen på lön hennes ekonomi? (Hon är 28, relativt junior)</li>
+                    <li>Kan hon använda NSA-resurser för Delta Green utan att väcka misstanke?</li>
+                    <li>Vet NSA om hennes "Sparkplug"-förflutna?</li>
+                </ul>
+            </div>
+
+            <!-- SCALPEL -->
+            <div id="scalpel" class="character-section scalpel">
+                <h3>🟤 DR. HANNA "SCALPEL" ENGLER - Baltimore County, Maryland</h3>
+                <div class="stats-box">
+                    <p><strong>Bor:</strong> Baltimore County, Maryland (flyttade sommar 2025)</p>
+                    <p><strong>Roll:</strong> Associate Medical Examiner</p>
+                    <p><strong>Organisation:</strong> Baltimore County Medical Examiner's Office</p>
+                    <p><strong>Riskområde:</strong> 🟡 MEDIUM-HÖG RISK (beroende på exakt plats)</p>
+                </div>
+
+                <h4>Geografisk påverkan:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>Flyttade sommar 2025:</strong> Mitt i eskaleringsperioden (juni ICE-räder började)</li>
+                    <li><strong>Baltimore County:</strong> Nära både DC (30-40 min) och Baltimore city
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Maryland: 9.8 ICE-gripanden/dag (från 3.7/dag 2024)</li>
+                            <li>Baltimore: "ICE out of Baltimore!"-protester</li>
+                            <li>Om Montgomery/Prince George's County: HÖG RISK</li>
+                            <li>Om Langley Park-området: EXTREMT HÖG RISK</li>
+                        </ul>
+                    </li>
+                    <li><strong>Maryland plåtar:</strong> Noterad i hennes dokument - lätt att identifiera som lokal</li>
+                </ul>
+
+                <h4>Medical Examiner-påverkan:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>Forensisk patolog:</strong> Kan hon bli involverad i undersökningar av:
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Våld vid ICE-räder? (8 juli: ICE-fordon påkör demonstranter SF)</li>
+                            <li>Protest-relaterade skador/dödsfall?</li>
+                            <li>Misstänkta dödsfall i ICE-förvar? (59,762 personer 21 sept)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Federal vs. lokal jurisdiktion:</strong>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>DC federal övertagande av polis (11 aug) - hur påverkar det forensiska undersökningar?</li>
+                            <li>Kan federal regering blockera hennes arbete?</li>
+                        </ul>
+                    </li>
+                    <li><strong>Medicine 80%, Forensics 60%:</strong> Hennes expertis kan avslöja saker regeringen vill dölja</li>
+                </ul>
+
+                <h4>Operativa konsekvenser:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>Medical Examiner-access:</strong> Kan undersöka kroppar utan misstanke</li>
+                    <li><strong>Forensisk dokumentation:</strong> Kan bevisa Unnatural-aktivitet MEN också federal övergrepp</li>
+                    <li><strong>Toxikologi-expertis:</strong> Kan analysera onaturliga substanser</li>
+                    <li><strong>Biology 40%:</strong> Kan identifiera icke-mänskliga vävnader</li>
+                </ul>
+
+                <h4>Psykologisk påverkan:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>SAN 68/75, BP 60:</strong> Endast 7 poäng från breaking point</li>
+                    <li><strong>Kontrollbehov:</strong> Kaos runt henne intensifierar hennes hypervigilans</li>
+                    <li><strong>Flyttade sommar 2025:</strong> Ny miljö + politisk kaos = ökad stress</li>
+                    <li><strong>Drömmar om Patricia Rourke:</strong> Trauma från tidigare DG-operation</li>
+                </ul>
+
+                <h4>Kritiska frågor:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li>EXAKT var i Baltimore County bor hon? (Avgör risknivå)</li>
+                    <li>Har hon undersökt något protest/ICE-relaterat våld i sin professionella roll?</li>
+                    <li>Hur påverkar politiska kaoset hennes kontrollbehov och mentala hälsa?</li>
+                    <li>Kan federal regering beordra henne att inte rapportera vissa fynd?</li>
+                </ul>
+            </div>
+
+            <!-- TRENCH -->
+            <div id="trench" class="character-section trench">
+                <h3>🟠 SAM "TRENCH" NOVAK - Philadelphia, Pennsylvania</h3>
+                <div class="stats-box">
+                    <p><strong>Bor:</strong> Philadelphia, PA (PA-TF1 HQ)</p>
+                    <p><strong>Roll:</strong> Urban Search & Rescue Specialist</p>
+                    <p><strong>Organisation:</strong> FEMA Pennsylvania Task Force 1 (USAR)</p>
+                    <p><strong>Reservist-status:</strong> USA Army Reserve</p>
+                    <p><strong>Riskområde:</strong> 🟡 MEDIUM RISK - Deployment-risk</p>
+                </div>
+
+                <h4>Geografisk påverkan:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>Philadelphia:</strong> 2 timmar norr om DC, 1.5 timmar från Baltimore
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Relativt säkrare än DMV-området (DC-Maryland-Virginia)</li>
+                            <li>MEN: Pennsylvania kan bli kallad för National Guard QRF</li>
+                        </ul>
+                    </li>
+                    <li><strong>Bror i Harrisburg:</strong> Randolf Novak (advokat, lokalpolitiker, RESERVIST)</li>
+                    <li><strong>Dotter i Harrisburg:</strong> Sandra (6 år) bor med ex-fru Rhea</li>
+                </ul>
+
+                <h4>USAR/FEMA påverkan:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>FEMA PA-TF1:</strong> Federal agency, påverkas av regeringsstängning
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>1 oktober - 12 november: Ingen lön? (43 dagar)</li>
+                            <li>Kan USAR fortsätta operera under shutdown?</li>
+                            <li>Utrustning, fordon, resurser påverkade?</li>
+                        </ul>
+                    </li>
+                    <li><strong>USAR kan kallas för:</strong>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Strukturell kollaps efter protester/våld</li>
+                            <li>Katastrofrespons (men INTE civil unrest)</li>
+                            <li>10 juli: Ventura County-räder - USAR-typ respons?</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>Army Reserve deployment-risk:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>31 oktober:</strong> Pentagon beordrar QRF i alla delstater - <strong>deadline 1 januari 2026</strong></li>
+                    <li><strong>Pennsylvania National Guard/Reserve:</strong>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Kan Trench kallas in för QRF civil unrest operations?</li>
+                            <li>Hans bror Randolf är också reservist - kallas de båda?</li>
+                            <li>Vad gör han om han får deployment-order?</li>
+                        </ul>
+                    </li>
+                    <li><strong>Philadelphia är stor stad:</strong> Risk för protester och därmed QRF-deployment lokalt</li>
+                </ul>
+
+                <h4>Operativa konsekvenser:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>USAR-expertis:</strong> Strukturell bedömning, demolition, rescue - mycket användbart för DG</li>
+                    <li><strong>Heavy Machinery 70%:</strong> Kan operera tunga fordon, bryta sig in i platser</li>
+                    <li><strong>Demolitions 60%:</strong> Kan spränga saker (kontrolle rat eller nöd)</li>
+                    <li><strong>First Aid 80%:</strong> Bästa medicinska resursen efter Scalpel</li>
+                    <li><strong>MEN:</strong> Om inkallad för QRF, förlorar teamet viktig resurs</li>
+                </ul>
+
+                <h4>Psykologisk påverkan:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li><strong>Adapted to Helplessness:</strong> Pittsburgh-trauma (12 dagar begravd)</li>
+                    <li><strong>POW 11 (start 13):</strong> Redan förlorat -2 POW till adaptation</li>
+                    <li><strong>Myndighetsskeptisk:</strong> Hur ser han på federal militarisering?</li>
+                    <li><strong>"We all die alone":</strong> Filosofi testras när militär används mot civila</li>
+                </ul>
+
+                <h4>Kritiska frågor:</h4>
+                <ul style="margin-left: 2rem; line-height: 1.8;">
+                    <li>Är Trench på Pennsylvania National Guard/Reserve QRF-lista?</li>
+                    <li>Har han fått någon pre-deployment-notifikation?</li>
+                    <li>Vad gör han om han får order att deployera MEDAN Chesapeake Cell har en operation?</li>
+                    <li>Kan han vägra (deserter) eller måste han lyda?</li>
+                    <li>Hur påverkar regeringsstängningen hans FEMA-lön och familj (dotter i Harrisburg)?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html">← Tillbaka till Chesapeake Cell</a>
+        </div>
+    </div>
+</body>
+</html>

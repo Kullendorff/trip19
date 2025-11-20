@@ -235,6 +235,29 @@
         tr:hover td {
             background: rgba(255, 107, 53, 0.05);
         }
+
+        .scene-link {
+            display: inline-block;
+            margin: 2rem 0 1rem 0;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, #e85d28 100%);
+            color: var(--bg-dark);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .scene-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+        }
+
+        .scene-link::before {
+            content: "📄 ";
+        }
     </style>
 </head>
 <body>
@@ -371,6 +394,8 @@
                 <li>Sjöövergång kan möta ryska patrullbåtar (Alertness-slag, potentiell strid)</li>
                 <li>Team kan bli sjösjukt, komprometterar beredskap för Moskva-operationen</li>
             </ul>
+
+            <a href="chapter5_scene0a_baltic_crossing.html" class="scene-link">Detaljerad Scene 0A: Baltic Crossing</a>
         </div>
 
         <div class="section">
@@ -746,6 +771,8 @@
                 <li><strong>Medelfall:</strong> Anton misstänksam men inget bevis, Werner lämnar Berlin permanent</li>
                 <li><strong>Värsta fall:</strong> Slava upptäcker förräderi, Werner hittas död i verkstad (spelarnas skuld)</li>
             </ul>
+
+            <a href="chapter5_scene0b_truck_crossing.html" class="scene-link">Detaljerad Scene 0B: Truck Crossing [EXTREM RISK]</a>
         </div>
 
         <div class="section">
