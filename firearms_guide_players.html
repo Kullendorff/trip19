@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIREARMS GUIDE - Chesapeake Cell</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-green: #00ff41;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --accent-yellow: #ffcc00;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-darker);
+            border-bottom: 2px solid var(--accent-yellow);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--accent-yellow);
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+        }
+
+        .back-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background: rgba(74, 144, 164, 0.2);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Sections */
+        section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        section h2 {
+            color: var(--accent-yellow);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        section h3 {
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: var(--bg-darker);
+        }
+
+        th {
+            background: rgba(255, 204, 0, 0.2);
+            color: var(--accent-yellow);
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid var(--border);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        td {
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        tr:hover {
+            background: rgba(255, 204, 0, 0.05);
+        }
+
+        /* Alert boxes */
+        .alert {
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            border-left: 4px solid;
+        }
+
+        .alert-warning {
+            background: rgba(255, 68, 68, 0.1);
+            border-left-color: var(--accent-red);
+            color: var(--text);
+        }
+
+        .alert-info {
+            background: rgba(74, 144, 164, 0.1);
+            border-left-color: var(--accent-blue);
+            color: var(--text);
+        }
+
+        .alert-success {
+            background: rgba(0, 255, 65, 0.1);
+            border-left-color: var(--accent-green);
+            color: var(--text);
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+            color: var(--text);
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+
+        .badge-success {
+            background: var(--accent-green);
+            color: var(--bg-darker);
+        }
+
+        .badge-warning {
+            background: var(--accent-yellow);
+            color: var(--bg-darker);
+        }
+
+        .badge-danger {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">🔫 FIREARMS GUIDE - CHESAPEAKE CELL</div>
+            <a href="index.html" class="back-link">← Tillbaka till Chesapeake Cell</a>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Team Firearms Status -->
+        <section>
+            <h2>🎯 TEAMETS VAPEN-STATUS</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Medlem</th>
+                        <th>Kan bära vapen?</th>
+                        <th>Var?</th>
+                        <th>Noteringar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Mac Riley</strong></td>
+                        <td><span class="badge badge-success">✅ JA</span></td>
+                        <td>Överallt i USA</td>
+                        <td>FBI-agent, har federal LEOSA</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kai "Sparky" Zhang</strong></td>
+                        <td><span class="badge badge-success">✅ JA</span></td>
+                        <td>MD + ~30 stater</td>
+                        <td>Legal Maryland permit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sam "Trench" Novak</strong></td>
+                        <td><span class="badge badge-warning">⚠️ DELVIS</span></td>
+                        <td>PA + vissa stater</td>
+                        <td>Pennsylvania permit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hanna "Scalpel" Engler</strong></td>
+                        <td><span class="badge badge-warning">❓ TBD</span></td>
+                        <td>?</td>
+                        <td>Beror på ME-status</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Michael "Padre" Sullivan</strong></td>
+                        <td><span class="badge badge-danger">❌ NEJ</span></td>
+                        <td>-</td>
+                        <td>Behöver skaffa permit</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-info">
+                <strong>📌 VIKTIGT:</strong> Mac är den enda som kan bära vapen överallt lagligt. Övriga måste kolla reciprocity (se nedan) innan operationer i nya delstater.
+            </div>
+        </section>
+
+        <!-- What is Reciprocity? -->
+        <section>
+            <h2>🤝 VAD ÄR RECIPROCITY?</h2>
+
+            <p><strong>Reciprocity = Ömsesidighet mellan delstater</strong></p>
+
+            <p>Det betyder: Om du har concealed carry-tillstånd från en delstat, erkänner vissa ANDRA delstater det tillståndet.</p>
+
+            <div class="alert alert-success">
+                <strong>💡 ENKELT EXEMPEL:</strong><br>
+                Sparky har Maryland permit. Pennsylvania erkänner Maryland permits = Sparky kan lagligt bära vapen i Pennsylvania.<br><br>
+                Men New Jersey erkänner INTE Maryland permits = Om Sparky bär vapen i NJ = felony arrest.
+            </div>
+
+            <h3>Hur fungerar det?</h3>
+
+            <ul>
+                <li>Varje delstat bestämmer själv vilka andra staters permits de erkänner</li>
+                <li>Det finns INGEN federal standard (förutom för poliser)</li>
+                <li>Vissa stater erkänner nästan alla andra (Texas, Florida)</li>
+                <li>Vissa stater erkänner INGA andra (California, New York, New Jersey)</li>
+            </ul>
+
+            <h3>Praktiskt exempel</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operation i...</th>
+                        <th>Sparky's MD permit</th>
+                        <th>Trench's PA permit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pennsylvania</strong></td>
+                        <td>✅ Funkar</td>
+                        <td>✅ Funkar (hemstat)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Virginia</strong></td>
+                        <td>✅ Funkar</td>
+                        <td>✅ Funkar</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Florida</strong></td>
+                        <td>✅ Funkar</td>
+                        <td>✅ Funkar</td>
+                    </tr>
+                    <tr>
+                        <td><strong>New Jersey</strong></td>
+                        <td>❌ Funkar INTE</td>
+                        <td>❌ Funkar INTE</td>
+                    </tr>
+                    <tr>
+                        <td><strong>New York</strong></td>
+                        <td>❌ Funkar INTE</td>
+                        <td>❌ Funkar INTE</td>
+                    </tr>
+                    <tr>
+                        <td><strong>California</strong></td>
+                        <td>❌ Funkar INTE</td>
+                        <td>❌ Funkar INTE</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-warning">
+                <strong>⚠️ KOM IHÅG:</strong> Även om ditt permit fungerar i en annan delstat, måste du följa DEN STATENS lagar (inte dina egna). Olika stater har olika regler för var du inte får bära vapen (skolor, domstolar, barer, etc.).
+            </div>
+        </section>
+
+        <!-- Hostile States -->
+        <section>
+            <h2>🚨 FARLIGA DELSTATER</h2>
+
+            <p>Dessa delstater är <strong>extremt fientliga</strong> mot vapenbärare från andra stater:</p>
+
+            <div class="alert alert-warning">
+                <strong>🔴 UNDVIK OM BEVÄPNAD:</strong>
+                <ul>
+                    <li><strong>Washington DC</strong> - Erkänner inga andra permits. Extremt svårt att få eget permit.</li>
+                    <li><strong>New York</strong> - Erkänner inga andra permits. Arresterar ofta resenärer med vapen.</li>
+                    <li><strong>New Jersey</strong> - Erkänner inga andra permits. Arresterar resenärer trots "safe passage" federal lag.</li>
+                    <li><strong>California</strong> - Erkänner inga andra permits.</li>
+                    <li><strong>Massachusetts</strong> - Erkänner inga andra permits.</li>
+                    <li><strong>Hawaii</strong> - Erkänner inga andra permits.</li>
+                    <li><strong>Illinois</strong> - Erkänner bara vissa stater, komplicerat system.</li>
+                </ul>
+            </div>
+
+            <h3>Vad händer om ni ertappas?</h3>
+
+            <ul>
+                <li>Felony arrest (grovt brott)</li>
+                <li>5-10 års fängelse (beroende på stat)</li>
+                <li>$10,000+ böter</li>
+                <li>Förlorar vapenlicens permanent</li>
+                <li>Criminal record</li>
+            </ul>
+        </section>
+
+        <!-- Safe States -->
+        <section>
+            <h2>🟢 SÄKRA DELSTATER</h2>
+
+            <p>Dessa delstater är <strong>vapenvänliga</strong> och erkänner de flesta andra staters permits:</p>
+
+            <div class="alert alert-success">
+                <strong>✅ BRA FÖR OPERATIONER:</strong>
+                <ul>
+                    <li><strong>Pennsylvania</strong> - Teamets hembas, erkänner nästan alla permits</li>
+                    <li><strong>Virginia</strong> - Nära DC, bra för operations</li>
+                    <li><strong>West Virginia</strong> - Constitutional carry (inget permit behövs)</li>
+                    <li><strong>Florida</strong> - Erkänner många permits</li>
+                    <li><strong>Texas</strong> - Erkänner många permits</li>
+                    <li><strong>Arizona</strong> - Constitutional carry</li>
+                    <li><strong>Tennessee</strong> - Erkänner många permits</li>
+                    <li><strong>Georgia</strong> - Erkänner många permits</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Before Operations -->
+        <section>
+            <h2>✅ INNAN OPERATION I NY DELSTAT</h2>
+
+            <p><strong>Checklista:</strong></p>
+
+            <ol>
+                <li><strong>Googla reciprocity:</strong> "[State name] concealed carry reciprocity map"</li>
+                <li><strong>Kolla om den staten erkänner ert permit</strong></li>
+                <li><strong>Läs statens lagar:</strong> Var är det förbjudet att bära? (Skolor, domstolar, government buildings?)</li>
+                <li><strong>Planera:</strong>
+                    <ul>
+                        <li>Om legal carry: Använd normal permit</li>
+                        <li>Om hostile state: Åk obeväpnad eller använd Mac's federala auktoritet</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <div class="alert alert-info">
+                <strong>💡 TIPS:</strong> Mac kan alltid bära vapen överallt (FBI LEOSA). Om ni åker till hostile state, låt Mac bära teamets vapen och distribuera dem när ni kommit fram.
+            </div>
+        </section>
+
+        <!-- Quick Reference -->
+        <section>
+            <h2>📋 SNABBREFERENS</h2>
+
+            <h3>Sparky's MD Permit täcker:</h3>
+            <p>✅ Pennsylvania, Virginia, West Virginia, Ohio, Florida, Texas, Georgia, North Carolina, South Carolina, Tennessee, Kentucky, Indiana, Arizona, Idaho, Montana, Wyoming... (ca 30 stater totalt)</p>
+            <p>❌ Washington DC, New York, New Jersey, California, Massachusetts, Connecticut, Rhode Island, Hawaii, Illinois, Oregon, Washington State</p>
+
+            <h3>Trench's PA Permit täcker:</h3>
+            <p>✅ Pennsylvania (hemstat), Virginia, West Virginia, Florida, Texas, Georgia, North Carolina, Tennessee, Kentucky, Ohio... (ca 35 stater totalt)</p>
+            <p>❌ Washington DC, New York, New Jersey, California, Massachusetts, Connecticut, Rhode Island, Hawaii, Illinois, Oregon, Washington State, Maryland</p>
+
+            <h3>Mac's LEOSA:</h3>
+            <p>✅ ALLA 50 STATER + DC</p>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        DELTA GREEN // TRIP 19: BLACK MADONNA // CHESAPEAKE CELL<br>
+        This guide describes real US firearms laws for RPG purposes. Not legal advice.<br>
+        Updated: November 2025
+    </div>
+</body>
+</html>

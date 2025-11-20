@@ -174,18 +174,35 @@ Cipher, RedShift och Proxy representerar den digitala frihet hon en gång kämpa
   - *Privat ägd, köpt och modifierad själv*
   - *Bärs dagligen concealed (IWB holster)*
 
-**Federal Carry Authorization:**
-Sparky har hackat sig in i FBI's CJIS Division database och manipulerat LEOSA (Law Enforcement Officers Safety Act) national registry. Hon finns listad som:
+**Concealed Carry Authorization:**
 
-**"Technical Enforcement Officer - National Security Division"**
+**LEGAL: Maryland Wear & Carry Permit (2023-2025)**
+- Godkänd Oktober 2023 efter Bruen-beslutet (shall-issue)
+- 16-timmars training vid Berwyn Rod & Gun Club
+- Mac Riley (FBI) gav character reference
+- Täcker ~30 stater via reciprocity (MD, PA, VA, WV, FL, TX, GA, NC, SC, TN, KY, OH, IN, AZ, m.fl.)
+- Använder för dagligt carry i DMV-området (Maryland, Virginia, Pennsylvania)
+- Täcker INTE: DC, NY, NJ, CA, MA, HI
+- Kan INTE användas för att flyga beväpnad
 
+**ILLEGAL: Fake LEOSA Credentials (2020-)**
+- Hackat FBI CJIS Division database och manipulerat LEOSA national registry
+- Listad som "Technical Enforcement Officer - National Security Division"
 - Skapade bakåtdaterade träningsrecords och kvalifikationer
-- Hennes credentials verifieras som giltiga när poliser kollar i NCIC
-- Ger henne nationwide concealed carry authority
-- Tekniskt fake, men systemet säger att hon är legitim federal LEO
-- Perfekt gråzon för Delta Green-operationer
+- Verifieras som giltig när poliser kollar i NCIC
+- Ger nationwide concealed carry authority (alla 50 stater)
+- Kan teoretiskt användas för att flyga beväpnad (mycket riskabelt)
 
-Detta är MYCKET olagligt (18 U.S.C. § 1030 - Computer Fraud, 18 U.S.C. § 912 - Impersonating federal officer), men Sparky rationaliserar det: "Jag skyddar landet från verkliga hot. Vem bryr sig om ett falskt ID?"
+**HYBRID APPROACH:**
+- **Dagligt liv:** Använder legal MD permit (minimal risk)
+- **Delta Green interstate ops:** Använder fake LEOSA (komplett coverage)
+- **Om stoppad i MD/VA/PA:** Visar legal permit
+- **Om stoppad i hostile states (CA/NY/NJ):** Tar risken med fake LEOSA
+
+**RISKER:**
+- Fake LEOSA = federal felony om upptäckt
+- 18 U.S.C. § 1030 (Computer Fraud) + 18 U.S.C. § 912 (Impersonating federal officer)
+- Kombinerat: 5-20 år federal fängelse + instant firing från NSA + loss of clearance
 
 **Digitala verktyg:**
 - USB Rubber Ducky (keystroke injection)
