@@ -40,9 +40,8 @@ Sparky mentions to the team: *"I know people online. Cipher's in Europe somewher
 
 **Investigation path:**
 - Sparky contacts Cipher via encrypted channels (Signal, Tor network)
-- Cipher asks: *"Why do you need this? This isn't like you."*
-- Sparky must decide: Tell truth (Delta Green operation) or lie (personal emergency)
-- **Bond erosion risk:** If Cipher discovers deception later, Bond damaged
+- Cipher: *"Discrete travel to Russia? I know people. Give me 24 hours."*
+- No questions asked - that's not how their relationship works
 - **Success:** Cipher provides contact to darkweb marketplace for "discrete travel services"
 
 ### The Route Details:
@@ -72,12 +71,11 @@ Sparky mentions to the team: *"I know people online. Cipher's in Europe somewher
 - 🔴 **Container inspection** - If harbor inspectors search cargo = instant arrest
 
 **MEDIUM RISK FACTORS:**
-- 🟡 **Cipher relationship damaged** - Using friend for dangerous operation
 - 🟡 **Digital trail** - FSB monitors darkweb markets (Sparky's NSA skills help but not perfect)
 - 🟡 **No backup plan** - If smuggler doesn't show up in Tallinn, stranded in Estonia
 
 **Bond Consequences:**
-- **Cipher (Sparky's Bond):** Potential erosion if operation goes wrong or Cipher learns full truth
+- **Cipher (Sparky's Bond):** Minimal - Cipher doesn't ask questions, just provides connections
 - **Team cohesion:** High-stakes gamble on criminal smugglers = stress
 
 ### Why This Route Works:
@@ -92,8 +90,8 @@ Sparky mentions to the team: *"I know people online. Cipher's in Europe somewher
 
 **Player agency:**
 - Let Sparky roleplay conversation with Cipher (text-based, encrypted)
-- Cipher can ask probing questions: *"Are you in trouble? Is this legal? Who are these people you're traveling with?"*
-- Sparky must balance honesty (bond preservation) vs operational security (DG secrecy)
+- Cipher is professional: provides contacts, doesn't ask why
+- Their 8-10 year relationship is built on trust and discretion
 
 **Complications:**
 - Smuggler contact could be FSB informant (10-15% chance)
@@ -577,7 +575,7 @@ Each border should be tense scene with different challenge:
 
 | Route | Contact | Method | Duration | Cost | Risk Level | Bond Impact |
 |-------|---------|--------|----------|------|------------|-------------|
-| **Route 1** | Cipher (Sparky) | Baltic Sea | 3-4 days | $100-120k | HIGH | Cipher bond erosion |
+| **Route 1** | Cipher (Sparky) | Baltic Sea | 3-4 days | $100-120k | HIGH | Minimal (professional trust) |
 | **Route 2** | Jürgen (Scalpel) | Poland/Belarus land | 4-5 days | $60-80k | HIGH | Father bond HIGH risk |
 | **Route 3** | Ghost (Sparky) | Finland forest | 4-5 days | $40-60k | EXTREME | Ghost relationship burned |
 | **Route 4** | Werner Harmann | Slava truck reverse | 4-6 days | $70-90k | EXTREME | Moral weight (innocent endangered) |
