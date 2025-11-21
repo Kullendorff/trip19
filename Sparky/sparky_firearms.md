@@ -242,7 +242,7 @@ Behöver Sparky bära vapen?
     │   ├─ Kan Mac (LEOSA) bära teamets vapen? → Använd Mac
     │   ├─ Kan åka obeväpnad? → Åk obeväpnad
     │   └─ Absolut nödvändigt? → Fake LEOSA (extremt riskabelt)
-    └─ Flygresor → ALDRIG använda fake LEOSA, åk obeväpnad
+    └─ Flygresor → Bara i ABSOLUTA nödfall använda LEOSA, åk obeväpnad
 ```
 
 ---
