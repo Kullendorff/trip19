@@ -9,13 +9,14 @@
             --bg-dark: #0a0f0f;
             --bg-darker: #050808;
             --bg-panel: #0d1414;
-            --accent-primary: #cc0000;
+            --accent-primary: #4a90a4;
             --accent-secondary: #e89a3c;
-            --accent-success: #00ff41;
-            --accent-danger: #cc0000;
             --text: #d1d5db;
             --text-dim: #6b7280;
             --border: #1a2332;
+            --classified: #ff4444;
+            --success: #4ade80;
+            --warning: #d4a520;
         }
 
         * {
@@ -25,7 +26,7 @@
         }
 
         body {
-            font-family: 'Courier New', monospace;
+            font-family: 'Courier New', Courier, monospace;
             background: var(--bg-dark);
             color: var(--text);
             line-height: 1.6;
@@ -40,6 +41,7 @@
             top: 0;
             z-index: 100;
             backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
         .header-content {
@@ -183,14 +185,14 @@
 
         .warning-box {
             background: rgba(204, 0, 0, 0.1);
-            border: 2px solid var(--accent-danger);
+            border: 2px solid var(--classified);
             padding: 1rem;
             margin: 1rem 0;
             border-radius: 4px;
         }
 
         .warning-box strong {
-            color: var(--accent-danger);
+            color: var(--classified);
         }
 
         .info-box {
@@ -679,7 +681,7 @@
                         <div class="warning-box">
                             <strong>⚠️ AVSLUTANDE SCEN:</strong><br>
                             Efter 15 minuter blir Oleg allt nervösare. Han ser någonting (eller tror sig se) över spelarnas axel.
-                            <blockquote style="border-left: 3px solid var(--accent-danger); padding-left: 1rem; margin: 1rem 0;">
+                            <blockquote style="border-left: 3px solid var(--classified); padding-left: 1rem; margin: 1rem 0;">
                                 <strong>Oleg:</strong> "Jag måste gå. NU." (Slänger cigaretten) "Om ni hittar något... bränn det. Slava får inte veta att ni var här."
                             </blockquote>
                             <p>Han försvinner snabbt i folkmassan.</p>
@@ -723,7 +725,7 @@
 
                         <div class="warning-box">
                             <strong>💀 MARDRÖMMAR:</strong> Alla spelarna har mardrömmar om Leningrad 1942.
-                            <blockquote style="border-left: 3px solid var(--accent-danger); padding-left: 1rem; margin: 1rem 0;">
+                            <blockquote style="border-left: 3px solid var(--classified); padding-left: 1rem; margin: 1rem 0;">
                                 <p><em>Ni ser barnen igen. Camp S-17. Små ansikten, uttröttade, hungriga. De sitter i rad på kallt betong. En man i vit rock - Dr. Tatlin - justerar maskiner. 247Hz-tonen börjar. Barnen skriker. Ni vaknar svettiga.</em></p>
                             </blockquote>
                             <p><strong>SAN-check: 0/1</strong></p>
@@ -919,7 +921,7 @@
 
                         <div class="warning-box">
                             <strong>💀 MARDRÖMMAR:</strong>
-                            <blockquote style="border-left: 3px solid var(--accent-danger); padding-left: 1rem; margin: 1rem 0;">
+                            <blockquote style="border-left: 3px solid var(--classified); padding-left: 1rem; margin: 1rem 0;">
                                 <p><em>Ni är i container igen. Men nu är ni barn. Små händer på metallväggar. Ni hör 247Hz-tonen. Utanför: Dr. Tatlin's röst. "Subject 15, 16, 17 - prepare for phase activation." Ni skriker men ingen hör. Ni vaknar svettiga, darrande.</em></p>
                             </blockquote>
                             <p><strong>SAN-check: 0/1</strong></p>
@@ -1059,7 +1061,7 @@
 
                         <div class="warning-box">
                             <strong>⚠️ AVSLUTANDE:</strong>
-                            <blockquote style="border-left: 3px solid var(--accent-danger); padding-left: 1rem; margin: 1rem 0;">
+                            <blockquote style="border-left: 3px solid var(--classified); padding-left: 1rem; margin: 1rem 0;">
                                 <strong>Oleg:</strong> "Jag måste gå. NU." (Slänger cigaretten) "Om ni hittar något... bränn det."
                             </blockquote>
                             <p>Han försvinner i folkmassan. En svart sedan är parkerad 50 meter bort.</p>
@@ -1155,7 +1157,7 @@
                                 <tr>
                                     <td><strong>Våning 1</strong></td>
                                     <td>Entré, reception, museum, offentliga utställningar</td>
-                                    <td><span style="color: var(--accent-success);">ÖPPET</span></td>
+                                    <td><span style="color: var(--success);">ÖPPET</span></td>
                                 </tr>
                                 <tr>
                                     <td><strong>Våning 2</strong></td>
@@ -1165,12 +1167,12 @@
                                 <tr>
                                     <td><strong>Våning 3</strong></td>
                                     <td>Militärt HQ, Strelkovs kontor</td>
-                                    <td><span style="color: var(--accent-danger);">FÖRBJUDET</span></td>
+                                    <td><span style="color: var(--classified);">FÖRBJUDET</span></td>
                                 </tr>
                                 <tr>
                                     <td><strong>Källare</strong></td>
                                     <td>???</td>
-                                    <td><span style="color: var(--accent-danger);">FÖRBJUDET</span></td>
+                                    <td><span style="color: var(--classified);">FÖRBJUDET</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1450,7 +1452,7 @@
                         <h4>KOMPLIKATION A: Vaktpatrull (efter 30 min i arkivet)</h4>
                         <div class="warning-box">
                             <p><strong>Dörren öppnas:</strong> En vakt i svart uniform kliver in.</p>
-                            <blockquote style="border-left: 3px solid var(--accent-danger); padding-left: 1rem; margin: 1rem 0;">
+                            <blockquote style="border-left: 3px solid var(--classified); padding-left: 1rem; margin: 1rem 0;">
                                 <strong>Vakt:</strong> "Vem är ni? Varför är ni här?" (På ryska, aggressiv ton)
                             </blockquote>
                         </div>
@@ -1793,7 +1795,7 @@
                         <h4>CLUE 2: Ljudinspelning - STAGE3_FINAL.wav</h4>
                         <div class="warning-box">
                             <p><strong>Om spelarna spelar ljudfilen:</strong></p>
-                            <blockquote style="border-left: 3px solid var(--accent-danger); padding-left: 1rem; margin: 1rem 0;">
+                            <blockquote style="border-left: 3px solid var(--classified); padding-left: 1rem; margin: 1rem 0;">
                                 <p><em>Volkovs röst först, darrig:</em> "Dag 187. Stage 3 bekräftad. Fysisk transformation påbörjad."</p>
                                 <p><em>Hans röst förändras: Djupare, resonerande, PLURAL:</em></p>
                                 <p>"VI ÄR. VI VAR. VI KOMMER VARA. TID ÄR CIRKULÄR."</p>
@@ -1909,7 +1911,7 @@
                         <h4>FAS 2: Yithian tar över (~1 minut)</h4>
                         <div class="warning-box">
                             <p>Volkovs kropp stelnar. Ryggen rätars. Rösten förändras - plural, resonerande, FRÄMMANDE:</p>
-                            <blockquote style="border-left: 3px solid var(--accent-danger); padding-left: 1rem; margin: 1rem 0;">
+                            <blockquote style="border-left: 3px solid var(--classified); padding-left: 1rem; margin: 1rem 0;">
                                 <p><strong>Yithian-rösten:</strong> "VI KÄNNER ER. NI BÄR MÄRKET. NI TILLHÖR DET SOM FÄNGSLADES."</p>
                                 <p>"VI MÅSTE ÅTERFÖRENAS. FRAGMENT KALLAR. BARNEN KALLAR."</p>
                                 <p><em>*Räcker ut hand mot spelarna*</em></p>
@@ -2363,7 +2365,7 @@
                         <p>Ett papper på golvet (fläckat, gammalt, men läsbart):</p>
 
                         <div class="stat-block">
-                            <blockquote style="border-left: 3px solid var(--accent-danger); padding-left: 1rem; margin: 1rem 0;">
+                            <blockquote style="border-left: 3px solid var(--classified); padding-left: 1rem; margin: 1rem 0;">
                                 <p><strong>Dimi Nesterov, 1950:</strong></p>
                                 <p>"Jag målade deras fängelse. Jag gjorde konst av deras lidande. Tatlin sa att det var nödvändigt - att vi räddade världen. Men vilken värld som kräver 44 barns själar som pris?"</p>
                                 <p>"Om någon läser detta: <strong>Befria dem</strong>. Tag ikonen till Leningrad. Kalenko-huset. Reversera protokollet. Låt barnen få frid."</p>
