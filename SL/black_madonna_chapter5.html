@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Madonna - Kapitel 5: Moskva</title>
+    <style>
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-primary: #cc0000;
+            --accent-secondary: #e89a3c;
+            --accent-success: #00ff41;
+            --accent-danger: #cc0000;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--bg-darker);
+            border-bottom: 2px solid var(--accent-primary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent-primary);
+            letter-spacing: 2px;
+        }
+
+        .back-link {
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--accent-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-primary);
+            border-radius: 8px;
+        }
+
+        .chapter-header h1 {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .chapter-header .subtitle {
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        .section h2 {
+            color: var(--accent-primary);
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .section h3 {
+            color: var(--accent-secondary);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .section h4 {
+            color: var(--text);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .collapsible {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .collapsible-header {
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .collapsible-header:hover {
+            background: var(--bg-panel);
+        }
+
+        .collapsible-header h3 {
+            margin: 0;
+            color: var(--accent-primary);
+        }
+
+        .collapsible-icon {
+            color: var(--accent-primary);
+            transition: transform 0.3s;
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.active {
+            max-height: 5000px;
+        }
+
+        .collapsible-inner {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .scene-box {
+            background: var(--bg-darker);
+            border-left: 4px solid var(--accent-secondary);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .warning-box {
+            background: rgba(204, 0, 0, 0.1);
+            border: 2px solid var(--accent-danger);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box strong {
+            color: var(--accent-danger);
+        }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .stat-block {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .stat-block h4 {
+            color: var(--accent-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        li {
+            margin: 0.3rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--bg-darker);
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        a {
+            color: var(--accent-secondary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--accent-primary);
+            text-decoration: underline;
+        }
+
+        .routes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .route-card {
+            background: var(--bg-darker);
+            border: 2px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .route-card h3 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .routes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .chapter-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">BLACK MADONNA</div>
+            <a href="../index.html" class="back-link">← Tillbaka till översikt</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="chapter-header">
+            <h1>KAPITEL 5: MOSKVA</h1>
+            <p class="subtitle">"Матушка Россия" (Mother Russia)</p>
+            <p style="margin-top: 1rem; color: var(--text-dim);">
+                <strong>Tema:</strong> Kunskap, Tragedi, Förberedelse<br>
+                <strong>Ton:</strong> "Calm before the storm" - forskningskapitel, inte action-klimax<br>
+                <strong>Längd:</strong> 6-8 scener, 2-3 sessioner
+            </p>
+        </div>
+
+        <!-- ÖVERSIKT -->
+        <div class="section">
+            <h2>📋 ÖVERSIKT</h2>
+
+            <h3>Kapitlets Mål</h3>
+
+            <div class="info-box">
+                <strong>Vad spelarna ska uppnå:</strong>
+                <ol>
+                    <li><strong>Hitta Leningrad-platsen:</strong> Få exakta koordinater till Kalenko-huset</li>
+                    <li><strong>Förstå historien:</strong> Lära sig om Camp S-17, Project Echo, 1942-natten</li>
+                    <li><strong>Konfrontera Volkov:</strong> Emotionellt klimax - se sin egen framtid (Stage 3)</li>
+                    <li><strong>Förstå barnen:</strong> Inse att 20 barn är fängslade och måste befrias</li>
+                    <li><strong>Skaffa verktyg/kunskap:</strong> Förstå hur Black Madonna-systemet fungerar</li>
+                    <li><strong>Förberedelse för Leningrad:</strong> Intel, verktyg, motivation för final</li>
+                </ol>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Vad spelarna INTE ska göra:</strong>
+                <ul>
+                    <li>❌ Döda någon "big bad" (finns ingen här)</li>
+                    <li>❌ Stoppa massritual (det händer i Leningrad, inte Moskva)</li>
+                    <li>❌ Action-sekvenser mot militärbas</li>
+                    <li>❌ Rädda världen (ännu)</li>
+                </ul>
+            </div>
+
+            <h3>Scen-ordning (Quick Ref)</h3>
+            <ol>
+                <li><strong>Ankomst (Oleg)</strong> → Slava ELLER Volkov</li>
+                <li><strong>Slava-Stiftelsen</strong> → Volkovs adress</li>
+                <li><strong>Volkov (KLIMAX)</strong> → Camp S-17 ELLER Nesterov</li>
+                <li><strong>Camp S-17</strong> → Nesterov</li>
+                <li><strong>Nesterov</strong> → Leningrad</li>
+            </ol>
+
+            <h3>Varför spelarna är i Moskva</h3>
+            <p>Efter Berlin-kapitlet har spelarna flera ledtrådar som leder till Moskva:</p>
+            <ul>
+                <li><strong>Berlin-sporet:</strong> De tre männen har Moskva-koppling (Slava, Camp S-17 dokument)</li>
+                <li><strong>Volkov-sporet:</strong> Hans anteckningsbok + labb-adress i Moskva</li>
+                <li><strong>Fragment-sporet:</strong> Distributionsnätverk leder österut</li>
+                <li><strong>Frankfurt-sporet:</strong> Pyotr + Camp S-17 arkiv pekar mot Moskva</li>
+                <li><strong>Black Madonna Doll:</strong> Visar att något i Moskva "kallar"</li>
+            </ul>
+
+            <div class="scene-box">
+                <strong>VIKTIGT:</strong> Moskva är ett forsknings/investigation-kapitel, inte ett action-klimax. Spelarna ska samla information, förstå historien, och förbereda sig för Leningrad-finalen. Tonvikten ligger på tragedi, kunskap och personlig konfrontation.
+            </div>
+        </div>
+
+        <!-- SMUGGELVÄGAR - ANKOMST -->
+        <div class="section">
+            <h2>🛂 ANKOMST TILL MOSKVA</h2>
+
+            <p>Beroende på vilken smuggelväg spelarna valde i Kapitel 4, börjar de på olika platser i Moskva med olika förutsättningar:</p>
+
+            <div class="routes-grid">
+                <div class="route-card">
+                    <h3>🚢 Route 0A: BALTIC</h3>
+                    <p><strong>Ankomst:</strong> Leningradsky vokzal (tågstation)</p>
+                    <p><strong>Tid:</strong> 10:00 AM</p>
+                    <p><strong>Kondition:</strong></p>
+                    <ul>
+                        <li>8 timmars sömn på Red Arrow-tåget</li>
+                        <li>Mardrömmar (SAN 0/1)</li>
+                        <li>Parasite-symtom förvärrade</li>
+                        <li>Relativt funktionsdugliga</li>
+                    </ul>
+                    <p><strong>→ Fortsätt till Scene 1A</strong></p>
+                </div>
+
+                <div class="route-card">
+                    <h3>🚛 Route 0B: TRUCK</h3>
+                    <p><strong>Ankomst:</strong> Tekstilshchiki industrial district</p>
+                    <p><strong>Tid:</strong> 11:00 PM (23:00)</p>
+                    <p><strong>Kondition:</strong></p>
+                    <ul>
+                        <li>60 timmar i container - UTMATTADE</li>
+                        <li><strong>-20% alla skills</strong> tills vila</li>
+                        <li>Behöver: mat, vatten, sömn, säker plats</li>
+                        <li>Kan inte använda hotell (passpoliskontroll)</li>
+                    </ul>
+                    <p><strong>→ Fortsätt till Scene 1B</strong></p>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ För Spelledaren:</strong> Läs ENDAST den Scene 1-variant som matchar spelarnas smuggelväg. De två scenerna konvergerar vid mötet med Oleg vid Gorkijparken.
+            </div>
+        </div>
+
+        <!-- SCENE 1A: BALTIC ROUTE -->
+        <div class="section">
+            <h2>🚂 SCENE 1A: ANKOMST - BALTIC ROUTE</h2>
+            <p><strong>Location:</strong> Leningradsky vokzal → Hotel Rossiya → Gorkijparken</p>
+            <p><strong>Tid:</strong> 10:00 - 20:00 (10 timmar)</p>
+            <p><strong>Pacing:</strong> Slow burn, etablera Moskva-stämning</p>
+
+            <!-- Del 1: Tågstationen -->
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <h3>🚉 Del 1: Leningradsky vokzal (10:00)</h3>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="scene-box">
+                            <p><em>Red Arrow-tåget rullar in på Leningradsky vokzal. Genom fönstren: den grå huvudstaden, Stalin-skyskrapor mot en blygrå himmel. Snöslask faller. Ni har klarat smugglingen. Ni är i Ryssland. Nu börjar det riktiga arbetet.</em></p>
+                        </div>
+
+                        <h4>Beskrivning: Tågstationen</h4>
+                        <p><strong>Leningradsky vokzal</strong> är en massiv 1800-talsbyggnad - tsarens järnvägsmonument, renoverad med sovjetisk brutalitet.</p>
+
+                        <blockquote style="border-left: 3px solid var(--accent-secondary); padding-left: 1rem; margin: 1rem 0; color: var(--text-dim);">
+                            "Plattformen är full med ryska pendlare - människor i grå rockar, svarta platta kassar, tysta ansikten. Ni stiger av tåget. Kall luft slår emot er. Lukten av diesel, svett, och gammalt kaffe. Över högtalarena: en kvinnoröst tillkännager ankomster på ryska. Ni förstår inte ett ord."
+                        </blockquote>
+
+                        <h4>Vad spelarna märker</h4>
+                        <ul>
+                            <li><strong>FSB-närvaro:</strong> Uniformerade vakter patrullerar - mer än normalt (Alertness-check för att märka)</li>
+                            <li><strong>Övervakningskameror:</strong> Moderna kameror - detta är inte Sovjet längre</li>
+                            <li><strong>Militär mobilisering:</strong> Soldater i uniform, tåg markerade "военная техника" (militär utrustning)</li>
+                            <li><strong>Parasite-symtom:</strong> De som har Chagidiel's Mark känner 247Hz-humming - svagt men konstant</li>
+                        </ul>
+
+                        <div class="warning-box">
+                            <strong>⚠️ UTMATTNING:</strong> Spelarna har sovit 8 timmar men inte ordentligt. Roll <strong>Constitution</strong>:
+                            <ul>
+                                <li><strong>Lyckas:</strong> Funktionella, inga straff</li>
+                                <li><strong>Misslyckas:</strong> -10% till alla skills i 4 timmar (tills lunch)</li>
+                            </ul>
+                        </div>
+
+                        <h4>Navigation ut från stationen</h4>
+                        <p>Spelarna måste hitta ut och till Hotel Rossiya (eller annan destination).</p>
+
+                        <p><strong>Alternativ:</strong></p>
+                        <ul>
+                            <li><strong>Taxi:</strong> Pirattaxiförare utanför stationen
+                                <ul>
+                                    <li>Första priset: 3000 rubler (~$30) till Hotel Rossiya</li>
+                                    <li>Persuasion-check: Sänk till 1000 rubler</li>
+                                    <li>30 minuter körning genom grå förorter</li>
+                                </ul>
+                            </li>
+                            <li><strong>Metro:</strong> Billigare (56 rubler), snabbare
+                                <ul>
+                                    <li>Komsomolskaya station → Teatralnaya → 15 min promenad</li>
+                                    <li>Kräver Navigation eller ryska kunskaper</li>
+                                </ul>
+                            </li>
+                            <li><strong>Gå:</strong> 1 timme, men riskabelt i utländska kläder</li>
+                        </ul>
+
+                        <h4>Taxi-scen (Om de tar taxi)</h4>
+                        <blockquote style="border-left: 3px solid var(--accent-secondary); padding-left: 1rem; margin: 1rem 0; color: var(--text-dim);">
+                            "En äldre man i sliten läderjacka vinkar till er från en rostig Lada. 'Taxi? Where you go?' Han pratar brytande engelska. Baksätet luktar cigaretter och gammalt läder. När han kör genom Moskvas förorter pratar han om 'dåliga tider' - militären tar över allt, priserna stiger, unga män försvinner till fronten. Han frågar inte varifrån ni kommer."
+                        </blockquote>
+
+                        <p><strong>Information från föraren (om spelarna pratar):</strong></p>
+                        <ul>
+                            <li>"Många militära checkpoints nu. Ukrainakriget."</li>
+                            <li>"Hotell dyra. Alla vill dollar, inte rubler."</li>
+                            <li>"FSB överallt. Var försiktiga vad ni säger."</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Del 2: Hotel Rossiya -->
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <h3>🏨 Del 2: Hotel Rossiya (11:00)</h3>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <h4>Platsen: Hotel Rossiya</h4>
+                        <p><strong>Location:</strong> Vid Röda torget, massiv betongkoloss från 1960-talet</p>
+
+                        <div class="scene-box">
+                            <p><em>Hotellet reser sig som ett sovjetiskt monument - tunga, grå fasader, små fönster. Lobbyn är överfull med tyska och kinesiska ingenjörer från en konferens. Perfekt täckmantel. Receptionisten - en medelålders kvinna med perfekt makeup och kall blick - tittar på er med professionell misstänksamhet.</em></p>
+                        </div>
+
+                        <h4>Check-in: Social Encounter</h4>
+                        <p><strong>Receptionisten (Svetlana):</strong></p>
+                        <ul>
+                            <li>Kall, byråkratisk, misstänksam mot utlänningar</li>
+                            <li>Kräver pass, visum, registreringspapper</li>
+                            <li>"Tyvärr, alla rum bokade." (Ljuger)</li>
+                        </ul>
+
+                        <p><strong>Hur få rum:</strong></p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Metod</th>
+                                    <th>Krav</th>
+                                    <th>Resultat</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Muta</strong></td>
+                                    <td>5000 rubler (~$50)</td>
+                                    <td>"Åh, ett rum blev just ledigt."</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Persuasion</strong></td>
+                                    <td>Hard roll</td>
+                                    <td>Övertyga att ni är tyska journalister</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Intimidation</strong></td>
+                                    <td>Extreme roll</td>
+                                    <td>Hota med ambassadkontakt (farligt)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Gå någon annanstans</strong></td>
+                                    <td>-</td>
+                                    <td>Sämre hotell, längre bort</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Hotelrummet</h4>
+                        <p><strong>Sovjet-era rum:</strong></p>
+                        <ul>
+                            <li>Mörkt trä, tunga gardiner, dammigt</li>
+                            <li>Två enkeltsängar med hårda madrasser</li>
+                            <li>Utsikt över Kreml (spöklikt vackert)</li>
+                            <li>Telefon på nattduksbordet (fungerar dåligt - avlyssnad?)</li>
+                            <li>TV som bara visar statliga kanaler</li>
+                        </ul>
+
+                        <div class="warning-box">
+                            <strong>⚠️ SURVEILLANCE:</strong> Spelarna med Intelligence eller Alertness kan märka:
+                            <ul>
+                                <li>Telefonen har en konstig statisk klickande (avlyssning?)</li>
+                                <li>Svarta sedaner parkerade utanför hotellet</li>
+                                <li>Rum 407 (grannrum) är tomt men någon kommer och går</li>
+                            </ul>
+                            <p><strong>Sanningen:</strong> FSB övervakar alla utlänningar som frågar om "Slava" eller "Camp S-17". De är redan flaggade.</p>
+                        </div>
+
+                        <h4>Tid tills Oleg-mötet</h4>
+                        <p>Spelarna har 4 timmar (11:00 → 15:00) innan mötet vid Gorkijparken.</p>
+
+                        <p><strong>Vad de kan göra:</strong></p>
+                        <ul>
+                            <li><strong>Vila:</strong> Återhämta utmattning, ordna utrustning</li>
+                            <li><strong>Research:</strong> Hotellets dåliga internet, ryska tidningar om Slava</li>
+                            <li><strong>Reconnaissance:</strong> Utforska området runt hotellet</li>
+                            <li><strong>Kontakter:</strong> Försöka nå journalistnätverk eller GRU-kontakter</li>
+                        </ul>
+
+                        <div class="info-box">
+                            <p><strong>📡 Om spelarna försöker researcha online:</strong></p>
+                            <ul>
+                                <li>Hotellets wifi är EXTREMT långsamt och övervakat</li>
+                                <li>Sökningar efter "Slava" ger officiella PR-sidor</li>
+                                <li>Sökningar efter "Camp S-17" ger INGA resultat (raderat från officiella arkiv)</li>
+                                <li>VPN fungerar inte (blockerad av Great Firewall of Russia)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Del 3: Oleg-mötet -->
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <h3>🤝 Del 3: Oleg-mötet - Gorkijparken (15:00)</h3>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <h4>Hur mötet är arrangerat</h4>
+                        <p><strong>Bakgrund:</strong> Spelarna har antingen:</p>
+                        <ul>
+                            <li>Kontakt via journalist-nätverk (från tidigare kapitel)</li>
+                            <li>Oleg hörde om "utlänningar som frågar om Slava" och tog kontakt</li>
+                            <li>GRU-kontakter gav dem Olegs namn</li>
+                        </ul>
+
+                        <p><strong>Instruktioner:</strong> "Gorkijparken, bänken vid dammen, 15:00. Kom ensamma."</p>
+
+                        <h4>Gorkijparken</h4>
+                        <div class="scene-box">
+                            <p><em>Gorkijparken sträcker sig längs Moskva-floden - en grön oas i den grå staden. November har gjort träden nakna, snöslaske faller. Familjer promenerar längs stigarna, barn leker trots kylan. Vid dammen står en ensam bänk. En man i grå rock sitter där, röker.</em></p>
+                        </div>
+
+                        <p><strong>Atmosphere:</strong></p>
+                        <ul>
+                            <li>Kallt (2°C), snöslask</li>
+                            <li>Få människor ute (perfekt för diskret möte)</li>
+                            <li>FSB-agenter kan vara i parken (Alertness-check för att märka)</li>
+                        </ul>
+
+                        <h4>Oleg Dmitrievich Kuznetsov</h4>
+                        <div class="stat-block">
+                            <h4>📋 NPC: Oleg</h4>
+                            <p><strong>Ålder:</strong> 48 år</p>
+                            <p><strong>Yrke:</strong> Före detta GRU-arkivarie (pensionerad/sparkad 2023)</p>
+                            <p><strong>Utseende:</strong> Grånande, djupa påsar under ögonen, nervös, kedjerökare (Belomor-cigaretter)</p>
+                            <p><strong>Motivation:</strong> Hatar vad Slava har blivit, rädd för De tre männen och deras inflytande</p>
+                            <p><strong>Personlighet:</strong> Paranoid, hoppfull, desperat för att "göra rätt"</p>
+                        </div>
+
+                        <h4>Mötet: Dialog</h4>
+                        <blockquote style="border-left: 3px solid var(--accent-secondary); padding-left: 1rem; margin: 1rem 0; color: var(--text-dim);">
+                            <p>När ni närmar er bänken reser mannen sig hastigt. Han tupplur på en cigarett med darrande händer.</p>
+                            <p><strong>Oleg:</strong> "Ni är de som frågar om Slava." (På brytande engelska) "Vi måste prata snabbt. De lyssnar överallt."</p>
+                            <p>Han tittar nervöst över axeln.</p>
+                        </blockquote>
+
+                        <h4>Information Oleg ger (om spelarna lyssnar)</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ämne</th>
+                                    <th>Information</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Slava</strong></td>
+                                    <td>
+                                        "Förr: nationalistisk stiftelse, bevarade militärhistoria. Nu: farlig kult. Sedan 1988 blev de våldsamma. Jag vet inte vad som hände, men de förändrades."
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>De tre männen</strong></td>
+                                    <td>
+                                        "Mahler, Pogodin, Kramer - jag såg deras filer i arkivet. Officiellt: dog under Leningrads belägring 1942. Men 2025 dyker de upp vid gränsen. Hur? De ser inte ut att ha åldrats."
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Camp S-17</strong></td>
+                                    <td>
+                                        "Hemlig facility, 80km nordost om Moskva. Stängdes 1950. Slava har alla filer - 44 barn från Leningrad, experiment, något med ljudfrekvenser. Jag läste inte allt. För hemskt."
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Volkov</strong></td>
+                                    <td>
+                                        "Dmitri Volkov begärde Camp S-17-filer från Slava 2024. Han nekades. Men han bröt sig in, stal kopior. Slava jagar honom. Jag vet inte om han lever."
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Varning</strong></td>
+                                    <td>
+                                        "Journalister som frågar om Slava försvinner. FSB skyddar dem. Det är inte säkert att vara här. Ni måste vara försiktiga."
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Vad Oleg kan erbjuda</h4>
+                        <ul>
+                            <li><strong>Falska press-ID:</strong> För att komma in i Slavas offentliga del (museum)</li>
+                            <li><strong>Adress till Slava-palatset:</strong> Vid Moskva-floden, nära parken</li>
+                            <li><strong>Volkovs adress:</strong> Leninskiye Gory-distriktet (om de frågar)</li>
+                            <li><strong>Varning om safe house:</strong> "De tre männen har en plats i industriområdet. Jag vet inte exakt var."</li>
+                        </ul>
+
+                        <div class="warning-box">
+                            <strong>⚠️ AVSLUTANDE SCEN:</strong><br>
+                            Efter 15 minuter blir Oleg allt nervösare. Han ser någonting (eller tror sig se) över spelarnas axel.
+                            <blockquote style="border-left: 3px solid var(--accent-danger); padding-left: 1rem; margin: 1rem 0;">
+                                <strong>Oleg:</strong> "Jag måste gå. NU." (Slänger cigaretten) "Om ni hittar något... bränn det. Slava får inte veta att ni var här."
+                            </blockquote>
+                            <p>Han försvinner snabbt i folkmassan.</p>
+                            <p><strong>Alertness-check:</strong> Spelarna kan märka en svart sedan parkerad 50 meter bort. Två män i mörka kläder sitter i framsätet och tittar mot dem.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Del 4: Första kvällen -->
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <h3>🌃 Del 4: Första kvällen i Moskva (18:00-24:00)</h3>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <h4>Tillbaka till Hotel Rossiya</h4>
+                        <p>Efter Oleg-mötet återvänder spelarna till hotellet (eller annan säker plats).</p>
+
+                        <div class="scene-box">
+                            <p><em>Moskvas skyline lyser upp mot kvällshimlen - Kreml, Stalin-skyskrapor, moderna torn. Men ljusen känns kalla, övervakade. Varje gatlykta kan ha en kamera. Varje förbipasserande kan vara FSB. Ni är i fiendens territorium nu.</em></p>
+                        </div>
+
+                        <h4>Vad spelarna kan göra (4-6 timmar)</h4>
+                        <ul>
+                            <li><strong>Planera infiltration:</strong> Slava-palatset (nästa dag)</li>
+                            <li><strong>Researcha Volkovs adress:</strong> Leninskiye Gory-området</li>
+                            <li><strong>Vila & återhämtning:</strong> Behövs för nästa dag</li>
+                            <li><strong>Utrustning:</strong> Köpa burner phones, ryska kläder, verktyg</li>
+                            <li><strong>Kontakter:</strong> Försöka nå fler källor (riskabelt)</li>
+                        </ul>
+
+                        <h4>Nattliga händelser</h4>
+                        <p><strong>Parasite Disease fortskrider:</strong></p>
+                        <ul>
+                            <li>Stage 2-symtom förvärras: hudblekhet, 247Hz-humming konstant</li>
+                            <li>Black Madonna-dockan "huttar" om den är i rummet</li>
+                            <li>Känner att något i Moskva "kallar" dem</li>
+                        </ul>
+
+                        <div class="warning-box">
+                            <strong>💀 MARDRÖMMAR:</strong> Alla spelarna har mardrömmar om Leningrad 1942.
+                            <blockquote style="border-left: 3px solid var(--accent-danger); padding-left: 1rem; margin: 1rem 0;">
+                                <p><em>Ni ser barnen igen. Camp S-17. Små ansikten, uttröttade, hungriga. De sitter i rad på kallt betong. En man i vit rock - Dr. Tatlin - justerar maskiner. 247Hz-tonen börjar. Barnen skriker. Ni vaknar svettiga.</em></p>
+                            </blockquote>
+                            <p><strong>SAN-check: 0/1</strong></p>
+                        </div>
+
+                        <h4>FSB-observation</h4>
+                        <p>Om spelarna tittar ut genom fönstret sent (02:00-04:00):</p>
+                        <ul>
+                            <li>Svarta sedaner patrullerar utanför hotellet</li>
+                            <li>Två män står och röker vid ingången - inte hotellpersonal</li>
+                            <li>De är under övervakning, men inte arresterade (ännu)</li>
+                        </ul>
+
+                        <div class="info-box">
+                            <strong>🎯 Övergång till Scene 2:</strong>
+                            <p>Nästa morgon måste spelarna välja första målet:</p>
+                            <ul>
+                                <li><strong>A) Slava-palatset</strong> - Officiell infiltration med falska press-ID</li>
+                                <li><strong>B) Volkovs lägenhet</strong> - Om de vill undersöka hans lab först</li>
+                                <li><strong>C) Camp S-17 ruiner</strong> - Direktresa (80km, kräver bil)</li>
+                            </ul>
+                            <p><strong>Rekommenderad ordning:</strong> Slava först → Volkov → Camp S-17 → Nesterov</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SCENE 1B: TRUCK ROUTE -->
+        <div class="section">
+            <h2>🚛 SCENE 1B: ANKOMST - TRUCK ROUTE</h2>
+            <p><strong>Location:</strong> Tekstilshchiki industrial district → Säker plats → Gorkijparken</p>
+            <p><strong>Tid:</strong> 23:00 (Dag 1) - 20:00 (Dag 2) (~21 timmar)</p>
+            <p><strong>Pacing:</strong> Desperat → Utmattad → Återhämtning → Kontakt</p>
+
+            <!-- Del 1: Ankomst Tekstilshchiki -->
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <h3>🏭 Del 1: Tekstilshchiki Industrial District (23:00)</h3>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="scene-box">
+                            <p><em>Container-dörrarna svänger upp. Kall Moskva-nattluft slår emot er. November-kyla. Ni klättrar ut - stela, utmattade, trasiga. 60 timmar i container är över. Ni har överlevt. Ni är i Ryssland.</em></p>
+                        </div>
+
+                        <h4>Beskrivning: Industrial District</h4>
+                        <p><strong>Tekstilshchiki</strong> är en gammal sovjetisk industrizon i sydöstra Moskva.</p>
+
+                        <blockquote style="border-left: 3px solid var(--accent-secondary); padding-left: 1rem; margin: 1rem 0; color: var(--text-dim);">
+                            "Kring er: gammala textilfabriker, tomma lager, sprucken asfalt. Minimal belysning - perfekt för diskret ankomst. Det är tyst. Inga människor. Bara vinden genom trasiga fönster. Lastbilen står parkerad vid ett gammalt lager. Ivan står vid dörrarna med en termos kaffe och cigaretter."
+                        </blockquote>
+
+                        <h4>Ivan's Farväl</h4>
+                        <p><strong>Ivan (på ryska, trött leende):</strong> "Welcome to Moscow, Americans. You survive. Not many do."</p>
+
+                        <p>Han ger er kaffe. Det smakar som gudarnas nektar efter 60 timmar.</p>
+
+                        <h4>Ivan's Final Instructions</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ämne</th>
+                                    <th>Information</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Location</strong></td>
+                                    <td>"Vi är i Tekstilshchiki-distriktet. Industrizon. Ingen bryr sig om främlingar här."</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Transport</strong></td>
+                                    <td>"Metro-station två kvarter norrut." <em>*Pekar*</em> "Orange line till city center."</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cover Story</strong></td>
+                                    <td>"Om polisen frågar: ni är turkiska arbetare. Från byggföretag. Inga ryska working permits än. Turkisk är säkraste cover. Många turkiska arbetare i Moskva nu."</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Varning</strong></td>
+                                    <td>"Prata INTE engelska på metro. Ryssar märker. Stay quiet. Er ryska accent är dålig. Försök inte prata ryska till polisen."</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Payment</strong></td>
+                                    <td>"Werner betalade mig redan. We are done. Men om ni behöver truck tillbaka till Europa... skicka meddelande via Werner. Cost more."</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Avfärd</strong></td>
+                                    <td>"Nu går jag. Jag har returresa till Belarus om sex timmar."</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>Ivan klättrar tillbaka in i lastbilen och kör iväg. Hans bakljus försvinner i mörkret.</p>
+
+                        <h4>Immediate Situation</h4>
+                        <div class="warning-box">
+                            <strong>⚠️ EXTREM UTMATTNING:</strong> Roll <strong>Constitution × 5</strong> (DC 40):
+                            <ul>
+                                <li><strong>Lyckas:</strong> Utmattade (<strong>-20% alla skills</strong>) men funktionsdugliga tills vila</li>
+                                <li><strong>Misslyckas:</strong> Behöver <strong>1d6 timmar sömn OMEDELBART</strong> eller kollaps</li>
+                            </ul>
+                        </div>
+
+                        <p><strong>Spelarnas tillstånd:</strong></p>
+                        <ul>
+                            <li>60 timmar i container - stela, utmattade, dehydrerade</li>
+                            <li>Behöver: mat, vatten, sömn, rena kläder, säker plats</li>
+                            <li>Parasite-symtom förvärrade från stress</li>
+                            <li>Det är 23:00, kallt (0°C), mörkt</li>
+                            <li>Ni är ENSAMMA i Moskvas industriområde</li>
+                        </ul>
+
+                        <h4>Vad spelarna måste göra</h4>
+                        <p>Spelarna har flera alternativ, men alla är riskabla:</p>
+                        <ol>
+                            <li><strong>Metro till safe house</strong> (om de arrangerat en i Kapitel 4)</li>
+                            <li><strong>Hitta billigt hotell/hostel</strong> med Turkish worker-cover (riskabelt)</li>
+                            <li><strong>Sova rough</strong> - hitta övergiven byggnad i industriområdet för natten</li>
+                            <li><strong>Kontakta rysk asset</strong> (om de har lokal kontakt - sällsynt)</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Del 2: Första natten survival -->
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <h3>🌙 Del 2: Första natten - Survival (23:00-08:00)</h3>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <h4>Alternativ A: Metro till Safe House</h4>
+                        <p><strong>Om spelarna förberedde safe house i Kapitel 4:</strong></p>
+                        <ul>
+                            <li>2 kvarter till Tekstilshchiki metro station (Orange line)</li>
+                            <li>30 minuter resa till centrum (56 rubler per person)</li>
+                            <li>Metro stänger 01:00 - de måste skynda sig</li>
+                            <li>Risk: Poliskontroll på metro (Stealth eller Persuasion check)</li>
+                        </ul>
+
+                        <div class="scene-box">
+                            <p><strong>Metro-scen:</strong></p>
+                            <p><em>Metro-stationen är nästan tom sent på kvällen. Några berusade arbetare, en ensam kvinna med shoppingkassar. Ni köper biljetter från automaten (ryska menyer - Navigation check). Tåget anländer. Ni kliver på. Fluorescerande ljus, dålig luft, plastiska säten. Ni försöker se ut som turkiska arbetare - tysta, trötta, obemärkta.</em></p>
+                            <p><strong>Stealth-check:</strong> Om misslyckad, en polis börjar titta lite för länge på er...</p>
+                        </div>
+
+                        <h4>Alternativ B: Billigt Hostel</h4>
+                        <p><strong>Om de inte har safe house:</strong></p>
+                        <ul>
+                            <li>Hitta billigt hostel i området (Streetwise eller Luck check)</li>
+                            <li>Turkish worker cover story: "Vi väntar på work permits"</li>
+                            <li>Betala kontant (2000 rubler för natten)</li>
+                            <li>Risk: Hotell kan rapportera utlänningar till FSB</li>
+                        </ul>
+
+                        <div class="info-box">
+                            <p><strong>Hostel-scen:</strong></p>
+                            <p>Ett slitet hostel vid industriområdet - "Arbat Hostel", en nedgången byggnad med rysk text på fasaden. Receptionen är en äldre man som luktar vodka. Han tittar på er misstänksamt men tar emot kontanter utan frågor.</p>
+                            <p><strong>Persuasion-check:</strong> Övertyga att ni är turkiska arbetare (Hard om spelarna inte har trovärdiga kläder/utseende).</p>
+                        </div>
+
+                        <h4>Alternativ C: Sleep Rough</h4>
+                        <p><strong>Om de inte vågar riskera hotell:</strong></p>
+                        <ul>
+                            <li>Hitta övergiven fabriksbyggnad i Tekstilshchiki</li>
+                            <li>Survival-check för att hitta säker plats</li>
+                            <li>EXTREMT kallt (0°C) - risk för hypothermia</li>
+                            <li>Säkrare från FSB men fysiskt farligt</li>
+                        </ul>
+
+                        <div class="warning-box">
+                            <strong>⚠️ ROUGH SLEEPING:</strong>
+                            <ul>
+                                <li><strong>Constitution-check varje 3 timmar</strong> för att inte få hypothermia</li>
+                                <li>Misslyckad check: <strong>-1d4 HP</strong> från köld</li>
+                                <li>Ingen ordentlig vila (räknas som "light sleep" - återhämtar bara hälften)</li>
+                                <li>Risk: Hemlösa, gangsters, polisräder</li>
+                            </ul>
+                        </div>
+
+                        <div class="scene-box">
+                            <p><strong>Rough sleeping-scen:</strong></p>
+                            <p><em>Ni hittar en gammal fabrik - fönster trasiga, ingen dörr. Inne: trasiga maskiner, rostigt järn, kalla betong. Ni lägger er i ett hörn, använder jackor som filtar. Vinden visslar genom väggarna. Det är förbannat kallt. Ni tar vakter - 2 timmar var. Ingen sover ordentligt.</em></p>
+                        </div>
+
+                        <h4>Mardrömmar (Oavsett alternativ)</h4>
+                        <p><strong>Alla spelarna har intensiva mardrömmar:</strong></p>
+
+                        <div class="warning-box">
+                            <strong>💀 MARDRÖMMAR:</strong>
+                            <blockquote style="border-left: 3px solid var(--accent-danger); padding-left: 1rem; margin: 1rem 0;">
+                                <p><em>Ni är i container igen. Men nu är ni barn. Små händer på metallväggar. Ni hör 247Hz-tonen. Utanför: Dr. Tatlin's röst. "Subject 15, 16, 17 - prepare for phase activation." Ni skriker men ingen hör. Ni vaknar svettiga, darrande.</em></p>
+                            </blockquote>
+                            <p><strong>SAN-check: 0/1</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Del 3: Morgonen efter -->
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <h3>☀️ Del 3: Morgonen efter - Återhämtning (08:00-14:00)</h3>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <h4>Dag 2 börjar</h4>
+                        <p>Spelarna vaknar (eller har överlevt natten). Det är morgon i Moskva.</p>
+
+                        <div class="scene-box">
+                            <p><em>Moskvas morgon. Grå himmel, snöslask faller. Staden vaknar till liv - trafik, människor, metro. Ni är uttröttade men levande. Ni har lyckats smugglas in i Ryssland. Nu börjar det riktiga arbetet.</em></p>
+                        </div>
+
+                        <h4>Återhämtning</h4>
+                        <p><strong>Efter 6-8 timmars sömn:</strong></p>
+                        <ul>
+                            <li>-20% skill penalty KVARSTÅR tills ordentlig vila (12 timmar i säker säng)</li>
+                            <li>Spelarna kan fungera men är fortsatt utmattade</li>
+                            <li>Behöver: mat, kaffe, rena kläder</li>
+                        </ul>
+
+                        <p><strong>Vad spelarna kan göra (08:00-15:00):</strong></p>
+                        <ul>
+                            <li><strong>Hitta mat:</strong> Billiga ryska caféer, gatukök (200 rubler)</li>
+                            <li><strong>Köpa kläder:</strong> Secondhand-butiker för att se ut som lokala (1000 rubler)</li>
+                            <li><strong>Burner phones:</strong> Ryska SIM-kort, prepaid phones (500 rubler)</li>
+                            <li><strong>Kontakta Oleg:</strong> Om de har hans nummer/instruktioner</li>
+                        </ul>
+
+                        <h4>Kontakta Oleg</h4>
+                        <p>Spelarna har antingen:</p>
+                        <ul>
+                            <li>Förarrangerat möte via journalist-nätverk (från Kapitel 4)</li>
+                            <li>Fått kontaktinformation från GRU-källor</li>
+                            <li>Oleg hörde om "utlänningar som frågar om Slava" och tar kontakt själv</li>
+                        </ul>
+
+                        <div class="info-box">
+                            <p><strong>📱 Kontakt:</strong></p>
+                            <p>Om spelarna har Olegs nummer ringer de från burner phone. En nervös röst svarar på ryska. När de nämner "Slava" eller "Camp S-17" blir han tyst i 5 sekunder.</p>
+                            <p><strong>Oleg (på brytande engelska):</strong> "Who gave you this number?... OK. We meet. Gorkijparken. 15:00. Bench by the pond. Come alone. No phones."</p>
+                            <p>Han lägger på.</p>
+                        </div>
+
+                        <h4>Tid tills mötet</h4>
+                        <p>Spelarna har 3-4 timmar att förbereda sig:</p>
+                        <ul>
+                            <li>Vila mer (om möjligt)</li>
+                            <li>Researcha Slava online (riskabelt)</li>
+                            <li>Reconnaissance av Gorkijparken (smart)</li>
+                            <li>Planera exit-strategi</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Del 4: Oleg-mötet (SAMMA som 1A) -->
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <h3>🤝 Del 4: Oleg-mötet - Gorkijparken (15:00)</h3>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="info-box">
+                            <strong>📝 OBS:</strong> Denna del är IDENTISK med Scene 1A Del 3. Smuggelvägarna konvergerar här.
+                        </div>
+
+                        <h4>Gorkijparken</h4>
+                        <div class="scene-box">
+                            <p><em>Gorkijparken sträcker sig längs Moskva-floden - en grön oas i den grå staden. November har gjort träden nakna, snöslaske faller. Familjer promenerar längs stigarna. Vid dammen står en ensam bänk. En man i grå rock sitter där, röker.</em></p>
+                        </div>
+
+                        <h4>Oleg Dmitrievich Kuznetsov</h4>
+                        <div class="stat-block">
+                            <h4>📋 NPC: Oleg</h4>
+                            <p><strong>Ålder:</strong> 48 år</p>
+                            <p><strong>Yrke:</strong> Före detta GRU-arkivarie (pensionerad/sparkad 2023)</p>
+                            <p><strong>Utseende:</strong> Grånande, djupa påsar under ögonen, nervös, kedjerökare (Belomor-cigaretter)</p>
+                            <p><strong>Motivation:</strong> Hatar vad Slava har blivit, rädd för De tre männen</p>
+                        </div>
+
+                        <h4>Mötet: Dialog</h4>
+                        <blockquote style="border-left: 3px solid var(--accent-secondary); padding-left: 1rem; margin: 1rem 0; color: var(--text-dim);">
+                            <p><strong>Oleg:</strong> "Ni är de som frågar om Slava." (På brytande engelska) "Vi måste prata snabbt. De lyssnar överallt."</p>
+                        </blockquote>
+
+                        <h4>Information Oleg ger</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ämne</th>
+                                    <th>Information</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Slava</strong></td>
+                                    <td>"Nationalistisk stiftelse blev farlig kult 1988. Jag vet inte vad som hände."</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>De tre männen</strong></td>
+                                    <td>"Mahler, Pogodin, Kramer. Dog officiellt 1942. Men 2025 ser de inte åldrade."</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Camp S-17</strong></td>
+                                    <td>"80km nordost Moskva. 44 barn från Leningrad. Experiment med ljudfrekvenser. För hemskt."</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Volkov</strong></td>
+                                    <td>"Begärde filer 2024. Nekades. Bröt sig in, stal kopior. Slava jagar honom."</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Varning</strong></td>
+                                    <td>"Journalister försvinner. FSB skyddar Slava. Var försiktiga."</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Vad Oleg erbjuder</h4>
+                        <ul>
+                            <li><strong>Falska press-ID</strong> för Slava-palatset</li>
+                            <li><strong>Adress till Slava-palatset</strong> (vid Moskva-floden)</li>
+                            <li><strong>Volkovs adress</strong> (Leninskiye Gory-distriktet)</li>
+                            <li><strong>Varning om safe house</strong> för De tre männen</li>
+                        </ul>
+
+                        <div class="warning-box">
+                            <strong>⚠️ AVSLUTANDE:</strong>
+                            <blockquote style="border-left: 3px solid var(--accent-danger); padding-left: 1rem; margin: 1rem 0;">
+                                <strong>Oleg:</strong> "Jag måste gå. NU." (Slänger cigaretten) "Om ni hittar något... bränn det."
+                            </blockquote>
+                            <p>Han försvinner i folkmassan. En svart sedan är parkerad 50 meter bort.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Del 5: Kvällen - Planering -->
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <h3>🌃 Del 5: Kvällen - Planering (18:00-24:00)</h3>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <h4>Hitta permanent logi</h4>
+                        <p>Om spelarna inte redan har en säker plats, måste de nu hitta en:</p>
+
+                        <p><strong>Alternativ:</strong></p>
+                        <ul>
+                            <li><strong>Hotel Rossiya:</strong> (Samma som Scene 1A) - Dyrt, övervakat, men legitimt</li>
+                            <li><strong>Billigt hostel:</strong> Turkish worker cover, mindre övervakat</li>
+                            <li><strong>Safe house:</strong> Om de lyckats arrangera via kontakter</li>
+                            <li><strong>Fortsätt rough:</strong> Riskabelt men osynligt</li>
+                        </ul>
+
+                        <h4>Vad spelarna kan göra</h4>
+                        <ul>
+                            <li><strong>Vila ordentligt:</strong> 12 timmar sömn = ta bort -20% skill penalty</li>
+                            <li><strong>Planera Slava-infiltration:</strong> Nästa dag</li>
+                            <li><strong>Researcha Volkovs adress:</strong> Leninskiye Gory-området</li>
+                            <li><strong>Utrustning:</strong> Köpa verktyg för infiltration</li>
+                        </ul>
+
+                        <h4>Parasite Disease</h4>
+                        <p><strong>Stage 2 förvärras efter stress:</strong></p>
+                        <ul>
+                            <li>247Hz-humming konstant nu</li>
+                            <li>Hudblekhet mer synlig</li>
+                            <li>Black Madonna-dockan "huttar" om nära</li>
+                            <li>Känner att något i Moskva "kallar"</li>
+                        </ul>
+
+                        <div class="info-box">
+                            <strong>🎯 Övergång till Scene 2:</strong>
+                            <p>Nästa morgon (Dag 3) väljer spelarna första målet:</p>
+                            <ul>
+                                <li><strong>A) Slava-palatset</strong> - Arkiv-infiltration med falska press-ID</li>
+                                <li><strong>B) Volkovs lägenhet</strong> - Undersök hans lab först</li>
+                                <li><strong>C) Camp S-17</strong> - Direktresa (80km, kräver bil)</li>
+                            </ul>
+                            <p><strong>Rekommenderad ordning:</strong> Slava → Volkov → Camp S-17 → Nesterov</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // Collapsible sections
+        document.addEventListener('DOMContentLoaded', function() {
+            const headers = document.querySelectorAll('.collapsible-header');
+
+            headers.forEach(header => {
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.collapsible-icon');
+
+                    content.classList.toggle('active');
+
+                    if (content.classList.contains('active')) {
+                        icon.textContent = '▼';
+                    } else {
+                        icon.textContent = '▶';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
