@@ -190,7 +190,6 @@ PA LTCF erkänns i följande stater:
 - $150,000 böter
 - Loss of gun rights permanent
 - Förlora USAR-jobb (federal employment)
-- Förlora Delta Green status
 
 **Trench måste:**
 - ALDRIG bära vapen i New Jersey
