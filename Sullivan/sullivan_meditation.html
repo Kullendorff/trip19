@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Father Sullivan - Meditation | Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0a;
+            --bg-darker: #050805;
+            --accent: #b87333;
+            --accent-dim: #8b5a2b;
+            --text: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --border: #2d3d2d;
+            --highlight: #3d5a3d;
+            --warning: #ff6b35;
+            --success: #b87333;
+            --danger: #ff3366;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--bg-darker);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            text-align: center;
+            line-height: 1.4;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(184, 115, 51, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent-dim);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h3 {
+            color: var(--accent-dim);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+        }
+
+        h4 {
+            color: var(--text);
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-dim);
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-dim);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .dark-card {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .quote-box {
+            background: rgba(184, 115, 51, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+        }
+
+        .weapon-card {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .weapon-card h4 {
+            color: var(--accent);
+            margin-top: 0;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: relative;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="logo">
+                ▲ DELTA GREEN<br>
+                AGENT FILE: SULLIVAN
+            </div>
+
+            <div class="nav-section">
+                <div class="page-link-container">
+                    <a href="index.html" class="page-link">KARAKTÄR</a>
+                    <a href="sullivan_pastoral.html" class="page-link">PASTORAL</a>
+                    <a href="sullivan_operativt.html" class="page-link">OPERATIVT</a>
+                    <a href="sullivan_personligt.html" class="page-link">PERSONLIGT</a>
+                    <a href="sullivan_meditation.html" class="page-link active">MEDITATION</a>
+                    <a href="sullivan_bibelcitat.html" class="page-link">BIBELCITAT</a>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-title">SNABBNAVIGERING</div>
+                <a href="#jakt-fiske" class="nav-link">Jakt & Fiske</a>
+                <a href="#mobelrestaurering" class="nav-link">Möbelrestaurering</a>
+            </div>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">
+                    ✦ TRIP 19 ✦<br>
+                    ← CHESAPEAKE CELL
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1>MEDITATION</h1>
+            <div class="subtitle">
+                "Kan inte laga människor. Kan inte laga tro. Men i stillheten finns något. I arbetet med händerna finns ro."
+            </div>
+
+            <section id="jakt-fiske" class="section">
+                <h2>STILLHETENS VAPENBÄRARE</h2>
+
+                <p>Det finns dagar då Sullivan behöver mer än bön. När vardagens störningar – människors röster, bilmotorers dån, själva pulsen av civilisation – blir för mycket, flyr han ut i det Gud faktiskt skapade. Inte för att döda. Inte primärt. Men för att <em>vara</em>.</p>
+
+                <p>Han äger tre vapen som inte är för Delta Green. De finns i ett annat vapenskåp, hemma, och har aldrig sett det onaturliga. Det ska de heller aldrig göra.</p>
+
+                <h3>Vapnen</h3>
+
+                <div class="weapon-card">
+                    <h4>Remington 870 Wingmaster</h4>
+                    <p><strong>12-kaliber, klassisk pump-action från 70-talet</strong></p>
+                    <p>Hagelpumpen från 1951. Över elva miljoner sålda exemplar. Det finns en anledning till att den fortfarande tillverkas. Sullivan köpte sin begagnad för tjugo år sedan av en pensionerad pastor som aldrig fått sin son att älska jakten. Geväret är driftsäkert, robust, och har ingen ambition att vara mer än vad det är: ett verktyg.</p>
+                    <p>Enkel kolv i valnöt, ingen chroming, inga förlängda magasin eller annat taktiskt trams. Det är ett jaktgevär som ser ut som ett jaktgevär.</p>
+                    <p><em>Sullivan jagar ibland fasan eller anka, men det är sidoeffekten. Det är processen han söker – gryningsljuset genom träden, stillheten innan skottet, respekten efteråt.</em></p>
+                </div>
+
+                <div class="weapon-card">
+                    <h4>Winchester Model 70</h4>
+                    <p><strong>.30-06 Springfield, pre-'64 stil med kontrollerad matning</strong></p>
+                    <p>"The Rifleman's Rifle". Sullivans är en äldre modell i .30-06 Springfield. Kalibern som fostrade amerikanska jägare i generationer. Det är inget sexigt vapen, inget med justerbara kolvar eller digitala kikarsikten. Bara en träkolv som har format sig efter hans axel, och en mekanism som aldrig sviker.</p>
+                    <p>Enkel träkolv, standard weaver-baser för kikarsikte (ett gammalt Leupold 3-9x40, inget fancy). Tillräckligt för vitsvanshjort eller mule deer på 150-200 meter, vilket är allt Sullivan behöver.</p>
+                    <p>Han har använt det tre gånger för hjort. Varje gång har han burit köttet hem, delat med grannar, och tackat djuret i bön. Sullivan tror inte på trofékulturen – att hänga upp döda blickar på väggen och påstå att man är något. Men att ta ansvar för sitt kött, att veta varifrån det kommer och att hedra offret? Det är något annat.</p>
+                </div>
+
+                <div class="weapon-card">
+                    <h4>Orvis Clearwater 905-4</h4>
+                    <p><strong>9-fots fyrdelat flugfiskespö i klass 5</strong></p>
+                    <p>Flugfiskespöt som känns naturligt i hans hand. Vermont-tillverkat, klassisk design, inget fuffens. Det är inte det dyraste spöt Orvis gör, men det är mer än tillräckligt bra.</p>
+                    <p>Medium-fast action, perfekt för öring och bass i östra USA. Kommer med Clearwater II Large Arbor-rulle och WF-5 lina. Designat i Vermont, byggt för att hålla, inget du behöver vara rädd för att använda.</p>
+                    <p>Sullivan fiskar catch-and-release längs mindre vattendrag i Virginia och Maryland – ofta tidiga morgnar eller sena kvällar när ingen annan är där. Han binder sina egna flugor ibland. Inte för att han är bra på det, men för att det är mediterande. Små, precisa rörelser. Tålamod. Respekt för detaljerna.</p>
+                </div>
+
+                <hr>
+
+                <h3>Filosofin bakom</h3>
+
+                <div class="dark-card">
+                    <p>Sullivan är ingen pacifist. Han vet vad våld är, och han har utövat det i Guds namn – även om han inte längre är säker på om Gud godkände. Men jakten och fisket är något annat. Där finns en ärlighet i relationen mellan jägare och byte som saknas i det moderna samhället. Du ser djuret. Du tar dess liv medvetet. Du tar ansvar för konsekvenserna.</p>
+
+                    <p style="margin-top: 1rem;">Att sitta på pass i fem timmar utan att se något – <em>det är också jakt</em>. Att flyga en torr fluga över strömmar i två timmar och få napp en gång – <em>det är meditation</em>.</p>
+
+                    <p style="margin-top: 1rem;">Han struntar i trofejakt. Att skjuta för Instagram eller för väggan är för honom en sorts dödssynd – fåfänga förpackad som sport. Men att jaga för att äta? För att vara del av livscykeln istället för en konsument i en kedja? Det är meningsfullt.</p>
+                </div>
+
+                <hr>
+
+                <h3>Respekt för verktyget</h3>
+
+                <div class="quote-box">
+                    <p>Sullivan rengör vapnen efter varje användning. Inte av militär vana – även om den finns där – utan av respekt. Dessa verktyg har ett syfte. De är inte toys. De är inte kompensation. De är en brygga mellan honom och något större. En påminnelse om att livet och döden alltid har varit sammanflätade, och att ärligheten i det är något heligt – även när kyrkobesöken har blivit färre.</p>
+                </div>
+
+                <div class="dark-card" style="margin-top: 2rem;">
+                    <p><strong>TL;DR:</strong> Sullivan jagar inte ofta, men när han gör det är det meditation. Inga fancy prylar, bara pålitliga klassiker som överlevt generationer. Respekt för djuret. Respekt för processen. Ingen Instagram-jägare. Han fiskar fluga för att slippa tänka på allt annat. Verktyg: Remington 870, Winchester Model 70 i .30-06, Orvis Clearwater-spö.</p>
+                </div>
+            </section>
+
+            <section id="mobelrestaurering" class="section">
+                <h2>MÖBELRESTAURERING</h2>
+                <div class="subtitle">
+                    "Kan inte laga människor. Kan inte laga tro. Men den här byrån från 1953? Den kan jag ge nytt liv."
+                </div>
+
+                <h3>Hobbyn</h3>
+                <p>Sullivan restaurerar gamla, trasiga möbler han hittar på loppmarknader, estate sales, eller övergivna vid vägkanten. Började några månader efter att han kom hem från sin sista deployment - kunde inte sova, behövde något för händerna.</p>
+
+                <h3>Arbetsplatsen</h3>
+                <div class="dark-card">
+                    <p>Har ett hörn i garaget. Ordning och reda bland sandpapper (graderat 80-400 grit), fernissa, bets, träolja. Lukten av terpentin och linolja. Verktyg upphängda på pegboard - exakt rätt avstånd mellan varje.</p>
+                </div>
+
+                <h3>Processen</h3>
+                <p>Alltid samma ritual:</p>
+                <div class="dark-card">
+                    <ol style="padding-left: 2rem; line-height: 2;">
+                        <li><strong>Demontera försiktigt</strong> - dokumentera varje skruv</li>
+                        <li><strong>Slipa bort det gamla</strong> - lager efter lager av andras val</li>
+                        <li><strong>Laga sprickor</strong> - med lim och tålamod</li>
+                        <li><strong>Ny finish</strong> - men behåller patina, ärren som ger karaktär</li>
+                        <li><strong>Sätta ihop igen</strong> - starkare än förut</li>
+                    </ol>
+                </div>
+
+                <h3>Symboliken (som han aldrig pratar om)</h3>
+                <div class="quote-box">
+                    <p>Varje möbel är en predikan han inte längre kan hålla:</p>
+                    <p style="font-size: 1.1rem; margin-top: 1rem;"><em>Något trasigt kan bli helt igen. Inte som det var, men funktionellt. Vackert på sitt sätt.</em></p>
+                </div>
+
+                <h3>Detaljer</h3>
+                <div class="dark-card">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                            <strong>Specialisering:</strong> 1940-50-talets amerikanska möbler - från när saker byggdes för att hålla
+                        </li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                            <strong>Vad händer sen:</strong> Ger bort det mesta när det är klart - till församlingsmedlemmar, välgörenhet, vem som behöver
+                        </li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                            <strong>Den han behåller:</strong> En bönemöbel från 1947 som han aldrig blir klar med. Alltid något mer att fixa
+                        </li>
+                        <li style="padding: 0.5rem 0;">
+                            <strong>Mac's stol:</strong> Mac har en av hans restaurerade stolar i sitt kök. Sullivan sa bara "Den stod bara och tog plats."
+                        </li>
+                    </ul>
+                </div>
+
+                <h3>När det kopplar till Delta Green</h3>
+                <div class="dark-card">
+                    <p>Efter särskilt hemska operationer tillbringar han nätter i garaget.</p>
+                    <p><strong>Slipa. Olja. Slipa. Olja.</strong></p>
+                    <p>Grannarna klagar aldrig - han är så tyst. Bara det metodiska ljudet av sandpapper mot trä.</p>
+                    <p style="margin-top: 1rem; font-style: italic;">Händerna arbetar. Tankarna får vila. För några timmar är världen enkel igen.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active section highlighting
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.section');
+
+        function updateActiveLink() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = 'var(--text-dim)';
+                link.style.borderBottomColor = 'transparent';
+                const href = link.getAttribute('href');
+                if (href && href.substring(1) === current) {
+                    link.style.color = 'var(--text)';
+                    link.style.borderBottomColor = 'var(--accent-dim)';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        updateActiveLink();
+    </script>
+</body>
+</html>
