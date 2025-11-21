@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MÖTESPLATSER - Sparky's Val</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0e1a;
+            --bg-darker: #060911;
+            --accent: #00ff88;
+            --accent-dim: #00cc6a;
+            --text: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --border: #1a2332;
+            --warning: #ff6b35;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Navigation Sidebar */
+        .sidebar {
+            background: var(--bg-darker);
+            border-right: 2px solid var(--border);
+            padding: 2rem 1rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: var(--bg-darker);
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--accent-dim);
+            border-radius: 4px;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(0, 255, 136, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text);
+            border-bottom-color: var(--accent-dim);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+        }
+
+        h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .intro {
+            background: rgba(0, 255, 136, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+            border-radius: 4px;
+        }
+
+        .intro p {
+            color: var(--text);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Location Cards */
+        .location-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .location-card {
+            background: var(--bg-darker);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .location-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 255, 136, 0.2);
+        }
+
+        .location-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .location-number {
+            font-family: 'Courier New', monospace;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            min-width: 60px;
+        }
+
+        .location-title {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .location-title h3 {
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin: 0;
+        }
+
+        .location-address {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--accent);
+            color: var(--bg-dark);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .map-link:hover {
+            background: var(--accent-dim);
+            transform: scale(1.05);
+        }
+
+        .location-description {
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-dim);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: relative;
+                height: auto;
+                border-right: none;
+                border-bottom: 2px solid var(--border);
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+
+            .location-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .map-link {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .location-number {
+                font-size: 1.5rem;
+            }
+
+            .location-title h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .map-link {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="logo">
+                ▲ DELTA GREEN<br>
+                AGENT FILE: SPARKY
+            </div>
+
+            <div class="nav-section">
+                <div class="page-link-container">
+                    <a href="index.html" class="page-link">⚡ KARAKTÄR</a>
+                    <a href="sparky_tekniskt.html" class="page-link">💻 TEKNISKT</a>
+                    <a href="sparky_operativt.html" class="page-link">🎯 OPERATIVT</a>
+                    <a href="sparky_delta_green.html" class="page-link">▲ DELTA GREEN</a>
+                    <a href="sparky_personligt.html" class="page-link">❤️ PERSONLIGT</a>
+                    <a href="motesplatser.html" class="page-link active">📍 MÖTESPLATSER</a>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">
+                    ✦ TRIP 19 ✦<br>
+                    ← CHESAPEAKE CELL
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1>📍 MÖTESPLATSER - SPARKY'S VAL</h1>
+
+            <div class="intro">
+                <p><strong>10 riktiga lokaler i Greenbelt/College Park-området</strong></p>
+                <p style="margin-top: 0.5rem;">Sparky har scouta dessa platser. Välj en och ring/maila Mac med adress och tid.</p>
+            </div>
+
+            <div class="location-list">
+                <!-- Location 1 -->
+                <div class="location-card">
+                    <div class="location-header">
+                        <div class="location-number">01</div>
+                        <div class="location-title">
+                            <h3>NATIONAL ARCHIVES - RESEARCH ROOM</h3>
+                            <div class="location-address">8601 Adelphi Road, College Park, MD</div>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=8601+Adelphi+Road+College+Park+MD" target="_blank" class="map-link">
+                            🗺️ Öppna karta
+                        </a>
+                    </div>
+                    <div class="location-description">
+                        Öppen M-F 9-17. Låter helt legitim men opersonlig. Massa folk, men ingen som bryr sig om vad ni gör.
+                    </div>
+                </div>
+
+                <!-- Location 2 -->
+                <div class="location-card">
+                    <div class="location-header">
+                        <div class="location-number">02</div>
+                        <div class="location-title">
+                            <h3>BOWLERO COLLEGE PARK - PRIVAT LOUNGE</h3>
+                            <div class="location-address">9021 Baltimore Ave, College Park, MD</div>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=9021+Baltimore+Ave+College+Park+MD" target="_blank" class="map-link">
+                            🗺️ Öppna karta
+                        </a>
+                    </div>
+                    <div class="location-description">
+                        40 bowlingbanor, bar, arcade. Lounge-området sent på kvällen. Bullrigt nog för att täcka konversation.
+                    </div>
+                </div>
+
+                <!-- Location 3 -->
+                <div class="location-card">
+                    <div class="location-header">
+                        <div class="location-number">03</div>
+                        <div class="location-title">
+                            <h3>EXTRA SPACE STORAGE - KUNDLOUNGE</h3>
+                            <div class="location-address">9604 Baltimore Ave, College Park, MD</div>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=9604+Baltimore+Ave+College+Park+MD" target="_blank" class="map-link">
+                            🗺️ Öppna karta
+                        </a>
+                    </div>
+                    <div class="location-description">
+                        Säkerhetsfacilitet med väntrum/lounge för kunder. Lite bisarrt men helt privat. Personal bryr sig inte.
+                    </div>
+                </div>
+
+                <!-- Location 4 -->
+                <div class="location-card">
+                    <div class="location-header">
+                        <div class="location-number">04</div>
+                        <div class="location-title">
+                            <h3>PUBLIC STORAGE - KLIENTVÄNTRUM</h3>
+                            <div class="location-address">5151 Branchville Road, College Park, MD</div>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=5151+Branchville+Road+College+Park+MD" target="_blank" class="map-link">
+                            🗺️ Öppna karta
+                        </a>
+                    </div>
+                    <div class="location-description">
+                        Mindre än Extra Space. Ännu mindre synlig. Personal fokuserad på sitt jobb.
+                    </div>
+                </div>
+
+                <!-- Location 5 -->
+                <div class="location-card">
+                    <div class="location-header">
+                        <div class="location-number">05</div>
+                        <div class="location-title">
+                            <h3>HORNBAKE LIBRARY - SPECIALSAMLINGAR (MARYLAND ROOM)</h3>
+                            <div class="location-address">4130 Campus Drive, College Park, MD</div>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=4130+Campus+Drive+College+Park+MD" target="_blank" class="map-link">
+                            🗺️ Öppna karta
+                        </a>
+                    </div>
+                    <div class="location-description">
+                        UMD-bibliotek. Läsrum för Special Collections. Helt legitim forskning. Tyst och diskret.
+                    </div>
+                </div>
+
+                <!-- Location 6 -->
+                <div class="location-card">
+                    <div class="location-header">
+                        <div class="location-number">06</div>
+                        <div class="location-title">
+                            <h3>MCKELDRIN LIBRARY - GRUPP STUDIERUM (RESERVERAT)</h3>
+                            <div class="location-address">7649 Library Lane, College Park, MD</div>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=7649+Library+Lane+College+Park+MD" target="_blank" class="map-link">
+                            🗺️ Öppna karta
+                        </a>
+                    </div>
+                    <div class="location-description">
+                        Kan reservera grupprum 2-8 personer. UMD-studenter/personal. Helt normalt, helt privat.
+                    </div>
+                </div>
+
+                <!-- Location 7 -->
+                <div class="location-card">
+                    <div class="location-header">
+                        <div class="location-number">07</div>
+                        <div class="location-title">
+                            <h3>PRINCE GEORGE'S COMMUNITY COLLEGE - KLASSRUM</h3>
+                            <div class="location-address">301 Largo Road, Largo, MD</div>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=301+Largo+Road+Largo+MD" target="_blank" class="map-link">
+                            🗺️ Öppna karta
+                        </a>
+                    </div>
+                    <div class="location-description">
+                        Klassrum efter kvällskurser. Lite bort men helt isolerat och billigt.
+                    </div>
+                </div>
+
+                <!-- Location 8 -->
+                <div class="location-card">
+                    <div class="location-header">
+                        <div class="location-number">08</div>
+                        <div class="location-title">
+                            <h3>QUIET WATERS PARK - MARINA PARKERINGSPLATS</h3>
+                            <div class="location-address">10414 Old Annapolis Road, Annapolis, MD</div>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=10414+Old+Annapolis+Road+Annapolis+MD" target="_blank" class="map-link">
+                            🗺️ Öppna karta
+                        </a>
+                    </div>
+                    <div class="location-description">
+                        Park med marina. Bilar parkerande, ingen tittar på varandra. Kallt och opersonligt.
+                    </div>
+                </div>
+
+                <!-- Location 9 -->
+                <div class="location-card">
+                    <div class="location-header">
+                        <div class="location-number">09</div>
+                        <div class="location-title">
+                            <h3>ARBORETUM WOODS TRAIL - PICNIC AREA</h3>
+                            <div class="location-address">4603 Needwood Road, Rockville, MD</div>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=4603+Needwood+Road+Rockville+MD" target="_blank" class="map-link">
+                            🗺️ Öppna karta
+                        </a>
+                    </div>
+                    <div class="location-description">
+                        Naturlig miljö. Helt öppen men isolerad från människor. Oklar äganderätt (kan säga "forskning").
+                    </div>
+                </div>
+
+                <!-- Location 10 -->
+                <div class="location-card">
+                    <div class="location-header">
+                        <div class="location-number">10</div>
+                        <div class="location-title">
+                            <h3>BELTSVILLE AGRICULTURAL RESEARCH CENTER - BESÖKSCENTRUM</h3>
+                            <div class="location-address">10300 Baltimore Avenue, Beltsville, MD</div>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=10300+Baltimore+Avenue+Beltsville+MD" target="_blank" class="map-link">
+                            🗺️ Öppna karta
+                        </a>
+                    </div>
+                    <div class="location-description">
+                        Federal research facility. Visitor center. Professionellt men opersonligt. "Möte om miljö-forskning."
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
