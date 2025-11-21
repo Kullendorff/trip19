@@ -105,3 +105,46 @@ font-family: 'Courier New', Courier, monospace;
 7. black_madonna_ritual_teknisk.html - Färg
 
 **Resultat:** Alla speledarsidor i /SL/ följer nu samma font och färgschema för en konsekvent användarupplevelse.
+
+## SPRÅKSTANDARDISERING (Svenska)
+
+**Datum:** 2025-11-21
+**Scope:** Översättning av engelska UI-element och texter till svenska
+
+### Modifierade filer:
+
+**index.html:**
+- "HANDLER DASHBOARD" → "SL-KONTROLLPANEL"
+- "CLASSIFIED // DELTA GREEN EYES ONLY" → "KLASSIFICERAD // DELTA GREEN ENDAST FÖR SL"
+- "Navigation" → "Navigering"
+- "Who's Who" → "Vem är Vem"
+
+**mythos.html:**
+- "CLASSIFIED - HANDLER EYES ONLY" → "KLASSIFICERAD - ENDAST FÖR SPELLEDARE"
+- "Show, don't tell. Mystery, not explanation." → "Visa, berätta inte. Mysterium, inte förklaring."
+
+**sessions.html:**
+- "Dashboard" → "Kontrollpanel" (i back-länk)
+
+**npcs.html:**
+- Title tag: "Handler Dashboard" → "SL-Kontrollpanel"
+
+**black_madonna_chapter2.html:**
+- Title tag: "Shadows from the Past" → "Skuggor från det förflutna"
+
+**black_madonna_chapter3.html:**
+- Title tag: "Dark Dreams" → "Mörka drömmar"
+
+**black_madonna_index.html:**
+- "Chapter" → "Kapitel" (6 HTML-kommentarer)
+- "Chapter 5 Planning" → "Kapitel 5-planering"
+- "Chapter 4 Berlin-scener" → "Kapitel 4 Berlin-scener"
+- "Chapter 2, Scene 14" → "Kapitel 2, Scen 14" (flera instanser)
+
+### Resultat:
+Alla synliga UI-element och rubriker är nu på svenska, samtidigt som:
+- Egennamn (Delta Green, Trip 19, Volkov, etc.) behålls som de är
+- Tekniska termer och CSS-klasser behålls på engelska
+- Historiska citat som är menade att vara engelska behålls
+
+**Totalt:** 10 filer modifierade för svenskt språk
