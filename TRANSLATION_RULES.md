@@ -42,7 +42,6 @@ Engelska används endast för facktermer, speltermer, egennamn och tekniska term
 - "Emergency Backup" → **"Nöd-backup"**
 - "Escape routes" → **"Flyktvägar"**
 - "Bug-Out Plan" → **"Utrymningsplan"**
-- "Dead drops" → **"Döda brevlådor"**
 - "Handler" → **"Hanterare"**
 
 ### Tekniska Beskrivningar
@@ -114,6 +113,11 @@ Engelska används endast för facktermer, speltermer, egennamn och tekniska term
 - **concealed carry** (etablerad term)
 - **federal felony** (kan översättas till "federalt brott" MEN behåll i tekniska sammanhang)
 
+### Facktermer - Operativa & Spionage
+❌ Översätt INTE etablerade spionage/operativa facktermer:
+- **dead drop / dead drops** (etablerad spionageterm)
+- **handler** används ofta som fackterm (men "hanterare" OK i vissa sammanhang)
+
 ### Egennamn - Organisationer
 ❌ Översätt INTE organisationsnamn:
 - **Myndigheter:** NSA, FBI, CIA, DHS, TSA, ICE, ATF, FLETC
@@ -163,6 +167,7 @@ Engelska används endast för facktermer, speltermer, egennamn och tekniska term
 - **cyberspace** (inte "cyberrymden")
 - **email** (inte "e-post" nödvändigtvis)
 - **feedback** (inte "återkoppling" nödvändigtvis)
+- **portfolio** (inte "portfölj" - etablerat inom konst/professionella sammanhang)
 
 ### Sammansatta Termer
 🔄 För sammansatta termer, översätt den beskrivande delen:
