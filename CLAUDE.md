@@ -78,3 +78,5 @@ Each character has a dedicated folder containing:
 - Swedish language throughout interface and content
 - Accessible semantic HTML structure
 - Print-friendly styling considerations
+
+För alla sidor som skapas för SL under /SL-mappen .. följ MALL_GUIDE.md

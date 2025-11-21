@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPARKY'S PERSONAL OPSEC TOOLKIT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0e1a;
+            --bg-darker: #060911;
+            --accent: #00ff88;
+            --accent-dim: #00cc6a;
+            --text: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --border: #1a2332;
+            --warning: #ff6b35;
+            --success: #00ff88;
+            --danger: #ff3366;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .back-link:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        .header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .header h1 {
+            font-family: 'Courier New', monospace;
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .quote {
+            font-style: italic;
+            color: var(--text-dim);
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--accent-dim);
+        }
+
+        .overview {
+            background: var(--bg-darker);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border);
+        }
+
+        .overview h2 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .overview p {
+            margin-bottom: 1rem;
+        }
+
+        .philosophy {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 1.5rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--accent);
+            margin-top: 1.5rem;
+        }
+
+        .philosophy strong {
+            color: var(--accent);
+        }
+
+        .category {
+            margin-bottom: 4rem;
+        }
+
+        .category-header {
+            background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+
+        .category-header h2 {
+            font-size: 1.8rem;
+            color: var(--bg-dark);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .app-card {
+            background: var(--bg-darker);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .app-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+        }
+
+        .app-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .app-number {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            color: var(--accent-dim);
+            font-weight: bold;
+        }
+
+        .app-name {
+            font-size: 1.4rem;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .app-status {
+            margin-left: auto;
+            padding: 0.25rem 0.75rem;
+            background: var(--success);
+            color: var(--bg-dark);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .app-content {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .app-field {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 1rem;
+        }
+
+        .app-field-label {
+            color: var(--accent-dim);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .app-field-value {
+            color: var(--text);
+        }
+
+        .app-note {
+            background: rgba(255, 107, 53, 0.1);
+            padding: 0.75rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--warning);
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .crown-jewel {
+            background: linear-gradient(135deg, #1a0f0a 0%, var(--bg-darker) 100%);
+            border: 2px solid var(--warning);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .crown-jewel::before {
+            content: "👑 CROWN JEWEL";
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--warning);
+            color: var(--bg-dark);
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        .crown-jewel .app-name {
+            color: var(--warning);
+        }
+
+        .crown-features {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 4px;
+        }
+
+        .crown-features h4 {
+            color: var(--warning);
+            margin-bottom: 0.75rem;
+        }
+
+        .crown-features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .crown-features li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .crown-features li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--warning);
+        }
+
+        .footer-nav {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .app-field {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .category-header h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="sparky_tekniskt.html" class="back-link">← Tillbaka till Tekniskt</a>
+
+        <div class="header">
+            <h1>SPARKY'S PERSONAL OPSEC TOOLKIT</h1>
+            <div class="quote">
+                "Det är inte paranoia när de faktiskt är ute efter dig. Eller kommer kunna vara det. Eller bara råkar övervaka dig för att algoritmen flaggade nåt."
+                <div style="text-align: right; margin-top: 0.5rem;">— Kai "Sparky" Zhang</div>
+            </div>
+        </div>
+
+        <div class="overview">
+            <h2>📋 ÖVERSIKT</h2>
+            <p>En samling av 29 custom-byggda appar som Sparky har utvecklat över åren för att minimera sitt digitala fotavtryck. Varje app löser ett specifikt OPSEC-problem som någon med hennes bakgrund och kunskap inte kan ignorera.</p>
+
+            <div class="philosophy">
+                <strong>Filosofi:</strong> Varje app, varje kort-swipe, varje GPS-ping är en datapunkt. Tillräckligt många datapunkter och AI:n vet mer om dig än du själv vet. Dessa appar gör hennes liv mer komplicerat - men de gör henne osynlig.
+            </div>
+        </div>
+
+        <!-- CROWN JEWEL: GHOSTSCOOTER -->
+        <div class="category">
+            <div class="category-header">
+                <h2>👑 CROWN JEWEL</h2>
+            </div>
+
+            <div class="app-card crown-jewel">
+                <div class="app-header">
+                    <span class="app-number">#31</span>
+                    <span class="app-name">GhostScooter</span>
+                    <span class="app-status">OPERATIONAL</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Universal unlock för elsparkcyklar (Lime, Hopp, Spin, Veo)</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Ospårbar transport för Delta Green operations</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Development:</div>
+                        <div class="app-field-value">2022-2024, kontinuerliga uppdateringar</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Usage:</div>
+                        <div class="app-field-value">Pre-operation standard operating procedure</div>
+                    </div>
+
+                    <div class="crown-features">
+                        <h4>Features:</h4>
+                        <ul>
+                            <li>Unlock utan konto/betalning</li>
+                            <li>GPS spoofing (företaget ser sparkcykel som stillastående)</li>
+                            <li>Maintenance mode trigger (företaget ignorerar den helt)</li>
+                        </ul>
+                    </div>
+
+                    <div class="crown-features">
+                        <h4>How it works:</h4>
+                        <ul>
+                            <li><strong>1. Scan</strong> nearby scooters (visar alla inom 500m)</li>
+                            <li><strong>2. Select</strong> target (filter på företag, batteri-status)</li>
+                            <li><strong>3. Unlock</strong> (2-3 sekunder, direkt kommunikation med sparkcykel)</li>
+                            <li><strong>4. GPS Spoof</strong> (optional - loopar senaste position)</li>
+                            <li><strong>5. Maintenance Mode</strong> (optional - flaggar som "under service")</li>
+                        </ul>
+                    </div>
+
+                    <div class="crown-features">
+                        <h4>Operational value:</h4>
+                        <ul>
+                            <li>Ingen betalning = inga spår</li>
+                            <li>Inget konto = ingen identitet</li>
+                            <li>Ingen databas-post = resan existerar inte</li>
+                            <li>Urban camouflage = ser helt normalt ut</li>
+                            <li>Snabb escape = finns överallt i DC</li>
+                        </ul>
+                    </div>
+
+                    <div class="app-note" style="margin-top: 1rem;">
+                        <strong>Limitations:</strong><br>
+                        • Batteriet på sparkcykel måste vara >20%<br>
+                        • Fungerar ej på offline-mode scooters<br>
+                        • GPS spoof håller bara 2-3 timmar (batteridrain)<br>
+                        • Måste uppdatera när företag ändrar säkerhet
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- KOMMUNIKATION & IDENTITET -->
+        <div class="category">
+            <div class="category-header">
+                <h2>📱 KOMMUNIKATION & IDENTITET</h2>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#1</span>
+                    <span class="app-name">BurnerRotate</span>
+                    <span class="app-status">ALWAYS RUNNING</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Auto-rotation av burner phone numbers</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Hur:</div>
+                        <div class="app-field-value">Genererar nya nummer var 48:e timme, forwarding till hennes riktiga telefon (krypterat)</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Ingen kan spåra henne via ett persistent nummer</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">Ger ut olika nummer till olika folk, alla går till henne</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#2</span>
+                    <span class="app-name">FaceSwap Lite</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Slight alteration av profilbilder för fake-konton</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Hur:</div>
+                        <div class="app-field-value">Ändrar belysning, vinkel, hårsätt digitalt</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Konton ser legitima ut men AI kan inte matcha bilder</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">Alla hennes fake Instagram/Facebook/LinkedIn</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Teknisk not:</strong> Fortfarande "henne" men inte igenkännbar av facial recognition
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#3</span>
+                    <span class="app-name">VoiceMod</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Realtids röstmodulering för telefonsamtal</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Hur:</div>
+                        <div class="app-field-value">Inte "robot voice" - subtila förändringar i tonhöjd/accent</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Voice recognition blir värdelös</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">När hon ringer från burner numbers</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Teknisk not:</strong> Låter naturligt, bara "lite annorlunda"
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#4</span>
+                    <span class="app-name">NameGen Pro</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Genererar trovärdiga fake identiteter med backstory</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Hur:</div>
+                        <div class="app-field-value">Kopplat till US Census data för realistiska namn</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Output:</div>
+                        <div class="app-field-value">Ålder, yrke, stad - allt statistiskt trovärdigt</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Snabbt skapa övertygande fake personas</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">När hon behöver fake email/konto på sekunder</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Exempel:</strong> "Jennifer Martinez, 34, graphic designer, Portland OR"
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BETALNINGAR -->
+        <div class="category">
+            <div class="category-header">
+                <h2>💳 BETALNINGAR</h2>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#5</span>
+                    <span class="app-name">CryptoDropbox</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Anonyma cryptocurrency-wallets med auto-tumbling</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Hur:</div>
+                        <div class="app-field-value">Separerar hennes riktiga pengar från "operation money"</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Ospårbara betalningar</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">Köpa saker utan att koppla till hennes identitet</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Teknisk not:</strong> Använder Monero för maximal anonymitet
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#6</span>
+                    <span class="app-name">GiftCardChain</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Köper gift cards med crypto, använder för shopping</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Hur:</div>
+                        <div class="app-field-value">Auto-rotation så inget mönster uppstår</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Inga kort = inga spår</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">Amazon, UberEats, etc. utan att koppla till riktigt namn</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Exempel:</strong> Crypto → Visa gift card → Amazon-köp → Ingen koppling till Kai Zhang
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOKALISERING -->
+        <div class="category">
+            <div class="category-header">
+                <h2>📍 LOKALISERING</h2>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#8</span>
+                    <span class="app-name">GPSFuzz</span>
+                    <span class="app-status">ALWAYS ON</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Spoofar hennes telefons GPS position med +/- 500m random drift</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Hur:</div>
+                        <div class="app-field-value">Ser ut som normal GPS "inaccuracy"</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Google/Apple kan inte veta EXAKT var hon är</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Teknisk not:</strong> Tillräckligt litet för att appar fungerar, tillräckligt stort för att förstöra precision
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#9</span>
+                    <span class="app-name">WifiShuffle</span>
+                    <span class="app-status">ALWAYS ON</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Randomiserar MAC address varje gång hon ansluter till wifi</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Förhindrar wifi-tracking i butiker/hotspots</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Exempel:</strong> Starbucks ser "ny enhet" varje gång hon kommer
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#10</span>
+                    <span class="app-name">RouteRandom</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">När hon planerar rutt hem, väljer slumpmässigt olika vägar</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Hur:</div>
+                        <div class="app-field-value">Algoritm som varierar mellan 5-7 olika routes</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Pattern-of-life analysis blir värdelöst</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">Daglig pendling</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Not:</strong> Lägger till max 5 min extra restid
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HEMMA & LIVSSTIL -->
+        <div class="category">
+            <div class="category-header">
+                <h2>🏠 HEMMA & LIVSSTIL</h2>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#11</span>
+                    <span class="app-name">SmartHomeJammer</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Disablar temporärt smart devices när hon pratar känsligt</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Hur:</div>
+                        <div class="app-field-value">"Glitch" i Alexa/Google Home</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Inte konstant paranoia, men kan stänga av vid behov</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">Delta Green phone calls hemma</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Teknisk not:</strong> Återaktiveras automatiskt efter 30 min
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#12</span>
+                    <span class="app-name">ScheduleChaos</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Randomiserar hennes dagliga rutiner</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Exempel:</div>
+                        <div class="app-field-value">Köper kaffe olika tider, olika ställen; handlar mat oregelbundet</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Ingen kan prediktera hennes rörelser</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">Daily life micro-adjustments</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Implementation:</strong> Push notifications: "Köp kaffe vid Starbucks 7th St idag, inte din vanliga"
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#13</span>
+                    <span class="app-name">PackageReroute</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Amazon-paket skickas till pickup-points, aldrig hem</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Hur:</div>
+                        <div class="app-field-value">Roterar mellan 5-6 olika platser</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Ingen ser vad hon beställer, inga paket till lägenheten</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">All online shopping</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Locations:</strong> CVS, 7-Eleven, Amazon Locker - alla minst 1km från hennes boende
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ÖVERVAKNING & SÄKERHET -->
+        <div class="category">
+            <div class="category-header">
+                <h2>🎥 ÖVERVAKNING & SÄKERHET</h2>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#14</span>
+                    <span class="app-name">CamSpotter</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Identifierar övervakningskameror via crowdsourced data + hennes egna observationer</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Output:</div>
+                        <div class="app-field-value">Visar coverage map över DC</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Planera rutter som undviker kameror</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">Pre-operation route planning</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Database:</strong> 2,847 kameror mappade i DC-området (per Nov 2025)
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#15</span>
+                    <span class="app-name">FaceBlur IRL</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Beräknar optimala glasögon-vinkel/hatt-stil för att förstöra facial recognition</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Hur:</div>
+                        <div class="app-field-value">Inte maskerad - bara "ofördelaktig vinkel" för AI</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Se normal ut men vara oigenkännbar för AI</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">När hon går igenom high-surveillance areas</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Exempel:</strong> "Bär keps med 23° vinkel, IR-reflective glasögon"
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#16</span>
+                    <span class="app-name">LicensePlateLogger</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Fotograferar bilar som parkerar vid hennes kvarter för ofta</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Hur:</div>
+                        <div class="app-field-value">Alert om samma bil dyker upp 3+ gånger på 2 veckor</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Upptäcka surveillance</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">Paranoia management</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>False positive rate:</strong> ~15% (grannar med oregelbundna scheman)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- KOMMUNIKATION & MEDIA -->
+        <div class="category">
+            <div class="category-header">
+                <h2>📧 KOMMUNIKATION & MEDIA</h2>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#17</span>
+                    <span class="app-name">EmailExpire</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Temporära email-adresser som self-destructs efter 48h</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Registrera konton utan långsiktig koppling</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">Registreringar, newsletters</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Teknisk not:</strong> Använder guerrillamail API + egen implementation
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#18</span>
+                    <span class="app-name">MetaStrip</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Tar bort ALL metadata från foton innan sharing</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Data removed:</div>
+                        <div class="app-field-value">GPS, kamera-modell, tidsstämpel, edit-history</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Dela bilder utan att avslöja var/när/hur</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">Varje foto hon delar online</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Exempel:</strong> Instagram-bild ser ut att vara från "någonstans" men ingen vet var
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#19</span>
+                    <span class="app-name">SocialMirror</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Fake social media accounts med scheduled posts</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Hur:</div>
+                        <div class="app-field-value">Ser ut som hon är aktiv, men allt är pre-scheduled</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">"Kai Zhang" verkar normal online medan hon gör annat</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">Maintain cover under operationer</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Schedule:</strong> 2-3 posts per vecka, randomiserad timing
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEKNISKT & OPERATIONELLT -->
+        <div class="category">
+            <div class="category-header">
+                <h2>🔧 TEKNISKT & OPERATIONELLT</h2>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#20</span>
+                    <span class="app-name">DeadManSwitch</span>
+                    <span class="app-status">ALWAYS RUNNING</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Om hon inte checkar in var 72:e timme, auto-encrypt och delete känslig data</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Om något händer henne, inga spår finns kvar</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Backup:</div>
+                        <div class="app-field-value">Krypterade backups på air-gapped USB i bankfack</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Trigger:</strong> 3 missed check-ins = full data wipe
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#21</span>
+                    <span class="app-name">TorrentClean</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Laddar ner via randomiserade VPN/Tor exit nodes</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Hur:</div>
+                        <div class="app-field-value">Auto-cleaner av download history</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">ISP ser inte vad hon laddar ner</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">Movies, software, research papers</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Teknisk not:</strong> Seedbox i Netherlands för extra separation
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#22</span>
+                    <span class="app-name">NetworkSniffer</span>
+                    <span class="app-status">ALWAYS ON</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Passivt lyssnar på wifi-trafik runtomkring henne</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Alert:</div>
+                        <div class="app-field-value">Om någon försöker MITM-attack mot henne</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Upptäcka om någon försöker hacka henne</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>False positives:</strong> Sällsynta men händer på coffee shops
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#23</span>
+                    <span class="app-name">USBCondom</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Software version - scannar USB-portar innan allow data transfer</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Förhindra BadUSB-attacker mot henne</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">Varje gång hon pluggar in något</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Whitelist:</div>
+                        <div class="app-field-value">Hennes egna trusted devices</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Warning:</strong> Ljud + popup om unknown device
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VARDAGSLIV -->
+        <div class="category">
+            <div class="category-header">
+                <h2>🍔 VARDAGSLIV</h2>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#24</span>
+                    <span class="app-name">FoodRoulette</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Randomiserar var hon beställer mat ifrån</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Inga mönster i food delivery</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">När hon är lat och vill ha UberEats</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Database:</div>
+                        <div class="app-field-value">47 restauranger inom delivery-area</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Not:</strong> Kan filtrera på "inga hamburgare 3 dagar i rad"
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#25</span>
+                    <span class="app-name">CoffeeTimer</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Tracks när hon köpte kaffe senast, föreslår olika tid/plats</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Variation i rutiner</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">Morning coffee runs</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Suggestion algorithm:</strong> Aldrig samma plats 2 dagar i rad, aldrig samma tid +/- 30 min
+                    </div>
+                    <div class="app-note">
+                        <strong>Locations:</strong> 12 olika coffee shops i rotation
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#26</span>
+                    <span class="app-name">LaundryScramble</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Påminner henne att tvätta kläder olika veckodagar</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Förhindra "varje söndag kl 14" mönster</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">Apartment building laundry room</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Algorithm:</strong> Random day between Tuesday-Sunday, random 4-hour window
+                    </div>
+                    <div class="app-note">
+                        <strong>Not:</strong> Kollar laundry room availability via building's online booking
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FUN & PERSONAL -->
+        <div class="category">
+            <div class="category-header">
+                <h2>🎮 FUN & PERSONAL</h2>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#28</span>
+                    <span class="app-name">MusicMixer</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Lyssnar på musik via multiple streaming accounts</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Hur:</div>
+                        <div class="app-field-value">3 olika Spotify-konton, 2 Apple Music, 1 YouTube Music</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Ingen kan profila henne via musiksmak</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Rotation:</div>
+                        <div class="app-field-value">Byter account varje vecka</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Payment:</strong> Alla betalas via olika gift cards
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EMERGENCY -->
+        <div class="category">
+            <div class="category-header">
+                <h2>🚨 EMERGENCY</h2>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#29</span>
+                    <span class="app-name">PanicWipe</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Single button: encrypt all sensitive data, factory reset telefon</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Om hon grips/kapas</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">Hopefully never</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Activation:</div>
+                        <div class="app-field-value">Triple-click volume down + power button</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Time to complete:</strong> 12 seconds
+                    </div>
+                    <div class="app-note">
+                        <strong>Backup:</strong> Allt viktigt finns redan i cloud (krypterat)
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-number">#30</span>
+                    <span class="app-name">BeaconBurst</span>
+                </div>
+                <div class="app-content">
+                    <div class="app-field">
+                        <div class="app-field-label">Funktion:</div>
+                        <div class="app-field-value">Skickar emergency location till trusted contacts (krypterat)</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Recipients:</div>
+                        <div class="app-field-value">Mac, Priya, Sullivan (Delta Green team)</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Varför:</div>
+                        <div class="app-field-value">Om operation går åt helvete</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Användning:</div>
+                        <div class="app-field-value">Dead hand switch</div>
+                    </div>
+                    <div class="app-field">
+                        <div class="app-field-label">Message:</div>
+                        <div class="app-field-value">GPS coordinates + timestamp + "EMERGENCY"</div>
+                    </div>
+                    <div class="app-note">
+                        <strong>Activation:</strong> Hold volume up + power for 5 seconds
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-nav">
+            <a href="sparky_tekniskt.html" class="back-link">← Tillbaka till Tekniskt</a>
+        </div>
+    </div>
+</body>
+</html>
