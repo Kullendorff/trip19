@@ -257,6 +257,110 @@
             font-size: 1rem;
         }
 
+        /* Location Images */
+        .location-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .location-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .location-img:hover {
+            border-color: var(--accent);
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+        }
+
+        .lightbox img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 2px solid var(--accent);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: var(--accent);
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(10, 14, 26, 0.8);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--accent);
+        }
+
+        .lightbox-close:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-close {
+                top: 10px;
+                right: 15px;
+                font-size: 25px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .lightbox-content {
+                max-width: 95%;
+                max-height: 95%;
+            }
+
+            .location-images {
+                grid-template-columns: 1fr;
+            }
+
+            .location-img {
+                height: 250px;
+            }
+        }
+
         /* Scrollbar */
         ::-webkit-scrollbar {
             width: 12px;
@@ -391,6 +495,9 @@
                     <div class="location-description">
                         Öppen M-F 9-17. Låter helt legitim men opersonlig. Massa folk, men ingen som bryr sig om vad ni gör.
                     </div>
+                    <div class="location-images">
+                        <img src="motesplatser/1.jpg" alt="National Archives Research Room" class="location-img">
+                    </div>
                 </div>
 
                 <!-- Location 2 -->
@@ -407,6 +514,9 @@
                     </div>
                     <div class="location-description">
                         40 bowlingbanor, bar, arcade. Lounge-området sent på kvällen. Bullrigt nog för att täcka konversation.
+                    </div>
+                    <div class="location-images">
+                        <img src="motesplatser/2.png" alt="Bowlero College Park" class="location-img">
                     </div>
                 </div>
 
@@ -425,6 +535,9 @@
                     <div class="location-description">
                         Säkerhetsfacilitet med väntrum/lounge för kunder. Lite bisarrt men helt privat. Personal bryr sig inte.
                     </div>
+                    <div class="location-images">
+                        <img src="motesplatser/3.png" alt="Extra Space Storage" class="location-img">
+                    </div>
                 </div>
 
                 <!-- Location 4 -->
@@ -441,6 +554,10 @@
                     </div>
                     <div class="location-description">
                         Mindre än Extra Space. Ännu mindre synlig. Personal fokuserad på sitt jobb.
+                    </div>
+                    <div class="location-images">
+                        <img src="motesplatser/4.png" alt="Public Storage" class="location-img">
+                        <img src="motesplatser/41.png" alt="Public Storage Interior" class="location-img">
                     </div>
                 </div>
 
@@ -459,6 +576,10 @@
                     <div class="location-description">
                         UMD-bibliotek. Läsrum för Special Collections. Helt legitim forskning. Tyst och diskret.
                     </div>
+                    <div class="location-images">
+                        <img src="motesplatser/51.png" alt="Hornbake Library" class="location-img">
+                        <img src="motesplatser/52.png" alt="Hornbake Library Maryland Room" class="location-img">
+                    </div>
                 </div>
 
                 <!-- Location 6 -->
@@ -475,6 +596,10 @@
                     </div>
                     <div class="location-description">
                         Kan reservera grupprum 2-8 personer. UMD-studenter/personal. Helt normalt, helt privat.
+                    </div>
+                    <div class="location-images">
+                        <img src="motesplatser/61.png" alt="McKeldrin Library" class="location-img">
+                        <img src="motesplatser/62.png" alt="McKeldrin Library Study Room" class="location-img">
                     </div>
                 </div>
 
@@ -493,6 +618,9 @@
                     <div class="location-description">
                         Klassrum efter kvällskurser. Lite bort men helt isolerat och billigt.
                     </div>
+                    <div class="location-images">
+                        <img src="motesplatser/7.png" alt="Prince George's Community College" class="location-img">
+                    </div>
                 </div>
 
                 <!-- Location 8 -->
@@ -503,7 +631,7 @@
                             <h3>QUIET WATERS PARK - MARINA PARKERINGSPLATS</h3>
                             <div class="location-address">10414 Old Annapolis Road, Annapolis, MD</div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=10414+Old+Annapolis+Road+Annapolis+MD" target="_blank" class="map-link">
+                        <a href="https://www.google.com/maps/search/?api=1&query=38.938167,-76.504611" target="_blank" class="map-link">
                             🗺️ Öppna karta
                         </a>
                     </div>
@@ -517,15 +645,15 @@
                     <div class="location-header">
                         <div class="location-number">09</div>
                         <div class="location-title">
-                            <h3>ARBORETUM WOODS TRAIL - PICNIC AREA</h3>
-                            <div class="location-address">4603 Needwood Road, Rockville, MD</div>
+                            <h3>ROCK CREEK REGIONAL PARK - PLAYGROUND PARKERING</h3>
+                            <div class="location-address">Rock Creek Regional Park, Rockville, MD</div>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=4603+Needwood+Road+Rockville+MD" target="_blank" class="map-link">
+                        <a href="https://www.google.com/maps/search/?api=1&query=39.123861,-77.126278" target="_blank" class="map-link">
                             🗺️ Öppna karta
                         </a>
                     </div>
                     <div class="location-description">
-                        Naturlig miljö. Helt öppen men isolerad från människor. Oklar äganderätt (kan säga "forskning").
+                        Parkeringen utanför Rock Creek Regional Park Playground.
                     </div>
                 </div>
 
@@ -544,9 +672,20 @@
                     <div class="location-description">
                         Federal research facility. Visitor center. Professionellt men opersonligt. "Möte om miljö-forskning."
                     </div>
+                    <div class="location-images">
+                        <img src="motesplatser/10.png" alt="Beltsville Agricultural Research Center" class="location-img">
+                    </div>
                 </div>
             </div>
         </main>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightbox-img" src="" alt="">
+        </div>
     </div>
 
     <script>
@@ -563,6 +702,42 @@
                     }
                 }
             });
+        });
+
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const locationImages = document.querySelectorAll('.location-img');
+
+        // Open lightbox
+        locationImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
         });
     </script>
 </body>
