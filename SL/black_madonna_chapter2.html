@@ -47,6 +47,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .logo {
@@ -54,7 +56,7 @@
             font-weight: bold;
             color: var(--accent-primary);
             letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(74, 144, 164, 0.5);
+            text-shadow: 0 0 10px rgba(74, 144, 164, 0.3);
         }
 
         .subtitle {
@@ -66,15 +68,23 @@
         .back-link {
             color: var(--accent-primary);
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 1.5rem;
             border: 1px solid var(--accent-primary);
             border-radius: 4px;
             transition: all 0.2s;
+            font-size: 0.9rem;
         }
 
         .back-link:hover {
             background: var(--accent-primary);
             color: var(--bg-dark);
+            box-shadow: 0 0 10px rgba(74, 144, 164, 0.5);
+        }
+
+        .nav-link.active {
+            background: rgba(74, 144, 164, 0.15);
+            border-left-color: var(--accent-primary);
+            color: var(--accent-primary);
         }
 
         .classified-banner {
@@ -93,10 +103,61 @@
             box-shadow: 0 2px 10px rgba(74, 144, 164, 0.3);
         }
 
+        /* GRID LAYOUT FOR SIDEBAR */
         .container {
             max-width: 1400px;
-            margin: 2rem auto;
-            padding: 0 2rem;
+            margin: 0 auto;
+            padding: 0 2rem 4rem 2rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .nav-section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-primary);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .nav-title {
+            color: var(--accent-primary);
+            font-size: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.6rem 1rem;
+            color: var(--text);
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .nav-link:hover {
+            background: rgba(74, 144, 164, 0.1);
+            border-left-color: var(--accent-primary);
+            color: var(--accent-primary);
+            padding-left: 1.2rem;
+        }
+
+        .main-content {
+            min-width: 0;
         }
 
         .intro-section {
@@ -268,6 +329,17 @@
             margin-top: 3rem;
         }
 
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: relative;
+                top: 0;
+            }
+        }
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -275,7 +347,11 @@
             }
 
             .container {
-                padding: 0 1rem;
+                padding: 0 1rem 2rem 1rem;
+            }
+
+            .intro-section {
+                padding: 1rem;
             }
         }
     </style>
@@ -288,7 +364,7 @@
                 <div class="logo">▲ TRIP 19 // BLACK MADONNA</div>
                 <div class="subtitle">KAPITEL 2: SHADOWS FROM THE PAST</div>
             </div>
-            <a href="black_madonna_index.html" class="back-link">← Tillbaka till Kapitel-översikt</a>
+            <a href="index.html" class="back-link">← Tillbaka till Kontrollpanel</a>
         </div>
     </div>
 
@@ -299,6 +375,31 @@
 
     <!-- Container -->
     <div class="container">
+        <!-- SIDEBAR NAVIGATION -->
+        <aside class="sidebar">
+            <nav class="nav-section">
+                <div class="nav-title">Navigering</div>
+                <a href="#scene1" class="nav-link">Scen 1: Beslut och förberedelser</a>
+                <a href="#scene2" class="nav-link">Scen 2: Resan österut</a>
+                <a href="#scene3" class="nav-link">Scen 3: Frankfurt an der Oder</a>
+                <a href="#scene4" class="nav-link">Scen 4: Frankfurt Clinic</a>
+                <a href="#scene5" class="nav-link">Scen 5: Dr. Helmut Schafer</a>
+                <a href="#scene6" class="nav-link">Scen 6: Arkiven</a>
+                <a href="#scene7" class="nav-link">Scen 7: Genomgång av faciliteten</a>
+                <a href="#scene8" class="nav-link">Scen 8: Källaren - Beslut</a>
+                <a href="#scene9" class="nav-link">Scen 9: Nedstigningen</a>
+                <a href="#scene10" class="nav-link">Scen 10: Special Ward</a>
+                <a href="#scene11" class="nav-link">Scen 11: Pyotr Gallentinov</a>
+                <a href="#scene12" class="nav-link">Scen 12: Efter Special Ward</a>
+                <a href="#scene13" class="nav-link">Scen 13: Avgång och reflektioner</a>
+                <a href="#scene14" class="nav-link">Scen 14: Volkovs varning</a>
+            </nav>
+
+            <a href="index.html" class="back-link" style="width: 100%; text-align: center; margin-top: 1rem;">← Tillbaka</a>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
         <!-- Introduction -->
         <div class="intro-section">
             <h2>▶ KAPITEL 2: SKUGGOR FRÅN DET FÖRFLUTNA</h2>
@@ -333,7 +434,7 @@
         </div>
 
         <!-- Scene 1: Beslut att åka till Frankfurt -->
-        <div class="collapsible">
+        <div id="scene1" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">SCEN 1: BESLUT OCH FÖRBEREDELSER</span>
                 <span class="collapsible-icon">▶</span>
@@ -381,7 +482,7 @@
         </div>
 
         <!-- Scene 2: Resan österut -->
-        <div class="collapsible">
+        <div id="scene2" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">SCEN 2: RESAN ÖSTERUT</span>
                 <span class="collapsible-icon">▶</span>
@@ -440,7 +541,7 @@
         </div>
 
         <!-- Scene 3: Frankfurt an der Oder -->
-        <div class="collapsible">
+        <div id="scene3" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">SCEN 3: FRANKFURT AN DER ODER - STADEN</span>
                 <span class="collapsible-icon">▶</span>
@@ -492,7 +593,7 @@
         </div>
 
         <!-- Scene 4: Frankfurt Clinic - Första mötet -->
-        <div class="collapsible">
+        <div id="scene4" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">SCEN 4: FRANKFURT CLINIC - FÖRSTA MÖTET</span>
                 <span class="collapsible-icon">▶</span>
@@ -561,7 +662,7 @@
         </div>
 
         <!-- Scene 5: Dr. Helmut Schafer -->
-        <div class="collapsible">
+        <div id="scene5" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">SCEN 5: DR. HELMUT SCHAFER</span>
                 <span class="collapsible-icon">▶</span>
@@ -644,7 +745,7 @@
         </div>
 
         <!-- Scene 6: Arkiven -->
-        <div class="collapsible">
+        <div id="scene6" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">SCEN 6: ARKIVEN</span>
                 <span class="collapsible-icon">▶</span>
@@ -757,7 +858,7 @@
         </div>
 
         <!-- Scene 7: Genomgång av faciliteten -->
-        <div class="collapsible">
+        <div id="scene7" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">SCEN 7: GENOMGÅNG AV FACILITETEN</span>
                 <span class="collapsible-icon">▶</span>
@@ -830,7 +931,7 @@
         </div>
 
         <!-- Scene 8: Källaren - Beslut -->
-        <div class="collapsible">
+        <div id="scene8" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">SCEN 8: KÄLLAREN - BESLUT</span>
                 <span class="collapsible-icon">▶</span>
@@ -870,7 +971,7 @@
         </div>
 
         <!-- Scene 9: Nedstigningen -->
-        <div class="collapsible">
+        <div id="scene9" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">SCEN 9: NEDSTIGNINGEN</span>
                 <span class="collapsible-icon">▶</span>
@@ -917,7 +1018,7 @@
         </div>
 
         <!-- Scene 10: Special Ward - Cellerna -->
-        <div class="collapsible">
+        <div id="scene10" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">SCEN 10: SPECIAL WARD - CELLERNA</span>
                 <span class="collapsible-icon">▶</span>
@@ -1044,7 +1145,7 @@
         </div>
 
         <!-- Scene 11: Pyotr Gallentinov -->
-        <div class="collapsible">
+        <div id="scene11" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">SCEN 11: PYOTR GALLENTINOV</span>
                 <span class="collapsible-icon">▶</span>
@@ -1149,7 +1250,7 @@
         </div>
 
         <!-- Scene 12: Efter Special Ward -->
-        <div class="collapsible">
+        <div id="scene12" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">SCEN 12: EFTER SPECIAL WARD</span>
                 <span class="collapsible-icon">▶</span>
@@ -1238,7 +1339,7 @@
         </div>
 
         <!-- Scene 13: Avgång och reflektioner -->
-        <div class="collapsible">
+        <div id="scene13" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">SCEN 13: AVGÅNG OCH REFLEKTIONER</span>
                 <span class="collapsible-icon">▶</span>
@@ -1345,7 +1446,7 @@
         </div>
 
         <!-- Scene 14: Volkovs Varning -->
-        <div class="collapsible">
+        <div id="scene14" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">SCEN 14: VOLKOVS VARNING ⚠️ KRITISK HOOK</span>
                 <span class="collapsible-icon">▶</span>
@@ -1644,6 +1745,7 @@
             </ul>
         </div>
 
+        </main>
     </div>
 
     <!-- Footer -->

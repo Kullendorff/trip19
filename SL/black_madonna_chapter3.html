@@ -47,32 +47,101 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .logo {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: var(--accent-primary);
             letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(74, 144, 164, 0.3);
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
         }
 
         .back-link {
-            color: var(--text-dim);
+            color: var(--accent-primary);
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--border);
-            transition: all 0.3s;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--accent-primary);
+            border-radius: 4px;
+            transition: all 0.2s;
+            font-size: 0.9rem;
         }
 
         .back-link:hover {
-            color: var(--accent-primary);
-            border-color: var(--accent-primary);
+            background: var(--accent-primary);
+            color: var(--bg-dark);
+            box-shadow: 0 0 10px rgba(74, 144, 164, 0.5);
         }
 
+        .nav-link.active {
+            background: rgba(74, 144, 164, 0.15);
+            border-left-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        /* GRID LAYOUT FOR SIDEBAR */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 0 2rem 4rem 2rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .nav-section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-primary);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .nav-title {
+            color: var(--accent-primary);
+            font-size: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.6rem 1rem;
+            color: var(--text);
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .nav-link:hover {
+            background: rgba(74, 144, 164, 0.1);
+            border-left-color: var(--accent-primary);
+            color: var(--accent-primary);
+            padding-left: 1.2rem;
+        }
+
+        .main-content {
+            min-width: 0;
         }
 
         .chapter-header {
@@ -188,6 +257,12 @@
             margin-bottom: 0.5rem;
         }
 
+        .note-emphasis {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
         .warning-box {
             background: rgba(232, 154, 60, 0.05);
             border: 1px solid var(--accent-secondary);
@@ -198,6 +273,12 @@
         .warning-box h4 {
             color: var(--accent-secondary);
             margin-bottom: 0.5rem;
+        }
+
+        .warning-emphasis {
+            margin-top: 1rem;
+            font-weight: bold;
+            color: var(--accent-secondary);
         }
 
         table {
@@ -231,6 +312,145 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Summary section specific styles */
+        .summary-section {
+            margin-top: 2rem;
+            background: rgba(232, 154, 60, 0.05);
+            border: 2px solid var(--accent-secondary);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .summary-section h2 {
+            color: var(--accent-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .summary-section h3 {
+            color: var(--accent-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-section h4 {
+            color: var(--accent-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-section ul {
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        .summary-section .san-costs ul {
+            font-size: 0.9rem;
+        }
+
+        .dream-title {
+            font-weight: bold;
+            color: var(--accent-secondary);
+        }
+
+        .dream-subtitle {
+            margin-top: 0.5rem;
+        }
+
+        .info-panel {
+            background: rgba(74, 144, 164, 0.05);
+            padding: 1rem;
+            border-left: 3px solid var(--accent-primary);
+            margin-top: 0.5rem;
+        }
+
+        .info-panel p {
+            font-size: 0.9rem;
+        }
+
+        .info-panel ul {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        .black-doll-panel {
+            background: rgba(232, 154, 60, 0.1);
+            padding: 1rem;
+            border-left: 4px solid var(--accent-secondary);
+            margin-top: 0.5rem;
+        }
+
+        .black-doll-panel p {
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .black-doll-panel ul {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .black-doll-quote {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            font-style: italic;
+            font-weight: bold;
+            color: var(--accent-secondary);
+        }
+
+        .wake-panel {
+            background: rgba(74, 144, 164, 0.08);
+            padding: 1.5rem;
+            border: 2px solid var(--accent-primary);
+            margin-top: 0.5rem;
+        }
+
+        .wake-panel p {
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        .wake-panel ul {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .wake-highlight {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--accent-secondary);
+        }
+
+        .dream-fragments {
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        .dream-fragments-text {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        .dream-silence {
+            margin-top: 0.5rem;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .gm-note {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid var(--accent-primary);
+        }
+
+        .gm-note p {
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
@@ -246,13 +466,39 @@
     <!-- Header -->
     <div class="header">
         <div class="header-content">
-            <div class="logo">⬤ BLACK MADONNA - KAPITEL 3</div>
-            <a href="black_madonna_index.html" class="back-link">← Tillbaka till Kapitel-översikt</a>
+            <div>
+                <div class="logo">⬤ BLACK MADONNA - KAPITEL 3</div>
+                <div class="subtitle">MÖRKA DRÖMMAR</div>
+            </div>
+            <a href="index.html" class="back-link">← Tillbaka till Kontrollpanel</a>
         </div>
+    </div>
+
+    <!-- Classified Banner -->
+    <div class="classified-banner" style="background: repeating-linear-gradient(45deg, var(--accent-primary), var(--accent-primary) 10px, #3a7a8a 10px, #3a7a8a 20px); color: white; text-align: center; padding: 0.5rem; font-weight: bold; letter-spacing: 3px; box-shadow: 0 2px 10px rgba(74, 144, 164, 0.3);">
+        CLASSIFIED // DELTA GREEN EYES ONLY // DARK DREAMS
     </div>
 
     <!-- Container -->
     <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <nav class="nav-section">
+                <div class="nav-title">Drömsekvenser</div>
+                <a href="#night1" class="nav-link">Natt 1: Den första drömmen</a>
+                <a href="#night2" class="nav-link">Natt 2: Kalenkos ankomst</a>
+                <a href="#night3" class="nav-link">Natt 3: Källaren</a>
+                <a href="#night4" class="nav-link">Natt 4: Nyårsafton</a>
+                <a href="#night5" class="nav-link">Natt 5: Transformationen</a>
+                <a href="#night6" class="nav-link">Natt 6: Flykten</a>
+                <a href="#night7" class="nav-link">Natt 7: Sista natten</a>
+            </nav>
+
+            <a href="index.html" class="back-link" style="width: 100%; text-align: center; margin-top: 1rem;">← Tillbaka</a>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
         <!-- Chapter Header -->
         <div class="chapter-header">
             <div class="chapter-number">KAPITEL 03</div>
@@ -301,7 +547,7 @@
         <!-- Nights Section -->
 
         <!-- Night 1 -->
-        <div class="collapsible">
+        <div id="night1" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">NATT 1: DEN FÖRSTA DRÖMMEN</span>
                 <span class="collapsible-icon">▶</span>
@@ -403,7 +649,7 @@
         </div>
 
         <!-- Night 2 -->
-        <div class="collapsible">
+        <div id="night2" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">NATT 2: DRÖMMARNA SPRIDER SIG</span>
                 <span class="collapsible-icon">▶</span>
@@ -533,7 +779,7 @@
         </div>
 
         <!-- Night 3 -->
-        <div class="collapsible">
+        <div id="night3" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">NATT 3: NAZISTERNAS PLAN</span>
                 <span class="collapsible-icon">▶</span>
@@ -682,7 +928,7 @@
         </div>
 
         <!-- Night 4 -->
-        <div class="collapsible">
+        <div id="night4" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">NATT 4: SISTA DAGEN</span>
                 <span class="collapsible-icon">▶</span>
@@ -801,7 +1047,7 @@
         </div>
 
         <!-- Night 5 -->
-        <div class="collapsible">
+        <div id="night5" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">NATT 5: NYÅRSNATTEN - DEL 1</span>
                 <span class="collapsible-icon">▶</span>
@@ -935,7 +1181,7 @@
         </div>
 
         <!-- Night 6 -->
-        <div class="collapsible">
+        <div id="night6" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">NATT 6: NYÅRSNATTEN - MIDNATT</span>
                 <span class="collapsible-icon">▶</span>
@@ -1074,26 +1320,26 @@
         </div>
 
         <!-- Night 7 -->
-        <div class="collapsible">
+        <div id="night7" class="collapsible">
             <div class="collapsible-header">
                 <span class="collapsible-title">NATT 7: EFTERDYNINGARNA</span>
                 <span class="collapsible-icon">▶</span>
             </div>
             <div class="collapsible-content">
                 <div class="collapsible-inner">
-                    <p style="font-weight: bold; color: var(--accent-secondary);">
+                    <p class="dream-title">
                         DEN SISTA DRÖMMEN - SEN VAKNAR DE
                     </p>
-                    <p style="margin-top: 0.5rem;">
+                    <p class="dream-subtitle">
                         <strong>Datum okänt - upplever fragment från olika tider</strong>
                     </p>
 
-                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Drömmen är annorlunda:</h4>
-                    <div style="background: rgba(74, 144, 164, 0.05); padding: 1rem; border-left: 3px solid var(--accent-primary); margin-top: 0.5rem;">
-                        <p style="font-size: 0.9rem;">
+                    <h4>Drömmen är annorlunda:</h4>
+                    <div class="info-panel">
+                        <p>
                             Spelarna är inte längre I barnen. De är observatörer. Ser fragment:
                         </p>
-                        <ul style="margin-top: 0.5rem; font-size: 0.85rem; font-style: italic;">
+                        <ul>
                             <li><strong>Magda (flicka 8 år):</strong> Vaknar i Frankfurt Clinic 1956. Dr. Tatlina undersöker henne.
                                 "Du måste komma ihåg - aldrig slappna av suppression. Aldrig. Om du gör det kommer de tillbaka."</li>
                             <li><strong>Anton:</strong> Sitter vid Potomac River 2024. Gammal. Väntar. "De kommer snart. Jag känner dem närma sig."</li>
@@ -1103,77 +1349,77 @@
                         </ul>
                     </div>
 
-                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">The Black Doll talar:</h4>
-                    <div style="background: rgba(232, 154, 60, 0.1); padding: 1rem; border-left: 4px solid var(--accent-secondary); margin-top: 0.5rem;">
-                        <p style="font-size: 0.9rem; font-style: italic;">
+                    <h4>The Black Doll talar:</h4>
+                    <div class="black-doll-panel">
+                        <p>
                             Om någon spelare har The Black Doll - hör de en röst. Inte ord. Känslor. Bilder:
                         </p>
-                        <ul style="margin-top: 0.5rem; font-size: 0.85rem;">
+                        <ul>
                             <li><strong>Dimi Nesterov</strong> (ikonmålaren, Magdas kusin) - han SKAPADE dockan efter kollisionen</li>
                             <li>Han överlevde, fortsatte forska, försökte hitta sätt att rädda barnen (inkl. Magda)</li>
                             <li>Dockan är gjord från <strong>samma material som ikonen</strong> - hypergeometrisk substans</li>
                             <li>Syftet: Ge motstånd mot BÅDA transformationerna</li>
                             <li>Men den kan också <strong>AVSLUTA bindningen</strong> - om den används rätt vid rätt plats</li>
                         </ul>
-                        <p style="margin-top: 0.5rem; font-size: 0.9rem; font-style: italic; font-weight: bold; color: var(--accent-secondary);">
+                        <p class="black-doll-quote">
                             "Barn måste släppas. Men förseglingen måste hållas. Någon annan måste ta deras plats."
                         </p>
                     </div>
 
-                    <div class="note-box" style="margin-top: 1.5rem;">
+                    <div class="note-box">
                         <h4>INTELLIGENCE ELLER OCCULT</h4>
                         <p><strong>Framgång:</strong> Spelaren förstår implikationen</p>
-                        <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                        <ul>
                             <li>Barnen är FÄNGELSE för båda krafterna</li>
                             <li>Om de släpps utan ersättning = Nyogtha går loss + Yithian signal fortsätter</li>
                             <li>Dmitri försökte hitta ett sätt att bryta cykeln UTAN katastrofala konsekvenser</li>
                             <li>The Black Doll är hans lösning - men den kräver frivilligt offer</li>
                         </ul>
-                        <p style="margin-top: 0.5rem; font-size: 0.85rem; font-style: italic;">
+                        <p class="note-emphasis">
                             <strong>Detta är en möjlig slutpunkt för hela kampanjen - men inte ännu.</strong>
                         </p>
                     </div>
 
-                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Drömmen faller sönder:</h4>
-                    <p style="margin-top: 1rem; font-style: italic;">
+                    <h4>Drömmen faller sönder:</h4>
+                    <p class="dream-fragments">
                         Fragment blir kortare. Snabbare. Bilder blinkar förbi:
                     </p>
-                    <p style="margin-top: 0.5rem; font-size: 0.85rem; font-style: italic;">
+                    <p class="dream-fragments-text">
                         Dimi Nesterov arbetar desperat i åratal, försöker förstå... Special Ward patienter vrider sig...
                         Anton sitter vid floden... Volkov studerar Flight 19 data... Frankfurt Clinic i snö...
                         Kalenko-familjens gravar på Vasilyevsky Island...
                         247 Hz hummande överallt...
                     </p>
-                    <p style="margin-top: 0.5rem; font-style: italic; font-weight: bold;">
+                    <p class="dream-silence">
                         Sen - TYSTNAD.
                     </p>
 
-                    <h4 style="color: var(--accent-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Vakna:</h4>
-                    <div style="background: rgba(74, 144, 164, 0.08); padding: 1.5rem; border: 2px solid var(--accent-primary); margin-top: 0.5rem;">
-                        <p style="font-size: 0.95rem; font-style: italic;">
+                    <h4>Vakna:</h4>
+                    <div class="wake-panel">
+                        <p>
                             Spelarna vaknar. Varje morgon efter Natt 7.
                         </p>
-                        <p style="font-size: 0.95rem; font-style: italic; margin-top: 0.5rem;">
+                        <p>
                             Samma plats där de somnade (hemma, hotell, bil - beroende på var de är).
                         </p>
-                        <p style="font-size: 0.95rem; font-style: italic; margin-top: 0.5rem;">
+                        <p>
                             Men något är annorlunda:
                         </p>
-                        <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                        <ul>
                             <li>De kommer ihåg <strong>ALLT</strong> från drömmarna - inte som vanliga drömmar, utan som UPPLEVDA minnen</li>
                             <li>De vet vad som hände December 31, 1941</li>
                             <li>De vet varför Camp S-17 folk är transformerade</li>
                             <li>De vet vad Special Ward patienterna var - och är</li>
                             <li>De vet att <strong>Svarta Madonnan fortfarande finns någonstans</strong></li>
                         </ul>
-                        <p style="margin-top: 1rem; font-size: 0.9rem; font-weight: bold; color: var(--accent-secondary);">
+                        <p class="wake-highlight">
                             Och om de har The Black Doll - den känns VARMARE nu. Som om den känner igen dem.
                         </p>
                     </div>
 
-                    <div class="note-box" style="margin-top: 1.5rem;">
+                    <div class="note-box">
                         <h4>MEKANISKA EFFEKTER EFTER NATT 7</h4>
-                        <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                        <ul>
                             <li><strong>SAN totals:</strong> Räkna ihop alla SAN checks från alla 7 drömmar</li>
                             <li><strong>Bond stress:</strong> -1 till -3 per Bond som försummats under drömcykeln</li>
                             <li><strong>Ny kunskap:</strong> Spelarna vet nu hela Leningrad 1941-42 händelseförloppet</li>
@@ -1182,17 +1428,17 @@
                         </ul>
                     </div>
 
-                    <div class="warning-box" style="margin-top: 1.5rem;">
+                    <div class="warning-box">
                         <h4>EFTER DRÖMMARNA - VAD NU?</h4>
                         <p>Spelarna har nu flera möjliga riktningar:</p>
-                        <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                        <ul>
                             <li><strong>Hitta de "funktionella" 15:</strong> Anton, Sasha, Filip, Magda och 11 andra - de vet mer</li>
                             <li><strong>Tillbaka till Frankfurt:</strong> Special Ward patienter måste studeras med ny förståelse</li>
                             <li><strong>Söka Svarta Madonnan:</strong> Ikonen flyttades någonstans efter 1945 - var?</li>
                             <li><strong>Undersöka Dmitri Nesterov:</strong> Han skapade The Black Doll - vad mer visste han?</li>
                             <li><strong>Konfrontera Volkov:</strong> Han MÅSTE veta om detta - varför har han inte agerat?</li>
                         </ul>
-                        <p style="margin-top: 1rem; font-weight: bold; color: var(--accent-secondary);">
+                        <p class="warning-emphasis">
                             Detta är övergången från Chapter 3 till Chapter 4 - jakten på ikonen och de överlevande.
                         </p>
                     </div>
@@ -1200,14 +1446,12 @@
             </div>
         </div>
 
-    </div>
+        <!-- Summary Section -->
+        <div class="summary-section">
+        <h2>📋 SAMMANFATTNING: KAPITEL 3</h2>
 
-    <!-- Summary Section -->
-    <div class="content-section" style="margin-top: 2rem; background: rgba(232, 154, 60, 0.05); border: 2px solid var(--accent-secondary);">
-        <h2 style="color: var(--accent-secondary); margin-bottom: 1rem;">📋 SAMMANFATTNING: KAPITEL 3</h2>
-
-        <h3 style="color: var(--accent-primary); margin-top: 1.5rem;">Vad som hände:</h3>
-        <ul style="font-size: 0.95rem; margin-top: 0.5rem;">
+        <h3>Vad som hände:</h3>
+        <ul>
             <li><strong>7 drömnätter:</strong> Spelarna upplever händelserna i Kalenko's orphanage från barnens perspektiv</li>
             <li><strong>December 1941:</strong> Nazi Type-VIII apparat aktiveras runt Kalenkos hus för mind-transfer experiment</li>
             <li><strong>December 31, 1941:</strong> Både Nazi signal (247 Hz) och Soviet motfrekvens aktiveras samtidigt</li>
@@ -1217,8 +1461,8 @@
             <li><strong>83 år senare:</strong> 9 kvar i Special Ward, 15 släpptes 1956-58, flera har spårlöst försvunnit</li>
         </ul>
 
-        <h3 style="color: var(--accent-primary); margin-top: 1.5rem;">Nyckelfakta spelarna nu vet:</h3>
-        <ul style="font-size: 0.95rem; margin-top: 0.5rem;">
+        <h3>Nyckelfakta spelarna nu vet:</h3>
+        <ul>
             <li><strong>Dual manifestation:</strong> BÅDA transformationerna (mental + fysisk) är resultat av SAMMA händelse</li>
             <li><strong>247 Hz:</strong> Yithian signal för temporal mind-transfer - samma som Trip 19 kristallerna</li>
             <li><strong>Nyogtha:</strong> Bunden under Kalenkos hus på Vasilyevsky Island - vaknade delvis vid kollisionen</li>
@@ -1230,8 +1474,8 @@
             <li><strong>Magda:</strong> Dimi Nesterovs kusins dotter (7 år) - en av de bundna barnen</li>
         </ul>
 
-        <h3 style="color: var(--accent-primary); margin-top: 1.5rem;">SAN costs totalt (Natt 1-7):</h3>
-        <ul style="font-size: 0.9rem; margin-top: 0.5rem;">
+        <h3 class="san-costs">SAN costs totalt (Natt 1-7):</h3>
+        <ul class="san-costs">
             <li><strong>Natt 1:</strong> 0/1 (första drömmen)</li>
             <li><strong>Natt 2:</strong> 1/1D3 (se barn svälta/frys ihjäl)</li>
             <li><strong>Natt 3:</strong> 0/1D4 (se Nazi apparat + förstå experiment)</li>
@@ -1242,8 +1486,8 @@
             <li><strong>TOTALT:</strong> Minimum 2 SAN, Maximum 24 SAN över 7 nätter</li>
         </ul>
 
-        <h3 style="color: var(--accent-primary); margin-top: 1.5rem;">Nästa steg - Chapter 4 options:</h3>
-        <ul style="font-size: 0.95rem; margin-top: 0.5rem;">
+        <h3>Nästa steg - Chapter 4 options:</h3>
+        <ul>
             <li><strong>Hitta de 15 "funktionella":</strong> Anton vid Potomac (redan hittat), Sasha, Filip, Magda + 11 andra</li>
             <li><strong>Lokaliserare Svarta Madonnan:</strong> Nesterovs ikon flyttades från Leningrad efter 1945 - NKVD dokumentation?</li>
             <li><strong>Undersök Dimi Nesterov:</strong> Ikonmålaren som skapade The Black Doll - vad hände med honom efter 1942?</li>
@@ -1252,17 +1496,19 @@
             <li><strong>Volkov connection:</strong> Han MÅSTE veta om detta - varför samlade han Flight 19 data?</li>
         </ul>
 
-        <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(74, 144, 164, 0.1); border-left: 4px solid var(--accent-primary);">
-            <p style="font-style: italic; font-size: 0.95rem;">
+        <div class="gm-note">
+            <p>
                 <strong>SL NOTE:</strong> Chapter 3 är designat för att ge spelarna full förståelse av vad som hände 1941-42,
                 varför Special Ward finns, och vad The Black Doll kan göra. De har nu alla pussel-bitar för att förstå
                 VARFÖR Trip 19, Frankfurt Clinic, och Volkov alla är sammankopplade.
             </p>
-            <p style="font-style: italic; font-size: 0.95rem; margin-top: 0.5rem;">
+            <p>
                 Nästa fas blir mer action-driven: hitta ikonen, konfrontera de överlevande, och bestämma vad de ska göra
                 med kunskapen att 9 barn fortfarande är fångna som "levande fängelse" för två kosmiska krafter.
             </p>
         </div>
+
+        </main>
     </div>
 
     <!-- JavaScript -->
