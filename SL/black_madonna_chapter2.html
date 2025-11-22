@@ -354,6 +354,66 @@
                 padding: 1rem;
             }
         }
+
+        /* Chapter Overview Styles */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-primary);
+            border-radius: 8px;
+        }
+
+        .chapter-header h1 {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .chapter-header .subtitle {
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        .section h2 {
+            color: var(--accent-primary);
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .section h3 {
+            color: var(--accent-secondary);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .scene-box {
+            background: var(--bg-darker);
+            border-left: 4px solid var(--accent-secondary);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -390,9 +450,77 @@
 
         <!-- MAIN CONTENT -->
         <main class="main-content">
+
+        <div class="chapter-header">
+            <h1>KAPITEL 2: SKUGGOR FRÅN DET FÖRFLUTNA</h1>
+            <p class="subtitle">"Vergessene Kinder" (Glömda barn)</p>
+            <p style="margin-top: 1rem; color: var(--text-dim);">
+                <strong>Tema:</strong> Historiska efterforskningar, Institutionell skräck, Upptäckten<br>
+                <strong>Ton:</strong> Slow-burn investigation övergår till förnekad skräck (Special Ward)<br>
+                <strong>Längd:</strong> 14 scener, 1-2 sessioner
+            </p>
+        </div>
+
+        <!-- ÖVERSIKT -->
+        <div class="section">
+            <h2>📋 ÖVERSIKT</h2>
+
+            <h3>Kapitlets Mål</h3>
+
+            <div class="info-box">
+                <strong>Vad spelarna ska uppnå:</strong>
+                <ol>
+                    <li><strong>Hitta Frankfurt Clinic:</strong> Följa spåret från Magdas dagbok och de tre männens journaler</li>
+                    <li><strong>Undersöka arkiven:</strong> Upptäcka koppling mellan Kirov Clinic, Camp S-17 och Frankfurt</li>
+                    <li><strong>Möta Dr. Schafer:</strong> Få insikt i Dr. Tatlinas "behandlingar" och de 44 barnen</li>
+                    <li><strong>Konfrontera Special Ward:</strong> Bevittna de transformerade patienterna - levande bevis</li>
+                    <li><strong>Träffa Pyotr Gallentinov:</strong> Få första direkta vittnesm ål från Leningrad 1942</li>
+                    <li><strong>Förstå parasiten:</strong> Lära sig om "248Hz humming" och suppressions-protokollet</li>
+                </ol>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Vad spelarna INTE ska göra:</strong>
+                <ul>
+                    <li>❌ Attackera eller "rädda" Special Ward-patienterna (omöjligt, farligt)</li>
+                    <li>❌ Konfrontera Slavic Association direkt (ännu för tidigt)</li>
+                    <li>❌ Försöka "bota" sin egen parasit (suppression gör det värre)</li>
+                </ul>
+            </div>
+
+            <h3>Scen-ordning (Snabbreferens)</h3>
+            <ol>
+                <li><strong>Beslut</strong> → Åka till Frankfurt an der Oder</li>
+                <li><strong>Resan österut</strong> → Potential chase från Slavic Association</li>
+                <li><strong>Frankfurt stad</strong> → Etablera miljö, hitta kliniken</li>
+                <li><strong>Frankfurt Clinic</strong> → Möter Dr. Schafer</li>
+                <li><strong>Arkiven</strong> → Upptäcker Camp S-17, Dr. Tatlina, de 44 barnen</li>
+                <li><strong>Genomgång av facilitet</strong> → Ser förfallet, känner av humming (248Hz)</li>
+                <li><strong>Källaren - beslut</strong> → Välja att gå ner till Special Ward eller ej</li>
+                <li><strong>Special Ward - KLIMAX</strong> → Bevittnar transformerade patienter</li>
+                <li><strong>Pyotr Gallentinov</strong> → Första vittnesm ålet från Leningrad</li>
+                <li><strong>Avgång</strong> → Tillbaka till Berlin, processera upptäckterna</li>
+                <li><strong>Volkovs varning</strong> → Kritisk hook till nästa kapitel</li>
+            </ol>
+
+            <h3>Varför spelarna är här</h3>
+            <p>Efter Magdas död i Berlin har spelarna flera spår till Frankfurt Clinic:</p>
+            <ul>
+                <li><strong>Magdas dagbok:</strong> "Frankfurt kliniken var värre än Kirov. Mamma slutade tala..."</li>
+                <li><strong>De tre männens journaler:</strong> Alla överförda från Moskva 1951, behandlade av Dr. Tatlina</li>
+                <li><strong>Camp S-17 referenser:</strong> Kryptiska anteckningar om "särskilda avdelningen"</li>
+                <li><strong>De 44 barnen:</strong> Överlevande från Leningrad som fördes till Frankfurt</li>
+                <li><strong>Parasiten:</strong> Spelarna känner sin egen infektion växa - behöver förstå den</li>
+            </ul>
+
+            <div class="scene-box">
+                <strong>VIKTIGT:</strong> Detta kapitel är REVELATIONEN. Spelarna går från "vi undersöker historia" till "vi bevittnar levande bevis på transformation". Special Ward är första gången de ser VAD de själva håller på att bli. Detta bör vara djupt skrämmande och personligt. Pyotrs berättelse ger dem hopp - suppression fungerar - men också varning: aldrig sluta, aldrig ge upp kontrollen.
+            </div>
+        </div>
+
         <!-- Introduction -->
         <div class="intro-section">
-            <h2>▶ KAPITEL 2: SKUGGOR FRÅN DET FÖRFLUTNA</h2>
+            <h2>BAKGRUND (SL-INFO)</h2>
             <p style="margin-bottom: 1rem;">
                 Efter Magdas död på Charité och upptäckten av de tre ryssarnas transformationer står Chesapeake Cell
                 inför ett kritiskt val: följa spåren tillbaka till källan i Leningrad 1942, eller undersöka de nutida
