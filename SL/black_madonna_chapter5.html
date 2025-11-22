@@ -73,9 +73,12 @@
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem 4rem 2rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
         }
 
         .chapter-header {
@@ -276,13 +279,72 @@
             margin-bottom: 1rem;
         }
 
+
+        /* Sidebar Navigation */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .nav-section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-primary);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .nav-title {
+            color: var(--accent-primary);
+            font-size: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.6rem 1rem;
+            color: var(--text);
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .nav-link:hover {
+            background: rgba(74, 144, 164, 0.1);
+            border-left-color: var(--accent-primary);
+            color: var(--accent-primary);
+            padding-left: 1.2rem;
+        }
+
+        .nav-link.active {
+            background: rgba(74, 144, 164, 0.15);
+            border-left-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .main-content {
+            min-width: 0;
+        }
+
         @media (max-width: 768px) {
             .routes-grid {
                 grid-template-columns: 1fr;
             }
 
             .container {
-                padding: 1rem;
+                padding: 0 1rem 2rem 1rem;
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: relative;
+                top: 0;
             }
 
             .chapter-header h1 {
@@ -300,6 +362,32 @@
     </div>
 
     <div class="container">
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <nav class="nav-section">
+                <div class="nav-title">Navigering</div>
+                <a href="#scene1a" class="nav-link">Scene 1A: Ankomst - Baltic Route</a>
+                <a href="#scene1b" class="nav-link">Scene 1B: Ankomst - Truck Route</a>
+                <a href="#scene2" class="nav-link">Scene 2: Slava-Stiftelsen</a>
+                <a href="#scene4" class="nav-link">Scene 4: Volkovs Labb</a>
+                <a href="#scene5" class="nav-link">Scene 5: Camp S-17</a>
+                <a href="#scene6" class="nav-link">Scene 6: Nesterovs Ateljé</a>
+                <a href="#scene7" class="nav-link">Scene 7: De Tre Männens Safe House</a>
+                <a href="#scene8" class="nav-link">Scene 8: Till Leningrad</a>
+            </nav>
+
+            <nav class="nav-section">
+                <div class="nav-title">Snabbnavigering</div>
+                <a href="#overview" class="nav-link">Översikt</a>
+                <a href="#npcs" class="nav-link">NPCs</a>
+                <a href="#summary" class="nav-link">Sammanfattning</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
         <div class="chapter-header">
             <h1>KAPITEL 5: MOSKVA</h1>
             <p class="subtitle">"Матушка Россия" (Moder Ryssland)</p>
@@ -405,7 +493,7 @@
 
         <!-- SCENE 1A: BALTIC ROUTE -->
         <div class="section">
-            <h2>🚂 SCENE 1A: ANKOMST - BALTIC ROUTE</h2>
+            <h2 id="scene1a">SCENE 1A: ANKOMST - BALTIC ROUTE</h2>
             <p><strong>Plats:</strong> Leningradsky vokzal → Hotel Rossiya → Gorkijparken</p>
             <p><strong>Tid:</strong> 10:00 - 20:00 (10 timmar)</p>
             <p><strong>Tempo:</strong> Långsam uppbyggnad, etablera Moskva-stämning</p>
@@ -564,7 +652,7 @@
                         <ul>
                             <li><strong>Vila:</strong> Återhämta utmattning, ordna utrustning</li>
                             <li><strong>Research:</strong> Hotellets dåliga internet, ryska tidningar om Slava</li>
-                            <li><strong>Reconnaissance:</strong> Utforska området runt hotellet</li>
+                            <li><strong>Rekognosering:</strong> Utforska området runt hotellet</li>
                             <li><strong>Kontakter:</strong> Försöka nå journalistnätverk eller GRU-kontakter</li>
                         </ul>
 
@@ -757,7 +845,7 @@
 
         <!-- SCENE 1B: TRUCK ROUTE -->
         <div class="section">
-            <h2>🚛 SCENE 1B: ANKOMST - TRUCK ROUTE</h2>
+            <h2 id="scene1b">SCENE 1B: ANKOMST - TRUCK ROUTE</h2>
             <p><strong>Plats:</strong> Tekstilshchiki industrial district → Säker plats → Gorkijparken</p>
             <p><strong>Tid:</strong> 23:00 (Dag 1) - 20:00 (Dag 2) (~21 timmar)</p>
             <p><strong>Tempo:</strong> Desperat → Utmattad → Återhämtning → Kontakt</p>
@@ -981,7 +1069,7 @@
                         <ul>
                             <li>Vila mer (om möjligt)</li>
                             <li>Researcha Slava online (riskabelt)</li>
-                            <li>Reconnaissance av Gorkijparken (smart)</li>
+                            <li>Rekognosering av Gorkijparken (smart)</li>
                             <li>Planera exit-strategi</li>
                         </ul>
                     </div>
@@ -1124,7 +1212,7 @@
 
         <!-- SCENE 2: SLAVA-STIFTELSEN -->
         <div class="section">
-            <h2>🏛️ SCENE 2: SLAVA-STIFTELSEN (ARKIVEN)</h2>
+            <h2 id="scene2">SCENE 2: SLAVA-STIFTELSEN (ARKIVEN)</h2>
             <p><strong>Plats:</strong> Slava Palace - "Kulturstiftelsen för Rysk Militärhistoria" vid Moskva-floden</p>
             <p><strong>Tid:</strong> 3-4 timmar speltid</p>
             <p><strong>Tempo:</strong> Spänningsbyggande, smyg/social infiltration</p>
@@ -1609,7 +1697,7 @@
 
         <!-- SCENE 4: VOLKOVS LABB -->
         <div class="section">
-            <h2>💔 SCENE 4: VOLKOVS LABB (EMOTIONELLT KLIMAX)</h2>
+            <h2 id="scene4">SCENE 4: VOLKOVS LABB (EMOTIONELLT KLIMAX)</h2>
             <p><strong>Plats:</strong> Vernadskogo Prospekt 89, Lägenhet 34 - Leninskiye Gory (akademiskt distrikt)</p>
             <p><strong>Tid:</strong> 2-3 timmar speltid</p>
             <p><strong>Tempo:</strong> Långsam fruktan → tragisk konfrontation → desperat flykt</p>
@@ -2060,7 +2148,7 @@
 
         <!-- SCENE 5: CAMP S-17 RUINER -->
         <div class="section">
-            <h2>🏚️ SCENE 5: CAMP S-17 RUINER (HISTORISK PILGRIMAGE)</h2>
+            <h2 id="scene5">SCENE 5: CAMP S-17 RUINER (HISTORISK PILGRIMAGE)</h2>
             <p><strong>Plats:</strong> ~80km nordost om Moskva, övergiven forskningsfacilitet</p>
             <p><strong>Tid:</strong> 2-3 timmar speltid (plus 2 timmar körning)</p>
             <p><strong>Tempo:</strong> Melankolisk, spöklikt, barnens lidande</p>
@@ -2446,7 +2534,7 @@
 
         <!-- SCENE 6: NESTEROV -->
         <div class="scene-header">
-            <h2 id="scene6">🎨 SCENE 6: DIMI NESTEROVS ATELJÉ (NYCKELN)</h2>
+            <h2 id="scene6">SCENE 6: DIMI NESTEROVS ATELJÉ (NYCKELN)</h2>
             <p><strong>Plats:</strong> Arbat-distriktet, Moskva | <strong>Varaktighet:</strong> 1-2 timmar | <strong>Tempo:</strong> Lugn, melankolisk, upplösning</p>
             <p class="scene-tagline"><em>"Jag har väntat på er. Jag har drömt om er i 79 år."</em></p>
         </div>
@@ -2812,9 +2900,463 @@
             </div>
         </div>
 
+
+        <!-- SCENE 7: DE TRE MÄNNENS SAFE HOUSE -->
+        <div class="scene-header">
+            <h2 id="scene7">SCENE 7: DE TRE MÄNNENS SAFE HOUSE (OPTIONAL)</h2>
+            <p><strong>Plats:</strong> Industriområde, Moskvas utkant | <strong>Varaktighet:</strong> 2-3 timmar | <strong>Tempo:</strong> Action/stealth</p>
+            <p class="scene-tagline"><em>"De är här, i Moskva. Ni kan känna dem."</em></p>
+        </div>
+
+        <div class="content-section">
+            <h3>📍 Bakgrund och syfte</h3>
+            <p>De tre männen (Anton Mahler, Sasha Pogodin, Filip Kramer) har etablerat ett gömställe i Moskvas industriområde där de samlar fragment och planerar sin återvändo till Leningrad. Denna scen är OPTIONAL - spelarna kan skippa den helt, men den erbjuder möjlighet till konfrontation, sabotage, eller att stjäla värdefulla fragment och dokument.</p>
+
+            <div class="warning-box">
+                <strong>⚠️ VIKTIGT:</strong> Denna scen är HÖGRISK. De tre männen är överlägset starkare än spelarna (Stage 3-4, Yithian-hybridiserade). Direkt combat är nästan dödligt. Rekommenderad metod: Stealth + snabb räd + flykt.
+            </div>
+
+            <div class="info-box">
+                <strong>🎯 Vad denna scen kan ge:</strong>
+                <ul>
+                    <li><strong>Fragment:</strong> 1-3 Black Madonna-fragment (kraftfulla men farliga)</li>
+                    <li><strong>Intel:</strong> Kartor över Leningrad, planer för Kalenko-huset</li>
+                    <li><strong>Sabotage:</strong> Fördröja De tre männens Leningrad-operation</li>
+                    <li><strong>Riskabelt:</strong> Alarm, konfrontation, eller att De tre männen blir varse om spelarna</li>
+                </ul>
+            </div>
+
+            <!-- Del 1: Hitta platsen -->
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <h3>🔍 Del 1: Hitta Safe House</h3>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <h4>Hur spelarna hittar platsen</h4>
+                        <p><strong>Ledtrådar från tidigare scener:</strong></p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Källa</th>
+                                    <th>Information</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Oleg</strong></td>
+                                    <td>"De har ett gömställe i industriområdet. Jag vet inte exakt var, men Tekstilshchiki-området."</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Slava-arkiv</strong></td>
+                                    <td>FSB-rapport nämner "okontaktbar gömställe vid gamla fabriksområde, sektor 7-B"</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Volkovs labb</strong></td>
+                                    <td>Karta med markerad plats: "De TRE - Tekstilshchiki, nära gamla kemikaliefabrik"</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Black Madonna Doll</strong></td>
+                                    <td>Dockan "pekar" svagt i riktning när den är aktiv (247Hz-resonans)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>🚗 Resa till området (1 timme)</h4>
+                        <p><strong>Transport:</strong></p>
+                        <ul>
+                            <li>Hyrbil (bäst för snabb flykt)</li>
+                            <li>Metro till Tekstilshchiki + promenad (långsammare men mer diskret)</li>
+                            <li>Taxi (riskabelt - vittne)</li>
+                        </ul>
+
+                        <div class="scene-box">
+                            <p><em>Ni kör österut genom Moskva. Byggnader blir lägre, grå betongblock ersätts av industriområden. Tekstilshchiki-distriktet: gamla fabriker, övergivna lager, sprucken asfalt. Detta är inte turistens Moskva. Detta är Sovjet-ruinernas Moskva.</em></p>
+                        </div>
+
+                        <h4>📍 Hitta exakt plats (Surveillance)</h4>
+                        <p><strong>Research/Surveillance-check:</strong></p>
+                        <ul>
+                            <li><strong>Kritisk framgång:</strong> Hittar byggnaden direkt, identifierar ingångar, vaktrutiner</li>
+                            <li><strong>Framgång:</strong> Hittar området, måste rekognosera för detaljer</li>
+                            <li><strong>Misslyckande:</strong> Måste söka i 2-4 timmar, risk för upptäckt</li>
+                            <li><strong>Fumble:</strong> Utlöser varningssystem eller patrull</li>
+                        </ul>
+
+                        <div class="scene-box">
+                            <p><strong>När de hittar det:</strong></p>
+                            <p><em>Gammal kemikaliefabrik. Tre våningar. Fönster bommade. Men ni märker detaljer: färska däckspår i snöslaske, ny kabel längs fasaden, svagt ljus genom sprucken takluft. Någon HAR varit här nyligen.</em></p>
+                        </div>
+
+                        <h4>🕵️ Initial Rekognosering</h4>
+                        <p>Spelarna bör lägga tid på att studera byggnaden innan infiltration:</p>
+
+                        <div class="stat-block">
+                            <h4>Vad de kan märka (Alertness/Surveillance):</h4>
+                            <ul>
+                                <li><strong>Ingångar:</strong> Huvududörr (låst med nytt lås), bakdörr (rostigt galler), takingång (via brandstege)</li>
+                                <li><strong>Vakter:</strong> 2 män patrullerar utsidan var 30:e minut (Slava-medlemmar, inte De tre männen)</li>
+                                <li><strong>Säkerhet:</strong> Moderna övervakningskameror (nyinstallerade), rörelsesensorer vid ingångar</li>
+                                <li><strong>Aktivitet:</strong> Ljud från insidan - generatorhum, 247Hz-ton (svag men hörbar för märkta)</li>
+                                <li><strong>Fordon:</strong> Svart van parkerad 50 meter bort (registrerad på Slava)</li>
+                            </ul>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ TIMING:</strong> Om spelarna observerar länge nog (2+ timmar):<br>
+                            En av De tre männen (Anton Mahler) kommer UT från byggnaden, kliver in i vanen, och kör iväg. Detta ger ett 2-timmars fönster då endast 2 av De tre männen är kvar.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Del 2: Infiltration -->
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <h3>🚪 Del 2: Infiltration - Tre Metoder</h3>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <h4>METOD A: STEALTH (Rekommenderad)</h4>
+                        <p><strong>Plan:</strong> Vänta tills vaktpatrull är på andra sidan byggnaden, infiltrera via takingång</p>
+
+                        <div class="stat-block">
+                            <h4>Stealth-metod:</h4>
+                            <ol>
+                                <li><strong>Timing:</strong> Vänta på vaktpatruller (30 min observation)</li>
+                                <li><strong>Brandstege:</strong> Klättra upp (Athletics-check, rostig stege knarrar)</li>
+                                <li><strong>Takdörr:</strong> Lockpicking eller Force (DC 50 / DC 60)</li>
+                                <li><strong>Rörelse inne:</strong> Stealth-checks var 10:e minut (DC ökar om De tre männen är närvarande)</li>
+                            </ol>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>✓ Framgång:</strong> Kommer in ostörda, 15-20 minuter innan nästa patrull<br>
+                            <strong>⚠️ Misslyckande:</strong> Larm går, vakter alertade, måste agera SNABBT
+                        </div>
+
+                        <h4>METOD B: DISTRACTION</h4>
+                        <p><strong>Plan:</strong> Skapa distraktion (eldsvåda, alarm på annat ställe) för att dra bort vakter</p>
+
+                        <div class="stat-block">
+                            <h4>Distraktions-metod:</h4>
+                            <ol>
+                                <li><strong>Sätt upp distraktion:</strong> Demolitions/Craft för att skapa eldsvåda 200m bort</li>
+                                <li><strong>Vakter reagerar:</strong> 2 vakter springer dit (5 min fönster)</li>
+                                <li><strong>Snabb infiltration:</strong> Via huvududörr (Lockpicking under tidspress)</li>
+                                <li><strong>Problem:</strong> De tre männen reagerar OCKSÅ - känner att något är fel</li>
+                            </ol>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>⚠️ Risk:</strong> De tre männen känner när fragment flyttas eller när deras territorium kränks. Distraction ger bara 5-10 minuters fönster innan de börjar söka.
+                        </div>
+
+                        <h4>METOD C: DIRECT ASSAULT (EJ REKOMMENDERAT)</h4>
+                        <p><strong>Plan:</strong> Övermanna vakter, forcera in, ta vad ni kan, fly</p>
+
+                        <div class="warning-box">
+                            <strong>❌ EXTREM RISK:</strong>
+                            <ul>
+                                <li>Vakter är beväpnade (pistols, radios)</li>
+                                <li>Gunshots alertar De tre männen OMEDELBART</li>
+                                <li>Combat mot Stage 3-4 Yithian-hybrider = nästan säker död</li>
+                                <li>FSB kan höra skytte och anländer inom 10 minuter</li>
+                            </ul>
+                            <p><strong>Rekommendation:</strong> UNDVIK detta om möjligt</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Del 3: Inne i Safe House -->
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <h3>🏚️ Del 3: Inne i Safe House</h3>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <h4>Layout - Tre våningar</h4>
+                        
+                        <div class="stat-block">
+                            <h4>Våning 1 (Entré/Lager):</h4>
+                            <ul>
+                                <li><strong>Huvudrum:</strong> Tomt lager, gamla kemikaliefat, damm</li>
+                                <li><strong>Vaktrum:</strong> 2 vakter (om alarm inte gått), kaffe, radios, vapen</li>
+                                <li><strong>Trappa upp:</strong> Till våning 2</li>
+                            </ul>
+                        </div>
+
+                        <div class="stat-block">
+                            <h4>Våning 2 (Operations Center):</h4>
+                            <ul>
+                                <li><strong>Kartrum:</strong> Stora kartor över Leningrad, Vasilyevsky Island, Kalenko-huset markerat</li>
+                                <li><strong>Kommunikationsrum:</strong> Radios, krypterad kommunikation med Slava HQ</li>
+                                <li><strong>Fragment-förvaring:</strong> 3 Black Madonna-fragment i blyfodral (247Hz-humming intensivt)</li>
+                                <li><strong>Dokumentation:</strong> Plans för Leningrad-operation, tidtabell, resurser</li>
+                            </ul>
+                        </div>
+
+                        <div class="stat-block">
+                            <h4>Våning 3 (De tre männens rum):</h4>
+                            <ul>
+                                <li><strong>Sovrum:</strong> Tre enkla sängar (används sällan - de sover knappt längre)</li>
+                                <li><strong>Ritualrum:</strong> 247Hz-generator, kristaller, anteckningar om Yithian-transformation</li>
+                                <li><strong>Personliga effekter:</strong> Gamla fotografier från 1940-talet, barndoms-minnen från Leningrad</li>
+                                <li><strong>RISK:</strong> Om 2 av De tre männen är här, de är på denna våning</li>
+                            </ul>
+                        </div>
+
+                        <h4>🎯 Vad spelarna kan hitta</h4>
+
+                        <div class="info-box">
+                            <strong>KRITISKA FYND (Våning 2):</strong>
+                            <ol>
+                                <li><strong>Leningrad-kartor:</strong> Exakta koordinater till Kalenko-huset, FSB-kordonens positioner, infiltreringsvägar</li>
+                                <li><strong>Tidsplan:</strong> "Operation Återförening - 2025-12-31 00:00" (Nyårsnatten, samma som 1942!)</li>
+                                <li><strong>Fragment:</strong> 3 st, kan stjälas (men 247Hz blir MYCKET starkare om spelarna tar dem)</li>
+                                <li><strong>De tre männens plans:</strong> Dokument beskriver hur de tänker "kontrollera portalen" (de HAR FEL)</li>
+                            </ol>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>FARLIGA FYND (Våning 3):</strong>
+                            <ul>
+                                <li><strong>Transformation-anteckningar:</strong> Beskriver Stage 4-5 Yithian-hybridisering (0/1D4 SAN)</li>
+                                <li><strong>Barndomsfoton:</strong> De tre männen som unga pojkar 1941, oskuldsfulla (0/1 SAN - inse vad som gjordes mot dem)</li>
+                                <li><strong>Brev till varandra:</strong> "Vi måste återvända hem. Vi måste befria de andra. Även om det kostar allt."</li>
+                            </ul>
+                        </div>
+
+                        <div class="scene-box">
+                            <p><strong>Atmosfär inne i byggnaden:</strong></p>
+                            <p><em>Luften är tung, tät. 247Hz-tonen är konstant här - ni känner den i era kroppar, i era ben. Parasite-symtomen intensifieras. Dockan i er väska huttar våldsamt. På väggarna: kartor, diagram, foton. Tre liv sammanvävda i 80 år av transformation och väntan. Detta är inte skurkars lya. Detta är offer som försöker hitta hem.</em></p>
+                        </div>
+
+                        <h4>⏱️ Tidspress</h4>
+                        <p>Spelarna har begränsad tid innan komplikationer:</p>
+                        <ul>
+                            <li><strong>15 minuter:</strong> Säkert om de var tysta</li>
+                            <li><strong>20 minuter:</strong> Vakter slutar patrull, går in</li>
+                            <li><strong>30 minuter:</strong> Om De tre männen är här, de känner inkräktare</li>
+                            <li><strong>2 timmar:</strong> Anton Mahler återvänder i van</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Del 4: Komplikationer -->
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <h3>⚠️ Del 4: Komplikationer</h3>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <h4>KOMPLIKATION A: Vakter upptäcker er</h4>
+                        <p><strong>När:</strong> Om Stealth-check misslyckades eller spelarna tar för lång tid</p>
+
+                        <div class="stat-block">
+                            <h4>Vakter (2 st) - Slava-medlemmar</h4>
+                            <ul>
+                                <li><strong>STR:</strong> 12, <strong>CON:</strong> 11, <strong>DEX:</strong> 10</li>
+                                <li><strong>HP:</strong> 11, <strong>Armor:</strong> Ingen</li>
+                                <li><strong>Vapen:</strong> Makarov pistol (1D10), kniv (1D4)</li>
+                                <li><strong>Skills:</strong> Firearms 40%, Alertness 50%, Melee 40%</li>
+                            </ul>
+                        </div>
+
+                        <p><strong>Vakternas reaktion:</strong></p>
+                        <ul>
+                            <li><strong>Round 1:</strong> "Стой! Кто вы?" (Стоп! Who are you?) - räcker efter vapen</li>
+                            <li><strong>Round 2:</strong> Skytte ELLER radioanrop till De tre männen</li>
+                            <li><strong>Round 3+:</strong> Full combat</li>
+                        </ul>
+
+                        <div class="info-box">
+                            <strong>Spelarnas alternativ:</strong>
+                            <ul>
+                                <li><strong>Överraska:</strong> Knockout innan de radiar (Melee/Unarmed)</li>
+                                <li><strong>Bluff:</strong> "Vi är från Slava HQ" (Hard Persuasion på ryska)</li>
+                                <li><strong>Fly:</strong> Sprint mot utgång</li>
+                                <li><strong>Combat:</strong> Eliminera tysta (suppressors om de har)</li>
+                            </ul>
+                        </div>
+
+                        <h4>KOMPLIKATION B: De tre männen är hemma</h4>
+                        <p><strong>När:</strong> Om spelarna inte observerade eller kom vid fel tidpunkt</p>
+
+                        <div class="warning-box">
+                            <strong>❌ EXTREM FARA:</strong> 2 av De tre männen (Sasha Pogodin & Filip Kramer) är på våning 3
+                        </div>
+
+                        <div class="stat-block">
+                            <h4>De tre männen (Stage 3-4)</h4>
+                            <ul>
+                                <li><strong>STR:</strong> 16-18, <strong>DEX:</strong> 14, <strong>POW:</strong> 16</li>
+                                <li><strong>HP:</strong> 14, <strong>Armor:</strong> 2 (onaturlig hud)</li>
+                                <li><strong>Attacks:</strong> Unarmed 1D6+1D4, Yithian-touch (paralysis DC 60 POW)</li>
+                                <li><strong>Unnatural:</strong> 10% (immunitet mot normal rädsla)</li>
+                                <li><strong>Förmågor:</strong> Känner fragment, 247Hz-manipulation, övernatliga reflexer</li>
+                            </ul>
+                        </div>
+
+                        <div class="scene-box">
+                            <p><strong>Om De tre männen upptäcker spelarna:</strong></p>
+                            <p><em>Ni hör fotsteg från trappan. TUNGA. Metalliska. Två figurer dyker upp i dörröppningen. Ni känner igen dem från fotografier - Sasha och Filip. Men de är FÖRÄNDRADE. Hud som grå metall, ögon som reflekterar ljus fel, rörelser vinklade och onaturliga. 247Hz-tonen intensifieras till smärtgräns.</em></p>
+                            <p><strong>Sasha (röst djup, resonerande):</strong> "Ni bär märket. Ni är som vi. Varför kämpar ni emot det oundvikliga?"</p>
+                        </div>
+
+                        <p><strong>Spelarnas ENDA alternativ:</strong></p>
+                        <ul>
+                            <li><strong>FLY OMEDELBART:</strong> Sprint mot närmaste utgång</li>
+                            <li><strong>Distraktionsgranater:</strong> Flashbang/smoke för att köpa 1-2 rounds</li>
+                            <li><strong>Volvov's frekvens-störare:</strong> OM de tog den från hans labb, kan störa De tre männens kontroll i 30 sekunder</li>
+                            <li><strong>INTE COMBAT:</strong> De är övermäktiga, spelarna DÖDAS</li>
+                        </ul>
+
+                        <h4>KOMPLIKATION C: Fragment-reaktion</h4>
+                        <p><strong>När:</strong> Om spelarna tar fragment från våning 2</p>
+
+                        <div class="warning-box">
+                            <strong>⚠️ FRAGMENT-EFFEKT:</strong>
+                            <ul>
+                                <li>247Hz-humming ökar MASSIVT (alla inom 100m känner det)</li>
+                                <li>De tre männen KÄNNER omedelbart att fragment flyttas</li>
+                                <li>Parasite-symtom accelereras (Stage 2 → börjar Stage 3 inom dagar)</li>
+                                <li>Black Madonna Doll reagerar våldsamt (kan krossas om inte försiktig)</li>
+                            </ul>
+                        </div>
+
+                        <p><strong>Måste spelarna ta fragment?</strong> NEJ. Men de är kraftfulla verktyg (kan användas för suppression-ritual i Leningrad).</p>
+
+                        <h4>KOMPLIKATION D: FSB anländer</h4>
+                        <p><strong>När:</strong> Om skytte hördes eller alarm gått</p>
+
+                        <div class="stat-block">
+                            <h4>FSB Response Team (anländer inom 10 minuter):</h4>
+                            <ul>
+                                <li>2 fordon, 6 agenter, tungt beväpnade</li>
+                                <li>ANHÅLLER alla de hittar</li>
+                                <li>Förhör, deportering, eller "försvinner"</li>
+                            </ul>
+                        </div>
+
+                        <p><strong>Spelarna måste fly INNAN FSB anländer.</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Del 5: Escape & Outcomes -->
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <h3>🏃 Del 5: Flykt & Resultat</h3>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <h4>Flyktscenario</h4>
+                        <p>Beroende på vad som gick fel måste spelarna fly:</p>
+
+                        <div class="stat-block">
+                            <h4>Flyktrutt:</h4>
+                            <ol>
+                                <li><strong>Ut från byggnaden:</strong> Snabbaste väg (tak, bakdörr, fönster)</li>
+                                <li><strong>Till fordon:</strong> Athletics/Stealth för att nå bil/metro ostörda</li>
+                                <li><strong>Jaga genom Moskva:</strong> Om De tre männen jagar (Driving/Stealth opposed checks)</li>
+                                <li><strong>Gömma sig:</strong> Hitta säker plats, vänta ut (2-6 timmar)</li>
+                            </ol>
+                        </div>
+
+                        <div class="scene-box">
+                            <p><strong>Jaktscen (om De tre männen jagar):</strong></p>
+                            <p><em>Ni springer genom snöslask, industriområdets gator. Bakom er: fotsteg. SNABBA. Onaturliga. Ni vågar inte titta tillbaka. Bilen - 50 meter. 30 meter. Nycklar fram. Motor. GAS. Bakspegeln: två figurer står under en gatlykta, tittar efter er. De jagar inte längre. De VET var ni ska. Leningrad.</em></p>
+                        </div>
+
+                        <h4>📊 Possible Outcomes</h4>
+
+                        <div class="info-box">
+                            <strong>BÄSTA SCENARIO (stealth-framgång):</strong>
+                            <ul>
+                                <li>✓ Kartmaterial hämtat (Leningrad-intel)</li>
+                                <li>✓ Tidsplan stulen (vet när De tre männen slår till)</li>
+                                <li>✓ Fragment tagna (3 st - kraftfulla men farliga)</li>
+                                <li>✓ Ingen alarm - De tre männen vet inte att ni var här</li>
+                                <li>✓ 0 SAN-loss, inga skador</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-box">
+                            <strong>MEDIUM CASE (alarm men lyckad flykt):</strong>
+                            <ul>
+                                <li>✓ Viss intel hämtad (kartor ELLER tidsplan)</li>
+                                <li>✓ Möjligen 1 fragment</li>
+                                <li>⚠️ Alarm gick - De tre männen VET att någon var där</li>
+                                <li>⚠️ Vakter såg er (beskrivning till FSB)</li>
+                                <li>⚠️ 1-2 SAN-loss, möjliga skador från combat</li>
+                            </ul>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>WORST CASE (konfrontation):</strong>
+                            <ul>
+                                <li>❌ Mötte De tre männen (2-4 SAN-loss)</li>
+                                <li>❌ Combat-skador (HP-förlust, möjlig Yithian-touch paralysis)</li>
+                                <li>❌ De tre männen VET vilka spelarna är</li>
+                                <li>❌ FSB jagar spelarna aktivt</li>
+                                <li>❌ Minimal intel hämtad</li>
+                                <li>✓ Men spelarna överlevde (det är något)</li>
+                            </ul>
+                        </div>
+
+                        <div class="warning-box">
+                            <strong>DISASTER (fångas/dödas):</strong>
+                            <ul>
+                                <li>❌ Spelarna fångade av FSB → förhör, tortyr, försvinner</li>
+                                <li>❌ ELLER dödade av De tre männen</li>
+                                <li>❌ Kampanj över (eller EXTREMT svår räddning)</li>
+                            </ul>
+                            <p><strong>SL:</strong> Om detta händer, överväg "Selivanova rescue"-scen där KGB-lictor räddar dem som byteshandel.</p>
+                        </div>
+
+                        <h4>💀 SAN-loss Sammanfattning</h4>
+                        <ul>
+                            <li><strong>Se De tre männen (Stage 3-4):</strong> 1/1D6</li>
+                            <li><strong>Yithian-touch attack:</strong> +1</li>
+                            <li><strong>Se transformation-anteckningar:</strong> 0/1D4</li>
+                            <li><strong>Barndomsfoton (inse deras tragedi):</strong> 0/1</li>
+                            <li><strong>Fragment-exponering (om tar alla 3):</strong> 0/1D4</li>
+                        </ul>
+
+                        <h4>Övergång till nästa scen</h4>
+                        <p>Efter safe house-räden (eller om de skippar den):</p>
+
+                        <div class="info-box">
+                            <strong>Nästa steg:</strong>
+                            <ul>
+                                <li><strong>Om de redan besökt Nesterov:</strong> Direkt till Scene 8 (Övergång till Leningrad)</li>
+                                <li><strong>Om de INTE besökt Nesterov:</strong> Scene 6 först (rekommenderat)</li>
+                                <li><strong>Om svårt skadade:</strong> Vila 1-2 dagar, medicinsk vård</li>
+                            </ul>
+                        </div>
+
+                        <div class="scene-box">
+                            <p><em>Ni är tillbaka i säkerhet (relativt). Era händer darrar fortfarande. Om ni tog fragment känner ni dem i väskan - pulserande, humande. 247Hz följer er. De tre männen VET nu att ni existerar. Klockan tickar. Leningrad väntar. Och ni måste komma dit först.</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
         <!-- SCENE 8: ÖVERGÅNG TILL LENINGRAD -->
         <div class="scene-header">
-            <h2 id="scene8">🚂 SCENE 8: ÖVERGÅNG TILL LENINGRAD</h2>
+            <h2 id="scene8">SCENE 8: ÖVERGÅNG TILL LENINGRAD</h2>
             <p><strong>Plats:</strong> Leningradsky vokzal → Red Arrow tåg → St. Petersburg | <strong>Varaktighet:</strong> 30 min - 1 timme + 8 timmar resa | <strong>Tempo:</strong> "Ingen återvändo"</p>
             <p class="scene-tagline"><em>"Ni kan fortfarande vända om. Men ni vet att ni inte kommer göra det."</em></p>
         </div>
@@ -3719,3 +4261,5 @@
     </script>
 </body>
 </html>
+        </main>
+
