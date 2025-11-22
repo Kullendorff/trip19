@@ -1,0 +1,2103 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapitel 6: Leningrad - Slutet - TRIP 19 SL-Kontrollpanel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-primary: #4a90a4;
+            --accent-secondary: #e89a3c;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+            --classified: #ff4444;
+            --success: #4ade80;
+            --warning: #d4a520;
+            --nyogtha: #8b4789;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        .header {
+            background: var(--bg-darker);
+            border-bottom: 2px solid var(--accent-primary);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-primary);
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(74, 144, 164, 0.3);
+        }
+
+        .back-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--accent-primary);
+            border-radius: 4px;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            background: var(--accent-primary);
+            color: var(--bg-dark);
+            box-shadow: 0 0 10px rgba(74, 144, 164, 0.5);
+        }
+
+        .classified-banner {
+            background: var(--classified);
+            color: white;
+            text-align: center;
+            padding: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 10px rgba(255, 68, 68, 0.3);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem 2rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .nav-section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-primary);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .nav-title {
+            color: var(--accent-primary);
+            font-size: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.6rem 1rem;
+            color: var(--text);
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .nav-link:hover {
+            background: rgba(74, 144, 164, 0.1);
+            border-left-color: var(--accent-primary);
+            color: var(--accent-primary);
+            padding-left: 1.2rem;
+        }
+
+        .nav-link.active {
+            background: rgba(74, 144, 164, 0.15);
+            border-left-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .main-content {
+            min-width: 0;
+        }
+
+        .section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: var(--accent-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .section h3 {
+            color: var(--accent-secondary);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+            letter-spacing: 0.5px;
+        }
+
+        .section h4 {
+            color: var(--accent-primary);
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #2a0a0a 0%, #1a0505 100%);
+            border: 2px solid var(--classified);
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box strong {
+            color: var(--classified);
+        }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.1);
+            border: 2px solid var(--accent-primary);
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .info-box strong {
+            color: var(--accent-primary);
+        }
+
+        .gm-note {
+            background: var(--bg-darker);
+            border-left: 4px solid var(--accent-secondary);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .gm-note::before {
+            content: "SL: ";
+            color: var(--accent-secondary);
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .scene-box {
+            background: var(--bg-darker);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: #c9d1d9;
+        }
+
+        .scene-box strong {
+            color: var(--accent-primary);
+            font-style: normal;
+        }
+
+        .stat-block {
+            background: var(--bg-darker);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .stat-block h4 {
+            color: var(--accent-primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .stat-item {
+            background: var(--bg-panel);
+            padding: 0.5rem;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .stat-item strong {
+            color: var(--accent-secondary);
+            display: block;
+            font-size: 0.8rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge.sl-only {
+            background: var(--classified);
+            color: white;
+        }
+
+        .badge.session {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .badge.act {
+            background: var(--accent-secondary);
+            color: #0a0f0f;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th {
+            background: var(--bg-darker);
+            color: var(--accent-primary);
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid var(--border);
+            font-weight: bold;
+        }
+
+        td {
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+        }
+
+        tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .footer {
+            background: var(--bg-darker);
+            border-top: 2px solid var(--accent-primary);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: relative;
+                top: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem 2rem 1rem;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .stat-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 1rem;
+            }
+            .section {
+                padding: 1rem;
+            }
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">KAPITEL 6: LENINGRAD - SLUTET</div>
+            <a href="index.html" class="back-link">← Tillbaka till Kontrollpanel</a>
+        </div>
+    </div>
+
+    <!-- Classified Banner -->
+    <div class="classified-banner">
+        KLASSIFICERAD // DELTA GREEN ENDAST FÖR SL // OPERATION TRIP 19 - BLACK MADONNA
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <nav class="nav-section">
+                <div class="nav-title">Navigering</div>
+                <a href="#overview" class="nav-link">Översikt</a>
+                <a href="#timeline" class="nav-link">Tidsplan</a>
+                <a href="#teman" class="nav-link">Teman</a>
+                <a href="#akt1" class="nav-link">Akt 1: The Crossing</a>
+                <a href="#akt2" class="nav-link">Akt 2: The House</a>
+                <a href="#akt3" class="nav-link">Akt 3: The Ritual</a>
+                <a href="#epilog" class="nav-link">Epilog</a>
+                <a href="#endings" class="nav-link">Möjliga Slut</a>
+                <a href="#mekanik" class="nav-link">Gameplay-Mekanik</a>
+                <a href="#gmtips" class="nav-link">SL-Tips</a>
+            </nav>
+
+            <nav class="nav-section">
+                <div class="nav-title">Snabbnavigering Scener</div>
+                <a href="#scen1" class="nav-link">Scen 1: Ankomst</a>
+                <a href="#scen2" class="nav-link">Scen 2: Safe House</a>
+                <a href="#scen3" class="nav-link">Scen 3: Bron</a>
+                <a href="#scen10" class="nav-link">Scen 10: Barnen</a>
+                <a href="#scen13" class="nav-link">Scen 13: Boss Fight</a>
+                <a href="#scen15" class="nav-link">Scen 15: Nyogtha</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Overview Section -->
+            <section id="overview" class="section">
+                <h2>Executive Summary</h2>
+
+                <div class="info-box">
+                    <strong>Kapitel 6 är kampanjens klimax:</strong><br>
+                    Spelarna konfronterar slutet på sin resa i Leningrad där de måste välja mellan att befria 20 fängslade barn (moraliskt rätt) vilket släpper den antika entiteten Nyogtha (kosmiskt hot), eller låta barnen förbli fängslade i evighet (skyddar världen men omoraliskt).
+                </div>
+
+                <div class="grid-2">
+                    <div>
+                        <h3>Grundfakta</h3>
+                        <table>
+                            <tr>
+                                <th>Plats</th>
+                                <td>Sankt Petersburg/Leningrad, Vasilyevsky Island, Kalenko-huset</td>
+                            </tr>
+                            <tr>
+                                <th>Atmosfär</th>
+                                <td>"Silent Hill meets Stalingrad" - tungt, kallt, oundvikligt</td>
+                            </tr>
+                            <tr>
+                                <th>Tempo</th>
+                                <td>Slow burn → emotional climax → cosmic horror finale → reflection</td>
+                            </tr>
+                            <tr>
+                                <th>Längd</th>
+                                <td>2-3 sessioner (11-12, valfri 13)</td>
+                            </tr>
+                            <tr>
+                                <th>Ton</th>
+                                <td>Tragisk resolution, bittersöt seger, personlig kostnad</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div>
+                        <h3>Strukturöversikt</h3>
+                        <ul>
+                            <li><span class="badge act">Akt 1</span> The Crossing (Scen 1-5)</li>
+                            <li><span class="badge act">Akt 2</span> The House (Scen 6-9)</li>
+                            <li><span class="badge act">Akt 3</span> The Ritual (Scen 10-17)</li>
+                            <li><span class="badge act">Epilog</span> Aftermath (Scen 18-22)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <strong>CENTRALA DILEMMAT:</strong><br>
+                    Det finns inget rent val - bara mindre eländiga alternativ. Spelarna MÅSTE välja mellan barnens frihet och världens säkerhet.
+                </div>
+
+                <div class="scene-box">
+                    <strong>Delta Green i sitt esse:</strong><br>
+                    "Du gjorde det rätta. Ingen vet det. Ingen tror dig. Du bär kostnaden ensam. Men de 20 barnen är fria nu. Var det värt det?"<br><br>
+                    <em>Spelarna får svara själva.</em>
+                </div>
+            </section>
+
+            <!-- Timeline Section -->
+            <section id="timeline" class="section">
+                <h2>Tidsplan & Sessionsstruktur</h2>
+
+                <div class="gm-note">
+                    Rekommenderad längd: 2-3 sessioner. Anpassa efter gruppens tempo och spelstil.
+                </div>
+
+                <table>
+                    <tr>
+                        <th>Session</th>
+                        <th>Innehåll</th>
+                        <th>Tempo</th>
+                        <th>Tonkurva</th>
+                    </tr>
+                    <tr>
+                        <td><span class="badge session">Session 11</span></td>
+                        <td>Akt 1-2 (Arrival → Infiltration → Huset)</td>
+                        <td>4-6 timmar</td>
+                        <td>Slow burn investigation → rising tension → wrongness</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge session">Session 12</span></td>
+                        <td>Akt 3 (Barnen → Ritualen → Nyogtha)</td>
+                        <td>4-6 timmar</td>
+                        <td>Emotional revelation → moral choice → cosmic horror climax</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge session">Session 13</span><br><small>(valfri)</small></td>
+                        <td>Epilog (Aftermath → Resolution)</td>
+                        <td>1-2 timmar</td>
+                        <td>Escape → reflection → bittersöt resolution</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- Teman Section -->
+            <section id="teman" class="section">
+                <h2>Teman</h2>
+
+                <div class="grid-2">
+                    <div>
+                        <h3>Primära Teman</h3>
+                        <ul>
+                            <li><strong>Offer vs Själviskhet:</strong> Vad är man villig att ge upp?</li>
+                            <li><strong>Oskyld vs Säkerhet:</strong> 20 barn vs millioner människor</li>
+                            <li><strong>Mänsklighet vs Plikt:</strong> Känslor vs Delta Green-mission</li>
+                            <li><strong>Minne vs Glömska:</strong> Förlåtelse eller evig skuld?</li>
+                            <li><strong>Tid vs Evighet:</strong> 83 år fångenskap, ett ögonblick eller evig tortyr?</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Delta Green-essens</h3>
+                        <div class="scene-box">
+                            "Du gjorde det rätta. Ingen vet det. Ingen tror dig. Du bär kostnaden ensam. Men de 20 barnen är fria nu. Var det värt det?"
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Kärnvärden för Kapitel 6</h3>
+                <div class="info-box">
+                    <ol>
+                        <li><strong>VALET MÅSTE VARA VERKLIGT</strong> - Inga "rätt" svar, båda alternativen fruktansvärda, spelarna måste KÄNNA vikten</li>
+                        <li><strong>BARNEN MÅSTE VARA MÄNSKLIGA</strong> - Namn, ansikten, personligheter. INTE abstrakta "20 offer"</li>
+                        <li><strong>NYOGTHA MÅSTE VARA ALIEN</strong> - INTE "ond" i mänsklig mening. Bara HUNGER, VAST, ANCIENT. Naturkraft, inte person</li>
+                        <li><strong>KOSTNADEN MÅSTE VARA PERSONLIG</strong> - Bonds bryts, SAN förloras, parasit fortskrider</li>
+                        <li><strong>DELTA GREEN-TONALITET</strong> - Hemska val för mänsklighetens skull. Ingen vet vad du offrade. Världen fortsätter ignorant. Du bär hemligheten ensam.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Akt 1: The Crossing -->
+            <section id="akt1" class="section">
+                <h2><span class="badge act">Akt 1</span> The Crossing (Infiltration)</h2>
+
+                <div class="info-box">
+                    <strong>Varaktighet:</strong> 2-3 timmar<br>
+                    <strong>Tempo:</strong> Slow burn → tension rising<br>
+                    <strong>Atmosfär:</strong> Modernt St. Petersburg blir allt tystare, gråare, kallare<br>
+                    <strong>SAN-förlust Akt 1:</strong> 0/1D6 total
+                </div>
+
+                <h3 id="scen1">Scen 1: Sankt Petersburg Arrival</h3>
+                <div class="stat-block">
+                    <h4>SCEN 1 - ANKOMST</h4>
+                    <p><strong>Plats:</strong> Moskovsky Vokzal (tågstation) eller bil från Moskva</p>
+                    <p><strong>Syfte:</strong> Etablera staden och första tecken på anomali</p>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    Sankt Petersburg möter er med kyla. Vintern har slagit sitt grepp om staden, och snön ligger tung över tak och gator. Moderna kontorsbyggnader blandas med tsartidens palats - en stad med tusen ansikten.<br><br>
+
+                    Men något känns fel. Kompasserna fungerar inte riktigt. Fåglar kretsar, men undviker ett visst område i väster. Och när ni frågar lokalbefolkningen om Vasilyevsky Island får ni konstiga blickar.<br><br>
+
+                    "Vi går inte dit," säger en äldre kvinna. "Det är något fel med den platsen."
+                </div>
+
+                <h4>Spelmoment</h4>
+                <ul>
+                    <li><strong>Etablera staden:</strong> Vacker men kald, FSB-närvaro noteras</li>
+                    <li><strong>Första tecken på anomali:</strong>
+                        <ul>
+                            <li>Kompasser fungerar fel (avvikelse 15-30°)</li>
+                            <li>Fåglar undviker område</li>
+                            <li>Mobiler/GPS glitchar nära Vasilyevsky Island</li>
+                        </ul>
+                    </li>
+                    <li><strong>Lokala reagerar konstigt:</strong> "Vi går inte dit" (Neva-floden har dåligt rykte)</li>
+                </ul>
+
+                <div class="gm-note">
+                    Ge spelarna tid att planera och förbereda sig. Detta är sista chansen att köpa utrustning, kontakta nära och kära, eller ändra strategi.
+                </div>
+
+                <h3 id="scen2">Scen 2: Safe House & Reconnaissance</h3>
+                <div class="stat-block">
+                    <h4>SCEN 2 - GÖMSTÄLLE & REKOGNOSCERING</h4>
+                    <p><strong>Plats:</strong> Gömställe inom 5km från Kalenko-huset</p>
+                    <p><strong>Syfte:</strong> Planering och observation av FSB-kordon</p>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    Gömstället är spartanskt - ett gammalt sovjet-lägenhetsblock som såg bättre dagar under Chrustjev. Men det fungerar. Härifrån kan ni observera ön.<br><br>
+
+                    Genom kikaren ser ni dem: FSB-soldater i svarta uniformer patrullerar området. En hel kordon, minst 2.5 kilometer i radie runt... något. Officiell förklaring: "Gasläcka. Militärövning. Håll er borta."<br><br>
+
+                    Men ni vet bättre.
+                </div>
+
+                <h4>Spelmoment</h4>
+                <ul>
+                    <li><strong>Planering:</strong> Hur ta sig in? När? Vem bär vad?
+                        <ul>
+                            <li>Ge spelarna tid att diskutera strategi</li>
+                            <li>Kartlägg färdigheter: Vem kan smyga? Muta? Hacka?</li>
+                        </ul>
+                    </li>
+                    <li><strong>Observera FSB-kordon:</strong>
+                        <ul>
+                            <li>2.5km radie runt Kalenko-huset</li>
+                            <li>Patrullmönster var 30:e minut</li>
+                            <li>Checkpoint på bron (huvudväg in)</li>
+                            <li>Svaga punkter: Underground tunnlar, is-övergång vid lågvatten</li>
+                        </ul>
+                    </li>
+                    <li><strong>Möjlig encounter:</strong> FSB-soldat som vet för mycket, vill varna dem
+                        <ul>
+                            <li>Namn: Sergeant Pavel Dimitrov</li>
+                            <li>Har sett något inne i zonen: "Skuggorna rör sig fel"</li>
+                            <li>Desperat: "Gå inte in. Vad ni än gör, gå inte in."</li>
+                            <li>Kan ge information om säkraste infiltrationsrutt</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="gm-note">
+                    Om spelarna tar kontakt med Pavel Dimitrov, ge dem konkret hjälp (karta över patrullmönster, tidsfönster) men låt dem också se hans rädsla. Han är veteran från Tjetjenien - och han är livrädd.
+                </div>
+
+                <h3 id="scen3">Scen 3: The Crossing - Bron till Vasilyevsky Island</h3>
+                <div class="stat-block">
+                    <h4>SCEN 3 - ÖVERGÅNGEN</h4>
+                    <p><strong>Plats:</strong> Bron (avspärrad av FSB: "Gasläcka/Militärövning")</p>
+                    <p><strong>Syfte:</strong> Infiltration och TWIST - tidsskifte till 1942</p>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext (före övergången):</strong><br>
+                    Bron sträcker sig över Nevas mörka vatten. FSB-checkpointen lyser som en ö i mörkret - strålkastare, barriärer, beväpnade vakter. Men ni har en plan.<br><br>
+
+                    [Låt spelarna genomföra sin infiltration]
+                </div>
+
+                <h4>Infiltrationsalternativ</h4>
+                <ul>
+                    <li><strong>Smyga över isen:</strong> Stealth-check (modifierad av väder/patrull)</li>
+                    <li><strong>Muta vakter:</strong> Persuade-check, kräver pengar eller tillgångar</li>
+                    <li><strong>Köra igenom:</strong> Drive-check + eventuell strid</li>
+                    <li><strong>Underground tunnel:</strong> Navigation-check, takes longer</li>
+                </ul>
+
+                <div class="warning-box">
+                    <strong>TWIST - HALVVÄGS ÖVER BRON:</strong><br>
+                    Oavsett metod, när spelarna är halvvägs över (punkt of no return), skiftar verkligheten.
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext (TWIST):</strong><br>
+                    Mitt i övergången stannar tiden.<br><br>
+
+                    Dimman tätnar. Den moderna LED-belysningen flimrar... och blir till gas-lyktor. Ljudlandskapet förändras - moderna bilar tystnar, ersätts av... tystnad. Ödesmättad tystnad.<br><br>
+
+                    Och sedan, långt borta, avlägsna explosioner.<br><br>
+
+                    När dimman lättar står ni fortfarande på bron. Men det är inte 2025 längre. Omkring er: ruiner. Snö. Förödelse. Detta är Leningrad 1942, under belägringen. Och ni har just gått in i fasförskjutningen.
+                </div>
+
+                <div class="gm-note">
+                    Detta är kampanjens mest dramatiska övergång. Låt det sjunka in. Beskriv hur modern teknik (mobiler, GPS) slutar fungera. Klockor stannar. Men deras vapen fungerar fortfarande. Och Black Madonna-ikonen i deras ryggsäck... den är varm.
+                </div>
+
+                <h4>Effekter av Tidsskifte</h4>
+                <table>
+                    <tr>
+                        <th>Förändring</th>
+                        <th>Speleffekt</th>
+                    </tr>
+                    <tr>
+                        <td>Modern teknologi</td>
+                        <td>Mobiler, GPS, elektronik slutar fungera (utom Sparky's hårdvara med Faraday-burk)</td>
+                    </tr>
+                    <tr>
+                        <td>Klockor</td>
+                        <td>Stannar vid 23:47 (tidpunkten för midnattsmanifestationen 31 dec 1941)</td>
+                    </tr>
+                    <tr>
+                        <td>Vapen & utrustning</td>
+                        <td>Fungerar normalt (fysiska objekt påverkas inte)</td>
+                    </tr>
+                    <tr>
+                        <td>Black Madonna-ikonen</td>
+                        <td>Blir varm, börjar glöda svagt</td>
+                    </tr>
+                    <tr>
+                        <td>Parasit-sjukdom</td>
+                        <td>Accelererar (varje timme i fasförskjutningen = +1% progression)</td>
+                    </tr>
+                </table>
+
+                <h3 id="scen4">Scen 4: The Silent City (1942-Leningrad)</h3>
+                <div class="stat-block">
+                    <h4>SCEN 4 - DEN TYSTA STADEN</h4>
+                    <p><strong>Plats:</strong> Gatorna på Vasilyevsky Island (1942-versionen)</p>
+                    <p><strong>Syfte:</strong> Atmosfär och första mythos-encounter</p>
+                    <p><strong>SAN-förlust:</strong> 0/1D4 (vittnesmål till Leningrads helvete)</p>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    Gatorna är tomma. Ruiner sträcker sig åt alla håll - bombnedslag, artilleriträffar, förödelse. Snön ligger tung över allt, dämpar ljuden till en ohelig tystnad.<br><br>
+
+                    Inga levande. Men ni är inte ensamma.<br><br>
+
+                    Skuggor rör sig i periferin. Och när ni lyssnar noga... hörs det. Svaga, hungriga röster: "Bröd... vatten... hjälp..."
+                </div>
+
+                <h4>Encounter: "The Starving Ones"</h4>
+                <div class="stat-block">
+                    <h4>THE STARVING ONES (Mythos-skuggor)</h4>
+                    <p><strong>Beskrivning:</strong> Ekon av de hundratusentals som svalt ihjäl under belägringen. De är inte spöken - de är psykisk trauma materialiserad genom fasförskjutningen.</p>
+
+                    <p><strong>Utseende:</strong> Utsvultna silhuetter, skelettlika, räcker ut händer mot spelarna. Ansikten förvrängda av hunger och förtvivlan.</p>
+
+                    <p><strong>Beteende:</strong></p>
+                    <ul>
+                        <li>Attackerar inte fysiskt</li>
+                        <li>Ber om mat, vatten, värme</li>
+                        <li>Om ignorerade: följer spelarna, visskar anklagelser</li>
+                        <li>Om man ger dem något (mat, vatten): försvinner tacksamt</li>
+                    </ul>
+
+                    <p><strong>Mekanik:</strong></p>
+                    <ul>
+                        <li><strong>SAN-förlust:</strong> 0/1D4 första gången man ser dem</li>
+                        <li><strong>Psykisk attack:</strong> POW vs POW - vid misslyckande: -1D6 WP (mental utmattning från skuld)</li>
+                        <li><strong>Kan drivas bort:</strong> Nesterovs bön (WP-check), eld, ljus</li>
+                    </ul>
+                </div>
+
+                <div class="gm-note">
+                    Detta är inte fiender att "besegra" - det är vittnen till mänskligt lidande. Om spelarna försöker attackera dem fysiskt, passerar vapen rakt igenom. Men om de visar medkänsla (ger mat/vatten, säger bön), får de ett ögonblick av frid. Använd detta för att etablera ton: Leningrad är inte en plats, det är ett trauma.
+                </div>
+
+                <h3 id="scen5">Scen 5: Förberedelseritual</h3>
+                <div class="stat-block">
+                    <h4>SCEN 5 - FÖRBEREDELSE</h4>
+                    <p><strong>Plats:</strong> Före infiltration av Kalenko-huset</p>
+                    <p><strong>Syfte:</strong> Emotionell kärna och Bonds-moment</p>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    Ni har nått utkanten av området. Framför er, genom ruinerna, skymtar ni det: Kalenko-huset. Det står helt, oskadat, mitt i förödelsen. Som om tiden stannat.<br><br>
+
+                    Detta är slutet. Ni vet det. Allt har lett hit. Och bortom den dörren väntar 20 barn som har lidit i 83 år.<br><br>
+
+                    Kanske är detta sista chansen att säga något. Till varandra. Till dem ni lämnade hemma.
+                </div>
+
+                <h4>Spelmoment</h4>
+                <div class="info-box">
+                    <p><strong>Sullivan kan leda Nesterovs bön:</strong> +1 WP för alla (engångseffekt)</p>
+                    <p><strong>Gruppen förbereder sig mentalt:</strong> Ge varje spelare några minuter för reflektion</p>
+                </div>
+
+                <h4>Bonds-moment: Sista samtal</h4>
+                <p>Om spelarna vill ringa/kontakta sina nära och kära (magiskt/psykiskt i fasförskjutningen - de "hör" varandra över tid och rum):</p>
+
+                <ul>
+                    <li><strong>Mac → Sarah & barnen:</strong> "Jag älskar er. Oavsett vad som händer, kom ihåg det."</li>
+                    <li><strong>Sullivan → församlingen:</strong> Tyst bön för de 20 barnen och sin egen själ</li>
+                    <li><strong>Sparky → Ghost:</strong> Sista meddelande i krypterat format</li>
+                    <li><strong>Scalpel → Jürgen:</strong> "Du sa att sanningen alltid är värd att kämpa för. Jag hoppas du hade rätt."</li>
+                    <li><strong>Trench → Rhea:</strong> "Om jag inte kommer hem, vet att jag gjorde det jag var tvungen."</li>
+                </ul>
+
+                <div class="gm-note">
+                    <strong>VIKTIGT:</strong> Detta är en emotionell höjdpunkt. Ge spelarna tid. Låt dem faktiskt ringa/skriva meddelanden om de vill. Detta kan vara sista gången deras Bonds är intakta. Efter detta följer Akt 2 och 3 där Bonds kommer att testas hårt.
+                </div>
+
+                <div class="info-box">
+                    <strong>Nyckelmoment Akt 1:</strong>
+                    <ul>
+                        <li>✓ Etablera STAKES (vad förlorar de?)</li>
+                        <li>✓ Ge spelarna AGENCY (de väljer approach)</li>
+                        <li>✓ Bygga SPÄNNING (något är fel, anomalin växer)</li>
+                        <li>✓ TIDSSKIFTE (2025 → 1942 övergång)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Akt 2: The House -->
+            <section id="akt2" class="section">
+                <h2><span class="badge act">Akt 2</span> The House (The Dungeon)</h2>
+
+                <div class="info-box">
+                    <strong>Varaktighet:</strong> 2-3 timmar<br>
+                    <strong>Tempo:</strong> Tension → dread → discovery<br>
+                    <strong>Atmosfär:</strong> Non-euclidean skräck, tidsförskjutning, "frozen moment" från 1942<br>
+                    <strong>SAN-förlust Akt 2:</strong> 1/1D8 total
+                </div>
+
+                <h3 id="scen6">Scen 6: Kalenko-husets utsida</h3>
+                <div class="stat-block">
+                    <h4>SCEN 6 - HUSETS UTSIDA</h4>
+                    <p><strong>Plats:</strong> Byggnaden existerar i två tidsperioder simultant</p>
+                    <p><strong>Syfte:</strong> Etablera wrongness och varning</p>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    Kalenko-huset står helt oskadat mitt bland ruinerna. Fem våningar av grå sten, fönstren mörka men hela. Det är det ENDA hela huset i kvarteret.<br><br>
+
+                    Ingen skada från bomber. Ingen brand. Ingen förödelse. Som om kriget helt enkelt... hoppat över det.<br><br>
+
+                    Och när ni tittar närmare ser ni dem: ansikten i fönstren. Tre flickor - Katya, Yelena, Alyona Kalenko. De är inte barn längre. Transformerade. Vaktar de? Eller varnar de?<br><br>
+
+                    Deras ansikten: sorg och varning.
+                </div>
+
+                <h4>Spelmoment</h4>
+                <ul>
+                    <li><strong>Huset ser HELT ut:</strong> Enda byggnaden i ruinerna - etablera wrongness</li>
+                    <li><strong>Dörrarna öppnar sig själva:</strong> Väntar på dem (creepy men inte direkt hot)</li>
+                    <li><strong>VARNING - Kalenko-familjen:</strong> Syns i fönstren
+                        <ul>
+                            <li>Katya (11), Yelena (13), Alyona (15) - transformerade former</li>
+                            <li>Tentakler under klänningarna, ansikten delvis mänskliga</li>
+                            <li>Gör tecken: "Gå inte in" eller "Vi beklagar"</li>
+                            <li>Inte fientliga - tragiska</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="gm-note">
+                    Kalenko-flickorna är inte fiender. De vaktar barnen inuti men är själva offer. Om spelarna försöker kommunicera, kan de få varningar: "Geometrin är fel inuti. Följ ritningen (Nesterovs skiss). Och när ni hittar dem... var snälla."
+                </div>
+
+                <h3 id="scen7">Scen 7: Entré - Non-Euclidean Navigation</h3>
+                <div class="stat-block">
+                    <h4>SCEN 7 - INNE I HUSET</h4>
+                    <p><strong>Plats:</strong> Inuti huset (större på insidan)</p>
+                    <p><strong>Syfte:</strong> Non-euclidean skräck och navigationsutmaning</p>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    Ni kliver in.<br><br>
+
+                    Dörren stängs bakom er - inte högt, bara... slutgiltigt.<br><br>
+
+                    Korridoren sträcker sig framför er. Den borde vara fem meter lång enligt husets utsida. Men den fortsätter. Och fortsätter. Och vinklarna är... fel. Hörnen möts inte riktigt där de borde. Perspektivet skiftar när ni rör huvudet.<br><br>
+
+                    Och sedan hör ni det. Barnröster, svaga och avlägsna: "Är ni här för att hjälpa oss?"<br><br>
+
+                    Under allt: 247Hz-humming. Lågt men ökande.
+                </div>
+
+                <h4>Navigationsutmaning</h4>
+                <div class="info-box">
+                    <p><strong>Geometri är FEL:</strong></p>
+                    <ul>
+                        <li>Korridorer leder fel (tar dig tillbaka till start)</li>
+                        <li>Rum upprepas (samma sovsal tre gånger)</li>
+                        <li>Trappor går både upp och ner samtidigt</li>
+                        <li>Dörrar leder till rum som inte borde finnas</li>
+                    </ul>
+
+                    <p><strong>Mekanik:</strong></p>
+                    <ul>
+                        <li><strong>Utan Nesterovs skiss:</strong> Navigation-check -40%, tar 3x längre tid, risk att gå vilse</li>
+                        <li><strong>Med Nesterovs skiss:</strong> Navigation-check +20%, normal tid, säker rutt</li>
+                        <li><strong>Vid misslyckande:</strong> Hamnar i fel rum, möter "drönare", förlorar 1D3 timmar</li>
+                    </ul>
+                </div>
+
+                <div class="gm-note">
+                    247Hz-humming ökar gradvis. Varje timme i huset: +5 Hz (blir 252, 257, etc). När det når 300Hz börjar fysisk skada (1 HP/timme, öronblödning). Detta skapar naturlig tidspress.
+                </div>
+
+                <h3 id="scen8">Scen 8: "Drönare" Encounter</h3>
+                <div class="stat-block">
+                    <h4>SCEN 8 - MISSLYCKADE EXPERIMENT</h4>
+                    <p><strong>Plats:</strong> Korridorer och rum</p>
+                    <p><strong>Syfte:</strong> Visa vad som KUNDE hänt de 20 barnen</p>
+                    <p><strong>SAN-förlust:</strong> 0/1D3</p>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    I korridoren ser ni rörelse. Någon... något... vandrar mållöst.<br><br>
+
+                    Det var en gång ett barn. Kanske 12 år gammal. Men kroppen är... fel. Tentakler växer från ryggen. Ansiktet är delvis transformerat - ena halvan mänsklig, andra halvan något annat. Ögonen saknar fokus.<br><br>
+
+                    Det upprepar en handling, om och om igen: räcker ut handen som för att ta emot något, tittar på den tomma handen, sjunker ihop i gråt. Sedan reser det sig och upprepar.<br><br>
+
+                    En evig loop. Patient #21. Ett misslyckande.
+                </div>
+
+                <h4>Encounter: De Misslyckade (Patient #21-30)</h4>
+                <div class="stat-block">
+                    <h4>DE MISSLYCKADE</h4>
+                    <p><strong>Beskrivning:</strong> Barn som transformerades "fel" under experimenten 1942. Fastnade halvvägs mellan människa och Yithian.</p>
+
+                    <p><strong>Beteende:</strong></p>
+                    <ul>
+                        <li>Vandrar mållöst, upprepar handlingar</li>
+                        <li><strong>INTE farliga</strong> - attackerar inte</li>
+                        <li>Djupt tragiska (barn som blev monster)</li>
+                        <li>Reagerar på medkänsla (stannar, tittar på spelarna med mänskliga ögon)</li>
+                    </ul>
+
+                    <p><strong>Möjliga interaktioner:</strong></p>
+                    <ul>
+                        <li>Om man talar till dem mjukt: de stannar, lyssnar, verkar känna igen mänsklighet</li>
+                        <li>Om Sullivan ber: de sjunker på knä, gråter</li>
+                        <li>Om man attackerar: de flyr, gråtande</li>
+                    </ul>
+                </div>
+
+                <div class="gm-note">
+                    Detta är INTE fiender. Detta är tragedi. Använd dem för att visa spelarna vad som KUNDE hänt de 20 överlevande barnen om suppression-fältet inte hållit dem mänskliga. Det gör dilemmat senare ännu värre: befria barnen = riskera att de blir SÅ HÄR.
+                </div>
+
+                <h3 id="scen9">Scen 9: The Guardian - Ivan Chezenko</h3>
+                <div class="stat-block">
+                    <h4>SCEN 9 - VAKTEN</h4>
+                    <p><strong>Plats:</strong> Trappan ner till källaren/kapellet</p>
+                    <p><strong>Fiende:</strong> Prästen som blev monster</p>
+                    <p><strong>SAN-förlust:</strong> 1/1D6</p>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    Trappan ner. Äntligen. Nesterovs skiss ledde er rätt.<br><br>
+
+                    Men någon väntar där.<br><br>
+
+                    En ortodox präst i svarta robes, ikon i handen, bibel i andra. Han står stilla som en staty. När ni närmar er öppnar han ögonen.<br><br>
+
+                    Ansiktet... delvis mänskligt. Men underifrån roben ser ni dem: tentakler, visslande, känslosamma. Och hans röst, när han talar, är två röster samtidigt - en mänsklig, en inte:<br><br>
+
+                    "Jag kan inte låta er passera. Jag MÅSTE inte låta er passera. Men... Gud, jag vill..."
+                </div>
+
+                <h4>Boss: Ivan Chezenko - Transformerad Präst</h4>
+                <div class="stat-block">
+                    <h4>IVAN CHEZENKO</h4>
+                    <p><strong>Bakgrund:</strong> Ortodox präst som försökte exorcera Nyogtha 1942. Transformerades men behöll sin tro - nu fångad mellan plikt (vakta) och önskan (hjälpa).</p>
+
+                    <div class="stat-grid">
+                        <div class="stat-item"><strong>STR</strong> 18</div>
+                        <div class="stat-item"><strong>CON</strong> 20</div>
+                        <div class="stat-item"><strong>DEX</strong> 12</div>
+                        <div class="stat-item"><strong>INT</strong> 14</div>
+                        <div class="stat-item"><strong>POW</strong> 22</div>
+                        <div class="stat-item"><strong>CHA</strong> 8</div>
+                    </div>
+
+                    <p><strong>HP:</strong> 20 | <strong>WP:</strong> 22 | <strong>SAN:</strong> 0 (transformerad)</p>
+
+                    <p><strong>Förmågor:</strong></p>
+                    <ul>
+                        <li><strong>Tentakler:</strong> 60%, 1D8 skada, räckvidd 3 meter</li>
+                        <li><strong>Psykisk attack:</strong> POW vs POW, -1D4 WP (religiös skuld)</li>
+                        <li><strong>Kan INTE dödas med våld:</strong> Regenererar 5 HP/runda</li>
+                    </ul>
+                </div>
+
+                <h4>Att Besegra Ivan (Tre alternativ)</h4>
+                <div class="info-box">
+                    <p><strong>ALTERNATIV A: Nesterovs bön (rekommenderat)</strong></p>
+                    <ul>
+                        <li>Sullivan måste leda bönen (WP-check)</li>
+                        <li>Vid framgång: Ivan bannas tillbaka (försvinner, lämnar vägen fri)</li>
+                        <li>Vid misslyckande: Ivan attackerar men försvagad (-20% på attacker)</li>
+                    </ul>
+
+                    <p><strong>ALTERNATIV B: Ren ikon</strong></p>
+                    <ul>
+                        <li>Håll fram Nesterovs rena ikon</li>
+                        <li>POW-check för bärare</li>
+                        <li>Vid framgång: Ivan faller på knä, kan inte attackera</li>
+                    </ul>
+
+                    <p><strong>ALTERNATIV C: Övertyga honom (EXTREMT SVÅRT)</strong></p>
+                    <ul>
+                        <li>Persuade-check -40%</li>
+                        <li>Kräver perfekt argumentation (rollspel)</li>
+                        <li>Om lyckat: Ivan hjälper dem aktivt MEN lider fruktansvärt
+                            <ul>
+                                <li>Kroppen river sig själv sönder (transformationen kämpar emot)</li>
+                                <li>Skriker i agoni medan han håller dörren öppen</li>
+                                <li>Dör när de passerat</li>
+                                <li><strong>Extra SAN-förlust:</strong> 1/1D6 (se hans lidande)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <strong>VIKTIGT:</strong> Ivan är inte ond. Han är tragisk. Använd hans konflikt för att bygga empati. Hans sista ord (om övertalad): "Befria dem... jag kunde inte... Gud förlåt mig..."
+                </div>
+
+                <div class="gm-note">
+                    Om spelarna väljer våld: Vapen skadar honom men han regenererar. Efter 3 rundor av meningslös strid, låt dem inse att detta inte fungerar. De MÅSTE använda andliga/rituella metoder. Detta etablerar regeln: Inte allt löses med kulor.
+                </div>
+
+                <div class="info-box">
+                    <strong>Nyckelmoment Akt 2:</strong>
+                    <ul>
+                        <li>✓ WRONGNESS (fasförskjutningen känns FEL)</li>
+                        <li>✓ DREAD (bygger spänning, barnen närmar sig)</li>
+                        <li>✓ DISCOVERY (förstår husets natur)</li>
+                        <li>✓ GUARDIAN-TEST (inte all strid löses med våld)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Akt 3: The Ritual (Del 1) -->
+            <section id="akt3" class="section">
+                <h2><span class="badge act">Akt 3</span> The Ritual (Climax)</h2>
+
+                <div class="info-box">
+                    <strong>Varaktighet:</strong> 3-4 timmar<br>
+                    <strong>Tempo:</strong> Slow emotional → moral crisis → explosive climax → survival horror<br>
+                    <strong>Atmosfär:</strong> Källaren, ritualrummet, där Nyogtha läcker in<br>
+                    <strong>SAN-förlust Akt 3:</strong> 2D6/2D20 total
+                </div>
+
+                <div class="warning-box">
+                    <strong>VIKTIGT - TIMING:</strong><br>
+                    Scen 10 (Barnen) är kampanjens emotionella kärna. Ta 30-45 minuter. GE SPELARNA TID att prata med barnen individuellt. Detta är inte något att rusa igenom.
+                </div>
+
+                <h3 id="scen10">Scen 10: The Children's Ward (Emotionell Höjdpunkt)</h3>
+                <div class="stat-block">
+                    <h4>SCEN 10 - BARNEN</h4>
+                    <p><strong>Plats:</strong> Övervåningen - sovsalar där barnen finns</p>
+                    <p><strong>Tempo:</strong> SLOW DOWN - detta är kampanjens emotionella kärna</p>
+                    <p><strong>SAN-förlust:</strong> 0/1D4 (emotionell trauma, förstå kostnaden)</p>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    Källartrappan ledde... uppåt? Geometrin är felaktig här också. Men ni följer Nesterovs skiss och plötsligt står ni i en sovsal.<br><br>
+
+                    Tjugo sängar. Tjugo barn. Alla ser ut som 1942 - 10 till 14 år gamla, i trasiga kläder från Leningrad. De sitter, ligger, väntar.<br><br>
+
+                    När de ser er reser de sig. Långsamt. Som om rörelsen är smärtsam efter 83 år.<br><br>
+
+                    En flicka, kanske 10 år, tar ett steg fram. Hennes röst är svag: "Vi har väntat. Så länge. Är det över snart?"
+                </div>
+
+                <h4>Mötet med Barnen - Grundregler</h4>
+                <div class="info-box">
+                    <p><strong>Alla 20 barn är här:</strong></p>
+                    <ul>
+                        <li>De ser ut som 1942 (10-14 år gamla)</li>
+                        <li>De är medvetna och mänskliga (suppression-fältet fungerade)</li>
+                        <li>De KÄNNER spelarnas parasit: "Ni bär märket också. Ni förstår."</li>
+                        <li>De VET att befrielse = Nyogtha släpps</li>
+                        <li>De ber ändå om det</li>
+                    </ul>
+
+                    <p><strong>SL-instruktion:</strong></p>
+                    <ul>
+                        <li>Låt spelarna prata med 3-5 barn individuellt</li>
+                        <li>Ta 30-45 minuter för denna scen</li>
+                        <li>Ge varje barn personlighet, inte bara nummer</li>
+                        <li>Låt spelarna KÄNNA vikten av beslutet</li>
+                    </ul>
+                </div>
+
+                <h4>Individuella Barn att Möta</h4>
+
+                <div class="stat-block">
+                    <h4>PATIENT #7 - MISHA (12 ÅR, POJKE)</h4>
+                    <p><strong>Personlighet:</strong> Tyst, utmattad, vill bara sova</p>
+
+                    <p><strong>Citat:</strong></p>
+                    <ul>
+                        <li>"Jag vill bara sova. Jag är så trött."</li>
+                        <li>"Kriget... är det över? Vann vi?"</li>
+                        <li>"Mamma skulle komma och hämta mig när kriget tog slut. Hon kommer inte, eller hur?"</li>
+                    </ul>
+
+                    <p><strong>Visar spelarna:</strong> En barnteckning av sin familj (föräldrar, lillasyster). Teckningen är sliten efter 83 år men han håller i den som sin största skatt.</p>
+
+                    <p><strong>Reaktion på befrielse:</strong> "Tack. Äntligen får jag sova."</p>
+                </div>
+
+                <div class="stat-block">
+                    <h4>PATIENT #12 - ANYA (10 ÅR, FLICKA)</h4>
+                    <p><strong>Personlighet:</strong> Hoppfull trots allt, sjunger visa</p>
+
+                    <p><strong>Citat:</strong></p>
+                    <ul>
+                        <li>"Mamma sa att hon skulle komma. Kommer hon snart?"</li>
+                        <li>"Jag kan en sång. Vill ni höra? Mamma lärde mig den."</li>
+                        <li>"Ni ser snälla ut. Inte som doktorerna."</li>
+                    </ul>
+
+                    <p><strong>Visar spelarna:</strong> En docka från 1941, fortfarande hel. Hon kramar den tätt.</p>
+
+                    <p><strong>Sjunger:</strong> Rysk vaggvisa ("Спят усталые игрушки" - "Trötta leksaker sover"). Om Sullivan eller någon sjunger med: extra emotionell impact.</p>
+                </div>
+
+                <div class="stat-block">
+                    <h4>PATIENT #15 - DMITRI (14 ÅR, POJKE)</h4>
+                    <p><strong>Viktigt:</strong> En av de tre männen (Anton, Sasha, Filip) som barn</p>
+                    <p><strong>Personlighet:</strong> Medveten om vad som hänt, känner skuld</p>
+
+                    <p><strong>Citat:</strong></p>
+                    <ul>
+                        <li>"Vi är samma, du och jag. Ni bär märket också. Jag kan känna det."</li>
+                        <li>"Mina vänner... Anton och Sasha... de är här också. Någonstans. De har glömt vad de var."</li>
+                        <li>"Ge oss frid. Men... något kommer ut när vi går. Ni vet det, eller hur?"</li>
+                        <li>"Förlåt för vad vi gjorde. Vad vi kommer att göra. Vi kunde inte stoppa det."</li>
+                    </ul>
+
+                    <p><strong>Visar spelarna:</strong> Hans händer - delvis transformerade, tentakler under huden. Han har kämpat emot längst av alla.</p>
+                </div>
+
+                <div class="stat-block">
+                    <h4>KATYA KALENKO (11 ÅR, FLICKA)</h4>
+                    <p><strong>Viktigt:</strong> En av Kalenko-systrarna, transformerad form dyker upp</p>
+                    <p><strong>Personlighet:</strong> Skyddande, känner skuld för vad familjen gjorde</p>
+
+                    <p><strong>Citat:</strong></p>
+                    <ul>
+                        <li>"Mina systrar och jag... vi blev något annat. Men vi försökte skydda dem ändå."</li>
+                        <li>"Kan vi också få sova? Även om vi är... såna här?"</li>
+                        <li>"Pappa sa det var för vetenskapen. För Sovjet. Men det var fel. Vi vet det nu."</li>
+                    </ul>
+
+                    <p><strong>Transformerad form:</strong> Om spelarna tillåter kan hon visa sin andra form - delvis tentakler, men ögonen fortfarande mänskliga.</p>
+                </div>
+
+                <h4>Övriga Barn (kortare beskrivningar)</h4>
+                <ul>
+                    <li><strong>Patient #3 (Ivan, 13):</strong> Vill veta om sin bror överlevde kriget</li>
+                    <li><strong>Patient #8 (Olga, 11):</strong> Ber om förlåtelse för något hon gjorde innan fångenskapen</li>
+                    <li><strong>Patient #14 (Sergei, 12):</strong> Frågar om Stalin fortfarande lever</li>
+                    <li><strong>Patient #19 (Nadia, 10):</strong> Den yngsta, klamrar sig vid Anya</li>
+                </ul>
+
+                <div class="gm-note">
+                    <strong>EMOTIONELL BOMB:</strong><br>
+                    När spelarna har pratat med några barn, låt Dmitri (#15) säga högt det alla tänker:<br><br>
+                    "Vi förstår om ni inte kan. Men vi är så trötta. 83 år. Vi vet att något kommer ut om ni befriar oss. Vi vet att det är farligt. Men kan ni förstå? Vi vill bara... sluta existera såhär. Kan ni förlåta oss för att vi ber om det?"
+                </div>
+
+                <h3 id="scen11">Scen 11: Valet Kristalliseras</h3>
+                <div class="stat-block">
+                    <h4>SCEN 11 - DILEMMAT</h4>
+                    <p><strong>Plats:</strong> Fortfarande bland barnen</p>
+                    <p><strong>Händelse:</strong> Spelarna måste diskutera</p>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    Barnen väntar. Ni ser det i deras ögon - hopp blandat med förtvivlan. De vet vad de ber er om.<br><br>
+
+                    Befria dem = Nyogtha släpps. Lämna dem = Evig tortyr fortsätter.<br><br>
+
+                    Det finns inget enkelt svar här. Ingen rätt väg. Bara val, och konsekvenser.
+                </div>
+
+                <h4>Diskussionspunkter (för spelarna)</h4>
+                <div class="info-box">
+                    <p><strong>Argument för befrielse:</strong></p>
+                    <ul>
+                        <li>20 barn har lidit i 83 år - de förtjänar frid</li>
+                        <li>Mänsklig värdighet vs pragmatism</li>
+                        <li>Delta Green's uppdrag inkluderar att skydda oskyldiga</li>
+                        <li>"Vi är människor först, agenter sen"</li>
+                    </ul>
+
+                    <p><strong>Argument emot befrielse:</strong></p>
+                    <ul>
+                        <li>Nyogtha hotar miljoner liv</li>
+                        <li>20 vs milliontals är enkelt räknemässigt</li>
+                        <li>Delta Green's uppdrag är att skydda mänskligheten</li>
+                        <li>"Det är därför vi gör det hemska - så andra inte behöver"</li>
+                    </ul>
+
+                    <p><strong>Karaktärsspecifika perspektiv:</strong></p>
+                    <ul>
+                        <li><strong>Sullivan:</strong> "Välsignar vi mord för att rädda världen? Eller välsignar vi offer för att göra det rätta?"</li>
+                        <li><strong>Mac:</strong> Tänker på sina egna barn - vad skulle han vilja att någon gjorde?</li>
+                        <li><strong>Scalpel:</strong> Medicinsk ed - "först, skada inte" - men gäller det bara individen?</li>
+                        <li><strong>Sparky:</strong> Anti-auktoritet - vem får bestämma att 20 barn ska lida för "det större goda"?</li>
+                        <li><strong>Trench:</strong> Militär pragmatism - taktiskt rätt vs moraliskt rätt</li>
+                    </ul>
+                </div>
+
+                <div class="gm-note">
+                    <strong>GE SPELARNA 15-30 MINUTER:</strong><br>
+                    Detta är inte något att rusa igenom. Låt dem diskutera in character. Låt dem vara oeniga. Låt dem känna vikten. Om någon vill gå undan och tänka - låt dem. Om Sullivan vill be - ge tid. Om Mac vill ringa Sarah - tillåt det (fast telefonerna funkar inte - men han kan tänka på henne).
+                </div>
+
+                <h3 id="scen12">Scen 12: Källaren - Kapellet</h3>
+                <div class="stat-block">
+                    <h4>SCEN 12 - RITUALRUMMET</h4>
+                    <p><strong>Plats:</strong> Ritualrummet under huset (Nesterovs skiss leder hit)</p>
+                    <p><strong>Syfte:</strong> Förberedelse inför ritualen</p>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    Källaren är inte en källare. Det är ett kapell.<br><br>
+
+                    Ortodoxa ikoner täcker väggarna - de flesta förstörda, brända, trasiga. Men en plats på väggen är tom. En spik. Exakt där Black Madonna-ikonen hör hemma.<br><br>
+
+                    247Hz-humming är HÖGT nu. Era öron blöder. WP-check för att stå kvar (eller medicinsk behandling).<br><br>
+
+                    Och i hörnen... mörkret rör sig. Inte skuggor. Mörkret självt. Nyogtha läcker in, millimeter för millimeter. Känner att suppression-fältet försvagar.<br><br>
+
+                    Barnen står bakom er. Väntar.
+                </div>
+
+                <h4>Rummet - Detaljer</h4>
+                <ul>
+                    <li><strong>Black Madonna-ikonens plats:</strong> Tom spik på östra väggen, exakt markerad i Nesterovs skiss</li>
+                    <li><strong>247Hz-humming:</strong> Nu 290Hz+ (nära fysisk skadegräns)</li>
+                    <li><strong>Mörkret:</strong> Läcker in från sprickor i väggarna, golvet</li>
+                    <li><strong>Temperaturen:</strong> Sjunker snabbt (-5°C per minut)</li>
+                    <li><strong>Luft:</strong> Svår att andas, luktar salt och förruttnelse</li>
+                </ul>
+
+                <div class="warning-box">
+                    <strong>SISTA CHANSEN:</strong><br>
+                    Om spelarna fortfarande är osäkra, ge dem EN sista möjlighet att vända. Men barnen ser det. Och hoppet i deras ögon dör lite.
+                </div>
+
+                <h3 id="scen13">Scen 13: De Tre Männens Konfrontation (Boss Fight)</h3>
+                <div class="stat-block">
+                    <h4>SCEN 13 - BOSS FIGHT</h4>
+                    <p><strong>Plats:</strong> Källaren/kapellet</p>
+                    <p><strong>Fiender:</strong> Anton (Brute), Sasha (Assassin), Filip (Controller)</p>
+                    <p><strong>SAN-förlust:</strong> 1/1D6 (se de tre männen fullt transformerade)</p>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    Innan ni hinner hänga ikonen... kommer de.<br><br>
+
+                    Tre figurer materialiserar sig från mörkret. Ni känner igen dem från drömmar, från Frankfurt, från alla ledtrådar. De tre männen. Anton. Sasha. Filip.<br><br>
+
+                    Men de är inte män längre.<br><br>
+
+                    Stage 4, kanske 90% Yithian. Kroppar omformade av årtiondens transformation. Tentakler, icke-euklidisk geometri, ansikten som skiftar mellan mänskligt och... annat.<br><br>
+
+                    Antons röst, djup och skrovlig: "Ni kan inte. Ritualen MÅSTE fullbordas. Portalen hem..."<br><br>
+
+                    Sashas röst, visslande: "Barnen är nyckeln. De måste stanna..."<br><br>
+
+                    Filips röst, i era huvuden: "Förlåt... vi kan inte stoppa oss... hjälp oss..."
+                </div>
+
+                <h4>Boss Mekanik - De Tre Männen</h4>
+
+                <div class="stat-block">
+                    <h4>ANTON "THE BRUTE" (PATIENT #15 TRANSFORMERAD)</h4>
+                    <div class="stat-grid">
+                        <div class="stat-item"><strong>STR</strong> 25</div>
+                        <div class="stat-item"><strong>CON</strong> 22</div>
+                        <div class="stat-item"><strong>DEX</strong> 10</div>
+                        <div class="stat-item"><strong>INT</strong> 12</div>
+                        <div class="stat-item"><strong>POW</strong> 16</div>
+                        <div class="stat-item"><strong>CHA</strong> 4</div>
+                    </div>
+                    <p><strong>HP:</strong> 24 | <strong>Armor:</strong> 3 (omformad hud)</p>
+                    <p><strong>Attacker:</strong></p>
+                    <ul>
+                        <li><strong>Tentakler:</strong> 70%, 2D6 skada, kan gripa (STR vs STR)</li>
+                        <li><strong>Kroppsslam:</strong> 60%, 1D10 skada, knockback</li>
+                        <li><strong>Special - Roar:</strong> Alla inom 5m: WP-check eller -1D4 WP (skräck)</li>
+                    </ul>
+                </div>
+
+                <div class="stat-block">
+                    <h4>SASHA "THE ASSASSIN" (PATIENT #16 TRANSFORMERAD)</h4>
+                    <div class="stat-grid">
+                        <div class="stat-item"><strong>STR</strong> 14</div>
+                        <div class="stat-item"><strong>CON</strong> 16</div>
+                        <div class="stat-item"><strong>DEX</strong> 20</div>
+                        <div class="stat-item"><strong>INT</strong> 15</div>
+                        <div class="stat-item"><strong>POW</strong> 14</div>
+                        <div class="stat-item"><strong>CHA</strong> 6</div>
+                    </div>
+                    <p><strong>HP:</strong> 16 | <strong>Armor:</strong> 0 (snabb, inte tuff)</p>
+                    <p><strong>Attacker:</strong></p>
+                    <ul>
+                        <li><strong>Fasförskjutet anfall:</strong> 75%, 1D8+2 skada, ignorerar armor (attackerar från annan dimension)</li>
+                        <li><strong>Backstab:</strong> Om oupptäckt: dubbel skada</li>
+                        <li><strong>Special - Phase Shift:</strong> Kan fasförskjuta sig (blir immateriell 1 runda, kan inte attackeras)</li>
+                    </ul>
+                </div>
+
+                <div class="stat-block">
+                    <h4>FILIP "THE CONTROLLER" (PATIENT #17 TRANSFORMERAD)</h4>
+                    <div class="stat-grid">
+                        <div class="stat-item"><strong>STR</strong> 10</div>
+                        <div class="stat-item"><strong>CON</strong> 14</div>
+                        <div class="stat-item"><strong>DEX</strong> 12</div>
+                        <div class="stat-item"><strong>INT</strong> 18</div>
+                        <div class="stat-item"><strong>POW</strong> 22</div>
+                        <div class="stat-item"><strong>CHA</strong> 8</div>
+                    </div>
+                    <p><strong>HP:</strong> 14 | <strong>Armor:</strong> 0</p>
+                    <p><strong>Attacker:</strong></p>
+                    <ul>
+                        <li><strong>Psykisk attack:</strong> POW vs POW, 1D6 WP-skada</li>
+                        <li><strong>Mind Control:</strong> POW vs POW, vid misslyckande: spelare attackerar allierad (1 runda)</li>
+                        <li><strong>Special - Telepathic Scream:</strong> Alla inom 10m: POW-check eller stunned 1 runda</li>
+                    </ul>
+                </div>
+
+                <h4>Delad Livlina-Mekanik</h4>
+                <div class="warning-box">
+                    <strong>VIKTIGT - DELAD LIVSKRAFT:</strong><br>
+                    De tre männen är länkade. När en dör, får de andra +5 till relevant stat (Anton: STR, Sasha: DEX, Filip: POW) MEN tar 1D6 skada varje runda (instabilitet).<br><br>
+
+                    <strong>Taktiskt val:</strong>
+                    <ul>
+                        <li>Döda en tidigt = de andra starkare men tar skada över tid</li>
+                        <li>Håll alla vid liv = koordinerade attacker men stabilt</li>
+                        <li>Fokusera Filip först = mindre mind control men Anton/Sasha kraftigare</li>
+                    </ul>
+                </div>
+
+                <h4>Möjliga Outcomes</h4>
+                <div class="info-box">
+                    <p><strong>ALTERNATIV A: Strid</strong> (Mest sannolikt)</p>
+                    <ul>
+                        <li>Döda dem (tragiskt men nödvändigt)</li>
+                        <li>Deras sista ord: "Tack... äntligen... frid..."</li>
+                        <li>Dmitri (#15) känner det: "Mina vänner... de är fria nu"</li>
+                    </ul>
+
+                    <p><strong>ALTERNATIV B: Förhandling</strong> (Svårt)</p>
+                    <ul>
+                        <li>Persuade-check -30%</li>
+                        <li>Tillfällig allians: "Hjälp oss placera ikonen, sedan kan vi alla få frid"</li>
+                        <li>De hjälper men kämpar mot sin Yithian-programmering</li>
+                    </ul>
+
+                    <p><strong>ALTERNATIV C: Tragisk självinsikt</strong></p>
+                    <ul>
+                        <li>Om spelarna kan påminna dem om vad de var (visa Dmitri, nämn namn)</li>
+                        <li>POW-check för Filip (högst POW)</li>
+                        <li>Vid framgång: "Vi... kommer ihåg. Vi var... barn. Ge oss vad ni ger de andra. Död."</li>
+                        <li>De ber om nåd istället för att slåss</li>
+                    </ul>
+
+                    <p><strong>ALTERNATIV D: Volkov dyker upp</strong> (Dramatiskt)</p>
+                    <ul>
+                        <li>Dmitri Volkov (Stage 4, ~95% transformerad) anländer</li>
+                        <li>"Jag håller dem. GÖR DET NU!"</li>
+                        <li>Offrar sig för att hålla de tre männen (köper 3 rundor)</li>
+                        <li>Dör i processen men ger spelarna tid att placera ikonen</li>
+                    </ul>
+                </div>
+
+                <h4>Samtidig Mekanik: Placera Ikonen UNDER Striden</h4>
+                <div class="warning-box">
+                    <strong>KRITISKT:</strong><br>
+                    Spelarna måste placera Black Madonna-ikonen PÅ EXAKT rätt plats MEDAN de slåss mot de tre männen.<br><br>
+
+                    <strong>Mekanik:</strong>
+                    <ul>
+                        <li>Kräver 3 rundor (Hypergeometry-check varje runda, -20%)</li>
+                        <li>En spelare måste fokusera på ikonen (kan inte attackera)</li>
+                        <li>De tre männen försöker STOPPA dem</li>
+                        <li>Om ikonen placeras FEL: Katastrofal explosion (alla tar 4D10, källaren kollapsar)</li>
+                    </ul>
+
+                    <strong>Rekommendation:</strong> En spelare placerar ikonen, resten försvarar
+                </div>
+
+                <div class="gm-note">
+                    Detta är en actionscen MEN också emotionell. Påminn spelarna om att de tre männen var barn en gång. Dmitri (#15) ser på och gråter när hans vänner dör. Om spelarna kan rädda dem genom förhandling - ge dem den chansen. Men om strid är enda vägen, gör den meningsfull och tragisk.
+                </div>
+
+                <h3 id="scen14">Scen 14: Ikonen Placeras - Kollapsen</h3>
+                <div class="stat-block">
+                    <h4>SCEN 14 - BEFRIELSEN</h4>
+                    <p><strong>Händelse:</strong> När ikonen hängs på rätt plats</p>
+                    <p><strong>SAN-förlust:</strong> 1/1D8 (se barnen dö, även om det är barmhärtighet)</p>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    Ikonen hängs på plats. Det sista fragmentet av en 83 år lång ritual fullbordas.<br><br>
+
+                    Ett ögonblick av total tystnad.<br><br>
+
+                    247Hz-humming upphör. Allt blir stilla. Mörkret slutar röra sig. Världen håller andan.<br><br>
+
+                    Och sedan... hör ni det. Från övervåningen. Barnen.<br><br>
+
+                    De skrattar.
+                </div>
+
+                <h4>Moment av Frid (5 sekunder)</h4>
+                <ul>
+                    <li>247Hz upphör helt</li>
+                    <li>Allt blir stilla</li>
+                    <li>Barnen känner det - de ler, gråter av lättnad</li>
+                    <li>Misha: "Tack. Äntligen."</li>
+                    <li>Anya sjunger sin vaggvisa en sista gång</li>
+                    <li>Dmitri: "Förlåt oss. Och tack."</li>
+                </ul>
+
+                <div class="scene-box">
+                    <strong>Sedan:</strong><br>
+                    247Hz börjar igen. Men högre. 300Hz. 350Hz. 400Hz.<br><br>
+
+                    Suppression-fältet KOLLAPSAR.<br><br>
+
+                    Barnen känner det. Tid börjar flyta igen i fasförskjutningen. De har varit frusna i 83 år. Nu accelererar tiden för dem.
+                </div>
+
+                <h4>Barnens Åldring</h4>
+                <div class="warning-box">
+                    <strong>GÖR DETTA VACKERT, INTE SKRÄMMANDE:</strong><br>
+                    Barnen åldras snabbt - 83 år på sekunder. Men det är inte body horror. Det är... befrielse.
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    Ni ser dem genom dörröppningen. De tjugo barnen.<br><br>
+
+                    Deras kroppar åldras. 10 år gamla blir tonåringar, unga vuxna, medelålders, gamla. Håret blir grått, huden skrynklig. 83 år på trettio sekunder.<br><br>
+
+                    Men de lider inte. De ler. Skrattar. Några håller varandras händer.<br><br>
+
+                    Anya sjunger fortfarande, hennes röst blir äldre men melodin fortsätter.<br><br>
+
+                    Misha håller sin teckning. Den bleknar med honom.<br><br>
+
+                    Dmitri tittar på er en sista gång. Nickar. "Tack."<br><br>
+
+                    Och sedan... damm. Trettioen kroppar blir till aska, sedan till ingenting. Leende, tacksamma, fria.<br><br>
+
+                    Äntligen får de sova.
+                </div>
+
+                <div class="gm-note">
+                    Detta är inte skräck. Detta är release. Låt spelarna känna sorg MEN också lättnad. De gjorde det rätta för barnen. Men nu kommer konsekvensen...
+                </div>
+
+                <h4>Samtidigt: Mörkret Öppnas</h4>
+                <div class="warning-box">
+                    <strong>NU BÖRJAR HELVETET:</strong>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    När barnen försvinner... öppnas mörkret.<br><br>
+
+                    Källarväggar spricker. Inte bara sprickor - hela väggen BÖJS BORT som tyg. Bakom den: ingenting. Rent svart. Djupare än mörker. Djupare än rum.<br><br>
+
+                    Och något STORT vaknar där inne.<br><br>
+
+                    Nyogtha. Fritt efter 83 år.
+                </div>
+
+                <h3 id="scen15">Scen 15: NYOGTHA RISING</h3>
+                <div class="stat-block">
+                    <h4>SCEN 15 - COSMIC HORROR UNLEASHED</h4>
+                    <p><strong>Plats:</strong> Källaren → hela huset → ön</p>
+                    <p><strong>Händelse:</strong> Nyogtha manifesterar</p>
+                    <p><strong>SAN-förlust:</strong> 1D6/1D20 (se Nyogtha fullt manifesterad)</p>
+                </div>
+
+                <div class="warning-box">
+                    <strong>KRITISKT - BESKRIV FRÅN TRE VINKLAR:</strong><br>
+                    Använd alla tre beskrivningarna för att förmedla VASTNESS. Nyogtha är INTE en "boss" - det är en naturkraft.
+                </div>
+
+                <h4>Nyogtha - Tre Perspektiv</h4>
+
+                <div class="stat-block">
+                    <h4>PERSPEKTIV 1: NEDIFRÅN (Spelarna i källaren)</h4>
+                    <div class="scene-box">
+                        Mörkret FLÖDAR mot er som en tsunami av svart olja. Men det är inte olja. Det är... masa, dimensioner, verklighet som böjs och brister.<br><br>
+
+                        Tusentals tentakler, om man kan kalla dem så. Tentakler är för simpelt. Dessa är geometriska omöjligheter, vinklat kött, hungriga munnar som öppnar och stänger sig i dimensioner ni inte kan förstå.<br><br>
+
+                        Och ljudet. Inte 247Hz längre. Detta är lägre, djupare, känns i skelettet. En HUNGER personifierad.<br><br>
+
+                        Det kommer mot er.
+                    </div>
+                </div>
+
+                <div class="stat-block">
+                    <h4>PERSPEKTIV 2: INIFRÅN HUSET</h4>
+                    <div class="scene-box">
+                        Väggarna blir tentakler. Golvet blir kött. Taket böjs inåt som ett gap. <br><br>
+
+                        Huset är inte längre en byggnad. Det är en organism. Kalenko-huset BLEV Nyogtha, eller Nyogtha växer genom det som cancer genom vävnad.<br><br>
+
+                        Korridorerna skri ker - inte metaforiskt, väggarnas trä och sten SKRIKER när de omformas till något levande.<br><br>
+
+                        Non-euclidisk geometri ni såg tidigare? Det var inget. DET HÄR är vad som händer när verkligheten själv ger upp.
+                    </div>
+                </div>
+
+                <div class="stat-block">
+                    <h4>PERSPEKTIV 3: UTIFRÅN (FSB-soldater, om spelarna flyr)</h4>
+                    <div class="scene-box">
+                        Kalenko-huset VÄXER.<br><br>
+
+                        Fem våningar blir tio, tjugo, hundra. Men inte uppåt - åt alla håll samtidigt. Det äter verkligheten runt sig, expanderar in i dimensioner som inte borde finnas.<br><br>
+
+                        FSB-soldater vid perimetern ser det. Skjuter. Kulor absorberas. Raketer avfyras. Explosioner försvinner in i mörkret utan ljus, utan ljud.<br><br>
+
+                        En soldat skriker in i radion: "HÖG KOMMANDO - VI BEHÖVER ALLT. KÄRNVAPEN. ALLT. DET ÄR--"<br><br>
+
+                        Radion tystnar. Soldaten konsumeras.
+                    </div>
+                </div>
+
+                <h4>Nyogtha - "Stats" (Ej för att besegra)</h4>
+                <div class="info-box">
+                    <p><strong>Nyogtha kan INTE besegras av spelarna.</strong> Dessa "stats" är endast för att visa omöjligheten:</p>
+                    <ul>
+                        <li><strong>STR:</strong> ∞ (kan krossa byggnader)</li>
+                        <li><strong>CON:</strong> ∞ (regenererar omedelbart)</li>
+                        <li><strong>POW:</strong> 50+ (gudomligt)</li>
+                        <li><strong>HP:</strong> Irrelevant (tar ingen skada från konventionella vapen)</li>
+                        <li><strong>SAN-förlust:</strong> 1D6/1D20 vid första syn, 1D3/1D10 per runda inom synhåll</li>
+                    </ul>
+
+                    <p><strong>Attacker:</strong></p>
+                    <ul>
+                        <li><strong>Tentakler:</strong> 90%, 4D6 skada, räckvidd 50+ meter</li>
+                        <li><strong>Konsumering:</strong> Svälja helt (automatisk död om träffad)</li>
+                        <li><strong>Realitetsböjning:</strong> Området runt Nyogtha blir non-euclidean (Navigation -60%)</li>
+                        <li><strong>Psykisk aurea:</strong> WP-check varje runda eller -1D6 WP (ren skräck)</li>
+                    </ul>
+                </div>
+
+                <div class="gm-note">
+                    <strong>SPEL DETTA SOM NATURKATASTROF, INTE STRID:</strong><br>
+                    Nyogtha är jordbävning, tsunami, orkan. Man FLYR från det, man besegrar det inte. Spelarna som försöker skjuta det är som att skjuta mot en flodvåg.
+                </div>
+
+                <h3 id="scen16">Scen 16: Överleva / Begränsa / Fly (PLAYER CHOICE)</h3>
+                <div class="stat-block">
+                    <h4>SCEN 16 - VALET DEL 2</h4>
+                    <p><strong>Tempo:</strong> Frenetic survival horror</p>
+                    <p><strong>Mekanik:</strong> Spelarna väljer approach</p>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    Nyogtha är fritt. Vad gör ni?<br><br>
+
+                    Spring? Försök begränsa det? Offra er? Förhandla?<br><br>
+
+                    Valet är ert. Men välj SNABBT.
+                </div>
+
+                <h4>Alternativ för Spelarna</h4>
+
+                <div class="stat-block">
+                    <h4>ALTERNATIV A: FLIGHT (Mest sannolikt)</h4>
+                    <p><strong>Approach:</strong> Spring för livet</p>
+
+                    <p><strong>Mekanik:</strong></p>
+                    <ul>
+                        <li>Athletics-check för att springa (CON-check om utmattade)</li>
+                        <li>Navigation-check för att hitta ut (huset kollapsar)</li>
+                        <li>Dodge-check om Nyogtha når efter dem</li>
+                    </ul>
+
+                    <p><strong>Outcome:</strong></p>
+                    <ul>
+                        <li>✅ Spelarna lever (traumatiserade)</li>
+                        <li>⚠️ Nyogtha begränsat till området (5-10km radie)</li>
+                        <li>⚠️ FSB etablerar perimeter ("industriell olycka")</li>
+                        <li>⚠️ Området blir permanent quarantine zone</li>
+                    </ul>
+
+                    <p><strong>FSB-reaktion:</strong> Helikoptrar, pansarvagnar, eventual kärn vapen-hot (om det sprider sig)</p>
+                </div>
+
+                <div class="stat-block">
+                    <h4>ALTERNATIV B: CONTAINMENT (Heroiskt offer)</h4>
+                    <p><strong>Approach:</strong> Försök återskapa suppression UTAN barn</p>
+
+                    <p><strong>Kräver:</strong></p>
+                    <ul>
+                        <li>Teknisk lösning (Sparky): Återskapa 247Hz-fält med utrustning</li>
+                        <li>Rituell lösning (Sullivan): Bön och ikon för att banna</li>
+                        <li>Militär lösning (Trench): Fysisk barriär + offer</li>
+                        <li><strong>OFFER:</strong> Någon måste bli nytt "batteri" (ersätter de 20 barnen)</li>
+                    </ul>
+
+                    <p><strong>Mekanik:</strong></p>
+                    <ul>
+                        <li>Science/Hypergeometry-check (-40%) för teknisk lösning</li>
+                        <li>WP-check för rituell lösning (Sullivan spenderar ALL WP)</li>
+                        <li>Offer-spelare: Permanent fängslad (karaktären borta från kampanj)</li>
+                    </ul>
+
+                    <p><strong>Outcome:</strong></p>
+                    <ul>
+                        <li>✅ Nyogtha återfängslad permanent</li>
+                        <li>❌ En spelare förlorad (levande fängelse)</li>
+                        <li>✅ Världen räddad</li>
+                        <li>✅ Parasit-cure (offrad spelare absorberade parasiter)</li>
+                    </ul>
+
+                    <div class="scene-box">
+                        <strong>Om någon offrar sig:</strong><br>
+                        "Jag stannar. Håll barriären. Jag... jag kan känna det. Nyogtha. Det är som att drunkna i mörker, men om jag håller emot... kan ni fly. Gå. NU."<br><br>
+                        Karaktären blir del av suppression-fältet. Lever, medveten, men fångad för alltid.
+                    </div>
+                </div>
+
+                <div class="stat-block">
+                    <h4>ALTERNATIV C: FIGHT (Dödligt)</h4>
+                    <p><strong>Approach:</strong> Konfrontera Nyogtha direkt</p>
+
+                    <p><strong>Mekanik:</strong> Dödsrisk 90%+</p>
+                    <ul>
+                        <li>All skada reducerad till 1/10 (kulor gör ingenting)</li>
+                        <li>Nyogtha attackerar med 4D6 per tentakel</li>
+                        <li>Kan SKADAS tillräckligt för att dra sig tillbaka (500+ HP total skada)</li>
+                    </ul>
+
+                    <p><strong>Outcome:</strong></p>
+                    <ul>
+                        <li>⚠️ Heroiskt men dödligt</li>
+                        <li>❌ Flera KIA sannolikt</li>
+                        <li>✅ Men Nyogtha driven bort (om spelarna klarar sig)</li>
+                    </ul>
+
+                    <div class="gm-note">
+                        VARNAR spelarna innan: "Detta är självmord. Ni vet det, eller hur?" Låt dem vända om de vill. Men om de insisterar - respektera valet.
+                    </div>
+                </div>
+
+                <div class="stat-block">
+                    <h4>ALTERNATIV D: BARGAIN (Faustian)</h4>
+                    <p><strong>Approach:</strong> Förhandla med Nyogtha</p>
+
+                    <p><strong>Verklighet:</strong> Nyogtha förhandlar inte. Det är HUNGER.</p>
+                    <ul>
+                        <li>POW-check för att ens få dess uppmärksamhet</li>
+                        <li>Om lyckat: Nyogtha "hör" dem... och känner deras Bonds</li>
+                        <li>Nyogtha ÄTER en Bond från varje spelare (permanent förlust)</li>
+                        <li>Tillfälligt mättad, drar sig tillbaka</li>
+                    </ul>
+
+                    <p><strong>Outcome:</strong></p>
+                    <ul>
+                        <li>⚠️ Spelarna lever (förändrade)</li>
+                        <li>❌ Alla Bonds förstörda (en var från varje spelare)</li>
+                        <li>⚠️ Nyogtha "nöjd" tillfälligt (men kommer tillbaka)</li>
+                        <li>❌ Permanent SAN-förlust (-1D10)</li>
+                        <li>⚠️ Spelarna blir "matare" (måste offra Bonds varje år)</li>
+                    </ul>
+
+                    <div class="warning-box">
+                        <strong>PRIS:</strong> Mac förlorar Sarah. Sullivan förlorar sin församling. Sparky förlorar Ghost. Etc. De GLÖMMER inte dem - de KAN bara inte längre känna kärlek för dem.
+                    </div>
+                </div>
+
+                <h4>Cure-Mekanik (om tillämplig)</h4>
+                <div class="info-box">
+                    <p><strong>Cure är INTE en spruta - det är resonanskaskad:</strong></p>
+                    <ul>
+                        <li>När ikonen återförs skapar det "counter-resonance"-våg</li>
+                        <li>Rensar parasiter MEN kräver offer</li>
+                        <li><strong>Osäkerhet:</strong> Science/Hypergeometry (-20%) för att veta om det funkade</li>
+                        <li><strong>Pris:</strong> Permanent förlust av INT, POW (1D6) ELLER ett Bond (glömmer kärleken)</li>
+                        <li><strong>Resultat:</strong> Man vet inte säkert förrän månader senare</li>
+                    </ul>
+                </div>
+
+                <h3 id="scen17">Scen 17: Escape från Leningrad</h3>
+                <div class="stat-block">
+                    <h4>SCEN 17 - FLYKTEN</h4>
+                    <p><strong>Plats:</strong> Fasförskjutningen kollapsar, tillbaka till 2025</p>
+                    <p><strong>Händelse:</strong> Internationell incident börjar</p>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    Ni springer. Bakom er: Nyogtha, fasförskjutningen, 83 års trauma som kollapsar.<br><br>
+
+                    Och plötsligt... dimman lättar.<br><br>
+
+                    Ni är tillbaka. 2025. Sankt Petersburg. Moderna bilar, LED-ljus, mobiler börjar fungera igen.<br><br>
+
+                    Men bakom er... explosioner. FSB i full panik. Helikoptrar. Strålkastare mot området ni precis lämnade.<br><br>
+
+                    Rysk media (på radio): "Större industriell olycka på Vasilyevsky Island. Gasexplosion. Området evakuerat. Inga civila skadade rapporterade."<br><br>
+
+                    Ni vet sanningen. Men ingen kommer att tro er.
+                </div>
+
+                <h4>Escape-rutt</h4>
+                <ul>
+                    <li>Samma kontakter som smugglade in er kan smuggla ut</li>
+                    <li>FSB fokuserade på Nyogtha-zonen (inte på jagande er)</li>
+                    <li>Parasit-status: Okänd (cure funkade? Eller progression fortsätter?)</li>
+                    <li>Får 1D6 timmar innan internationell media täcker "olyckan"</li>
+                </ul>
+
+                <div class="warning-box">
+                    <strong>KOMPLIKATION:</strong><br>
+                    Om någon spelare offrade sig (Containment-alternativ): Gruppen måste lämna dem. Sista bilden: karaktären ensam i källaren, håller fältet, försvinner in i mörkret.
+                </div>
+
+                <div class="info-box">
+                    <strong>Nyckelmoment Akt 3:</strong>
+                    <ul>
+                        <li>✓ EMOTIONAL CORE (barnen är verkliga människor)</li>
+                        <li>✓ MORAL CHOICE (inget enkelt svar)</li>
+                        <li>✓ PLAYER AGENCY (de väljer hur detta slutar)</li>
+                        <li>✓ COSMIC HORROR (Nyogtha är VAST)</li>
+                        <li>✓ PERSONAL COST (ingen går oskadad)</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <!-- Epilog -->
+            <section id="epilog" class="section">
+                <h2><span class="badge act">Epilog</span> Aftermath (Valfri Session 13)</h2>
+
+                <div class="info-box">
+                    <strong>Varaktighet:</strong> 1-2 timmar<br>
+                    <strong>Tempo:</strong> Slow resolution, reflection, closure<br>
+                    <strong>Atmosfär:</strong> Aftermath, processing, minne<br>
+                    <strong>Syfte:</strong> Ge spelarna closure och processa trauma
+                </div>
+
+                <div class="gm-note">
+                    Epilogen är VALFRI men rekommenderas starkt. Efter intensiteten i Akt 3 behöver spelarna tid att landa, processa, och ge sina karaktärer avslut.
+                </div>
+
+                <h3 id="scen18">Scen 18: Hemresa</h3>
+                <div class="stat-block">
+                    <h4>SCEN 18 - SMUGGLING UT</h4>
+                    <p><strong>Plats:</strong> Smuggling ut ur Ryssland</p>
+                    <p><strong>Syfte:</strong> Nedtrappning från action</p>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    Safe house i Finland. Eller Tallinn. Eller Riga. Var ni än tar er efter flykten.<br><br>
+
+                    Rummet är tyst. Ni sitter där, utmattade, skadade, traumatiserade. Bakom er: Leningrad, 20 barn, Nyogtha, allt.<br><br>
+
+                    Vad hände egentligen? Gjorde ni rätt? Kommer ni någonsin veta?
+                </div>
+
+                <h4>Spelmoment</h4>
+                <ul>
+                    <li>Låt spelarna prata fritt (in character eller out of character)</li>
+                    <li>Processa vad som hände</li>
+                    <li>Ge tid för reflektion</li>
+                    <li>Montage ELLER spelad sekvens (beroende på tid)</li>
+                </ul>
+
+                <h3 id="scen19">Scen 19: Bonds Resolution</h3>
+                <div class="stat-block">
+                    <h4>SCEN 19 - HEMKOMST</h4>
+                    <p><strong>Plats:</strong> Telefonsamtal hem (om Bonds fortfarande finns)</p>
+                    <p><strong>Syfte:</strong> Emotionell resolution</p>
+                </div>
+
+                <div class="scene-box">
+                    <strong>Läsupptext:</strong><br>
+                    Ni är hemma. USA. Säkerheten. Eller vad ni nu kallar för hem efter detta.<br><br>
+
+                    Telefonen ringer. Eller så ringer ni. Eller så står någon där ni älskar och väntar.<br><br>
+
+                    Vad säger ni? Vad kan ni säga?
+                </div>
+
+                <h4>Individuella Bonds-moment</h4>
+                <ul>
+                    <li><strong>Mac → Sarah & barnen:</strong> Kommer han hem? Kan han förklara var han varit?</li>
+                    <li><strong>Sullivan → församlingen:</strong> Kan han stå i predikstolen igen? Efter vad han sett?</li>
+                    <li><strong>Sparky → Ghost:</strong> Krypterade meddelanden. Men kan hon någonsin vara ärlig?</li>
+                    <li><strong>Scalpel → Jürgen:</strong> Sanningen är värd att kämpa för, sa han. Var det värt det?</li>
+                    <li><strong>Trench → Rhea:</strong> Soldater gör det hemska så andra inte behöver. Men vad kostar det?</li>
+                </ul>
+
+                <div class="gm-note">
+                    GE VARJE SPELARE 5-10 MINUTER för denna scen. Låt dem faktiskt rollspela samtalet/mötet.
+                </div>
+
+                <h3>Scen 20-22: Resolution</h3>
+                <p>Parasit-outcome, Delta Green-reaktion, och sista hedran för de 20 barnen.</p>
+
+                <div class="scene-box">
+                    <strong>SISTA BILDEN:</strong><br>
+                    Gruppen vid något minnesmärke. Kamera zoomar ut. De är ensamma. Världen vet inte vad de offrade.<br><br>
+
+                    Men de 20 barnen får sova nu. Var det värt det?
+                </div>
+            </section>
+
+            <!-- Möjliga Endings -->
+            <section id="endings" class="section">
+                <h2>Möjliga Slut</h2>
+
+                <div class="gm-note">
+                    Kapitlet kan sluta på många sätt beroende på spelarnas val. Här är de sex huvudsakliga slutsatserna.
+                </div>
+
+                <div class="grid-2">
+                    <div class="stat-block">
+                        <h4>ENDING 1: "MERCY KILLS" (Rekommenderad)</h4>
+                        <p><strong>Vad spelarna gör:</strong></p>
+                        <ul>
+                            <li>Befriar barnen</li>
+                            <li>Flyr från Nyogtha</li>
+                            <li>Nyogtha begränsat till området</li>
+                        </ul>
+                        <p><strong>Resultat:</strong></p>
+                        <ul>
+                            <li>✅ Barnen befriade (död men fridfullt)</li>
+                            <li>⚠️ Nyogtha fritt (men geografiskt begränsat 5-10km)</li>
+                            <li>✅ Spelarna överlevde (traumatiserade)</li>
+                        </ul>
+                        <p><strong>Ton:</strong> Bittersöt. Gjorde det rätta. Kostnaden hög.</p>
+                    </div>
+
+                    <div class="stat-block">
+                        <h4>ENDING 2: "THE SACRIFICE" (Heroisk)</h4>
+                        <p><strong>Vad spelarna gör:</strong></p>
+                        <ul>
+                            <li>Befriar barnen</li>
+                            <li>EN spelare offrar sig</li>
+                            <li>Nyogtha återfängslas</li>
+                        </ul>
+                        <p><strong>Resultat:</strong></p>
+                        <ul>
+                            <li>✅ Barnen befriade</li>
+                            <li>✅ Nyogtha innehållen permanent</li>
+                            <li>❌ En spelare förlorad (levande fängelse)</li>
+                        </ul>
+                        <p><strong>Ton:</strong> Tragisk hjältehistoria.</p>
+                    </div>
+
+                    <div class="stat-block">
+                        <h4>ENDING 3: "THE COWARD'S CHOICE" (Mörk)</h4>
+                        <p><strong>Vad spelarna gör:</strong></p>
+                        <ul>
+                            <li>Vänder om</li>
+                            <li>Låter barnen förbli fängslade</li>
+                        </ul>
+                        <p><strong>Resultat:</strong></p>
+                        <ul>
+                            <li>❌ Barnen fängslade (evig tortyr fortsätter)</li>
+                            <li>✅ Nyogtha innehållen</li>
+                            <li>❌ Moralisk kollaps (Breaking Points)</li>
+                        </ul>
+                        <p><strong>Ton:</strong> Nihilistisk. Överlevde men förlorade mänsklighet.</p>
+                    </div>
+
+                    <div class="stat-block">
+                        <h4>ENDING 4: "THE THIRD WAY" (Svårt)</h4>
+                        <p><strong>Vad spelarna gör:</strong></p>
+                        <ul>
+                            <li>Använder Yithian-teknologi</li>
+                            <li>Flyttar fängelset till annan tid</li>
+                        </ul>
+                        <p><strong>Resultat:</strong></p>
+                        <ul>
+                            <li>✅ Barnen befriade</li>
+                            <li>⚠️ Dimensional scar (permanent)</li>
+                            <li>✅ Parasit-cure</li>
+                        </ul>
+                        <p><strong>Ton:</strong> Pyrrhusseger. Slog sönder verkligheten.</p>
+                    </div>
+
+                    <div class="stat-block">
+                        <h4>ENDING 5: "THE BARGAIN" (Faustian)</h4>
+                        <p><strong>Vad spelarna gör:</strong></p>
+                        <ul>
+                            <li>Förhandlar med Nyogtha</li>
+                            <li>Offrar Bonds</li>
+                        </ul>
+                        <p><strong>Resultat:</strong></p>
+                        <ul>
+                            <li>⚠️ Nyogtha "nöjd" (tillfälligt)</li>
+                            <li>❌ Bonds förstörda</li>
+                            <li>❌ Skuld till Nyogtha</li>
+                        </ul>
+                        <p><strong>Ton:</strong> Lovecraftian tragedy. Priset höjs över tid.</p>
+                    </div>
+
+                    <div class="stat-block">
+                        <h4>ENDING 6: "TOTAL PARTY KILL" (Mörkaste)</h4>
+                        <p><strong>Vad spelarna gör:</strong></p>
+                        <ul>
+                            <li>Försöker bekämpa Nyogtha direkt</li>
+                            <li>Misslyckas</li>
+                        </ul>
+                        <p><strong>Resultat:</strong></p>
+                        <ul>
+                            <li>✅ Barnen befriade</li>
+                            <li>❌ Alla spelare döda</li>
+                            <li>❌ Ryssland nukear området</li>
+                        </ul>
+                        <p><strong>Ton:</strong> Grimdark. Hjältar dog, stoppades av kärnvapen.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gameplay-Mekanik och SL-Tips -->
+            <section id="mekanik" class="section">
+                <h2>Gameplay-Mekanik</h2>
+
+                <h3>Fasförskjutning (Time Bleed)</h3>
+                <div class="info-box">
+                    <p><strong>I zonen:</strong></p>
+                    <ul>
+                        <li>Modern teknik fungerar inte pålitligt (mobiler, GPS)</li>
+                        <li>Vapen från 2025 fungerar, ammo begränsad</li>
+                        <li>Skador i 1942 blir "ärr" i själen (SAN loss vid skada)</li>
+                    </ul>
+                </div>
+
+                <h3>Parasit-Finalen</h3>
+                <div class="info-box">
+                    <p><strong>Stage 3-4 vid Kapitel 6:</strong></p>
+                    <ul>
+                        <li>Varje runda i källaren ökar korruption (+1% transformation/runda)</li>
+                        <li>Spelare vid Stage 4 (80%+) börjar höra Yithian-röster</li>
+                        <li>Stage 5 (95%+) = Permanent transformation börjar</li>
+                    </ul>
+                </div>
+
+                <h3>Kritiska Items</h3>
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Effekt</th>
+                    </tr>
+                    <tr>
+                        <td>Black Madonna-ikonen</td>
+                        <td>Nyckeln till befrielse</td>
+                    </tr>
+                    <tr>
+                        <td>Black Madonna-dockan</td>
+                        <td>20 fragment, känner barnen</td>
+                    </tr>
+                    <tr>
+                        <td>Nesterovs skiss</td>
+                        <td>+20% Navigation i huset</td>
+                    </tr>
+                    <tr>
+                        <td>Nesterovs bön</td>
+                        <td>+1 WP mot Nyogtha (hela gruppen)</td>
+                    </tr>
+                    <tr>
+                        <td>Nesterovs ren ikon</td>
+                        <td>+1 WP permanent för bärare</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section id="gmtips" class="section">
+                <h2>SL-Tips & Förberedelse</h2>
+
+                <h3>Före Sessionen</h3>
+                <div class="info-box">
+                    <ol>
+                        <li><strong>Skriv ut barnens namn & kort bio</strong> (ge spelarna fysiskt)</li>
+                        <li><strong>Skapa Kalenko-hus floorplan</strong> (Nesterovs skiss fysiskt)</li>
+                        <li><strong>Förbered Nyogtha-beskrivning</strong> (3-4 vinklar för VASTNESS)</li>
+                        <li><strong>Musiklist:</strong>
+                            <ul>
+                                <li>Akt 1: Slow burn ambient (Stalker OST)</li>
+                                <li>Akt 2: Dread (Silent Hill 2)</li>
+                                <li>Akt 3: Sorrow → Terror (Arrival OST → Hereditary)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Diskutera med spelarna:</strong> "Detta är slutet. Vad vill ni uppnå?"</li>
+                    </ol>
+                </div>
+
+                <h3>Under Sessionen</h3>
+                <div class="warning-box">
+                    <ul>
+                        <li><strong>Akt 1:</strong> Ta tid, bygg spänning, låt spelarna planera</li>
+                        <li><strong>Akt 2:</strong> Wrongness, discovery, guardian-test</li>
+                        <li><strong>Akt 3 - Barnen:</strong> SLOWEST moment (30-45 min)</li>
+                        <li><strong>Akt 3 - Val:</strong> Respektera deras val (15-30 min diskussion)</li>
+                        <li><strong>Akt 3 - Nyogtha:</strong> Go big or go home</li>
+                        <li><strong>Epilog:</strong> Process, reflektion, minne</li>
+                    </ul>
+                </div>
+
+                <h3>SAN-Förlust Totalt</h3>
+                <table>
+                    <tr>
+                        <th>Akt</th>
+                        <th>SAN-Förlust</th>
+                    </tr>
+                    <tr>
+                        <td>Akt 1</td>
+                        <td>0/1D6</td>
+                    </tr>
+                    <tr>
+                        <td>Akt 2</td>
+                        <td>1/1D8</td>
+                    </tr>
+                    <tr>
+                        <td>Akt 3</td>
+                        <td>2D6/2D20</td>
+                    </tr>
+                    <tr>
+                        <td>Epilog</td>
+                        <td>+1D3 (endast med Psychology)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TOTALT</strong></td>
+                        <td><strong>~3D6/3D20 (genomsnitt 10-30 SAN)</strong></td>
+                    </tr>
+                </table>
+
+                <h3>Kärnvärden att Komma Ihåg</h3>
+                <div class="scene-box">
+                    <strong>Detta kapitel bör vara:</strong><br>
+                    <ul>
+                        <li>EMOTIONELLT tungt (tårar är OK)</li>
+                        <li>MORALISKT komplext (ingen enkel lösning)</li>
+                        <li>KOSMISKT skrämmande (Nyogtha är VAST)</li>
+                        <li>PERSONLIGT kostsamt (alla förlorar något)</li>
+                        <li>MINNESVÄRT (spelarna pratar om detta i år)</li>
+                    </ul>
+
+                    <strong>Detta kapitel ska INTE vara:</strong><br>
+                    <ul>
+                        <li>Action mot "boss monster"</li>
+                        <li>Enkel "good vs evil"</li>
+                        <li>Spelarna räddar världen och känns bra</li>
+                        <li>Alla överlever oskadade</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <strong>Delta Green i sitt esse:</strong><br>
+                    "Du gjorde det rätta. Ingen vet det. Ingen tror dig. Du bär kostnaden ensam. Men de 20 barnen är fria nu. Var det värt det?"<br><br>
+                    <strong>Spelarna får svara själva.</strong>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        DELTA GREEN // TRIP 19: BLACK MADONNA // SL-MATERIAL - KAPITEL 6
+    </div>
+
+    <script>
+        // Smooth scroll för navigationslänkar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
