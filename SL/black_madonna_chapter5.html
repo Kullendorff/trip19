@@ -73,9 +73,65 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 0 2rem 4rem 2rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .nav-section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-primary);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .nav-title {
+            color: var(--accent-primary);
+            font-size: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.6rem 1rem;
+            color: var(--text);
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .nav-link:hover {
+            background: rgba(74, 144, 164, 0.1);
+            border-left-color: var(--accent-primary);
+            color: var(--accent-primary);
+            padding-left: 1.2rem;
+        }
+
+        .nav-link.active {
+            background: rgba(74, 144, 164, 0.15);
+            border-left-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .main-content {
+            min-width: 0;
         }
 
         .chapter-header {
@@ -276,13 +332,19 @@
             margin-bottom: 1rem;
         }
 
-        @media (max-width: 768px) {
-            .routes-grid {
+        @media (max-width: 1024px) {
+            .container {
                 grid-template-columns: 1fr;
+                padding: 1rem;
             }
 
-            .container {
-                padding: 1rem;
+            .sidebar {
+                position: static;
+                margin-bottom: 2rem;
+            }
+
+            .routes-grid {
+                grid-template-columns: 1fr;
             }
 
             .chapter-header h1 {
@@ -300,18 +362,38 @@
     </div>
 
     <div class="container">
-        <div class="chapter-header">
-            <h1>KAPITEL 5: MOSKVA</h1>
-            <p class="subtitle">"Матушка Россия" (Moder Ryssland)</p>
-            <p style="margin-top: 1rem; color: var(--text-dim);">
-                <strong>Tema:</strong> Kunskap, Tragedi, Förberedelse<br>
-                <strong>Ton:</strong> "Lugnet före stormen" - forskningskapitel, inte action-klimax<br>
-                <strong>Längd:</strong> 6-8 scener, 2-3 sessioner
-            </p>
-        </div>
+        <!-- SIDEBAR NAVIGATION -->
+        <aside class="sidebar">
+            <nav class="nav-section">
+                <div class="nav-title">Navigation</div>
+                <a href="#overview" class="nav-link">📋 Översikt</a>
+                <a href="#arrival" class="nav-link">🛂 Ankomst till Moskva</a>
+                <a href="#scene1a" class="nav-link">🚂 Scene 1A: Baltic Route</a>
+                <a href="#scene1b" class="nav-link">🚛 Scene 1B: Truck Route</a>
+                <a href="#scene2" class="nav-link">🏛️ Scene 2: Slava-Stiftelsen</a>
+                <a href="#scene4" class="nav-link">💔 Scene 4: Volkovs Labb</a>
+                <a href="#scene5" class="nav-link">🏚️ Scene 5: Camp S-17</a>
+                <a href="#scene6" class="nav-link">🎨 Scene 6: Ateljén</a>
+                <a href="#scene8" class="nav-link">🚂 Scene 8: Till Leningrad</a>
+                <a href="#npcs" class="nav-link">👥 NPCs</a>
+                <a href="#summaries" class="nav-link">📊 Sammanfattning</a>
+            </nav>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <div class="chapter-header">
+                <h1>KAPITEL 5: MOSKVA</h1>
+                <p class="subtitle">"Матушка Россия" (Moder Ryssland)</p>
+                <p style="margin-top: 1rem; color: var(--text-dim);">
+                    <strong>Tema:</strong> Kunskap, Tragedi, Förberedelse<br>
+                    <strong>Ton:</strong> "Lugnet före stormen" - forskningskapitel, inte action-klimax<br>
+                    <strong>Längd:</strong> 6-8 scener, 2-3 sessioner
+                </p>
+            </div>
 
         <!-- ÖVERSIKT -->
-        <div class="section">
+        <div class="section" id="overview">
             <h2>📋 ÖVERSIKT</h2>
 
             <h3>Kapitlets Mål</h3>
@@ -363,7 +445,7 @@
         </div>
 
         <!-- SMUGGELVÄGAR - ANKOMST -->
-        <div class="section">
+        <div class="section" id="arrival">
             <h2>🛂 ANKOMST TILL MOSKVA</h2>
 
             <p>Beroende på vilken smuggelväg spelarna valde i Kapitel 4, börjar de på olika platser i Moskva med olika förutsättningar:</p>
@@ -404,7 +486,7 @@
         </div>
 
         <!-- SCENE 1A: BALTIC ROUTE -->
-        <div class="section">
+        <div class="section" id="scene1a">
             <h2>🚂 SCENE 1A: ANKOMST - BALTIC ROUTE</h2>
             <p><strong>Plats:</strong> Leningradsky vokzal → Hotel Rossiya → Gorkijparken</p>
             <p><strong>Tid:</strong> 10:00 - 20:00 (10 timmar)</p>
@@ -756,7 +838,7 @@
         </div>
 
         <!-- SCENE 1B: TRUCK ROUTE -->
-        <div class="section">
+        <div class="section" id="scene1b">
             <h2>🚛 SCENE 1B: ANKOMST - TRUCK ROUTE</h2>
             <p><strong>Plats:</strong> Tekstilshchiki industrial district → Säker plats → Gorkijparken</p>
             <p><strong>Tid:</strong> 23:00 (Dag 1) - 20:00 (Dag 2) (~21 timmar)</p>
@@ -1123,7 +1205,7 @@
         </div>
 
         <!-- SCENE 2: SLAVA-STIFTELSEN -->
-        <div class="section">
+        <div class="section" id="scene2">
             <h2>🏛️ SCENE 2: SLAVA-STIFTELSEN (ARKIVEN)</h2>
             <p><strong>Plats:</strong> Slava Palace - "Kulturstiftelsen för Rysk Militärhistoria" vid Moskva-floden</p>
             <p><strong>Tid:</strong> 3-4 timmar speltid</p>
@@ -1608,7 +1690,7 @@
         </div>
 
         <!-- SCENE 4: VOLKOVS LABB -->
-        <div class="section">
+        <div class="section" id="scene4">
             <h2>💔 SCENE 4: VOLKOVS LABB (EMOTIONELLT KLIMAX)</h2>
             <p><strong>Plats:</strong> Vernadskogo Prospekt 89, Lägenhet 34 - Leninskiye Gory (akademiskt distrikt)</p>
             <p><strong>Tid:</strong> 2-3 timmar speltid</p>
@@ -2059,7 +2141,7 @@
         </div>
 
         <!-- SCENE 5: CAMP S-17 RUINER -->
-        <div class="section">
+        <div class="section" id="scene5">
             <h2>🏚️ SCENE 5: CAMP S-17 RUINER (HISTORISK PILGRIMAGE)</h2>
             <p><strong>Plats:</strong> ~80km nordost om Moskva, övergiven forskningsfacilitet</p>
             <p><strong>Tid:</strong> 2-3 timmar speltid (plus 2 timmar körning)</p>
@@ -3694,7 +3776,8 @@
             </div>
         </div>
 
-    </div>
+        </main> <!-- End main-content -->
+    </div> <!-- End container -->
 
     <script>
         // Collapsible sections
