@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapitel 6: Leningrad - Slutet - TRIP 19 SL-Kontrollpanel</title>
+    <style>
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-primary: #4a90a4;
+            --accent-secondary: #e89a3c;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+            --classified: #ff4444;
+            --success: #4ade80;
+            --warning: #d4a520;
+            --nyogtha: #8b4789;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--bg-darker);
+            border-bottom: 2px solid var(--accent-primary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent-primary);
+            letter-spacing: 2px;
+        }
+
+        .back-link {
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--accent-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-primary);
+            border-radius: 8px;
+        }
+
+        .chapter-header h1 {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .chapter-header .subtitle {
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        .section h2 {
+            color: var(--accent-primary);
+            border-bottom: 2px solid var(--accent-primary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .section h3 {
+            color: var(--accent-secondary);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .section h4 {
+            color: var(--text);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .collapsible {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .collapsible-header {
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .collapsible-header:hover {
+            background: var(--bg-panel);
+        }
+
+        .collapsible-header h3 {
+            margin: 0;
+            color: var(--accent-primary);
+        }
+
+        .collapsible-icon {
+            color: var(--accent-primary);
+            transition: transform 0.3s;
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.active {
+            max-height: 5000px;
+        }
+
+        .collapsible-inner {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .scene-box {
+            background: var(--bg-darker);
+            border-left: 4px solid var(--accent-secondary);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .warning-box {
+            background: rgba(204, 0, 0, 0.1);
+            border: 2px solid var(--classified);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box strong {
+            color: var(--classified);
+        }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .gm-note {
+            background: var(--bg-darker);
+            border-left: 4px solid var(--accent-secondary);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .gm-note::before {
+            content: "GM: ";
+            color: var(--accent-secondary);
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .stat-block {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .stat-block h4 {
+            color: var(--accent-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .stat-item {
+            background: var(--bg-panel);
+            padding: 0.5rem;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .stat-item strong {
+            color: var(--accent-secondary);
+            display: block;
+            font-size: 0.8rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge.sl-only {
+            background: var(--classified);
+            color: white;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">TRIP 19 // BLACK MADONNA</div>
+            <a href="index.html" class="back-link">← Tillbaka till Kontrollpanel</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="chapter-header">
+            <h1>Kapitel 6: Leningrad - Slutet</h1>
+            <div class="subtitle">Vasilyevsky Island, St. Petersburg // Nutid & 1942</div>
+        </div>
+
+        <!-- Overview Section -->
+        <section class="section">
+            <h2>Översikt</h2>
+            <div class="grid-2">
+                <div>
+                    <p><strong>Plats:</strong> Vasilyevsky Island, St. Petersburg (Leningrad)</p>
+                    <p><strong>Tid:</strong> Nutid (2025) som blöder in i Dåtid (1942)</p>
+                    <p><strong>Tema:</strong> Offer, Tid, Förlåtelse</p>
+                    <p><strong>Längd:</strong> 2-3 Sessioner</p>
+                </div>
+                <div class="info-box">
+                    <strong>Centralt Dilemma:</strong><br>
+                    Spelarna måste välja mellan att befria 20 fängslade barn (moraliskt rätt) vilket släpper Nyogtha
+                    (kosmiskt hot), eller låta barnen förbli fängslade i evighet (skyddar världen men omoraliskt).
+                </div>
+            </div>
+
+            <div class="gm-note">
+                Detta är finalen. Det finns inga "rätta" val, bara konsekvenser. Fokusera på den emotionella tyngden och
+                den kosmiska skräcken.
+            </div>
+        </section>
+
+        <!-- Act 1: The Crossing -->
+        <section class="section">
+            <h2>Akt 1: Övergången (Infiltration)</h2>
+            <p>Spelarna anländer till St. Petersburg och måste ta sig in i den avspärrade zonen på Vasilyevsky Island.
+            </p>
+
+            <h3>Scen 1: Ankomst till Sankt Petersburg</h3>
+            <div class="scene-box">
+                "Staden vilar under en blygrå himmel. Neva-floden är en svart spegel som reflekterar de gyllene
+                spirorna. Men något är fel. Kompasser snurrar. Fåglar undviker Vasilyevsky Island som om det vore en
+                pestzon. Luften smakar metall och ozon."
+            </div>
+            <p>Lokalbefolkningen undviker Vasilyevsky Island. Rykten om "gasläckor" och "militärövningar".</p>
+
+            <h3>Scen 2: Gömställe & Spaning</h3>
+            <p>Gruppen etablerar ett gömställe. Detta är sista chansen att planera och förbereda sig.</p>
+            <ul>
+                <li><strong>FSB Kordon:</strong> 2.5km radie runt huset. Patruller, drönare, värmekameror.</li>
+                <li><strong>Bonds:</strong> Ett bra tillfälle för sista samtal hem.</li>
+            </ul>
+
+            <h3>Scen 3: Övergången</h3>
+            <p>Bron till Vasilyevsky Island är avspärrad. Spelarna måste välja väg: smyga över isen, muta vakter, eller
+                hitta en tunnel.</p>
+
+            <div class="warning-box">
+                <strong>TWIST: Tidsblödning</strong><br>
+                Halvvägs över bron (eller isen) skiftar vädret. Dimman tätnar. Gatlyktorna ändras från LED till
+                gas/gammal el. Ljudet av modern trafik ersätts av tystnad och avlägsna explosioner. <strong>De går in i
+                    1942.</strong>
+            </div>
+
+            <h3>Scen 4: Den Tysta Staden (1942)</h3>
+            <div class="scene-box">
+                "Det moderna St. Petersburg är borta. Kvar är ruinerna av Leningrad. Snön är grå av aska. Det finns inga
+                människor här, inga bilar, inget liv. Bara tystnaden efter en bombning. Och ekot av tusentals svältande
+                röster."
+            </div>
+
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <h3>Möte: "The Starving Ones"</h3>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <p>Mythos-skuggor av svältande Leningrad-bor. De attackerar inte HP, utan SAN. De sträcker ut
+                            händer och viskar om bröd.</p>
+                        <p><strong>SAN Loss:</strong> 0/1D4</p>
+                        <div class="gm-note">
+                            Dessa är inte fiender att skjuta. De är minnen. Enda sättet att passera är att erkänna dem
+                            eller offra något (mat, värme, medlidande).
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Scen 5: Förberedelseritual</h3>
+            <p>Innan de går in i Kalenko-huset. Sullivan kan leda Nesterovs bön (+1 WP). Gruppen samlar sig inför det
+                som väntar.</p>
+        </section>
+
+        <!-- Act 2: The House -->
+        <section class="section">
+            <h2>Akt 2: Huset (The Dungeon)</h2>
+            <p>Kalenko-huset existerar i två tider samtidigt. Det är en non-euclidean labyrint fylld av minnen och
+                skräck.</p>
+
+            <h3>Scen 6: Kalenko-husets Utsida</h3>
+            <p>Huset ser helt ut mitt i ruinerna. Dörrarna öppnas av sig själva. I fönstren syns Kalenko-familjen
+                (transformerade) som vaktar/varnar.</p>
+
+            <h3>Scen 7: Entré - Icke-Euklidisk Navigation</h3>
+            <div class="scene-box">
+                "Insidan är större än utsidan. Korridorer vrider sig i omöjliga vinklar. Dörrar leder tillbaka till
+                samma rum. Och överallt hörs barnröster: 'Är ni här för att hjälpa oss?'"
+            </div>
+            <p>En låg 247Hz-ton börjar höras. <strong>Nesterovs skiss</strong> ger +20% på Navigation.</p>
+
+            <h3>Scen 8: "Drönare" Möte</h3>
+            <p>Misslyckade experiment (Patient #21-30) vandrar i korridorerna. De är inte fientliga, bara tragiska. Barn
+                som blivit monster.</p>
+            <p><span class="badge sl-only">SAN Loss</span> 0/1D3</p>
+
+            <h3>Scen 9: Väktaren - Ivan Chezenko</h3>
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <h3>Stat Block: Ivan Chezenko (Väktaren)</h3>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="stat-block">
+                            <h4>Ivan Chezenko (The Guardian)</h4>
+                            <p>Prästen som blev monster. Vaktar trappan ner till källaren.</p>
+                            <div class="stat-grid">
+                                <div class="stat-item"><strong>STR</strong> 20</div>
+                                <div class="stat-item"><strong>CON</strong> 25</div>
+                                <div class="stat-item"><strong>DEX</strong> 10</div>
+                                <div class="stat-item"><strong>INT</strong> 14</div>
+                                <div class="stat-item"><strong>POW</strong> 18</div>
+                                <div class="stat-item"><strong>CHA</strong> 8</div>
+                            </div>
+                            <br>
+                            <p><strong>Immunitet:</strong> Kan inte dödas med våld.</p>
+                            <p><strong>Svaghet:</strong> Nesterovs bön eller ren ikon.</p>
+                            <div class="warning-box">
+                                <strong>Övertyga?</strong> Extremt svårt (-40%). Kräver perfekt bön + WP-check. Om han
+                                hjälper, lider han fruktansvärt.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Act 3: The Ritual -->
+        <section class="section">
+            <h2>Akt 3: Ritualen (Klimax)</h2>
+            <p>Den emotionella och kosmiska höjdpunkten. Här avgörs allt.</p>
+
+            <h3>Scen 10: Barnavdelningen</h3>
+            <div class="gm-note">
+                Detta är kampanjens emotionella kärna. Sakta ner tempot. Låt spelarna prata med barnen.
+            </div>
+            <p>Spelarna hittar de 20 barnen. De ser ut som de gjorde 1942. De är medvetna och har väntat.</p>
+
+            <div class="grid-2">
+                <div class="info-box">
+                    <strong>Misha (#7)</strong><br>
+                    "Jag vill bara sova. Jag är så trött. Snälla, låt oss sova."
+                </div>
+                <div class="info-box">
+                    <strong>Anya (#12)</strong><br>
+                    "Mamma sa att hon skulle komma. Kommer hon snart? Är det ni som ska ta oss hem?"
+                </div>
+                <div class="info-box">
+                    <strong>Dmitri (#15)</strong><br>
+                    "Vi är samma, du och jag. Vi bär båda på mörkret. Förlåt för vad vi gjorde."
+                </div>
+            </div>
+
+            <p><strong>Insikt:</strong> Barnen vet att om de befrias så släpps monstret lös. De ber om det ändå.</p>
+
+            <h3>Scen 11: Valet</h3>
+            <p>Spelarna måste diskutera. Det finns inget rätt svar. Låt dem ta sin tid.</p>
+
+            <h3>Scen 12: Källaren - Kapellet</h3>
+            <p>Ritualrummet. 247Hz-tonen är nu öronbedövande. Mörkret rör sig i hörnen.</p>
+
+            <h3>Scen 13: De Tre Männen (Boss Fight)</h3>
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <h3>Stat Block: De Tre Männen (Hybrider)</h3>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="stat-block">
+                            <h4>De Tre Männen</h4>
+                            <p>Anton, Sasha och Filip i sina slutgiltiga former.</p>
+
+                            <div class="grid-2">
+                                <div>
+                                    <strong>Anton (The Brute)</strong><br>
+                                    STR 25. Tentakler. Fysisk skada.
+                                </div>
+                                <div>
+                                    <strong>Sasha (The Assassin)</strong><br>
+                                    DEX 20. Fasförskjutning. Backstab.
+                                </div>
+                                <div>
+                                    <strong>Filip (The Controller)</strong><br>
+                                    POW 22. Psykiska attacker. Mind control.
+                                </div>
+                            </div>
+
+                            <div class="warning-box">
+                                <strong>Delad Livlina:</strong><br>
+                                Om en dör blir de andra starkare (+5 Stats) men instabila (tar 1D6 skada/runda).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Scen 14: Ikonen Placeras</h3>
+            <p>När ikonen hängs upp kollapsar suppression-fältet. Barnen åldras 83 år på sekunder och blir till damm. De
+                dör fridfullt.</p>
+            <p><strong>Samtidigt:</strong> Nyogtha vaknar.</p>
+
+            <h3>Scen 15: Nyogtha Vaknar</h3>
+            <div class="scene-box">
+                "Väggarna blöder svart olja. Golvet blir till kött. Tusentals munnar öppnas i mörkret och skriker i
+                unison. Verkligheten rämnar. Nyogtha är här."
+            </div>
+            <p><span class="badge sl-only">SAN Loss</span> 1D6/1D20</p>
+
+            <h3>Scen 16: Flykten / Slutet</h3>
+            <div class="collapsible">
+                <div class="collapsible-header">
+                    <h3>Slutscenarier</h3>
+                    <span class="collapsible-icon">▶</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <ul>
+                            <li><strong>Flykt (Mercy):</strong> Fly. Nyogtha begränsas till zonen. Barnen fria.</li>
+                            <li><strong>Offer (Sacrifice):</strong> En spelare stannar som nytt batteri. Nyogtha
+                                fängslad.</li>
+                            <li><strong>Fegis (Coward):</strong> Vänd om innan ritualen. Barnen fängslade för evigt.
+                            </li>
+                            <li><strong>Tredje Vägen (Third Way):</strong> Yithian-teknik. Pyrrhusseger. Verkligheten
+                                går sönder.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Epilogue -->
+        <section class="section">
+            <h2>Epilog & Aftermath</h2>
+            <p>Flykten från Ryssland och konsekvenserna.</p>
+
+            <h3>Scen 17-22: Upplösning</h3>
+            <ul>
+                <li><strong>Bonds:</strong> Sista samtal. Vem finns kvar?</li>
+                <li><strong>Parasit:</strong> Kurerad (med pris) eller vilande?</li>
+                <li><strong>Delta Green:</strong> Outlaws eller rekryterade?</li>
+            </ul>
+
+            <div class="gm-note">
+                Avsluta med en scen där spelarna hedrar barnen. En tyst stund. Världen vet inte vad de offrade.
+            </div>
+
+            <div class="info-box">
+                <strong>SAN Återhämtning:</strong><br>
+                Ingen gratis återhämtning. +1D3 om de lyckas bearbeta traumat tillsammans (Psychology).
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div
+            style="text-align: center; padding: 2rem; color: var(--text-dim); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 4rem;">
+            DELTA GREEN // TRIP 19: BLACK MADONNA // SL-MATERIAL
+        </div>
+    </div>
+
+    <script>
+        // Collapsible sections
+        document.addEventListener('DOMContentLoaded', function () {
+            const headers = document.querySelectorAll('.collapsible-header');
+
+            headers.forEach(header => {
+                header.addEventListener('click', function () {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.collapsible-icon');
+
+                    content.classList.toggle('active');
+
+                    if (content.classList.contains('active')) {
+                        icon.textContent = '▼';
+                    } else {
+                        icon.textContent = '▶';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
