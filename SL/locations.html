@@ -424,6 +424,48 @@
                         <span class="tag">Medical Examiner</span>
                     </div>
                 </div>
+
+                <!-- Sullivan -->
+                <div class="location-card" onclick="openModal('sullivan_home')">
+                    <div class="location-name">Sullivan - Quantico, VA</div>
+                    <div class="location-subtitle">BOQ, Quantico Marine Base</div>
+                    <div class="location-brief">
+                        Bachelor Officer Quarters på Quantico Marine Base. Navy Chaplain cover. Spartanskt, disciplinerat, tomt. Bibel på nattduksbord, rosenkrans på bokhyllan. Ingen alkohol, inga personliga föremål. Ett rum för en man som har tappat sin själ men behåller rutinen.
+                    </div>
+                    <div class="location-tags">
+                        <span class="tag">Hemadress</span>
+                        <span class="tag">Sullivan</span>
+                        <span class="tag">Navy Chaplain</span>
+                    </div>
+                </div>
+
+                <!-- Trench - Campervan -->
+                <div class="location-card" onclick="openModal('trench_campervan')">
+                    <div class="location-name">Trench - Campervan (Primär bostad)</div>
+                    <div class="location-subtitle">2019 Ford Transit 250 Extended (high roof)</div>
+                    <div class="location-brief">
+                        Nomadiskt hem, 200+ dagar/år. Skräddarsydd för FEMA CORE och Delta Green-operationer. Sovplats, köksutrustning, verktyg, nödmaterial. Parkeras vid FEMA-platser, parkområden, rest stops. "Hemmet är inte längre en plats. Det är där jag parkerar för natten."
+                    </div>
+                    <div class="location-tags">
+                        <span class="tag">Primär bostad</span>
+                        <span class="tag">Trench</span>
+                        <span class="tag">FEMA</span>
+                    </div>
+                </div>
+
+                <!-- Trench - Philadelphia -->
+                <div class="location-card" onclick="openModal('trench_philly')">
+                    <div class="location-name">Trench - Philadelphia, PA</div>
+                    <div class="location-subtitle">2058 E Pacific St - Studiolägenhet</div>
+                    <div class="location-brief">
+                        Sekundär bostad, $800/mån. Officiell adress för normalitet och besök med ex-fru Rhea och dotter Sandra. Minimalt möblerad. Mestadels tom. Lägenheten står tom 200+ dagar/år medan han lever i campervanen.
+                    </div>
+                    <div class="location-tags">
+                        <span class="tag">Sekundär bostad</span>
+                        <span class="tag">Trench</span>
+                        <span class="tag">Sandra</span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -2648,6 +2690,7 @@
                         <p><strong>Typ:</strong> 1 sovrum, ~60 kvm</p>
                         <p><strong>Hyra:</strong> $1,800/mån</p>
                         <p><strong>Status:</strong> Tvingad ledighet från FBI (augusti 2025)</p>
+                        <p style="margin-top: 1rem;"><a href="https://www.google.com/maps/search/?api=1&query=1021+N+Garfield+St+Arlington+VA+22201" target="_blank" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.5rem 1rem; background: #c9a876; color: #0a0e17; text-decoration: none; border-radius: 3px; font-weight: 600;">🗺️ Visa på karta</a></p>
                     </div>
 
                     <div class="modal-section">
@@ -2693,6 +2736,7 @@
                         <p><strong>Våning:</strong> 3:e våningen, unit G</p>
                         <p><strong>Hyra:</strong> $1,580/månad</p>
                         <p><strong>Avstånd till NSA:</strong> 15 min bil till Fort Meade</p>
+                        <p style="margin-top: 1rem;"><a href="https://www.google.com/maps/search/?api=1&query=24+C+Street+Laurel+MD+20707" target="_blank" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.5rem 1rem; background: #c9a876; color: #0a0e17; text-decoration: none; border-radius: 3px; font-weight: 600;">🗺️ Visa på karta</a></p>
                     </div>
 
                     <div class="modal-section">
@@ -2728,6 +2772,7 @@
                         <p><strong>Detaljer:</strong> 1 sovrum, 1 badrum, vardagsrum + kök</p>
                         <p><strong>Exponerade tegelväggar</strong></p>
                         <p><strong>Ingen ovanför = privacy för oregelbundna timmar</strong></p>
+                        <p style="margin-top: 1rem;"><a href="https://www.google.com/maps/search/?api=1&query=9+E+Ostend+Street+Baltimore+MD+21230" target="_blank" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.5rem 1rem; background: #c9a876; color: #0a0e17; text-decoration: none; border-radius: 3px; font-weight: 600;">🗺️ Visa på karta</a></p>
                     </div>
 
                     <div class="modal-section">
@@ -2752,6 +2797,145 @@
                         <h3>🏚️ "OPERATIV BAS, INTE ETT HEM"</h3>
                         <div class="info-box warning">
                             <p>Funktionell men steril. Minimalt möblerad, inga personliga foton synliga, redo att lämna på några timmar. <strong>Undantaget:</strong> Pianot.</p>
+                        </div>
+                    </div>
+                `
+            },
+            sullivan_home: {
+                title: 'FATHER SULLIVAN - QUANTICO, VA',
+                subtitle: 'BOQ (Bachelor Officer Quarters), Quantico Marine Base',
+                content: `
+                    <div class="modal-section">
+                        <h3>📍 ÖVERSIKT</h3>
+                        <div class="coordinates">38.5026° N, 77.3416° W - Quantico Marine Base, VA</div>
+                        <p><strong>Typ:</strong> Bachelor Officer Quarters (BOQ)</p>
+                        <p><strong>Hyra:</strong> $0 (militärt boende)</p>
+                        <p><strong>Status:</strong> Navy Chaplain cover för Delta Green-operationer</p>
+                        <p><strong>Storlek:</strong> Standardrum, ~25 kvm</p>
+                        <p style="margin-top: 1rem;"><a href="https://www.google.com/maps/search/?api=1&query=Quantico+Marine+Base+VA" target="_blank" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.5rem 1rem; background: #c9a876; color: #0a0e17; text-decoration: none; border-radius: 3px; font-weight: 600;">🗺️ Visa på karta</a></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>✝️ SPARTANSK TILLVARO</h3>
+                        <div class="info-box">
+                            <ul>
+                                <li><strong>Bibel på nattduksbord</strong> - öppen på Psaltaren, ständigt läst men aldrig förstått längre</li>
+                                <li><strong>Rosenkrans på bokhyllan</strong> - pärlorna slitna från nerver, inte bön</li>
+                                <li><strong>Militär disciplin</strong> - säng bäddad, uniform på gavel, boots polerade</li>
+                                <li><strong>Ingen alkohol</strong> - Inte efter Boston. Aldrig mer.</li>
+                                <li><strong>Inga personliga föremål</strong> - Inga familjefoton. Ingenting från förr.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>💔 "ETT RUM FÖR EN MAN SOM HAR TAPPAT SIN SJÄL"</h3>
+                        <div class="info-box warning">
+                            <p>Sullivan behåller rutinen perfekt. Vaknar 05:30. Tränar. Duschar. Uniform. Frukost. Tjänst. Men det finns ingenting inuti längre. BOQ är inte ett hem - det är en cell han valt själv.</p>
+                            <p style="margin-top: 1rem;"><strong>Efter Pittsburgh (2022):</strong> Såg dem transformeras. Såg Robert Chen försvinna. Såg helvetet manifestera. Gud svarade inte. Sullivan stannade kvar i BOQ och bad i fem timmar. Ingen kom.</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>👥 KONTAKTER & COVER</h3>
+                        <ul>
+                            <li><strong>Lt. Commander James "Jimmy" Walsh</strong> - Senior Chaplain, mentor, Quantico (Bond 14)</li>
+                            <li><strong>Cover:</strong> Navy Chaplain på Quantico - perfekt för Delta Green mobilitet</li>
+                            <li><strong>Chaplain-tjänst:</strong> Grief counseling, memorial services, deployment prep</li>
+                            <li><strong>De facto cell leader för Chesapeake Cell</strong></li>
+                        </ul>
+                    </div>
+                `
+            },
+            trench_campervan: {
+                title: 'TRENCH - CAMPERVAN (PRIMÄR BOSTAD)',
+                subtitle: '2019 Ford Transit 250 Extended (high roof) - Nomadiskt hem',
+                content: `
+                    <div class="modal-section">
+                        <h3>📍 ÖVERSIKT</h3>
+                        <p><strong>Fordon:</strong> 2019 Ford Transit 250 Extended (high roof)</p>
+                        <p><strong>Användning:</strong> 200+ dagar/år</p>
+                        <p><strong>Ändamål:</strong> FEMA CORE-uppdrag + Delta Green-operationer</p>
+                        <p><strong>Status:</strong> Primär bostad sedan 2023</p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🚐 CAMPERVAN-INREDNING</h3>
+                        <ul>
+                            <li><strong>Sovplats:</strong> Plattform med madrass bak, lagringsmöjligheter under</li>
+                            <li><strong>Kök:</strong> Campingkök, kylbox, vattentank</li>
+                            <li><strong>Verktyg:</strong> USAR-utrustning, rescue tools, climbing gear</li>
+                            <li><strong>Nödmaterial:</strong> MREs, första hjälpen, brandsläckare, toolkit</li>
+                            <li><strong>Go-bag:</strong> Alltid packad och tillgänglig</li>
+                            <li><strong>Personligt:</strong> Bild av Sandra magnetfäst på panel (enda dekoren)</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🏕️ PARKERINGSPLATSER</h3>
+                        <div class="info-box">
+                            <ul>
+                                <li><strong>FEMA-platser:</strong> Disaster sites, staging areas</li>
+                                <li><strong>Parkområden:</strong> State parks, campgrounds</li>
+                                <li><strong>Rest stops:</strong> Interstate rest areas längs I-95, I-76</li>
+                                <li><strong>PA-TF1 bas:</strong> Philadelphia task force facility</li>
+                                <li><strong>Rhea's neighborhood:</strong> När han hämtar/lämnar Sandra</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>💬 "HEMMET ÄR INTE LÄNGRE EN PLATS"</h3>
+                        <div class="info-box warning">
+                            <p><em>"Hemmet är inte längre en plats. Det är där jag parkerar för natten."</em></p>
+                            <p style="margin-top: 1rem;"><strong>Officiell berättelse:</strong> Började under pandemin när jag var utsänd konstant för FEMA. Insåg att lägenheten stod tom 200+ dagar om året. Mer praktiskt att ha en mobil bas.</p>
+                            <p style="margin-top: 1rem;"><strong>Sanning:</strong> Efter Pittsburgh. Efter Robert Chen. Kunde inte vara still. Kunde inte sova i samma säng varje natt. Campervanen håller honom rörlig, operativ, borta från minnen.</p>
+                        </div>
+                    </div>
+                `
+            },
+            trench_philly: {
+                title: 'TRENCH - PHILADELPHIA, PA',
+                subtitle: '2058 E Pacific St, Philadelphia, Pennsylvania - Sekundär bostad',
+                content: `
+                    <div class="modal-section">
+                        <h3>📍 ÖVERSIKT</h3>
+                        <div class="coordinates">39.9874° N, 75.1279° W - Philadelphia, PA</div>
+                        <p><strong>Adress:</strong> 2058 E Pacific St, Philadelphia, PA</p>
+                        <p><strong>Typ:</strong> Studiolägenhet</p>
+                        <p><strong>Hyra:</strong> $800/månad</p>
+                        <p><strong>Användning:</strong> ~100 dagar/år (mestadels tom)</p>
+                        <p><strong>Närhet:</strong> Gångavstånd från PA-TF1's bas</p>
+                        <p style="margin-top: 1rem;"><a href="https://www.google.com/maps/search/?api=1&query=2058+E+Pacific+St+Philadelphia+Pennsylvania" target="_blank" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.5rem 1rem; background: #c9a876; color: #0a0e17; text-decoration: none; border-radius: 3px; font-weight: 600;">🗺️ Visa på karta</a></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🏚️ MINIMALISTISK INREDNING</h3>
+                        <ul>
+                            <li><strong>Säng:</strong> Minimalt möblerad - säng, byrå, matbord</li>
+                            <li><strong>Kök:</strong> Grundläggande, sällan använt</li>
+                            <li><strong>Badrum:</strong> Städat, sterilt</li>
+                            <li><strong>Personligt:</strong> Nästan ingenting - inga foton på väggar, minimal dekor</li>
+                            <li><strong>Post:</strong> Samlas här när han är borta</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>👨‍👧 ÄNDAMÅL: SANDRA & NORMALITET</h3>
+                        <div class="info-box">
+                            <p><strong>Officiell adress:</strong> För räkningar, myndighetskontakt, legal dokumentation</p>
+                            <p><strong>Sandra-besök:</strong> Varannan helg när han är i trakten. Frukost, lekpark, lugn tid.</p>
+                            <p><strong>Rhea-koordination:</strong> Drop-off/pick-up punkt</p>
+                            <p><strong>"Normalitet":</strong> Påminnelse om livet han inte kan leva längre</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>💔 "MESTADELS TOM"</h3>
+                        <div class="info-box warning">
+                            <p><strong>200+ dagar/år:</strong> Lägenheten står tom medan Trench lever i campervanen.</p>
+                            <p style="margin-top: 1rem;"><em>"You're here but you're not home,"</em> sa Rhea till slut. <em>"Sandra needs a dad, not a ghost."</em></p>
+                            <p style="margin-top: 1rem;">Han betalar $800/månad för en lägenhet han knappt använder. För illusionen av stabilitet. För att ha en adress att ge Sandra. För att låtsas att han fortfarande är den personen.</p>
                         </div>
                     </div>
                 `
