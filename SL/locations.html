@@ -466,6 +466,20 @@
                         <span class="tag">Sandra</span>
                     </div>
                 </div>
+
+                <!-- Sparky - Safe House (Sarah Mitchell) -->
+                <div class="location-card" onclick="openModal('sparky_safehouse')">
+                    <div class="location-name">Sparky - Safe House (Sarah Mitchell)</div>
+                    <div class="location-subtitle">4500 College Ave, College Park, MD</div>
+                    <div class="location-brief">
+                        Alias-identitet "Sarah Elizabeth Mitchell". Gömsställe betalt 6 månader framåt. 1 bedroom, ~50 kvm. Inget DG-material här. Kläder för Sarah-persona, förfalskade dokument, emergency cash $8,000. Fallback om NSA-cover komprometteras.
+                    </div>
+                    <div class="location-tags">
+                        <span class="tag">Safe House</span>
+                        <span class="tag">Sparky</span>
+                        <span class="tag">Sarah Mitchell</span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -498,6 +512,20 @@
                         <span class="tag danger">Session 5</span>
                         <span class="tag">Investigation</span>
                         <span class="tag">Handouts</span>
+                    </div>
+                </div>
+
+                <!-- Thalia Flagship Store - Hamburg -->
+                <div class="location-card" onclick="openModal('thalia_hamburg')">
+                    <div class="location-name">Thalia Flagship Store</div>
+                    <div class="location-subtitle">Überseeboulevard 7, HafenCity - Boklansering 8 nov</div>
+                    <div class="location-brief">
+                        Modern bokhandel där Magda höll boklansering för "The Forgotten of Leningrad 1942". Första mötet med antagonisterna Anton Mahler och Sasha Pogodin. Atmosfärisk, tense scen. 35-40 åhörare. Magda såg nervös ut, tittade mot dörren konstant.
+                    </div>
+                    <div class="location-tags">
+                        <span class="tag danger">Session 5</span>
+                        <span class="tag">Första mötet</span>
+                        <span class="tag">Anton & Sasha</span>
                     </div>
                 </div>
 
@@ -1460,6 +1488,7 @@
                         <p><strong>Byggnad:</strong> Altbau från tidigt 1900-tal, renoverad fasad, vackert trappuppgång med jugenddetaljer</p>
                         <p><strong>Status:</strong> Magdas primära bostad, övergiven efter Berlin-resan</p>
                         <p><strong>Tillgång:</strong> Irene Adler har nyckel (kan låna till spelarna)</p>
+                        <p style="margin-top: 1rem;"><a href="https://www.google.com/maps/search/?api=1&query=Brahmsallee+16+Hamburg+Germany" target="_blank" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.5rem 1rem; background: #c9a876; color: #0a0e17; text-decoration: none; border-radius: 3px; font-weight: 600;">🗺️ Visa på karta</a></p>
                     </div>
 
                     <div class="modal-section">
@@ -1613,6 +1642,101 @@
                 `
             },
 
+            thalia_hamburg: {
+                title: 'THALIA FLAGSHIP STORE, HAMBURG',
+                subtitle: 'Überseeboulevard 7, Westfield Hamburg-Überseequartier, HafenCity',
+                content: `
+                    <div class="modal-section">
+                        <h3>📍 ÖVERSIKT</h3>
+                        <div class="coordinates">Überseeboulevard 7, HafenCity, Hamburg</div>
+                        <p><strong>Öppnad:</strong> April 2025</p>
+                        <p><strong>Storlek:</strong> 1700 kvm fördelat på två våningar</p>
+                        <p><strong>Design:</strong> Kopparfärgade hyllor, industriell havshamn-design</p>
+                        <p><strong>Läge:</strong> HafenCity vid älven Elbe, U4 till Überseequartier station</p>
+                        <p style="margin-top: 1rem;"><a href="https://www.google.com/maps/search/?api=1&query=Überseeboulevard+7+Hamburg+Germany" target="_blank" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.5rem 1rem; background: #c9a876; color: #0a0e17; text-decoration: none; border-radius: 3px; font-weight: 600;">🗺️ Visa på karta</a></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>📅 EVENTET - 8 NOVEMBER 2025, KL 19:00</h3>
+                        <div class="info-box">
+                            <p><strong>Boklansering:</strong> "The Forgotten of Leningrad 1942: Children of the Siege"</p>
+                            <p><strong>Talare:</strong> Magda Orlova (86 år, tysk-rysk författare)</p>
+                            <p><strong>Plats:</strong> Andra våningen, eventsektion</p>
+                            <p><strong>Åhörare:</strong> 35-40 personer - mestadels äldre akademiker, lokalhistoriker, några yngre studenter</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>⚠️ KRITISK SCEN - FÖRSTA MÖTET MED ANTAGONISTERNA</h3>
+                        <div class="info-box danger">
+                            <p>Detta är första gången spelarna ser <strong>Anton Mahler</strong> och <strong>Sasha Pogodin</strong> i person. Scenen måste vara ATMOSFÄRISK, TENSE, och kännas som en intellektuell thriller. De vet inte vem antagonisterna är ännu - bara att "något känns fel".</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🎭 ATMOSFÄR & SETUP</h3>
+                        <ul>
+                            <li><strong>Eventrum:</strong> Andra våningen, stolar för 50-60 personer</li>
+                            <li><strong>Atmosfär:</strong> Bokdoft, varmt ljus, modern akademisk känsla med utsikt mot hamnen</li>
+                            <li><strong>Setup:</strong> Magda står vid podium, projector visar bilder från Leningrad 1942</li>
+                            <li><strong>Tid:</strong> Spelarna anländer 18:45, presentation börjar 19:00</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>😰 MAGDAS TILLSTÅND</h3>
+                        <div class="info-box warning">
+                            <ul>
+                                <li>Ser nervös ut, svettas lätt trots rumstemperatur</li>
+                                <li>Ljusnar när hon ser spelarna: "Ni kom! Tack gud."</li>
+                                <li>Ger dem platser på tredje raden</li>
+                                <li><strong>Spänd, nästan rädd</strong> - tittar mot dörren varje gång någon kommer in</li>
+                                <li>Händerna darrar lite när hon bläddrar i sina notes</li>
+                                <li>"Jag är bara nervös. Första gången jag pratar offentligt om detta."</li>
+                                <li><strong>Viktigt:</strong> "Vi ses imorgon kl 10:00 vid min lägenhet, ja? Jag har allt förberett där."</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>📖 PRESENTATIONENS INNEHÅLL</h3>
+                        <h4>Magda presenterar:</h4>
+                        <ul>
+                            <li>Leningrads belägring, vintern 1942</li>
+                            <li>Föräldralösa barn samlade på barnhem</li>
+                            <li>Vissa barn "försvann" från officiella register</li>
+                            <li>Hennes mamma - ett av dessa barn</li>
+                            <li>Spår leder till "Camp S-17" - officiellt en evakueringsläger</li>
+                            <li><strong>Men något annat hände där...</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>👥 ANTON MAHLER & SASHA POGODIN - FÖRSTA KONTAKTEN</h3>
+                        <div class="info-box danger">
+                            <p><strong>De sitter längst bak i rummet. Spelarna ser dem inte direkt.</strong></p>
+                            <p style="margin-top: 1rem;"><strong>Efter presentationen:</strong> De två männen närmar sig Magda. Åldrande men spänstiga, elegant klädda.</p>
+                            <ul>
+                                <li><strong>Anton Mahler:</strong> Grått hår, klädd i mörk kostym, intelligent blick</li>
+                                <li><strong>Sasha Pogodin:</strong> Kortare, rundare, vänlig min men oroväckande ögon</li>
+                            </ul>
+                            <p style="margin-top: 1rem;"><strong>De presenterar sig:</strong> "Vi kände din mamma. Vi var med henne... i Leningrad."</p>
+                            <p style="margin-top: 1rem;"><strong>Magda reagerar:</strong> Blek, chockad. "Hur... ni skulle vara döda."</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🎬 SL-NOTER FÖR SCENEN</h3>
+                        <ul>
+                            <li><strong>Tension byggande:</strong> Spelarna känner något är fel men vet inte vad ännu</li>
+                            <li><strong>Mysterium:</strong> Varför skulle Anton och Sasha vara "döda"? De ser inte ut att vara 90+</li>
+                            <li><strong>Magdas rädsla:</strong> Hon känner igen dem från forskningen, och det skrämmer henne</li>
+                            <li><strong>Nästa steg:</strong> Efter mötet bokar spelarna hotell och träffas med Magda nästa dag på hennes lägenhet (Brahmsallee 16)</li>
+                        </ul>
+                    </div>
+                `
+            },
+
             berlin_magda: {
                 title: 'MAGDAS LÄGENHET, BERLIN',
                 subtitle: 'Leibnizstraße 97, Charlottenburg - Dödsplats',
@@ -1624,6 +1748,7 @@
                         <p><strong>Område:</strong> Elegant Charlottenburg, nära Kurfürstendamm</p>
                         <p><strong>Status:</strong> Brottsplats / Räddningsplats (beroende på timing)</p>
                         <p><strong>Tillgång:</strong> Berlin-nycklar från Hamburg apartment ELLER kontakta hyresvärd</p>
+                        <p style="margin-top: 1rem;"><a href="https://www.google.com/maps/search/?api=1&query=Leibnizstraße+97+Berlin+Germany" target="_blank" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.5rem 1rem; background: #c9a876; color: #0a0e17; text-decoration: none; border-radius: 3px; font-weight: 600;">🗺️ Visa på karta</a></p>
                     </div>
 
                     <div class="modal-section">
@@ -2940,6 +3065,105 @@
                     </div>
                 `
             },
+            sparky_safehouse: {
+                title: 'SPARKY - SAFE HOUSE (SARAH MITCHELL)',
+                subtitle: '4500 College Ave, College Park, MD 20740',
+                content: `
+                    <div class="modal-section">
+                        <h3>📍 ÖVERSIKT</h3>
+                        <div class="coordinates">4500 College Ave, College Park, MD 20740</div>
+                        <p><strong>Storlek:</strong> 1 bedroom, ~50 kvm</p>
+                        <p><strong>Hyra:</strong> $1,400/månad (betald 6 månader framåt alltid)</p>
+                        <p><strong>Alias-identitet:</strong> Sarah Elizabeth Mitchell</p>
+                        <p><strong>Syfte:</strong> Domestic operations, gömställe, "försvinn lokalt"</p>
+                        <p><strong>Använd:</strong> 2 gånger (setup 2022, practice run 2024)</p>
+                        <p style="margin-top: 1rem;"><a href="https://www.google.com/maps/search/?api=1&query=4500+College+Ave+College+Park+MD+20740" target="_blank" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.5rem 1rem; background: #c9a876; color: #0a0e17; text-decoration: none; border-radius: 3px; font-weight: 600;">🗺️ Visa på karta</a></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🎭 ALIAS: SARAH ELIZABETH MITCHELL</h3>
+                        <div class="info-box">
+                            <p><strong>Namn:</strong> Sarah Elizabeth Mitchell</p>
+                            <p><strong>Född:</strong> April 12, 1995 (30 år)</p>
+                            <p><strong>SSN:</strong> 574-89-3621 (stulen från död spädbarn)</p>
+                            <p><strong>Etnisitet:</strong> Vit (strategiskt valt för att skilja från Sparkys bakgrund)</p>
+                            <p><strong>Yrke:</strong> Paralegal på mellanstor DC-firma</p>
+                            <p><strong>Brand:</strong> Tyst, professionell, blyg - lätt att glömma</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>💼 DOKUMENTATION & COVER</h3>
+                        <ul>
+                            <li><strong>Driver's License:</strong> Virginia (realistiskt foto, giltigt)</li>
+                            <li><strong>Passport:</strong> USA (hackad Dept of State-databas, äkta serienummer)</li>
+                            <li><strong>Socialtjänst:</strong> Skatt filade 2022-2024 (modest income)</li>
+                            <li><strong>Kreditkort:</strong> Wells Fargo debit card</li>
+                            <li><strong>LinkedIn:</strong> Minimal profil, 83 connections</li>
+                            <li><strong>Apartment lease:</strong> 2-årskontrakt med renewals</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🔐 INNEHÅLL I SAFE HOUSE</h3>
+                        <h4>Cash & Valuables:</h4>
+                        <ul>
+                            <li><strong>$100,000 cash</strong> (gömda på 3 olika platser)</li>
+                            <li>2 extra burner phones</li>
+                            <li>Laptop (airgapped, encrypted, Sarah-persona only)</li>
+                        </ul>
+
+                        <h4>Survival Gear:</h4>
+                        <ul>
+                            <li>Glock 19 (duplicate, utan custom mods)</li>
+                            <li>500 rounds ammunition</li>
+                            <li>2 veckors mat och vatten</li>
+                            <li>First aid kit (advanced)</li>
+                        </ul>
+
+                        <h4>Identity Materials:</h4>
+                        <ul>
+                            <li>3 sets kläder (business casual för Sarah-persona)</li>
+                            <li>2 mindre utvecklade backup-identiteter (Plan C och D)</li>
+                            <li>Förfalskade dokument för Sarah Mitchell</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>⚠️ OPSEC & USAGE</h3>
+                        <div class="info-box warning">
+                            <ul>
+                                <li><strong>Inget DG-material:</strong> Inga Delta Green-dokument eller utrustning</li>
+                                <li><strong>Clean separation:</strong> Helt separerat från Kai Zhang/Sparky-identitet</li>
+                                <li><strong>Hyra betald framåt:</strong> Alltid 6 månader förbetalt via shell company</li>
+                                <li><strong>Minimal närvaaro:</strong> Besök endast när nödvändigt, aldrig från Sparky's lägenhet</li>
+                                <li><strong>Fallback plan:</strong> Används om NSA-cover komprometteras eller Delta Green operation går fel</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🎯 ANVÄNDNINGSFALL</h3>
+                        <div class="info-box">
+                            <p><strong>Scenario 1: NSA-cover bränd</strong><br>
+                            Sparky kan "försvinna" till Sarah Mitchell-identitet inom 4 timmar.</p>
+
+                            <p style="margin-top: 1rem;"><strong>Scenario 2: Delta Green operation komprometterad</strong><br>
+                            Safe house ger clean separation från både Kai Zhang och Delta Green.</p>
+
+                            <p style="margin-top: 1rem;"><strong>Scenario 3: Domestic operation</strong><br>
+                            Sarah Mitchell-cover tillåter operationer utan NSA/DG-koppling.</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🔄 BACKUP-IDENTITETER (Plan C & D)</h3>
+                        <div class="info-box">
+                            <p><strong>Mindre utvecklade identiteter</strong> finns lagrade i safe house för extrema nödsituationer. Dessa är inte lika robusta som Sarah Mitchell eller Maya Nakamura men kan användas för temporär flykt.</p>
+                        </div>
+                    </div>
+                `
+            },
             gg_hq: {
                 title: 'GERMANISCHE GEMEINSCHAFT HQ',
                 subtitle: 'Lychener Straße 47, Prenzlauer Berg - Högerextremistiskt Huvudkontor',
@@ -2951,6 +3175,7 @@
                         <p><strong>Organisation:</strong> Germanische Gemeinschaft (GG) - högerextremistisk grupp</p>
                         <p><strong>Aktiv:</strong> Måndagar-lördagar 10:00-20:00</p>
                         <p><strong>Säkerhet:</strong> Ernst Vogel (transformerad enforcer), kameror, electronic locks</p>
+                        <p style="margin-top: 1rem;"><a href="https://www.google.com/maps/search/?api=1&query=Lychener+Straße+47+Berlin+Germany" target="_blank" style="display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.5rem 1rem; background: #c9a876; color: #0a0e17; text-decoration: none; border-radius: 3px; font-weight: 600;">🗺️ Visa på karta</a></p>
                     </div>
 
                     <div class="modal-section">
