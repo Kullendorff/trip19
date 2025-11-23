@@ -82,6 +82,28 @@
             box-shadow: 0 0 10px rgba(74, 144, 164, 0.5);
         }
 
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .next-link {
+            color: var(--accent-secondary);
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--accent-secondary);
+            border-radius: 4px;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .next-link:hover {
+            background: var(--accent-secondary);
+            color: var(--bg-dark);
+            box-shadow: 0 0 10px rgba(232, 154, 60, 0.5);
+        }
+
         .nav-link.active {
             background: rgba(74, 144, 164, 0.15);
             border-left-color: var(--accent-primary);
@@ -192,6 +214,16 @@
             position: absolute;
             left: 0;
             color: var(--accent-primary);
+        }
+
+        /* Generell list-styling för ol och ul */
+        ol, ul {
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        ol li, ul li {
+            margin-bottom: 0.5rem;
         }
 
         .collapsible {
@@ -424,7 +456,10 @@
     <div class="header">
         <div class="header-content">
             <div class="logo">KAPITEL 1: MÖRDARNAS DANS</div>
-            <a href="black_madonna_index.html" class="back-link">← Tillbaka till översikt</a>
+            <div class="nav-buttons">
+                <a href="black_madonna_index.html" class="back-link">← Tillbaka till översikt</a>
+                <a href="black_madonna_chapter2.html" class="next-link">Nästa →</a>
+            </div>
         </div>
     </div>
 
@@ -651,7 +686,7 @@
                         Kan ni komma? Jag behöver visa er dagboken. Och... jag är rädd. Filip ringde mig igen igår. Han vet att jag hittade något.<br><br>
 
                         <strong>Författarkvällen: 8 november 2025, kl 19:00</strong><br>
-                        <strong>Thalia Buchhandlung, Große Bleichen 23-27, Hamburg</strong><br><br>
+                        <strong>Thalia Flagship Store, Westfield Hamburg-Überseequartier, Überseeboulevard 7, HafenCity</strong><br><br>
 
                         Hoppas vi ses där.<br><br>
 
@@ -663,8 +698,8 @@
                     <ul>
                         <li>Tacksam att de kommer</li>
                         <li>"Jag har bokat hotell åt er nära Thalia. Jag betalar - detta är viktigt."</li>
-                        <li>"Efter presentationen kan vi gå till min lägenhet. Jag visar er allt."</li>
-                        <li>Ger adress: Leibnizstraße 97, Hamburg</li>
+                        <li>"Presentationen är på kvällen. Kan vi ses dagen efter, kl 10:00 vid min lägenhet? Jag visar er allt då."</li>
+                        <li>Ger adress: Brahmsallee 16, Harvestehude, 20144 Hamburg (tredje våningen)</li>
                     </ul>
 
                     <h4>Om spelarna frågar om innehållet:</h4>
@@ -698,11 +733,56 @@
                         <li>INGA vapen kan tas med (måste skaffas i Europa vid behov)</li>
                     </ul>
 
-                    <h4>Hotell:</h4>
+                    <h3>Hotellalternativ i Hamburg</h3>
+                    <p>Magda erbjuder sig att boka hotell, men spelarna kan välja själva för mer kontroll. Alla hotell ligger lagom långt från Magdas lägenhet (Brahmsallee 16, Harvestehude) - ca 15-30 min med U-Bahn/taxi.</p>
+
+                    <h4>1. Hotel Wedina (€120-150/natt) ⭐ MAGDAS VAL</h4>
                     <ul>
-                        <li>Magda har bokat: Hotel Wedina, Gurlittstraße 23 (boutique hotel, nära Thalia)</li>
-                        <li>Eller: Spelare bokar själva för mer kontroll</li>
+                        <li><strong>Adress:</strong> Gurlittstraße 23, St. Georg, 20099 Hamburg</li>
+                        <li><strong>Typ:</strong> Boutique "literature hotel", varje rum dedicerat till en författare</li>
+                        <li><strong>Avstånd:</strong> 20-25 min till Magdas lägenhet (korsar Alster), 20 min U-Bahn till Thalia, 8 min till Hauptbahnhof</li>
+                        <li><strong>Varför:</strong> Magdas rekommendation, charm, balanserat läge</li>
                     </ul>
+
+                    <h4>2. ibis Styles Hamburg HafenCity (€80-110/natt)</h4>
+                    <ul>
+                        <li><strong>Adress:</strong> San-Francisco-Straße 7, HafenCity, 20457 Hamburg</li>
+                        <li><strong>Typ:</strong> Modern budget/mid-range, 403 rum, INNE I Westfield (samma komplex som Thalia!)</li>
+                        <li><strong>Avstånd:</strong> 25-30 min till Magdas lägenhet (längst bort), 2 min PROMENAD till Thalia, 10 min U4 till Hauptbahnhof</li>
+                        <li><strong>Varför:</strong> "Vi vill bo nära eventet", praktiskt, billigare</li>
+                    </ul>
+
+                    <h4>3. CAB20 (€60-80/natt)</h4>
+                    <ul>
+                        <li><strong>Adress:</strong> Brennerstr. 20, St. Georg, 20099 Hamburg</li>
+                        <li><strong>Typ:</strong> Tysklands första "cabin hotel", trendig pod/capsule-stil, rooftop bar</li>
+                        <li><strong>Avstånd:</strong> 15-20 min till Magdas lägenhet, 15-20 min U-Bahn till Thalia, 5 min till Hauptbahnhof</li>
+                        <li><strong>Varför:</strong> Budget-smart, coolt koncept för tech-savvy spelare</li>
+                    </ul>
+
+                    <h4>4. The George Hotel (€136-180/natt)</h4>
+                    <ul>
+                        <li><strong>Adress:</strong> Barcastr. 3, St. Georg, 22087 Hamburg</li>
+                        <li><strong>Typ:</strong> 4-stjärnigt boutique, utsikt mot Alster, modern lyx med varma toner</li>
+                        <li><strong>Avstånd:</strong> 15-20 min till Magdas lägenhet (samma sida av Alster), 25 min U-Bahn till Thalia</li>
+                        <li><strong>Varför:</strong> Bekvämt mellanläge, 4-stjärnigt utan att vara över toppen</li>
+                    </ul>
+
+                    <h4>5. Hotel Atlantic Hamburg, Autograph Collection (€214-300/natt)</h4>
+                    <ul>
+                        <li><strong>Adress:</strong> An der Alster 72-79, St. Georg, 20099 Hamburg</li>
+                        <li><strong>Typ:</strong> 5-stjärnigt Grand Hotel sedan 1909, 221 rum, spa med inomhuspool och Alster-utsikt, privat biograf</li>
+                        <li><strong>Avstånd:</strong> 10-15 min taxi till Magdas lägenhet (båda vid Alster), 20 min U-Bahn till Thalia, 500m till Hauptbahnhof</li>
+                        <li><strong>Varför:</strong> Riktigt lyx, historiskt ikoniskt, perfekt om Sparky går all-in</li>
+                    </ul>
+
+                    <div class="note">
+                        <strong>SL-NOTES:</strong><br>
+                        - Alla hotell ligger tillräckligt långt från Brahmsallee 16 för att vara jobbigt när spelarna är feberdåliga<br>
+                        - The George och Hotel Atlantic ligger närmare Magdas lägenhet (samma sida av Alster)<br>
+                        - ibis Styles är längst från Magda men närmast eventet - kan vara en "fälla" för praktiska spelare<br>
+                        - Låt spelarna själva välja - det säger något om deras characters
+                    </div>
 
                     <div class="note">
                         <strong>SL-NOTE:</strong> Detta är betet. Magda är genuin - hon HAR hittat dagboken och vill dela. Men Filip har varnat Anton & Sasha. De kommer till författarkvällen för att bedöma hotet.
@@ -720,18 +800,19 @@
             <div class="collapsible-content">
                 <div class="collapsible-body">
                     <p><strong>SESSION 5 - 8 NOVEMBER 2025, KL 19:00</strong></p>
-                    <p><strong>Plats:</strong> Thalia Buchhandlung, Große Bleichen 23-27, Hamburg, Tyskland</p>
+                    <p><strong>Plats:</strong> Thalia Flagship Store, Westfield Hamburg-Überseequartier, Überseeboulevard 7, HafenCity, Hamburg</p>
 
                     <div style="background: rgba(74, 144, 164, 0.15); padding: 1.5rem; margin: 1rem 0; border-left: 4px solid var(--accent-primary);">
                         <strong>⚠️ KRITISK SCEN - FÖRSTA MÖTET MED ANTAGONISTERNA</strong><br><br>
                         Detta är första gången spelarna ser Anton Mahler och Sasha Pogodin i person. Scenen måste vara ATMOSFÄRISK, TENSE, och kännas som en intellektuell thriller. De vet inte vem antagonisterna är ännu - bara att "något känns fel".
                     </div>
 
-                    <h3>Platsen: Thalia Buchhandlung</h3>
-                    <p><strong>Beskrivning:</strong> Thalia är en stor bokhandelskedja i Tyskland. Flaggskeppet i Hamburg ligger centralt på Große Bleichen shopping street.</p>
+                    <h3>Platsen: Thalia Flagship Store</h3>
+                    <p><strong>Beskrivning:</strong> Thalia öppnade sin nya flagship store i april 2025 i Westfield Hamburg-Überseequartier i HafenCity. 1700 kvm fördelat på två våningar med kopparfärgade hyllor och industriell havshamn-design.</p>
                     <ul>
-                        <li><strong>Eventrum:</strong> Andra våningen, separerat område med stolar för 50-60 personer</li>
-                        <li><strong>Atmosfär:</strong> Bokdoft, varmt ljus, akademisk känsla</li>
+                        <li><strong>Läge:</strong> HafenCity vid älven Elbe, U4 till Überseequartier station</li>
+                        <li><strong>Eventrum:</strong> Andra våningen, modern designad eventsektion med stolar för 50-60 personer</li>
+                        <li><strong>Atmosfär:</strong> Bokdoft, varmt ljus, modern akademisk känsla med utsikt mot hamnen</li>
                         <li><strong>Åhörare:</strong> 35-40 personer - mestadels äldre akademiker, lokalhistoriker, några yngre studenter</li>
                         <li><strong>Setup:</strong> Magda står vid ett podium, projector visar bilder från Leningrad 1942</li>
                     </ul>
@@ -743,7 +824,7 @@
                         <li>Ser nervös ut, svettas lätt trots rumstemperaturen</li>
                         <li>Ljusnar när hon ser spelarna: "Ni kom! Tack gud."</li>
                         <li>Ger dem platser på tredje raden</li>
-                        <li>"Efter detta går vi till min lägenhet. Jag har allt förberett."</li>
+                        <li>"Vi ses imorgon kl 10:00 vid min lägenhet, ja? Jag har allt förberett där."</li>
                     </ul>
 
                     <h4>Magda verkar:</h4>
@@ -859,7 +940,7 @@
                         <li>Ser skakad ut, svettas</li>
                         <li>Viskar: "De är här. Anton och Sasha. Jag såg dem."</li>
                         <li>Blick mot bakre raden - de två männen står kvar, pratar lågt</li>
-                        <li>"Vi måste gå. NU. Till min lägenhet."</li>
+                        <li>Händerna darrar synligt</li>
                     </ul>
 
                     <h4>Om spelarna vill konfrontera Anton & Sasha:</h4>
@@ -880,12 +961,66 @@
                         <li>Vänder sig om och går</li>
                     </ul>
 
-                    <h3>Magda och spelarna lämnar</h3>
+                    <h3>Magda vill hem och vila</h3>
+                    <h4>Efter att Anton & Sasha lämnat:</h4>
                     <ul>
-                        <li>Magda vill åka DIREKT till sin lägenhet</li>
-                        <li>"Jag visar er dagboken. Allt jag hittat."</li>
+                        <li>Magda ser fullständigt uttömd ut</li>
+                        <li>"Förlåt... jag kan inte... inte ikväll."</li>
+                        <li>Svett på pannan, händerna darrar fortfarande</li>
+                        <li>"Jag måste hem och vila. Jag är 78 år, och detta... att se dem här..."</li>
+                        <li>"Imorgon. Kl 10:00 som vi sa. Jag lovar att visa er allt."</li>
+                    </ul>
+
+                    <h4>Om spelarna insisterar eller erbjuder sig att följa henne hem:</h4>
+                    <ul>
+                        <li>Hon tackar ja för sällskap: "Tack. Jag vill inte vara ensam just nu."</li>
                         <li>De går ut från Thalia, hämtar taxi</li>
-                        <li>15 min bil till Leibnizstraße 97</li>
+                        <li>Se optional scen nedan: "I taxin till Magdas lägenhet"</li>
+                    </ul>
+
+                    <h4>Om spelarna inte följer med:</h4>
+                    <ul>
+                        <li>Magda tar taxi hem själv</li>
+                        <li>"Vi ses imorgon. Var försiktiga."</li>
+                        <li>Spelarna går tillbaka till sitt hotell</li>
+                        <li>Se nästa sektion: "Den första natten - Parasiten aktiveras"</li>
+                    </ul>
+
+                    <h3>OPTIONAL - I taxin till Magdas lägenhet</h3>
+                    <p><strong>Om spelarna följer Magda hem:</strong></p>
+                    <p><strong>Under 15-minutersresan till Brahmsallee 16:</strong></p>
+
+                    <h4>Magda pratar, nervöst och snabbt:</h4>
+                    <div style="background: rgba(74, 164, 90, 0.1); padding: 1rem; margin: 1rem 0; border-left: 3px solid var(--accent-primary); font-style: italic;">
+                        "Jag borde inte vara förvånad att de kom. Filip varnade mig."<br><br>
+
+                        "Men att se dem... Anton såg ut precis som på fotot från 1970. Exakt likadan. Och Sasha... det där ljudet han gjorde..."<br><br>
+
+                        [Pause, tittar ut genom fönstret]<br><br>
+
+                        "Mamma blev aldrig gammal. Hon dog när hon var 52. Cancer, sa läkarna. Men jag läste hennes dagbok nu... hon skrev om 'något som växer inuti'. Något som började i Leningrad."<br><br>
+
+                        "De är inte... normala. Jag vet hur det låter. Men i dagboken... mamma skrev att de tre pojkarna förändrades. Efter experimenten."<br><br>
+
+                        [Ser på spelarna, desperat]<br><br>
+
+                        "Ni måste lova mig. Om något händer mig... ta dagboken. Visa världen sanningen om Camp S-17."
+                    </div>
+
+                    <h4>När taxin når Brahmsallee 16:</h4>
+                    <ul>
+                        <li>Magda kliver ur, ser fortfarande skakad</li>
+                        <li>"Tack för att ni följde med. Jag mår bättre nu."</li>
+                        <li>"Kom imorgon kl 10:00. Jag har kaffet klart."</li>
+                        <li>Hon går in i porten, vinkar en sista gång</li>
+                    </ul>
+
+                    <h4>Spelarna börjar känna sig konstig (CON check DC 10):</h4>
+                    <ul>
+                        <li><strong>Om de misslyckas:</strong> Under taxiresan hem börjar de känna sig hängiga, lätt illamående</li>
+                        <li><strong>Om de lyckas:</strong> Känns som en vanlig trötthet efter lång dag</li>
+                        <li>Kl 22:00: Spelarna är tillbaka på sitt hotell</li>
+                        <li>De går och lägger sig, trötta efter dagens spänning</li>
                     </ul>
 
                     <div class="note">
@@ -893,7 +1028,57 @@
                         - Anton & Sasha följer INTE efter dem (ännu)<br>
                         - De rapporterar till Filip: "Hon vet för mycket. Amerikanerna är farliga."<br>
                         - Beslut fattas: Magda måste tystas. Amerikanerna måste övervakas.<br>
-                        - Nästa morgon: Magda svarar inte på telefon...
+                        - Men först: De utför ritualen som aktiverar parasiten hos alla som var närvarande
+                    </div>
+
+                    <h3>Den första natten - Parasiten aktiveras</h3>
+                    <p><strong>KRITISKT - PARASITISK INFEKTION BÖRJAR</strong></p>
+
+                    <div style="background: rgba(232, 154, 60, 0.15); padding: 1.5rem; margin: 1rem 0; border-left: 4px solid var(--accent-secondary);">
+                        <strong>⚠️ STAGE 1 - INFLUENSA-LIKNANDE SYMPTOM</strong><br><br>
+
+                        <strong>Kl 02:00 - Mitt i natten:</strong><br>
+                        Alla spelare vaknar med kraftig feber. Inte gradvis - de vaknar SVETTSIGA, skakande, brännande heta.<br><br>
+
+                        <strong>Symptom:</strong><br>
+                        - Feber: 40-42°C (mät med hotelltermostat eller ringa reception)<br>
+                        - Kraftig huvudvärk, molande smärta bakom ögonen<br>
+                        - Illamående, svindel vid uppresning<br>
+                        - Muskelvärk i hela kroppen<br>
+                        - Svettningar följt av frossa<br><br>
+
+                        <strong>Om de ringer läkare/går till sjukhus:</strong><br>
+                        - Diagnos: "Influensa, troligen seasonal flu"<br>
+                        - Förskrivning: Paracetamol, vila, vätska<br>
+                        - "Det går över på 2-3 dagar. Stanna i sängen."<br>
+                        - INGEN medicinsk behandling hjälper mot parasiten<br><br>
+
+                        <strong>Om de försöker ignorera det (CON check DC 15):</strong><br>
+                        - Misslyckande: För sjuk för att göra något, måste vila<br>
+                        - Lyckad: Kan krypa ur sängen till badrummet, men inte mycket mer<br><br>
+
+                        <strong>DAG 1 - 9 november (hela dagen):</strong><br>
+                        Febern håller i sig 40-42°C hela dagen. Spelarna är SÄNGBUNDNA. De kan försöka ringa Magda (kl 10:00 - ingen svarar!) men är för sjuka för att ta sig någonstans. Hotellpersonal kan bringa paracetamol, vatten. Ingenting hjälper riktigt. De ligger och oroar sig för Magda men kan inte göra någonting.<br><br>
+
+                        <strong>DAG 2 - 10 november:</strong><br>
+                        Febern går ner till 38-39°C. Fortfarande sjuka men kan röra sig lite i rummet. De försöker ringa Magda igen - fortfarande ingen svar. Nu börjar de bli verkligt oroliga. Om de försöker ta sig ut från hotellet: CON check DC 12, misslyckande = svimmar/kollaps, tillbaka till sängen.<br><br>
+
+                        <strong>DAG 3 - 11 november (morgon):</strong><br>
+                        Febern har äntligen gått ner till 37.5-38°C. Fortfarande hängiga och svaga (-10% på alla handlingar tills de återhämtat sig helt) men kan äntligen ta sig ur hotellrummet. Nu inser de: Magda har inte svarat på telefon på 2 dagar. Något är ALLVARLIGT FEL.
+                    </div>
+
+                    <div class="note">
+                        <strong>SL-VIKTIGT - PARASITE TIMELINE:</strong><br><br>
+
+                        Detta är början på den parasitiska infektionen som följer spelarna genom hela kampanjen:<br><br>
+
+                        <strong>Stage 1 (9-11 nov):</strong> Influensa-symptom, feber 40-42°C, sängbundna i 2 dagar<br>
+                        <strong>Stage 2 (vecka 2-3):</strong> Febern går över, men konstig hunger börjar<br>
+                        <strong>Stage 3 (månad 2-3):</strong> Drömmar intensifieras, 247 Hz hummande i huvudet<br>
+                        <strong>Stage 4 (månad 4-6):</strong> Fysiska förändringar börjar, parasiten märks under huden<br>
+                        <strong>Stage 5 (om ej behandlad):</strong> Transformation börjar...<br><br>
+
+                        Se "Black Madonna - Parasite Rules" för fullständig mekanik.
                     </div>
 
                     <div style="background: rgba(74, 144, 164, 0.1); padding: 1.5rem; margin: 1rem 0; border-left: 3px solid #4a90a4;">
@@ -917,27 +1102,34 @@
             </div>
             <div class="collapsible-content">
                 <div class="collapsible-body">
-                    <p><strong>9 NOVEMBER 2025 - MORGONEN EFTER FÖRFATTARKVÄLLEN</strong></p>
-                    <p>Spelarna vaknar på sitt hotell i Hamburg. Planen var att träffa Magda vid hennes lägenhet kl 10:00 för att gå igenom dagboken och alla hennes research-material.</p>
+                    <p><strong>11 NOVEMBER 2025 - TVÅ DAGAR EFTER FÖRFATTARKVÄLLEN</strong></p>
+                    <p>Efter två dagar i feberyra kan spelarna äntligen ta sig ur hotellrummet. De har försökt ringa Magda otaliga gånger sedan den 9:e - alltid voicemail. Planen var att träffa henne vid hennes lägenhet kl 10:00 den 9 november för att gå igenom dagboken och alla hennes research-material. Men de var för sjuka för att ens kunna ta sig dit.</p>
 
-                    <h3>Men Magda svarar inte</h3>
-                    <h4>Timeline:</h4>
+                    <div style="background: rgba(232, 154, 60, 0.1); padding: 1rem; margin: 1rem 0; border-left: 3px solid var(--accent-secondary);">
+                        <strong>SPELARNA ÄR FORTFARANDE SVAGA:</strong><br>
+                        - Feber har gått ner till 37.5-38°C<br>
+                        - Fortfarande hängiga, huvudvärk, trötthet<br>
+                        - -10% på alla handlingar tills de återhämtat sig helt (några dagar till)<br>
+                        - Kan äntligen röra sig och agera, men känner sig uslagna
+                    </div>
+
+                    <h3>Magda har inte svarat på 2 dagar</h3>
+                    <h4>Vad som hänt:</h4>
                     <ul>
-                        <li><strong>08:00:</strong> Spelarna försöker ringa Magda - går direkt till voicemail</li>
-                        <li><strong>09:00:</strong> Flera samtal - fortfarande voicemail</li>
-                        <li><strong>09:30:</strong> Email - inget svar</li>
-                        <li><strong>10:00:</strong> Åker till Leibnizstraße 97</li>
+                        <li><strong>9 nov, 08:00-10:00:</strong> Spelarna försökte ringa från sjukbädden - ingen svar (de var för sjuka för att göra mer)</li>
+                        <li><strong>10 nov:</strong> Fortsatte ringa under dagen - fortfarande ingen svar (febern fortfarande för hög)</li>
+                        <li><strong>11 nov, 10:00:</strong> Spelarna kan äntligen ta sig ut - åker direkt till Brahmsallee 16</li>
                     </ul>
 
                     <h3>Vid Magdas lägenhet</h3>
-                    <p><strong>Adress:</strong> Leibnizstraße 97, Hamburg - femte våningen i altbau building</p>
+                    <p><strong>Adress:</strong> Brahmsallee 16, Harvestehude, 20144 Hamburg - tredje våningen i altbau building</p>
 
-                    <h4>När spelarna kommer dit:</h4>
+                    <h4>När spelarna kommer dit (11 november, ~10:30):</h4>
                     <ul>
                         <li>Ingen svarar på dörren</li>
                         <li>Ringer på porttelefon - ingen svar</li>
-                        <li>Brevinkast visar att post har tagits in (någon var här nyligen)</li>
-                        <li>Grannar (om tillfrågade): "Jag hörde henne gå ut tidigt i morse, kanske 06:00"</li>
+                        <li>Brevinkast visar att post har samlats (2 dagars tidningar ligger kvar)</li>
+                        <li>Grannar (om tillfrågade): "Jag hörde henne gå ut tidigt för två dagar sen, den 9:e. Kanske kl 06:00. Har inte sett henne sedan dess."</li>
                     </ul>
 
                     <h4>Om spelarna lyckas ta sig in (lockpicking, prata med hyresvärd, etc):</h4>
@@ -963,8 +1155,8 @@
                     <h4>I papperskorgen:</h4>
                     <ul>
                         <li>Trasig sim-kort (genomsnittet med sax)</li>
-                        <li>Kvitto från Hamburg Hauptbahnhof - tågbiljett köpt 06:15 i morse</li>
-                        <li><strong>Hamburg → Berlin, avgång 06:42</strong></li>
+                        <li>Kvitto från Hamburg Hauptbahnhof - tågbiljett köpt 06:15, 9 november</li>
+                        <li><strong>Hamburg → Berlin, avgång 06:42 samma morgon</strong></li>
                     </ul>
 
                     <h4>På kylskåpet (magnet):</h4>
@@ -1044,7 +1236,14 @@
             <div class="collapsible-content">
                 <div class="collapsible-body">
                     <p><strong>9 NOVEMBER 2025 - EFTERMIDDAG (14:00-16:00)</strong></p>
-                    <p>Några timmar efter att spelarna upptäckt att Magda försvunnit ringer hennes vän Irene Adler från Hamburg.</p>
+                    <p>Medan spelarna ligger feberdåliga på sitt hotellrum ringer Magdas vän Irene Adler från Hamburg.</p>
+
+                    <div style="background: rgba(232, 154, 60, 0.15); padding: 1.5rem; margin: 1rem 0; border-left: 4px solid var(--accent-secondary);">
+                        <strong>⚠️ KRITISKT MOMENT - SPELARNA ÄR HJÄLPLÖSA</strong><br><br>
+                        Spelarna får veta att Magda är döende på sjukhus, men de är själva för sjuka för att kunna resa till Berlin. De ligger i 40-42°C feber, kan knappt röra sig. Detta skapar desperation och frustration - de VET att de behöver agera men KAN inte.<br><br>
+
+                        Detta är också tillfället att spelarna börjar inse att deras egen sjukdom kanske inte är en tillfällighet...
+                    </div>
 
                     <h3>Telefonsamtalet</h3>
                     <h4>Irene Adler introducerar sig:</h4>
@@ -1061,10 +1260,10 @@
                     <h4>Vad Irene vet:</h4>
                     <ul>
                         <li>En läkare från Charité (Dr. Kellerman) ringde Irene eftersom hennes nummer fanns i Magdas kontakter som "nödkontakt"</li>
-                        <li>Magda kom in till akuten vid 11:00 i morse</li>
+                        <li>Magda kom in till akuten vid 11:00 i morse (9 november)</li>
                         <li>Kollapsade utanför sjukhuset, förbipasserande ringde ambulans</li>
                         <li>Hon hade en väska med Irenes visitkort i</li>
-                        <li>Diagnos oklar - "hjärtproblem, andningsproblem"</li>
+                        <li>Diagnos oklar - "hjärtproblem, andningsproblem, något inre som växer"</li>
                         <li><strong>"Hon frågade efter er. Sa era namn innan hon förlorade medvetandet."</strong></li>
                     </ul>
 
@@ -1075,13 +1274,39 @@
                         <li><strong>Vem är du?</strong> "Jag driver en antikaffär här i Hamburg. Magda och jag... vi delade intresse för historia."</li>
                     </ul>
 
+                    <h4>Om spelarna försöker förklara att de är sjuka:</h4>
+                    <ul>
+                        <li>Irene blir tyst ett ögonblick</li>
+                        <li>"Ni var med henne igår kväll... på författarkvällen?"</li>
+                        <li>"Ni måste komma till Berlin så fort ni kan. Men om ni är sjuka... vänta tills febern går över."</li>
+                        <li>"Hon sa något konstigt innan hon kollapsade: 'De har redan börjat förvandla dem också.'"</li>
+                        <li><strong>Detta kan vara första hinten till spelarna att deras sjukdom är kopplad till Anton & Sasha</strong></li>
+                    </ul>
+
                     <h3>Irenes uppmaning</h3>
                     <div style="background: rgba(74, 144, 164, 0.1); padding: 1rem; margin: 1rem 0; border-left: 3px solid var(--accent-primary); font-style: italic;">
-                        "Ni måste åka till Berlin. NU. Jag tror inte hon har mycket tid kvar."<br><br>
+                        "Om ni kan resa, åk till Berlin så fort som möjligt. Men om ni har samma feber som Magda hade... vänta tills den går över. Ni hjälper henne inte om ni kollapsar själva."<br><br>
 
                         "Charité Hospital, Campus Mitte. Fråga efter Dr. Kellerman i akutmottagningen."<br><br>
 
                         "Och... var försiktiga. De tre männen Magda nämnde - de är farliga. Jag vet inte vad de gjorde, men hon var livrädd."
+                    </div>
+
+                    <h3>Spelarna är fast - hjälplösa</h3>
+                    <div style="background: rgba(232, 154, 60, 0.1); padding: 1.5rem; margin: 1rem 0; border-left: 3px solid var(--accent-secondary);">
+                        <strong>SL-VIKTIGT - BYGG FRUSTRATION OCH DESPERATION:</strong><br><br>
+
+                        Spelarna har nu information men kan inte agera på den. De ligger sängbundna i 40-42°C feber medan Magda ligger döende i Berlin. Detta ska kännas fruktansvärdt frustrerande.<br><br>
+
+                        <strong>9 november kväll:</strong> De försöker kanske ändå ta sig upp - CON check DC 15 eller kollaps<br>
+                        <strong>10 november:</strong> Febern lite lägre men fortfarande för sjuka för att resa<br>
+                        <strong>11 november morgon:</strong> Äntligen tillräckligt friska för att ta tåget till Berlin<br><br>
+
+                        Under dessa 2 dagar kan spelarna:<br>
+                        - Ringa Charité och kolla Magdas tillstånd (försämras gradvis)<br>
+                        - Researcha de tre männen från sina hotellrum<br>
+                        - Planera vad de ska göra när de kommer till Berlin<br>
+                        - Bli alltmer desperata och frustrerade
                     </div>
 
                     <h4>Om spelarna erbjuder sig att hämta Irene:</h4>
@@ -1154,7 +1379,7 @@
                     <p>Denna scene kan spelas innan eller efter resan till Berlin, beroende på spelarnas val.</p>
 
                     <h3>Lägenheten - Fullständig beskrivning</h3>
-                    <p><strong>Adress:</strong> Leibnizstraße 97, 5:e våningen, Hamburg Rotherbaum</p>
+                    <p><strong>Adress:</strong> Brahmsallee 16, tredje våningen, Harvestehude, 20144 Hamburg</p>
                     <p><strong>Byggnad:</strong> Altbau från tidigt 1900-tal, renoverad fasad, vackert trappuppgång med jugenddetaljer</p>
 
                     <h4>Lägenhetslayout:</h4>
@@ -3430,28 +3655,29 @@
                 <div class="collapsible-body">
                     <h2 style="color: var(--accent-primary); border-bottom: 2px solid var(--accent-primary); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">HAMBURG, TYSKLAND</h2>
 
-                    <h3>1. Thalia Buchhandlung (The Book Launch Venue)</h3>
-                    <p><strong>Adress:</strong> Große Bleichen 23-27, 20354 Hamburg</p>
-                    <p><strong>Typ:</strong> Stor bokhandelskedja, flaggskeppsbutik</p>
+                    <h3>1. Thalia Flagship Store (The Book Launch Venue)</h3>
+                    <p><strong>Adress:</strong> Westfield Hamburg-Überseequartier, Überseeboulevard 7, HafenCity, 20457 Hamburg</p>
+                    <p><strong>Typ:</strong> Flagship bokhandel, öppnad april 2025, 1700 kvm på två våningar</p>
 
                     <h4>Beskrivning:</h4>
                     <ul>
-                        <li>Central shopping street i Hamburg, nära Jungfernstieg</li>
-                        <li>Stora glasfönster, modern inredning, tre våningar</li>
-                        <li>Event-rum på andra våningen: 50-60 sittplatser, podium, projektor</li>
+                        <li>Modern design i HafenCity vid älven Elbe, intill kryssningsterminalen</li>
+                        <li>Kopparfärgade hyllor, industriell hamn-design, utsikt mot hamnen</li>
+                        <li>Event-rum på andra våningen: 50-60 sittplatser, podium, projektor, modern ljudanläggning</li>
+                        <li>Café "Buch & Bohne" på nedre plan</li>
                         <li>Öppet 10:00-20:00, events efter stängning (18:00-21:00)</li>
                     </ul>
 
                     <h4>Hur ta sig dit:</h4>
                     <ul>
-                        <li>U-Bahn: Station Jungfernstieg (U1, U2, U4) - 3 min promenad</li>
-                        <li>Från Hotel Wedina: 15 min promenad eller 8 min U-Bahn</li>
-                        <li>Taxi: 10-15 min från Hamburg Hauptbahnhof</li>
+                        <li>U-Bahn: U4 till Überseequartier station - 2 min promenad</li>
+                        <li>Från Hotel Wedina: 20 min U-Bahn (U1 → U4 byte vid Jungfernstieg)</li>
+                        <li>Taxi: 15 min från Hamburg Hauptbahnhof</li>
                     </ul>
 
                     <h4>Vad finns där:</h4>
                     <ul>
-                        <li>Bokhandel med café</li>
+                        <li>Bokhandel med café och barnsektion med bläckfiskrutschkana</li>
                         <li>Personal som känner Magda (hon var där tidigare för att planera eventet)</li>
                         <li>Security cameras (om spelarna behöver footage efter författarkvällen)</li>
                         <li>Gästlista för eventet (kan visa att Anton & Sasha INTE var registrerade - de kom oanmälda)</li>
@@ -3466,8 +3692,8 @@
 
                     <hr style="border: 1px solid var(--border); margin: 2rem 0;">
 
-                    <h3>2. Magdas Lägenhet</h3>
-                    <p><strong>Adress:</strong> Leibnizstraße 97, 5:e våningen, 20253 Hamburg-Rotherbaum</p>
+                    <h3>2. Magdas Lägenhet (Hamburg)</h3>
+                    <p><strong>Adress:</strong> Brahmsallee 16, tredje våningen, Harvestehude, 20144 Hamburg</p>
                     <p><strong>Typ:</strong> Altbau apartment building (tidigt 1900-tal)</p>
 
                     <h4>Beskrivning:</h4>
