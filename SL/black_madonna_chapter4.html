@@ -67,6 +67,44 @@
             margin-top: 0.5rem;
         }
 
+        .back-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--accent-primary);
+            border-radius: 4px;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            background: var(--accent-primary);
+            color: var(--bg-dark);
+            box-shadow: 0 0 10px rgba(74, 144, 164, 0.5);
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .next-link {
+            color: var(--accent-secondary);
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--accent-secondary);
+            border-radius: 4px;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .next-link:hover {
+            background: var(--accent-secondary);
+            color: var(--bg-dark);
+            box-shadow: 0 0 10px rgba(232, 154, 60, 0.5);
+        }
+
         .nav-link.active {
             background: rgba(74, 144, 164, 0.15);
             border-left-color: var(--accent-primary);
@@ -405,7 +443,10 @@
     <div class="header">
         <div class="header-content">
             <div class="logo">KAPITEL 4: GERMAN AUTUMN</div>
-            <a href="black_madonna_index.html" class="back-link">← Tillbaka till översikt</a>
+            <div class="nav-buttons">
+                <a href="black_madonna_index.html" class="back-link">← Tillbaka till översikt</a>
+                <a href="black_madonna_chapter5.html" class="next-link">Nästa →</a>
+            </div>
         </div>
     </div>
 
