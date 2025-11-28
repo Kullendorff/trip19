@@ -14,10 +14,12 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
 ## Senaste utveckling (från git-log)
 
 ### Pågående arbete
-- **Magdas lägenheter**: Detaljerade rumsbeskrivningar och floor plans för Berlin och Hamburg
-- **Frankfurt Clinic**: Uppdaterad plats (Frankfurt (Oder)-Güldendorf), floor plans, rumsbeskrivningar
-- **Patient-journaler**: Synkade mellan locations.html och Chapter 2
-- **KULT-anpassning**: Detaljerade övervåningsbeskrivningar anpassade för Delta Green
+- **Karaktärskonsolidering**: Skapar kompletta karaktärsdokument för alla 5 spelarkaraktärer
+  - Mac_Complete.md ✅ (~1,300 rader, konsoliderat från 8 HTML + 10 MD)
+  - Sullivan_Complete.md ✅ (~1,500 rader, konsoliderat från 8 HTML + 8 MD)
+  - Sparky_Complete.md ✅ (~1,700 rader, konsoliderat från 8 HTML + 8 MD)
+  - Scalpel_Complete.md (pågår)
+  - Trench_Complete.md (kvarstår)
 
 ### Nyligen avslutat
 - Mediciner (Clozapine, Olanzapine) tillagda i Berlin-lägenheten
