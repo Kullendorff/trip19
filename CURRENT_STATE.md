@@ -18,8 +18,8 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
   - Mac_Complete.md ✅ (~1,300 rader, konsoliderat från 8 HTML + 10 MD)
   - Sullivan_Complete.md ✅ (~1,500 rader, konsoliderat från 8 HTML + 8 MD)
   - Sparky_Complete.md ✅ (~1,700 rader, konsoliderat från 8 HTML + 8 MD)
-  - Scalpel_Complete.md (pågår)
-  - Trench_Complete.md (kvarstår)
+  - Scalpel_Complete.md ✅ (~2,100 rader, konsoliderat från 6 HTML, inga MD)
+  - Trench_Complete.md (pågår)
 
 ### Nyligen avslutat
 - Mediciner (Clozapine, Olanzapine) tillagda i Berlin-lägenheten
