@@ -9,6 +9,7 @@
 
 **ALL narrativ text ska vara på svenska.**
 Engelska används endast för facktermer, speltermer, egennamn och tekniska termer enligt nedan.
+När du ombes kolla igenom texten - gå då igenom ALL text. ALL. Inte 100 första raderna utan ALL TEXT. Spara inte tokens - GÅ IGENOM ALL TEXT i de nya dokumenten du skapat. Dela upp arbetet och tvätta bort all engelska som inte ska vara där, översätt till svenska
 
 ---
 
