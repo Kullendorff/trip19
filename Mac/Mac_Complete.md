@@ -51,17 +51,17 @@ RA
 - Kriminologi: 50% (brottspsykologi, mönster)
 - Persuasion: 40% (förhandling, övertalning)
 - Uppmärksamhet: 50% (situationsmedvetenhet)
-- Första hjälpen: 20% (basic military training)
+- Första hjälpen: 20% (grundläggande militärutbildning)
 
 **Marines Bakgrund:**
 - Skjutvapen: 70% (pistol, gevär - hans främsta styrka)
 - Obeväpnad strid: 50% (hand-to-hand, competent)
 - Tungt vapen: 20% (M249, M240, RPG)
-- Smyga: 15% (basic tactical movement)
+- Smyga: 15% (grundläggande taktisk förflyttning)
 
-**Support Skills:**
+**Stödfärdigheter:**
 - Köra bil: 20% (standard FBI)
-- SIGINT: 15% (basic - Sparkys område)
+- SIGINT: 15% (grundläggande - Sparkys område)
 - Computer Science: 0% (inte hans styrka)
 
 ---
@@ -91,13 +91,13 @@ Mac var naturlig. Bra footwork. Tålmodig. Tänkte tre drag framåt. Tävlade li
 
 ### Marines (2005-2011)
 
-**2005-2006: Boot Camp & Infantry Training**
+**2005-2006: Grundutbildning & Infanteriträning**
 Parris Island, South Carolina. Mac var redan förberedd (Toms inofficiella träning hemma). Blev Squad Leader under grundutbildningen.
 
 **2006-2007: Första stationeringen**
 Camp Lejeune, North Carolina. 2nd Battalion, 2nd Marines. Specialist: Rifleman (M16A4).
 
-**2007-2008: Iraq Deployment (1:a)**
+**2007-2008: Iraq-utplacering (1:a)**
 Ramadi, Al Anbar Province. Insurgency combat. Mac såg sin första KIA (killed in action) - en 19-årig private från Ohio. Började inse krigets verkliga kostnad.
 
 **Incident (IED, 2008):**
@@ -106,7 +106,7 @@ Mac's Humvee träffades av IED. Corporal Santos drog ut Mac från brinnande ford
 **2009: Befordring till Corporal**
 Mac visade ledarskap. Lugn under press. Gjorde rätt beslut.
 
-**2010-2011: Afghanistan Deployment (2:a)**
+**2010-2011: Afghanistan-utplacering (2:a)**
 Helmand Province. Heavy combat. Mac förlorade sin närmaste vän: **Lance Corporal Miguel Rodriguez**.
 
 **Rodriguez död (2010):**
@@ -115,21 +115,21 @@ Ambush. Rodriguez träffades i halsen. Dog i Mac's armar under 4 minuter. Sista 
 **Denna död förändrade Mac permanent.** Började boxas hårdare. Behövde slå på något som inte slog tillbaka.
 
 **2011: Hemkomst & Separation**
-Mac tjänade 6 år. Honorably Discharged, Corporal (E-4). Rekommendationsbrev från CO: "Riley exemplifies Marine Corps values."
+Mac tjänade 6 år. Hedrande utskriven, Corporal (E-4). Rekommendationsbrev från CO: "Riley exemplifies Marine Corps values."
 
-### FBI Academy & Early Career (2012-2018)
+### FBI Academy & Tidig karriär (2012-2018)
 
 **2012: FBI-ansökan**
-Mac 25 år gammal. Bachelor's degree (kriminologi, online-program under Marines). Marines-erfarenhet + clean record = strong application. Antagen till FBI Academy, Quantico.
+Mac 25 år gammal. Bachelor's degree (kriminologi, online-program under Marines). Marines-erfarenhet + rent register = stark ansökan. Antagen till FBI Academy, Quantico.
 
 **2012 (20 veckor): FBI Academy**
 Mac excellerade. Skjutning: top 10%. Taktik: top 15%. Akademisk: solid. Dr. Janet Reeves (instruktör) såg potential: "Riley har emotionell kontroll och analytisk skärpa."
 
 **2012-2014: Special Agent, Washington Field Office**
-Criminal Investigative Division. Learning the ropes. Bank robbery, kidnapping, federal crimes. GS-10 → GS-12.
+Criminal Investigative Division. Lärde sig grunderna. Bank robbery, kidnapping, federal crimes. GS-10 → GS-12.
 
 **2013: Träffade Sarah Brennan**
-Advokat för Department of Justice. De träffades vid interagency-träning. Sarah: smart, vacker, driven. Mac: stabil, säker, respektful. De klickade.
+Advokat för Department of Justice. De träffades vid interagency-träning. Sarah: smart, vacker, driven. Mac: stabil, säker, respektfull. De klickade.
 
 **2014: Gifta sig**
 Liten ceremoni. Tom var best man. Sarah's familj gillade Mac ("äntligen en bra kille").
@@ -137,14 +137,14 @@ Liten ceremoni. Tom var best man. Sarah's familj gillade Mac ("äntligen en bra 
 **2014: Flyttade till BAU-konsultation**
 Mac började jobba med Behavioral Analysis Unit på konsultbasis. Dr. Janet Reeves rekommenderade honom. Mac visade talang för profiling.
 
-**2014-2016: Special Agent, Violent Crimes**
+**2014-2016: Special Agent, Våldsbrott**
 GS-12 → GS-13. Mac jobbade mord, sexualbrott, serieförbrytare. Tufft men givande. Boxade 3x/vecka vid Capitol Hill Boxing Club (blev hans "hem").
 
 **2015: Jake Riley föddes**
 Mac's son. Mac var lycklig - genuint lycklig - för första gången sedan Rodriguez död. Sarah, Jake, karriär: allt fungerade.
 
 **2016-2019: Transfer till BAU-2 full time**
-Mac blev official BAU-2 agent. Hotbedömning, profilering, konsultationer. GS-13. Mac excellerade. Denna period var Mac's "golden years" - karriär on track, familj stabil, fysiskt i toppform.
+Mac blev official BAU-2 agent. Hotbedömning, profilering, konsultationer. GS-13. Mac excellerade. Denna period var Mac's "guldåren" - karriär på rätt spår, familj stabil, fysiskt i toppform.
 
 **2016-2017: Toppform**
 84 kg ren muskelmassa, under 10% kroppsfett. Boxning 3x/vecka. Kunde gå 10 ronder. Sarah: "Bättre att du slår på en säck än att ta med jobbstress hem till Jake."
@@ -218,7 +218,7 @@ Handler visade files. Photos från 1940-talet forward. Incident reports.
 **Juni 2018 - September 2025:** 7 major operations
 
 #### Operation 1: False Flag (2018, Pennsylvania)
-First assignment. "Haunted church" = paranoid pastor med bipolär sjukdom. Mac förstod: 90% av "onaturligt" är naturligt. Men 10%...
+Första uppdraget. "Haunted church" = paranoid pastor med bipolär sjukdom. Mac förstod: 90% av "onaturligt" är naturligt. Men 10%...
 
 **SAN loss:** -1 (seeing pattern of cover-ups)
 
@@ -241,7 +241,7 @@ First assignment. "Haunted church" = paranoid pastor med bipolär sjukdom. Mac f
 
 **Aftermath:**
 - 2 agents KIA
-- Mac's första civilian rescue (Sarah Chen)
+- Mac's första civilräddning (Sarah Chen)
 - Cover story: "Gas leak explosion"
 - Mac började få alpdrömmar (Gul mask, Santos screaming)
 
@@ -262,7 +262,7 @@ First assignment. "Haunted church" = paranoid pastor med bipolär sjukdom. Mac f
 - Artefakten försvann (Majestic-12 tog den?)
 
 **Aftermath:**
-- First kill där Mac inte kunde rättfärdiga det moraliskt
+- Första dödandet där Mac inte kunde rättfärdiga det moraliskt
 - Började tvivla på "greater good"
 
 **SAN loss:** -2 (moral injury)
@@ -307,9 +307,9 @@ First assignment. "Haunted church" = paranoid pastor med bipolär sjukdom. Mac f
 **SAN loss:** -2 (Deep Ones, underwater horror)
 **New SAN:** 50/60
 
-#### FALSE FLAGS & MINOR OPS (2018-2024):
+#### FALSKA FLAGGOR & MINDRE OPERATIONER (2018-2024):
 
-Mac gjorde också 15-20 "false flag" operations - undersökningar som visade sig vara normala (mental illness, droger, etc.). Dessa bygger skills men gav ingen SAN loss.
+Mac gjorde också 15-20 "falsk flagg"-operationer - undersökningar som visade sig vara normala (mental illness, droger, etc.). Dessa bygger skills men gav ingen SAN loss.
 
 #### Operation 6: MALL BEFORE CHRISTMAS (23 December 2024) - MISSION FAILURE
 
@@ -456,7 +456,7 @@ Tom ser Mac deteriorate. Fiskedagar (1x/månad) är deras tid. Tom försöker n�
 **Tom's oro:**
 Ser att Mac håller på att förlora sig själv. Känner igen tecken (slitna ögon, viktförlust, paranoia). Vill hjälpa men vet inte hur.
 
-**Senaste fishing trip (Augusti 2025):**
+**Senaste fiskeresa (Augusti 2025):**
 Tom: "Son, you need professional help."
 Mac: "I'm handling it."
 Tom: "That's what Rodriguez said before Afghanistan."
@@ -553,9 +553,9 @@ Jake 6 år. För ung för att förstå helt. Sarah förklarade: "Mamma och pappa
 
 Jake blame himself (som barn gör).
 
-**2021-2023: Visiting rights**
+**2021-2023: Besöksrätt**
 
-Varje andra helg hos Mac. Initially okej:
+Varje andra helg hos Mac. Till en början okej:
 - Mac försökte vara närvarande
 - Baseball games, filmer, pizza
 - Men Jake såg att "pappa är inte riktigt där"
@@ -822,14 +822,14 @@ Mac's lägenhet är INTE ett hem. Det är:
 - Cover: DIA analyst
 
 **Personlighet:**
-- Direct, no bullshit communication
+- Direkt, rak kommunikation
 - Pragmatisk
-- Dry humor
-- Maintains professional distance (mostly)
+- Torr humor
+- Upprätthåller professionell distans (mestadels)
 
 **Relation till Mac:**
 
-**2018-2020:** Strikt professionell. Monthly briefings, operations assignments, debrief.
+**2018-2020:** Strikt professionell. Månatliga genomgångar, uppdragstilldelningar, debriefing.
 
 **2021:** När Mac's äktenskap kollapsade bjöd Cardinal honom på kaffe off-record första gången.
 
@@ -861,7 +861,7 @@ Mac vet Cardinal är orolig för honom.
 - Men Cardinal försöker undvika det så länge som möjligt
 - Trip 19 är probably Mac's sista chance
 
-**Trust level:** High som person, Medium som Case Officer
+**Förtroendenivå:** Hög som person, Medium som Case Officer
 
 ### Cell Chesapeake
 
@@ -912,9 +912,9 @@ Sparky byggde AI-modell för tracking Volkov. Mac's Volkov-board är analog, hen
 **Problem Mac inte ser:**
 Hur mycket Sparky också struggling. Hennes Volkov-fixation nästan lika strong som Mac's. De enables varandra.
 
-**Current:** Technical support, Volkov research partner.
+**Nuvarande:** Teknisk support, Volkov-forskningspartner.
 
-**Relation:** Shared obsession. Mac validates hennes work, hon ger honom data. Potentially toxic dynamic (Sullivan orolig för båda).
+**Relation:** Delad besatthet. Mac validerar hennes arbete, hon ger honom data. Potentiellt giftig dynamik (Sullivan orolig för båda).
 
 ---
 
@@ -942,7 +942,7 @@ Hur mycket Sparky också struggling. Hennes Volkov-fixation nästan lika strong 
 
 **Nuvarande status:** Tvångsledighet (augusti 2025) efter "Maine incident" (yelled at kollega)
 
-**Career trajectory:**
+**Karriärbana:**
 - 2012-2014: Special Agent, Kriminella utredningar (GS-10 → GS-12)
 - 2014-2016: Special Agent, Våldsbrott (GS-12 → GS-13)
 - 2016-2019: Special Agent, BAU-2 (GS-13)
@@ -998,12 +998,12 @@ Hur mycket Sparky också struggling. Hennes Volkov-fixation nästan lika strong 
 - Terry Bishop (gym) - Mac stopped coming
 - Coach Eddie Rodriguez (boxing) - Mac hasn't been to gym sedan Dec 2024
 
-**Strained:**
+**Ansträngda:**
 - Dave Porter (FBI) - worried but respects distance
 - Lisa Chen (FBI) - concerned, last interaction was weird
 - Sarah Nakamura (Metro) - professional but suspicious
 
-**High-Risk kontakter:**
+**Högriskkontakter:**
 - Amanda Reese (journalist) - Actively investigating Mac's "pattern"
 - AD Whitmore - Has power to end Mac's career permanently
 
@@ -1013,9 +1013,9 @@ Hur mycket Sparky också struggling. Hennes Volkov-fixation nästan lika strong 
 
 *(Se Mac_Disorder.md för fullständiga detaljer - 748 rader)*
 
-**Acquired:** Maj 2025 (Sea Glass operation)
-**Type:** Post-Traumatic Stress Disorder med obsessive features
-**Severity:** Moderate-to-Severe, deteriorating
+**Förvärvad:** Maj 2025 (Sea Glass operation)
+**Typ:** Post-Traumatic Stress Disorder med obsessive features
+**Svårighetsgrad:** Måttlig-till-Svår, försämras
 
 ### DSM-5 Criteria (alla uppfyllda)
 
@@ -1049,46 +1049,46 @@ Hur mycket Sparky också struggling. Hennes Volkov-fixation nästan lika strong 
 - **Duration:** 1-3 minutes
 - **Physical:** Freeze response, dissociation, cold sweat
 
-**2. Nightmares (Nightly)**
+**2. Mardrömmar (Varje natt)**
 
-**Sleep pattern:**
-- Falls asleep: 23:00-01:00 (exhaustion)
-- First nightmare: 02:00-03:00
-- Wakes: Screaming eller gasping
-- Can't return to sleep: 60% nights
-- **Total sleep: 3-4 hours/natt**
+**Sömnmönster:**
+- Somnar: 23:00-01:00 (utmattning)
+- Första mardröm: 02:00-03:00
+- Vaknar: Skrikande eller gaspande
+- Kan inte somna om: 60% av nätterna
+- **Total sömn: 3-4 timmar/natt**
 
-**Standard nightmare rotation:**
+**Vanliga mardrömmar:**
 1. Volkov escaping i slow motion (Mac can't pull trigger)
 2. Jake med kristall growing från chest
 3. Sea Glass offer, frozen i terror
 4. All 14 Mall victims staring at Mac
 5. Sarah saying "You're a monster"
 
-**3. Hypervigilance (Always Active)**
+**3. Hypervakenhet (Alltid aktiv)**
 
-**Physical symptoms:**
-- Cannot sit with back to door
-- Scans room constantly för exits
-- Startles at unexpected sounds
-- Hands near weapon (even civilian settings)
+**Fysiska symtom:**
+- Kan inte sitta med ryggen mot dörren
+- Skannar rummet konstant efter utgångar
+- Rycker till vid oväntade ljud
+- Händer nära vapen (även i civila miljöer)
 
-**Exhaustion från constant arousal:**
-- Muscles always tense (chronic pain, headaches daily)
-- Elevated blood pressure
-- Gets sick mer often (immune suppression)
+**Utmattning från konstant alertness:**
+- Muskler alltid spända (kronisk smärta, daglig huvudvärk)
+- Förhöjt blodtryck
+- Blir sjuk oftare (immundämpning)
 
-**4. Volkov Obsession (Obsessive Features)**
+**4. Volkov-besatthet (Obsessiva drag)**
 
-**Intrusive thoughts:**
+**Påträngande tankar:**
 - "Where is he?" (50+ times/day)
 - "He's planning something"
 - "I need to find him NOW"
 
-**Frequency:** Constant baseline, intensifies under stress
-**Control:** Limited (Mac CAN redirect briefly, thoughts return)
+**Frekvens:** Konstant baslinje, intensifieras under stress
+**Kontroll:** Begränsad (Mac KAN omdirigera kortvarigt, tankarna återkommer)
 
-**Research behaviors:**
+**Forskningsbeteenden:**
 - Daily dark web searches
 - Board updates
 - Pattern-finding (sometimes paranoid)
@@ -1099,28 +1099,28 @@ Hur mycket Sparky också struggling. Hennes Volkov-fixation nästan lika strong 
 - "WHERE IS HE?" written 47 gånger
 - Stares at it för hours
 
-**5. Kristall & Signal Hallucinations**
+**5. Kristall & Signal-hallucinationer**
 
-**Visual:**
+**Visuellt:**
 - Sees kristaller i reflections (glas, screens, water)
 - 10-20 times/dag
 - Mac KNOWS they're not real, can't stop seeing them
 
-**Auditory:**
+**Auditivt:**
 - Pulsing hum från Sea Glass beacon
 - Constant low-level (like tinnitus)
 - "THE SIGNAL CALLS" (echo från drönare)
 - No escape från it
 
-**6. Substance Use (Alcohol)**
+**6. Substansanvändning (Alkohol)**
 
-**Pattern:**
+**Mönster:**
 - Daily: 3-5 drinks
 - Bad nights: 8-10 drinks
 - Purpose: Numb signal, dull memories, force sleep
 - Progression: Social drinker (pre-2025) → Borderline dependency (Sept 2025)
 
-**Warning signs:**
+**Varningssignaler:**
 - Morning shakes (started Augusti)
 - Hiding amount
 - Drinking alone (always)
@@ -1144,58 +1144,58 @@ Hur mycket Sparky också struggling. Hennes Volkov-fixation nästan lika strong 
 - Mentions av "Maine": 0/1
 - Mission failure: 0/1d4
 
-### Functional Impairments
+### Funktionella nedsättningar
 
 **FBI Work:** Can't return utan treatment (refuses)
 
-**Delta Green Operations:**
-- Strengths: Tactical skills intact, fearless (doesn't care if dies)
-- Impairments: Judgment compromised, risk-taking extreme, triggers can disable mid-mission
-- **Cardinal's assessment:** "1-2 operations från permanent retirement"
+**Delta Green-operationer:**
+- Styrkor: Taktiska färdigheter intakta, orädd (bryr sig inte om han dör)
+- Nedsättningar: Omdöme komprometterat, extrem risktagning, triggers kan sätta honom ur spel mitt i uppdrag
+- **Cardinals bedömning:** "1-2 operationer från permanent pensionering"
 
-**Family:**
+**Familj:**
 - Sarah (Bond 8/12): Deteriorating
 - Jake (Bond 8/12): Distant, scared
 - Tom (Bond 10/12): Holding steady, worried
 
-**Daily Functioning:**
-- Sleep: 3-4 hours/night
-- Nutrition: Poor
-- Social: Isolated
-- Apartment: Disaster
+**Daglig funktion:**
+- Sömn: 3-4 timmar/natt
+- Nutrition: Dålig
+- Socialt: Isolerad
+- Lägenhet: Katastrof
 
-### Second Break - What Happens?
+### Andra Breaket - Vad händer?
 
-**Current margin:** 10 poäng över BP (46 SAN, BP 36)
+**Nuvarande marginal:** 10 poäng över BP (46 SAN, BP 36)
 
-**If Mac loses 11+ SAN i single event:** Second break triggered.
+**Om Mac förlorar 11+ SAN i en enskild händelse:** Andra breaket triggas.
 
-**Possible outcomes:**
+**Möjliga utfall:**
 1. Catatonic Shutdown (20%) - Hospitalization, unplayable
 2. Psychotic Break (25%) - Loses touch med reality, dangerous
 3. Violent Outburst (20%) - Attacks ally, must be subdued
 4. Suicide Attempt (15%) - Team must intervene
 5. Total Volkov Delusion (20%) - Can't distinguish från reality, goes rogue
 
-**Game impact:** Mac becomes unplayable OR drastically changed (NPC/antagonist possibility).
+**Speleffekt:** Mac blir ospelbar ELLER drastiskt förändrad (NPC/antagonist-möjlighet).
 
-### Recovery - Possible?
+### Återhämtning - Möjlig?
 
-**What would help:**
+**Vad som skulle hjälpa:**
 - Therapy (EMDR, CPT): 6-12 months
 - Medication (SSRI, sleep aids): 4-8 weeks för effect
 - Lifestyle (stop drinking, sleep, nutrition): Immediate
 - Support (family reconnection): Ongoing
 - Closure (finding Volkov): Risky men potentially helpful
 
-**Realistic full recovery:** 18-24 months minimum
+**Realistisk fullständig återhämtning:** 18-24 månader minimum
 
-**Mac will never be "samma" as before.**
+**Mac kommer aldrig bli "samma" som förut.**
 
-**Mac's actual trajectory:**
-- Treatment: ZERO (refuses all)
-- Prognosis: Poor utan intervention
-- Likely outcome: Continued deterioration → second break within 6 months
+**Mac's faktiska bana:**
+- Behandling: NOLL (vägrar allt)
+- Prognos: Dålig utan intervention
+- Troligt utfall: Fortsatt försämring → andra breaket inom 6 månader
 
 ---
 
@@ -1232,7 +1232,7 @@ Hur mycket Sparky också struggling. Hennes Volkov-fixation nästan lika strong 
 - Kemiska formler (Mac förstår inte helt)
 - Teorier: "Nazi Wunderwaffe? Die Glocke?"
 
-**BOTTEN - Research & Dark Web:**
+**BOTTEN - Forskning & Dark Web:**
 - Dark web-forum utskrifter
 - Akademiska referenser (JSTOR)
 - Mac's klotter: "VEM DRIVER PROJEKTET?"
@@ -1409,7 +1409,7 @@ Om Mac någonsin ska bli hel igen måste han slå på den säcken. Inte för kon
 
 ## SPELMEKANIK & NOTER
 
-### Combat Stats
+### Stridsstats
 
 **Initiative:** DEX × 5 = 60%
 **Damage Bonus:** +1D4 (STR 14)
@@ -1420,7 +1420,7 @@ Om Mac någonsin ska bli hel igen måste han slå på den säcken. Inte för kon
 - Obeväpnad: 50%, 1d4+1d4
 - Remington 870: 70%, 2d8, 20m
 
-**Defense:**
+**Försvar:**
 - Dodge: 60%
 - Resistance: Måttlig (CON 70%, POW 60%)
 
@@ -1435,22 +1435,22 @@ Om Mac någonsin ska bli hel igen måste han slå på den säcken. Inte för kon
 - Not fully adapted
 - Helplessness still triggers hard
 
-### Disorder Mechanics
+### Disorder-mekanik
 
-**När Volkov mentioned/lead found:**
-- **Resistance check:** POW × 3% (36%)
-- **Success:** Can delay/resist (uncomfortable)
-- **Failure:** MUST pursue lead immediately
-- **Critical fail:** Abandons current task
+**När Volkov nämns/ledtråd hittas:**
+- **Motståndscheck:** POW × 3% (36%)
+- **Framgång:** Kan fördröja/motstå (obehagligt)
+- **Misslyckande:** MÅSTE följa ledtråd omedelbart
+- **Kritiskt misslyckande:** Överger nuvarande uppgift
 
 **Sullivan can talk Mac down:** CHA × 5% check
 
-**Kristall presence:**
-- -20% mental resistance
-- Hallucinations intensify
-- Risk freeze response (POW check)
+**Kristallnärvaro:**
+- -20% mental motstånd
+- Hallucinationer intensifieras
+- Risk för frysrespons (POW-check)
 
-**Failed SAN check results:**
+**Misslyckad SAN-check resultat:**
 - **Minor (0-1 loss):** Flashback, -20% next roll
 - **Moderate (2-4):** Major flashback, can't act 1d6 rounds
 - **Major (5+):** Breakdown, violent outburst, eller catatonic
@@ -1494,28 +1494,28 @@ Inte att han dör. Att han misslyckas igen.
 
 ## FRAMTIDEN - TRIP 19
 
-**Potential outcomes:**
+**Potentiella utfall:**
 
-### Om Mac hittar Volkov (success)
+### Om Mac hittar Volkov (framgång)
 - **Best case:** Closure börjar healing
 - **Realistic:** Some relief, trauma remains
 - **Risk:** Volkov escapes AGAIN = definite second break
 
-### Om Mac hittar svar (partial success)
-- Some closure (why Flight 19, what Volkov wanted)
-- Obsession slightly reduced
-- Possible stabilization (stopped deteriorating)
+### Om Mac hittar svar (delvis framgång)
+- Viss avslutning (varför Flight 19, vad Volkov ville)
+- Besatthet något reducerad
+- Möjlig stabilisering (slutat försämras)
 
-### Om Mac misslyckas (no answers)
+### Om Mac misslyckas (inga svar)
 - Frustration intensifies
 - Obsession worsens
 - Second break inom månader
 
-### Om Mac har major trauma on mission
-- Second break possible MID-OPERATION
-- Dangerous för team
-- May require emergency extraction
-- Cardinal's nightmare scenario
+### Om Mac får stort trauma under uppdraget
+- Andra breaket möjligt MITT UNDER OPERATION
+- Farligt för teamet
+- Kan kräva akut evakuering
+- Cardinals mardrömsscenario
 
 ---
 

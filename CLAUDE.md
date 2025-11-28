@@ -111,13 +111,4 @@ Omfattande SL-resurser organiserade efter funktion:
 
 För alla sidor som skapas för SL under /SL-mappen: följ MALL_GUIDE.md
 
-Efter varje sida du skapat: gå igenom ALL text. ALL. Inte 100 första raderna utan ALL TEXT. Spara inte tokens - GÅ IGENOM ALL TEXT i de nya dokumenten du skapat. Dela upp arbetet och tvätta bort all engelska som inte ska vara där, översätt till svenska.
-
-Saker som kan vara kvar på engelska:
-- Facktermer
-- Speltermer (stats, willpower, Sanity etc.)
-- Egennamn (Delta Green, Trip 19, Volkov, Leningrad, etc.)
-- Tekniska CSS-klasser
-- Historiska citat som ska vara engelska
-
-Läs igenom TRANSLATION_RULES.md för fullständiga riktlinjer.
+Läs igenom TRANSLATION_RULES.md för fullständiga riktlinjer rörande språket som ska användas.

@@ -96,8 +96,8 @@
 | **Latin** | 0% | +50% | 50% | Kyrkospråk, religiösa texter |
 | **Ryska** | 0% | +20% | 20% | Rysk-ortodox teologi, kyrkoslaviska - akademiskt, aldrig flytande |
 | **Medicin** | 0% | +30% | 30% | Grundläggande medicinsk förståelse |
-| **Military Science** | 0% | +40% | 40% | Marines-taktik, organisation, protokoll |
-| **Persuade** | 20% | +40% | 60% | Övertalning, konfliktlösning, rådgivning |
+| **Militärvetenskap** | 0% | +40% | 40% | Marines-taktik, organisation, protokoll |
+| **Övertalning** | 20% | +40% | 60% | Övertalning, konfliktlösning, rådgivning |
 | **Psykoterapi** | 10% | +50% | 60% | Krisstöd, PTSD-hantering, grief counseling |
 | **Religion** | 0% | +70% | 70% | Katolsk teologi, komparativ religion, ritual, andlig vägledning |
 
@@ -105,12 +105,12 @@
 
 | Färdighet | Tillagt | Total | Beskrivning |
 |-----------|---------|-------|-------------|
-| **Bureaucracy** | +40% | 40% | Navy-system, Delta Green compartmentalization |
-| **Alertness** | +50% | 50% | Uppmärksamhet, känsla för fara |
+| **Byråkrati** | +40% | 40% | Navy-system, Delta Green compartmentalization |
+| **Uppmärksamhet** | +50% | 50% | Uppmärksamhet, känsla för fara |
 | **Skjutvapen** | +60% | 60% | Jaktvapen främst, avskyr pistoler |
-| **Computer Science** | +20% | 20% | Grundläggande användning, ej tech-savvy |
-| **Craft (Möbelrestaurering)** | +30% | 30% | Restaurerar antika kyrkbänkar och möbler som meditation |
-| **Survival** | +30% | 30% | Jakt, fiske, orientering i naturen |
+| **Datorvetenskap** | +20% | 20% | Grundläggande användning, ej tech-savvy |
+| **Hantverk (Möbelrestaurering)** | +30% | 30% | Restaurerar antika kyrkbänkar och möbler som meditation |
+| **Överlevnad** | +30% | 30% | Jakt, fiske, orientering i naturen |
 
 ### Specialiteter - Djupdykning
 
@@ -1041,7 +1041,7 @@ Alla tre bonds representerar något Sullivan har förlorat eller riskerar förlo
 
 Sullivan har läst Bibeln i tjugo år. Som präst kan han citera den ur minnet. Men efter Sea Glass har vissa citat börjat betyda något annat. Här är citat han återkommer till - i bön, i tvivel, i mörker.
 
-### Situationsbaserad Guide (för spel)
+### Situationsbaserad guide (för spel)
 
 #### 🔥 Under stress / panic
 

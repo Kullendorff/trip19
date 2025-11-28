@@ -56,39 +56,39 @@
 
 | Färdighet | Värde | Anteckningar |
 |-----------|-------|--------------|
-| **Medicine** | 80% | Kernskill - 6 år erfarenhet som ME |
-| **Forensics** | 60% | Dödsorsaksutredning, bevis |
-| **Science (Pathology)** | 60% | Specialisering |
-| **Science (Toxicology)** | 40% | Giftanalyser |
-| **Science (Biology)** | 40% | Väv- och cellanalys |
-| **Surgery** | 40% | Obduktionsskicklighet |
-| **Science (Chemistry)** | 30% | Lab-analyser |
+| **Medicin** | 80% | Kernskill - 6 år erfarenhet som ME |
+| **Rättsmedicin** | 60% | Dödsorsaksutredning, bevis |
+| **Vetenskap (Patologi)** | 60% | Specialisering |
+| **Vetenskap (Toxikologi)** | 40% | Giftanalyser |
+| **Vetenskap (Biologi)** | 40% | Väv- och cellanalys |
+| **Kirurgi** | 40% | Obduktionsskicklighet |
+| **Vetenskap (Kemi)** | 30% | Lab-analyser |
 
 ### Analytiska & Observationella
 
 | Färdighet | Värde | Anteckningar |
 |-----------|-------|--------------|
-| **Alertness** | 50% | Hypervigilans efter DG |
+| **Uppmärksamhet** | 50% | Hypervigilans efter DG |
 | **HUMINT** | 40% | Läser människor - professionellt och DG |
-| **Search** | 20% | Metodisk |
+| **Söka** | 20% | Metodisk |
 
 ### Språk & Kulturella
 
 | Färdighet | Värde | Anteckningar |
 |-----------|-------|--------------|
-| **Foreign Language (German)** | 50% | Flytande - pappa är tysk, Berlin 2010-2011 |
-| **Foreign Language (Latin)** | 30% | Medicinsk terminologi |
-| **History** | 20% | Konstnärligt intresse |
+| **Främmande språk (Tyska)** | 50% | Flytande - pappa är tysk, Berlin 2010-2011 |
+| **Främmande språk (Latin)** | 30% | Medicinsk terminologi |
+| **Historia** | 20% | Konstnärligt intresse |
 
 ### Praktiska Färdigheter
 
 | Färdighet | Värde | Anteckningar |
 |-----------|-------|--------------|
-| **Unarmed Combat (Krav Maga)** | 40% | Tränad Berlin 2010-2011, upprätthållet sporadiskt |
-| **Art (Sketch/Graffiti)** | 40% | Anatomisk street art, stencil-teknik |
-| **Music (Piano)** | 40% | 17 års tystnad (2004-2025), återupptaget |
-| **Drive** | 50% | 2019 Honda Civic |
-| **Computer Science** | 20% | Grundläggande |
+| **Obeväpnad strid (Krav Maga)** | 40% | Tränad Berlin 2010-2011, upprätthållet sporadiskt |
+| **Konst (Skiss/Graffiti)** | 40% | Anatomisk street art, stencil-teknik |
+| **Musik (Piano)** | 40% | 17 års tystnad (2004-2025), återupptaget |
+| **Köra** | 50% | 2019 Honda Civic |
+| **Datorvetenskap** | 20% | Grundläggande |
 
 ---
 
