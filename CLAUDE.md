@@ -112,3 +112,28 @@ Omfattande SL-resurser organiserade efter funktion:
 För alla sidor som skapas för SL under /SL-mappen: följ MALL_GUIDE.md
 
 Läs igenom TRANSLATION_RULES.md för fullständiga riktlinjer rörande språket som ska användas.
+
+### Custom Agents
+
+Projektet har 11 specialiserade agents i `.claude/agents/` för olika arbetsflöden. **Läs relevant agent VID BEHOV innan du utför uppgiften** - läs inte in alla automatiskt.
+
+**Innehållsskapande:**
+- `trip19-html-generator.md` - Generera HTML-sidor (SL-referenser, SL-scener, handouts, karaktärssidor) enligt MALL_GUIDE.md
+- `trip19-swedish-translator.md` - Översätt text enligt TRANSLATION_RULES.md
+- `historical-handout-designer.md` - Skapa autentiska 1940-tals handouts (brev, telegram, dagböcker, newspaper clippings)
+- `npc-personality-generator.md` - Skapa NPCs med djup, realistiska motivationer och hemligheter
+
+**Kampanjdesign:**
+- `delta-green-campaign-designer.md` - Designa slow-burn investigativa scener, mysteries och SAN-progression
+- `mystery-weaver.md` - Skapa clue chains med multiple paths, layered revelations och balanserade red herrings
+- `horror-pacing-advisor.md` - Råda om horror pacing, tension-building och SAN-loss guidelines
+
+**Quality Assurance:**
+- `campaign-state-documenter.md` - Uppdatera CURRENT_STATE.md med pågående/avslutat arbete
+- `translation-auditor.md` - Granska filer systematiskt mot TRANSLATION_RULES.md
+- `link-validator.md` - Validera internal links, image paths och navigation
+
+**Koordinering:**
+- `trip19-master.md` - Koordinerar andra agents för komplexa multi-step arbetsflöden
+
+**Användning:** När du får en uppgift som matchar en agent (t.ex. "skapa NPC", "översätt text", "skapa handout"), läs den relevanta agenten FÖRST innan du börjar arbeta. Följ agentens instruktioner exakt.
