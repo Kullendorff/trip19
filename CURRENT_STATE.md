@@ -1,7 +1,7 @@
 # CURRENT STATE - Trip 19 / Svarta Madonnan
 
 ## Senast uppdaterad
-2025-11-28
+2025-12-03
 
 ## Projektöversikt
 Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
@@ -17,6 +17,22 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
 Ingen aktiv uppgift för närvarande.
 
 ### Nyligen avslutat
+- **Custom Claude Code Agents**: 11 specialiserade agents skapade i `.claude/agents/` ✅
+  - Innehållsskapande (4): trip19-html-generator, trip19-swedish-translator, historical-handout-designer, npc-personality-generator
+  - Kampanjdesign (3): delta-green-campaign-designer, mystery-weaver, horror-pacing-advisor
+  - Quality Assurance (3): campaign-state-documenter, translation-auditor, link-validator
+  - Master (1): trip19-master (koordinerar andra agents)
+  - Totalt ~5,000 rader detaljerad dokumentation och arbetsflöden
+- **CLAUDE.md streamlinad**: Reducerad från 140 till 124 rader ✅
+  - Borttaget: Tekniska CSS-specs, specifika fillistings, redundans
+  - Behållit: Projektkontext, kampanjfilosofi, pointers till viktiga filer
+  - Tillagt: Custom Agents-sektion med beskrivningar
+  - Fokus: Kontext och filosofi, inte tekniska detaljer
+- **Cleanup**: Raderade gamla MD backup-filer ✅
+  - Character_MD/ (gamla separata MD-filer)
+  - MD_Backup_2025-01-14/ (arkiverad backup)
+  - Trench/ gamla MD-filer
+  - Complete.md-filer är nu source of truth
 - **Karaktärskonsolidering**: Kompletta karaktärsdokument för alla 5 spelarkaraktärer ✅
   - Mac_Complete.md ✅ (1,551 rader, konsoliderat från 8 HTML + 10 MD)
   - Sullivan_Complete.md ✅ (1,568 rader, konsoliderat från 8 HTML + 8 MD)
