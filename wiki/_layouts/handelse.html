@@ -1,0 +1,49 @@
+---
+layout: default
+---
+
+<article class="handelse">
+    <header class="handelse-header">
+        <h1>{{ page.namn }}</h1>
+        {% if page.datum %}
+        <p class="datum">{{ page.datum }}</p>
+        {% endif %}
+    </header>
+
+    <aside class="handelse-metadata">
+        {% if page.bild %}
+        <img src="{{ page.bild | relative_url }}" alt="{{ page.namn }}">
+        {% endif %}
+
+        <dl>
+            {% if page.plats %}
+            <dt>Plats:</dt>
+            <dd>{{ page.plats }}</dd>
+            {% endif %}
+
+            {% if page.kopplade_npcs %}
+            <dt>Involverade NPCs:</dt>
+            <dd>
+                <ul>
+                {% for npc in page.kopplade_npcs %}
+                    <li>{{ npc }}</li>
+                {% endfor %}
+                </ul>
+            </dd>
+            {% endif %}
+
+            {% if page.betydelse %}
+            <dt>Betydelse:</dt>
+            <dd>{{ page.betydelse }}</dd>
+            {% endif %}
+        </dl>
+    </aside>
+
+    <div class="handelse-content">
+        {{ content }}
+    </div>
+
+    <nav class="page-nav">
+        <a href="{{ '/handelser/' | relative_url }}">← Tillbaka till Händelser</a>
+    </nav>
+</article>

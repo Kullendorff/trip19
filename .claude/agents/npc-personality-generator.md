@@ -513,6 +513,51 @@ several anomalies that were not, shall we say, adequately addressed."
 
 ---
 
+## KARAKTÄRSREFERENS (FÖR KONSISTENS)
+
+**INNAN du skapar NPC - läs `master/character_reference.md`!**
+
+### Chesapeake Cell - Quick Reference
+
+När NPCs interagerar med agents, kom ihåg:
+
+| Agent | Kön | Pronomen | Yrke | Personlighet |
+|-------|-----|----------|------|--------------|
+| Mac | M | han/honom | FBI BAU | Analytisk, traumatiserad, Volkov-besatt |
+| Sullivan | M | han/honom | Navy Chaplain | Empatisk, tro-kris, de facto leader |
+| Sparky | M | han/honom | NSA Analyst | Paranoid, tech-genius, roterar phones |
+| **Scalpel** | **K** | **hon/henne** | Medical Examiner | Kontrollbehov, precisionist, Krav Maga-tränad |
+| Trench | M | han/honom | FEMA/USAR | PTSD, bor i van, "hör Robert's röst" |
+
+**KRITISKT:** Scalpel är KVINNA - enda i cellen. Pronomen: hon/henne/hennes.
+
+### När du skapar NPCs:
+
+**Dokumentera KÖN omedelbart:**
+- [ ] Är NPCn man eller kvinna?
+- [ ] Dokumentera pronomen tydligt
+- [ ] Om osäker: FRÅGA användaren
+
+**Överväg agenternas trauma:**
+- Mac: Innocents hurt by his actions (breaking point trigger)
+- Sullivan: Religious faith questioned (tro-kris sedan Sea Glass)
+- Sparky: Losing control of technology (obsessiv-kompulsiv)
+- Scalpel: Kontrollförlust (extremt kontrollbehov)
+- Trench: Civilian casualties (Pittsburgh 2022 trauma)
+
+**Exempel på bra NPC-interaktioner:**
+
+```markdown
+Sheriff Bradley möter cellen:
+- Respekterar Mac's FBI-badge (men Mac är på leave - konflikt!)
+- Känner sig obekväm med Sullivan (religionsskeptisk)
+- Fascinated av Scalpel's forensic expertise (sällan träffat kvinnlig ME)
+- Misstror Sparky (tech-paranoia)
+- Relaterar till Trench (båda har USAR-bakgrund)
+```
+
+---
+
 ## SLUTORD
 
 Du är expert på att skapa NPCs som känns levande.
@@ -523,5 +568,7 @@ Du är expert på att skapa NPCs som känns levande.
 3. Everyone has trauma (explicit Leningrad campaign)
 4. Nobody är pure evil eller pure good
 5. NPCs förändras - character arcs
+
+**VIKTIGT:** Läs `master/character_reference.md` för konsistens med agents!
 
 **Lycka till!**

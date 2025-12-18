@@ -1,0 +1,67 @@
+---
+layout: default
+---
+
+<article class="npc">
+    <header class="npc-header">
+        <h1>{{ page.namn }}</h1>
+        {% if page.alias %}
+        <p class="alias">
+            Alias: {{ page.alias | join: ', ' }}
+        </p>
+        {% endif %}
+    </header>
+
+    <aside class="npc-metadata">
+        {% if page.bild %}
+        <img src="{{ page.bild | relative_url }}" alt="{{ page.namn }}">
+        {% endif %}
+
+        <dl>
+            {% if page.roll %}
+            <dt>Roll:</dt>
+            <dd>{{ page.roll }}</dd>
+            {% endif %}
+
+            {% if page.status %}
+            <dt>Status:</dt>
+            <dd class="status-{{ page.status }}">{{ page.status }}</dd>
+            {% endif %}
+
+            {% if page.kopplingar %}
+            <dt>Kopplingar:</dt>
+            <dd>
+                <ul>
+                {% for koppling in page.kopplingar %}
+                    <li>{{ koppling }}</li>
+                {% endfor %}
+                </ul>
+            </dd>
+            {% endif %}
+
+            {% if page.platser %}
+            <dt>Platser:</dt>
+            <dd>
+                <ul>
+                {% for plats in page.platser %}
+                    <li>{{ plats }}</li>
+                {% endfor %}
+                </ul>
+            </dd>
+            {% endif %}
+
+            {% if page.hemligheter %}
+            <dt class="spoiler">Spoilers:</dt>
+            <dd class="spoiler">JA</dd>
+            {% endif %}
+        </dl>
+    </aside>
+
+    <div class="npc-content">
+        {{ content }}
+    </div>
+
+    <nav class="page-nav">
+        <a href="{{ '/npcs/' | relative_url }}">← Tillbaka till NPCs</a>
+    </nav>
+</article>

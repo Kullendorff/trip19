@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+<article class="plats">
+    <header class="plats-header">
+        <h1>{{ page.namn }}</h1>
+        {% if page.typ %}
+        <p class="plats-typ">{{ page.typ }}</p>
+        {% endif %}
+    </header>
+
+    <aside class="plats-metadata">
+        {% if page.bild %}
+        <img src="{{ page.bild | relative_url }}" alt="{{ page.namn }}">
+        {% endif %}
+
+        <dl>
+            {% if page.tidsperiod %}
+            <dt>Tidsperiod:</dt>
+            <dd>{{ page.tidsperiod }}</dd>
+            {% endif %}
+
+            {% if page.kopplade_npcs %}
+            <dt>Kopplade NPCs:</dt>
+            <dd>
+                <ul>
+                {% for npc in page.kopplade_npcs %}
+                    <li>{{ npc }}</li>
+                {% endfor %}
+                </ul>
+            </dd>
+            {% endif %}
+
+            {% if page.kopplade_handelser %}
+            <dt>Kopplade händelser:</dt>
+            <dd>
+                <ul>
+                {% for handelse in page.kopplade_handelser %}
+                    <li>{{ handelse }}</li>
+                {% endfor %}
+                </ul>
+            </dd>
+            {% endif %}
+        </dl>
+    </aside>
+
+    <div class="plats-content">
+        {{ content }}
+    </div>
+
+    <nav class="page-nav">
+        <a href="{{ '/platser/' | relative_url }}">← Tillbaka till Platser</a>
+    </nav>
+</article>

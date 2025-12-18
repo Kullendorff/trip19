@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+<article class="kapitel">
+    <header class="kapitel-header">
+        {% if page.nummer %}
+        <p class="kapitel-nummer">Kapitel {{ page.nummer }}</p>
+        {% endif %}
+        <h1>{{ page.titel }}</h1>
+        {% if page.synopsis %}
+        <p class="synopsis">{{ page.synopsis }}</p>
+        {% endif %}
+    </header>
+
+    <aside class="kapitel-metadata">
+        <dl>
+            {% if page.nyckel_npcs %}
+            <dt>Nyckelpersoner:</dt>
+            <dd>
+                <ul>
+                {% for npc in page.nyckel_npcs %}
+                    <li>{{ npc }}</li>
+                {% endfor %}
+                </ul>
+            </dd>
+            {% endif %}
+
+            {% if page.nyckel_platser %}
+            <dt>Nyckelplatser:</dt>
+            <dd>
+                <ul>
+                {% for plats in page.nyckel_platser %}
+                    <li>{{ plats }}</li>
+                {% endfor %}
+                </ul>
+            </dd>
+            {% endif %}
+
+            {% if page.ledtradar %}
+            <dt>Viktiga ledtrådar:</dt>
+            <dd>
+                <ul>
+                {% for ledtrad in page.ledtradar %}
+                    <li>{{ ledtrad }}</li>
+                {% endfor %}
+                </ul>
+            </dd>
+            {% endif %}
+        </dl>
+    </aside>
+
+    <div class="kapitel-content">
+        {{ content }}
+    </div>
+
+    <nav class="page-nav">
+        <a href="{{ '/kapitel/' | relative_url }}">← Tillbaka till Kapitel</a>
+    </nav>
+</article>

@@ -1,7 +1,7 @@
 # CURRENT STATE - Trip 19 / Svarta Madonnan
 
 ## Senast uppdaterad
-2025-12-03
+2025-12-18
 
 ## Projektöversikt
 Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
@@ -14,7 +14,41 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
 ## Senaste utveckling (från git-log)
 
 ### Pågående arbete
-Ingen aktiv uppgift för närvarande.
+**EON-Inspirerad Kontinuitetsstruktur** - Implementerad december 2025 ✅
+- **Setup**: Adapterat EON-projektets mogna kontinuitetssystem för Trip 19
+- **Nya filer skapade**:
+  - `_index.md` (Entry Point - obligatorisk läsning för agenter)
+  - `master/` mapp (Single Source of Truth)
+  - `master/timeline.md` (flyttad från rot)
+  - `master/character_reference.md` (centraliserad karaktärsreferens)
+  - `.claude/agents/trip19-chronicler.md` (kontinuitetsvaktare)
+- **Uppdaterade filer**:
+  - `CLAUDE.md` (entry point referens, 12 agenter)
+  - `.claude/agents/trip19-html-generator.md` (kontinuitetschecklista)
+  - `.claude/agents/npc-personality-generator.md` (karaktärsreferens)
+  - `.claude/agents/trip19-master.md` (ny agent i listan)
+- **Vinster**:
+  - Systematisk kontinuitetsvalidering (Scalpel-pronomen, Sullivan-yrkesroll, etc.)
+  - "Fråga hellre än gissa"-kultur etablerad
+  - Obligatoriska checklistor i agenter
+  - Snabb karaktärsreferens (undviker 15,000+ rader läsning)
+
+### Nyligen avslutat
+**Jekyll-baserad Kampanjwiki** - Skapad som komplement till befintliga HTML-sidor ✅
+- **Setup**: Jekyll + GitHub Pages (samma som EON kampanjwiki)
+- **Collections**: NPCs, Platser, Händelser, Mythos, Kapitel
+- **Innehåll skapat**:
+  - NPCs: Dmitri Volkov, Anton Mahler, Aleksandr Pogodin, Filip Kramer
+  - Platser: Lovettsville Crash Site, Berlin Slavic Association
+  - Händelser: Flight 19 Crash (1940), Leningrad nyårsnatt 1942
+  - Mythos: Black Madonna, Yithian-kraft
+  - Kapitel: Kapitel 1 (An Unexpected Meeting), Kapitel 6 (Leningrad - Slutet)
+- **Styling**: Mörkt Delta Green-tema (grön/mörkgrå, monospace)
+- **Layouts**: Custom HTML-layouts för varje collection-typ
+- **Navigation**: Global navigation mellan collections
+- **Redo för deployment**: GitHub Pages-kompatibel
+- **Plats**: `wiki/` i projektroten
+- **README**: Instruktioner för lokal utveckling och deployment
 
 ### Nyligen avslutat
 - **Custom Claude Code Agents**: 11 specialiserade agents skapade i `.claude/agents/` ✅
@@ -64,6 +98,19 @@ Ingen aktiv uppgift för närvarande.
 - Webbplats: HTML/CSS utan externa beroenden
 - Karaktärssidor: Komplett struktur med sidebar-navigation
 - SL-material: Följer MALL_GUIDE.md
+- **Kontinuitetssystem**: EON-inspirerad struktur med entry point, character reference, chronicler-agent
+
+## Projektstruktur (Efter omorganisation)
+```
+Trip19/
+├── _index.md                    # 🎯 ENTRY POINT (NY)
+├── master/                      # 📚 SINGLE SOURCE OF TRUTH (NY)
+│   ├── timeline.md              # Kampanjtidslinje (flyttad från rot)
+│   └── character_reference.md   # Chesapeake Cell-fakta (NY)
+├── .claude/agents/              # 12 agents (trip19-chronicler NY)
+├── Complete.md-filer            # Source of truth för karaktärer
+└── ...
+```
 
 ## Nästa steg
 - [Definieras av användaren]

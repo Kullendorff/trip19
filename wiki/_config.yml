@@ -1,0 +1,62 @@
+# Site settings
+title: "Trip 19: Svarta Madonnan - Kampanjwiki"
+description: "Spelledarens kampanjwiki för Delta Green-kampanjen Trip 19"
+baseurl: "/trip19"
+url: "https://kullendorff.github.io"
+
+# Build settings
+markdown: kramdown
+theme: minima
+
+# Collections
+collections:
+  npcs:
+    output: true
+    permalink: /npcs/:name/
+  platser:
+    output: true
+    permalink: /platser/:name/
+  handelser:
+    output: true
+    permalink: /handelser/:name/
+  mythos:
+    output: true
+    permalink: /mythos/:name/
+  kapitel:
+    output: true
+    permalink: /kapitel/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "npcs"
+    values:
+      layout: "npc"
+  - scope:
+      path: ""
+      type: "platser"
+    values:
+      layout: "plats"
+  - scope:
+      path: ""
+      type: "handelser"
+    values:
+      layout: "handelse"
+  - scope:
+      path: ""
+      type: "mythos"
+    values:
+      layout: "mythos"
+  - scope:
+      path: ""
+      type: "kapitel"
+    values:
+      layout: "kapitel"
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/

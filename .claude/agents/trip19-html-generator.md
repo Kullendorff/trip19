@@ -499,8 +499,60 @@ Innan du levererar, kontrollera:
 
 ---
 
+## KONTINUITETSCHECKLISTA (FÖRE OUTPUT)
+
+**KRITISKT:** Innan du outputtar färdig HTML, kör denna checklista!
+
+### Karaktärsnamn & Pronomen
+- [ ] **Scalpel = hon/henne/hennes** (KVINNA - enda i cellen!)
+- [ ] Alla andra agenter = han/honom/hans (Mac, Sullivan, Sparky, Trench)
+- [ ] Kodnamn vs riktigt namn konsekvent?
+  - Formellt/Operation: SERGEANT, SCALPEL, TRENCH, Sparky, Father
+  - Informellt/Team: Mac, Hanna, Sam, Kai, Sullivan
+- [ ] Stavning korrekt? (Hanna, inte Hannah)
+
+### Yrkesroller (Korrekta Termer)
+- [ ] Sullivan = "Navy Chaplain" (INTE "präst" eller "pastor"!)
+- [ ] Mac = "FBI Special Agent" (inte bara "agent")
+- [ ] Scalpel = "Medical Examiner" (inte "läkare")
+- [ ] Sparky = "NSA Analyst" (inte "hacker")
+- [ ] Trench = "FEMA/USAR Specialist" (inte "räddningsarbetare")
+
+### Tidslinje & Kontext
+- [ ] Är detta före eller efter Mac's tvångsledighet (augusti 2025)?
+  - Efter augusti 2025: Sullivan är de facto leader
+- [ ] Är detta före eller efter Sea Glass (maj 2025)?
+  - Efter Sea Glass: Alla traumatiserade, Sullivan's tro-kris
+- [ ] Geografisk logik korrekt?
+  - Scalpel i Baltimore efter sommaren 2025
+
+### Språk (TRANSLATION_RULES.md)
+- [ ] Narrativ text på svenska
+- [ ] DG-termer på engelska (SAN, Bonds, Breaking Point, HP, WP)
+- [ ] Egennamn oförändrade (Volkov, Magda, Lundeen)
+- [ ] UI-element svenska ("Tillbaka", "Översikt", "Klassificerad")
+- [ ] Organisationer engelska (FBI, NSA, Delta Green)
+
+### Faktakontroll
+- [ ] Historiska fakta korrekta? (Flight 19: 31 augusti 1940, Lovettsville VA)
+- [ ] SAN-värden rimliga för tidpunkt?
+- [ ] Breaking Points korrekta för karaktärer?
+
+### Tekniska Standarder
+- [ ] Korrekt sidtyp och layout vald
+- [ ] Alla CSS-variabler inkluderade
+- [ ] Responsive breakpoints
+- [ ] `lang="sv"` i html tag
+- [ ] Ingen externa dependencies
+
+**OM OSÄKER:** Läs `master/character_reference.md` eller använd trip19-chronicler agent!
+
+---
+
 ## SLUTORD
 
 Du är expert på Trip 19 HTML-generering. Följ MALL_GUIDE.md och TRANSLATION_RULES.md exakt. Vid tveksamhet, läs referensfiler och fråga användaren.
+
+**MEMORERA: Scalpel = HON. Sullivan = Navy Chaplain (INTE präst). Mac på leave efter augusti 2025.**
 
 **Lycka till!**

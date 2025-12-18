@@ -85,6 +85,11 @@ Spelarna kan researcha dessa RIKTIGA källor:
 
 ## Important Files & Standards
 
+**🎯 BÖRJA HÄR:**
+- `_index.md` - **ENTRY POINT** - Läs ALLTID denna fil FÖRST! Visar "var är vi nu?", arbetsflöden, Single Source of Truth
+- `master/character_reference.md` - Chesapeake Cell-fakta (SAN, pronomen, breaking points)
+- `master/timeline.md` - Kronologisk kampanjtidslinje
+
 **Vid sessionstart, läs:**
 - `CURRENT_STATE.md` - Nuvarande projektstatus
 - Denna fil (CLAUDE.md) - Projektkontext
@@ -99,7 +104,7 @@ Spelarna kan researcha dessa RIKTIGA källor:
 
 ## Custom Agents
 
-Projektet har 11 specialiserade agents i `.claude/agents/` för olika arbetsflöden. **Läs relevant agent VID BEHOV innan du utför uppgiften** - läs inte in alla automatiskt.
+Projektet har 12 specialiserade agents i `.claude/agents/` för olika arbetsflöden. **Läs relevant agent VID BEHOV innan du utför uppgiften** - läs inte in alla automatiskt.
 
 ### Innehållsskapande
 - `trip19-html-generator.md` - Generera HTML-sidor (SL-referenser, SL-scener, handouts, karaktärssidor) enligt MALL_GUIDE.md
@@ -116,8 +121,11 @@ Projektet har 11 specialiserade agents i `.claude/agents/` för olika arbetsflö
 - `campaign-state-documenter.md` - Uppdatera CURRENT_STATE.md med pågående/avslutat arbete
 - `translation-auditor.md` - Granska filer systematiskt mot TRANSLATION_RULES.md
 - `link-validator.md` - Validera internal links, image paths och navigation
+- `trip19-chronicler.md` - **NY!** Kontinuitetsvaktare - validerar SAN-status, pronomen, yrkesroller, tidslinje
 
 ### Koordinering
 - `trip19-master.md` - Koordinerar andra agents för komplexa multi-step arbetsflöden
 
 **Användning:** När du får en uppgift som matchar en agent (t.ex. "skapa NPC", "översätt text", "skapa handout"), läs den relevanta agenten FÖRST innan du börjar arbeta. Följ agentens instruktioner exakt.
+
+**VIKTIGT:** Använd `trip19-chronicler` när du är osäker på kontinuitet eller före commits med kampanjdata!

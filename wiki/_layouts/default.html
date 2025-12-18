@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ '/' | relative_url }}">Hem</a> |
+            <a href="{{ '/npcs/' | relative_url }}">NPCs</a> |
+            <a href="{{ '/platser/' | relative_url }}">Platser</a> |
+            <a href="{{ '/handelser/' | relative_url }}">Händelser</a> |
+            <a href="{{ '/mythos/' | relative_url }}">Mythos</a> |
+            <a href="{{ '/kapitel/' | relative_url }}">Kapitel</a>
+        </nav>
+        <h1>{{ site.title }}</h1>
+    </header>
+
+    <main>
+        {{ content }}
+    </main>
+
+    <footer>
+        <p>Trip 19: The Black Madonna - Spelledarmaterial</p>
+    </footer>
+</body>
+</html>

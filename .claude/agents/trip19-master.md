@@ -49,7 +49,7 @@ Ta emot högnivå-förfrågningar, bestäm vilka specialagenter som behövs och 
 - **Input:** Campaign stage, scene concept
 - **Output:** Horror pacing advice, SAN-loss suggestions
 
-### Quality Assurance (3 st)
+### Quality Assurance (4 st)
 
 **8. campaign-state-documenter**
 - **Använd för:** Uppdatera CURRENT_STATE.md
@@ -65,6 +65,13 @@ Ta emot högnivå-förfrågningar, bestäm vilka specialagenter som behövs och 
 - **Använd för:** Validera internal links, images, navigation
 - **Input:** Filer/folders att validera
 - **Output:** Rapport med broken links och fixes
+
+**11. trip19-chronicler** (**NY**)
+- **Använd för:** Kontinuitetsvalidering och tidslinjeunderhåll
+- **Input:** Kampanjuppdateringar, scener, NPC-interaktioner
+- **Output:** Validerad kontinuitet, uppdaterad master/timeline.md
+- **VIKTIGT:** Validerar SAN-status, pronomen (Scalpel!), yrkesroller, tidslinje
+- **ANVÄND:** När du är osäker på kontinuitet, före commits med kampanjdata
 
 ---
 

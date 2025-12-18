@@ -1,0 +1,216 @@
+/* Trip 19 Wiki - Delta Green Theme */
+
+:root {
+    --bg-dark: #0d1b0e;
+    --bg-medium: #1a2e1c;
+    --bg-light: #2a4a2e;
+    --text-primary: #d4e4d6;
+    --text-secondary: #a0b8a2;
+    --accent-green: #4a7c59;
+    --accent-danger: #8b2e2e;
+    --border-color: #3d5a40;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    background-color: var(--bg-medium);
+    padding: 20px;
+    border-left: 4px solid var(--accent-green);
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: var(--accent-green);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+nav {
+    margin-bottom: 15px;
+}
+
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-green);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+article {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 30px;
+    background-color: var(--bg-medium);
+    padding: 30px;
+    border: 1px solid var(--border-color);
+}
+
+article header {
+    grid-column: 1 / -1;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+article h1 {
+    color: var(--accent-green);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.alias, .plats-typ, .datum, .mythos-typ, .synopsis {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.kapitel-nummer {
+    color: var(--accent-green);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+aside {
+    background-color: var(--bg-light);
+    padding: 20px;
+    border-left: 3px solid var(--accent-green);
+    order: 2;
+}
+
+aside img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border: 2px solid var(--border-color);
+}
+
+dl {
+    margin: 0;
+}
+
+dt {
+    color: var(--accent-green);
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+dt:first-child {
+    margin-top: 0;
+}
+
+dd {
+    color: var(--text-secondary);
+    margin-left: 0;
+}
+
+dd ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+dd ul li:before {
+    content: "▸ ";
+    color: var(--accent-green);
+}
+
+.status-levande {
+    color: var(--accent-green);
+}
+
+.status-död {
+    color: var(--accent-danger);
+    text-decoration: line-through;
+}
+
+.spoiler {
+    color: var(--accent-danger);
+}
+
+.npc-content, .plats-content, .handelse-content, .mythos-content, .kapitel-content {
+    order: 1;
+}
+
+h2 {
+    color: var(--accent-green);
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: var(--text-primary);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+ul, ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.page-nav {
+    grid-column: 1 / -1;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.page-nav a {
+    color: var(--accent-green);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.page-nav a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    article {
+        grid-template-columns: 1fr;
+    }
+
+    aside {
+        order: -1;
+    }
+}

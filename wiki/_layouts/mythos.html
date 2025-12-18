@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<article class="mythos">
+    <header class="mythos-header">
+        <h1>{{ page.namn }}</h1>
+        {% if page.typ %}
+        <p class="mythos-typ">{{ page.typ }}</p>
+        {% endif %}
+    </header>
+
+    <aside class="mythos-metadata">
+        {% if page.bild %}
+        <img src="{{ page.bild | relative_url }}" alt="{{ page.namn }}">
+        {% endif %}
+
+        <dl>
+            {% if page.ursprung %}
+            <dt>Ursprung:</dt>
+            <dd>{{ page.ursprung }}</dd>
+            {% endif %}
+
+            {% if page.kopplingar %}
+            <dt>Kopplingar:</dt>
+            <dd>
+                <ul>
+                {% for koppling in page.kopplingar %}
+                    <li>{{ koppling }}</li>
+                {% endfor %}
+                </ul>
+            </dd>
+            {% endif %}
+
+            <dt class="spoiler">⚠ SPOILERS:</dt>
+            <dd class="spoiler">Mythos-material</dd>
+        </dl>
+    </aside>
+
+    <div class="mythos-content">
+        {{ content }}
+    </div>
+
+    <nav class="page-nav">
+        <a href="{{ '/mythos/' | relative_url }}">← Tillbaka till Mythos</a>
+    </nav>
+</article>
