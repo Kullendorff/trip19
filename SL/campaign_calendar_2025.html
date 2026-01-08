@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampanjkalender Sep-Nov 2025 | Trip 19</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0a;
+            --bg-darker: #050805;
+            --accent-red: #ff3366;
+            --accent-orange: #ff6b35;
+            --accent-blue: #4A90A4;
+            --text: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --border: #2d3d2d;
+            --mac: #4A90A4;
+            --sullivan: #b87333;
+            --sparky: #00ff88;
+            --scalpel: #c9a876;
+            --trench: #ff7f3f;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .header {
+            max-width: 1200px;
+            margin: 0 auto 2rem auto;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-red);
+            padding-bottom: 1.5rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--accent-red);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .month-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            background: var(--bg-darker);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+        }
+
+        .month-navigation button {
+            background: var(--accent-red);
+            color: var(--bg-dark);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .month-navigation button:hover {
+            background: var(--accent-orange);
+        }
+
+        .month-navigation button:disabled {
+            background: var(--border);
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .month-navigation h2 {
+            color: var(--accent-orange);
+            font-size: 1.8rem;
+        }
+
+        .calendar {
+            background: var(--bg-darker);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+
+        .calendar-header {
+            text-align: center;
+            padding: 0.75rem;
+            font-weight: bold;
+            color: var(--accent-orange);
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 0.5rem;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 0.5rem;
+            position: relative;
+            background: rgba(77, 77, 77, 0.2);
+            display: flex;
+            flex-direction: column;
+            min-height: 80px;
+        }
+
+        .calendar-day.empty {
+            background: transparent;
+            border: 1px dashed var(--border);
+            opacity: 0.3;
+        }
+
+        .calendar-day.today {
+            border: 2px solid var(--accent-blue);
+            box-shadow: 0 0 10px rgba(74, 144, 164, 0.5);
+        }
+
+        .day-number {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin-bottom: 0.25rem;
+        }
+
+        .calendar-day.has-event {
+            cursor: pointer;
+            background: rgba(255, 107, 53, 0.2);
+        }
+
+        .calendar-day.has-event.critical {
+            background: rgba(255, 51, 102, 0.25);
+            border-color: var(--accent-red);
+        }
+
+        .calendar-day.has-event:hover {
+            background: rgba(255, 107, 53, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .calendar-day.has-event.critical:hover {
+            background: rgba(255, 51, 102, 0.4);
+        }
+
+        .event-title {
+            font-size: 0.75rem;
+            color: var(--text);
+            line-height: 1.2;
+            margin-bottom: 0.25rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .character-dots {
+            display: flex;
+            gap: 3px;
+            margin-top: auto;
+            flex-wrap: wrap;
+        }
+
+        .character-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .character-dot.mac {
+            background: var(--mac);
+        }
+
+        .character-dot.sullivan {
+            background: var(--sullivan);
+        }
+
+        .character-dot.sparky {
+            background: var(--sparky);
+        }
+
+        .character-dot.scalpel {
+            background: var(--scalpel);
+        }
+
+        .character-dot.trench {
+            background: var(--trench);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bg-darker);
+            border: 3px solid var(--accent-red);
+            border-radius: 8px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            padding: 2rem;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent-red);
+            color: var(--bg-dark);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            background: var(--accent-orange);
+        }
+
+        .modal-date {
+            color: var(--accent-red);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .modal-title {
+            color: var(--accent-orange);
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-orange);
+            padding-bottom: 0.5rem;
+        }
+
+        .modal-content {
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .modal-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-characters {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .character-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .character-tag.mac {
+            background: rgba(74, 144, 164, 0.3);
+            color: #4A90A4;
+            border: 1px solid #4A90A4;
+        }
+
+        .character-tag.sullivan {
+            background: rgba(184, 115, 51, 0.3);
+            color: #b87333;
+            border: 1px solid #b87333;
+        }
+
+        .character-tag.sparky {
+            background: rgba(0, 255, 136, 0.3);
+            color: #00ff88;
+            border: 1px solid #00ff88;
+        }
+
+        .character-tag.scalpel {
+            background: rgba(201, 168, 118, 0.3);
+            color: #c9a876;
+            border: 1px solid #c9a876;
+        }
+
+        .character-tag.trench {
+            background: rgba(255, 127, 63, 0.3);
+            color: #ff7f3f;
+            border: 1px solid #ff7f3f;
+        }
+
+        .modal-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .modal-link:hover {
+            color: var(--accent-orange);
+        }
+
+        .legend {
+            margin-top: 2rem;
+            background: var(--bg-darker);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .legend h3 {
+            color: var(--accent-orange);
+            margin-bottom: 1rem;
+        }
+
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border);
+        }
+
+        .back-link a {
+            color: var(--accent-red);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .back-link a:hover {
+            color: var(--accent-orange);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .calendar-day {
+                min-height: 60px;
+                padding: 0.25rem;
+            }
+
+            .event-title {
+                font-size: 0.65rem;
+            }
+
+            .day-number {
+                font-size: 0.8rem;
+            }
+
+            .modal {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .month-navigation {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .calendar-day {
+                min-height: 50px;
+            }
+
+            .character-dots {
+                gap: 2px;
+            }
+
+            .character-dot {
+                width: 6px;
+                height: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>📅 KAMPANJKALENDER 2025</h1>
+        <div class="subtitle">Verkliga händelser - September till November</div>
+    </div>
+
+    <div class="container">
+        <div class="month-navigation">
+            <button id="prevMonth" onclick="changeMonth(-1)">← Föregående</button>
+            <h2 id="currentMonthTitle">September 2025</h2>
+            <button id="nextMonth" onclick="changeMonth(1)">Nästa →</button>
+        </div>
+
+        <div class="calendar">
+            <div class="calendar-grid">
+                <div class="calendar-header">Mån</div>
+                <div class="calendar-header">Tis</div>
+                <div class="calendar-header">Ons</div>
+                <div class="calendar-header">Tor</div>
+                <div class="calendar-header">Fre</div>
+                <div class="calendar-header">Lör</div>
+                <div class="calendar-header">Sön</div>
+            </div>
+            <div id="calendarDays" class="calendar-grid"></div>
+        </div>
+
+        <div class="legend">
+            <h3>Karaktärspåverkan</h3>
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <div class="legend-dot" style="background: var(--mac);"></div>
+                    <span>Mac Riley</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background: var(--sullivan);"></div>
+                    <span>Father Sullivan</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background: var(--sparky);"></div>
+                    <span>Kai "Sparky" Zhang</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background: var(--scalpel);"></div>
+                    <span>Hanna "Scalpel" Engler</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background: var(--trench);"></div>
+                    <span>Sam "Trench" Novak</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html">⬅ TILLBAKA TILL SL-MENY</a> |
+            <a href="us_politics_2025_timeline.html">📜 FULLSTÄNDIG TIDSLINJE</a>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modalOverlay" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-date" id="modalDate"></div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <div class="modal-content" id="modalContent"></div>
+            <div class="modal-characters" id="modalCharacters"></div>
+            <a href="us_politics_2025_timeline.html" class="modal-link">📜 Läs mer i fullständig tidslinje →</a>
+        </div>
+    </div>
+
+    <script>
+        // Event data extracted from timeline
+        const events = {
+            // SEPTEMBER 2025
+            '2025-09-03': {
+                title: 'Domstol: LA militär-deployment olaglig',
+                summary: 'Federal domare Charles Breyer: Militär deployment i Los Angeles bryter mot Posse Comitatus Act. Kostnaden för den olagliga deployeringen: 120 miljoner dollar.',
+                critical: false,
+                characters: []
+            },
+            '2025-09-04': {
+                title: 'Kampanjstart för Chesapeake Cell',
+                summary: 'Trip 19-kampanjen börjar officiellt. Agenterna samlas för första gången som en cell.',
+                critical: false,
+                characters: ['mac', 'sullivan', 'sparky', 'scalpel', 'trench']
+            },
+            '2025-09-10': {
+                title: '🔴 CHARLIE KIRK MÖRDAD',
+                summary: 'Charlie Kirk (31) skjuts till döds vid Utah Valley University. Ensamt skott från ca 142-150 yards avstånd träffar Kirk i nacken. Gärningsman flyr från taket.',
+                critical: true,
+                characters: []
+            },
+            '2025-09-11': {
+                title: 'Tyler Robinson gripen efter 33-timmars manhunt',
+                summary: 'Tyler Robinson (22), elektriker-lärling från Utah, gripen efter att ha erkänt för sin far. FBI fick över 7,000 tips - flest sedan Boston Marathon-bombningen.',
+                critical: true,
+                characters: []
+            },
+            '2025-09-13': {
+                title: 'Koordinerad doxxing-kampanj börjar',
+                summary: 'Över 30 personer över hela landet sparkas för sociala mediainlägg om Kirks död. Kampanj ledd av Laura Loomer och högerextrem senator.',
+                critical: true,
+                characters: []
+            },
+            '2025-09-16': {
+                title: 'Åtal mot Robinson',
+                summary: 'Utah County åklagare söker dödsstraff. 7 anklagelser inkl. aggravated murder. DNA på avtryckare, gevär och patronhylsor. Antifascistiska meddelanden på patronhylsor.',
+                critical: true,
+                characters: []
+            },
+            '2025-09-21': {
+                title: 'Rekordnivåer ICE-förvar',
+                summary: '59,762 personer i ICE-förvar enligt TRAC Reports. Högsta antalet ICE-gripanden någonsin registrerat.',
+                critical: false,
+                characters: ['scalpel']
+            },
+            // OKTOBER 2025
+            '2025-10-01': {
+                title: '🚨 FEDERAL REGERINGSSTÄNGNING BÖRJAR',
+                summary: '11:e regeringsstängningen i USA:s historia börjar. Kongress misslyckas med appropriations-lagstiftning. Demokrater kräver förlängning av ACA-subventioner.',
+                critical: true,
+                characters: ['mac', 'sparky', 'sullivan']
+            },
+            '2025-10-04': {
+                title: 'Chicago: National Guard-deployment auktoriseras',
+                summary: 'Trump auktoriserar 300 National Guard-trupper till Chicago. Federal domare beviljar tillfälligt föreläggande som blockerar deployment i 14 dagar.',
+                critical: false,
+                characters: ['trench']
+            },
+            '2025-10-08': {
+                title: 'Massprotester i Chicago',
+                summary: 'Hundratals demonstranter marscherar i centrala Chicago. Coalition Against the Trump Agenda organiserar protester mot National Guard och ICE.',
+                critical: false,
+                characters: []
+            },
+            '2025-10-14': {
+                title: 'Eskalerade ICE-räder på Chicagos North Side',
+                summary: 'ICE "strike teams" eskalerar räder medan National Guard-deployment förblir blockerad.',
+                critical: false,
+                characters: []
+            },
+            '2025-10-17': {
+                title: 'Federal anställda missar första lönen',
+                summary: 'Ca 670,000 federala arbetare permitterade. 730,000 ytterligare arbetare arbetar utan lön. Trump-admin flyttar pengar för att betala militär men inte civila.',
+                critical: true,
+                characters: ['mac', 'sparky']
+            },
+            '2025-10-31': {
+                title: 'Pentagon QRF-order',
+                summary: 'Pentagon beordrar alla delstater att utveckla "quick reaction forces" tränade för civil unrest. Måste vara operativa senast 1 januari 2026.',
+                critical: false,
+                characters: ['sullivan', 'trench']
+            },
+            // NOVEMBER 2025
+            '2025-11-04': {
+                title: '🗳️ DEMOKRATISK VÄLDSEGER',
+                summary: 'Massiva demokratiska vinster i Virginia och New Jersey. Spanberger blir Virginias första kvinnliga guvernör. Demokrater överträffar 2024-års marginaler avsevärt.',
+                critical: true,
+                characters: []
+            },
+            '2025-11-05': {
+                title: 'Regeringsstängning blir längsta i historien',
+                summary: 'Dag 35 överträffar 2018-2019 års rekord. LÄNGSTA FEDERALA REGERINGSSTÄNGNING I USA:S HISTORIA. 750,000 permitterade, 1.4 miljoner arbetar utan lön.',
+                critical: true,
+                characters: ['mac', 'sparky', 'sullivan']
+            },
+            '2025-11-09': {
+                title: 'Stängningen når 40 dagar - Serviceavbrott',
+                summary: '42 miljoner riskerar förlora food stamps. Över 1,530 flighter inställda. Flygmyndigheter beordrar flygplatser reducera flygtrafik.',
+                critical: true,
+                characters: []
+            },
+            '2025-11-10': {
+                title: 'Senaten antar reviderat förslag',
+                summary: 'Efter 14 misslyckanden antar Senaten reviderad appropriations-lagstiftning med kompromiss om ACA-subventioner.',
+                critical: false,
+                characters: []
+            },
+            '2025-11-12': {
+                title: '🎉 REGERINGSSTÄNGNING SLUTAR',
+                summary: 'Representanthuset röstar 222-209 för att avsluta stängningen. Trump undertecknar kl. 22:24 EST. 43 dagar total längd. Ny funding cliff: 30 januari 2026.',
+                critical: true,
+                characters: ['mac', 'sparky', 'sullivan']
+            },
+            '2025-11-15': {
+                title: 'Operation Charlotte\'s Web tillkännages',
+                summary: 'DHS tillkännager operation i Charlotte, NC för att "target criminal illegal aliens". Namnet (från barnboken) möter omedelbar kritik från EB Whites sondotter.',
+                critical: true,
+                characters: ['scalpel']
+            },
+            '2025-11-16': {
+                title: 'Charlotte: Största immigrationsräden i NC-historia',
+                summary: '81 personer gripna på lördag i Charlotte. Potentiellt största endagsräden i delstatens historia. Över 130 under helgen.',
+                critical: true,
+                characters: []
+            },
+            '2025-11-18': {
+                title: 'Charlotte-räder expanderar',
+                summary: 'Operationen sprider sig till Raleigh och andra NC-städer. Hög frånvaro vid Charlotte-skolor. NASCAR-företag tillhandahåller fordon till ICE.',
+                critical: false,
+                characters: []
+            },
+            '2025-11-20': {
+                title: '🔴 DC NATIONAL GUARD-DEPLOYMENT OLAGLIG',
+                summary: 'U.S. District Judge Jia M. Cobb: Pentagons deployment av National Guard till DC är olaglig. Verkställighet uppskjuten till 11 december för överklagande.',
+                critical: true,
+                characters: ['mac', 'sparky', 'sullivan']
+            }
+        };
+
+        let currentMonth = 8; // September (0-indexed)
+        let currentYear = 2025;
+
+        const monthNames = [
+            'Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni',
+            'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'
+        ];
+
+        function getDaysInMonth(year, month) {
+            return new Date(year, month + 1, 0).getDate();
+        }
+
+        function getFirstDayOfMonth(year, month) {
+            // Get day of week (0=Sunday, 1=Monday, etc) and adjust to Monday=0
+            let day = new Date(year, month, 1).getDay();
+            return day === 0 ? 6 : day - 1; // Convert Sunday from 0 to 6
+        }
+
+        function renderCalendar() {
+            const calendarDays = document.getElementById('calendarDays');
+            const monthTitle = document.getElementById('currentMonthTitle');
+
+            monthTitle.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+
+            // Clear previous calendar
+            calendarDays.innerHTML = '';
+
+            const daysInMonth = getDaysInMonth(currentYear, currentMonth);
+            const firstDay = getFirstDayOfMonth(currentYear, currentMonth);
+
+            // Add empty cells for days before month starts
+            for (let i = 0; i < firstDay; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.className = 'calendar-day empty';
+                calendarDays.appendChild(emptyDay);
+            }
+
+            // Add days of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const dayElement = document.createElement('div');
+                dayElement.className = 'calendar-day';
+
+                // Check if today
+                const today = new Date();
+                if (currentYear === today.getFullYear() &&
+                    currentMonth === today.getMonth() &&
+                    day === today.getDate()) {
+                    dayElement.classList.add('today');
+                }
+
+                // Day number
+                const dayNumber = document.createElement('div');
+                dayNumber.className = 'day-number';
+                dayNumber.textContent = day;
+                dayElement.appendChild(dayNumber);
+
+                // Check if event exists
+                const event = events[dateStr];
+                if (event) {
+                    dayElement.classList.add('has-event');
+                    if (event.critical) {
+                        dayElement.classList.add('critical');
+                    }
+
+                    // Event title
+                    const eventTitle = document.createElement('div');
+                    eventTitle.className = 'event-title';
+                    eventTitle.textContent = event.title;
+                    dayElement.appendChild(eventTitle);
+
+                    // Character dots
+                    if (event.characters && event.characters.length > 0) {
+                        const dotsContainer = document.createElement('div');
+                        dotsContainer.className = 'character-dots';
+
+                        event.characters.forEach(char => {
+                            const dot = document.createElement('div');
+                            dot.className = `character-dot ${char}`;
+                            dotsContainer.appendChild(dot);
+                        });
+
+                        dayElement.appendChild(dotsContainer);
+                    }
+
+                    // Add click handler
+                    dayElement.onclick = () => openModal(dateStr, event);
+                }
+
+                calendarDays.appendChild(dayElement);
+            }
+
+            // Update navigation buttons
+            updateNavButtons();
+        }
+
+        function updateNavButtons() {
+            const prevButton = document.getElementById('prevMonth');
+            const nextButton = document.getElementById('nextMonth');
+
+            // Disable prev if at September 2025
+            prevButton.disabled = (currentYear === 2025 && currentMonth === 8);
+
+            // Disable next if at November 2025
+            nextButton.disabled = (currentYear === 2025 && currentMonth === 10);
+        }
+
+        function changeMonth(direction) {
+            currentMonth += direction;
+
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            } else if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+
+            renderCalendar();
+        }
+
+        function openModal(dateStr, event) {
+            const modal = document.getElementById('modalOverlay');
+            const modalDate = document.getElementById('modalDate');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+            const modalCharacters = document.getElementById('modalCharacters');
+
+            // Format date
+            const [year, month, day] = dateStr.split('-');
+            const monthName = monthNames[parseInt(month) - 1].toUpperCase();
+            modalDate.textContent = `${parseInt(day)} ${monthName} ${year}`;
+
+            modalTitle.textContent = event.title;
+            modalContent.innerHTML = `<p>${event.summary}</p>`;
+
+            // Add character tags
+            modalCharacters.innerHTML = '';
+            if (event.characters && event.characters.length > 0) {
+                event.characters.forEach(char => {
+                    const tag = document.createElement('span');
+                    tag.className = `character-tag ${char}`;
+                    const charNames = {
+                        mac: 'MAC',
+                        sullivan: 'SULLIVAN',
+                        sparky: 'SPARKY',
+                        scalpel: 'SCALPEL',
+                        trench: 'TRENCH'
+                    };
+                    tag.textContent = charNames[char];
+                    modalCharacters.appendChild(tag);
+                });
+            }
+
+            modal.classList.add('active');
+        }
+
+        function closeModal(event) {
+            if (!event || event.target.id === 'modalOverlay') {
+                document.getElementById('modalOverlay').classList.remove('active');
+            }
+        }
+
+        // Initialize calendar on page load
+        renderCalendar();
+    </script>
+</body>
+
+</html>
