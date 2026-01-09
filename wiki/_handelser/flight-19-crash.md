@@ -71,4 +71,4 @@ Pennsylvania Central Airlines Flight 19 kraschade och dödade 25 personer, inklu
 - **Leningrad 1942** - Samma teknologi
 - **Dmitri Volkov** - Jagar fragment
 - **Black Madonna** - Kristallen från Leningrad
-- **Christmas Mall** - Volkovs desperation
+- **Cherry Hill Mall** - Volkovs desperation

@@ -306,7 +306,7 @@
 ### **KRISTALL-NÄTVERKET:**
 1. **Type-VII** (Trip 19, 1940) → Lovettsville
 2. **Type-VIII** (Leningrad, 1942) → Sankt Petersburg  
-3. **Sovjetisk kub** (Camp S-17) → Christmas Mall
+3. **Sovjetisk kub** (Camp S-17) → Cherry Hill Mall
 4. **Fragment** i Anton, Sasha, Filip → Berlin
 
 ### **AKTÖRER:**

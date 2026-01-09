@@ -10,7 +10,7 @@
 ## 2025 - KAMPANJENS ÅR
 
 ### **Januari-Februari 2025**
-- Mac researchar Volkov obsessivt efter Christmas Mall
+- Mac researchar Volkov obsessivt efter Cherry Hill Mall
 - Bygger sin "Volkov board"
 - Sparky återhämtar sig från MOSSAD-uppdraget
 - Sullivan fortsätter Navy Chaplain-arbete

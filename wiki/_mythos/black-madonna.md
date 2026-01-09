@@ -59,7 +59,7 @@ Kristallen finns i **fragment** spridda över världen:
 Volkov jagar fragment världen över:
 - **Mål:** Samla alla fragment
 - **Motivation:** Återskapa Leningrad 1942
-- **Metoder:** Extrema - Christmas Mall-massakern
+- **Metoder:** Extrema - Cherry Hill Mall-massakern
 - **Nuvarande:** Okänd plats, rörlig
 
 ## TYPE-VII OCH TYPE-VIII

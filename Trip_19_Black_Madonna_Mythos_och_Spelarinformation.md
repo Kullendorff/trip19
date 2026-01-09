@@ -197,7 +197,7 @@ Detta dokument täcker:
 - Researcht Trip 19, Roswell, Philadelphia Experiment
 - 2019: Började fokusera på kristaller och Leningrad
 
-**Christmas Mall (december 2024):**
+**Cherry Hill Mall (december 2024):**
 - Förklarar vi inte fullt ut i denna kampanj (spelarna kanske spelade den)
 - Han exponerades för sovjetisk kristallkub
 - Fick första Yithian mind-bleed
@@ -428,7 +428,7 @@ Om någon håller fragmenten:
 - 🤔 Det här är inte bara metallurgi eller teknologi
 - 🤔 Det påverkar hjärnan/medvetandet direkt
 - 🤔 Volkov letade efter dessa specifika fragment
-- 🤔 Om Christmas Mall: "Samma sak som Volkovs låda!"
+- 🤔 Om Cherry Hill Mall: "Samma sak som Volkovs låda!"
 
 ---
 

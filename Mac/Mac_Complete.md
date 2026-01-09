@@ -313,7 +313,7 @@ Mac gjorde också 15-20 "falsk flagg"-operationer - undersökningar som visade s
 
 #### Operation 6: MALL BEFORE CHRISTMAS (23 December 2024) - MISSION FAILURE
 
-**Cherry Hill Mall, New Jersey. Volkov. Kristallkub. 14 civila döda.**
+**Cherry Hill Mall, New Jersey. Volkov. Kristallkub. 12 civila döda.**
 
 **Team:** Mac (leader), Sullivan, Sparky, + 2 andra agents
 
@@ -321,14 +321,14 @@ Mac gjorde också 15-20 "falsk flagg"-operationer - undersökningar som visade s
 - Dmitri Volkov bar mahognylåda med röd kristallkub
 - Kristallen aktiverades
 - "Smittade" människor → zombie-kannibaler (liknar 28 Days Later)
-- 14 civila dog innan containment
+- 12 civila dog innan containment
 - Mac jag**Volkov på taket**
 - Clean shot, vind, snö, Volkov rörde sig
 - **MAC MISSADE**
 - Volkov hoppade 4 våningar, överlevde, försvann
 
 **Aftermath:**
-- 14 deaths tyngde på Mac
+- 12 deaths tyngde på Mac
 - Första mission failure
 - Volkov escaped = Mac's fault (i hans huvud)
 - Cover story: "Gas leak, mall evacuerad"

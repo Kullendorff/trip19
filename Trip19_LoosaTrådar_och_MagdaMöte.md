@@ -135,7 +135,7 @@ Liten by, lantlig, tyst. "Där tid stannade"-känsla.
 - Officiellt: St. Elmo's fire
 
 **Vad vi kan hitta på:**
-- Samma fenomen som Christmas Mall
+- Samma fenomen som Cherry Hill Mall
 - Kristall-aktivering skapar blått ljus
 - Piloter blev desorienterade av ljuset
 

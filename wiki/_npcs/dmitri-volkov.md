@@ -4,7 +4,7 @@ namn: "Dmitri Volkov"
 alias: ["V. Petrov", "D. Sokolov", "The Professor"]
 status: "levande"
 roll: "Primär antagonist - Rysk kristalljägare"
-kopplingar: ["Black Madonna", "Leningrad 1942", "Kristallfragment", "Christmas Mall-massakern"]
+kopplingar: ["Black Madonna", "Leningrad 1942", "Kristallfragment", "Cherry Hill Mall-massakern"]
 platser: ["Okänd (rörlig)", "Leningrad", "Kola Peninsula"]
 hemligheter: true
 ---
@@ -21,12 +21,12 @@ hemligheter: true
 - **Status:** Aktiv och farlig
 
 ## SAMMANFATTNING
-Rysk konspirationsteoretiker och kristalljägare. Ansvarig för Christmas Mall-massakern. Jagar Type-VII/VIII fragment världen över. Besatt av att återskapa Leningrad 1942 - men under kontroll.
+Rysk konspirationsteoretiker och kristalljägare. Ansvarig för Cherry Hill Mall-massakern. Jagar Type-VII/VIII fragment världen över. Besatt av att återskapa Leningrad 1942 - men under kontroll.
 
 ## HISTORIK
 - **Koppling till Leningrad 1942:** Volkov undersöker vad som hände nyårsnatt 1942
 - **Kristallfragment:** Aktivt jagande av Type-VII/VIII-fragment över hela världen
-- **Christmas Mall:** Ansvarig för massakern - använder extrema metoder
+- **Cherry Hill Mall:** Ansvarig för massakern - använder extrema metoder
 
 ## MOTIVATIONER
 - Återskapa händelserna från Leningrad 1942

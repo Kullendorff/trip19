@@ -1423,7 +1423,7 @@ Military presence expected to remain "indefinitely."
 #### **2. Volkovs verkliga mål?**
 
 **Vi vet:**
-- Överlevde Christmas Mall (delvis transformerad?)
+- Överlevde Cherry Hill Mall (delvis transformerad?)
 - Researcht Trip 19 i åratal
 - Kontaktade Magda 2019
 - På väg till Lovettsville 2025
