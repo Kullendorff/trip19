@@ -1,7 +1,7 @@
 # CURRENT STATE - Trip 19 / Svarta Madonnan
 
 ## Senast uppdaterad
-2025-12-18
+2026-01-09
 
 ## Projektöversikt
 Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
@@ -14,6 +14,39 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
 ## Senaste utveckling (från git-log)
 
 ### Pågående arbete
+**Kontinuitetsfix: Volkov-massakern** - Fixad januari 2026 ✅
+- **Problem upptäckt**: Diskrepans mellan FBI-PDFer och kampanjdata
+  - PDF-filer (officiell, Mac-annoterad, Sparky-annoterad): "Cherry Hill Mall, New Jersey" + 12 döda
+  - Kampanjfiler: Blandning av "Christmas Mall" och felaktiga dödsantal (14/23)
+- **Lösning**: PDFerna var korrekta - kampanjfilerna behövde fixas
+- **Ändringar**: 17 filer uppdaterade
+  - Mall-namn: "Christmas Mall" → "Cherry Hill Mall, New Jersey"
+  - Dödsantal: 14/23 → 12 döda (konsistent överallt)
+  - Plats: "WASHINGTON DC" → "CHERRY HILL, NEW JERSEY"
+- **Verifiering**: Inga kvarvarande diskrepanser
+- **Commit**: `0f8c68e` - "Fixa Volkov-massakern: Cherry Hill Mall, NJ + 12 döda"
+
+**Kampanjkalender 2025** - Skapad januari 2026 ✅
+- **Fil**: `SL/campaign_calendar_2025.html`
+- **Funktion**: Google Calendar-liknande månadsvy för verkliga händelser sep-nov 2025
+- **Features**:
+  - Månadsnavigering (← September → Oktober → November →)
+  - Klickbara dagar med modaler (kompakt sammanfattning, länk till fullständig tidslinje)
+  - Karaktärstaggar (färgade prickar på dagar som påverkar Chesapeake Cell)
+  - 20+ händelser inkluderade (Charlie Kirk-mordet, regeringsstängning, ICE-räder, etc.)
+- **Design**: Delta Green-tema, responsive (mobil/tablet/desktop)
+- **Integration**: Länkad från SL/index.html
+- **Commit**: `36d8ef9` - "Skapa kampanjkalender 2025 med månadsvy och händelsemodaler"
+
+**Karaktärsuppdateringar** - Januari 2026 ✅
+- **Trench Pittsburgh-sida**: Ny wide hero banner-bild (trench_civil.png, 16:9 format)
+- **Scalpel personligt.html**: Ny träningssektion tillagd
+  - Krav Maga-bakgrund (Berlin 2010-2011, Schöneberg-gymmet)
+  - Nuvarande status: Stoppade träningen, behöver återuppta efter DG-operation
+  - Tre gym-alternativ i Baltimore (ej valt än): Krav Maga Maryland, Merritt Clubs, BJJMMA
+- **Commits**: `9aa401c`, `266e610`
+
+### Tidigare arbete
 **EON-Inspirerad Kontinuitetsstruktur** - Implementerad december 2025 ✅
 - **Setup**: Adapterat EON-projektets mogna kontinuitetssystem för Trip 19
 - **Nya filer skapade**:
