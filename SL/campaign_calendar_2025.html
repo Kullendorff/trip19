@@ -18,6 +18,7 @@
             --accent-red: #ff3366;
             --accent-orange: #ff6b35;
             --accent-blue: #4A90A4;
+            --accent-green: #00ff88;
             --text: #e0e0e0;
             --text-dim: #a0a0a0;
             --border: #2d3d2d;
@@ -37,7 +38,7 @@
         }
 
         .header {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto 2rem auto;
             text-align: center;
             border-bottom: 3px solid var(--accent-red);
@@ -59,8 +60,136 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+        }
+
+        /* Controls Section */
+        .controls {
+            background: var(--bg-darker);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .control-section h3 {
+            color: var(--accent-orange);
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--bg-dark);
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .filter-group {
+            margin-bottom: 1rem;
+        }
+
+        .filter-group label {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            cursor: pointer;
+        }
+
+        .checkbox-item.checked {
+            background: rgba(255, 107, 53, 0.2);
+            border-color: var(--accent-orange);
+        }
+
+        /* Progress Marker Section */
+        .progress-marker-section {
+            grid-column: 1 / -1;
+            padding-top: 1rem;
+            border-top: 2px solid var(--border);
+            margin-top: 1rem;
+        }
+
+        .progress-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .progress-controls input[type="date"] {
+            padding: 0.5rem;
+            background: var(--bg-dark);
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .progress-controls button {
+            padding: 0.5rem 1rem;
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .progress-controls button:hover {
+            background: var(--accent-orange);
+        }
+
+        .progress-controls .clear-btn {
+            background: var(--accent-red);
+        }
+
+        .progress-info {
+            color: var(--accent-green);
+            font-weight: bold;
         }
 
         .month-navigation {
@@ -147,6 +276,19 @@
             box-shadow: 0 0 10px rgba(74, 144, 164, 0.5);
         }
 
+        .calendar-day.progress-marker {
+            border: 3px solid var(--accent-green);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.6);
+        }
+
+        .calendar-day.progress-marker::before {
+            content: '🎯';
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            font-size: 1rem;
+        }
+
         .day-number {
             font-size: 0.9rem;
             color: var(--text-dim);
@@ -173,6 +315,11 @@
             background: rgba(255, 51, 102, 0.4);
         }
 
+        .calendar-day.filtered-out {
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
         .event-title {
             font-size: 0.75rem;
             color: var(--text);
@@ -180,6 +327,39 @@
             margin-bottom: 0.25rem;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        .category-badge {
+            font-size: 0.7rem;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            margin-bottom: 0.25rem;
+            display: inline-block;
+        }
+
+        .category-badge.political {
+            background: rgba(74, 144, 164, 0.3);
+            color: #4A90A4;
+        }
+
+        .category-badge.violence {
+            background: rgba(255, 51, 102, 0.3);
+            color: #ff3366;
+        }
+
+        .category-badge.law_enforcement {
+            background: rgba(255, 127, 63, 0.3);
+            color: #ff7f3f;
+        }
+
+        .category-badge.delta_green {
+            background: rgba(0, 255, 136, 0.3);
+            color: #00ff88;
+        }
+
+        .category-badge.personal {
+            background: rgba(201, 168, 118, 0.3);
+            color: #c9a876;
         }
 
         .character-dots {
@@ -309,6 +489,10 @@
             margin-bottom: 0.5rem;
         }
 
+        .modal-category {
+            margin-bottom: 1rem;
+        }
+
         .modal-characters {
             display: flex;
             gap: 0.5rem;
@@ -352,6 +536,53 @@
             background: rgba(255, 127, 63, 0.3);
             color: #ff7f3f;
             border: 1px solid #ff7f3f;
+        }
+
+        /* GM Notes Section */
+        .gm-notes-section {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--border);
+        }
+
+        .gm-notes-section h3 {
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gm-notes-textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 0.75rem;
+            background: var(--bg-dark);
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            resize: vertical;
+        }
+
+        .gm-notes-textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .gm-notes-save {
+            margin-top: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .gm-notes-save:hover {
+            background: var(--accent-green);
         }
 
         .modal-link {
@@ -415,6 +646,12 @@
             color: var(--accent-orange);
         }
 
+        @media (max-width: 1024px) {
+            .controls-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 1rem;
@@ -439,6 +676,10 @@
 
             .modal {
                 padding: 1.5rem;
+            }
+
+            .checkbox-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -471,6 +712,73 @@
     </div>
 
     <div class="container">
+        <!-- Controls Section -->
+        <div class="controls">
+            <div class="controls-grid">
+                <!-- Search -->
+                <div class="control-section">
+                    <h3>🔍 Sök händelser</h3>
+                    <input type="text" id="searchBox" class="search-box" placeholder="Sök i titlar och beskrivningar...">
+                </div>
+
+                <!-- Filters -->
+                <div class="control-section">
+                    <h3>🎯 Filtrera</h3>
+
+                    <div class="filter-group">
+                        <label>Karaktärer:</label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-item" id="filter-mac-label">
+                                <input type="checkbox" id="filter-mac" checked onchange="applyFilters()">
+                                <span>Mac Riley</span>
+                            </label>
+                            <label class="checkbox-item" id="filter-sullivan-label">
+                                <input type="checkbox" id="filter-sullivan" checked onchange="applyFilters()">
+                                <span>Sullivan</span>
+                            </label>
+                            <label class="checkbox-item" id="filter-sparky-label">
+                                <input type="checkbox" id="filter-sparky" checked onchange="applyFilters()">
+                                <span>Sparky</span>
+                            </label>
+                            <label class="checkbox-item" id="filter-scalpel-label">
+                                <input type="checkbox" id="filter-scalpel" checked onchange="applyFilters()">
+                                <span>Scalpel</span>
+                            </label>
+                            <label class="checkbox-item" id="filter-trench-label">
+                                <input type="checkbox" id="filter-trench" checked onchange="applyFilters()">
+                                <span>Trench</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Typ:</label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-item" id="filter-critical-label">
+                                <input type="checkbox" id="filter-critical" checked onchange="applyFilters()">
+                                <span>Kritiska</span>
+                            </label>
+                            <label class="checkbox-item" id="filter-normal-label">
+                                <input type="checkbox" id="filter-normal" checked onchange="applyFilters()">
+                                <span>Normala</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Campaign Progress Marker -->
+                <div class="control-section progress-marker-section">
+                    <h3>🎯 Kampanjprogress</h3>
+                    <div class="progress-controls">
+                        <input type="date" id="progressDate" value="2025-09-04">
+                        <button onclick="setProgressMarker()">Sätt marker</button>
+                        <button class="clear-btn" onclick="clearProgressMarker()">Rensa</button>
+                        <span class="progress-info" id="progressInfo"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="month-navigation">
             <button id="prevMonth" onclick="changeMonth(-1)">← Föregående</button>
             <h2 id="currentMonthTitle">September 2025</h2>
@@ -514,6 +822,30 @@
                     <span>Sam "Trench" Novak</span>
                 </div>
             </div>
+
+            <h3 style="margin-top: 1.5rem;">Event-kategorier</h3>
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <span>🏛️</span>
+                    <span>Political</span>
+                </div>
+                <div class="legend-item">
+                    <span>🔴</span>
+                    <span>Violence</span>
+                </div>
+                <div class="legend-item">
+                    <span>👮</span>
+                    <span>Law Enforcement</span>
+                </div>
+                <div class="legend-item">
+                    <span>🎲</span>
+                    <span>Delta Green</span>
+                </div>
+                <div class="legend-item">
+                    <span>👤</span>
+                    <span>Personal</span>
+                </div>
+            </div>
         </div>
 
         <div class="back-link">
@@ -528,168 +860,241 @@
             <button class="modal-close" onclick="closeModal()">×</button>
             <div class="modal-date" id="modalDate"></div>
             <h2 class="modal-title" id="modalTitle"></h2>
+            <div class="modal-category" id="modalCategory"></div>
             <div class="modal-content" id="modalContent"></div>
             <div class="modal-characters" id="modalCharacters"></div>
+
+            <!-- GM Notes Section -->
+            <div class="gm-notes-section">
+                <h3>📝 SL-Anteckningar (privata)</h3>
+                <textarea id="gmNotesTextarea" class="gm-notes-textarea" placeholder="Lägg till anteckningar för denna händelse..."></textarea>
+                <button class="gm-notes-save" onclick="saveGMNotes()">💾 Spara anteckningar</button>
+            </div>
+
             <a href="us_politics_2025_timeline.html" class="modal-link">📜 Läs mer i fullständig tidslinje →</a>
         </div>
     </div>
 
     <script>
-        // Event data extracted from timeline
+        // Event data with categories
         const events = {
             // SEPTEMBER 2025
             '2025-09-03': {
                 title: 'Domstol: LA militär-deployment olaglig',
                 summary: 'Federal domare Charles Breyer: Militär deployment i Los Angeles bryter mot Posse Comitatus Act. Kostnaden för den olagliga deployeringen: 120 miljoner dollar.',
                 critical: false,
-                characters: []
+                characters: [],
+                category: 'political'
             },
             '2025-09-04': {
                 title: 'Kampanjstart för Chesapeake Cell',
                 summary: 'Trip 19-kampanjen börjar officiellt. Agenterna samlas för första gången som en cell.',
                 critical: false,
-                characters: ['mac', 'sullivan', 'sparky', 'scalpel', 'trench']
+                characters: ['mac', 'sullivan', 'sparky', 'scalpel', 'trench'],
+                category: 'delta_green'
             },
             '2025-09-10': {
                 title: '🔴 CHARLIE KIRK MÖRDAD',
                 summary: 'Charlie Kirk (31) skjuts till döds vid Utah Valley University. Ensamt skott från ca 142-150 yards avstånd träffar Kirk i nacken. Gärningsman flyr från taket.',
                 critical: true,
-                characters: []
+                characters: [],
+                category: 'violence'
             },
             '2025-09-11': {
                 title: 'Tyler Robinson gripen efter 33-timmars manhunt',
                 summary: 'Tyler Robinson (22), elektriker-lärling från Utah, gripen efter att ha erkänt för sin far. FBI fick över 7,000 tips - flest sedan Boston Marathon-bombningen.',
                 critical: true,
-                characters: []
+                characters: [],
+                category: 'law_enforcement'
             },
             '2025-09-13': {
                 title: 'Koordinerad doxxing-kampanj börjar',
                 summary: 'Över 30 personer över hela landet sparkas för sociala mediainlägg om Kirks död. Kampanj ledd av Laura Loomer och högerextrem senator.',
                 critical: true,
-                characters: []
+                characters: [],
+                category: 'political'
             },
             '2025-09-16': {
                 title: 'Åtal mot Robinson',
                 summary: 'Utah County åklagare söker dödsstraff. 7 anklagelser inkl. aggravated murder. DNA på avtryckare, gevär och patronhylsor. Antifascistiska meddelanden på patronhylsor.',
                 critical: true,
-                characters: []
+                characters: [],
+                category: 'law_enforcement'
             },
             '2025-09-21': {
                 title: 'Rekordnivåer ICE-förvar',
                 summary: '59,762 personer i ICE-förvar enligt TRAC Reports. Högsta antalet ICE-gripanden någonsin registrerat.',
                 critical: false,
-                characters: ['scalpel']
+                characters: ['scalpel'],
+                category: 'law_enforcement'
             },
             // OKTOBER 2025
             '2025-10-01': {
                 title: '🚨 FEDERAL REGERINGSSTÄNGNING BÖRJAR',
                 summary: '11:e regeringsstängningen i USA:s historia börjar. Kongress misslyckas med appropriations-lagstiftning. Demokrater kräver förlängning av ACA-subventioner.',
                 critical: true,
-                characters: ['mac', 'sparky', 'sullivan']
+                characters: ['mac', 'sparky', 'sullivan'],
+                category: 'political'
             },
             '2025-10-04': {
                 title: 'Chicago: National Guard-deployment auktoriseras',
                 summary: 'Trump auktoriserar 300 National Guard-trupper till Chicago. Federal domare beviljar tillfälligt föreläggande som blockerar deployment i 14 dagar.',
                 critical: false,
-                characters: ['trench']
+                characters: ['trench'],
+                category: 'law_enforcement'
             },
             '2025-10-08': {
                 title: 'Massprotester i Chicago',
                 summary: 'Hundratals demonstranter marscherar i centrala Chicago. Coalition Against the Trump Agenda organiserar protester mot National Guard och ICE.',
                 critical: false,
-                characters: []
+                characters: [],
+                category: 'political'
             },
             '2025-10-14': {
                 title: 'Eskalerade ICE-räder på Chicagos North Side',
                 summary: 'ICE "strike teams" eskalerar räder medan National Guard-deployment förblir blockerad.',
                 critical: false,
-                characters: []
+                characters: [],
+                category: 'law_enforcement'
             },
             '2025-10-17': {
                 title: 'Federal anställda missar första lönen',
                 summary: 'Ca 670,000 federala arbetare permitterade. 730,000 ytterligare arbetare arbetar utan lön. Trump-admin flyttar pengar för att betala militär men inte civila.',
                 critical: true,
-                characters: ['mac', 'sparky']
+                characters: ['mac', 'sparky'],
+                category: 'political'
             },
             '2025-10-31': {
                 title: 'Pentagon QRF-order',
                 summary: 'Pentagon beordrar alla delstater att utveckla "quick reaction forces" tränade för civil unrest. Måste vara operativa senast 1 januari 2026.',
                 critical: false,
-                characters: ['sullivan', 'trench']
+                characters: ['sullivan', 'trench'],
+                category: 'law_enforcement'
             },
             // NOVEMBER 2025
             '2025-11-04': {
                 title: '🗳️ DEMOKRATISK VÄLDSEGER',
                 summary: 'Massiva demokratiska vinster i Virginia och New Jersey. Spanberger blir Virginias första kvinnliga guvernör. Demokrater överträffar 2024-års marginaler avsevärt.',
                 critical: true,
-                characters: []
+                characters: [],
+                category: 'political'
             },
             '2025-11-05': {
                 title: 'Regeringsstängning blir längsta i historien',
                 summary: 'Dag 35 överträffar 2018-2019 års rekord. LÄNGSTA FEDERALA REGERINGSSTÄNGNING I USA:S HISTORIA. 750,000 permitterade, 1.4 miljoner arbetar utan lön.',
                 critical: true,
-                characters: ['mac', 'sparky', 'sullivan']
+                characters: ['mac', 'sparky', 'sullivan'],
+                category: 'political'
             },
             '2025-11-09': {
                 title: 'Stängningen når 40 dagar - Serviceavbrott',
                 summary: '42 miljoner riskerar förlora food stamps. Över 1,530 flighter inställda. Flygmyndigheter beordrar flygplatser reducera flygtrafik.',
                 critical: true,
-                characters: []
+                characters: [],
+                category: 'political'
             },
             '2025-11-10': {
                 title: 'Senaten antar reviderat förslag',
                 summary: 'Efter 14 misslyckanden antar Senaten reviderad appropriations-lagstiftning med kompromiss om ACA-subventioner.',
                 critical: false,
-                characters: []
+                characters: [],
+                category: 'political'
             },
             '2025-11-12': {
                 title: '🎉 REGERINGSSTÄNGNING SLUTAR',
                 summary: 'Representanthuset röstar 222-209 för att avsluta stängningen. Trump undertecknar kl. 22:24 EST. 43 dagar total längd. Ny funding cliff: 30 januari 2026.',
                 critical: true,
-                characters: ['mac', 'sparky', 'sullivan']
+                characters: ['mac', 'sparky', 'sullivan'],
+                category: 'political'
             },
             '2025-11-15': {
                 title: 'Operation Charlotte\'s Web tillkännages',
                 summary: 'DHS tillkännager operation i Charlotte, NC för att "target criminal illegal aliens". Namnet (från barnboken) möter omedelbar kritik från EB Whites sondotter.',
                 critical: true,
-                characters: ['scalpel']
+                characters: ['scalpel'],
+                category: 'law_enforcement'
             },
             '2025-11-16': {
                 title: 'Charlotte: Största immigrationsräden i NC-historia',
                 summary: '81 personer gripna på lördag i Charlotte. Potentiellt största endagsräden i delstatens historia. Över 130 under helgen.',
                 critical: true,
-                characters: []
+                characters: [],
+                category: 'law_enforcement'
             },
             '2025-11-18': {
                 title: 'Charlotte-räder expanderar',
                 summary: 'Operationen sprider sig till Raleigh och andra NC-städer. Hög frånvaro vid Charlotte-skolor. NASCAR-företag tillhandahåller fordon till ICE.',
                 critical: false,
-                characters: []
+                characters: [],
+                category: 'law_enforcement'
             },
             '2025-11-20': {
                 title: '🔴 DC NATIONAL GUARD-DEPLOYMENT OLAGLIG',
                 summary: 'U.S. District Judge Jia M. Cobb: Pentagons deployment av National Guard till DC är olaglig. Verkställighet uppskjuten till 11 december för överklagande.',
                 critical: true,
-                characters: ['mac', 'sparky', 'sullivan']
+                characters: ['mac', 'sparky', 'sullivan'],
+                category: 'law_enforcement'
             }
+        };
+
+        const categoryIcons = {
+            political: '🏛️',
+            violence: '🔴',
+            law_enforcement: '👮',
+            delta_green: '🎲',
+            personal: '👤'
+        };
+
+        const categoryNames = {
+            political: 'Political',
+            violence: 'Violence',
+            law_enforcement: 'Law Enforcement',
+            delta_green: 'Delta Green',
+            personal: 'Personal'
         };
 
         let currentMonth = 8; // September (0-indexed)
         let currentYear = 2025;
+        let currentEventDate = null; // For GM notes
 
         const monthNames = [
             'Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni',
             'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'
         ];
 
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCalendar();
+            loadProgressMarker();
+            updateCheckboxStyles();
+
+            // Search functionality
+            document.getElementById('searchBox').addEventListener('input', applyFilters);
+
+            // Update checkbox styles on change
+            document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach(cb => {
+                cb.addEventListener('change', updateCheckboxStyles);
+            });
+        });
+
+        function updateCheckboxStyles() {
+            document.querySelectorAll('.checkbox-item').forEach(item => {
+                const checkbox = item.querySelector('input[type="checkbox"]');
+                if (checkbox.checked) {
+                    item.classList.add('checked');
+                } else {
+                    item.classList.remove('checked');
+                }
+            });
+        }
+
         function getDaysInMonth(year, month) {
             return new Date(year, month + 1, 0).getDate();
         }
 
         function getFirstDayOfMonth(year, month) {
-            // Get day of week (0=Sunday, 1=Monday, etc) and adjust to Monday=0
             let day = new Date(year, month, 1).getDay();
-            return day === 0 ? 6 : day - 1; // Convert Sunday from 0 to 6
+            return day === 0 ? 6 : day - 1;
         }
 
         function renderCalendar() {
@@ -697,25 +1102,24 @@
             const monthTitle = document.getElementById('currentMonthTitle');
 
             monthTitle.textContent = `${monthNames[currentMonth]} ${currentYear}`;
-
-            // Clear previous calendar
             calendarDays.innerHTML = '';
 
             const daysInMonth = getDaysInMonth(currentYear, currentMonth);
             const firstDay = getFirstDayOfMonth(currentYear, currentMonth);
 
-            // Add empty cells for days before month starts
+            // Empty cells
             for (let i = 0; i < firstDay; i++) {
                 const emptyDay = document.createElement('div');
                 emptyDay.className = 'calendar-day empty';
                 calendarDays.appendChild(emptyDay);
             }
 
-            // Add days of the month
+            // Days
             for (let day = 1; day <= daysInMonth; day++) {
                 const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
                 const dayElement = document.createElement('div');
                 dayElement.className = 'calendar-day';
+                dayElement.dataset.date = dateStr;
 
                 // Check if today
                 const today = new Date();
@@ -725,19 +1129,29 @@
                     dayElement.classList.add('today');
                 }
 
-                // Day number
+                // Check if progress marker
+                const progressDate = localStorage.getItem('trip19_campaign_progress');
+                if (progressDate === dateStr) {
+                    dayElement.classList.add('progress-marker');
+                }
+
                 const dayNumber = document.createElement('div');
                 dayNumber.className = 'day-number';
                 dayNumber.textContent = day;
                 dayElement.appendChild(dayNumber);
 
-                // Check if event exists
                 const event = events[dateStr];
                 if (event) {
                     dayElement.classList.add('has-event');
                     if (event.critical) {
                         dayElement.classList.add('critical');
                     }
+
+                    // Category badge
+                    const categoryBadge = document.createElement('div');
+                    categoryBadge.className = `category-badge ${event.category}`;
+                    categoryBadge.textContent = categoryIcons[event.category];
+                    dayElement.appendChild(categoryBadge);
 
                     // Event title
                     const eventTitle = document.createElement('div');
@@ -759,25 +1173,21 @@
                         dayElement.appendChild(dotsContainer);
                     }
 
-                    // Add click handler
                     dayElement.onclick = () => openModal(dateStr, event);
                 }
 
                 calendarDays.appendChild(dayElement);
             }
 
-            // Update navigation buttons
             updateNavButtons();
+            applyFilters();
         }
 
         function updateNavButtons() {
             const prevButton = document.getElementById('prevMonth');
             const nextButton = document.getElementById('nextMonth');
 
-            // Disable prev if at September 2025
             prevButton.disabled = (currentYear === 2025 && currentMonth === 8);
-
-            // Disable next if at November 2025
             nextButton.disabled = (currentYear === 2025 && currentMonth === 10);
         }
 
@@ -795,22 +1205,88 @@
             renderCalendar();
         }
 
+        function applyFilters() {
+            const searchTerm = document.getElementById('searchBox').value.toLowerCase();
+
+            // Character filters
+            const filterMac = document.getElementById('filter-mac').checked;
+            const filterSullivan = document.getElementById('filter-sullivan').checked;
+            const filterSparky = document.getElementById('filter-sparky').checked;
+            const filterScalpel = document.getElementById('filter-scalpel').checked;
+            const filterTrench = document.getElementById('filter-trench').checked;
+
+            // Type filters
+            const filterCritical = document.getElementById('filter-critical').checked;
+            const filterNormal = document.getElementById('filter-normal').checked;
+
+            document.querySelectorAll('.calendar-day.has-event').forEach(dayElement => {
+                const dateStr = dayElement.dataset.date;
+                const event = events[dateStr];
+
+                if (!event) return;
+
+                let show = true;
+
+                // Search filter
+                if (searchTerm) {
+                    const searchableText = `${event.title} ${event.summary}`.toLowerCase();
+                    if (!searchableText.includes(searchTerm)) {
+                        show = false;
+                    }
+                }
+
+                // Character filter
+                if (event.characters.length > 0) {
+                    const hasFilteredChar =
+                        (event.characters.includes('mac') && filterMac) ||
+                        (event.characters.includes('sullivan') && filterSullivan) ||
+                        (event.characters.includes('sparky') && filterSparky) ||
+                        (event.characters.includes('scalpel') && filterScalpel) ||
+                        (event.characters.includes('trench') && filterTrench);
+
+                    if (!hasFilteredChar) {
+                        show = false;
+                    }
+                }
+
+                // Criticality filter
+                if (event.critical && !filterCritical) {
+                    show = false;
+                }
+                if (!event.critical && !filterNormal) {
+                    show = false;
+                }
+
+                if (show) {
+                    dayElement.classList.remove('filtered-out');
+                } else {
+                    dayElement.classList.add('filtered-out');
+                }
+            });
+        }
+
         function openModal(dateStr, event) {
+            currentEventDate = dateStr;
+
             const modal = document.getElementById('modalOverlay');
             const modalDate = document.getElementById('modalDate');
             const modalTitle = document.getElementById('modalTitle');
             const modalContent = document.getElementById('modalContent');
+            const modalCategory = document.getElementById('modalCategory');
             const modalCharacters = document.getElementById('modalCharacters');
 
-            // Format date
             const [year, month, day] = dateStr.split('-');
             const monthName = monthNames[parseInt(month) - 1].toUpperCase();
             modalDate.textContent = `${parseInt(day)} ${monthName} ${year}`;
 
             modalTitle.textContent = event.title;
+
+            // Category
+            modalCategory.innerHTML = `<span class="category-badge ${event.category}">${categoryIcons[event.category]} ${categoryNames[event.category]}</span>`;
+
             modalContent.innerHTML = `<p>${event.summary}</p>`;
 
-            // Add character tags
+            // Character tags
             modalCharacters.innerHTML = '';
             if (event.characters && event.characters.length > 0) {
                 event.characters.forEach(char => {
@@ -828,17 +1304,71 @@
                 });
             }
 
+            // Load GM notes
+            loadGMNotes(dateStr);
+
             modal.classList.add('active');
         }
 
         function closeModal(event) {
             if (!event || event.target.id === 'modalOverlay') {
                 document.getElementById('modalOverlay').classList.remove('active');
+                currentEventDate = null;
             }
         }
 
-        // Initialize calendar on page load
-        renderCalendar();
+        // GM Notes functions
+        function loadGMNotes(dateStr) {
+            const notes = localStorage.getItem(`trip19_gm_notes_${dateStr}`);
+            document.getElementById('gmNotesTextarea').value = notes || '';
+        }
+
+        function saveGMNotes() {
+            if (!currentEventDate) return;
+
+            const notes = document.getElementById('gmNotesTextarea').value;
+            localStorage.setItem(`trip19_gm_notes_${currentEventDate}`, notes);
+
+            // Visual feedback
+            const btn = document.querySelector('.gm-notes-save');
+            const originalText = btn.textContent;
+            btn.textContent = '✅ Sparat!';
+            setTimeout(() => {
+                btn.textContent = originalText;
+            }, 2000);
+        }
+
+        // Progress Marker functions
+        function setProgressMarker() {
+            const dateInput = document.getElementById('progressDate');
+            const date = dateInput.value;
+
+            if (date) {
+                localStorage.setItem('trip19_campaign_progress', date);
+                renderCalendar(); // Re-render to show marker
+                updateProgressInfo(date);
+            }
+        }
+
+        function clearProgressMarker() {
+            localStorage.removeItem('trip19_campaign_progress');
+            document.getElementById('progressInfo').textContent = '';
+            renderCalendar();
+        }
+
+        function loadProgressMarker() {
+            const progressDate = localStorage.getItem('trip19_campaign_progress');
+            if (progressDate) {
+                document.getElementById('progressDate').value = progressDate;
+                updateProgressInfo(progressDate);
+            }
+        }
+
+        function updateProgressInfo(dateStr) {
+            const [year, month, day] = dateStr.split('-');
+            const monthName = monthNames[parseInt(month) - 1];
+            document.getElementById('progressInfo').textContent = `📍 Kampanj är vid: ${parseInt(day)} ${monthName} ${year}`;
+        }
     </script>
 </body>
 
