@@ -1,7 +1,7 @@
 # CURRENT STATE - Trip 19 / Svarta Madonnan
 
 ## Senast uppdaterad
-2026-01-09
+2026-01-10
 
 ## Projektöversikt
 Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
@@ -26,17 +26,23 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
 - **Verifiering**: Inga kvarvarande diskrepanser
 - **Commit**: `0f8c68e` - "Fixa Volkov-massakern: Cherry Hill Mall, NJ + 12 döda"
 
-**Kampanjkalender 2025** - Skapad januari 2026 ✅
+**Kampanjkalender 2025** - Utökad med 5 SL-verktyg januari 2026 ✅
 - **Fil**: `SL/campaign_calendar_2025.html`
 - **Funktion**: Google Calendar-liknande månadsvy för verkliga händelser sep-nov 2025
-- **Features**:
+- **Grundfeatures**:
   - Månadsnavigering (← September → Oktober → November →)
   - Klickbara dagar med modaler (kompakt sammanfattning, länk till fullständig tidslinje)
   - Karaktärstaggar (färgade prickar på dagar som påverkar Chesapeake Cell)
   - 20+ händelser inkluderade (Charlie Kirk-mordet, regeringsstängning, ICE-räder, etc.)
+- **Nya SL-verktyg** (10 jan 2026):
+  - **Filterfunktion**: Filtrera per karaktär (Mac/Sullivan/Sparky/Scalpel/Trench) och kritikalitet
+  - **Sökfunktion**: Live-sök i händelsetitlar och beskrivningar
+  - **Event-kategorier**: 5 kategorier (Political/Violence/Law Enforcement/Delta Green/Personal) med ikoner
+  - **GM Notes**: Privata SL-anteckningar per händelse (sparas i localStorage)
+  - **Kampanjprogress-marker**: Markera "vi är här nu" med 🎯-ikon och grön highlight
 - **Design**: Delta Green-tema, responsive (mobil/tablet/desktop)
 - **Integration**: Länkad från SL/index.html
-- **Commit**: `36d8ef9` - "Skapa kampanjkalender 2025 med månadsvy och händelsemodaler"
+- **Commits**: `36d8ef9` (skapande), `8b4dd83` (SL-verktyg)
 
 **Karaktärsuppdateringar** - Januari 2026 ✅
 - **Trench Pittsburgh-sida**: Ny wide hero banner-bild (trench_civil.png, 16:9 format)
