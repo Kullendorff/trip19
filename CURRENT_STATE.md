@@ -26,23 +26,59 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
 - **Verifiering**: Inga kvarvarande diskrepanser
 - **Commit**: `0f8c68e` - "Fixa Volkov-massakern: Cherry Hill Mall, NJ + 12 döda"
 
-**Kampanjkalender 2025** - Utökad med 5 SL-verktyg januari 2026 ✅
+**Kampanjkalender 2025** - Massiv expansion med 30+ nya händelser + 5 SL-verktyg ✅
 - **Fil**: `SL/campaign_calendar_2025.html`
 - **Funktion**: Google Calendar-liknande månadsvy för verkliga händelser sep-nov 2025
 - **Grundfeatures**:
   - Månadsnavigering (← September → Oktober → November →)
   - Klickbara dagar med modaler (kompakt sammanfattning, länk till fullständig tidslinje)
   - Karaktärstaggar (färgade prickar på dagar som påverkar Chesapeake Cell)
-  - 20+ händelser inkluderade (Charlie Kirk-mordet, regeringsstängning, ICE-räder, etc.)
-- **Nya SL-verktyg** (10 jan 2026):
+  - **30+ händelser** inkluderade (ursprungligen 20+, nu massivt utökad)
+- **SL-verktyg** (10 jan 2026):
   - **Filterfunktion**: Filtrera per karaktär (Mac/Sullivan/Sparky/Scalpel/Trench) och kritikalitet
   - **Sökfunktion**: Live-sök i händelsetitlar och beskrivningar
   - **Event-kategorier**: 5 kategorier (Political/Violence/Law Enforcement/Delta Green/Personal) med ikoner
   - **GM Notes**: Privata SL-anteckningar per händelse (sparas i localStorage)
   - **Kampanjprogress-marker**: Markera "vi är här nu" med 🎯-ikon och grön highlight
+- **Nya händelser tillagda** (10 jan 2026):
+  - 6 sep: Polen NATO Article 4 + Bitcoin ATH $126k
+  - 6 okt: Candace Owens-läcka + Bitcoin ATH
+  - 10 okt: Bitcoin RED OCTOBER krasch ($9.89B likvideras)
+  - 13 okt: Israel-Hamas sista gisslan
+  - 4 nov: Tyfon Kalmaegi (200+ döda)
+  - 10 nov: Delhi bilbomb (10+ döda)
+  - 12 nov: Sista US penny
+  - 13 nov: Operation Southern Spear (80+ döda)
+  - 17 nov: FN ISF Gaza
+  - 22 nov: Bitcoin botten $80,700 (-36%)
+  - 30 nov: Bitcoin rebound $87,600
 - **Design**: Delta Green-tema, responsive (mobil/tablet/desktop)
 - **Integration**: Länkad från SL/index.html
-- **Commits**: `36d8ef9` (skapande), `8b4dd83` (SL-verktyg)
+- **Commits**: `36d8ef9` (skapande), `8b4dd83` (SL-verktyg), `59e5c5b` (massiv expansion)
+
+**USA Inrikespolitik 2025 - Tidslinje** - Massiv expansion februari-november (10 jan 2026) ✅
+- **Fil**: `SL/us_politics_2025_timeline.html`
+- **Ny sektion tillagd**: FEBRUARI-MAJ 2025 (NSA & Intelligence Community)
+  - 6 feb: NSA deferred resignation erbjudande
+  - Mars: Elon Musk besöker Fort Meade
+  - April: General Timothy Haugh sparkas från NSA (Laura Loomer-påtryckningar)
+  - Maj: NSA 8% nedskärningar (1,500-2,000 positioner)
+- **Juni-tillägg**:
+  - 14 jun: Minnesota-morden (DFL State Rep. Melissa Hortman och man, Sen. John Hoffman och fru)
+- **Juli-tillägg**:
+  - NSA Hartmans nominering dras tillbaka (7 månaders ledarskapsvakuum)
+- **September-tillägg**:
+  - 6 sep: Ryska drönare in i Polen - NATO Article 4 + Bitcoin ATH $126k
+  - Uppdaterad Charlie Kirk-doxxing (63,000 submissions, 41 namn publicerade, 350+ Texas-lärare)
+- **Oktober-tillägg**:
+  - 6 okt: Bitcoin ATH + Candace Owens läcker Kirk WhatsApp-meddelanden
+  - 10 okt: Detaljerad Bitcoin RED OCTOBER krasch (exakta UTC-tider, $-belopp, whale-positioner)
+  - 13 okt: Israel-Hamas fred (sista gisslan frisläppta, FN ISF Gaza)
+- **Utökade detaljer**:
+  - DC National Guard: M17-pistoler, M4-gevär (24 aug)
+  - Charlotte's Web: NASCAR-fordon till ICE
+  - Regeringsstängning: $7B ekonomiska förluster
+- **Commit**: `59e5c5b` - "Massiv expansion av kalender och tidslinje med 30+ nya händelser"
 
 **Karaktärsuppdateringar** - Januari 2026 ✅
 - **Trench Pittsburgh-sida**: Ny wide hero banner-bild (trench_civil.png, 16:9 format)
