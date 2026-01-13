@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAC RILEY - Sommaren 2025 | Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0D1117;
+            --bg-darker: #0A0F0F;
+            --accent: #4A90A4;
+            --accent-dim: #3A7080;
+            --text: #D1D5DB;
+            --text-dim: #6B7280;
+            --border: #1A2332;
+            --highlight: #2C3E50;
+            --warning: #E74C3C;
+            --success: #4A90A4;
+            --danger: #DC2626;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--bg-darker);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            text-align: center;
+            line-height: 1.4;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(74, 144, 164, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #1A2332 100%);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+        }
+
+        .hero-content .date-range {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-dark);
+            padding: 0.3rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .content-section {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .impact-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .impact-card.warning {
+            border-left-color: var(--warning);
+        }
+
+        .impact-card h3 {
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .impact-card.warning h3 {
+            color: var(--warning);
+        }
+
+        .impact-card p {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.75rem;
+        }
+
+        .impact-card li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-dim);
+        }
+
+        .impact-card li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .impact-card.warning li::before {
+            color: var(--warning);
+        }
+
+        .timeline-quote {
+            background: var(--bg-dark);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: var(--text);
+        }
+
+        .summary-box {
+            background: rgba(74, 144, 164, 0.1);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .summary-box h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .daily-life {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .daily-item {
+            background: var(--bg-dark);
+            padding: 1rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .daily-item h4 {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .daily-life {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                MAC RILEY<br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">FBI // DELTA GREEN</span>
+            </div>
+
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="index.html" class="page-link">KARAKTAR</a>
+                        <a href="fbi_karriar.html" class="page-link">FBI KARRIAR</a>
+                        <a href="delta_green.html" class="page-link">DELTA GREEN</a>
+                        <a href="kontakter.html" class="page-link">KONTAKTER</a>
+                        <a href="personligt.html" class="page-link">PERSONLIGT</a>
+                        <a href="volkov_board.html" class="page-link">VOLKOV-BOARD</a>
+                        <a href="sommaren_2025.html" class="page-link active">SOMMAREN 2025</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">
+                    ✦ TRIP 19 ✦<br>
+                    ← CHESAPEAKE CELL
+                </a>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="date-range">Juni - 4 September 2025</div>
+                    <h1>SOMMAREN 2025</h1>
+                    <div class="subtitle">Hur omvarlden har forandrats</div>
+                    <p>Medan Mac har tillbringat sommaren pa tvangsledighet har varlden runt honom forandrats dramatiskt. Arlington, hans hemstad, ar inte langre den lugna fororten han vaxte upp i.</p>
+                </div>
+            </div>
+
+            <section class="content-section">
+                <h2 class="section-title">FBI UNDER PRESS</h2>
+
+                <div class="impact-card warning">
+                    <h3>Lojalitetstester</h3>
+                    <p>FBI genomfor lojalitetstester av agenter - vem ar "palitlig" for den nya administrationen?</p>
+                    <ul>
+                        <li>Mac ar pa tvangsledighet - han slapp igenom</li>
+                        <li>Kollegor han kanner genomgar forhorsliknande "samtal"</li>
+                        <li>Nagra har redan "valt att ga vidare"</li>
+                        <li>Atmosfaren pa kontoret ar forandrad - paranoia, misstro</li>
+                    </ul>
+                </div>
+
+                <div class="impact-card">
+                    <h3>Vad det betyder for Mac</h3>
+                    <p>Hans tvangsledighet ar egentligen en valsinelse i forhallande till lojalitetstesterna.</p>
+                    <ul>
+                        <li>Ingen kollar vad han gor pa dagarna</li>
+                        <li>Ingen fragar om hans "research"</li>
+                        <li>Han behover inte ljuga for nya chefer</li>
+                        <li>Men: hans framtid pa FBI ar mer osakerare an nagonsin</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-quote">
+                    "Forr i tiden var FBI politiskt neutralt. Nu... nu ar det en annan organisation. Och jag vet inte om jag passar in langre."
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">ARLINGTON - MITT I STORMEN</h2>
+
+                <div class="impact-card warning">
+                    <h3>National Guard Overallt</h3>
+                    <p>Arlington och DC-omradet har forvandlats till en militariserad zon.</p>
+                    <ul>
+                        <li>2,300+ beväpnade National Guard i omradet</li>
+                        <li>24 augusti: DC NG fick M17-pistoler och M4-gevar</li>
+                        <li>Patrullerande soldater pa hans gator - varje dag</li>
+                        <li>Humvees och militarfordon vid korsningar</li>
+                    </ul>
+                </div>
+
+                <div class="impact-card">
+                    <h3>Vardagen utanfor fonstret</h3>
+                    <p>Mac ser detta fran sin lagenhet pa N Garfield St:</p>
+                    <ul>
+                        <li>"No Kings"-protester - 100,000+ demonstranter i Northern Virginia</li>
+                        <li>Helikoptrar konstant overhead</li>
+                        <li>Polissirener oftare an vanligt</li>
+                        <li>Grannar som viskar istallet for att prata oppet</li>
+                    </ul>
+                </div>
+
+                <div class="daily-life">
+                    <div class="daily-item">
+                        <h4>Nar han gar till matvaran</h4>
+                        <p style="color: var(--text-dim); font-size: 0.9rem;">Passerar NG checkpoint. Visar ID. Fragar sig sjalv: "Ar det har fortfarande Amerika?"</p>
+                    </div>
+                    <div class="daily-item">
+                        <h4>Nar han springer</h4>
+                        <p style="color: var(--text-dim); font-size: 0.9rem;">Ser militara fordon parkerade. Soldater som tittar pa civila med vakna ogon.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">EN FORORT SOM FORANDRATS</h2>
+
+                <div class="impact-card">
+                    <h3>Grannskapet</h3>
+                    <p>Arlington ar en blandad forort med manga federalt anstallda - nu ar alla oroliga.</p>
+                    <ul>
+                        <li>Grannar som forlorat sina jobb pratar om att flytta</li>
+                        <li>Lokala kafeerna har politiska diskussioner - det hade de inte forr</li>
+                        <li>Folk ar forsiktigare med vad de sager hogljutt</li>
+                        <li>Pentagon-anstallda han kanner ar tysta om jobbet nu</li>
+                    </ul>
+                </div>
+
+                <div class="impact-card">
+                    <h3>Vad Mac tanker</h3>
+                    <p>Mellan Volkov-researchen tränger verkligheten in:</p>
+                    <ul>
+                        <li>"Jag har sett monster. Men det har... det har ar nagot annat."</li>
+                        <li>"FBI var min familj. Nu vet jag inte vad det ar."</li>
+                        <li>"Arlington var trygg. Nu kanner det som en belägring."</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-quote">
+                    "Jag brukade oroa mig for det onaturliga. Nu oroar jag mig for det vanliga ocksa."
+                </div>
+            </section>
+
+            <section class="content-section">
+                <div class="summary-box">
+                    <h3>Sammanfattning: Mac's Varld i September 2025</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                            <strong style="color: var(--accent);">Arbete:</strong>
+                            <span style="color: var(--text-dim);">Tvangsledighet - slapp lojalitetstesterna, men framtiden ar osakerare an nagonsin</span>
+                        </li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                            <strong style="color: var(--accent);">Boende:</strong>
+                            <span style="color: var(--text-dim);">Arlington ar militariserat - NG patrullerar hans gator dagligen</span>
+                        </li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                            <strong style="color: var(--accent);">Vardag:</strong>
+                            <span style="color: var(--text-dim);">Protestera utanfor fonstret, checkpoints vid affaren, helikoptrar overhead</span>
+                        </li>
+                        <li style="padding: 0.5rem 0;">
+                            <strong style="color: var(--accent);">Kansla:</strong>
+                            <span style="color: var(--text-dim);">"Det har ar inte det Amerika jag kampade for."</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
