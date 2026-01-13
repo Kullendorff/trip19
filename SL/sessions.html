@@ -136,6 +136,14 @@
             box-shadow: 0 4px 12px rgba(74, 144, 164, 0.3);
         }
 
+        .session-card.played {
+            border-color: var(--accent-green);
+        }
+
+        .session-card.played:hover {
+            box-shadow: 0 4px 12px rgba(0, 255, 65, 0.3);
+        }
+
         .session-card-header {
             display: flex;
             justify-content: space-between;
@@ -149,6 +157,10 @@
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--accent-blue);
+        }
+
+        .session-card.played .session-number {
+            color: var(--accent-green);
         }
 
         .status-badge {
@@ -211,19 +223,6 @@
             gap: 0.3rem;
         }
 
-        /* Empty state */
-        .session-card.empty {
-            border-style: dashed;
-            opacity: 0.6;
-            cursor: default;
-        }
-
-        .session-card.empty:hover {
-            transform: none;
-            box-shadow: none;
-            border-color: var(--border);
-        }
-
         /* Footer */
         .footer {
             text-align: center;
@@ -253,23 +252,25 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>📅 SESSIONS ÖVERSIKT</h1>
+            <h1>SESSIONS ÖVERSIKT</h1>
             <div class="subtitle">TRIP 19: BLACK MADONNA - Chesapeake Cell</div>
         </div>
 
         <!-- Navigation -->
         <div class="nav-back">
             <a href="index.html">← Tillbaka till Kontrollpanel</a>
+            <span style="margin: 0 1rem; color: var(--text-dim);">|</span>
+            <a href="campaign_calendar_2025.html">Kampanjkalender 2025</a>
         </div>
 
         <!-- Campaign Stats -->
         <div class="campaign-stats">
             <div class="stat-card">
-                <div class="stat-value">1</div>
+                <div class="stat-value">2</div>
                 <div class="stat-label">Totalt Sessions</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value">0</div>
+                <div class="stat-value">1</div>
                 <div class="stat-label">Spelade</div>
             </div>
             <div class="stat-card">
@@ -277,71 +278,50 @@
                 <div class="stat-label">Planerade</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value">~0h</div>
+                <div class="stat-value">~45min</div>
                 <div class="stat-label">Total Speltid</div>
             </div>
         </div>
 
         <!-- Sessions Grid -->
         <div class="sessions-grid">
-            <!-- Session 1 -->
-            <a href="session1.html" class="session-card">
+            <!-- Session 1 - PLAYED -->
+            <a href="session1.html" class="session-card played">
                 <div class="session-card-header">
                     <div class="session-number">SESSION 1</div>
-                    <div class="status-badge status-planned">PLANERING</div>
+                    <div class="status-badge status-played">SPELAD</div>
                 </div>
                 <div class="session-title">Första Mötet</div>
-                <div class="session-date">Datum: TBD</div>
+                <div class="session-date">Spelat: 9 jan 2026 | In-game: 4 sep 2025 | ~45 min</div>
                 <div class="session-description">
-                    Chesapeake Cell samlas för första gången på China Buffet i College Park. Sparky får varning om Volkovs aktivitet kopplat till Trip 19.
+                    Chesapeake Cell möttes för första gången på Hornbake Library. Introduktion av karaktärerna. Sparky fick Volkov-notisen om köp från Harriet Johnsons dödsbo.
                 </div>
                 <div class="session-meta">
                     <div class="session-meta-item">
                         <span>📍</span>
-                        <span>China Buffet, College Park</span>
+                        <span>Hornbake Library, UMD</span>
                     </div>
                 </div>
             </a>
 
-            <!-- Placeholder for Session 2 -->
-            <div class="session-card empty">
+            <!-- Session 2 - PLANNED -->
+            <a href="session2.html" class="session-card">
                 <div class="session-card-header">
                     <div class="session-number">SESSION 2</div>
-                    <div class="status-badge status-upcoming">KOMMANDE</div>
-                </div>
-                <div class="session-title">TBD</div>
-                <div class="session-date">Datum: -</div>
-                <div class="session-description" style="font-style: italic;">
-                    Session 2 planeras efter Session 1 är spelad.
-                </div>
-            </div>
-
-            <!-- Template comment -->
-            <!--
-            Template för nya sessions:
-
-            <a href="sessionX.html" class="session-card">
-                <div class="session-card-header">
-                    <div class="session-number">SESSION X</div>
                     <div class="status-badge status-planned">PLANERING</div>
                 </div>
-                <div class="session-title">Titel här</div>
-                <div class="session-date">Datum: YYYY-MM-DD</div>
+                <div class="session-title">Kopplingar</div>
+                <div class="session-date">Datum: TBD</div>
                 <div class="session-description">
-                    Beskrivning av vad som ska hända
+                    Fortsätter i biblioteket. Gruppen börjar förstå att det finns kopplingar - vad betyder Volkovs intresse för en dagbok från 1940?
                 </div>
                 <div class="session-meta">
                     <div class="session-meta-item">
                         <span>📍</span>
-                        <span>Plats</span>
-                    </div>
-                    <div class="session-meta-item">
-                        <span>⏱️</span>
-                        <span>~X timmar</span>
+                        <span>Hornbake Library</span>
                     </div>
                 </div>
             </a>
-            -->
         </div>
 
         <!-- Footer -->
