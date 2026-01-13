@@ -41,7 +41,7 @@
         /* Header */
         .session-header {
             background: var(--bg-panel);
-            border: 2px solid var(--accent-blue);
+            border: 2px solid var(--accent-green);
             border-radius: 8px;
             padding: 2rem;
             margin-bottom: 2rem;
@@ -49,7 +49,7 @@
         }
 
         .session-header h1 {
-            color: var(--accent-blue);
+            color: var(--accent-green);
             font-size: 2rem;
             margin-bottom: 0.5rem;
         }
@@ -71,7 +71,7 @@
         }
 
         .session-meta .meta-label {
-            color: var(--accent-blue);
+            color: var(--accent-green);
             font-weight: bold;
         }
 
@@ -83,10 +83,10 @@
             font-weight: bold;
         }
 
-        .status-planning {
-            background: rgba(155, 89, 182, 0.2);
-            border: 1px solid var(--accent-purple);
-            color: var(--accent-purple);
+        .status-played {
+            background: rgba(0, 255, 65, 0.2);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
         }
 
         /* Navigation */
@@ -199,14 +199,14 @@
         /* Journal section */
         .journal-section {
             background: var(--bg-panel);
-            border: 2px solid var(--accent-yellow);
+            border: 2px solid var(--accent-green);
             border-radius: 8px;
             padding: 2rem;
             margin-bottom: 2rem;
         }
 
         .journal-section h2 {
-            color: var(--accent-yellow);
+            color: var(--accent-green);
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
             display: flex;
@@ -235,8 +235,7 @@
         }
 
         .journal-subsection p {
-            color: var(--text-dim);
-            font-style: italic;
+            color: var(--text);
         }
 
         .stats-box {
@@ -265,21 +264,21 @@
         }
 
         .stat-value {
-            color: var(--accent-blue);
+            color: var(--accent-green);
             font-weight: bold;
             font-size: 1.1rem;
         }
 
         .notes-box {
-            background: rgba(255, 204, 0, 0.1);
-            border-left: 4px solid var(--accent-yellow);
+            background: rgba(0, 255, 65, 0.1);
+            border-left: 4px solid var(--accent-green);
             border-radius: 4px;
             padding: 1.5rem;
             margin-top: 1rem;
         }
 
         .notes-box strong {
-            color: var(--accent-yellow);
+            color: var(--accent-green);
             display: block;
             margin-bottom: 0.5rem;
         }
@@ -317,7 +316,7 @@
         <div class="nav-bar">
             <a href="sessions.html">← Tillbaka till Sessions</a>
             <div class="nav-center">Session 1 av ?</div>
-            <a href="session2.html" style="opacity: 0.5; pointer-events: none;">Nästa Session →</a>
+            <a href="session2.html">Nästa Session →</a>
         </div>
 
         <!-- Header -->
@@ -325,16 +324,20 @@
             <h1>SESSION 1 - FÖRSTA MÖTET</h1>
             <div class="session-meta">
                 <div class="meta-item">
-                    <span class="meta-label">Datum:</span>
-                    <span>-</span>
+                    <span class="meta-label">Spelat:</span>
+                    <span>Torsdag 9 januari 2026</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">In-game:</span>
+                    <span>4 september 2025</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Speltid:</span>
-                    <span>-</span>
+                    <span>~45 min</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Status:</span>
-                    <span class="status-badge status-planning">Planering</span>
+                    <span class="status-badge status-played">SPELAD</span>
                 </div>
             </div>
         </div>
@@ -343,95 +346,32 @@
         <div class="prep-section">
             <h2>🎯 SESSION PREP</h2>
 
-            <!-- Meeting Location: China Buffet -->
+            <!-- Meeting Location: Hornbake Library -->
             <div class="prep-subsection">
-                <h3>📍 MÖTESPLATS: CHINA BUFFET - COLLEGE PARK, MD</h3>
-                <div class="coordinates">9098 Baltimore Ave, College Park, MD 20740 | 38.9869° N, 76.9426° W</div>
+                <h3>📍 MÖTESPLATS: HORNBAKE LIBRARY - SPECIAL COLLECTIONS</h3>
+                <div class="coordinates">4130 Campus Drive, College Park, MD 20742 | University of Maryland</div>
 
-                <p><strong>Tid:</strong> Tisdag kväll, 19:30</p>
-                <p><strong>Pris:</strong> $14.99 dinner buffet, drink separate</p>
-                <p><strong>Typ:</strong> Kinesisk buffet-restaurang</p>
+                <p><strong>Plats:</strong> Maryland Room (Special Collections)</p>
+                <p><strong>Typ:</strong> Universitetsbibliotek - läsrum för arkivmaterial</p>
 
                 <h4 style="margin-top: 1.5rem;">📸 BILDER</h4>
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1rem;">
-                    <img src="./Session1/chinabuffet1.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
-                    <img src="./Session1/chinabuffet2.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
-                    <img src="./Session1/chinabuffet3.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
-                    <img src="./Session1/chinabuffet4.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
-                    <img src="./Session1/chinabuffet5.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
-                    <img src="./Session1/chinabuffet6.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+                    <img src="../Sparky/motesplatser/51.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
+                    <img src="../Sparky/motesplatser/52.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--border);">
                 </div>
 
-                <h4>🏢 EXTERIÖR</h4>
-                <p>Den beige träbyggnaden med röda bokstäver ligger lite tillbakadraget från Baltimore Avenue (Route 1). Parkeringsplatsen är halvfull - lagom. Inte så tom att man sticker ut, inte så full att man inte hittar plats.</p>
-                <p>Trappan upp till den gröna markisen med "9098". Dörren går upp, värme och ljud strömmar ut.</p>
+                <h4>🏢 LOKALEN</h4>
+                <p>UMD:s Hornbake Library huserar universitetets Special Collections - arkiv, manuskript, och historiska dokument. Maryland Room är ett tyst läsrum där forskare kan begära fram material.</p>
 
-                <h4 style="margin-top: 1.5rem;">🍜 INTERIÖR - FÖRSTA INTRYCKET</h4>
-                <p><strong>Värme.</strong> Lukten av stekt mat, soja, ingefära, och något sött från dessertsektionen. Det brusande ljudet av samtal på flera språk - engelska, kinesiska, spanska, koreanska. Studenter från University of Maryland, familjer, äldre par.</p>
-
-                <h4 style="margin-top: 1rem;">Kassan direkt till höger:</h4>
-                <p>En kvinna i 50-årsåldern nickar, pekar mot "Seat Yourself"-skylten. "$14.99 dinner buffet, drink separate."</p>
-
-                <h4 style="margin-top: 1rem;">Layouten:</h4>
-                <ul>
-                    <li>Till vänster löper bufféborden längs väggarna - sex olika stationer med skyddsglas över maten</li>
-                    <li>Folk står i kö med tallrikar, laddar på General Tso's chicken, lo mein, dumplings, sushi (tvivelaktig kvalitet)</li>
-                    <li>Huvudlokalen öppnar sig framåt - rader av fyrkantiga bord med orange träramar och ljusblåa/turkosa plastlaminat-toppar</li>
-                    <li>Mörkröda/burgundy stolar med träkarmar</li>
-                </ul>
-
-                <h4 style="margin-top: 1rem;">Väggarna:</h4>
-                <p>Ljusblå/turkosa, vita pelare här och där, slumpmässiga bilder - kinesisk konst, blommor, något abstrakt.</p>
-
-                <h4 style="margin-top: 1rem;">Ljudbilden:</h4>
-                <ul>
-                    <li>Samtal överallt</li>
-                    <li>Skrap av tallrikar och bestick</li>
-                    <li>Barn som springer mellan borden</li>
-                    <li>AC-systemet som mullrar</li>
-                    <li>Muzak-version av något 80-talspop lågt i bakgrunden</li>
-                </ul>
-
-                <h4 style="margin-top: 1rem;">Belysningen:</h4>
-                <p>Nedtonade takpaneler ger ett jämnt, vitt ljus. Varken mysigt eller sterilt - bara funktionellt. Alla ser lite bleka ut.</p>
-
-                <h4 style="margin-top: 1.5rem;">🎯 BORDET LÄNGST IN</h4>
                 <div class="info-box">
-                    <p><strong>Ett större runt bord. Sex-sju stolar runt om.</strong></p>
-                    <p>Mitt på bordet sitter den där svarta träskivan, en <strong>lazy Susan</strong>, som normalt skulle användas för att snurra maten runt så alla kommer åt.</p>
-                    <p>Men det är en buffet. Ingen mat står på bordet.</p>
-                    <p>Skivan bara... sitter där. Meningslös. Lite patetisk.</p>
-                    <p><strong>Det är det enda runda bordet i hela lokalen. Resten är fyrkantiga.</strong></p>
-                </div>
-
-                <h4 style="margin-top: 1rem;">Varför det här bordet (Sparky valde det):</h4>
-                <ul>
-                    <li>Längst från ingången (siktlinje till alla som kommer in)</li>
-                    <li>I ett hörn (ingen kan komma bakom dem)</li>
-                    <li>Tillräckligt långt från närmaste bord (2-3 meter mellanrum)</li>
-                    <li>Nära nödutgång genom köket (hon har kollat)</li>
-                </ul>
-
-                <h4 style="margin-top: 1rem;">Närmaste grannar:</h4>
-                <ul>
-                    <li><strong>Tre bord bort:</strong> Familj med två småbarn (högljudda, distraherade)</li>
-                    <li><strong>Fyra bord bort:</strong> Två studenter med laptops (pluggar, ignorerar omvärlden)</li>
-                    <li><strong>Vid bufféborden:</strong> Konstant rotation av folk</li>
-                </ul>
-
-                <h4 style="margin-top: 1.5rem;">👥 PERSONAL</h4>
-                <ul>
-                    <li><strong>Servitris:</strong> Kvinna i 40-årsåldern, svart väst, vit skjorta. Kommer runt med vatten och tar bort använda tallrikar. Säger inte mycket.</li>
-                    <li><strong>Vid bufféborden:</strong> Två personer håller koll på påfyllning, byter ut tomma brickor.</li>
-                    <li>Ingen stör er vid det runda bordet om ni inte ber om det.</li>
-                </ul>
-
-                <h4 style="margin-top: 1.5rem;">🎭 KÄNSLAN</h4>
-                <div class="info-box">
-                    <p><strong>Helt vanlig tisdag kväll.</strong> Folk äter, pratar, ignorerar varandra. Perfekt anonymitet.</p>
-                    <p>Det runda bordet känns lite... udda. För stort för en person, för formellt för en buffet. Men det är precis därför Sparky valde det. Ingen kommer frivilligt sätta sig här om de ser fem personer redan sitter där och pratar.</p>
-                    <p>Lazy Susan-skivan i mitten sitter tom och meningslös.</p>
-                    <p><strong>Precis som mötet ska vara - funktionellt, opersonligt, och lätt att glömma.</strong></p>
+                    <p><strong>Varför Sparky valde detta:</strong></p>
+                    <ul>
+                        <li>Helt legitim anledning att vara där ("historisk forskning")</li>
+                        <li>Tyst miljö - svårt att avlyssna</li>
+                        <li>Ingen förväntar sig konversation i ett bibliotek</li>
+                        <li>Öppet för allmänheten, men få besökare</li>
+                        <li>Nära NSA:s område (bekvämt för Sparky)</li>
+                    </ul>
                 </div>
             </div>
 
@@ -447,64 +387,51 @@
                     <p style="margin-bottom: 0.5rem;"><strong>Dödsbo:</strong> Harriet Johnson</p>
                     <p style="margin-bottom: 0.5rem;"><strong>Datum loggat:</strong> Oktober 2024</p>
                     <p style="margin-bottom: 0.5rem;"><strong>Källa:</strong> Lovettsville Historical Society Q1 2025 donor report</p>
-                    <p style="margin-top: 1rem; color: var(--text-dim); font-size: 0.85rem;">
-                        <strong>Timing:</strong> Under diskussion vid bordet<br>
-                        <strong>Leverans:</strong> Sparky får notis på sin enhet
-                    </p>
                 </div>
             </div>
 
             <!-- NPCs for Session 1 -->
             <div class="prep-subsection">
-                <h3>👥 NPCs (Session 1)</h3>
-                <p><em>[PLACEHOLDER: Vilka NPCs kan dyka upp eller nämnas under mötet?]</em></p>
+                <h3>👥 KARAKTÄRER NÄRVARANDE</h3>
                 <ul>
-                    <li><em>China Buffet personal (bakgrund)</em></li>
-                    <li><em>Eventuella kontakter som nämns i diskussionen</em></li>
+                    <li><strong>Mac Riley</strong> (FBI) - Jonas</li>
+                    <li><strong>Father Sullivan</strong> (Navy Chaplain) - Andreas</li>
+                    <li><strong>Kai "Sparky" Zhang</strong> (NSA) - [spelare]</li>
+                    <li><strong>Hanna "Scalpel" Engler</strong> (Medical Examiner) - Daniel</li>
                 </ul>
-            </div>
-
-            <!-- Other Prep Items -->
-            <div class="prep-subsection">
-                <h3>📝 ÖVRIGA PREP-ANTECKNINGAR</h3>
-                <p><em>[PLACEHOLDER: Andra saker att komma ihåg för Session 1]</em></p>
-                <ul>
-                    <li><em>Viktiga ledtrådar att introducera</em></li>
-                    <li><em>Teman att fokusera på</em></li>
-                    <li><em>Frågor spelarna kanske ställer</em></li>
-                </ul>
+                <p style="margin-top: 1rem; color: var(--text-dim);"><em>Sam "Trench" Novak var inte närvarande denna session.</em></p>
             </div>
         </div>
 
         <!-- POST-SESSION JOURNAL -->
         <div class="journal-section">
             <h2>📖 POST-SESSION JOURNAL</h2>
-            <p style="color: var(--text-dim); margin-bottom: 2rem;"><em>Fylls i efter Session 1 är spelad.</em></p>
 
             <div class="journal-subsection">
                 <h3>📋 Sammanfattning</h3>
-                <p><em>[Vad hände under sessionen?]</em></p>
+                <p>Kort introduktionssession. Chesapeake Cell möttes för första gången på Hornbake Library. Karaktärerna fick lära känna varandra. Scalpel (Hanna) introducerades. Under mötet fick Sparky en notis från sin AI om Volkov-aktivitet kopplat till ett dödsbo i Lovettsville.</p>
             </div>
 
             <div class="journal-subsection">
                 <h3>🔍 Ledtrådar Funna</h3>
                 <ul>
-                    <li><em>[Ledtrådar spelarna upptäckte]</em></li>
+                    <li><strong>Volkov-notisen:</strong> "V. Petrov" köpte en dagbok från 1940 ur Harriet Johnsons dödsbo</li>
+                    <li>Kopplingen till Lovettsville Historical Society</li>
                 </ul>
             </div>
 
             <div class="journal-subsection">
                 <h3>👥 NPCs Mötta</h3>
                 <ul>
-                    <li><em>[Vilka NPCs interagerade de med?]</em></li>
+                    <li><em>Inga externa NPCs denna session - fokus på karaktärsintroduktion</em></li>
                 </ul>
             </div>
 
             <div class="journal-subsection">
                 <h3>🎯 Framsteg & Upptäckter</h3>
                 <ul>
-                    <li><em>[Vad lärde de sig?]</em></li>
-                    <li><em>[Vad missade de?]</em></li>
+                    <li>Cellen har fått sitt första spår: Volkov är aktiv, köper 1940-tals dokument</li>
+                    <li>De har ännu inte börjat undersöka aktivt</li>
                 </ul>
             </div>
 
@@ -514,11 +441,11 @@
                     <div class="stats-grid">
                         <div class="stat-item">
                             <span class="stat-label">Sanity Loss:</span>
-                            <span class="stat-value">-</span>
+                            <span class="stat-value">0</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-label">Bonds Damaged:</span>
-                            <span class="stat-value">-</span>
+                            <span class="stat-value">0</span>
                         </div>
                     </div>
                 </div>
@@ -526,12 +453,12 @@
 
             <div class="notes-box">
                 <strong>SL-Anteckningar:</strong>
-                <p><em>[Vad funkade? Vad behöver justeras?]</em></p>
+                <p>Kort intro-session som planerat. Gruppen fick träffas och etablera dynamik. Volkov-kroken är satt.</p>
             </div>
 
             <div class="journal-subsection">
                 <h3>➡️ Nästa Session</h3>
-                <p><em>[Vad händer härnäst?]</em></p>
+                <p>Session 2 fortsätter i biblioteket. Gruppen behöver börja förstå kopplingarna - vad betyder Volkovs intresse för en dagbok från 1940? Vem var Harriet Johnson?</p>
             </div>
         </div>
 
