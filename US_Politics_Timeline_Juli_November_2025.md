@@ -401,9 +401,9 @@
 
 ## RELEVANTA FRÅGOR FÖR CHESAPEAKE CELL
 
-### Mac Riley (FBI, forced leave augusti 2025):
+### Mac Riley (FBI, administrative leave augusti 2025):
 - Hur påverkar FBI:s interna kris hans situation?
-- Är hans "incident" och forced leave relaterad till lojalitetstester eller politisk rensning?
+- Är hans "incident" och administrative leave relaterad till lojalitetstester eller politisk rensning?
 - Kan hans PTSD och Volkov-besatthet ses som illojalitet mot Patel?
 - Är Sullivan's cover-up nu mer riskfylld med den rådande paranoian?
 

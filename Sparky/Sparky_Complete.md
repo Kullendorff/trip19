@@ -87,7 +87,7 @@
 - **Null Space Collective** (Cipher, RedShift, Proxy): 8 (former hacktivist crew)
 
 **Damaged/At Risk:**
-- **Mac Riley** (Delta Green teammate, FBI): Complicated (känner skuld för hans forced leave)
+- **Mac Riley** (Delta Green teammate, FBI): Complicated (känner skuld för hans administrative leave)
 - **Father Sullivan** (Delta Green teammate, Navy Chaplain): Respekt (de facto cell leader)
 - **NSA Colleagues**: Distanced (can't be real around them)
 
@@ -1118,7 +1118,7 @@ Delta Green identifierade henne via NSA surveillance av anomalous signals från 
 - Adapted to Helplessness: 0/5
 
 **Cell Status:**
-- Mac on forced leave (FBI investigation)
+- Mac on administrative leave (FBI investigation)
 - Sullivan de facto leader
 - Sparky: Tech specialist, increasingly isolated
 - Operations on hold pending Mac's clearance
@@ -1369,7 +1369,7 @@ Mr. Walsh (neighbor 3F) fills father-figure void. Chess games with Walsh echo ch
 - Investigative skills complement Sparky's tech
 
 **Personal:**
-- Sparky feels **guilt** för Mac's forced leave
+- Sparky feels **guilt** för Mac's administrative leave
 - "If my tech had worked, Volkov wouldn't have escaped, Mac wouldn't have shot that suspect"
 - Mac gave her character reference för MD permit (2023) - feels like debt
 - Respect för his skills men can't be fully honest (fake LEOSA secret)
@@ -1751,7 +1751,7 @@ She's genuinely skilled (Computer Science 80%, SIGINT 70%). Men hon can't intern
 
 **Why Obsession:**
 1. **Personal failure:** Her tech didn't track him (guilt)
-2. **Mac's forced leave:** If she'd succeeded, Mac wouldn't be investigated (guilt)
+2. **Mac's administrative leave:** If she'd succeeded, Mac wouldn't be investigated (guilt)
 3. **The smile:** He knew she'd spend her life looking for him (rage)
 4. **The cube:** Trip 19 connection, bigger picture she needs to understand (curiosity)
 5. **Control:** Everything else in her life is chaos, finding Volkov = control something (delusion)
