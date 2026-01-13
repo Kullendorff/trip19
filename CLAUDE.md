@@ -25,6 +25,16 @@ Johan utvecklar en svensk Delta Green-kampanj (8-12 sessioner) som kombinerar hi
 - Historiska dokument är REAL (CAB reports, FBI files, university archives)
 - Supernatural fyller GAP i historien, inte ersätter den
 
+### Spelarautonomi - VIKTIGT
+**Vi presenterar ALDRIG karaktärers tankar, känslor eller reaktioner.**
+
+- **Ge fakta, värld och kontext** - beskriv vad som händer runt karaktärerna
+- **Aldrig inre monologer** - inga "Vad [karaktär] tänker"-sektioner
+- **Inga föreskrivna känslor** - inte "Han känner sig..." eller citat som representerar tankar
+- **Spelaren äger sin karaktär** - det är alltid upp till varje spelare att bestämma hur deras karaktär reagerar
+
+Detta gäller ALLA spelarfacing sidor (karaktärssidor, handouts till spelare, etc.). SL-material kan ha förslag på NPCs reaktioner, men aldrig spelarkaraktärers.
+
 ### Research-Driven Mystery
 - Spelarna kan Google allt - det mesta STÄMMER
 - Fictional elements är plausibla tillägg i dokumenterade luckor
