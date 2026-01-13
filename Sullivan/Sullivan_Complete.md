@@ -13,7 +13,7 @@
 **Stationerad:** Quantico Marine Base, Virginia
 **Delta Green Codename:** Inget officiellt (kallas "Father" eller "Sullivan")
 **Cell:** Chesapeake Outlaw Cell (DMV-området)
-**Nuvarande roll:** De facto Cell Leader (efter Mac's forced leave)
+**Nuvarande roll:** De facto Cell Leader (efter Mac's administrative leave)
 
 **Nuvarande läge:** Funktionell men djupt skadat. Genomgår existentiell tro-kris efter Sea Glass. Kan inte längre be utan att känna tomhet. 5 poäng från Breaking Point.
 
@@ -211,7 +211,7 @@ Irländsk-katolsk familj från South Boston. Arbetarklass. Thomas jobbade som by
 
 **2025 Maj:** **"Sea Glass"** - Maine research facility. Kristaller som transformerade människor. Tro-krisen kulminerade. "Set the charges". SAN loss: -5
 
-**2025 Augusti:** Mac's "incident" på FBI-kontoret. Sullivan hjälper täcka upp - får Mac på forced leave.
+**2025 Augusti:** Mac's "incident" på FBI-kontoret. Sullivan hjälper täcka upp - får Mac på administrative leave.
 
 **2025 September:** "Trip 19" / "Black Madonna" kampanj (nuvarande). Sullivan är de facto cell leader.
 
@@ -786,7 +786,7 @@ Efter denna operation kan Sullivan inte längre be utan att känna tomhet.
 **Tid i Delta Green:** ~5 år (2020-2025)
 **Total operationer:** 8-10 operationer
 **Cell:** "Chesapeake" Outlaw Cell (DMV-området)
-**Roll:** De facto Cell Leader (efter Mac's forced leave)
+**Roll:** De facto Cell Leader (efter Mac's administrative leave)
 
 **Aktuell SAN:** 69/80 (5 poäng från Breaking Point)
 

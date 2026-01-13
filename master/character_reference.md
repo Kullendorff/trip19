@@ -29,7 +29,7 @@
 - **Breaking Point Trigger:** Kontrollförlust (hon har extremt kontrollbehov)
 
 ### Mac / Marcus Riley
-- **ROLL:** Cell leader (tekniskt), men på tvångsledighet sedan augusti 2025
+- **ROLL:** Cell leader (tekniskt), men på administrative leave sedan augusti 2025
 - **YRKESROLL:** Supervisory Special Agent, FBI Behavioral Analysis Unit 2
 - **EXPERTOMRÅDE:** Profiling, HUMINT, förhör, skjutvapen
 - **SAN:** 46/60, Breaking Point: 36 (10 poäng marginal - FARLIGT NÄRA!)
@@ -82,7 +82,7 @@
 
 | Callsign | Aktuell SAN | Max SAN | Breaking Point | Marginal | Status |
 |----------|-------------|---------|----------------|----------|--------|
-| Mac | 46 | 60 | 36 | **10** | ⚠️ KRITISK - På tvångsledighet |
+| Mac | 46 | 60 | 36 | **10** | ⚠️ KRITISK - På administrative leave |
 | Sullivan | 69 | 80 | 64 | **5** | ⚠️ VARNING - Tro-kris |
 | Sparky | 63 | 70 | 56 | **7** | ⚠️ VARNING - Volkov-besatt |
 | Scalpel | 68 | 75 | 60 | **7** | ⚠️ VARNING - Funktionell |
@@ -165,7 +165,7 @@
 - [ ] Marginal till BP noterad?
 
 ### 5. FAKTAKONTROLL
-- [ ] Mac på tvångsledighet (augusti 2025)?
+- [ ] Mac på administrative leave (augusti 2025)?
 - [ ] Sullivan är de facto leader?
 - [ ] Trench adapted to helplessness?
 - [ ] Scalpel nyinflyttad Baltimore (sommaren 2025)?
@@ -195,7 +195,7 @@ grep -i "präst Sullivan\|pastor Sullivan" [fil]
 
 **DU MÅSTE FRÅGA om:**
 - Vilket pronomen för nya NPCs?
-- Är detta före eller efter Mac's tvångsledighet?
+- Är detta före eller efter Mac's administrative leave?
 - Vilket callsign används i denna kontext?
 - Vilken SAN-nivå har karaktären vid denna tidpunkt?
 - Är denna händelse före eller efter Sea Glass (maj 2025)?

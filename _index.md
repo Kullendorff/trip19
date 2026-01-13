@@ -226,7 +226,7 @@ Trip19/
 ### Vad du MÅSTE fråga om:
 
 - Vilket pronomen för nya NPCs?
-- Är detta före eller efter Mac's tvångsledighet (augusti 2025)?
+- Är detta före eller efter Mac's administrative leave (augusti 2025)?
 - Vilket callsign används i denna kontext?
 - Vilken SAN-nivå har karaktären vid denna tidpunkt?
 - Är denna händelse före eller efter Sea Glass (maj 2025)?
