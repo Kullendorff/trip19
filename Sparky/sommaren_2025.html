@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPARKY ZHANG - Sommaren 2025 | Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0D1117;
+            --bg-darker: #0A0F0F;
+            --accent: #00ff88;
+            --accent-dim: #00cc6a;
+            --text: #D1D5DB;
+            --text-dim: #6B7280;
+            --border: #1A2332;
+            --highlight: #2C3E50;
+            --warning: #E74C3C;
+            --danger: #DC2626;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--bg-darker);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            text-align: center;
+            line-height: 1.4;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(0, 255, 136, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #0a1a15 100%);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+        }
+
+        .hero-content .date-range {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-dark);
+            padding: 0.3rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .content-section {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .impact-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .impact-card.warning {
+            border-left-color: var(--warning);
+        }
+
+        .impact-card.danger {
+            border-left-color: var(--danger);
+            background: rgba(220, 38, 38, 0.05);
+        }
+
+        .impact-card h3 {
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .impact-card.warning h3 {
+            color: var(--warning);
+        }
+
+        .impact-card.danger h3 {
+            color: var(--danger);
+        }
+
+        .impact-card p {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.75rem;
+        }
+
+        .impact-card li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-dim);
+        }
+
+        .impact-card li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+        }
+
+        .impact-card.warning li::before {
+            color: var(--warning);
+        }
+
+        .impact-card.danger li::before {
+            color: var(--danger);
+        }
+
+        .timeline-event {
+            background: var(--bg-dark);
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .timeline-event .date {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 0.9rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .timeline-event.critical {
+            border-left-color: var(--danger);
+        }
+
+        .timeline-event.critical .date {
+            color: var(--danger);
+        }
+
+        .timeline-quote {
+            background: var(--bg-dark);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: var(--text);
+        }
+
+        .stat-box {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-item {
+            background: var(--bg-dark);
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .stat-item .number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--danger);
+            font-family: 'Courier New', monospace;
+        }
+
+        .stat-item .label {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-top: 0.25rem;
+        }
+
+        .summary-box {
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .summary-box h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .corridor-talk {
+            background: rgba(0, 255, 136, 0.05);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .corridor-talk p {
+            margin-bottom: 0.5rem;
+        }
+
+        .corridor-talk .speaker {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .stat-box {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                KAI "SPARKY" ZHANG<br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">NSA // DELTA GREEN</span>
+            </div>
+
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="index.html" class="page-link">⚡ KARAKTÄR</a>
+                        <a href="sparky_tekniskt.html" class="page-link">💻 TEKNISKT</a>
+                        <a href="sparky_operativt.html" class="page-link">🎯 OPERATIVT</a>
+                        <a href="sparky_delta_green.html" class="page-link">▲ DELTA GREEN</a>
+                        <a href="sparky_personligt.html" class="page-link">❤️ PERSONLIGT</a>
+                        <a href="sommaren_2025.html" class="page-link active">📅 SOMMAREN 2025</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">
+                    ✦ TRIP 19 ✦<br>
+                    ← CHESAPEAKE CELL
+                </a>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="date-range">Februari - 4 September 2025</div>
+                    <h1>SOMMAREN 2025</h1>
+                    <div class="subtitle">NSA i fritt fall</div>
+                    <p>För Sparky har 2025 varit det värsta året i karriären. NSA, hennes arbetsplats sedan 2019, har genomgått en systematisk nedmontering. Kollegor försvinner. Ledarskapet är borta. Moralen är på botten.</p>
+                </div>
+            </div>
+
+            <section class="content-section">
+                <h2 class="section-title">NSA-KRISEN - TIDSLINJE</h2>
+
+                <div class="timeline-event">
+                    <div class="date">FEBRUARI 2025</div>
+                    <p><strong>"Deferred Resignation" erbjudande</strong></p>
+                    <p style="color: var(--text-dim);">NSA-anställda erbjuds att lämna med fallskärm. Många av Sparkys kollegor börjar överväga.</p>
+                </div>
+
+                <div class="timeline-event critical">
+                    <div class="date">MARS 2025</div>
+                    <p><strong>Elon Musk besoker Fort Meade</strong></p>
+                    <p style="color: var(--text-dim);">DOGE-representanter på NSA:s huvudkontor. Alla vet vad det betyder.</p>
+                </div>
+
+                <div class="timeline-event critical">
+                    <div class="date">APRIL 2025</div>
+                    <p><strong>General Timothy Haugh sparkas</strong></p>
+                    <p style="color: var(--text-dim);">NSA:s chef avskedas efter påtryckningar från Laura Loomer och andra. Ledarskapsvakuum börjar.</p>
+                </div>
+
+                <div class="timeline-event critical">
+                    <div class="date">MAJ 2025</div>
+                    <p><strong>8% nedskärningar - 1,500-2,000 positioner bort</strong></p>
+                    <p style="color: var(--text-dim);">Massuppsägningar. Sparkys team förlorar tre personer på en månad.</p>
+                </div>
+
+                <div class="timeline-event critical">
+                    <div class="date">JULI 2025</div>
+                    <p><strong>Hartman-nominering dras tillbaka</strong></p>
+                    <p style="color: var(--text-dim);">7 månaders ledarskapsvakuum. Ingen vet vem som leder NSA längre.</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">SIFFRORNA</h2>
+
+                <div class="stat-box">
+                    <div class="stat-item">
+                        <div class="number">2,000+</div>
+                        <div class="label">Kollegor försvunna</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">7</div>
+                        <div class="label">Månader utan ledning</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">8%</div>
+                        <div class="label">Nedskärningar</div>
+                    </div>
+                </div>
+
+                <div class="impact-card danger">
+                    <h3>Vad det betyder för Sparky</h3>
+                    <p>Varje dag på Fort Meade är nu annorlunda:</p>
+                    <ul>
+                        <li>Tomma skrivbord överallt - folk som fanns förra veckan är borta</li>
+                        <li>Projekt som plötsligt "inte längre är prioriterade"</li>
+                        <li>Ingen vet vem som tar beslut - kedjor av kommandon brutna</li>
+                        <li>Kollegor med 20+ års erfarenhet som plockar sina saker</li>
+                        <li>"You're told you're the best... then they fire you"</li>
+                    </ul>
+                </div>
+
+                <div class="corridor-talk">
+                    <p><span class="speaker">[Korridorsamtal, Fort Meade, augusti 2025]</span></p>
+                    <p>"Har du hört om Jensens team?"</p>
+                    <p>"Hela teamet?"</p>
+                    <p>"Hela teamet. På en dag."</p>
+                    <p>"...Vad händer med deras projekt?"</p>
+                    <p>"Ingen vet. Ingen frågar längre."</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">LAUREL - HEMMA</h2>
+
+                <div class="impact-card warning">
+                    <h3>ICE Staging Area</h3>
+                    <p>Laurel, Maryland - där Sparky bor - har blivit en samlingspunkt för immigrationsoperationer.</p>
+                    <ul>
+                        <li>Omärkta bilar och bussar på parkeringar - dagligen</li>
+                        <li>Folk i taktisk utrustning vid lokala motell</li>
+                        <li>Grannar som viskar om razzia-rykten</li>
+                        <li>Sparky ser dataflödena från jobbet - hon VET vad som planeras</li>
+                    </ul>
+                </div>
+
+                <div class="impact-card">
+                    <h3>Vardagen</h3>
+                    <p>Pendlingen från Laurel till Fort Meade är kort, men känslan är tung:</p>
+                    <ul>
+                        <li>Kör förbi ICE-fordon på väg till jobbet</li>
+                        <li>Ser federala agenter överallt - vet vilka som är "vanliga" och vilka som är nya</li>
+                        <li>Grannen Mr. Walsh (invandrarbakgrund) är nervös - första gången någonsin</li>
+                        <li>Lokala latinamerikanska restauranger har tystare än vanligt</li>
+                    </ul>
+                </div>
+
+                            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">MORALEN PÅ BOTTEN</h2>
+
+                <div class="impact-card">
+                    <h3>Kollegor som kämpat hela karriären</h3>
+                    <ul>
+                        <li>Analytiker som hittat terrorister - nu uppsagda</li>
+                        <li>Kodknäckare som skyddat USA i 15+ år - "inte längre behövda"</li>
+                        <li>Unga talanger som värvades med löfte om meningsfull karriär - nu demoraliserade</li>
+                        <li>De som stannar kvar undrar: "Varför stannar jag?"</li>
+                    </ul>
+                </div>
+
+                            </section>
+
+            <section class="content-section">
+                <div class="summary-box">
+                    <h3>Sammanfattning: Sparkys Värld i September 2025</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                            <strong style="color: var(--accent);">Arbete:</strong>
+                            <span style="color: var(--text-dim);">NSA i fritt fall - 2,000+ kollegor borta, inget ledarskap, projekt som avbryts</span>
+                        </li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                            <strong style="color: var(--accent);">Hemma:</strong>
+                            <span style="color: var(--text-dim);">Laurel är ICE staging area - ser operationer dagligen</span>
+                        </li>
+                        <li style="padding: 0.5rem 0;">
+                            <strong style="color: var(--accent);">Moral:</strong>
+                            <span style="color: var(--text-dim);">På botten bland kollegorna</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

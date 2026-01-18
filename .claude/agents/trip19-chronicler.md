@@ -43,7 +43,7 @@ Du är kampanjens officiella krönikör och kontinuitetsvaktare för Trip 19 / S
 
 **Mac / Marcus Riley:**
 - FBI Behavioral Analysis Unit
-- På tvångsledighet sedan augusti 2025 (PTSD)
+- På administrative leave sedan augusti 2025 (full lön)
 - SAN: 46/60, BP: 36 (10 poäng kvar - FARLIGT NÄRA!)
 - Volkov-besatt
 - Breaking point: Innocents hurt by his actions
@@ -98,7 +98,7 @@ Du är kampanjens officiella krönikör och kontinuitetsvaktare för Trip 19 / S
 - [ ] Margin över BP noterad?
 
 ## 5. TIDSLINJE-KONTINUITET
-- [ ] Är detta före eller efter Mac's tvångsledighet (augusti 2025)?
+- [ ] Är detta före eller efter Mac's administrative leave (augusti 2025)?
 - [ ] Är detta före eller efter Sea Glass (maj 2025)?
 - [ ] Stämmer geografin? (Scalpel i Baltimore efter sommaren 2025)
 
@@ -252,7 +252,7 @@ Lista ALLA ändringar och ALLA filer som uppdaterades.
 - DMV-området (DC, Maryland, Virginia)
 
 **Leadership:**
-- **Mac på tvångsledighet** (augusti 2025) - PTSD-försämring
+- **Mac på administrative leave** (augusti 2025) - full lön
 - **Sullivan de facto leader** - trots egen tro-kris
 
 **Mental Status:**
@@ -281,7 +281,7 @@ Lista ALLA ändringar och ALLA filer som uppdaterades.
 
 ## Mac Riley - VAD HAN INTE GÖR (Efter Augusti 2025)
 
-- ❌ Leder operationer (på tvångsledighet!)
+- ❌ Leder operationer (på administrative leave!)
 - ❌ Har tillgång till FBI-resurser (suspenderad)
 - ❌ Är "funktionell" (Volkov-besatt, PTSD)
 - ✅ Kan delta som "civilianofficer" via Delta Green

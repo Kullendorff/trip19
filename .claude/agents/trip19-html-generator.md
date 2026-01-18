@@ -519,7 +519,7 @@ Innan du levererar, kontrollera:
 - [ ] Trench = "FEMA/USAR Specialist" (inte "räddningsarbetare")
 
 ### Tidslinje & Kontext
-- [ ] Är detta före eller efter Mac's tvångsledighet (augusti 2025)?
+- [ ] Är detta före eller efter Mac's administrative leave (augusti 2025)?
   - Efter augusti 2025: Sullivan är de facto leader
 - [ ] Är detta före eller efter Sea Glass (maj 2025)?
   - Efter Sea Glass: Alla traumatiserade, Sullivan's tro-kris

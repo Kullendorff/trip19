@@ -11,7 +11,7 @@
 **Codename:** SERGEANT (Delta Green)
 **Ålder:** 38 år (född 15 september 1987)
 **Yrke:** Supervisory Special Agent, FBI Behavioral Analysis Unit 2
-**Status:** Tvångsledighet (augusti 2025)
+**Status:** Administrative leave (augusti 2025) - full lön
 
 **Nuvarande läge:** Brutal försämring. PTSD med obsessiva drag. 10 poäng från andra break. Volkov-besatt. Familj splittrad. Karriär i fara.
 
@@ -386,8 +386,8 @@ Volkov-boarden växte explosivt. Mac researched 8-12 timmar/dag. Stanford univer
 **Augusti 2025: FBI-incident**
 Kollega nämnde "Maine" casually. Mac exploded: "VAD VET DU OM MAINE?!" Total loss av kontroll i professional setting.
 
-**Forced leave beslut (Augusti 2025):**
-Assistant Director Whitmore called Mac in. "Riley, du tar tvångsledighet tills vidare. Sök hjälp. Vi pratar om din framtid när du är redo."
+**Administrative leave beslut (Augusti 2025):**
+Assistant Director Whitmore called Mac in. "Riley, du placeras på administrative leave pending completion of Critical Incident Protocol and fitness-for-duty evaluation. Full lön. Sök hjälp. Vi pratar om din framtid när du är redo."
 
 Mac protesterade inte.
 
@@ -748,7 +748,7 @@ Mac äter mestadels takeout eller glömmer att äta.
 
 ### Ekonomi
 
-**FBI-lön:** ~$85,000/år (GS-13 Step 5) - fortsätter under forced leave
+**FBI-lön:** ~$85,000/år (GS-13 Step 5) - fortsätter under administrative leave (full lön)
 **Hyra:** $1,800/månad
 **Barnbidrag:** $1,200/månad (till Sarah)
 **Utgifter:** Minimal (takeout, gym, whiskey, ammunition)
@@ -940,14 +940,14 @@ Hur mycket Sparky också struggling. Hennes Volkov-fixation nästan lika strong 
 - Hotbedömning (våld på arbetsplatser, förföljelse)
 - Beteendeanalys av okända gärningsmän
 
-**Nuvarande status:** Tvångsledighet (augusti 2025) efter "Maine incident" (yelled at kollega)
+**Nuvarande status:** Administrative leave (augusti 2025) - "pending completion of Critical Incident Protocol and fitness-for-duty evaluation"
 
 **Karriärbana:**
 - 2012-2014: Special Agent, Kriminella utredningar (GS-10 → GS-12)
 - 2014-2016: Special Agent, Våldsbrott (GS-12 → GS-13)
 - 2016-2019: Special Agent, BAU-2 (GS-13)
 - 2019-2025: Supervisory Special Agent, BAU-2 (GS-14)
-- 2025: Forced leave
+- 2025: Administrative leave (full lön)
 
 **Framtid:** Osäker. Kan inte återvända utan psyk-evaluation. Mac vägrar. Karriär i limbo.
 
@@ -1025,7 +1025,7 @@ Hur mycket Sparky också struggling. Hennes Volkov-fixation nästan lika strong 
 ✓ Negative alterations in mood/cognition (guilt, detachment, numbness)
 ✓ Marked alterations in arousal/reactivity (hypervigilance, aggression, sleep)
 ✓ Duration >1 month (4+ months sedan Sea Glass)
-✓ Functional impairment (FBI forced leave, family deterioration, social isolation)
+✓ Functional impairment (FBI administrative leave, family deterioration, social isolation)
 
 ### Huvudsymptom
 
@@ -1403,7 +1403,7 @@ Om Mac någonsin ska bli hel igen måste han slå på den säcken. Inte för kon
 **Ansiktsigenkänning:** FBI-system
 **Klassificerade databaser:** Kontraspionage, terrorism (Mac har clearance)
 
-**Nuvarande status:** Forced leave = begränsad access (kan inte logga in från hemma-dator utan flaggas)
+**Nuvarande status:** Administrative leave = begränsad access (kan inte logga in från hemma-dator utan flaggas)
 
 ---
 

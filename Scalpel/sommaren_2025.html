@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCALPEL ENGLER - Sommaren 2025 | Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0D1117;
+            --bg-darker: #0A0F0F;
+            --accent: #c9a876;
+            --accent-dim: #a68a5f;
+            --text: #D1D5DB;
+            --text-dim: #6B7280;
+            --border: #1A2332;
+            --highlight: #2C3E50;
+            --warning: #E74C3C;
+            --danger: #DC2626;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--bg-darker);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            text-align: center;
+            line-height: 1.4;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(201, 168, 118, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #1a1815 100%);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+        }
+
+        .hero-content .date-range {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-dark);
+            padding: 0.3rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .content-section {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .impact-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .impact-card.warning {
+            border-left-color: var(--warning);
+        }
+
+        .impact-card h3 {
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .impact-card.warning h3 {
+            color: var(--warning);
+        }
+
+        .impact-card p {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.75rem;
+        }
+
+        .impact-card li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-dim);
+        }
+
+        .impact-card li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.7rem;
+        }
+
+        .impact-card.warning li::before {
+            color: var(--warning);
+        }
+
+        .timeline-quote {
+            background: var(--bg-dark);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: var(--text);
+        }
+
+        .summary-box {
+            background: rgba(201, 168, 118, 0.1);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .summary-box h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .new-start-box {
+            background: rgba(201, 168, 118, 0.05);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            border: 1px dashed var(--accent);
+        }
+
+        .new-start-box h4 {
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                DR. HANNA ENGLER<br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">MEDICAL EXAMINER // DELTA GREEN</span>
+            </div>
+
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="index.html" class="page-link">KARAKTÄR</a>
+                        <a href="personligt.html" class="page-link">PERSONLIGT</a>
+                        <a href="medicinsk.html" class="page-link">MEDICINSK KARRIÄR</a>
+                        <a href="operativt.html" class="page-link">OPERATIVT</a>
+                        <a href="art.html" class="page-link">KONST & MUSIK</a>
+                        <a href="sommaren_2025.html" class="page-link active">SOMMAREN 2025</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">
+                    ✦ TRIP 19 ✦<br>
+                    ← CHESAPEAKE CELL
+                </a>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="date-range">Juni - 4 September 2025</div>
+                    <h1>SOMMAREN 2025</h1>
+                    <div class="subtitle">En ny start i en orolig stad</div>
+                    <p>För Hanna har sommaren 2025 handlat om att bygga ett nytt liv i Baltimore - att lära sig en ny stad, nya kollegor, nya rutiner. Men staden hon flyttade till är inte längre den hon forskade om.</p>
+                </div>
+            </div>
+
+            <section class="content-section">
+                <h2 class="section-title">BALTIMORE - SANCTUARY CITY</h2>
+
+                <div class="impact-card warning">
+                    <h3>Vad det betyder</h3>
+                    <p>Baltimore har deklarerat sig som "sanctuary city" - de samarbetar inte aktivt med federal immigration enforcement.</p>
+                    <ul>
+                        <li>Staden är potentiellt mål för ICE-operationer</li>
+                        <li>Federal finansiering kan dras in som straff</li>
+                        <li>Lokal polis och federala agenter har olika prioriteringar</li>
+                        <li>Spänning i luften - alla väntar på vad som ska hända</li>
+                    </ul>
+                </div>
+
+                <div class="impact-card">
+                    <h3>Vad Hanna ser</h3>
+                    <p>Som Medical Examiner i Baltimore County:</p>
+                    <ul>
+                        <li>Kollegor som pratar tystare om politik än i New Jersey</li>
+                        <li>Lokaltidningar fulla av debatt om stadens framtid</li>
+                        <li>Invandrargrannar i Federal Hill som är mer försiktiga</li>
+                        <li>En känsla av att något stort är på väg</li>
+                    </ul>
+                </div>
+
+                            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">DET NYA JOBBET</h2>
+
+                <div class="impact-card">
+                    <h3>Baltimore Office of the Chief Medical Examiner</h3>
+                    <p>Hannas nya arbetsplats är annorlunda än New Jersey:</p>
+                    <ul>
+                        <li>Större stad, fler fall, högre tempo</li>
+                        <li>Kollegor som ännu inte känner henne</li>
+                        <li>Hon måste bevisa sig på nytt</li>
+                        <li>Men också: en chans att börja om utan bagaget</li>
+                    </ul>
+                </div>
+
+                <div class="impact-card">
+                    <h3>Vad som väntar</h3>
+                    <p>Hanna vet vad som kan komma:</p>
+                    <ul>
+                        <li>Om ICE-operationer intensifieras kan hon få relaterade dödsfall</li>
+                        <li>Sanctuary city-konflikten kan påverka resurser</li>
+                        <li>Hon är delstatligt anställd - skyddad från federal shutdown, men inte från politiskt tryck</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">EN NY START</h2>
+
+                <div class="new-start-box">
+                    <h4>Det positiva</h4>
+                    <p style="color: var(--text-dim);">Trots oron har sommaren haft ljusa sidor:</p>
+                    <ul style="list-style: none; padding: 0; margin-top: 0.75rem;">
+                        <li style="padding: 0.3rem 0; color: var(--text-dim);">✦ Ny lägenhet i Federal Hill - med ett gammalt piano hon börjat spela igen</li>
+                        <li style="padding: 0.3rem 0; color: var(--text-dim);">✦ Nya kollegor som verkar kompetenta</li>
+                        <li style="padding: 0.3rem 0; color: var(--text-dim);">✦ En stad hon kan utforska på nytt</li>
+                        <li style="padding: 0.3rem 0; color: var(--text-dim);">✦ Distans från New Jersey-minnena</li>
+                    </ul>
+                </div>
+
+                <div class="impact-card">
+                    <h3>Vardagen i Federal Hill</h3>
+                    <ul>
+                        <li>Morgonpromenader längs hamnen innan jobbet</li>
+                        <li>Lokala kaféer där hon börjar bli igenkänd</li>
+                        <li>Kvällarna vid pianot - första gången på 17 år</li>
+                        <li>En känsla av att kanske, kanske, kunna andas ut</li>
+                    </ul>
+                </div>
+
+                            </section>
+
+            <section class="content-section">
+                <div class="summary-box">
+                    <h3>Sammanfattning: Hannas Värld i September 2025</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                            <strong style="color: var(--accent);">Arbete:</strong>
+                            <span style="color: var(--text-dim);">Ny position i Baltimore - etablerar sig, bevisar sig</span>
+                        </li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                            <strong style="color: var(--accent);">Stad:</strong>
+                            <span style="color: var(--text-dim);">Sanctuary city under tryck - spänning, ovisshet</span>
+                        </li>
+                        <li style="padding: 0.5rem 0;">
+                            <strong style="color: var(--accent);">Personligt:</strong>
+                            <span style="color: var(--text-dim);">En ny start - piano, nya rutiner, distans från det gamla</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

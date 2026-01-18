@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FATHER SULLIVAN - Sommaren 2025 | Delta Green</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0D1117;
+            --bg-darker: #0A0F0F;
+            --accent: #b87333;
+            --accent-dim: #966029;
+            --text: #D1D5DB;
+            --text-dim: #6B7280;
+            --border: #1A2332;
+            --highlight: #2C3E50;
+            --warning: #E74C3C;
+            --danger: #DC2626;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--bg-darker);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            text-align: center;
+            line-height: 1.4;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .page-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .page-link {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover {
+            color: var(--accent);
+            background: rgba(184, 115, 51, 0.1);
+            border-color: var(--accent);
+        }
+
+        .page-link.active {
+            background: var(--accent);
+            color: var(--bg-darker);
+            font-weight: bold;
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, #1a1510 100%);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+        }
+
+        .hero-content .date-range {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-dark);
+            padding: 0.3rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .content-section {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .impact-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .impact-card.warning {
+            border-left-color: var(--warning);
+        }
+
+        .impact-card h3 {
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .impact-card.warning h3 {
+            color: var(--warning);
+        }
+
+        .impact-card p {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.75rem;
+        }
+
+        .impact-card li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-dim);
+        }
+
+        .impact-card li::before {
+            content: '✟';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .impact-card.warning li::before {
+            color: var(--warning);
+        }
+
+        .timeline-event {
+            background: var(--bg-dark);
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .timeline-event .date {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .timeline-event.critical {
+            border-left-color: var(--warning);
+        }
+
+        .timeline-event.critical .date {
+            color: var(--warning);
+        }
+
+        .timeline-quote {
+            background: var(--bg-dark);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: var(--text);
+        }
+
+        .summary-box {
+            background: rgba(184, 115, 51, 0.1);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .summary-box h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .daily-scene {
+            background: rgba(184, 115, 51, 0.05);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+
+        .daily-scene h4 {
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                FATHER SULLIVAN<br>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">NAVY CHAPLAIN // DELTA GREEN</span>
+            </div>
+
+            <nav>
+                <div class="nav-section">
+                    <div class="page-link-container">
+                        <a href="index.html" class="page-link">KARAKTAR</a>
+                        <a href="navy_karriar.html" class="page-link">NAVY KARRIAR</a>
+                        <a href="delta_green.html" class="page-link">DELTA GREEN</a>
+                        <a href="kontakter.html" class="page-link">KONTAKTER</a>
+                        <a href="personligt.html" class="page-link">PERSONLIGT</a>
+                        <a href="sommaren_2025.html" class="page-link active">SOMMAREN 2025</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">
+                    ✦ TRIP 19 ✦<br>
+                    ← CHESAPEAKE CELL
+                </a>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="date-range">Juni - 4 September 2025</div>
+                    <h1>SOMMAREN 2025</h1>
+                    <div class="subtitle">Militären möter civila</div>
+                    <p>För Sullivan har sommaren 2025 inneburit att se uniformerade män och kvinnor - hans kollegor, hans församling - användas på sätt han aldrig trodde var möjligt på amerikansk mark.</p>
+                </div>
+            </div>
+
+            <section class="content-section">
+                <h2 class="section-title">QUANTICO - PÅ BAKGÅRDEN</h2>
+
+                <div class="timeline-event critical">
+                    <div class="date">25 AUGUSTI 2025</div>
+                    <p><strong>Virginia National Guard ICE-stöd</strong></p>
+                    <p style="color: var(--text-dim);">60 Virginia NG soldater påbörjar träning för immigration enforcement-operationer. På Sullivans bakgård - bokstavligt talat.</p>
+                </div>
+
+                <div class="impact-card warning">
+                    <h3>Vad Sullivan ser</h3>
+                    <p>Från sin position på Quantico Marine Base:</p>
+                    <ul>
+                        <li>Soldater som tränar för inrikesoperationer - inte utländska</li>
+                        <li>Marines som diskuterar "civila uppdrag" i korridorerna</li>
+                        <li>Unga män och kvinnor som frågade: "Är det här vad vi skrev upp för?"</li>
+                        <li>Officerare som är tysta där de brukade vara öppna</li>
+                    </ul>
+                </div>
+
+                <div class="impact-card">
+                    <h3>Som Chaplain</h3>
+                    <p>Sullivans roll är att stödja soldaternas andliga hälsa. Nu:</p>
+                    <ul>
+                        <li>Fler samtal än vanligt - folk som ifrågasätter ordern de fått</li>
+                        <li>Unga soldater med samvetskval om vad de ombeds göra</li>
+                        <li>Veteraner som säger: "Det här är inte varför jag gick med"</li>
+                        <li>Sullivan lyssnar. Han kan inte svara. Han vet inte vad han ska säga.</li>
+                    </ul>
+                </div>
+
+                            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">MILITARISERINGEN</h2>
+
+                <div class="impact-card">
+                    <h3>DC-området</h3>
+                    <p>Northern Virginia, Maryland, DC - allt har förändrats:</p>
+                    <ul>
+                        <li>National Guard på gatorna - beväpnade med M17 och M4</li>
+                        <li>Militärfordon vid federala byggnader</li>
+                        <li>Checkpoints som dyker upp över natten</li>
+                        <li>En atmosfär av belägring</li>
+                    </ul>
+                </div>
+
+                            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">DEN BREDARE BILDEN</h2>
+
+                <div class="impact-card">
+                    <h3>Protesterna</h3>
+                    <p>Från Quantico ser Sullivan rapporter om vad som händer i DC:</p>
+                    <ul>
+                        <li>"No Kings"-protesterna - 100,000+ människor</li>
+                        <li>Militär närvaro vid fredliga demonstrationer</li>
+                        <li>Kollegor som berättar om "spaningsuppdrag" i civila områden</li>
+                    </ul>
+                </div>
+
+                <div class="impact-card">
+                    <h3>Församlingen</h3>
+                    <p>Marines och deras familjer behöver stöd mer än någonsin:</p>
+                    <ul>
+                        <li>Stress över osäker framtid</li>
+                        <li>Familjer som oroar sig för vad pappa/mamma gör på jobbet</li>
+                        <li>Barn som frågar: "Varför är soldater på TV?"</li>
+                        <li>Sullivan har fler samtal, längre kvällar, tyngre bördan</li>
+                    </ul>
+                </div>
+
+                            </section>
+
+            <section class="content-section">
+                <div class="summary-box">
+                    <h3>Sammanfattning: Sullivans Värld i September 2025</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                            <strong style="color: var(--accent);">Arbete:</strong>
+                            <span style="color: var(--text-dim);">Quantico under förändring - NG ICE-träning på hans bakgård</span>
+                        </li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                            <strong style="color: var(--accent);">Församling:</strong>
+                            <span style="color: var(--text-dim);">Fler soldater behöver stöd - samvetskval, frågor utan svar</span>
+                        </li>
+                        <li style="padding: 0.5rem 0;">
+                            <strong style="color: var(--accent);">Omgivning:</strong>
+                            <span style="color: var(--text-dim);">Militariserad region - beväpnad NG på gatorna</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
