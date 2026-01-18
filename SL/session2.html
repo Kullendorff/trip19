@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session 2 - Harriet Johnsons Förråd | Trip 19</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-green: #00ff41;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --accent-yellow: #ffcc00;
+            --accent-purple: #9b59b6;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .session-header {
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-green);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .session-header h1 {
+            color: var(--accent-green);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .session-meta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .session-meta .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .session-meta .meta-label {
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            background: rgba(0, 255, 65, 0.2);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(74, 144, 164, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-bar a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .nav-bar a:hover {
+            color: #6ab0c4;
+        }
+
+        .nav-bar .nav-center {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .journal-section {
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-green);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .journal-section h2 {
+            color: var(--accent-green);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .discovery-box {
+            background: rgba(0, 255, 65, 0.05);
+            border: 2px solid var(--accent-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .discovery-box h3 {
+            color: var(--accent-green);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .critical-box {
+            background: rgba(255, 68, 68, 0.1);
+            border: 3px solid var(--accent-red);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .critical-box h3 {
+            color: var(--accent-red);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: rgba(255, 204, 0, 0.1);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .handout-link {
+            display: inline-block;
+            color: var(--accent-blue);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: rgba(74, 144, 164, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .handout-link:hover {
+            background: rgba(74, 144, 164, 0.2);
+            border-color: #6ab0c4;
+        }
+
+        .connections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .connection-card {
+            background: rgba(10, 14, 23, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .connection-card h4 {
+            color: var(--accent-yellow);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .stars {
+            color: var(--accent-yellow);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .session-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .connections-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="session-header">
+            <h1>📦 SESSION 2: HARRIET JOHNSONS FÖRRÅD</h1>
+            <div class="session-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Spelad:</span>
+                    <span>[Datum TBD]</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Plats:</span>
+                    <span>CubeSmart Storage, Leesburg VA</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Status:</span>
+                    <span class="status-badge">SPELAD</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-bar">
+            <a href="sessions.html">← Till Sessions</a>
+            <div class="nav-center">Trip 19 / Black Madonna</div>
+            <a href="session3.html">Session 3 →</a>
+        </div>
+
+        <!-- SESSION SUMMARY -->
+        <div class="journal-section">
+            <h2>📋 SAMMANFATTNING</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text);">
+                Chesapeake Cell spårade upp Harriet Johnsons sondotter Emily Johnson och fick tillgång till Harriets förråd i Leesburg. De hittade tre träkistor med Ernest Lundeens saker från 1940 - inklusive <strong>kritiska bevis</strong> som Volkov missade.
+            </p>
+
+            <div class="info-box">
+                <h3 style="color: var(--accent-blue); margin-bottom: 0.75rem;">Volkovs Blinda Fläck</h3>
+                <p>Volkov köpte ENDAST Harriets dagbok på auktionen (oktober 2024). Han frågade Emily om "papers and notebooks" - inte föremål. <strong>Han missade förrådet helt.</strong></p>
+                <p style="margin-top: 0.75rem;"><strong>Chesapeake Cell fick nu:</strong></p>
+                <ul style="margin-top: 0.5rem;">
+                    <li>Type-VII fragment (fysisk kristalldel)</li>
+                    <li>Lundeens lapp om "tre delar" (VII, VIII, IX)</li>
+                    <li>Frankfurt Clinic-kopplingen</li>
+                    <li>Leningrad-foto och kontakter</li>
+                    <li>Harriets anteckningsbok med drömmar om "tre män i snö"</li>
+                </ul>
+            </div>
+
+            <!-- KISTA 1 -->
+            <div class="discovery-box">
+                <h3><span class="stars">⭐</span> KISTA 1: KLÄDER & PERSONLIGT</h3>
+                <p><strong>Skylt på kistan:</strong> "Farfars saker - Rör ej! / Harriet 1952"</p>
+                <ul style="margin-top: 1rem;">
+                    <li>Ernest Lundeens kostym, skor, fickur, plånbok</li>
+                    <li><strong>⭐ Visitkort från George Sylvester Viereck</strong> - "Publicist" (bekräftar Nazi-kopplingen)</li>
+                    <li>Visitkort: Burton K. Wheeler, Gerald P. Nye, Hamilton Fish III, Charles Lindbergh, etc.</li>
+                    <li>Glasögon, bibel (oläst)</li>
+                </ul>
+            </div>
+
+            <!-- KISTA 2 -->
+            <div class="discovery-box">
+                <h3><span class="stars">⭐⭐</span> KISTA 2: KONTOR & DOKUMENT</h3>
+
+                <h4 style="color: var(--accent-green); margin-top: 1.5rem; font-size: 1.2rem;">Harriets Anteckningsbok 1940 (KRITISK!)</h4>
+                <ul style="margin-top: 0.75rem;">
+                    <li><strong>15 sep 1940:</strong> "Tysk man lämnade metalväska som hummade. Ernest skakade i en timme efter han rörde den"</li>
+                    <li><strong>22 sep 1940:</strong> "Mrs. Lundeen kom, letade efter något. Ernest hade lämnat kuvert 'om något händer'"</li>
+                    <li><strong>3 okt 1940:</strong> "Dröm igen. Blått ljus. <strong>Tre män i snö</strong>. En tittade på mig."</li>
+                    <li><strong>27 okt 1940:</strong> "Dr. Reinhardt ringde, frågade om Ernest nämnde <strong>'Leningrad'</strong>"</li>
+                </ul>
+
+                <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(212, 165, 32, 0.1); border-radius: 4px;">
+                    <p><strong>📓 Handout:</strong> <a href="harriet_notebook_1940.html" class="handout-link">Harriets anteckningsbok (fullständig)</a></p>
+                </div>
+
+                <h4 style="color: var(--accent-green); margin-top: 1.5rem; font-size: 1.2rem;">Övrigt Material</h4>
+                <ul style="margin-top: 0.75rem;">
+                    <li><strong>Kalender 1940:</strong> Juni 15: "R. - lunch, priv." | Augusti 30: "Flight 4 PM - VIKTIGT"</li>
+                    <li><strong>⭐ Telegram (28 aug 1940):</strong> "PACKAGE DELAYED STOP WILL ARRIVE 30TH STOP HANDLE WITH CARE STOP R"</li>
+                    <li><strong>Kladdhäfte:</strong> Ett nummer INTE överstruket: <em>"K.R. - Frankfurt - ALpine 4-7829"</em></li>
+                    <li>Lundeens politiska tal, kontorets fotografier</li>
+                </ul>
+            </div>
+
+            <!-- KISTA 3 -->
+            <div class="critical-box">
+                <h3><span class="stars">⭐⭐⭐</span> KISTA 3: METALLBOX & KUVERT (JACKPOT!)</h3>
+
+                <p><strong>Brev från Norma Lundeen till Harriet (1941):</strong></p>
+                <p style="font-style: italic; margin: 1rem 0; padding-left: 1rem; border-left: 3px solid var(--accent-red);">
+                    "Kära Harriet, Jag skickar dig dessa föremål som Ernest ville ha förvarade säkert. Jag orkar inte titta på dem. Var snäll och håll dem borta från huset. FBI kom igen igår. - N.L."
+                </p>
+
+                <h4 style="color: var(--accent-red); margin-top: 1.5rem; font-size: 1.2rem;">Metallboxens 6 Föremål</h4>
+
+                <ol style="margin-top: 1rem; line-height: 1.8;">
+                    <li><strong>FOTO (svartvitt)</strong> - Tre män i sovjetiska uniformer, snö, kasern/fabrik<br>
+                        <em>Baksida (Lundeens handstil):</em> "Leningrad contact - K. referens"<br>
+                        <a href="russianphoto1.png" target="_blank" class="handout-link">📷 Se foto</a>
+                        <a href="photo_back_leningrad.html" target="_blank" class="handout-link">🔄 Se baksida</a>
+                    </li>
+
+                    <li style="margin-top: 1rem;"><strong>METALLFÖREMÅL (Type-VII fragment)</strong><br>
+                        Storlek: Som stor knapp/liten lins | Oregelbunden form (bruten bit)<br>
+                        Kallare än rumstemperatur, tyngre än det borde vara<br>
+                        Gravering (utsliten): "...ekt VII"<br>
+                        Reflekterar ljus... <strong>FEL</strong>. Vinkeln stämmer inte.<br>
+                        <strong>Unnatural check:</strong> Detta är INTE naturligt material (0/1 SAN)
+                    </li>
+
+                    <li style="margin-top: 1rem;"><strong>TYSKT VYKORT (juni 1939)</strong><br>
+                        Till: Ernest Lundeen, Senate Office Building<br>
+                        Text (tyska): <em>"Das Paket kommt wie besprochen. Bitte vorsichtig behandeln. - R"</em><br>
+                        <a href="germany_postcard_1939_front.png" target="_blank" class="handout-link">📷 Framsida</a>
+                        <a href="germany_postcard_1939_back.html" target="_blank" class="handout-link">🔄 Baksida</a>
+                    </li>
+
+                    <li style="margin-top: 1rem;"><strong>DR. KLAUS REINHARDTS VISITKORT</strong><br>
+                        "Frankfurt Klinik für Neuropsychiatrie"<br>
+                        Adress: Dorfstraße 42c, 15230 Frankfurt (Oder)-Güldendorf<br>
+                        <strong>Baksida (Lundeens handstil):</strong> "Kalenko - 1942"<br>
+                        <a href="reinhardt_business_card.html" target="_blank" class="handout-link">💳 Se visitkort</a>
+                    </li>
+
+                    <li style="margin-top: 1rem;"><strong>TEKNISKT HÄFTE (10 sidor, 1939)</strong><br>
+                        Tyska tekniska ritningar, diagram över sfäriskt/kristallformat<br>
+                        Text (fragmentarisk): "...resonansfrekvens måste kalibreras...", "...farligt vid direkt beröring...", <strong>"...tre enheter nödvändiga för full aktivering..."</strong><br>
+                        Signatur: börjar på "R"
+                    </li>
+
+                    <li style="margin-top: 1rem;"><strong>LUNDEENS HANDSKRIVNA LAPP (MEST KRITISK!)</strong><br>
+                        <div style="margin: 1rem 0; padding: 1rem; background: rgba(139, 0, 0, 0.2); border-radius: 4px; border: 2px solid var(--accent-red);">
+                            <p style="font-style: italic; line-height: 1.8;">
+                                "Om något händer mig - kontakta K. i Leningrad. Han vet.<br><br>
+                                Tre delar. VII, VIII, IX. En i USA, två i Ryssland.<br><br>
+                                De får INTE hitta dem."
+                            </p>
+                        </div>
+                        <a href="lundeen_handwritten_note.html" target="_blank" class="handout-link">✍️ Se lapp (handout)</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- CONNECTIONS MADE -->
+        <div class="journal-section">
+            <h2>🔗 KOPPLINGAR ETABLERADE</h2>
+
+            <div class="connections-grid">
+                <div class="connection-card">
+                    <h4>FRANKFURT CLINIC</h4>
+                    <p>Dr. Klaus Reinhardt, neuropsykiatri-klinik i Frankfurt (Oder). Lundeen hade kontakt redan 1938-1940. Behandlade senare Leningrad-överlevande 1946.</p>
+                    <p style="margin-top: 0.75rem;"><strong>Telefon:</strong> ALpine 4-7829</p>
+                </div>
+
+                <div class="connection-card">
+                    <h4>LENINGRAD 1942</h4>
+                    <p>Lundeen skrev om "K. i Leningrad" (troligen Kalenko). Foto visar tre män i snö. Harriet drömde om samma sak.</p>
+                    <p style="margin-top: 0.75rem;"><strong>Connection:</strong> Reinhardt's visitkort → "Kalenko - 1942"</p>
+                </div>
+
+                <div class="connection-card">
+                    <h4>TRE DELAR</h4>
+                    <p>Type-VII, VIII, IX. Lundeen visste att det fanns tre kristaller/enheter. VII i USA (fragmentet de hittat), VIII och IX i Ryssland.</p>
+                    <p style="margin-top: 0.75rem;"><strong>Tekniskt häfte:</strong> "tre enheter nödvändiga för full aktivering"</p>
+                </div>
+
+                <div class="connection-card">
+                    <h4>TRE MÄN I SNÖ</h4>
+                    <p>Harriet drömde om detta (3 okt 1940). Fotot från Leningrad visar tre män i snö. Lundeens anteckning: "Leningrad contact". Magdas mor kommer berätta samma sak.</p>
+                    <p style="margin-top: 0.75rem;"><strong>Pattern:</strong> Leningrad-contamination bleeding through dreams</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- WHAT THEY KNOW -->
+        <div class="journal-section">
+            <h2>✅ VAD CHESAPEAKE CELL VET NU</h2>
+
+            <div class="info-box">
+                <h3 style="color: var(--accent-blue); margin-bottom: 0.75rem;">Konkreta Fakta</h3>
+                <ul>
+                    <li>Lundeen fick något från Tyskland <strong>1939</strong> (långt före Trip 19-kraschen 1940)</li>
+                    <li>Det var en <strong>metallapparat/kristall som hummade och vibrerade</strong></li>
+                    <li>Det fanns <strong>TRE DELAR: Type-VII, Type-VIII, Type-IX</strong></li>
+                    <li><strong>En i USA</strong> (fragmentet de hittat), <strong>två i Ryssland</strong></li>
+                    <li>Koppling till <strong>Frankfurt Clinic</strong> (neuropsykiatri-klinik)</li>
+                    <li>Koppling till <strong>Leningrad</strong> via "K. referens" (= Kalenko)</li>
+                    <li>Harriet drömde om <strong>"tre män i snö"</strong></li>
+                    <li>Dr. Reinhardt frågade om <strong>"Leningrad"</strong> redan oktober 1940</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h3 style="color: var(--accent-yellow); margin-bottom: 0.75rem;">Vad De INTE Vet</h3>
+                <ul>
+                    <li>Vad ÄR Type-VII/VIII/IX?</li>
+                    <li>Vem är "K"? (Kalenko - men vem är det?)</li>
+                    <li>Varför Leningrad 1942?</li>
+                    <li>Vad är Frankfurt Clinics verkliga roll?</li>
+                    <li>Vart är de andra två delarna (VIII och IX)?</li>
+                    <li>Vem är "R"? (Reinhardt, men varför hjälpte han Lundeen?)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- NEXT STEPS -->
+        <div class="journal-section" style="border-color: var(--accent-yellow);">
+            <h2 style="color: var(--accent-yellow);">→ NÄSTA STEG (SESSION 3)</h2>
+
+            <div class="warning-box">
+                <h3 style="color: var(--accent-yellow); margin-bottom: 0.75rem;">Naturliga Frågor Spelarna Borde Ställa</h3>
+                <ul>
+                    <li>Vem är Kalenko?</li>
+                    <li>Vad hände i Leningrad 1942?</li>
+                    <li>Vad är Frankfurt Clinic egentligen?</li>
+                    <li>Ska vi åka till Lovettsville och undersöka kraschplatsen?</li>
+                    <li>Kan vi få tag på Stanford Box 147? (Lundeens arkiv)</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h3 style="color: var(--accent-blue); margin-bottom: 0.75rem;">Där Magda Kommer In</h3>
+                <p>Session 3 i Lovettsville - spelarna träffar <strong>Magda Orlova</strong> som är där för SAMMA research. Hon kan koppla ihop:</p>
+                <ul style="margin-top: 0.75rem;">
+                    <li><strong>Frankfurt Clinic</strong> = där hennes mor vårdades 1946</li>
+                    <li><strong>Leningrad 1942</strong> = där hennes mor var under kriget</li>
+                    <li><strong>De tre männen</strong> = patienter på Frankfurt Clinic (Anton, Sasha, Filip)</li>
+                    <li><strong>"K"</strong> = Kalenko (ett namn hon researhat)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- HANDOUTS -->
+        <div class="journal-section">
+            <h2>📄 HANDOUTS ANVÄNDA</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem;">
+                <a href="harriet_notebook_1940.html" target="_blank" class="handout-link">📓 Harriets anteckningsbok 1940</a>
+                <a href="telegram_august_1940.html" target="_blank" class="handout-link">📄 Telegram augusti 1940</a>
+                <a href="lundeen_handwritten_note.html" target="_blank" class="handout-link">✍️ Lundeens handskrivna lapp</a>
+                <a href="washington_post_1946_article.html" target="_blank" class="handout-link">📰 Washington Post 1946 (Frankfurt Clinic)</a>
+                <a href="germany_postcard_1939_front.png" target="_blank" class="handout-link">📷 Tyskt vykort 1939 (framsida)</a>
+                <a href="germany_postcard_1939_back.html" target="_blank" class="handout-link">🔄 Tyskt vykort 1939 (baksida)</a>
+                <a href="reinhardt_business_card.html" target="_blank" class="handout-link">💳 Dr. Reinhardts visitkort</a>
+                <a href="russianphoto1.png" target="_blank" class="handout-link">📷 Leningrad-foto (tre män)</a>
+                <a href="photo_back_leningrad.html" target="_blank" class="handout-link">🔄 Fotots baksida</a>
+                <a href="norma_letter_1941.html" target="_blank" class="handout-link">💌 Normas brev 1941</a>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-bar" style="margin-top: 3rem;">
+            <a href="sessions.html">← Till Sessions</a>
+            <div class="nav-center">Session 2 Journal</div>
+            <a href="session3.html">Session 3 →</a>
+        </div>
+    </div>
+</body>
+</html>
