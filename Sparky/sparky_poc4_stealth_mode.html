@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoC #4: Stealth Mode - Mörkgrå Minimalism</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0d0d0d;
+            --bg-darker: #000000;
+            --accent: #a3a3a3;
+            --accent-dim: #737373;
+            --accent-secondary: #e5e5e5;
+            --text: #d4d4d4;
+            --text-dim: #525252;
+            --border: #262626;
+            --warning: #dc2626;
+            --success: #10b981;
+        }
+
+        body {
+            font-family: 'SF Mono', 'Menlo', 'Monaco', monospace;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .poc-header {
+            background: var(--bg-darker);
+            border: 2px solid var(--accent-dim);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--accent-secondary);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .theme-name {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .demo-box {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .demo-box:hover {
+            border-color: var(--accent);
+        }
+
+        .demo-box h3 {
+            color: var(--accent-secondary);
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-darker);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: var(--accent-dim);
+            color: var(--bg-dark);
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-dim);
+        }
+
+        tr:hover {
+            background: rgba(163, 163, 163, 0.05);
+        }
+
+        .alert {
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+        }
+
+        .alert-warning {
+            background: rgba(220, 38, 38, 0.1);
+            border-color: var(--warning);
+        }
+
+        .alert-success {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: var(--success);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            display: inline-block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-secondary);
+            background: var(--bg-darker);
+            border-color: var(--accent-secondary);
+        }
+
+        .code-sample {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="poc-header">
+        <h1>Kai "Sparky" Zhang</h1>
+        <div class="theme-name">PoC #4: STEALTH MODE - Mörkgrå Minimalism</div>
+        <p style="color: var(--text-dim); text-transform: none; font-size: 0.95rem;">Känsla: Black hat, anonymity, under radarn, elegant</p>
+    </div>
+
+    <div class="demo-grid">
+        <div class="demo-box">
+            <h3>Stats Overview</h3>
+            <p style="color: var(--text-dim);">INT: <strong style="color: var(--accent-secondary);">18 (90%)</strong></p>
+            <p style="color: var(--text-dim);">SAN: <strong style="color: var(--accent-secondary);">63/70</strong></p>
+            <p style="color: var(--text-dim);">Clearance: <strong style="color: var(--accent-secondary);">Top Secret/SCI</strong></p>
+        </div>
+
+        <div class="demo-box">
+            <h3>Färgpalett</h3>
+            <p style="color: var(--text-dim);">Primär: <strong style="color: var(--accent);">#a3a3a3 Mid Gray</strong></p>
+            <p style="color: var(--text-dim);">Sekundär: <strong style="color: var(--accent-secondary);">#e5e5e5 Light Gray</strong></p>
+            <p style="color: var(--text-dim);">Bakgrund: <strong>#0d0d0d Near Black</strong></p>
+        </div>
+
+        <div class="demo-box">
+            <h3>Typsnitt</h3>
+            <p style="color: var(--text-dim);">Body: <strong style="color: var(--accent-secondary);">SF Mono</strong></p>
+            <p style="color: var(--text-dim);">Headers: <strong style="color: var(--accent-secondary);">Montserrat</strong></p>
+            <p style="color: var(--text-dim);">Stil: Stealth, minimalistisk, diskret</p>
+        </div>
+    </div>
+
+    <h2 style="color: var(--accent-secondary); margin: 2rem 0 1rem 0; font-size: 1.2rem;">Färdighetstabell Demo</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Färdighet</th>
+                <th>%</th>
+                <th>Beskrivning</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Datavetenskap</strong></td>
+                <td>90%</td>
+                <td>Elithacker. NSA-tränad.</td>
+            </tr>
+            <tr>
+                <td><strong>SIGINT</strong></td>
+                <td>80%</td>
+                <td>Signalspaning och elektronisk krigföring.</td>
+            </tr>
+            <tr>
+                <td><strong>Elektronik</strong></td>
+                <td>60%</td>
+                <td>Hårdvaruhacking och modifiering.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="alert alert-warning">
+        <strong style="color: var(--warning);">⚠️ SÄKERHETSVARNING</strong><br>
+        <span style="color: var(--text-dim);">Detta dokument är klassificerat. Vid fara: Förstör enhet, kryptera kommunikation, neka allt.</span>
+    </div>
+
+    <div class="alert alert-success">
+        <strong style="color: var(--success);">✓ OPERATIONSSTATUS</strong><br>
+        <span style="color: var(--text-dim);">Klar för deployment. Alla system nominella. Encrypted comms online.</span>
+    </div>
+
+    <h2 style="color: var(--accent-secondary); margin: 2rem 0 1rem 0; font-size: 1.2rem;">Code Sample</h2>
+    <div class="code-sample">
+        $ ./stealth_mode --engage<br>
+        > All communications encrypted<br>
+        > Traceroute obfuscation: ACTIVE<br>
+        > Ghost protocol: ENABLED
+    </div>
+
+    <h2 style="color: var(--accent-secondary); margin: 2rem 0 1rem 0; font-size: 1.2rem;">Navigation Demo</h2>
+    <div class="nav-links">
+        <a href="#" class="nav-link">⚡ Karaktär</a>
+        <a href="#" class="nav-link">💻 Tekniskt</a>
+        <a href="#" class="nav-link">🎯 Operativt</a>
+        <a href="#" class="nav-link">▲ Delta Green</a>
+        <a href="#" class="nav-link">❤️ Personligt</a>
+    </div>
+
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-dim);">
+        <p style="text-transform: none;"><strong>Känsla:</strong> Ingen färgaccent = stealth. Almost monochrome. Elegant, diskret, "jag behöver inte flashiga färger".<br>
+        <strong>Inspiration:</strong> Black hat aesthetics, anonymous operations, minimalism</p>
+    </div>
+</body>
+</html>

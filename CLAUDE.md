@@ -68,6 +68,54 @@ Detta gäller ALLA spelarfacing sidor (karaktärssidor, handouts till spelare, e
 - Character-specific theme colors (Mac: steel blue, Sullivan: copper, Sparky: neon green, Scalpel: gold, Trench: orange)
 - **Tekniska specs:** Se MALL_GUIDE.md
 
+### Midjourney Moodboards
+- **Trip 19 moodboard** används som standard för kampanjmaterial (handouts, NPCs, scener)
+- Moodboard ger konsistent dark horror/thriller-estetik för projektet
+- **Workflow för att välja Trip 19:**
+  1. Navigera till Moodboards (vänster sidofält)
+  2. Om flera moodboards är valda: Klicka "Unselect All" (uppe till höger)
+  3. Hover över "Trip 19"-kortet
+  4. Klicka "Select"-knappen som dyker upp
+  5. Verifiera att "Selected (1)" visas och Trip 19 har "Selected"-badge
+- **Undantag:** För glada/ljusa bilder kan annan stil eller ingen moodboard användas
+- Moodboard finns på: https://www.midjourney.com/moodboards
+
+### Midjourney Version & Parameters
+- **Version:** Behöver INTE anges - v7.x är senaste default
+- **Användbara parametrar:**
+  - `--ar 3:2` eller `--ar 16:9` för aspect ratio
+  - `--style raw` för mindre AI-processad look
+- **Undvik att ange:** `--v 6.1` eller andra versioner (obsolet)
+
+### Handouts & Bildhantering
+**Generell princip:** Undvik att generera bilder när HTML är bättre lösning.
+
+**När ska du använda Midjourney:**
+- Fotografiska bilder (landskap, porträtt, föremål)
+- Scener som behöver visuell atmosfär
+- Framsidor av dokument/vykort med visuellt innehåll
+
+**När ska du använda HTML:**
+- Dokument med text (brev, tidningar, visitkort, vykortsbaksidor)
+- Material där exakt text/datum/layout är viktigt
+- Allt där AI-generering skulle ge felaktig text
+
+**Workflow för HTML-handouts:**
+1. Skapa HTML-fil i SL-mappen (t.ex. `germany_postcard_1939_back.html`)
+2. Använd samma vintage styling som andra handouts
+3. Johan öppnar filen i browser och tar screenshot
+4. Screenshot sparas i SL-mappen med motsvarande namn (t.ex. `germany_postcard_1939_back.png`)
+
+**Nedladdning från Midjourney:**
+- Klicka på genererad bild → Meny-ikon (tre prickar) → "Download image"
+- Chrome laddar ner till `~/Downloads/` som default
+- Hitta fil: `ls -lt ~/Downloads/ | head -5`
+- Flytta till SL-mappen och döp om:
+  ```bash
+  mv ~/Downloads/kullendorff_Long_filename_hash.png "D:\GDRIVE\My Drive\Johan\Gaming\Gammal leka bäst\Delta Green\Trip19\SL\descriptive_name.png"
+  ```
+- Verifiera: `ls -lh "D:\GDRIVE\My Drive\Johan\Gaming\Gammal leka bäst\Delta Green\Trip19\SL\descriptive_name.png"`
+
 ### Projektstruktur
 ```
 /                          # Landing page (5 characters)
@@ -77,6 +125,42 @@ Detta gäller ALLA spelarfacing sidor (karaktärssidor, handouts till spelare, e
 ```
 
 **Complete.md-filer** är source of truth för karaktärsinformation (ersätter gamla MD-filer).
+
+---
+
+## Discord Bot Integration ⚠️ KRITISKT
+
+**Agent-data lagras i Discord bot JSON-filer, INTE i HTML/MD-filer:**
+
+```
+C:\Diceroller\data\deltagreen\agents\
+├── 368410767189606401.json   # Mac (Marcus Riley)
+├── 197809169296916480.json   # Trench (Sam Novak)
+├── 223183062882713600.json   # Scalpel (Dr. Hanna Engler)
+├── 680064176227352610.json   # Sparky (Kai Zhang)
+└── 477800979295633409.json   # Sullivan (Father Michael)
+```
+
+**Realtids-uppdateringar från Discord:**
+- HP, WP, SAN (current/max)
+- Skills (0-99%)
+- Bonds (värden ändras)
+- Disorders (läggs till över tid)
+- Breaking Point (förändras)
+
+**Workflow för HTML character sheet-uppdateringar:**
+1. Läs aktuella värden från JSON-filerna ovan
+2. Uppdatera HTML med nya HP/SAN/skills
+3. Validera att synkningen fungerade
+
+**Discord bot-kommandon (för referens):**
+- `/dgdmg <weapon>` - Vapenskada mot NPC
+- `/dggmdmg <agent> <weapon> [armor]` - GM ger skada (uppdaterar JSON automatiskt)
+- `/dggmreset <agent>` - Återställ till full HP/WP/SAN
+- `/dgroll <skill>` - Spelare rullar skill
+- `/dgendsession` - Session-slut med automatisk skill improvement
+
+**Se `C:\Diceroller\CURRENT_STATE.md` för fullständig Discord bot-dokumentation.**
 
 ---
 

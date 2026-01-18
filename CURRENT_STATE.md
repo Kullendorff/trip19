@@ -1,7 +1,28 @@
 # CURRENT STATE - Trip 19 / Svarta Madonnan
 
 ## Senast uppdaterad
-2026-01-10
+2026-01-16 04:35
+
+## Discord Bot Integration ⚠️ VIKTIGT
+**Agent-data lagras i Discord bot JSON-filer:**
+```
+C:\Diceroller\data\deltagreen\agents\
+├── 368410767189606401.json   # Mac (Marcus Riley)
+├── 197809169296916480.json   # Trench (Sam Novak)
+├── 223183062882713600.json   # Scalpel (Dr. Hanna Engler)
+├── 680064176227352610.json   # Sparky (Kai Zhang)
+└── 477800979295633409.json   # Sullivan (Father Michael)
+```
+
+**Dessa filer uppdateras i realtid av Discord-boten:**
+- HP/WP/SAN-ändringar från combat (`/dggmdmg`, `/dggmreset`)
+- Skill checks (`/dgroll`, `/dggmroll`)
+- Session skill improvements (`/dgendsession`)
+
+**För att synka HTML character sheets:**
+Läs JSON-filerna från `C:\Diceroller\data\deltagreen\agents\` och uppdatera HTML-sidorna med aktuella värden. Se `C:\Diceroller\CURRENT_STATE.md` för fullständig Discord bot-dokumentation.
+
+**JSON-format:** HP (current/max), WP, SAN, breaking_point, skills (0-99%), bonds, disorders, adaptations, stats (STR/CON/DEX/INT/POW/CHA)
 
 ## Projektöversikt
 Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
@@ -14,6 +35,78 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
 ## Senaste utveckling (från git-log)
 
 ### Pågående arbete
+
+**Frankfurt Clinic Adress-konsolidering** - Januari 2026 ✅
+- **Problem upptäckt**: Tre olika adresser för Frankfurt Clinic i kampanjfilerna
+  - Visitkort: Goethestraße 47, Frankfurt am Main (fel stad!)
+  - black_madonna_ch2_content_part1.md: Fürstenwalder Straße 47, Frankfurt (Oder)
+  - locations.html: Dorfstraße 42c, 15230 Frankfurt (Oder)-Güldendorf
+- **Lösning**: locations.html är source of truth
+- **Fixade filer** (16 jan 2026):
+  - `reinhardt_business_card.html` - Uppdaterad adress till Dorfstraße 42c
+  - `washington_post_1946_article.html` - Historisk korrekthet fixad:
+    - Rubrik: "U.S. Facilities" → "Allied Facilities"
+    - Ta bort "American oversight" / "U.S. military administration"
+    - Ändrat till "Soviet-administered zone" → vagt "occupied Germany"
+    - "American authorities" → "Allied authorities" / "occupation authorities"
+    - Nu historiskt korrekt: Frankfurt an der Oder låg i sovjetisk zon 1946
+  - `black_madonna_ch2_content_part1.md` - Adress fixad
+  - `black_madonna_chapter2.html` - Adress fixad
+- **Verifiering**: Alla filer använder nu Dorfstraße 42c, 15230 Frankfurt (Oder)-Güldendorf
+
+**Tyskt Vykort 1939 Handouts** - Januari 2026 ✅
+- **Skapade handouts för Harriet Johnson storage scene** (16 jan 2026, 04:00-04:35):
+  - `SL/germany_postcard_1939_front.png` - Framsida: Bayersk landskap-vykort (genererad med Midjourney)
+  - `SL/germany_postcard_1939_back.html` - Baksida: HTML-handout med tysk text, poststämpel Frankfurt 15.6.39, adress till Lundeen
+  - Text (tysk): "Das Paket kommt wie besprochen. Bitte vorsichtig behandeln. - R"
+- **Uppdaterade filer**:
+  - `SL/harriet_johnson_storage.html` - Fixade tysk text från svensk översättning
+  - `CLAUDE.md` - Lade till Midjourney-dokumentation:
+    - Moodboard workflow (Trip 19 selection)
+    - Version/parameter-info (v7.x default)
+    - HTML vs Midjourney guidelines för handouts
+    - Chrome Downloads workflow
+- **Lärdomar**: "Hammer & Nail"-problem - inte alla handouts behöver genereras med AI. HTML är bättre för exakt text/datum/layout.
+- **Meta-bild**: `SL/late_night_coding_4am.png` - Dokumentation av 04:00-kodning istället för sömn 😴
+
+**Sparky Färgscheman PoC** - Januari 2026 ✅
+- **Skapade 5 Proof-of-Concept sidor** för Sparky/Kai Zhang (16 jan 2026):
+  - `Sparky/sparky_poc1_nsa_classified.html` - NSA Classified (Steel Blue #64b5f6, IBM Plex Mono)
+  - `Sparky/sparky_poc2_cybersecurity_pro.html` - Cybersecurity Pro (Lila/Cyan #8b5cf6, JetBrains Mono)
+  - `Sparky/sparky_poc3_dark_terminal.html` - Dark Terminal Elite (Amber #ffb86c, Cascadia Code)
+  - `Sparky/sparky_poc4_stealth_mode.html` - Stealth Mode (Mörkgrå minimalism, SF Mono)
+  - `Sparky/sparky_poc5_signal_intelligence.html` - Signal Intelligence (Teal #14b8a6, Anonymous Pro)
+- **Syfte**: Modernare alternativ till neon-grön "Hollywood hacker"-look
+- **Rekommendation**: PoC #5 Signal Intelligence (passar NSA SIGINT-bakgrund)
+
+**Emily Johnson & Storage Facility** - Januari 2026 ✅
+- **Emily Johnson adress etablerad** (16 jan 2026):
+  - 318 Edwards Ferry Rd NE, Leesburg, VA 20176
+  - Harriets sondotter (granddaughter), ~32 år, mellanstadielärare
+- **Storage facility identifierad** (16 jan 2026):
+  - CubeSmart Self Storage
+  - 1601 Battlefield Parkway NE, Leesburg, VA 20176
+  - Unit D-47 (climate-controlled, andra våningen)
+  - Portkod: 4782#
+  - Avstånd från Emily: 2.5 miles (6-8 min bil)
+  - Kostnad: $85/månad (betalar sedan mars 2024)
+  - Access hours: 6:00 AM - 10:00 PM daily
+- **Uppdaterad fil**: `harriet_johnson_storage.html`
+- **Logik**: Emily valde närmaste facility för bekvämlighet ("åker förbi varje dag")
+
+**Discord Bot Integration** - Januari 2026 ✅
+- **Agent-data centraliserad**: Alla 5 Chesapeake Cell-agenter nu i Discord bot JSON-format
+- **Realtids-tracking**: HP, WP, SAN, skills uppdateras automatiskt under Discord-sessioner
+- **Vapenskade-system**: 12 vapen (handguns, shotguns, rifles, SMG, melee) med damage rolls
+- **Armor-system**: 7 armor-typer (Riot helmet → Bomb suit, AR 1-10)
+- **Combat commands**:
+  - `/dgdmg <weapon>` - Spelare rullar skada mot NPC
+  - `/dggmdmg <agent> <weapon> [armor]` - GM ger skada till agent (auto HP-tracking)
+  - `/dggmreset <agent>` - Återställ agent till full HP/WP/SAN
+- **Session management**: Automatisk skill improvement efter session-slut
+- **Data location**: `C:\Diceroller\data\deltagreen\agents\{discord_id}.json`
+- **HTML sync-instruktioner**: Se CURRENT_STATE för hur man uppdaterar HTML character sheets från JSON
+
 **Kontinuitetsfix: Volkov-massakern** - Fixad januari 2026 ✅
 - **Problem upptäckt**: Diskrepans mellan FBI-PDFer och kampanjdata
   - PDF-filer (officiell, Mac-annoterad, Sparky-annoterad): "Cherry Hill Mall, New Jersey" + 12 döda

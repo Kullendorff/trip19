@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoC #1: NSA Classified - Militärgrå Kontrast</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #1a1d23;
+            --bg-darker: #12141a;
+            --accent: #64b5f6;
+            --accent-dim: #4a9ad8;
+            --accent-secondary: #7dd3fc;
+            --text: #e8eaed;
+            --text-dim: #9ca3af;
+            --border: #374151;
+            --warning: #f59e0b;
+            --success: #10b981;
+        }
+
+        body {
+            font-family: 'IBM Plex Mono', 'Consolas', monospace;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .poc-header {
+            background: var(--bg-darker);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .theme-name {
+            color: var(--accent-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .demo-box {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .demo-box h3 {
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-darker);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-dim);
+        }
+
+        tr:hover {
+            background: rgba(100, 181, 246, 0.1);
+        }
+
+        .alert {
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+        }
+
+        .alert-warning {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: var(--warning);
+        }
+
+        .alert-success {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: var(--success);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            display: inline-block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+            background: rgba(100, 181, 246, 0.1);
+            border-color: var(--accent);
+        }
+
+        .code-sample {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            color: var(--accent-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="poc-header">
+        <h1>KAI "SPARKY" ZHANG</h1>
+        <div class="theme-name">PoC #1: NSA CLASSIFIED - Militärgrå Kontrast</div>
+        <p style="color: var(--text-dim);">Känsla: Government terminal, säkerhetsklearans, seriös tech</p>
+    </div>
+
+    <div class="demo-grid">
+        <div class="demo-box">
+            <h3>Stats Overview</h3>
+            <p style="color: var(--text-dim);">INT: <strong style="color: var(--accent);">18 (90%)</strong></p>
+            <p style="color: var(--text-dim);">SAN: <strong style="color: var(--accent);">63/70</strong></p>
+            <p style="color: var(--text-dim);">Clearance: <strong style="color: var(--accent-secondary);">Top Secret/SCI</strong></p>
+        </div>
+
+        <div class="demo-box">
+            <h3>Färgpalett</h3>
+            <p style="color: var(--text-dim);">Primär: <strong style="color: var(--accent);">#64b5f6 Steel Blue</strong></p>
+            <p style="color: var(--text-dim);">Sekundär: <strong style="color: var(--accent-secondary);">#7dd3fc Light Blue</strong></p>
+            <p style="color: var(--text-dim);">Bakgrund: <strong>#1a1d23 Slate</strong></p>
+        </div>
+
+        <div class="demo-box">
+            <h3>Typsnitt</h3>
+            <p style="color: var(--text-dim);">Body: <strong style="color: var(--accent);">IBM Plex Mono</strong></p>
+            <p style="color: var(--text-dim);">Headers: <strong style="color: var(--accent);">Inter</strong></p>
+            <p style="color: var(--text-dim);">Stil: Modern, läsbar, professionell</p>
+        </div>
+    </div>
+
+    <h2 style="color: var(--accent); margin: 2rem 0 1rem 0;">Färdighetstabell Demo</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Färdighet</th>
+                <th>%</th>
+                <th>Beskrivning</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Datavetenskap</strong></td>
+                <td>90%</td>
+                <td>Elithacker. NSA-tränad.</td>
+            </tr>
+            <tr>
+                <td><strong>SIGINT</strong></td>
+                <td>80%</td>
+                <td>Signalspaning och elektronisk krigföring.</td>
+            </tr>
+            <tr>
+                <td><strong>Elektronik</strong></td>
+                <td>60%</td>
+                <td>Hårdvaruhacking och modifiering.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="alert alert-warning">
+        <strong>⚠️ SÄKERHETSVARNING</strong><br>
+        Detta dokument är klassificerat. Vid fara: Förstör enhet, kryptera kommunikation, neka allt.
+    </div>
+
+    <div class="alert alert-success">
+        <strong>✓ OPERATIONSSTATUS</strong><br>
+        Klar för deployment. Alla system nominella. Encrypted comms online.
+    </div>
+
+    <h2 style="color: var(--accent); margin: 2rem 0 1rem 0;">Code Sample</h2>
+    <div class="code-sample">
+        $ ssh sparky@nsa-terminal.gov<br>
+        > Access granted. Clearance: TS/SCI<br>
+        > Running diagnostics...<br>
+        > All systems operational.
+    </div>
+
+    <h2 style="color: var(--accent); margin: 2rem 0 1rem 0;">Navigation Demo</h2>
+    <div class="nav-links">
+        <a href="#" class="nav-link">⚡ KARAKTÄR</a>
+        <a href="#" class="nav-link">💻 TEKNISKT</a>
+        <a href="#" class="nav-link">🎯 OPERATIVT</a>
+        <a href="#" class="nav-link">▲ DELTA GREEN</a>
+        <a href="#" class="nav-link">❤️ PERSONLIGT</a>
+    </div>
+
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-dim);">
+        <p><strong>Känsla:</strong> Government terminal, officiell, ren. Militärgrå är seriös men inte trist.<br>
+        <strong>Inspiration:</strong> NSA terminals, classified documents, government dashboards</p>
+    </div>
+</body>
+</html>

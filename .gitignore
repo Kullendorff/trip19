@@ -1,3 +1,6 @@
 *.gdoc
 desktop.ini
 sl_backup_*.tar.gz
+
+# Auto Claude data directory
+.auto-claude/

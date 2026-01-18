@@ -178,7 +178,7 @@ Kliniken är en surrealistisk kombination av förfall och institutionell skräck
 
 ### Plats
 **Frankfurt Clinic** (officiellt: *Psychiatrische Klinik Frankfurt-Oder Ost*)
-Adress: Fürstenwalder Straße 47, Frankfurt (Oder)
+Adress: Dorfstraße 42c, 15230 Frankfurt (Oder)-Güldendorf
 
 ### Vad händer
 

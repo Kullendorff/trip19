@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Flannery - NPC Guide | Trip 19</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0e17;
+            color: #d0d0d0;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            border-bottom: 2px solid #4a90a4;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            color: #4a90a4;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            color: #8a9ba8;
+            font-size: 0.9rem;
+        }
+
+        .back-nav {
+            margin-bottom: 2rem;
+        }
+
+        .back-nav a {
+            color: #4a90a4;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid #4a90a4;
+            border-radius: 4px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .back-nav a:hover {
+            background: rgba(74, 144, 164, 0.2);
+            border-color: #6ab0c4;
+        }
+
+        .section {
+            background: rgba(20, 30, 40, 0.6);
+            border: 1px solid rgba(74, 144, 164, 0.3);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            color: #4a90a4;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(74, 144, 164, 0.3);
+        }
+
+        .subsection-title {
+            color: #d4a520;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid #4a90a4;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid #ff4444;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .success-box {
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 4px solid #4caf50;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .quote {
+            background: rgba(10, 14, 23, 0.6);
+            border-left: 3px solid #d4a520;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: #d4a520;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .stat-item {
+            background: rgba(10, 14, 23, 0.6);
+            padding: 0.75rem;
+            border-radius: 4px;
+            border: 1px solid rgba(74, 144, 164, 0.2);
+        }
+
+        .stat-label {
+            color: #8a9ba8;
+            font-size: 0.85rem;
+        }
+
+        .stat-value {
+            color: #4a90a4;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .rating-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .rating-table th,
+        .rating-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(74, 144, 164, 0.2);
+        }
+
+        .rating-table th {
+            color: #4a90a4;
+            font-weight: bold;
+        }
+
+        .stars {
+            color: #d4a520;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .section {
+                padding: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 JOHN FLANNERY</h1>
+            <p class="subtitle">NPC Guide: Local Expert & Former Federal Prosecutor | Lovettsville, Virginia</p>
+        </div>
+
+        <div class="back-nav">
+            <a href="index.html">← Tillbaka till Kontrollpanel</a>
+        </div>
+
+        <!-- QUICK REFERENCE -->
+        <div class="section">
+            <h2 class="section-title">SNABBREFEREN S</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">Ålder</div>
+                    <div class="stat-value">62 år</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Yrke</div>
+                    <div class="stat-value">Pensionerad åklagare</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Plats</div>
+                    <div class="stat-value">Lovettsville, VA</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Första Appearance</div>
+                    <div class="stat-value">Session 3</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Roll</div>
+                    <div class="stat-value">Informant / Expert</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">SAN</div>
+                    <div class="stat-value">52</div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <p><strong>Tidigare karriär:</strong> Assistant U.S. Attorney, Southern District of New York (20+ år)</p>
+                <p><strong>Specialitet:</strong> Trip 19-expertis (researchar sedan 2004)</p>
+                <p><strong>Verklig person:</strong> Ja - baserad på Ultra podcast-contributor</p>
+            </div>
+        </div>
+
+        <!-- PHYSICAL DESCRIPTION -->
+        <div class="section">
+            <h2 class="section-title">BESKRIVNING</h2>
+            <p>Smal, atletisk man i 60-årsåldern med grånande hår och skarpa ögon. Ofta i casual-kläder (jeans, flanellskjorta, Barbour-jacka). Går ofta i terrängen kring kraschplatsen - känner varje sten och träd.</p>
+            <p style="margin-top: 1rem;">Har en legal pad med anteckningar i jackfickan, alltid redo att dokumentera. Bär ryggsäck med kamera, GPS och gamla kartor från 1940.</p>
+            <p style="margin-top: 1rem;">Rör sig metodiskt och observant - gamla åklagarvanor syns i hur han ställer frågor och lyssnar. Tar anteckningar även i casual conversations. Lutar sig framåt när han lyssnar intensivt.</p>
+
+            <h3 class="subsection-title">Detaljer</h3>
+            <ul>
+                <li><strong>Kör:</strong> Old Subaru Outback (backseat full av research material)</li>
+                <li><strong>Bär alltid:</strong> Legal pad, digital voice recorder, iPhone med offline maps, business cards</li>
+                <li><strong>Kaffe:</strong> Svart, ingen socker (classic prosecutor)</li>
+                <li><strong>Hemmakontor:</strong> Vägg täckt av kartor, foton, timeline (professional conspiracy board)</li>
+            </ul>
+        </div>
+
+        <!-- STATS -->
+        <div class="section">
+            <h2 class="section-title">DELTA GREEN STATS</h2>
+            <p><strong>STR</strong> 10, <strong>CON</strong> 12, <strong>DEX</strong> 11, <strong>INT</strong> 16, <strong>POW</strong> 14, <strong>CHA</strong> 13</p>
+            <p><strong>HP</strong> 11, <strong>WP</strong> 14, <strong>SAN</strong> 52</p>
+
+            <h3 class="subsection-title">Viktiga Skills</h3>
+            <ul>
+                <li><strong>Law 80%</strong> - Före detta federal åklagare</li>
+                <li><strong>History (Trip 19) 75%</strong> - Obsessiv research sedan 2004</li>
+                <li><strong>Bureaucracy 70%</strong> - Navigerar arkiv/myndigheter</li>
+                <li><strong>Criminology 65%</strong> - Åklagarbakgrund</li>
+                <li><strong>HUMINT 60%</strong> - Intervjuteknik från åklagartid</li>
+                <li><strong>Persuade 55%</strong></li>
+                <li><strong>Search 50%</strong></li>
+                <li><strong>Navigate 45%</strong> - Känner området perfekt</li>
+            </ul>
+        </div>
+
+        <!-- MOTIVATIONS -->
+        <div class="section">
+            <h2 class="section-title">MOTIVATIONER</h2>
+
+            <div class="info-box">
+                <h3 style="color: #4a90a4; margin-bottom: 0.5rem;">Surface (Vad Spelarna Ser)</h3>
+                <p><strong>Academic curiosity:</strong> "Detta var största mysteriet i amerikansk luftfart 1940, och ingen pratar om det längre."</p>
+            </div>
+
+            <div class="info-box">
+                <h3 style="color: #d4a520; margin-bottom: 0.5rem;">Deeper (Kan Upptäckas)</h3>
+                <p><strong>Professional frustration:</strong> Som åklagare skulle han ALDRIG ha accepterat CAB-rapporten. "Unsupported exploration of possibilities without factual basis." Ser det som en misslyckad utredning som måste korrigeras.</p>
+            </div>
+
+            <div class="warning-box">
+                <h3 style="color: #ff4444; margin-bottom: 0.5rem;">Deepest (Kärnan)</h3>
+                <p><strong>Rättvisa för offren:</strong> 25 människor dog. "This land was baptized in blood and destruction. They deserve truth, not convenient lies." Har intervjuat barnbarn till offer - känner personlig skuld att ge dem svar.</p>
+            </div>
+        </div>
+
+        <!-- WHAT HE KNOWS -->
+        <div class="section">
+            <h2 class="section-title">VAD HAN VET</h2>
+
+            <h3 class="subsection-title">Dokumenterat (Kan Bevisa)</h3>
+            <ul>
+                <li>Exakt kraschplats (Bishop Farm, GPS-koordinater)</li>
+                <li>Intervjuer med ögonvittnen (bandade, transkriberade - nu alla döda)</li>
+                <li>CAB-rapportens svagheter (kan citera specifika sidor)</li>
+                <li>Passagerarmanifest: FBI Special Agent + FBI employee + DoJ prosecutor + Senator Lundeen</li>
+                <li><strong>Statistisk omöjlighet:</strong> "Defies all probabilities" att alla var på planet av ren slump</li>
+                <li>FBI grävde på kraschplatsen natten efter (vittnen såg)</li>
+                <li>Ögonvittnen rapporterade "scuffle" innan kraschen (vad betydde det?)</li>
+                <li>Weather: Perfect flying conditions (CAB sa "pilot error" trots detta)</li>
+            </ul>
+
+            <h3 class="subsection-title">Misstänker (Kan INTE Bevisa)</h3>
+            <ul>
+                <li>FBI/DoJ-agenter var där för att arresta Lundeen</li>
+                <li>Något hände ombord innan kraschen</li>
+                <li>CAB-utredningen var pressad uppifrån att snabbt stänga ärendet</li>
+                <li>Vissa vittnesmål ändrades efter "visits" från federala agenter</li>
+                <li>FBI tog något från kraschplatsen (metallbox? dokument?)</li>
+            </ul>
+
+            <div class="warning-box">
+                <h3 style="color: #ff4444; margin-bottom: 0.5rem;">Vet INTE (Viktigt!)</h3>
+                <ul style="margin-top: 0.5rem;">
+                    <li>Att Delta Green existerar</li>
+                    <li>Att det fanns övernaturliga element (kristaller)</li>
+                    <li>Volkovs existens eller research</li>
+                    <li>Frankfurt Clinic-kopplingen</li>
+                    <li>Leningrad-kopplingen</li>
+                    <li>Att spelarna är DG-operatörer</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECRETS -->
+        <div class="section">
+            <h2 class="section-title">HEMLIGHETER</h2>
+
+            <div class="success-box">
+                <h4>Layer 1: Professional Archive</h4>
+                <p>Har en komplett arkiv hemma - kopior av ALLA CAB-dokument, FBI-memos (FOIA), transkript, kartor, foton. Bättre än officiella arkiv.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>Layer 2: Leaked Documents</h4>
+                <p>Har kontakter inom FBI/DoJ som "leakat" klassificerade dokument till honom (illegalt). Kan inte erkänna detta öppet. Skyddar sina källor till döden.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>Layer 3: Ethel Bishop's Last Interview</h4>
+                <p>En av ögonvittnena (Mrs. Ethel Bishop, död 2019) berättade för honom att FBI hotade henne 1940 att "glömma" vad hon såg. Hon beskrev att hon såg <strong>"something glowing blue"</strong> nära vraket. Flannery trodde det var shock/trauma - men han dokumenterade det ändå.</p>
+            </div>
+
+            <div class="warning-box" style="background: rgba(139, 0, 0, 0.1); border-left: 4px solid #8b0000;">
+                <h4 style="color: #ff4444;">Layer 4: The Dream (ALDRIG Diskuterar)</h4>
+                <p>Natten efter han intervjuade Mrs. Bishop (2018) hade han en mardröm om <strong>tre män i snö</strong>. Vaknade skrikande. Hände aldrig igen. Han pratar ALDRIG om detta.</p>
+                <p style="margin-top: 0.5rem; color: #ff6b6b;"><strong>GM Note:</strong> Detta är Leningrad-contamination bleeding through. Om supernatural eskalerar kan drömmar återkomma.</p>
+            </div>
+        </div>
+
+        <!-- DIALOGUE -->
+        <div class="section">
+            <h2 class="section-title">DIALOGUE & VOICE</h2>
+            <p>Exakt, metodisk, använder legal terminology. Citat from Ultra podcast preserved:</p>
+
+            <div class="quote">
+                "Unsupported exploration of possibilities without factual basis."
+            </div>
+
+            <div class="quote">
+                "Defies all probabilities."
+            </div>
+
+            <div class="quote">
+                "Sacred land, you know, baptized in blood and destruction."
+            </div>
+
+            <div class="quote">
+                "As a recovering federal prosecutor..." <em>(självdeprecating humor)</em>
+            </div>
+
+            <h3 class="subsection-title">Exempel-Monolog</h3>
+            <div class="quote" style="color: #d0d0d0;">
+                "Look, I was a prosecutor for twenty years in the Southern District. I know what a real investigation looks like. And this?" <em>*taps CAB report*</em> "This is what you do when you're told to close the case fast and make it go away. The evidence doesn't support pilot error. The weather was perfect. The plane was inspected that morning. And you're telling me THREE federal agents and a Senator just happened to be on the same commercial flight to Detroit?" <em>*shakes head*</em> "No. Something happened on that plane. And someone didn't want us to know what."
+            </div>
+
+            <h3 class="subsection-title">Speech Patterns</h3>
+            <ul>
+                <li><strong>Säger ALDRIG:</strong> "I know for certain" utan bevis</li>
+                <li><strong>Säger OFTA:</strong> "The evidence suggests...", "I documented...", "In my professional opinion..."</li>
+                <li><strong>Uses passive voice:</strong> "It was observed that..." (lawyer habit)</li>
+                <li><strong>Pauses before answering:</strong> Tänker innan han pratar</li>
+            </ul>
+        </div>
+
+        <!-- HOW TO USE -->
+        <div class="section">
+            <h2 class="section-title">HUR ATT ANVÄNDA</h2>
+
+            <h3 class="subsection-title">When Players Need</h3>
+            <ul>
+                <li>Local guidance (kraschplatsen är på privat mark - han känner ägarna)</li>
+                <li>Historical documents (han har kopior av ALLT)</li>
+                <li>Expert analysis of CAB report (kan ge 2-hour PowerPoint om önskas)</li>
+                <li>Witness testimony (har bandade intervjuer)</li>
+                <li>Legal advice (navigera FOIA, classified docs)</li>
+            </ul>
+
+            <h3 class="subsection-title">He Can Provide</h3>
+            <div class="success-box">
+                <ul>
+                    <li><strong>Tour of Bishop Farm</strong> (exakt kraschplats, 2 timmar)</li>
+                    <li><strong>GPS coordinates</strong> (har kartat varje vrakdel)</li>
+                    <li><strong>Contacts:</strong> Lovettsville Historical Society, Bishop Farm ägare, lokala media</li>
+                    <li><strong>Documents:</strong> CAB report + annotated version, FBI memos, witness transcripts (USB-minne)</li>
+                    <li><strong>Analysis:</strong> Statistisk, legal, forensic (amateur)</li>
+                    <li><strong>Sitt telefonnummer:</strong> "Call me if you find anything. I'm serious - ANYTHING."</li>
+                </ul>
+            </div>
+
+            <h3 class="subsection-title">He CANNOT Provide</h3>
+            <div class="warning-box">
+                <ul>
+                    <li>Supernatural insight (vet inget om det)</li>
+                    <li>Federal authority (pensionerad)</li>
+                    <li>Protection (civilian)</li>
+                    <li>Delta Green sanction (vet inte att det existerar)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- FIRST MEETING -->
+        <div class="section">
+            <h2 class="section-title">FÖRSTA MÖTET (SESSION 3)</h2>
+
+            <div class="info-box">
+                <h4>Hook: Hur Spelarna Hittar Honom</h4>
+                <p>Spelarna frågar lokalbefolkning om kraschen → Everyone: "Talk to John Flannery. He knows everything."</p>
+                <p style="margin-top: 0.5rem;"><strong>Troligt:</strong> De hittar honom VID kraschplatsen (han går där ofta, dokumenterar erosion/förändring av terräng)</p>
+            </div>
+
+            <h3 class="subsection-title">First Impression</h3>
+            <ul>
+                <li>Professional, eager to help</li>
+                <li>Slightly suspicious why de plötsligt bryr sig</li>
+                <li>Men för glad för att vägra</li>
+                <li>"Finally, someone who cares about the truth."</li>
+            </ul>
+
+            <h3 class="subsection-title">What He Gives Them (Immediately)</h3>
+            <div class="success-box">
+                <ol>
+                    <li><strong>Tour av Bishop Farm</strong> (2 timmar, detaljerad)</li>
+                    <li><strong>USB-minne</strong> med ALLA hans dokument (PDF, transkript, foton)</li>
+                    <li><strong>Annotated CAB report</strong> (hans notes i marginalen - GULD)</li>
+                    <li><strong>Kontaktinfo</strong> till Lovettsville Historical Society curator</li>
+                    <li><strong>Sitt telefonnummer:</strong> "Call me if you find anything. I'm serious - ANYTHING."</li>
+                </ol>
+            </div>
+
+            <h3 class="subsection-title">Earning His Trust (Magic Words)</h3>
+            <div class="quote">
+                "We think CAB got it wrong. And we have resources to find out what really happened."
+            </div>
+            <p><strong>His response:</strong> <em>*long pause*</em> "Alright. What do you need?"</p>
+        </div>
+
+        <!-- POTENTIAL COMPLICATIONS -->
+        <div class="section">
+            <h2 class="section-title">POTENTIAL COMPLICATIONS</h2>
+
+            <h3 class="subsection-title">If They Mention Volkov</h3>
+            <div class="info-box">
+                <p>"Volkov? Russian name? No, doesn't ring a bell. When was he here?"</p>
+                <p style="margin-top: 0.5rem;"><strong>Om de beskriver honom:</strong> "Wait... yeah. Maybe. Historical Society might have a sign-in book?"</p>
+            </div>
+
+            <h3 class="subsection-title">If They Ask About "German Man" / Väskan</h3>
+            <div class="info-box">
+                <p>"German? In 1940?" <em>*pauses, thinking*</em> "Lundeen had connections to German-American Bund, Viereck... but I've never seen mention of a German man on the plane or at his office. Where did you hear this?"</p>
+                <p style="margin-top: 0.5rem;"><strong>If they press:</strong> "Wait - you're not talking about on the plane. You mean BEFORE the crash?" <em>*pulls out legal pad*</em> "Tell me everything."</p>
+            </div>
+
+            <h3 class="subsection-title">Red Flags That Make Him Suspicious</h3>
+            <div class="warning-box">
+                <ul>
+                    <li>Om spelarna vet TOO MUCH om klassificerade detaljer</li>
+                    <li>Om de nämner saker som INTE finns i CAB-rapport</li>
+                    <li>Om de har fysiska bevis (fragment) de inte kan förklara var de fick det</li>
+                    <li>Om de undviker hans frågor (åklagare-instinkt: witnesses som döljer något)</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>If Suspicious:</strong> "You're not journalists, are you? FBI? DoJ?" <em>*studies them*</em> "Who sent you here?"</p>
+            </div>
+
+            <h3 class="subsection-title">If They Show Him Type-VII Fragment</h3>
+            <div class="warning-box" style="background: rgba(139, 0, 0, 0.1); border-left: 4px solid #8b0000;">
+                <h4 style="color: #ff4444;">CRITICAL MOMENT</h4>
+                <p><strong>Han känner igen det:</strong> "Wait... Mrs. Bishop described something like this. She called it 'glowing blue'. Where did you find this?"</p>
+                <p style="margin-top: 0.5rem;"><strong>Åklagare-mode aktiveras:</strong> "This is evidence. We need to document this. FBI should know."</p>
+                <p style="margin-top: 0.5rem;"><strong>CONFLICT:</strong> Spelarna måste övertyga honom att INTE rapportera (reveal operational security?). Hans hela karriär byggde på "follow the law" - nu måste han välja mellan lag och sanning.</p>
+                <p style="margin-top: 0.5rem; color: #ff6b6b;"><strong>SAN check:</strong> 1/1D4 om de avslöjar supernatural nature (hans hela världsbild är evidence-based)</p>
+            </div>
+        </div>
+
+        <!-- QUICK REFERENCE TABLE -->
+        <div class="section">
+            <h2 class="section-title">QUICK REFERENCE</h2>
+            <table class="rating-table">
+                <thead>
+                    <tr>
+                        <th>Helpful For</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Local knowledge</td>
+                        <td><span class="stars">⭐⭐⭐⭐⭐</span></td>
+                    </tr>
+                    <tr>
+                        <td>Historical documents</td>
+                        <td><span class="stars">⭐⭐⭐⭐⭐</span></td>
+                    </tr>
+                    <tr>
+                        <td>Legal analysis</td>
+                        <td><span class="stars">⭐⭐⭐⭐</span></td>
+                    </tr>
+                    <tr>
+                        <td>Contacts/access</td>
+                        <td><span class="stars">⭐⭐⭐</span></td>
+                    </tr>
+                    <tr>
+                        <td>Supernatural insight</td>
+                        <td><span class="stars">⭐☆☆☆☆</span> (none)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="subsection-title" style="margin-top: 2rem;">Risk Levels</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">To Players</div>
+                    <div class="stat-value" style="color: #4caf50;">LOW</div>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #8a9ba8;">Helpful, not antagonistic</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">To Himself</div>
+                    <div class="stat-value" style="color: #ffcc00;">MEDIUM</div>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #8a9ba8;">Digs too deep</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Of Exposure</div>
+                    <div class="stat-value" style="color: #ffcc00;">MEDIUM</div>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #8a9ba8;">If he learns too much</p>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Potential Outcomes</h3>
+            <ul>
+                <li><strong style="color: #4caf50;">✅ Best Case:</strong> Becomes reliable ally/contact</li>
+                <li><strong style="color: #ffcc00;">⚠️ Complication:</strong> Becomes liability (knows too much)</li>
+                <li><strong style="color: #ff4444;">❌ Worst Case:</strong> Becomes victim (supernatural contamination)</li>
+                <li><strong style="color: #4a90a4;">🔄 Delta Green:</strong> Gets recruited (if they trust him)</li>
+            </ul>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="back-nav" style="margin-top: 3rem;">
+            <a href="index.html">← Tillbaka till Kontrollpanel</a>
+        </div>
+
+        <div style="text-align: center; padding: 2rem; color: #6b7280; font-size: 0.85rem; border-top: 1px solid rgba(74, 144, 164, 0.2); margin-top: 3rem;">
+            <p><strong>Source:</strong> Ultra Podcast (Rachel Maddow) - Episode 1: Trip 19</p>
+            <p style="margin-top: 0.5rem;"><strong>Real Person:</strong> Yes (former AUSA, SDNY)</p>
+            <p style="margin-top: 0.5rem;"><strong>Campaign Role:</strong> Local Expert / Informant / Potential Ally</p>
+            <p style="margin-top: 1rem;">Created: 2026-01-18</p>
+        </div>
+    </div>
+</body>
+</html>

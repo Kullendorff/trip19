@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoC #5: Signal Intelligence - Teal/Slate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0f172a;
+            --bg-darker: #020617;
+            --accent: #14b8a6;
+            --accent-dim: #0d9488;
+            --accent-secondary: #2dd4bf;
+            --text: #f1f5f9;
+            --text-dim: #94a3b8;
+            --border: #1e293b;
+            --warning: #fb923c;
+            --success: #22c55e;
+        }
+
+        body {
+            font-family: 'Anonymous Pro', 'Source Code Pro', monospace;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'DM Sans', 'Inter', sans-serif;
+            font-weight: 500;
+        }
+
+        .poc-header {
+            background: var(--bg-darker);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .theme-name {
+            color: var(--accent-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .demo-box {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .demo-box:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .demo-box h3 {
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-darker);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
+            color: var(--bg-dark);
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-dim);
+        }
+
+        tr:hover {
+            background: rgba(20, 184, 166, 0.05);
+        }
+
+        .alert {
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+        }
+
+        .alert-warning {
+            background: rgba(251, 146, 60, 0.1);
+            border-color: var(--warning);
+        }
+
+        .alert-success {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: var(--success);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            display: inline-block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-secondary);
+            background: rgba(20, 184, 166, 0.1);
+            border-color: var(--accent);
+        }
+
+        .code-sample {
+            background: var(--bg-darker);
+            border: 1px solid var(--accent-dim);
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            color: var(--accent-secondary);
+        }
+
+        .signal-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            margin-right: 0.5rem;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+    </style>
+</head>
+<body>
+    <div class="poc-header">
+        <h1><span class="signal-indicator"></span>KAI "SPARKY" ZHANG</h1>
+        <div class="theme-name">PoC #5: SIGNAL INTELLIGENCE - Teal/Slate</div>
+        <p style="color: var(--text-dim);">Känsla: SIGINT dashboard, radio waves, elektronisk krigföring</p>
+    </div>
+
+    <div class="demo-grid">
+        <div class="demo-box">
+            <h3>Stats Overview</h3>
+            <p style="color: var(--text-dim);">INT: <strong style="color: var(--accent);">18 (90%)</strong></p>
+            <p style="color: var(--text-dim);">SAN: <strong style="color: var(--accent-secondary);">63/70</strong></p>
+            <p style="color: var(--text-dim);">Clearance: <strong style="color: var(--accent);">Top Secret/SCI</strong></p>
+        </div>
+
+        <div class="demo-box">
+            <h3>Färgpalett</h3>
+            <p style="color: var(--text-dim);">Primär: <strong style="color: var(--accent);">#14b8a6 Teal</strong></p>
+            <p style="color: var(--text-dim);">Sekundär: <strong style="color: var(--accent-secondary);">#2dd4bf Bright Teal</strong></p>
+            <p style="color: var(--text-dim);">Bakgrund: <strong>#0f172a Slate</strong></p>
+        </div>
+
+        <div class="demo-box">
+            <h3>Typsnitt</h3>
+            <p style="color: var(--text-dim);">Body: <strong style="color: var(--accent);">Anonymous Pro</strong></p>
+            <p style="color: var(--text-dim);">Headers: <strong style="color: var(--accent-secondary);">DM Sans</strong></p>
+            <p style="color: var(--text-dim);">Stil: Signal processing, communications</p>
+        </div>
+    </div>
+
+    <h2 style="color: var(--accent); margin: 2rem 0 1rem 0;">Färdighetstabell Demo</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Färdighet</th>
+                <th>%</th>
+                <th>Beskrivning</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Datavetenskap</strong></td>
+                <td>90%</td>
+                <td>Elithacker. NSA-tränad.</td>
+            </tr>
+            <tr>
+                <td><strong>SIGINT</strong></td>
+                <td>80%</td>
+                <td>Signalspaning och elektronisk krigföring.</td>
+            </tr>
+            <tr>
+                <td><strong>Elektronik</strong></td>
+                <td>60%</td>
+                <td>Hårdvaruhacking och modifiering.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="alert alert-warning">
+        <strong>⚠️ SÄKERHETSVARNING</strong><br>
+        Detta dokument är klassificerat. Vid fara: Förstör enhet, kryptera kommunikation, neka allt.
+    </div>
+
+    <div class="alert alert-success">
+        <strong>✓ OPERATIONSSTATUS</strong><br>
+        Klar för deployment. Alla system nominella. Encrypted comms online.
+    </div>
+
+    <h2 style="color: var(--accent); margin: 2rem 0 1rem 0;">Code Sample</h2>
+    <div class="code-sample">
+        [SIGINT] Intercepting signal at 2.4GHz...<br>
+        [DECODE] RSA-2048 encryption detected<br>
+        [CRACK] Brute force in progress: 34%<br>
+        [STATUS] Signal strength: STRONG
+    </div>
+
+    <h2 style="color: var(--accent); margin: 2rem 0 1rem 0;">Navigation Demo</h2>
+    <div class="nav-links">
+        <a href="#" class="nav-link">⚡ KARAKTÄR</a>
+        <a href="#" class="nav-link">💻 TEKNISKT</a>
+        <a href="#" class="nav-link">🎯 OPERATIVT</a>
+        <a href="#" class="nav-link">▲ DELTA GREEN</a>
+        <a href="#" class="nav-link">❤️ PERSONLIGT</a>
+    </div>
+
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-dim);">
+        <p><strong>Känsla:</strong> SIGINT operations, communications intelligence, radio waves. Modern men inte för sci-fi.<br>
+        <strong>Inspiration:</strong> NSA SIGINT dashboards, radio surveillance, electronic warfare systems</p>
+    </div>
+</body>
+</html>
