@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullständig Inventering - Harriets Förråd | Trip 19</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-green: #00ff41;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --accent-yellow: #ffcc00;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: var(--accent-blue);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section {
+            background: var(--bg-panel);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: var(--accent-yellow);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section h3 {
+            color: var(--accent-blue);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .priority-critical {
+            background: rgba(255, 68, 68, 0.15);
+            border-left: 4px solid var(--accent-red);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .priority-high {
+            background: rgba(255, 204, 0, 0.15);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .priority-medium {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .inventory-item {
+            background: rgba(10, 14, 23, 0.6);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            margin: 0.75rem 0;
+            border-radius: 4px;
+        }
+
+        .inventory-item h4 {
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: rgba(10, 14, 23, 0.6);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box {
+            background: rgba(255, 68, 68, 0.1);
+            border: 2px solid var(--accent-red);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📦 FULLSTÄNDIG INVENTERING</h1>
+            <div style="color: var(--text-dim); margin-top: 0.5rem;">ALLT Material från Harriets Förråd - CubeSmart Storage, Leesburg VA</div>
+        </div>
+
+        <!-- OVERVIEW STATS -->
+        <div class="section">
+            <h2>📊 ÖVERSIKT</h2>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Träkistor (Ernest)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">Kartonger (Harriet)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">~850</div>
+                    <div class="stat-label">Dokument (totalt)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">~180 lbs</div>
+                    <div class="stat-label">Total Vikt (82 kg)</div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h3 style="color: var(--accent-red); margin-bottom: 1rem;">⚠️ FÖRVARINGSPROBLEM</h3>
+                <p>Chesapeake Cell tog ALLT material från förrådet - 3 träkistor + 12 kartonger. Detta är:</p>
+                <ul style="margin-top: 0.75rem;">
+                    <li><strong>~180 lbs (82 kg)</strong> totalt</li>
+                    <li><strong>15 separata containrar</strong> som måste förvaras säkert</li>
+                    <li><strong>Flera hundra dokument</strong> att gå igenom</li>
+                    <li><strong>Type-VII fragment</strong> (radioaktivt, Unnatural)</li>
+                    <li><strong>Volkov letar aktivt</strong> - om han spårar material = katastrofalt</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Problem:</strong> Detta kan INTE förvaras på OCME long-term. För mycket, för synligt, för riskabelt.</p>
+            </div>
+        </div>
+
+        <!-- CRITICAL PRIORITY ITEMS -->
+        <div class="section">
+            <h2>🔴 KRITISK PRIORITET - Måste Skyddas Omedelbart</h2>
+
+            <div class="priority-critical">
+                <h3>Type-VII Fragment (Metallbox)</h3>
+                <ul>
+                    <li><strong>Antal:</strong> 5-7 fragment</li>
+                    <li><strong>Vikt:</strong> 4.8 lbs (2.2 kg) total</li>
+                    <li><strong>Radioaktivitet:</strong> 85 CPM vid direkt kontakt</li>
+                    <li><strong>Märkning:</strong> "VII-1939-K" (Reichsluftfahrtministerium)</li>
+                    <li><strong>Förvaringsrekommendation:</strong> Metallbox, Faraday cage, delad förvaring (split mellan PCs)</li>
+                </ul>
+            </div>
+
+            <div class="priority-critical">
+                <h3>Lundeens Handskrivna Lapp</h3>
+                <p><em>"Tre delar. VII, VIII, IX. En i USA, två i Ryssland. De får INTE hitta dem."</em></p>
+                <ul>
+                    <li><strong>Format:</strong> Handskriven, 1940-tals papper</li>
+                    <li><strong>Betydelse:</strong> Bekräftar existens av Type-VIII och Type-IX</li>
+                    <li><strong>Förvaringsrekommendation:</strong> Digitalisera + encrypted backup, original hos Mac (FBI secure)</li>
+                </ul>
+            </div>
+
+            <div class="priority-critical">
+                <h3>Dr. Klaus Reinhardts Visitkort</h3>
+                <ul>
+                    <li><strong>Frankfurt Clinic-koppling</strong> (där Type-VIII & IX troligen förvarades)</li>
+                    <li>Adress: Dorfstraße 42c, Frankfurt (Oder)</li>
+                    <li>Telefon: ALpine 4-7829</li>
+                    <li>Baksida: "Kalenko - 1942" (Lundeens handstil)</li>
+                    <li><strong>Förvaringsrekommendation:</strong> Mac (FBI) eller digitaliserad</li>
+                </ul>
+            </div>
+
+            <div class="priority-critical">
+                <h3>Leningrad-foto (Tre Män i Snö)</h3>
+                <ul>
+                    <li><strong>Datum:</strong> 1 januari 1942 (16 månader EFTER Lundeens död!)</li>
+                    <li>Tre män: Anton, Sasha, Filip - "Kalenko-gruppen"</li>
+                    <li>Baksida: Tysk text + Lundeens anteckning "Leningrad contact - K. referens"</li>
+                    <li><strong>Anomali:</strong> Foto från 1942 i Lundeens 1940-saker (temporal problem)</li>
+                    <li><strong>Förvaringsrekommendation:</strong> Sullivan (chaplain safe) + digital encrypted backup</li>
+                </ul>
+            </div>
+
+            <div class="priority-critical">
+                <h3>Tyskt Tekniskt Häfte (10 sidor, 1939)</h3>
+                <ul>
+                    <li>Ritningar över Type-VII/VIII/IX struktur</li>
+                    <li>Text: "...tre enheter nödvändiga för full aktivering..."</li>
+                    <li>Varning: "...farligt vid direkt beröring..."</li>
+                    <li><strong>Förvaringsrekommendation:</strong> Sparky (teknisk analys) + encrypted PDF backup</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- HIGH PRIORITY ITEMS -->
+        <div class="section">
+            <h2>🟡 HÖG PRIORITET - Viktiga Dokument</h2>
+
+            <div class="priority-high">
+                <h3>Harriets Anteckningsbok 1940-1942 (HUVUDBOK)</h3>
+                <ul>
+                    <li>120 sidor, handskriven, daglig logg</li>
+                    <li><strong>Kritiska entries:</strong>
+                        <ul>
+                            <li>15 sep 1940: "Tysk man lämnade metalväska som hummade"</li>
+                            <li>3 okt 1940: "Dröm igen. Tre män i snö. En tittade på mig."</li>
+                            <li>27 okt 1940: "Dr. Reinhardt ringde, frågade om 'Leningrad'"</li>
+                            <li>Feb-apr 1942: Återkommande drömmar om "blått ljus" och "tre röster"</li>
+                        </ul>
+                    </li>
+                    <li><strong>Förvaringsrekommendation:</strong> Scalpel (forensisk analys av handstil/ink) → Mac (långsiktig)</li>
+                </ul>
+            </div>
+
+            <div class="priority-high">
+                <h3>Harriets Senare Dagböcker (1943-2024)</h3>
+                <ul>
+                    <li>15 volymer, olika storlekar</li>
+                    <li>Spårar hennes liv, men också <strong>återkommande referenser till "gömda saker"</strong></li>
+                    <li>2019 entry: "Rysk man var här. Frågade om Ernest. Jag sa ingenting. Brände vissa sidor efter."</li>
+                    <li><strong>Förvaringsrekommendation:</strong> Quick scan för relevanta entries → digitalisera kritiska sidor</li>
+                </ul>
+            </div>
+
+            <div class="priority-high">
+                <h3>Telegram & Korrespondens (1939-1940)</h3>
+                <ul>
+                    <li>23 telegram från George Sylvester Viereck till Lundeen</li>
+                    <li>Telegram 28 aug 1940: <em>"PACKAGE DELAYED STOP WILL ARRIVE 30TH STOP HANDLE WITH CARE STOP R"</em></li>
+                    <li>Brev från tyska diplomater (5st)</li>
+                    <li>Brev från Norma Lundeen (Ernest's hustru) till Harriet 1941: <em>"FBI kom igen igår"</em></li>
+                    <li><strong>Förvaringsrekommendation:</strong> Digitalisera allt → Mac (FBI) har original</li>
+                </ul>
+            </div>
+
+            <div class="priority-high">
+                <h3>Lundeens Kalender 1940</h3>
+                <ul>
+                    <li>Pocket-kalender, läderomslag</li>
+                    <li><strong>Viktiga datum:</strong>
+                        <ul>
+                            <li>Juni 15: "R. - lunch, priv."</li>
+                            <li>Augusti 28: "V. - Capitol Hill, 16:00"</li>
+                            <li>Augusti 30: "Flight 4 PM - VIKTIGT" (dag innan kraschen)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Förvaringsrekommendation:</strong> Mac (FBI profiling) + digitalized</li>
+                </ul>
+            </div>
+
+            <div class="priority-high">
+                <h3>Tyskt Vykort (Juni 1939)</h3>
+                <ul>
+                    <li>Till: Ernest Lundeen, Senate Office Building</li>
+                    <li>Text: <em>"Das Paket kommt wie besprochen. Bitte vorsichtig behandeln. - R"</em></li>
+                    <li>Stämplat Frankfurt (Oder)</li>
+                    <li><strong>Förvaringsrekommendation:</strong> Digitaliserad + Mac original</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- MEDIUM PRIORITY -->
+        <div class="section">
+            <h2>🔵 MEDEL PRIORITET - Kontext & Bakgrund</h2>
+
+            <div class="priority-medium">
+                <h3>Fotografier (KARTONGER 1-3)</h3>
+                <ul>
+                    <li><strong>Antal:</strong> ~400 fotografier (totalt)</li>
+                    <li><strong>Perioder:</strong> 1920-2020 (mestadels 1940-1960)</li>
+                    <li><strong>Kategorier:</strong>
+                        <ul>
+                            <li>Ernest Lundeen familj (85 foton)</li>
+                            <li>Harriet & make (180 foton)</li>
+                            <li>Politiska events (35 foton) - inkl. Lundeen med Wheeler, Nye, Lindbergh</li>
+                            <li>Lovettsville Memorial Services (12 foton, 1941-1980)</li>
+                            <li>Blandat familjeliv (resten)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Förvaringsrekommendation:</strong> Scan alla politiska/1940s foton → Emily Johnson får resten tillbaka senare</li>
+                </ul>
+            </div>
+
+            <div class="priority-medium">
+                <h3>Tidningsurklipp (KARTONG 4)</h3>
+                <ul>
+                    <li><strong>Antal:</strong> ~120 clippings</li>
+                    <li><strong>Fokus:</strong> Pennsylvania Central Airlines Flight 19-kraschen (augusti 1940)</li>
+                    <li>Washington Post, New York Times, Chicago Tribune, Minnesota lokaltidningar</li>
+                    <li>Harriets anteckningar i marginalerna: <em>"FBI sa inte sanningen"</em>, <em>"Varför frågade de efter väskan?"</em></li>
+                    <li><strong>Förvaringsrekommendation:</strong> Digitalisera allt med Harriets anteckningar synliga</li>
+                </ul>
+            </div>
+
+            <div class="priority-medium">
+                <h3>Lundeens Visitkort-samling (KISTA 1)</h3>
+                <ul>
+                    <li><strong>Antal:</strong> 47 visitkort</li>
+                    <li><strong>Personer:</strong>
+                        <ul>
+                            <li>George Sylvester Viereck (Nazi propagandist)</li>
+                            <li>Burton K. Wheeler, Gerald P. Nye (isolationistiska senatorer)</li>
+                            <li>Charles Lindbergh (America First Committee)</li>
+                            <li>Hamilton Fish III (kongressman, isolationist)</li>
+                            <li>Dr. Klaus Reinhardt (Frankfurt Clinic)</li>
+                            <li>Diverse tyska diplomater (6st)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Förvaringsrekommendation:</strong> Digitalisera alla → Mac (FBI network mapping)</li>
+                </ul>
+            </div>
+
+            <div class="priority-medium">
+                <h3>CAB Crash Report Fragment (KARTONG 8)</h3>
+                <ul>
+                    <li>Sida 43-47 av officiella CAB-rapporten (87 sidor totalt)</li>
+                    <li>Harriets anteckningar: <em>"De ljög. FBI konfiskerade väskan innan CAB hann inspektera"</em></li>
+                    <li><strong>Förvaringsrekommendation:</strong> Digitalisera → Jämför med fullständig CAB-rapport (John Flannery har komplett version)</li>
+                </ul>
+            </div>
+
+            <div class="priority-medium">
+                <h3>Harriets Korrespondens med Emily (1990-2024)</h3>
+                <ul>
+                    <li>53 brev mellan farmor och sondotter</li>
+                    <li>Harriet nämnde ALDRIG Ernest Lundeen eller Trip 19 i breven</li>
+                    <li>Men: 2018 brev säger <em>"Om jag dör, du vet var nycklarna är. Vissa saker måste stanna gömda."</em></li>
+                    <li><strong>Förvaringsrekommendation:</strong> Scan 2018-2024 brev → resten tillbaka till Emily</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- LOW PRIORITY (BULK STORAGE) -->
+        <div class="section">
+            <h2>⚪ LÅG PRIORITET - Bulk Material (Kan Sorteras Senare)</h2>
+
+            <div class="inventory-item">
+                <h4>Harriets Hushållspapper (KARTONGER 9-11)</h4>
+                <ul>
+                    <li>Räkningar, kvitton, skattedeklarationer (1940-2020)</li>
+                    <li>Inköpslistor, kalender-notiser</li>
+                    <li>Begravningsarrangemang för make (1984)</li>
+                    <li><strong>Förvaringsrekommendation:</strong> Quick scan för 1940-1942 receipts (spår av vad Harriet köpte efter kraschen) → resten återlämnas till Emily</li>
+                </ul>
+            </div>
+
+            <div class="inventory-item">
+                <h4>Kläder & Textilier (KARTONG 12)</h4>
+                <ul>
+                    <li>Ernest Lundeens kostym (kista 1)</li>
+                    <li>Harriets gamla kläder (1940-50s)</li>
+                    <li>Quilts, dukar, handskar</li>
+                    <li><strong>Förvaringsrekommendation:</strong> Fotodokumentation → återlämnas till Emily (sentimentalt värde)</li>
+                </ul>
+            </div>
+
+            <div class="inventory-item">
+                <h4>Religiösa Föremål (KISTA 1)</h4>
+                <ul>
+                    <li>Ernest's bibel (oläst, inga anteckningar)</li>
+                    <li>Rosenkrans från begravning</li>
+                    <li>Helighetskort från Trip 19 Memorial Service 1941</li>
+                    <li><strong>Förvaringsrekommendation:</strong> Sullivan kan granska (men troligen ingen DG-relevans) → återlämnas</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- STORAGE RECOMMENDATIONS -->
+        <div class="section">
+            <h2>🔐 FÖRVARINGSREKOMMENDATIONER</h2>
+
+            <h3>Fas 1: Akut Sortering (24-72 timmar)</h3>
+            <div class="priority-critical">
+                <p><strong>Plats:</strong> OCME Baltimore, Autopsy Suite 2 (Scalpels lab)</p>
+                <p><strong>Vad som stannar här:</strong></p>
+                <ul>
+                    <li>Type-VII fragment (kortvarigt, för analys)</li>
+                    <li>Harriets 1940-1942 anteckningsbok (forensisk handstil-analys)</li>
+                    <li>Tekniskt häfte (XRF/spektral-scanning)</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Varning:</strong> Efter 72 timmar - Dr. Lisa Park och Raymond börjar ställa frågor!</p>
+            </div>
+
+            <h3>Fas 2: Delad Förvaring (Vecka 1-2)</h3>
+            <div class="priority-high">
+                <p><strong>Split Material mellan PCs:</strong></p>
+                <ul>
+                    <li><strong>Sparky:</strong>
+                        <ul>
+                            <li>3x Type-VII fragment (Faraday cage)</li>
+                            <li>Tekniskt häfte (digitaliserat + encrypted)</li>
+                            <li>Frekvensdata, scan-resultat</li>
+                        </ul>
+                    </li>
+                    <li><strong>Mac (FBI):</strong>
+                        <ul>
+                            <li>2-4x Type-VII fragment (bankfack med fake ID)</li>
+                            <li>Lundeens lapp (original)</li>
+                            <li>Kalender, telegram, visitkort</li>
+                            <li>Harriets 1940-1942 dagbok (efter Scalpels analys)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Sullivan (Naval Base):</strong>
+                        <ul>
+                            <li>Leningrad-foto (chapel safe)</li>
+                            <li>Dr. Reinhardts visitkort (backup)</li>
+                            <li>Religiösa föremål (bibel, etc.)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Scalpel:</strong>
+                        <ul>
+                            <li>Metallbox (tom, för vidare metallanalys)</li>
+                            <li>Fotografier (digitalisering pågår)</li>
+                            <li>Forensiska resultat (XRF, spektral, DNA)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <h3>Fas 3: Bulk Material (Vecka 2-4)</h3>
+            <div class="priority-medium">
+                <p><strong>12 Kartonger (Harriets saker):</strong></p>
+                <ul>
+                    <li><strong>Kritiska dokument:</strong> Digitaliserade, encrypted backups hos alla PCs</li>
+                    <li><strong>Fotografier:</strong> Scannnade, original returneras till Emily Johnson</li>
+                    <li><strong>Bulk material (hushåll):</strong> Quick-scan genomförd → returneras till Emily</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Lagring under sortering:</strong></p>
+                <ul>
+                    <li>Option 1: Hyra separat storage unit (betalt kontant, fake ID)</li>
+                    <li>Option 2: Mac's FBI field office (off-books, "cold case material")</li>
+                    <li>Option 3: Sparky's private space (om tillräckligt stort)</li>
+                </ul>
+            </div>
+
+            <h3>Emergency Protocol (Om Volkov Upptäcks)</h3>
+            <div class="warning-box">
+                <p><strong>BURN PROTOCOL AKTIVERAS OM:</strong></p>
+                <ul>
+                    <li>Volkov eller hans agents spårar Chesapeake Cell</li>
+                    <li>NSA/FBI börjar ställa för många frågor</li>
+                    <li>Type-VII fragment börjar "reagera" (247 Hz ökar, temp ändras, synlig ljusemission)</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Actions:</strong></p>
+                <ol>
+                    <li>Kontakta Cardinal Pierce omedelbart</li>
+                    <li>Flytta Type-VII till Delta Green secure house (off-grid)</li>
+                    <li>Förstör icke-essentiella dokument (bulk material)</li>
+                    <li>PCs goes dark (burner phones, safe houses)</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- TIMELINE -->
+        <div class="section">
+            <h2>⏰ TIDSLINJE FÖR MATERIAL-HANTERING</h2>
+
+            <div style="margin-top: 1.5rem;">
+                <div class="inventory-item">
+                    <h4>🕐 Timme 0-6: OCME Arrival (Natt 1)</h4>
+                    <ul>
+                        <li>Kistor öppnade, Type-VII upptäckt</li>
+                        <li>Första forensiska analyser (XRF, Geiger, frekvens)</li>
+                        <li>Fotografisk dokumentation</li>
+                        <li><strong>Status:</strong> Allt material fortfarande på OCME</li>
+                    </ul>
+                </div>
+
+                <div class="inventory-item">
+                    <h4>🕘 Timme 12-24: Sortering Börjar (Dag 1)</h4>
+                    <ul>
+                        <li>Scalpel fortsätter forensisk analys på kritiska items</li>
+                        <li>Sparky digitaliserar dokument (high-res scans)</li>
+                        <li>Mac granskar telegram och visitkort (FBI profiling)</li>
+                        <li>Sullivan läser Harriets dagböcker (söker religiösa/supernatural references)</li>
+                        <li><strong>Status:</strong> Bulk material börjar flyttas från OCME</li>
+                    </ul>
+                </div>
+
+                <div class="inventory-item">
+                    <h4>📅 Dag 2-3: Delad Förvaring Etableras</h4>
+                    <ul>
+                        <li>Type-VII fragment delas upp (Sparky: 3st, Mac: 2-4st)</li>
+                        <li>Kritiska dokument kopierade och separerade</li>
+                        <li>12 kartonger flyttade till temporary storage (off-site)</li>
+                        <li><strong>Status:</strong> OCME-risken minskar, material distribuerat</li>
+                    </ul>
+                </div>
+
+                <div class="inventory-item">
+                    <h4>📅 Vecka 1-2: Djupanalys Pågår</h4>
+                    <ul>
+                        <li>Sparky: Strukturscanning av Type-VII, frekvens-tester</li>
+                        <li>Scalpel: DNA från blodfläckar, handstil-analys, ink-datering</li>
+                        <li>Mac: Network mapping (Viereck → Lundeen → Reinhardt → Kalenko)</li>
+                        <li>Sullivan: Religiösa texter, supernatural research på Leningrad 1942</li>
+                        <li><strong>Status:</strong> Information samlas, nästa steg planeras</li>
+                    </ul>
+                </div>
+
+                <div class="inventory-item">
+                    <h4>📅 Vecka 3-4: Bulk Material Returneras</h4>
+                    <ul>
+                        <li>Fotografier scannande, original returneras till Emily Johnson</li>
+                        <li>Hushållspapper (icke-relevant) åter till Emily</li>
+                        <li>Kläder och sentimentala items åter till familjen</li>
+                        <li><strong>Status:</strong> Endast DG-relevanta items kvar i PC-förvaring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

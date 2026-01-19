@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCME Analys - Harriets Förråd | Trip 19</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-green: #00ff41;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --accent-yellow: #ffcc00;
+            --accent-gold: #d4af37;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-gold);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: var(--accent-gold);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .header .subtitle {
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+
+        /* Navigation */
+        .nav-back {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--accent-gold);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .nav-back a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Scene sections */
+        .scene-section {
+            background: var(--bg-panel);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .scene-section h2 {
+            color: var(--accent-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .scene-section h3 {
+            color: var(--accent-yellow);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid var(--accent-red);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .discovery-box {
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid var(--accent-gold);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+
+        .discovery-box h4 {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .procedure-step {
+            background: rgba(10, 14, 23, 0.6);
+            border-left: 3px solid var(--accent-green);
+            padding: 1rem;
+            margin: 0.75rem 0;
+            border-radius: 4px;
+        }
+
+        .procedure-step .step-number {
+            color: var(--accent-green);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .timestamp {
+            color: var(--accent-yellow);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 1rem 0;
+        }
+
+        .character-action {
+            background: rgba(74, 144, 164, 0.05);
+            border-left: 3px solid var(--accent-blue);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .san-check {
+            background: rgba(255, 68, 68, 0.15);
+            border: 2px solid var(--accent-red);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🔬 OCME ANALYS - HARRIETS FÖRRÅD</h1>
+            <div class="subtitle">SESSION 2 - Forensisk Undersökning av Lundeens Material</div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-back">
+            <a href="session2.html">← Tillbaka till Session 2</a>
+        </div>
+
+        <!-- ARRIVAL SCENE -->
+        <div class="scene-section">
+            <h2>🌙 ANKOMST TILL OCME (22:30)</h2>
+
+            <div class="info-box">
+                <p><strong>Scen:</strong> Chesapeake Cell anländer med tre träkistor från Harriets förråd. Scalpel har redan förberett Autopsy Suite 2 för "off-books" analys.</p>
+                <p style="margin-top: 1rem;"><strong>Närvarande:</strong> Mac, Sullivan, Sparky, Scalpel (Trench optional)</p>
+                <p style="margin-top: 1rem;"><strong>Plats:</strong> OCME Baltimore, 900 W Baltimore Street - Personalentrén, sedan direkt till Suite 2</p>
+            </div>
+
+            <h3>Atmosfär vid Ankomst</h3>
+            <p>Parkeringsplatsen är nästan tom. Scalpels Volvo XC60 står under en natriumlampa. Byggnaden är mörk förutom tre fönster på andra våningen - obduktionslokalen.</p>
+
+            <div class="character-action">
+                <strong>Scalpel</strong> möter dem vid personalentrén med ID-kort redo: "Raymond gör ronden kl 23:00. Vi har en halvtimme störningsfri tid. Följ med."
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>Säkerhet:</strong></p>
+            <ul>
+                <li>Scalpel sveper alla genom med gästkort (registrerade som "federal consultants")</li>
+                <li>Larmsystemet blinkar grönt</li>
+                <li>Korridorerna har halverad belysning - var tredje lysrör tänd</li>
+                <li>Ljudet av HVAC-systemet - konstant mekaniskt andande</li>
+            </ul>
+
+            <h3>Transport till Suite 2</h3>
+            <div class="procedure-step">
+                <span class="step-number">Procedur:</span> Tre träkistor (märkta "Ernest Lundeen" på gamla etiketter) bärs in diskret. Mac och Sullivan tar de tunga. Sparky har sin laptop-väska. Scalpel bär forensisk dokumentationskamera.
+            </div>
+
+            <div class="info-box">
+                <p><strong>Scalpels instruktioner:</strong></p>
+                <ul>
+                    <li>"Vi dokumenterar allt. Foto, mätningar, vikt."</li>
+                    <li>"Jag öppnar kistorna - 85 år gammalt trä kan vara bräckligt."</li>
+                    <li>"Touch nothing without gloves. Contamination protocols apply."</li>
+                    <li>"Om Raymond knackar: ni är FBI consultants på en cold case. Säg inget mer."</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SUITE 2 ENVIRONMENT -->
+        <div class="scene-section">
+            <h2>🏥 AUTOPSY SUITE 2 - MILJÖ</h2>
+
+            <h3>Rummet</h3>
+            <ul>
+                <li><strong>Storlek:</strong> 30x40 fot, vita kaklade väggar, rostfritt stål överallt</li>
+                <li><strong>Ljus:</strong> Kirurgiska lampor (5000K) över obduktionsbordet - kliniskt vitt, skuggfritt</li>
+                <li><strong>Temperatur:</strong> 62°F (16°C) - kylrummet läcker kyla genom väggen</li>
+                <li><strong>Lukt:</strong> Formalin (aldehyd-skarp), blekmedelslösning, latex från handskarna</li>
+                <li><strong>Ljud:</strong> Ventilationen susande (12 luftbyten/timme), kyl-aggregaten brummar, vattendropp från diskbänken</li>
+            </ul>
+
+            <h3>Utrustning Förberedd</h3>
+            <div class="info-box">
+                <p>Scalpel har satt upp forensisk workstation:</p>
+                <ul>
+                    <li>Obduktionsbordet täckt med sterilt papper</li>
+                    <li>Forensisk kamera på stativ (Canon EOS med macro-lins)</li>
+                    <li>Digitala vågar (precision 0.01g)</li>
+                    <li>Skalpeller, pincett, spatlar (sterila)</li>
+                    <li>XRF-scanner (portable X-ray fluorescence) för metallanalys</li>
+                    <li>Geiger-räknare (hennes egen, "för säkerhets skull")</li>
+                    <li>Frekvensanalysator (Sparkys utrustning, lånad)</li>
+                    <li>UV-ljuslåda för dokumentinspektion</li>
+                    <li>Dikteringsapparat (hon dokumenterar allt)</li>
+                </ul>
+            </div>
+
+            <div class="character-action">
+                <strong>Scalpel</strong> tänder dikteringsapparaten: "OCME Case Supplement 2025-Unofficial. Analysis of historical artifacts from Lundeen estate, August 31st 1940. Present: Dr. Engler, plus federal consultants Riley, Sullivan, Zhang. Time: 22:35 hours."
+            </div>
+        </div>
+
+        <!-- KISTA 1 ANALYSIS -->
+        <div class="scene-section">
+            <h2>📦 KISTA 1: KLÄDER & PERSONLIGA EFFEKTER</h2>
+
+            <p class="timestamp">⏰ 22:40 - Öppning av Första Kistan</p>
+
+            <div class="procedure-step">
+                <span class="step-number">Steg 1 - Extern Inspektion:</span>
+                <ul>
+                    <li>Träkista: 24" x 18" x 12", furu, järnbeslag rostiga men intakta</li>
+                    <li>Etikett: "ERNEST LUNDEEN - PERSONAL EFFECTS" (handskrivet, bläck bleknat)</li>
+                    <li>Vikt: 28.4 lbs (12.9 kg)</li>
+                    <li>Foto tagna från 6 vinklar</li>
+                </ul>
+            </div>
+
+            <div class="procedure-step">
+                <span class="step-number">Steg 2 - Öppning:</span>
+                <p>Scalpel använder platt skalpell för att försiktigt bryta sigillet (gammalt vax, sprucket). Locket knarrar - gångjärnen protesterar.</p>
+            </div>
+
+            <div class="info-box">
+                <h4>Innehåll Kista 1:</h4>
+                <ul>
+                    <li><strong>Kostym (grå ull):</strong> Brooks Brothers, storlek 42R, tidstypisk 1940, dammlukt</li>
+                    <li><strong>Vit skjorta:</strong> Krage fransat, blodfläckar (bruna, gamla) på högra ärmen</li>
+                    <li><strong>Slips (blå):</strong> Sidenmaterial, Minnesota state emblem</li>
+                    <li><strong>Plånbok (läder):</strong> Innehåller $47 (1940 bills), körkort (Ernest Lundeen, expires 1942), visitkort (Senate Office)</li>
+                    <li><strong>Fickur (guld):</strong> Stannat på 17:32 (krashtid!), baksida graverad "E.L. from N.L., 1918"</li>
+                    <li><strong>Glasögon:</strong> Rundade bågar, ena glaset sprucket</li>
+                </ul>
+            </div>
+
+            <div class="character-action">
+                <strong>Mac</strong> (FBI instinkt): "Blodfläckarna - kan vi typa dem?"<br>
+                <strong>Scalpel:</strong> "Efter 85 år? Troligen degraderat. Men jag kan försöka DNA-extraktion om ni vill. Tar 3-4 dagar."
+            </div>
+
+            <div class="character-action">
+                <strong>Sullivan</strong> håller fickuret försiktigt: "Stannat på 17:32. När kraschen hände." *Gör korstecken* "Han visste inte att han hade 8 minuter kvar."
+            </div>
+        </div>
+
+        <!-- KISTA 2 ANALYSIS -->
+        <div class="scene-section">
+            <h2>📦 KISTA 2: DOKUMENT & KORRESPONDENS</h2>
+
+            <p class="timestamp">⏰ 22:52 - Öppning av Andra Kistan</p>
+
+            <div class="procedure-step">
+                <span class="step-number">Extern Inspektion:</span>
+                <ul>
+                    <li>Identisk konstruktion som Kista 1</li>
+                    <li>Etikett: "ERNEST LUNDEEN - SENATE PAPERS (RESTRICTED)"</li>
+                    <li>Vikt: 34.2 lbs (15.5 kg) - tyngre än förväntad</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h4>Innehåll Kista 2:</h4>
+                <ul>
+                    <li><strong>Aktstaplar (12st):</strong> Senate correspondence 1939-1940, mestadels isolationist material</li>
+                    <li><strong>Telegram (23st):</strong> Från George Sylvester Viereck, några från tyska diplomater</li>
+                    <li><strong>Reselogg:</strong> Lundeens resor jan-aug 1940, handskriven</li>
+                    <li><strong>Dagbok (liten, röd läder):</strong> Sista entry 30 augusti 1940 - "Meeting V. 4PM tomorrow. He insists I carry it myself."</li>
+                    <li><strong>Fotografier (8st):</strong>
+                        <ul>
+                            <li>5st politiska event</li>
+                            <li>2st familjeporträtt</li>
+                            <li>1st OVÄNTAT: Tre män i snö, Leningrad skyline bakgrund</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="discovery-box">
+                <h4>⭐ LENINGRAD-FOTOT (KEY DISCOVERY)</h4>
+                <p><strong>Beskrivning:</strong> Svartvitt foto, 4x6 tum, professionell kvalitet</p>
+                <ul>
+                    <li>Tre män står utomhus i snö, Leningrad vinterpalats synligt i bakgrunden</li>
+                    <li>Män bär militära vinterjackor (sovjetiska?), ansikten tydliga</li>
+                    <li>Baksida: Handskrivet på tyska - "Leningrad, 1. Januar 1942. Anton, Sasha, Filip - Kalenko-gruppen"</li>
+                    <li>Fotokvalitet: Skarp, ingen degradering trots ålder</li>
+                </ul>
+            </div>
+
+            <div class="character-action">
+                <strong>Sparky</strong> scannar fotot med telefonen: "Jag kan köra ansiktsigenkänning mot arkiv... men Leningrad 1942? Under belägringen? Hur i helvete..."<br>
+                <strong>Mac:</strong> "Varför hade Lundeen det här? Han dog augusti 1940. Detta är från januari 1942 - 16 månader senare."
+            </div>
+
+            <div class="warning-box">
+                <p><strong>⚠️ TEMPORAL ANOMALI:</strong></p>
+                <p>Fotot är daterat 1 januari 1942 - 16 månader EFTER Lundeens död. Antingen:</p>
+                <ul>
+                    <li>Fotot är felsorterat (tillhörde Harriet, inte Ernest)</li>
+                    <li>Datumet på fotot är felaktigt</li>
+                    <li>Lundeen hade kontakt med personer som senare reste till Leningrad</li>
+                    <li><strong>Eller något mer oroande...</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- KISTA 3 ANALYSIS - THE CRITICAL ONE -->
+        <div class="scene-section">
+            <h2>📦 KISTA 3: METALLBOX & KUVERT (JACKPOT)</h2>
+
+            <p class="timestamp">⏰ 23:05 - Öppning av Tredje Kistan</p>
+
+            <div class="warning-box">
+                <p><strong>⚠️ VIKTIGT:</strong> Raymond's ronda börjar om 5 minuter. Scalpel pausar: "Vi har 10 minuter innan han knackar. Snabbt."</p>
+            </div>
+
+            <div class="procedure-step">
+                <span class="step-number">Extern Inspektion:</span>
+                <ul>
+                    <li>Kista märkt: "ERNEST LUNDEEN - DIPLOMATIC MATERIALS (CLASSIFIED)"</li>
+                    <li>Sigill med U.S. State Department vaxstämpel (brutet)</li>
+                    <li>Vikt: 18.7 lbs (8.5 kg) - mycket tyngre än förväntat för storlek</li>
+                    <li><strong>Geiger-räknare börjar klicka svagt</strong> (40 CPM, normalt är 20-30)</li>
+                </ul>
+            </div>
+
+            <div class="character-action">
+                <strong>Scalpel</strong> fryser när hon hör Geiger-räknaren: "Wait. Radioaktivitet?" <br>
+                *Kollar displayen* "40 CPM... inte farligt, men onormalt. Vad i helvete hade Lundeen?"
+            </div>
+
+            <div class="discovery-box">
+                <h4>🔴 INNEHÅLL KISTA 3:</h4>
+
+                <p style="margin-top: 1rem;"><strong>1. METALLBOX (tysk konstruktion)</strong></p>
+                <ul>
+                    <li>Rostfritt stål, 10" x 6" x 4", tyska märkningar: "Reichsluftfahrtministerium"</li>
+                    <li>Serienummer stämplat: <strong>VII-1939-K</strong></li>
+                    <li>Geiger-räknare: 65 CPM när densamma</li>
+                    <li>Vikt: 4.8 lbs (2.2 kg) - mycket tyngre än den borde vara för storlek</li>
+                </ul>
+
+                <p style="margin-top: 1rem;"><strong>2. LUNDEENS HANDSKRIVNA LAPP (i kuvert)</strong></p>
+                <div class="info-box" style="background: rgba(255, 68, 68, 0.1);">
+                    <p style="font-family: 'Courier New'; font-size: 1.1rem;">
+                        "Harriet - Om något händer mig:<br>
+                        <br>
+                        Tre delar. VII, VIII, IX.<br>
+                        VII finns här. VIII & IX i Frankfurt.<br>
+                        Kalenko vet var. Fråga Reinhardt.<br>
+                        <br>
+                        Förstör dem. Samla aldrig.<br>
+                        <br>
+                        - Ernest"
+                    </p>
+                </div>
+
+                <p style="margin-top: 1rem;"><strong>3. DR. REINHARDTS VISITKORT</strong></p>
+                <ul>
+                    <li>Tysk tryckt kvalitet: "Dr. Klaus Reinhardt, Neurologie"</li>
+                    <li>Adress: <strong>Frankfurt Clinic, Bockenheimer Landstraße 22, Frankfurt am Main</strong></li>
+                    <li>Handskriven anteckning på baksidan (tyska): "Kalenko-Gruppe - Type VIII, IX unter Verwahrung"</li>
+                </ul>
+
+                <p style="margin-top: 1rem;"><strong>4. TELEGRAM (VIERECK → LUNDEEN, 28 augusti 1940)</strong></p>
+                <p style="font-style: italic;">"IMPERATIVE YOU CARRY PACKAGE PERSONALLY STOP DO NOT OPEN STOP DELIVER TO K IN DETROIT STOP - V"</p>
+
+                <p style="margin-top: 1rem;"><strong>5. CAB INVESTIGATOR NOTE (fragment)</strong></p>
+                <p style="font-style: italic;">"Senator Lundeen's briefcase recovered 200 yards from main wreckage. Lock damaged, contents partially burned. FBI confiscated before detailed inventory."</p>
+
+                <p style="margin-top: 1rem;"><strong>6. VOLKOV'S RESEARCH NOTE (modern, 2019)</strong></p>
+                <p style="font-style: italic; color: #ff4444;">"Harriet confirmed: Ernest had VII-fragment. Basement search negative. Check storage units. - D.V."</p>
+            </div>
+        </div>
+
+        <!-- OPENING THE METAL BOX -->
+        <div class="scene-section">
+            <h2>🔓 ÖPPNING AV METALLBOXEN</h2>
+
+            <p class="timestamp">⏰ 23:08 - Kritiskt Moment</p>
+
+            <div class="warning-box">
+                <p><strong>Raymond knackar på dörren</strong> (glass window i door):<br>
+                "Dr. Engler? Rondkontroll. Allt okej?"</p>
+            </div>
+
+            <div class="character-action">
+                <strong>Scalpel</strong> (vänder sig om, blockerar siktlinjen till metallboxen med sin kropp):<br>
+                "Perfekt timing, Raymond. Vi är klara om 15 minuter. Federal cold case - klassificerad."<br>
+                <br>
+                <strong>Raymond</strong> (ögonbryn höjs, men nickar): "Okej, Doc. Låser huvuddörren 23:30. Ni har nycklar?"<br>
+                <strong>Scalpel:</strong> "Ja. Tack, Raymond."<br>
+                <br>
+                *Raymond går vidare*
+            </div>
+
+            <h3>Öppning av Boxen</h3>
+
+            <div class="procedure-step">
+                <span class="step-number">Procedur:</span>
+                <p>Boxen är förseglade med gamla tyska skruvar (hexagonal). Scalpel använder precision screwdriver set. Geiger-räknaren klickar snabbare när skruvarna lossas.</p>
+                <ul>
+                    <li>65 CPM → 85 CPM när locket lyfts</li>
+                    <li>Inget farligt, men onormalt</li>
+                </ul>
+            </div>
+
+            <div class="discovery-box">
+                <h4>⭐⭐⭐ TYPE-VII FRAGMENT (HUVUDFYND)</h4>
+
+                <p><strong>Första Intryck:</strong></p>
+                <p>Fem till sju små fragment av något som liknar kristall, men... fel. Varje fragment är 2-4 cm långt, oregelbundna kanter, mörkt bärnstensfärgade men nästan ogenomskinliga.</p>
+
+                <p style="margin-top: 1rem;"><strong>Fysiska Egenskaper (Observerbara):</strong></p>
+                <ul>
+                    <li><strong>Utseende:</strong> Liknar bärnsten eller obsidian, men reflekterar ljus "fel" - som om ljuset böjs inuti materialet</li>
+                    <li><strong>Vikt:</strong> Varje fragment väger 45-60g - mycket tyngre än glas eller kristall borde vara för storlek</li>
+                    <li><strong>Temperatur:</strong> Känns kallare än omgivningen (mäter 52°F i 62°F-rum)</li>
+                    <li><strong>Ljud:</strong> Svag, nästan ohörbar ton när de ligger nära varandra (247 Hz - Sparky mäter med frekvensanalysator)</li>
+                    <li><strong>Radioaktivitet:</strong> 85 CPM vid direkt kontakt - inte farligt men persistent</li>
+                </ul>
+
+                <p style="margin-top: 1rem;"><strong>Märkningar:</strong></p>
+                <ul>
+                    <li>En av fragmenten har tyska stämplar inristat: "VII-1939-K"</li>
+                    <li>Samma som metallboxens serienummer</li>
+                </ul>
+            </div>
+
+            <div class="character-action">
+                <strong>Scalpel</strong> håller ett fragment med pincett under ljuset: "Det här är inget jag sett förut. Inte mineral, inte syntetiskt... men det reflekterar ljus som om det har inre struktur."<br>
+                <br>
+                <strong>Sparky</strong> pekar på frekvensanalysatorn: "247 Hertz. Exakt. Konstant. Det här är inte naturligt."<br>
+                <br>
+                <strong>Mac</strong> (FBI-instinkt sparkar in): "Lundeen bar det här ombord på planet. Han dog för att få det till Detroit. Vem är 'K'?"
+            </div>
+
+            <div class="san-check">
+                <p>⚠️ <strong>SAN CHECK - UNNATURAL</strong></p>
+                <p>Om någon PC använder <strong>Unnatural</strong> skill för att försöka identifiera vad fragmenten är:</p>
+                <ul>
+                    <li><strong>Roll Unnatural:</strong> DC varies by PC knowledge</li>
+                    <li><strong>Success:</strong> "Det här liknar beskrivningar från... nej. Det kan inte vara. Hypergeometrisk resonans. Men det skulle betyda..."</li>
+                    <li><strong>SAN Loss:</strong> 0/1 (insikten att detta är Unnatural material)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SPARKY'S TECH ANALYSIS -->
+        <div class="scene-section">
+            <h2>💻 SPARKYS TEKNISK ANALYS</h2>
+
+            <p class="timestamp">⏰ 23:15 - Digital Forensik</p>
+
+            <div class="character-action">
+                <strong>Sparky</strong> tar fram laptop och portable scanner:<br>
+                "Okej, låt mig dokumentera det här digitalt. Jag vill ha 3D-scan och spektralanalys."
+            </div>
+
+            <h3>Analyser Sparky Kör (20 minuter arbete)</h3>
+
+            <div class="procedure-step">
+                <span class="step-number">1. 3D-Scanning (strukturell analys)</span>
+                <ul>
+                    <li>LiDAR-scan av fragmenten avslöjar intern struktur</li>
+                    <li>Geometrin är inte naturlig - för perfekt, för regelbunden</li>
+                    <li>Facettering följer matematiska mönster (inte slumpmässiga kristallbildningar)</li>
+                </ul>
+            </div>
+
+            <div class="procedure-step">
+                <span class="step-number">2. Spektralanalys (ljusabsorption)</span>
+                <ul>
+                    <li>Materialet absorberar UV-ljus helt (inget reflekteras)</li>
+                    <li>Infraröd: Avger svag värme (52°F när omgivning är 62°F - motsäger termodynamik)</li>
+                    <li>Frekvensanalys: 247 Hz konstant, oavsett temperatur eller tryck</li>
+                </ul>
+            </div>
+
+            <div class="procedure-step">
+                <span class="step-number">3. XRF-analys (elementär sammansättning)</span>
+                <p>Scalpels XRF-scanner ger <strong>motsägande resultat</strong>:</p>
+                <ul>
+                    <li>Primärt: Järn (Fe), Kisel (Si), Syre (O) - som meteorit</li>
+                    <li>Men: Isotopförhållanden är FELAKTIGA</li>
+                    <li>Spår av element som inte borde finnas: Europium (Eu), Ytterbium (Yb)</li>
+                    <li><strong>Scanningen "kraschar" efter 30 sekunder - läser "ERROR: UNKNOWN MATRIX"</strong></li>
+                </ul>
+            </div>
+
+            <div class="character-action">
+                <strong>Sparky:</strong> "Det här har jag aldrig sett. Scanningen kan inte identifiera materialet. Det är som om... den inte vet vad den läser."<br>
+                <br>
+                <strong>Scalpel:</strong> "XRF är foolproof. Den läser elementär sammansättning - period. Om den säger 'unknown matrix'..."<br>
+                <br>
+                <strong>Sullivan</strong> (tyst, från bordsidan där han stirrat på fragmenten i 5 minuter): "Det är inte från här."
+            </div>
+        </div>
+
+        <!-- CONCLUSIONS & NEXT STEPS -->
+        <div class="scene-section">
+            <h2>🎯 SLUTSATSER & NÄSTA STEG</h2>
+
+            <p class="timestamp">⏰ 23:35 - Debriefing</p>
+
+            <h3>Vad Chesapeake Cell Nu Vet</h3>
+
+            <div class="discovery-box">
+                <h4>BEKRÄFTAT:</h4>
+                <ul>
+                    <li>Lundeen transporterade <strong>Type-VII fragment</strong> ombord på Flight 19</li>
+                    <li>Fragmenten är <strong>Unnatural</strong> - inte jordiskt ursprung eller syntetiska</li>
+                    <li>Det finns <strong>Type-VIII och Type-IX</strong> någonstans - troligen Frankfurt Clinic</li>
+                    <li>Dr. Klaus Reinhardt (Frankfurt) är kopplad till "Kalenko-Gruppe"</li>
+                    <li>Leningrad 1942 - tre män (Anton, Sasha, Filip) kopplat till detta</li>
+                    <li>Lundeen dog försökandes leverera VII till "K" i Detroit</li>
+                    <li>Harriet visste och gömde materialet i 85 år</li>
+                    <li><strong>Volkov letade efter Type-VII 2019 - missade förrådet helt!</strong></li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h4>ÖPPNA FRÅGOR:</h4>
+                <ul>
+                    <li>Vem är "K" i Detroit? (Kalenko?)</li>
+                    <li>Vad är Kalenko-gruppen?</li>
+                    <li>Varför ville Viereck att Lundeen bar det PERSONLIGT?</li>
+                    <li>Vad hände i Leningrad januari 1942?</li>
+                    <li>Var är Type-VIII och Type-IX nu? (Frankfurt? Berlin?)</li>
+                    <li>Vad händer om alla tre types samlas?</li>
+                    <li>Varför dog Lundeen? Sabotage? Olycka? Något värre?</li>
+                </ul>
+            </div>
+
+            <h3>Nästa Steg (Spelarna Beslutar)</h3>
+
+            <div class="info-box">
+                <p><strong>Möjliga Paths Forward:</strong></p>
+                <ol>
+                    <li><strong>Lovettsville (Bishop Farm):</strong> Gräv vid kraschplatsen - finns fler fragment?</li>
+                    <li><strong>Frankfurt Clinic:</strong> Researcha Dr. Reinhardt, hitta Type-VIII & IX</li>
+                    <li><strong>Leningrad Research:</strong> Vad hände nyårsnatt 1942? Vem är Kalenko?</li>
+                    <li><strong>Detroit Connection:</strong> Hitta "K" - vem väntade på leveransen?</li>
+                    <li><strong>Volkov Tracking:</strong> Vad vet han? Var är han nu?</li>
+                    <li><strong>Stanford Box 147:</strong> Lundeens arkiv (restricted till 2045) - kan de få access?</li>
+                </ol>
+            </div>
+
+            <h3>Varning från Scalpel</h3>
+
+            <div class="warning-box">
+                <strong>Scalpel</strong> (packande fragmenten tillbaka i metallboxen med latex-handskar):<br>
+                <br>
+                "Jag vet inte vad det här är. Men jag vet vad det inte är - och det är det som oroar mig. Lundeen skrev 'Förstör dem. Samla aldrig.' Han dog med det här i väskan."<br>
+                <br>
+                *Pausar, tittar på gruppen*<br>
+                <br>
+                "Vi har Type-VII. Volkov letar efter Type-VIII och IX. Om han hittar dem först..."<br>
+                <br>
+                *Låter meningen hänga i luften*
+            </div>
+
+            <h3>Storage Decision</h3>
+
+            <div class="character-action">
+                <strong>Mac:</strong> "Vi kan inte lämna det här på OCME. Om Volkov spårar oss..."<br>
+                <strong>Sparky:</strong> "Jag har säker förvaring. Faraday-cage, ingen digital spårning."<br>
+                <strong>Sullivan:</strong> "Eller vi förstör det. Som Lundeen sa."<br>
+                <strong>Scalpel:</strong> "Förstöra det? Vi vet inte ens vad det är. Vad om det... reagerar?"<br>
+                <br>
+                <em>[Spelarna beslutar]</em>
+            </div>
+        </div>
+
+        <!-- GM NOTES -->
+        <div class="scene-section">
+            <h2>📝 GM NOTES</h2>
+
+            <h3>Pacing Tips</h3>
+            <ul>
+                <li><strong>Total scen-tid:</strong> 60-90 minuter real-time</li>
+                <li><strong>Bygg spänning:</strong> Raymonds ronda = tidspress</li>
+                <li><strong>Forensisk detail:</strong> Scalpels expertis skapar credibility</li>
+                <li><strong>Unnatural reveal:</strong> Gör det gradvis - först "konstigt", sedan "omöjligt", slutligen "inte från här"</li>
+            </ul>
+
+            <h3>SAN Loss Opportunities</h3>
+            <ul>
+                <li><strong>Type-VII fragment inspection (Unnatural):</strong> 0/1 SAN</li>
+                <li><strong>XRF scanner ERROR:</strong> 0/1 SAN (helplessness - tekniken fungerar inte)</li>
+                <li><strong>Leningrad foto temporal anomali:</strong> 0/1 SAN (om de inser implikationen)</li>
+            </ul>
+
+            <h3>NPC Reactions</h3>
+            <ul>
+                <li><strong>Scalpel:</strong> Professionell först, sedan gradvis oroad - detta är utanför hennes expertis</li>
+                <li><strong>Mac:</strong> FBI-instinkt - fokuserar på kedjan av bevis, vem visste vad</li>
+                <li><strong>Sullivan:</strong> Tyst men djupt oroad - känner att detta är ondska</li>
+                <li><strong>Sparky:</strong> Fascination + rädsla - teknologin kan inte förklara det</li>
+            </ul>
+
+            <h3>Complications (Optional)</h3>
+            <ul>
+                <li><strong>Raymond ser för mycket:</strong> Han glimpsar fragmenten, ställer frågor senare</li>
+                <li><strong>Surveillance:</strong> Volkovs agent utanför OCME, fotograferar deras bilar</li>
+                <li><strong>Fragment reaction:</strong> Om alla fragment ligger nära varandra - 247 Hz-tonen blir hörbar, huvudvärk börjar</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <div class="nav-back" style="margin-top: 3rem;">
+            <a href="session2.html">← Tillbaka till Session 2</a> |
+            <a href="session3.html">Session 3 Prep →</a>
+        </div>
+    </div>
+</body>
+</html>
