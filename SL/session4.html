@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session 4 - Bishop Farm | Trip 19</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-green: #00ff41;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --accent-yellow: #ffcc00;
+            --accent-purple: #9b59b6;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .session-header {
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-red);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .session-header h1 {
+            color: var(--accent-red);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .session-meta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            background: rgba(155, 89, 182, 0.2);
+            border: 1px solid var(--accent-purple);
+            color: var(--accent-purple);
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(74, 144, 164, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-bar a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .section {
+            background: var(--bg-panel);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: var(--accent-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section h3 {
+            color: var(--accent-yellow);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid var(--accent-red);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .yellow-box {
+            background: rgba(255, 204, 0, 0.1);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .handout-box {
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid #d4af37;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .read-aloud {
+            background: rgba(155, 89, 182, 0.1);
+            border-left: 4px solid var(--accent-purple);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        .npc-card {
+            background: rgba(10, 14, 23, 0.6);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-green);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .npc-card h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .san-check {
+            background: rgba(255, 68, 68, 0.15);
+            border: 2px solid var(--accent-red);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .timeline-item {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: rgba(10, 14, 23, 0.4);
+            border-left: 3px solid var(--accent-blue);
+            border-radius: 4px;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        th {
+            background: rgba(74, 144, 164, 0.2);
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="session-header">
+            <h1>🏚️ SESSION 4: BISHOP FARM</h1>
+            <div class="session-meta">
+                <div>
+                    <span style="font-weight: bold;">Planerad:</span>
+                    <span>8 september 2025 (eftermiddag)</span>
+                </div>
+                <div>
+                    <span style="font-weight: bold;">Status:</span>
+                    <span class="status-badge">PREP</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-bar">
+            <a href="session3.html">← Session 3</a>
+            <div>Trip 19 / Black Madonna</div>
+            <a href="sessions.html">Till Sessions →</a>
+        </div>
+
+        <!-- OVERVIEW -->
+        <div class="section">
+            <h2>📋 ÖVERSIKT</h2>
+
+            <div class="info-box">
+                <h3 style="color: var(--accent-blue); margin-bottom: 0.75rem;">Session-mål</h3>
+                <ul>
+                    <li>Besök Bishop Farm - kraschplatsens Ground Zero</li>
+                    <li>Träffa Carl Bishop (markägare, 53 år)</li>
+                    <li>Undersök monumentet och kraschplatsen</li>
+                    <li>Eventuellt gräv upp tysk militärbehållare med Type-VII fragment</li>
+                    <li>Upptäck att Volkov (eller hans agent) övervakar dem</li>
+                    <li>Få mejl från Magda om Frankfurt Clinic-dagbok (1946)</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h3 style="color: var(--accent-red); margin-bottom: 0.75rem;">⚠️ KRITISKA MOMENT</h3>
+                <ul>
+                    <li><strong>Type-VII fragment:</strong> Om de hittas och rörs = SAN check 0/1d4, Unnatural exponering</li>
+                    <li><strong>Övervakning:</strong> Figur vid skogslinjen = Volkovs agent, Hamiltons hus som observationspost</li>
+                    <li><strong>Magdas mejl:</strong> Hon hittar dagbok från 1946, kopplar Lovettsville-Leningrad-Frankfurt</li>
+                    <li><strong>Ingen svarar:</strong> Om de ringer Magda senare = tystnad (ominöst)</li>
+                </ul>
+            </div>
+
+            <h3>Tidsram</h3>
+            <table>
+                <tr>
+                    <th>Moment</th>
+                    <th>Tid</th>
+                </tr>
+                <tr>
+                    <td>Ankomst, möte med Carl Bishop</td>
+                    <td>15-20 min</td>
+                </tr>
+                <tr>
+                    <td>Samtal om kraschen och Volkov</td>
+                    <td>20-30 min</td>
+                </tr>
+                <tr>
+                    <td>Vandring till monumentet</td>
+                    <td>10 min</td>
+                </tr>
+                <tr>
+                    <td>Undersökning av platsen</td>
+                    <td>15-20 min</td>
+                </tr>
+                <tr>
+                    <td>Grävning (om de väljer det)</td>
+                    <td>20-30 min</td>
+                </tr>
+                <tr>
+                    <td>Unnatural exponering</td>
+                    <td>10 min</td>
+                </tr>
+                <tr>
+                    <td>Övervakning/jaktscen</td>
+                    <td>15-20 min</td>
+                </tr>
+                <tr>
+                    <td>Avslutande samtal med Bishop</td>
+                    <td>10 min</td>
+                </tr>
+                <tr>
+                    <td>Magdas mejl</td>
+                    <td>5 min</td>
+                </tr>
+                <tr>
+                    <th>TOTAL</th>
+                    <th>2-3 timmar</th>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ANKOMST -->
+        <div class="section">
+            <h2>🚗 DEL 1: ANKOMST TILL BISHOP FARM</h2>
+
+            <h3>Vägen Dit</h3>
+            <div class="read-aloud">
+                <p>Gruppen svänger av från Route 287 och följer en skylt med handmålad text: <em>"BISHOP – INGEN FÖRSÄLJNING"</em>. Grusvägen är smal, kantad av rostiga staket och vildvuxna häckar. Majsfält på båda sidor – redan skördade, bara gulbruna stubbar kvar.</p>
+                <p style="margin-top: 1rem;">Luften luktar jord, gödsel och något svagt metalliskt som ingen riktigt kan placera. Mobilsignalen droppar till en stapel. Två.</p>
+                <p style="margin-top: 1rem;">En brevlåda i vit plåt: <strong>BISHOP</strong> i urblekt svart. Kulhål någonstans från tonåren.</p>
+            </div>
+
+            <h3>Gården</h3>
+            <div class="info-box">
+                <p><strong>Farmhuset:</strong> Tvåvånings träpanel, vitmålat men fjällande. Verandan lutar svagt åt vänster. Gungstolar som inte gungat på länge. En amerikansk flagga som sett bättre dagar.</p>
+                <p style="margin-top: 1rem;"><strong>Bakom huset:</strong></p>
+                <ul style="margin-top: 0.5rem;">
+                    <li>Röd lada, dörrarna hänger snett</li>
+                    <li>John Deere-traktor, modell från 80-talet, rostig men funktionell</li>
+                    <li>Höns i en inhägnad, en tupp som stirrar på besökarna</li>
+                    <li>Två hundar (border collies) som skäller från en hundgård men inte släpps ut</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Atmosfär:</strong></p>
+                <ul>
+                    <li>Inga andra hus synliga – bara fält och skog</li>
+                    <li>Short Hill reser sig i väster, en mjuk bergsrygg täckt av skog</li>
+                    <li>Molnen rör sig snabbt – vinden tilltar</li>
+                    <li>Någonstans spelar en radio countrymusik, dämpad genom en vägg</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CARL BISHOP -->
+        <div class="section">
+            <h2>👨‍🌾 DEL 2: CARL BISHOP</h2>
+
+            <div class="npc-card">
+                <h4>Carl Bishop - Markägare, 53 år</h4>
+                <p><strong>Första Intryck:</strong></p>
+                <p>Han kommer ut genom ytterdörren innan de hunnit ur bilen. Femtiotre år gammal, solbränd på ett sätt som kommer från arbete, inte semester. Flanellskjorta (rutig, röd/svart) trots att det är för varmt. Jeans med jordstänk. John Deere-keps.</p>
+                <p style="margin-top: 0.75rem;">Han torkar händerna på byxorna – en vana mer än ett behov.</p>
+                <p style="margin-top: 0.75rem;">Blicken är den av en man som sett folk komma och gå med sina frågor om kraschen i åttiofem år. Inte fientlig. Bara trött.</p>
+                <p style="margin-top: 1rem;"><strong>Personlighet:</strong> Skeptisk, trött på besökare, men rättvis</p>
+                <p><strong>Familj:</strong> Fru (död 2018), två vuxna barn i Richmond</p>
+                <p><strong>Hemlighet:</strong> Har själv sett blått ljus på fältet, en gång, 1989. Berättar inte om det.</p>
+                <p style="margin-top: 1rem;"><strong>Färdigheter:</strong></p>
+                <ul>
+                    <li>Lokalkännedom: 80%</li>
+                    <li>Historia (kraschrelaterad): 60%</li>
+                    <li>Första hjälpen: 40%</li>
+                </ul>
+            </div>
+
+            <h3>Initial Dialog</h3>
+            <div class="yellow-box">
+                <p><strong>Om de presenterar sig som federala agenter:</strong></p>
+                <p style="margin-top: 0.75rem; font-style: italic;">"Federala agenter. För en åttiofem år gammal flygkrasch."</p>
+                <p style="margin-top: 0.5rem;">Han skrattar kort, utan glädje.</p>
+                <p style="margin-top: 0.75rem; font-style: italic;">"Ni är inte dom första, vet ni. Kommer inte vara dom sista heller. Den där Rachel Maddow-podden fick alla uppspelta igen. Hade ett filmteam här förra året. Dokumentärfolk. Sa att dom skulle göra nästa stora grej. Har inte hört från dom sen dess."</p>
+                <p style="margin-top: 0.5rem;">Han korsar armarna.</p>
+                <p style="margin-top: 0.75rem; font-style: italic;">"Vad exakt vill ni veta som inte redan står i tidningarna?"</p>
+            </div>
+
+            <h3>Om De Frågar om Volkov</h3>
+            <div class="warning-box">
+                <p style="font-style: italic;">"Ryssen?"</p>
+                <p style="margin-top: 0.5rem;">Hans ansiktsuttryck hårdnar.</p>
+                <p style="margin-top: 0.75rem; font-style: italic;">"Ja, jag minns honom. Maj 2019. Intensiv typ. Ville gräva. Kan ni tänka er det? Dyker bara upp, frågar om han kan ta med en spade till min mark och gräva upp en kraschplats där tjugofem människor dog."</p>
+                <p style="margin-top: 0.5rem;">Han skakar på huvudet.</p>
+                <p style="margin-top: 0.75rem; font-style: italic;">"Jag sa nej. Sa åt honom att försvinna från min mark. Trodde det var slutet på det."</p>
+                <p style="margin-top: 1rem;"><strong>Paus. Han tittar ut mot fälten.</strong></p>
+                <p style="margin-top: 0.75rem; font-style: italic;">"Nästa morgon hittade jag färska hål. Tre stycken. Sex meter från minnesstenen. Prydliga, professionella. Ringde sheriffen, men vad ska han göra? Killen var sedan länge borta."</p>
+            </div>
+
+            <h3>Om De Frågar Vad Volkov Letade Efter</h3>
+            <div class="info-box">
+                <p style="font-style: italic;">"Fan vet jag. Frågade mig om 'ovanliga mätningar'. Ville veta om jag nånsin sett 'konstiga ljus' på marken. Jag sa att det enda konstiga här är folk som han som dyker upp och ställer konstiga frågor."</p>
+                <p style="margin-top: 1rem;"><strong>Han tvekar.</strong></p>
+                <p style="margin-top: 0.75rem; font-style: italic;">"Fast..."</p>
+                <p style="margin-top: 1rem;"><strong>Lång paus.</strong></p>
+                <p style="margin-top: 0.75rem; font-style: italic;">"Min farfar pratade om natten det hände. Sa att FBI dök upp före midnatt. Hundratals av dom. Jobbade hela natten med oljelampor – elen var borta på grund av stormen. Sa att dom letade efter nåt specifikt. Inte kroppar. Nåt annat."</p>
+                <p style="margin-top: 0.75rem; font-style: italic;">"Han sa aldrig vad. Ville inte prata om det efter den första gången."</p>
+            </div>
+        </div>
+
+        <!-- KRASCHPLATSEN -->
+        <div class="section">
+            <h2>📍 DEL 3: KRASCHPLATSEN</h2>
+
+            <h3>Vandringen Ut</h3>
+            <div class="read-aloud">
+                <p>Bishop erbjuder sig att visa dem platsen. Det är en promenad på cirka trehundra meter genom stubbåker. Marken är ojämn, svår att gå på i stadsskor.</p>
+                <p style="margin-top: 1rem;"><strong>Miljöbeskrivning under promenaden:</strong></p>
+                <p style="margin-top: 0.75rem;">Fältet breder ut sig som ett gulbrunt hav av avhuggna majsstubbar. Varje steg kraschar mot torra blad och smuliga jordkokor. Short Hill reser sig till vänster, skogsklädd och tyst. Himlen är hög och blek – den typen av eftermiddagsljus som får allt att se platt och livlöst ut.</p>
+                <p style="margin-top: 1rem;">Halvvägs ut märker ni att gräset förändras. Det är tunnare här. Blekare. Som om jorden fortfarande minns.</p>
+                <p style="margin-top: 1rem;">Bishop går framför er utan att titta tillbaka. Han har gått den här vägen förut. Många gånger.</p>
+            </div>
+
+            <h3>Monumentet</h3>
+            <div class="info-box">
+                <p>En enkel stenpelare, knappt en meter hög. Grå granit, vittrad av åttiofem års regn och sol. Ingen inskription – bara en sten som markerar platsen.</p>
+                <p style="margin-top: 1rem;"><strong>Bishop:</strong></p>
+                <p style="font-style: italic;">"Min farfars far satte upp den. 1941. Fanns inget officiellt minnesmärke då, och det finns fortfarande inte. Bara det här."</p>
+                <p style="margin-top: 1rem;"><strong>Om de tittar närmare:</strong></p>
+                <ul style="margin-top: 0.5rem;">
+                    <li>Stenen är delvis nedsjunken i marken</li>
+                    <li>Runt basen: en krans av vissnade blommor, kanske två månader gamla</li>
+                    <li>På stenens baksida, knappt synligt: initialer inristade, "W.B. 1941"</li>
+                    <li>Gräset närmast stenen är annorlunda – kortare, tätare, som om det växer snabbare här</li>
+                </ul>
+            </div>
+
+            <h3>Kraschspåren (Vad Som Syns Ovan Mark)</h3>
+            <div class="yellow-box">
+                <p><strong>Om de undersöker området noggrant (Spot Hidden eller Search):</strong></p>
+                <ul style="margin-top: 0.75rem;">
+                    <li>Små gropar i marken som fyllts igen men aldrig riktigt jämnats ut</li>
+                    <li>Tre tydliga hål, igengrävda men med lösare jord – <strong>Volkovs hål</strong></li>
+                    <li>Små metallbitar i jorden om de gräver med händerna (vanligt flygvrak, aluminium)</li>
+                    <li>Ett område på cirka tio kvadratmeter där kompassen spinner oregelbundet (om någon har en)</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <p><strong>Bishop, om de märker kompassproblemet:</strong></p>
+                <p style="margin-top: 0.75rem; font-style: italic;">"Ja, det där... markradarfolket nämnde det. Sa att det finns nåt metalliskt där nere. Sex fot djupt ungefär. Erbjöd sig att gräva upp det. Jag sa nej."</p>
+                <p style="margin-top: 0.75rem; font-style: italic;">"Tjugofem människor dog här. Man gräver inte i en grav."</p>
+                <p style="margin-top: 1rem;">Han ser på dem.</p>
+                <p style="margin-top: 0.75rem; font-style: italic;">"Men om ni är federala agenter, och ni tror det finns nåt farligt... kanske vi borde titta."</p>
+            </div>
+        </div>
+
+        <!-- GROUND RADAR RAPPORT -->
+        <div class="section">
+            <h2>📡 DEL 4: GROUND-PENETRATING RADAR RAPPORTEN</h2>
+
+            <p>Om spelarna frågar om markradar-undersökningen ger Bishop dem rapporten:</p>
+
+            <div class="handout-box">
+                <pre style="color: var(--text); line-height: 1.8;">
+╔══════════════════════════════════════════════════════════════════╗
+║           VIRGINIA TECH GEOPHYSICAL SURVEY                       ║
+║           Loudoun County Agricultural Study                      ║
+╠══════════════════════════════════════════════════════════════════╣
+║  Site: Bishop Farm, Lovettsville                                 ║
+║  Date: September 14, 2025                                        ║
+╠══════════════════════════════════════════════════════════════════╣
+║                                                                  ║
+║  GROUND-PENETRATING RADAR RESULTS:                               ║
+║                                                                  ║
+║  Grid reference: 39°15'42"N, 77°38'19"W                          ║
+║  Depth: 1.8-2.1 meters                                           ║
+║  Anomaly classification: Metallic, ferrous                       ║
+║                                                                  ║
+║  Notes:                                                          ║
+║  - Distinct rectangular signature, approx. 40cm x 25cm x 15cm    ║
+║  - Unusual electromagnetic interference during scan              ║
+║  - Equipment malfunction noted (compass drift, signal loss)      ║
+║  - Recommend excavation for identification                       ║
+║                                                                  ║
+║  ┌────────────────────────────────────────────────────────────┐  ║
+║  │ Researcher note (handwritten):                             │  ║
+║  │ "Strange readings. Never seen interference pattern like    │  ║
+║  │ this. Suggest follow-up with specialized equipment."       │  ║
+║  └────────────────────────────────────────────────────────────┘  ║
+╚══════════════════════════════════════════════════════════════════╝
+                </pre>
+            </div>
+
+            <div class="info-box">
+                <p><strong>Bishop:</strong></p>
+                <p style="font-style: italic;">"Rektangulär, sa dom. Som en låda eller behållare. Har legat där sen '40, antar jag. FBI missade den, eller lämnade den med flit."</p>
+            </div>
+        </div>
+
+        <!-- GRÄVNING -->
+        <div class="section">
+            <h2>⛏️ DEL 5: BESLUTET ATT GRÄVA</h2>
+
+            <h3>Om Spelarna Vill Gräva</h3>
+            <div class="yellow-box">
+                <p><strong>Bishop:</strong></p>
+                <p style="font-style: italic;">"Okej. Men ni gör jobbet, inte jag. Spadar finns i ladan."</p>
+                <p style="margin-top: 0.75rem;">Han går inte med dem till grävplatsen. Stannar på verandan och tittar.</p>
+            </div>
+
+            <h3>Grävprocessen</h3>
+            <div class="info-box">
+                <p><strong>Praktiska detaljer:</strong></p>
+                <ul>
+                    <li>Jorden är kompakt men inte stenig</li>
+                    <li>Tar cirka 45 minuter att gräva ner till två meters djup</li>
+                    <li>Vid 1,5 meter börjar jorden kännas annorlunda – mörkare, nästan glasig</li>
+                    <li>Lukten förändras – inte ruttet, men <em>fel</em>. Kemisk. Som ozon efter åska.</li>
+                </ul>
+            </div>
+
+            <h3>Vid 1,8 Meters Djup</h3>
+            <div class="read-aloud">
+                <p>Spaden träffar något hårt. Metall mot metall. Ljudet ekar konstigt – djupare än det borde.</p>
+                <p style="margin-top: 1rem;">Ni gräver försiktigt runt objektet. Det är en behållare. Rektangulär, ungefär som en stor skokartong. Rostig, men med märkningar fortfarande synliga under smutsen.</p>
+            </div>
+        </div>
+
+        <!-- BEHÅLLAREN -->
+        <div class="section">
+            <h2>📦 DEL 6: BEHÅLLAREN</h2>
+
+            <h3>Fysisk Beskrivning</h3>
+            <div class="info-box">
+                <ul>
+                    <li>Cirka 40 x 25 x 15 cm</li>
+                    <li>Militärgrön färg under rosten</li>
+                    <li>Försluten med en mekanism som ser ut att ha <strong>sprängts inifrån</strong></li>
+                    <li>Locket är böjt utåt, som om något expanderat inuti</li>
+                </ul>
+            </div>
+
+            <h3>Märkningar (Delvis Läsbara)</h3>
+            <div class="handout-box">
+                <pre style="color: var(--text); line-height: 1.8;">
+┌─────────────────────────────────────────┐
+│      REICHSLUFTFAHRTMINISTERIUM         │
+│                                         │
+│   Type-VII Experimentalausrüstung       │
+│                                         │
+│   ⚠ ACHTUNG: Elektromagnetische Gefahr  │
+│   Nicht öffnen ohne Genehmigung         │
+│                                         │
+│   Berlin, 1939                          │
+└─────────────────────────────────────────┘
+
+<strong>ÖVERSÄTTNING:</strong>
+
+┌─────────────────────────────────────────┐
+│       RIKSLUFTFARTSMINISTERIET          │
+│                                         │
+│     Typ-VII Experimentutrustning        │
+│                                         │
+│   ⚠ VARNING: Elektromagnetisk fara      │
+│   Öppna ej utan tillstånd               │
+│                                         │
+│   Berlin, 1939                          │
+└─────────────────────────────────────────┘
+                </pre>
+            </div>
+
+            <h3>Inuti Behållaren</h3>
+            <div class="yellow-box">
+                <p><strong>Om de öppnar den (locket är redan skadat):</strong></p>
+                <ul style="margin-top: 0.75rem;">
+                    <li>Tom – nästan</li>
+                    <li>Fodrad med bly och något som ser ut som kvarts eller glas, nu sprucket</li>
+                    <li>I ett hörn: fragment av något kristallint, matt svart, ungefär som en tumme stort</li>
+                    <li>Spår av något som <em>brände sig ut</em> – smältmärken i metallen</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- UNNATURAL EXPONERING -->
+        <div class="section">
+            <h2>🌀 DEL 7: UNNATURAL EXPONERING</h2>
+
+            <div class="warning-box">
+                <h3 style="color: var(--accent-red); margin-bottom: 1rem;">⚠️ OM NÅGON RÖR KRISTALLFRAGMENTET</h3>
+                <p><strong>LÄS HÖGT FÖR SPELAREN:</strong></p>
+            </div>
+
+            <div class="read-aloud">
+                <p>Du tar upp fragmentet. Det är kallt – kallare än det borde vara efter åttiofem år i jorden. Ytan är slät, nästan flytande under fingrarna.</p>
+                <p style="margin-top: 1rem;">Och sedan är du inte längre här.</p>
+                <p style="margin-top: 1rem;">Du ser dig själv uppifrån. Din egen kropp, böjd över hålet, handen utsträckt. Men det är inte dina ögon. Det är någon annans perspektiv. Någon som betraktar dig som du skulle betrakta en insekt under ett förstoringsglas. Intressant. Men oviktig.</p>
+                <p style="margin-top: 1rem;">Ett hummande ljud, så lågt att du känner det mer än hör det. En konstant ton som vibrerar i skallbenet.</p>
+                <p style="margin-top: 1rem;">Och sedan – en bild. Ett rum utan väggar. Pelare av svart sten som sträcker sig mot en himmel som inte är en himmel. Figurer som rör sig i periferin, omöjliga att fokusera på. En känsla av tid – inte sekunder eller år, utan eoner. Civilisationer som föds och dör medan du andas.</p>
+                <p style="margin-top: 1rem;">Sedan är du tillbaka. Dina händer darrar. Fragmentet ligger i din handflata, och det känns varmare nu. Som om det vaknat.</p>
+            </div>
+
+            <div class="san-check">
+                <h3 style="color: var(--accent-red); margin-bottom: 0.75rem;">⚠️ SAN-CHECK: 0/1D4</h3>
+                <p><strong>Effekter (hemligt för SL):</strong></p>
+                <ul style="margin-top: 0.75rem;">
+                    <li>Karaktären kan ha korta "glimtar" de kommande dagarna</li>
+                    <li>Drömmar om svarta pelare och hummande ljud</li>
+                    <li>Obehag vid starka elektromagnetiska fält (nära transformatorer, etc.)</li>
+                    <li>Kompasser spinner när de håller dem</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Koppling:</strong> Om spelarna var med på "Christmas Mall" kan de känna igen känslan – samma typ av exponering som Volkovs låda orsakade.</p>
+            </div>
+        </div>
+
+        <!-- ÖVERVAKNING -->
+        <div class="section">
+            <h2>👁️ DEL 8: ÖVERVAKNING</h2>
+
+            <h3>Under Grävningen eller Strax Efter</h3>
+            <div class="read-aloud">
+                <p>Ni reser er från hålet, smuts på knäna, behållaren eller fragmentet i händerna. Bishop står fortfarande på verandan, trehundra meter bort, en mörk siluett mot det vita huset.</p>
+                <p style="margin-top: 1rem;">Och vid skogslinjen – rörelse.</p>
+                <p style="margin-top: 1rem;">En figur. Mörk jacka. Står mellan träden, kanske femtio meter bort. Orörlig. Tittar mot er.</p>
+                <p style="margin-top: 1rem;">Ni blinkar.</p>
+                <p style="margin-top: 1rem;">Figuren är borta.</p>
+            </div>
+
+            <div class="yellow-box">
+                <p><strong>Bishop (om de berättar):</strong></p>
+                <p style="font-style: italic;">"Grannens mark. Hamiltons. Men dom bor i Florida nu, huset står tomt."</p>
+                <p style="margin-top: 0.5rem;">Han ser orolig ut för första gången.</p>
+                <p style="margin-top: 0.75rem; font-style: italic;">"Vem fan var det?"</p>
+            </div>
+
+            <h3>Om De Undersöker Skogslinjen</h3>
+            <div class="info-box">
+                <p><strong>Fysiska spår:</strong></p>
+                <ul>
+                    <li>Färska fotavtryck i lövtäcket</li>
+                    <li>En cigarettfimp (rysk märkning om de undersöker: <strong>Belomorkanal</strong>)</li>
+                    <li>Brutna grenar där någon snabbt förflyttat sig</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Om de följer spåren:</strong></p>
+                <ul>
+                    <li>Leder till en skogsväg femhundra meter bort</li>
+                    <li>Däckspår från ett fordon som nyligen stått parkerat</li>
+                    <li>Ingenting mer – personen är borta</li>
+                </ul>
+            </div>
+
+            <h3>Hamiltons Hus (Om De Undersöker)</h3>
+            <div class="yellow-box">
+                <p><strong>Beskrivning:</strong></p>
+                <p>Ett tvåvåningshus i kolonialstil, vitmålat men med flagande färg. Fönsterluckorna är stängda. Poolen på baksidan är täckt med en sliten presenning, fylld med löv och regnvatten.</p>
+                <p style="margin-top: 1rem;"><strong>Om de tar sig in (Lockpicking eller Break & Enter):</strong></p>
+                <ul style="margin-top: 0.75rem;">
+                    <li>Huset är tomt, möblerna täckta med vita lakan</li>
+                    <li>Damm överallt – ingen har varit här på månader</li>
+                    <li><strong>MEN:</strong> i köket finns färska spår
+                        <ul>
+                            <li>En tom vattenflaska (rysk text)</li>
+                            <li>Smutsiga fotavtryck på golvet</li>
+                            <li>Ett fönster på baksidan är olåst</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Slutsats:</strong> Någon har använt huset som observationspost.</p>
+            </div>
+        </div>
+
+        <!-- AVSLUTNING -->
+        <div class="section">
+            <h2>🌙 DEL 9: AVSLUTNING</h2>
+
+            <h3>Tillbaka Vid Huset</h3>
+            <div class="yellow-box">
+                <p><strong>Bishop:</strong></p>
+                <p style="font-style: italic;">"Jag vet inte vad ni hittade. Vill inte veta heller. Men nån tittade på er medan ni grävde. Och den där ryssen 2019... han kom tillbaka."</p>
+                <p style="margin-top: 0.5rem;">Han ser ut mot fälten, som mörknar i skymningen.</p>
+                <p style="margin-top: 0.75rem; font-style: italic;">"Vad det än är ni letar efter – var försiktiga. Min farfar sa alltid att den där kraschen förde med sig nåt. Nåt som inte hörde hemma här."</p>
+            </div>
+
+            <h3>Farfaderns Berättelse</h3>
+            <div class="info-box">
+                <p style="font-style: italic;">"Han sa att natten det hände, innan FBI kom, såg han ljus i fältet. Blått ljus. Inte från planet – det brann orange. Det här var nåt annat. Rörde sig. Sökte."</p>
+                <p style="margin-top: 0.75rem; font-style: italic;">"Han gick aldrig ut på den delen av marken efter det. Inte ens på dagtid."</p>
+                <p style="margin-top: 1rem;"><strong>Om de frågar mer:</strong></p>
+                <p style="margin-top: 0.75rem; font-style: italic;">"Mer vet jag inte. Han dog '78. Men ibland, på hösten, när dimman ligger tät..."</p>
+                <p style="margin-top: 0.5rem;">Han skakar på huvudet.</p>
+                <p style="margin-top: 0.75rem; font-style: italic;">"Ni borde åka nu. Börjar bli mörkt."</p>
+            </div>
+        </div>
+
+        <!-- SAMMANFATTNING -->
+        <div class="section">
+            <h2>📋 SAMMANFATTNING - VAD SPELARNA VET</h2>
+
+            <h3>Bekräftat:</h3>
+            <div class="info-box">
+                <ul>
+                    <li>Volkov var här 2019, grävde olagligt (tre hål nära monumentet)</li>
+                    <li>Något metalliskt ligger/låg begravt på kraschplatsen (GPR-rapport)</li>
+                    <li>FBI arbetade hela natten 1940, letade efter något specifikt</li>
+                    <li>Vittnen såg blått ljus som inte kom från det brinnande vraket</li>
+                    <li>Volkovs hål missade behållaren med bara några meter</li>
+                </ul>
+            </div>
+
+            <h3>Fysiska Bevis (Om De Grävde):</h3>
+            <div class="yellow-box">
+                <ul>
+                    <li>Tysk militärbehållare med "Type-VII" märkning (Reichsluftfahrtministerium, Berlin 1939)</li>
+                    <li>Kristallfragment med oförklarliga egenskaper (Unnatural material)</li>
+                    <li>Behållare som sprängts inifrån - något gick fel 1940</li>
+                    <li>Cigarettfimp (rysk märkning: Belomorkanal)</li>
+                    <li>Hamiltons hus använt som observationspost</li>
+                </ul>
+            </div>
+
+            <h3>Nya Frågor:</h3>
+            <div class="warning-box">
+                <ul>
+                    <li>Vad var "Type-VII apparatus"?</li>
+                    <li>Varför ville nazisterna skicka det till Detroit?</li>
+                    <li>Vad hände med resten av innehållet? (Behållaren är nästan tom)</li>
+                    <li>Vem övervakar dem – Volkov eller någon annan?</li>
+                    <li>Varför svarar inte Magda?</li>
+                    <li>Vad betyder Magdas fynd? (Frankfurt 1946, "traumaexponering Leningrad 1942")</li>
+                    <li>Hur hänger Leningrad 1942 ihop med Lovettsville 1940?</li>
+                </ul>
+            </div>
+
+            <h3>Nästa Steg (Spelarna Beslutar):</h3>
+            <div class="info-box">
+                <ul>
+                    <li><strong>Kontakta Magda:</strong> Varför svarar hon inte? Är hon i fara?</li>
+                    <li><strong>John Flannery:</strong> Träffa Trip 19-experten, få hans USB-arkiv</li>
+                    <li><strong>Frankfurt Clinic:</strong> Researcha Dr. Reinhardt, 1946-journaler</li>
+                    <li><strong>Leningrad 1942:</strong> Vad hände nyårsnatt? Vem är Kalenko?</li>
+                    <li><strong>Volkov-spårning:</strong> Vem övervakar dem? Var är Volkov nu?</li>
+                    <li><strong>Type-VII analys:</strong> Forensisk undersökning av fragment (Scalpel's lab?)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- GM NOTES -->
+        <div class="section">
+            <h2>📝 GM NOTES</h2>
+
+            <h3>Volkovs Grävhål - Detaljer</h3>
+            <div class="info-box">
+                <p><strong>Hål 1:</strong> 2 meter söder om monumentet. Tomt.</p>
+                <p><strong>Hål 2:</strong> 4 meter öster. Tomt, men med skrapmärken i jorden – han hittade något hårt men grävde inte djupare.</p>
+                <p><strong>Hål 3:</strong> 6 meter nordost. Ofullständigt – avbrutet. Här ligger behållaren, precis utanför hans grävområde.</p>
+                <p style="margin-top: 1rem;"><strong>Slutsats:</strong> Volkov var nära, men missade behållaren med bara någon meter.</p>
+            </div>
+
+            <h3>Möjliga Komplikationer</h3>
+            <div class="yellow-box">
+                <p><strong>Om spelarna vill ta med behållaren:</strong></p>
+                <p>Bishop protesterar inte – "Det är ert problem nu."</p>
+                <p style="margin-top: 1rem;"><strong>Om spelarna vill kontakta lokala myndigheter:</strong></p>
+                <p>Sheriffen kommer, tittar på behållaren, säger "Ser ut som gammalt skräp" och föreslår att de kontaktar ATF om de tror det är farligt. Ingen tar det på allvar.</p>
+                <p style="margin-top: 1rem;"><strong>Om spelarna stannar över natten:</strong></p>
+                <p>Drömmar. Alla som rörde fragmentet drömmer om svarta pelare och hummande ljud. Ingen sover bra.</p>
+                <p style="margin-top: 1rem;"><strong>Om spelarna gräver mer:</strong></p>
+                <p>Finns ingenting annat. Behållaren var det enda.</p>
+            </div>
+
+            <h3>Kopplingar till Övriga Kampanjen</h3>
+            <div class="info-box">
+                <p><strong>Christmas Mall:</strong> Volkovs låda innehöll liknande kristallfragment – detta bekräftar att han letat efter dem länge.</p>
+                <p style="margin-top: 0.75rem;"><strong>Magda:</strong> Hennes mejl kopplar Lovettsville till Leningrad och Frankfurt – trådarna börjar samlas.</p>
+                <p style="margin-top: 0.75rem;"><strong>Berlin (nästa fas):</strong> Om spelarna inte kan nå Magda, är det naturligt att åka dit för att undersöka.</p>
+                <p style="margin-top: 0.75rem;"><strong>Volkov:</strong> Cigarettfimpen och övervakningen bekräftar att han (eller hans agent) fortfarande är aktiv och följer samma spår.</p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-bar" style="margin-top: 3rem;">
+            <a href="session3.html">← Session 3</a>
+            <div>Session 4 Prep</div>
+            <a href="sessions.html">Till Sessions →</a>
+        </div>
+    </div>
+</body>
+</html>
