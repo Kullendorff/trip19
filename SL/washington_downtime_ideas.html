@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Washington Downtime - Idébank | Trip 19</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-green: #00ff41;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --accent-yellow: #ffcc00;
+            --accent-purple: #9b59b6;
+            --accent-orange: #e67e22;
+            --accent-cyan: #00d4aa;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+
+            /* Character colors */
+            --mac-color: #4682b4;
+            --sullivan-color: #b87333;
+            --sparky-color: #39ff14;
+            --scalpel-color: #ffd700;
+            --trench-color: #ff6b35;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            color: var(--accent-cyan);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header .subtitle {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(74, 144, 164, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-bar a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-bar a:hover {
+            color: #6ab0c4;
+        }
+
+        .section {
+            background: var(--bg-panel);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section.mac { border-color: var(--mac-color); }
+        .section.mac h2 { color: var(--mac-color); }
+
+        .section.sullivan { border-color: var(--sullivan-color); }
+        .section.sullivan h2 { color: var(--sullivan-color); }
+
+        .section.sparky { border-color: var(--sparky-color); }
+        .section.sparky h2 { color: var(--sparky-color); }
+
+        .section.scalpel { border-color: var(--scalpel-color); }
+        .section.scalpel h2 { color: var(--scalpel-color); }
+
+        .section.trench { border-color: var(--trench-color); }
+        .section.trench h2 { color: var(--trench-color); }
+
+        .section.atmosphere { border-color: var(--accent-purple); }
+        .section.atmosphere h2 { color: var(--accent-purple); }
+
+        .section.research { border-color: var(--accent-blue); }
+        .section.research h2 { color: var(--accent-blue); }
+
+        .section.volkov { border-color: var(--accent-red); }
+        .section.volkov h2 { color: var(--accent-red); }
+
+        .section.dg { border-color: var(--accent-green); }
+        .section.dg h2 { color: var(--accent-green); }
+
+        .section.bonds { border-color: var(--accent-yellow); }
+        .section.bonds h2 { color: var(--accent-yellow); }
+
+        .section.locations { border-color: var(--accent-cyan); }
+        .section.locations h2 { color: var(--accent-cyan); }
+
+        .idea-card {
+            background: rgba(10, 14, 23, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .idea-card h3 {
+            color: var(--accent-yellow);
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .idea-card h4 {
+            color: var(--accent-blue);
+            font-size: 1rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .idea-card.hot {
+            border-left: 4px solid var(--accent-red);
+        }
+
+        .idea-card.medium {
+            border-left: 4px solid var(--accent-yellow);
+        }
+
+        .idea-card.subtle {
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tag.tension { background: rgba(255, 68, 68, 0.3); color: #ff6666; }
+        .tag.character { background: rgba(155, 89, 182, 0.3); color: #b794d4; }
+        .tag.mystery { background: rgba(74, 144, 164, 0.3); color: #6ab0c4; }
+        .tag.horror { background: rgba(139, 0, 0, 0.3); color: #ff4444; }
+        .tag.bonds { background: rgba(255, 204, 0, 0.3); color: #ffdd44; }
+        .tag.volkov { background: rgba(255, 68, 68, 0.3); color: #ff6666; }
+        .tag.dg { background: rgba(0, 255, 65, 0.3); color: #44ff66; }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        .quote {
+            font-style: italic;
+            color: var(--text-dim);
+            border-left: 3px solid var(--accent-purple);
+            padding-left: 1rem;
+            margin: 1rem 0;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1rem;
+        }
+
+        .warning {
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid var(--accent-red);
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .info {
+            background: rgba(74, 144, 164, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .toc {
+            background: rgba(0, 212, 170, 0.1);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .toc h3 {
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .toc ul {
+            columns: 2;
+            column-gap: 2rem;
+        }
+
+        .toc a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            color: var(--accent-cyan);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .toc ul {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="page-header">
+            <h1>WASHINGTON DOWNTIME - IDÉBANK</h1>
+            <p class="subtitle">Händelser i DC/Maryland-området mellan Session 2 och Session 3</p>
+            <p style="margin-top: 1rem; color: var(--text-dim);">
+                <strong>Tidsperiod:</strong> 5-7 september 2025 (efter förrådet, före Lovettsville)
+            </p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-bar">
+            <a href="session2.html">← Session 2</a>
+            <span style="color: var(--text-dim);">Trip 19 / Black Madonna</span>
+            <a href="session3.html">Session 3 →</a>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h3>INNEHÅLL</h3>
+            <ul>
+                <li><a href="#mac">Mac Riley - FBI-spår</a></li>
+                <li><a href="#sullivan">Father Sullivan - Navy/Pastoral</a></li>
+                <li><a href="#sparky">Sparky - NSA/Tech</a></li>
+                <li><a href="#scalpel">Scalpel - Medical Examiner</a></li>
+                <li><a href="#trench">Trench - FEMA/Campervan</a></li>
+                <li><a href="#volkov">Volkov-spår & Övervakning</a></li>
+                <li><a href="#fragment">Fragment-effekter</a></li>
+                <li><a href="#dg">Delta Green-friktion</a></li>
+                <li><a href="#research">Research-möjligheter</a></li>
+                <li><a href="#bonds">Bonds & Personligt</a></li>
+                <li><a href="#locations">DC-platser</a></li>
+                <li><a href="#random">Random Encounters</a></li>
+                <li><a href="#npcs">Potentiella NPCs</a></li>
+                <li><a href="#escalation">Eskalering</a></li>
+            </ul>
+        </div>
+
+        <!-- ==================== MAC RILEY ==================== -->
+        <div class="section mac" id="mac">
+            <h2>MAC RILEY (FBI)</h2>
+            <p style="margin-bottom: 1rem; color: var(--text-dim);">
+                <strong>Status:</strong> Administrative leave sedan augusti 2025 | <strong>SAN:</strong> 46/60 (BP: 36) |
+                <strong>Location:</strong> College Park, MD (temporärt)
+            </p>
+
+            <div class="idea-card hot">
+                <h3>TACS-varning</h3>
+                <span class="tag tension">TENSION</span>
+                <span class="tag dg">DG-RISK</span>
+                <p>FBI:s Tracking and Communications Section (TACS) har flaggat Macs databassökningar. Han har sökt på "Volkov", "Lundeen", "Trip 19" i interna system - utan auktorisation eftersom han är på leave.</p>
+                <h4>Möjliga utfall:</h4>
+                <ul>
+                    <li><strong>Vänlig varning:</strong> Gammal kollega ringer: "Mac, sluta använda systemet. Folk märker."</li>
+                    <li><strong>Formell varning:</strong> Email från OPR (Office of Professional Responsibility)</li>
+                    <li><strong>Besök:</strong> Två agenter från Internal Affairs dyker upp på hans dörr</li>
+                </ul>
+                <p class="quote">"Agent Riley, vi behöver prata om din aktivitet i NCIC de senaste veckorna."</p>
+            </div>
+
+            <div class="idea-card medium">
+                <h3>Gammal FBI-kontakt ringer</h3>
+                <span class="tag mystery">MYSTERY</span>
+                <span class="tag character">CHARACTER</span>
+                <p>En pensionerad FBI-agent som jobbade på 1990-talet ringer oannonserat. Han hörde att Mac frågat om Lovettsville.</p>
+                <h4>Dialog-hook:</h4>
+                <p class="quote">"Du gräver i Trip 19? Jag var med när vi öppnade Lundeen-filerna igen '92. Vi fick order att stänga ner. Direkt från sjunde våningen. Sluta gräva, Mac. Det finns folk som fortfarande bevakar det här."</p>
+                <h4>Vad han kan avslöja (om Mac pressar):</h4>
+                <ul>
+                    <li>FBI hade en återöppnad utredning 1992 (klassificerad)</li>
+                    <li>Någon "från utrikesdepartementet" stoppade allt</li>
+                    <li>Tre agenter som jobbade på fallet fick alla tidiga pensioner</li>
+                </ul>
+            </div>
+
+            <div class="idea-card medium">
+                <h3>Volkov-obsessionen</h3>
+                <span class="tag character">CHARACTER</span>
+                <span class="tag bonds">BONDS</span>
+                <p>Mac tillbringar nätterna framför sin "Volkov board" - en vägg täckt av foton, kartor, röda trådar. Han sover knappt.</p>
+                <h4>Scen-idé:</h4>
+                <p>Någon i cellen (Sullivan?) besöker honom och ser boarden för första gången. Hur reagerar de? Mac är uppenbart på gränsen.</p>
+                <h4>Detaljer på boarden:</h4>
+                <ul>
+                    <li>Volkovs kända alias (minst 7 stycken)</li>
+                    <li>Karta över hans rörelser i Europa 2018-2024</li>
+                    <li>Foto av Trip 19-vraket</li>
+                    <li>Lundeens senatorporträtt</li>
+                    <li>Post-it: "VAD VILLE HAN HA I VÄSKAN?"</li>
+                </ul>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>Emma ringer</h3>
+                <span class="tag bonds">BONDS</span>
+                <span class="tag character">CHARACTER</span>
+                <p>Första kontakten med hans fru sedan separationen. Barnen frågar efter honom.</p>
+                <h4>Möjliga samtal:</h4>
+                <ul>
+                    <li>"Sophie ritar bilder av dig. Hon frågar varje dag när pappa kommer hem."</li>
+                    <li>"Ben har slutat prata om dig. Jag vet inte om det är bättre eller värre."</li>
+                    <li>"Din advokat säger att du inte svarat på pappren. Mac, vi måste... vi måste göra det här ordentligt."</li>
+                </ul>
+                <div class="warning">
+                    <strong>SAN-risk:</strong> Om Mac ignorerar detta → Bond med Emma/barnen försämras. Om han engagerar sig → Konflikt med Trip 19-utredningen.
+                </div>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>Tom Riley (far) är sjuk</h3>
+                <span class="tag bonds">BONDS</span>
+                <p>Macs far i Pittsburgh har hjärtproblem. Ska Mac åka hem, eller fortsätta jakten på Volkov?</p>
+                <h4>Meddelande från bror/syster:</h4>
+                <p class="quote">"Mac, pappa är på sjukhuset igen. Läkarna säger att det inte är akut, men... han frågar efter dig. När såg du honom senast?"</p>
+            </div>
+        </div>
+
+        <!-- ==================== FATHER SULLIVAN ==================== -->
+        <div class="section sullivan" id="sullivan">
+            <h2>FATHER SULLIVAN (Navy Chaplain)</h2>
+            <p style="margin-bottom: 1rem; color: var(--text-dim);">
+                <strong>Status:</strong> De facto cell leader | <strong>SAN:</strong> 69/80 (BP: 64) |
+                <strong>Location:</strong> Quantico Marine Base, VA
+            </p>
+
+            <div class="idea-card hot">
+                <h3>Den döende veteranen</h3>
+                <span class="tag horror">HORROR</span>
+                <span class="tag mystery">MYSTERY</span>
+                <p>En veteran på Quantico-sjukhuset ber om sista smörjelsen. Han är 98 år gammal, WW2-veteran, och mumlar i feberyra.</p>
+                <h4>Vad han säger:</h4>
+                <p class="quote">"Tre män i snön, Fader... de var inte döda. De KUNDE inte dö. Vi sköt dem, om och om igen... Leningrad... Kalenko-huset... Gud hjälpe oss, vi brände dem men de kom tillbaka..."</p>
+                <h4>Om Sullivan undersöker:</h4>
+                <ul>
+                    <li>Veteranen var med i OSS (föregångare till CIA) 1944-45</li>
+                    <li>Stationerad i Europa, "special operations"</li>
+                    <li>Hans militärfiler är delvis CLASSIFIED (fortfarande!)</li>
+                    <li>Han dör samma natt - men hans ord ekar</li>
+                </ul>
+            </div>
+
+            <div class="idea-card medium">
+                <h3>Feladresserat brev</h3>
+                <span class="tag mystery">MYSTERY</span>
+                <p>Ett gammalt brev dyker upp på Chaplain Corps postkontor. Det skickades 1946 till "Chaplain Corps, Quantico" men blev aldrig levererat - hittades i en gammal postväska på vinden.</p>
+                <h4>Brevets innehåll:</h4>
+                <p class="quote">"Till vem det berör - Jag var vittne till något i Frankfurt som ingen präst borde se. De tre männen från Ryssland... de är inte människor längre. Dr. Reinhardt försöker hjälpa dem, men jag tror han gör det värre. Om detta brev når rätt person - brinn det. Glöm att du läste det. Må Gud förlåta mig. / Corporal James Henderson, US Army"</p>
+                <h4>Research visar:</h4>
+                <ul>
+                    <li>James Henderson dog 1947 (självmord)</li>
+                    <li>Han var stationerad vid Frankfurt DP Camp 1946</li>
+                    <li>Hans efterlevande bor fortfarande i Virginia...</li>
+                </ul>
+            </div>
+
+            <div class="idea-card medium">
+                <h3>Tro-kris fördjupas</h3>
+                <span class="tag character">CHARACTER</span>
+                <span class="tag bonds">BONDS</span>
+                <p>Efter Sea Glass-operationen kämpar Sullivan med sin tro. Hur kan en god Gud tillåta det han sett?</p>
+                <h4>Scen-idéer:</h4>
+                <ul>
+                    <li>Han sitter ensam i Quantico-kapellet, stirrar på krucifixet, kan inte be</li>
+                    <li>En ung marine kommer för pastoral counseling - Sullivan vet inte vad han ska säga</li>
+                    <li>Han öppnar bibeln slumpmässigt: Job 38:4 - "Var var du när jag lade jordens grund?"</li>
+                </ul>
+                <h4>Breaking Point-varning:</h4>
+                <div class="warning">
+                    Sullivan är 5 poäng från sin Breaking Point (64). Hans trigger är "Religious faith questioned". Tryck inte för hårt - men låt honom känna tyngden.
+                </div>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>Gammal marine från Afghanistan</h3>
+                <span class="tag bonds">BONDS</span>
+                <span class="tag character">CHARACTER</span>
+                <p>En marine Sullivan tjänade med i Afghanistan dyker upp oanmäld. Han behöver prata.</p>
+                <h4>Situation:</h4>
+                <ul>
+                    <li>Mannen heter Gunnery Sergeant Davis, 40-tal</li>
+                    <li>Han har PTSD, dricker för mycket, familjen har lämnat honom</li>
+                    <li>Han säger: "Du var den enda som verkade förstå, Fader. Där borta. Du förstod att vi såg saker som inte borde finnas."</li>
+                </ul>
+                <p>Sullivan måste välja: Ägna tid åt Davis, eller fokusera på Trip 19?</p>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>Begravning med koppling</h3>
+                <span class="tag mystery">MYSTERY</span>
+                <p>Sullivan officierar vid en begravning på Arlington National Cemetery. Den döde var en pensionerad underrättelseanalytiker - och någon i begravningsföljt tittar intensivt på Sullivan hela tiden.</p>
+                <h4>Efter ceremonin:</h4>
+                <p>Personen (äldre kvinna, 70+) närmar sig: "Fader, ni är med Chesapeake-gruppen, eller hur? Min man visste saker. Om ni vill veta vad - ring mig." Hon ger honom ett visitkort och försvinner.</p>
+            </div>
+        </div>
+
+        <!-- ==================== SPARKY ==================== -->
+        <div class="section sparky" id="sparky">
+            <h2>SPARKY / KAI ZHANG (NSA)</h2>
+            <p style="margin-bottom: 1rem; color: var(--text-dim);">
+                <strong>Status:</strong> Tech specialist, använder NSA-resurser utan auktorisation | <strong>SAN:</strong> 63/70 (BP: 56) |
+                <strong>Location:</strong> Fort Meade, MD / lägenhet i Laurel
+            </p>
+
+            <div class="idea-card hot">
+                <h3>Volkov på Dulles</h3>
+                <span class="tag volkov">VOLKOV</span>
+                <span class="tag tension">TENSION</span>
+                <p>Sparkys AI-monitoring (som han kör oauktoriserat) plockar upp en hit: Någon som matchar Volkovs biometriska profil passerade Dulles Airport förra veckan.</p>
+                <h4>Data:</h4>
+                <ul>
+                    <li><strong>Datum:</strong> 2 september 2025, 14:32</li>
+                    <li><strong>Flygning:</strong> LH 418 från Frankfurt</li>
+                    <li><strong>Pass:</strong> Tyskt, namn "Viktor Petersen"</li>
+                    <li><strong>Destination:</strong> Okänd (försvann från kameror efter tull)</li>
+                    <li><strong>Confidence:</strong> 73% facial match till Volkov</li>
+                </ul>
+                <h4>Implikationer:</h4>
+                <p>Volkov är i USA. Nu. Och han flög in INNAN de hittade förrådet. Vet han att de är på spåret?</p>
+            </div>
+
+            <div class="idea-card hot">
+                <h3>NSA-chefen kallar in</h3>
+                <span class="tag tension">TENSION</span>
+                <span class="tag dg">DG-RISK</span>
+                <p>Sparkys supervisor vill ha ett möte. Ämne: "Ovanlig databasaktivitet."</p>
+                <h4>Mötet:</h4>
+                <p class="quote">"Zhang, jag ser att du kört queries på 'Pennsylvania Central Airlines', 'Ernest Lundeen', och 'Dmitri Volkov' de senaste dagarna. Det är inte relaterat till något aktivt case jag känner till. Vill du förklara?"</p>
+                <h4>Alternativa utfall:</h4>
+                <ul>
+                    <li><strong>Bra lögn:</strong> Sparky övertygar chefen (Persuade 50+)</li>
+                    <li><strong>Dålig lögn:</strong> Chefen köper det inte, men släpper det... för nu</li>
+                    <li><strong>Twist:</strong> Chefen ler: "Bra. Fortsätt. Men var försiktig." (DG-kontakt?)</li>
+                </ul>
+            </div>
+
+            <div class="idea-card medium">
+                <h3>Motattack på Volkov-databasen</h3>
+                <span class="tag tension">TENSION</span>
+                <span class="tag mystery">MYSTERY</span>
+                <p>Sparky märker att någon försöker komma åt hans privata Volkov-databas (den han byggt hemma, off-grid).</p>
+                <h4>Intrångsförsöket:</h4>
+                <ul>
+                    <li>Sofistikerat - statlig nivå eller motsvarande</li>
+                    <li>Ursprung: Proxies genom Östeuropa, men ursprunglig IP → Tyskland</li>
+                    <li>De lyckades inte ta sig in, men de VET att databasen finns</li>
+                </ul>
+                <h4>Sparkys val:</h4>
+                <ul>
+                    <li>Sätta honungsfälla och spåra angriparen?</li>
+                    <li>Radera allt och börja om?</li>
+                    <li>Flytta databasen till säkrare plats?</li>
+                </ul>
+            </div>
+
+            <div class="idea-card medium">
+                <h3>247 Hz-analys</h3>
+                <span class="tag mystery">MYSTERY</span>
+                <span class="tag horror">HORROR</span>
+                <p>Sparky analyserar Type-VII fragmentet med sin utrustning hemma. Resultaten är... störande.</p>
+                <h4>Vad han upptäcker:</h4>
+                <ul>
+                    <li>Fragmentet emitterar exakt 247.3 Hz - konstant, utan strömkälla</li>
+                    <li>Frekvensen VARIERAR något när människor är nära</li>
+                    <li>Om han spelar upp frekvensen genom högtalare → obehaglig känsla, lätt illamående</li>
+                    <li>Hans AI-mjukvara flaggar ljudet som "unidentified biological origin" (wat?)</li>
+                </ul>
+                <h4>Experiment:</h4>
+                <p>Om Sparky spelar frekvensen tillräckligt länge → drömmar den natten om blått ljus och tre silhuetter i snö.</p>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>Null Space-kontakt</h3>
+                <span class="tag bonds">BONDS</span>
+                <span class="tag character">CHARACTER</span>
+                <p>En gammal kontakt från Null Space Collective (Sparkys hacktivistdagar) hör av sig. De har hittat något.</p>
+                <h4>Meddelande (krypterat):</h4>
+                <p class="quote">"Kai - sett dina sökningar. Varning: 'Volkov' flaggad i ryska system som 'aktiv asset'. Inte defector. Repeat: INTE defector. Var försiktig. / -Ghost"</p>
+                <h4>Implikation:</h4>
+                <p>Volkov jobbar fortfarande för Ryssland? Eller är det desinformation?</p>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>Mamma ringer</h3>
+                <span class="tag bonds">BONDS</span>
+                <p>Susan Zhang ringer från San Francisco. Det är ovanligt - de pratar sällan.</p>
+                <p class="quote">"Kai, jag drömde om dig i natt. Du stod i snö, och det var tre... skuggor bakom dig. Jag vet att det låter konstigt, men... var försiktig, okej?"</p>
+                <h4>Twist:</h4>
+                <p>Susan har aldrig haft "profetiska drömmar" förut. Varför nu? (Fragment-kontaminering sprider sig genom bonds?)</p>
+            </div>
+        </div>
+
+        <!-- ==================== SCALPEL ==================== -->
+        <div class="section scalpel" id="scalpel">
+            <h2>SCALPEL / DR. HANNA ENGLER (Medical Examiner)</h2>
+            <p style="margin-bottom: 1rem; color: var(--text-dim);">
+                <strong>Status:</strong> Nyinflyttad till Baltimore (sommaren 2025) | <strong>SAN:</strong> 68/75 (BP: 60) |
+                <strong>Location:</strong> Baltimore, MD
+            </p>
+
+            <div class="idea-card hot">
+                <h3>Det konstiga liket</h3>
+                <span class="tag horror">HORROR</span>
+                <span class="tag mystery">MYSTERY</span>
+                <p>Ett lik kommer in till Baltimore morgue. Äldre man, 70-tal, uppenbar hjärtinfarkt. Men något är fel.</p>
+                <h4>Anomalier vid obduktion:</h4>
+                <ul>
+                    <li>Hans händer är <strong>iskalla</strong> - 15°C lägre än resten av kroppen, trots 12 timmar i rumstemperatur</li>
+                    <li>I hans fickor: Cigarettfimpar av märket "Belomorkanal" (ryskt)</li>
+                    <li>Visitkort: "Slavic Cultural Association, Berlin"</li>
+                    <li>Tatueringen på underarmen: Sovjetisk militärmärkning + "1942"</li>
+                    <li>Mannen borde vara ~100 år gammal enligt tatueringen - men kroppen ser ut som 70</li>
+                </ul>
+                <h4>Identitet:</h4>
+                <p>Enligt ID: "Peter Volkov" (ja, samma efternamn) - kusin? Slump? ID förfalskat?</p>
+                <div class="warning">
+                    <strong>SL-val:</strong> Detta kan vara en av "de tre männen" som dog, eller Volkovs medarbetare, eller red herring.
+                </div>
+            </div>
+
+            <div class="idea-card medium">
+                <h3>Hotfulla telefonsamtalet</h3>
+                <span class="tag tension">TENSION</span>
+                <span class="tag volkov">VOLKOV</span>
+                <p>Scalpel får ett telefonsamtal på sin arbetstelefon. Numret är blockerat.</p>
+                <h4>Rösten (rysk accent):</h4>
+                <p class="quote">"Dr. Engler? Du undersökte aldrig kroppen från Newark förra året. Bra. Håll det så. Och den kroppen som kom in igår? Hjärtinfarkt. Skriv det. Glöm resten."</p>
+                <p>*klick*</p>
+                <h4>Alternativ version (mer subtil):</h4>
+                <p class="quote">"Dr. Engler. Jag hör att du är ny i Baltimore. Välkommen. Ett råd: Vissa lik bör inte undersökas för noggrant. För din egen skull."</p>
+            </div>
+
+            <div class="idea-card medium">
+                <h3>Fragmentet under mikroskop</h3>
+                <span class="tag mystery">MYSTERY</span>
+                <span class="tag horror">HORROR</span>
+                <p>Scalpel tar med sig Type-VII fragmentet till labbet för analys (efter arbetstid, ensam).</p>
+                <h4>Vad hon ser i elektronmikroskop:</h4>
+                <ul>
+                    <li>Strukturen är INTE kristallin - den är <strong>organisk</strong></li>
+                    <li>Mönstret liknar... nervvävnad? Men förstärkt, metalliskt</li>
+                    <li>Vid förstoring 50000x: Strukturen verkar <strong>röra sig</strong> (omöjligt!)</li>
+                    <li>Efter 10 minuters observation: Hennes näsblod droppar på labbbänken</li>
+                </ul>
+                <h4>Unnatural check:</h4>
+                <p>1/1d4 SAN om hon fattar vad hon ser.</p>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>Patricia Rourke-drömmen</h3>
+                <span class="tag bonds">BONDS</span>
+                <span class="tag horror">HORROR</span>
+                <p>Scalpel drömmer om Patricia (död 2004, hennes förlorade kärlek). Men drömmen är annorlunda nu.</p>
+                <h4>Drömmen:</h4>
+                <p>Patricia står i ett snölandskap. Hon ler, men hennes ögon är... blå. Inte hennes vanliga färg. Djupblå, nästan lysande.</p>
+                <p class="quote">"Du kommer hitta mig, Hanna. I snön. I huset. De tre männen vet var jag är. Följ kristallen."</p>
+                <p>Patricia pekar - och Hanna vaknar, svettig, hjärta bultande.</p>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>Mamma från Berlin</h3>
+                <span class="tag bonds">BONDS</span>
+                <span class="tag character">CHARACTER</span>
+                <p>Sarah Engler ringer från Berlin. Hon oroar sig.</p>
+                <p class="quote">"Hanna, du låter utmattad. Är jobbet för mycket? Du vet att du alltid kan komma hem. Pappa och jag saknar dig. Och... jag hittade något i vinden häromdagen. Gamla papper från farfar. Han nämnde något om en klinik i Frankfurt... efter kriget. Jag visste inte att han var patient där."</p>
+                <h4>Twist:</h4>
+                <p>Scalpels farfar var på Frankfurt Clinic 1946? (Koppling till Magdas mor?)</p>
+            </div>
+        </div>
+
+        <!-- ==================== TRENCH ==================== -->
+        <div class="section trench" id="trench">
+            <h2>TRENCH / SAM NOVAK (FEMA/USAR)</h2>
+            <p style="margin-bottom: 1rem; color: var(--text-dim);">
+                <strong>Status:</strong> Adapted to Helplessness, bor i campervan | <strong>SAN:</strong> 53/55 (BP: 44) |
+                <strong>Location:</strong> Campingplats nära DC / på väg
+            </p>
+
+            <div class="idea-card hot">
+                <h3>Campervanen vibrerar</h3>
+                <span class="tag horror">HORROR</span>
+                <span class="tag mystery">MYSTERY</span>
+                <p>Trench parkerar för natten på en rastplats utanför DC. Mitt i natten vaknar han av att hela campervanen <strong>vibrerar svagt</strong>.</p>
+                <h4>Detaljer:</h4>
+                <ul>
+                    <li>Vibration: Låg frekvens, knappt hörbar, men KÄNNS i kroppen</li>
+                    <li>Om han mäter: Exakt 247 Hz (samma som fragmentet)</li>
+                    <li>Fragmentet (i hans ryggsäck) lyser svagt blått i mörkret</li>
+                    <li>Utanför fönstret: Dimma. Onaturligt tät för årstiden.</li>
+                    <li>I dimman: Tre silhuetter? Eller bara träd?</li>
+                </ul>
+                <h4>När han undersöker morgonen efter:</h4>
+                <p>Grästuvor runt campervanen är <strong>frostbitna</strong>. Det var 18°C i natt.</p>
+            </div>
+
+            <div class="idea-card hot">
+                <h3>Roberts röst</h3>
+                <span class="tag horror">HORROR</span>
+                <span class="tag character">CHARACTER</span>
+                <p>Robert Chen (död Pittsburgh 2022) "pratar" med Trench ibland. Det är hans sätt att hantera traumat. Men nu säger Robert något nytt.</p>
+                <h4>I Trenchs huvud:</h4>
+                <p class="quote">"De gräver igen, Sam. Precis som i Pittsburgh. Men den här gången är det inte vatten de letar efter. Det är något äldre. Något som inte borde hittas."</p>
+                <h4>Senare:</h4>
+                <p class="quote">"Tre män, Sam. Jag ser dem nu. Där jag är. De har väntat länge. Snälla, gräv inte där de grävde."</p>
+                <div class="warning">
+                    <strong>Fråga:</strong> Är detta Trenchs trauma som manifesterar sig, eller är Robert verkligen "någonstans" och varnar honom?
+                </div>
+            </div>
+
+            <div class="idea-card medium">
+                <h3>Sandra-helgen</h3>
+                <span class="tag bonds">BONDS</span>
+                <span class="tag character">CHARACTER</span>
+                <p>Trenchs dotter Sandra (6 år) ska vara hos honom i helgen. Rhea (ex-frun) lämnar över henne motvilligt.</p>
+                <h4>Scen-idéer:</h4>
+                <ul>
+                    <li>Sandra tycker campervanen är "cool" - men frågar varför pappa bor i en bil</li>
+                    <li>Hon ritar en teckning: "Pappa och tre snögubbar" - Trench fryser till</li>
+                    <li>På natten vaknar Sandra och säger: "Pappa, varför lyser din sten blå?"</li>
+                </ul>
+                <h4>Konflikt:</h4>
+                <p>Trench måste välja: Vara med Sandra, eller följa med cellen till Lovettsville?</p>
+            </div>
+
+            <div class="idea-card medium">
+                <h3>FEMA-kallelse</h3>
+                <span class="tag tension">TENSION</span>
+                <p>Trench får ett samtal från FEMA. Det har varit översvämningar i West Virginia - de behöver USAR-personal.</p>
+                <h4>Dilemma:</h4>
+                <ul>
+                    <li>Han är FEMA CORE Reservist - tekniskt sett måste han svara</li>
+                    <li>Men Trip 19-utredningen är viktigare (för honom)</li>
+                    <li>Om han vägrar: Risk för disciplinära åtgärder</li>
+                    <li>Om han åker: Missar Lovettsville</li>
+                </ul>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>Randolf (brodern) kontaktar</h3>
+                <span class="tag bonds">BONDS</span>
+                <p>Trenchs bror Randolf skickar ett SMS: "Brorsan. Hörde att du är i DC-området. Kan vi ses? Jag behöver prata med dig om nåt."</p>
+                <h4>Vad Randolf vill:</h4>
+                <ul>
+                    <li>Han har ekonomiska problem (igen)</li>
+                    <li>ELLER: Han har sett nyheter om "konstiga händelser" och oroar sig för Sam</li>
+                    <li>ELLER: Deras mor är sjuk och Randolf vill att Sam ska veta</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ==================== VOLKOV-SPÅR ==================== -->
+        <div class="section volkov" id="volkov">
+            <h2>VOLKOV-SPÅR & ÖVERVAKNING</h2>
+
+            <div class="idea-card hot">
+                <h3>Samma svarta SUV</h3>
+                <span class="tag volkov">VOLKOV</span>
+                <span class="tag tension">TENSION</span>
+                <p>En av agenterna märker samma svarta Chevrolet Suburban parkerad utanför flera av deras platser.</p>
+                <h4>Observationer:</h4>
+                <ul>
+                    <li>Utanför Macs lägenhet (College Park) - tisdag morgon</li>
+                    <li>Utanför Quantico grind - tisdag eftermiddag</li>
+                    <li>Utanför Baltimore Morgue - onsdag lunch</li>
+                    <li>Samma registreringsnummer varje gång</li>
+                    <li>Föraren: Man, 40-tal, solglasögon, aldrig ser dem titta</li>
+                </ul>
+                <h4>Om de undersöker nummerplåten:</h4>
+                <p>Registrerad på ett företag: "Petrov Consulting LLC" - registrerat i Delaware 3 månader sedan. Ingen verklig adress.</p>
+            </div>
+
+            <div class="idea-card hot">
+                <h3>Hotell-spåret</h3>
+                <span class="tag volkov">VOLKOV</span>
+                <span class="tag mystery">MYSTERY</span>
+                <p>Sparky hittar (via NSA-verktyg) att "Viktor Petersen" är incheckad på Tysons Corner Marriott sedan 1 september.</p>
+                <h4>Dilemma:</h4>
+                <ul>
+                    <li>Går de dit? Konfronterar de Volkov?</li>
+                    <li>Övervakar de hotellet?</li>
+                    <li>Kontaktar de DG först?</li>
+                </ul>
+                <h4>Om de går dit:</h4>
+                <p>Rummet är utcheckat. Städpersonalen säger att gästen lämnade "väldigt tidigt i morse". Kvar i rummet: En trasig cigarett (Belomorkanal), och en lapp med text: <strong>"Ni är för sena. - V"</strong></p>
+            </div>
+
+            <div class="idea-card medium">
+                <h3>Turistfotografen</h3>
+                <span class="tag volkov">VOLKOV</span>
+                <span class="tag tension">TENSION</span>
+                <p>Varje plats de besöker finns det en "turist" med kamera. Samma person?</p>
+                <h4>Beskrivning:</h4>
+                <ul>
+                    <li>Kvinna, 30-tal, mörkt hår, jeans och hoodie</li>
+                    <li>Professionell kamera (Canon med teleobjektiv)</li>
+                    <li>Verkar alltid vara "upptagen" med något annat när de tittar</li>
+                    <li>Försvinner snabbt om de försöker närma sig</li>
+                </ul>
+                <h4>Twist:</h4>
+                <p>Är hon Volkovs agent? Eller någon annans? (DG som övervakar dem? Ryskt SVR?)</p>
+            </div>
+
+            <div class="idea-card medium">
+                <h3>Anonymt e-mail</h3>
+                <span class="tag mystery">MYSTERY</span>
+                <span class="tag volkov">VOLKOV</span>
+                <p>Sparky får ett krypterat e-mail till sin privata adress (som nästan ingen känner till).</p>
+                <h4>Meddelande:</h4>
+                <p class="quote">"Ni är inte de första som letar. De andra slutade leta. Fråga er varför. / M.O."</p>
+                <h4>Frågor:</h4>
+                <ul>
+                    <li>M.O. = Magda Orlova? (Foreshadowing inför Session 3)</li>
+                    <li>Eller Volkov som fejkar?</li>
+                    <li>Eller någon helt annan?</li>
+                </ul>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>Visitkortet under vindrutetorkaren</h3>
+                <span class="tag volkov">VOLKOV</span>
+                <span class="tag horror">HORROR</span>
+                <p>Någon i cellen hittar ett visitkort under vindrutetorkaren på sin bil.</p>
+                <h4>Visitkortet:</h4>
+                <p><strong>"Frankfurt Klinik für Neuropsychiatrie"</strong><br>
+                Dorfstraße 42c, 15230 Frankfurt (Oder)-Güldendorf<br>
+                <em>Baksida (handskrivet):</em> "Ni söker fel frågor."</p>
+                <p>Visitkortet är IDENTISKT med det de hittade i Harriets förråd. Samma design, samma typsnitt - men detta är nytt, inte 80 år gammalt.</p>
+            </div>
+        </div>
+
+        <!-- ==================== FRAGMENT-EFFEKTER ==================== -->
+        <div class="section atmosphere" id="fragment">
+            <h2>FRAGMENT-EFFEKTER</h2>
+            <p style="margin-bottom: 1rem;">Type-VII fragmentet de hittade i förrådet börjar påverka dem.</p>
+
+            <div class="idea-card hot">
+                <h3>Gemensamma drömmar</h3>
+                <span class="tag horror">HORROR</span>
+                <span class="tag mystery">MYSTERY</span>
+                <p>Alla som hanterat fragmentet (eller varit nära det länge) börjar drömma samma sak.</p>
+                <h4>Drömmen:</h4>
+                <ul>
+                    <li>Snölandskap, bländande vitt</li>
+                    <li>Ett hus i fjärran - stort, gammalt, ryskt</li>
+                    <li>Tre silhuetter som går mot dem genom snön</li>
+                    <li>Blått ljus från husets fönster</li>
+                    <li>En röst (på ryska, men de förstår ändå): "Kom hem. Vi väntar."</li>
+                    <li>De vaknar med huvudvärk och smak av metall i munnen</li>
+                </ul>
+                <h4>Eskalering:</h4>
+                <p>Ju längre de har fragmentet, desto tydligare blir drömmarna. Efter en vecka börjar de se detaljer - ansikten på de tre männen, text på husets skylt (Cyrillic), datum: "31 декабря 1942" (31 december 1942).</p>
+            </div>
+
+            <div class="idea-card medium">
+                <h3>Elektronik beter sig konstigt</h3>
+                <span class="tag horror">HORROR</span>
+                <p>Nära fragmentet börjar elektronik glitcha.</p>
+                <h4>Exempel:</h4>
+                <ul>
+                    <li>Telefoner visar fel tid (alltid 23:42 - nyårsafton 1942?)</li>
+                    <li>Radio spelar statiskt brus med svag rysk röst</li>
+                    <li>Laptops visar korta flashar av gamla svartvita bilder</li>
+                    <li>Kameror fångar "ljusanomalier" som inte var synliga för ögat</li>
+                </ul>
+            </div>
+
+            <div class="idea-card medium">
+                <h3>Temperaturanom</h3>
+                <span class="tag horror">HORROR</span>
+                <p>Rummet där fragmentet förvaras är alltid 3-5 grader kallare än resten av byggnaden. Ingen isoleringsförklaring.</p>
+                <h4>Eskalering:</h4>
+                <ul>
+                    <li>Dag 1-3: Knappt märkbart</li>
+                    <li>Dag 4-7: Kan se andedräkt ibland</li>
+                    <li>Dag 8+: Frost på insidan av fönstren (omöjligt i september)</li>
+                </ul>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>Djur undviker</h3>
+                <span class="tag horror">HORROR</span>
+                <p>Husdjur och vilda djur undviker den som bär fragmentet.</p>
+                <h4>Exempel:</h4>
+                <ul>
+                    <li>Grannens hund morrar och backar</li>
+                    <li>Fåglar flyger iväg när de närmar sig</li>
+                    <li>Ekorrar fryser och stirrar innan de flyr</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ==================== DELTA GREEN ==================== -->
+        <div class="section dg" id="dg">
+            <h2>DELTA GREEN-FRIKTION</h2>
+
+            <div class="idea-card hot">
+                <h3>Order att stå ner</h3>
+                <span class="tag dg">DG</span>
+                <span class="tag tension">TENSION</span>
+                <p>Cellens Case Officer kontaktar Sullivan (de facto leader).</p>
+                <h4>Meddelandet:</h4>
+                <p class="quote">"SERGEANT har rapporterat om er Trip 19-undersökning. Programmet uppskattar initiativet, men vi har andra prioriteringar för Chesapeake just nu. Lägg ner detta spår tills vidare. Ni kommer få nya instruktioner inom 48 timmar. / ALPHONSE"</p>
+                <h4>Implikationer:</h4>
+                <ul>
+                    <li>DG vet vad de gör (Mac rapporterade? Eller övervakas de?)</li>
+                    <li>De får INTE officiell sanktion för Trip 19</li>
+                    <li>Om de fortsätter → De går emot direkta order</li>
+                    <li>Men Volkov är HÄR, NU - kan de vänta?</li>
+                </ul>
+            </div>
+
+            <div class="idea-card medium">
+                <h3>Alternativ DG-cell hör av sig</h3>
+                <span class="tag dg">DG</span>
+                <span class="tag mystery">MYSTERY</span>
+                <p>En okänd person kontaktar Mac via säker kanal (DG-protokoll).</p>
+                <h4>Meddelandet:</h4>
+                <p class="quote">"SERGEANT. Vi hörde om er Volkov-intresse. Vi jagade honom '09. Förlorade två agenter. Han är farligare än ni tror. Träffas? / GRENDEL (f.d. Fairfax Cell)"</p>
+                <h4>Om de träffas:</h4>
+                <p>GRENDEL är ensam överlevare från en cell som försökte stoppa Volkov 2009. Han kan berätta om Volkovs metoder, men han är också paranoid och kanske inte helt pålitlig.</p>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>DG-arkivet ger hit</h3>
+                <span class="tag dg">DG</span>
+                <span class="tag mystery">MYSTERY</span>
+                <p>Om någon i cellen har arkiv-access och söker på "Trip 19" eller "Lundeen":</p>
+                <h4>Resultat:</h4>
+                <p><strong>CLASSIFIED - EYES ONLY - A CELL</strong><br>
+                Operation NORTHERN STAR (1946)<br>
+                Operation FROSTBITE (1952)<br>
+                Operation PERMAFROST (1991)<br>
+                <em>Access Denied. Contact A Cell for clearance.</em></p>
+                <h4>Implikation:</h4>
+                <p>DG har känt till detta LÄNGE. Tre operationer. Alla klassificerade på högsta nivå. Varför?</p>
+            </div>
+        </div>
+
+        <!-- ==================== RESEARCH ==================== -->
+        <div class="section research" id="research">
+            <h2>RESEARCH-MÖJLIGHETER</h2>
+
+            <div class="info">
+                <strong>Kampanjprincip:</strong> Det mesta spelarna kan googla STÄMMER. CAB-rapporten, Viereck-rättegången, Lundeen-biografier - allt är tillgängligt online. Det fiktiva fyller i LUCKOR.
+            </div>
+
+            <div class="idea-card medium">
+                <h3>Stanford Box 147</h3>
+                <span class="tag mystery">MYSTERY</span>
+                <p>Lundeens personliga papper finns på Stanford University - men samlingen är RESTRICTED till 2045.</p>
+                <h4>Alternativ:</h4>
+                <ul>
+                    <li><strong>Hacka:</strong> Sparky kan försöka (Computer Science 80%, men risk för upptäckt)</li>
+                    <li><strong>Social engineering:</strong> Ringa arkivarien, påstå akademisk forskning</li>
+                    <li><strong>Officiell begäran:</strong> Via FBI (Mac) - men då finns papperspår</li>
+                    <li><strong>Fysiskt besök:</strong> Åka till Stanford? (Avviker från DC-fokus)</li>
+                </ul>
+                <h4>Vad Box 147 innehåller:</h4>
+                <ul>
+                    <li>Lundeens korrespondens med "R" (Reinhardt)</li>
+                    <li>Telegram från Berlin 1939</li>
+                    <li>Anteckningar om "Project K"</li>
+                    <li>Foto av Kalenko-huset (!) - med Lundeens anteckning på baksidan</li>
+                </ul>
+            </div>
+
+            <div class="idea-card medium">
+                <h3>FBI FOIA-svar</h3>
+                <span class="tag mystery">MYSTERY</span>
+                <p>Macs FOIA-begäran (skickad före kampanjstart) kommer tillbaka.</p>
+                <h4>Vad de får:</h4>
+                <ul>
+                    <li>127 sidor, mestadels SVARTMÅLADE</li>
+                    <li>Synliga delar: "Investigation into crash of Pennsylvania Central Airlines..." "...Senator Lundeen's briefcase never recovered..." "...witnesses reported unusual phenomena..."</li>
+                    <li>Ett helt avsnitt markerat: "[REDACTED] - Operation [REDACTED] - See File 7-HQ-29841"</li>
+                    <li>Sista sidan: "Further release denied under National Security exemption (b)(1)"</li>
+                </ul>
+                <h4>Fil 7-HQ-29841:</h4>
+                <p>Om Mac försöker få tag på denna: "File destroyed per retention schedule, 1967."</p>
+            </div>
+
+            <div class="idea-card medium">
+                <h3>FOIA-begäran från annan</h3>
+                <span class="tag mystery">MYSTERY</span>
+                <span class="tag volkov">VOLKOV</span>
+                <p>Sparky hittar (via NSA-kanaler) att någon annan NYLIGEN begärt samma FBI-filer via FOIA.</p>
+                <h4>Begäran gjord av:</h4>
+                <p>"Magda Orlova, Journalist (retired), Hamburg, Germany"<br>
+                Datum: 15 augusti 2025 (tre veckor sedan!)</p>
+                <h4>Implikation:</h4>
+                <p>Magda researchar samma sak. Från Hamburg. (Foreshadowing inför Session 3)</p>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>Iowa University Archives</h3>
+                <span class="tag mystery">MYSTERY</span>
+                <p>Vierecks korrespondens finns delvis digitaliserad på Iowa. De kan researcha online.</p>
+                <h4>Vad de hittar:</h4>
+                <ul>
+                    <li>Brev från Viereck till Lundeen (1938-1940) - politisk propaganda</li>
+                    <li>Men ETT brev nämner "das Paket aus Berlin" (paketet från Berlin)</li>
+                    <li>Och "Herr Doktor R. wird die Details erklären" (Dr. R kommer förklara detaljerna)</li>
+                </ul>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>National Archives (fysiskt besök)</h3>
+                <span class="tag mystery">MYSTERY</span>
+                <p>Om de besöker National Archives i DC för att se originaldokument:</p>
+                <h4>Vad arkivarien nämner:</h4>
+                <p class="quote">"Trip 19? Ja, vi har CAB-rapporten. Men ni vet, någon var här och tittade på samma dokument för två veckor sedan. Rysk accent, tror jag. Mycket... intensiv man."</p>
+            </div>
+        </div>
+
+        <!-- ==================== BONDS & PERSONLIGT ==================== -->
+        <div class="section bonds" id="bonds">
+            <h2>BONDS & PERSONLIGA MOMENT</h2>
+            <p style="margin-bottom: 1rem;">Delta Green förstör relationer. Här är möjligheter att visa det.</p>
+
+            <div class="grid-2">
+                <div class="idea-card subtle">
+                    <h3>Cellmiddag</h3>
+                    <span class="tag character">CHARACTER</span>
+                    <span class="tag bonds">BONDS</span>
+                    <p>Sullivan föreslår att hela cellen äter middag tillsammans. "Vi behöver prata ansikte mot ansikte."</p>
+                    <h4>Scen-potential:</h4>
+                    <ul>
+                        <li>Hur mår de EGENTLIGEN?</li>
+                        <li>Diskuterar de privata saker, eller bara jobbet?</li>
+                        <li>Någon dricker för mycket?</li>
+                        <li>Mac öppnar sig om Emma/barnen?</li>
+                    </ul>
+                </div>
+
+                <div class="idea-card subtle">
+                    <h3>Sen kväll, tom bar</h3>
+                    <span class="tag character">CHARACTER</span>
+                    <p>Två agenter hamnar på en bar sent på natten. De börjar prata om... allt utom jobbet. Eller kanske just om jobbet.</p>
+                    <h4>Frågor att utforska:</h4>
+                    <ul>
+                        <li>Varför gick de med i DG?</li>
+                        <li>Vad har de offrat?</li>
+                        <li>Tror de att det är värt det?</li>
+                    </ul>
+                </div>
+
+                <div class="idea-card subtle">
+                    <h3>Insomnia</h3>
+                    <span class="tag character">CHARACTER</span>
+                    <span class="tag horror">HORROR</span>
+                    <p>En av agenterna kan inte sova. 3 AM, stirrar i taket. Vad tänker de på?</p>
+                    <ul>
+                        <li>Sea Glass? De döda? De som inte kunde räddas?</li>
+                        <li>Volkov? Vad vill han egentligen?</li>
+                        <li>Fragmentet i nästa rum? Hummar det?</li>
+                    </ul>
+                </div>
+
+                <div class="idea-card subtle">
+                    <h3>Terapisession</h3>
+                    <span class="tag character">CHARACTER</span>
+                    <p>En agent har en obligatorisk psykolog-session (del av administrative leave/work requirements).</p>
+                    <h4>Utmaning:</h4>
+                    <p>Hur mycket kan de säga? De kan inte berätta om DG. Men hur förklarar man PTSD från "saker som inte finns"?</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== DC-PLATSER ==================== -->
+        <div class="section locations" id="locations">
+            <h2>DC-PLATSER</h2>
+            <p style="margin-bottom: 1rem;">Verkliga platser i Washington-området där scener kan utspela sig.</p>
+
+            <div class="grid-2">
+                <div class="idea-card subtle">
+                    <h3>National Mall</h3>
+                    <p>Ikonisk plats för möten, övervakning, "vi ses vid Washington Monument".</p>
+                    <ul>
+                        <li>Bra för DG-kontakt-möten (publikt men anonymt)</li>
+                        <li>Volkov-observation?</li>
+                        <li>Sen kvällspromenad för en ensam agent</li>
+                    </ul>
+                </div>
+
+                <div class="idea-card subtle">
+                    <h3>Georgetown</h3>
+                    <p>Historiskt område, barer, restauranger, universitetsmiljö.</p>
+                    <ul>
+                        <li>Cellmiddag-plats</li>
+                        <li>Magdas hotell (om hon är i DC före Lovettsville)?</li>
+                        <li>Macs temporära lägenhet?</li>
+                    </ul>
+                </div>
+
+                <div class="idea-card subtle">
+                    <h3>Arlington National Cemetery</h3>
+                    <p>Begravningsplatsen. Sullivan officierar ibland.</p>
+                    <ul>
+                        <li>Begravningsscen med mystisk kontakt</li>
+                        <li>Ensam promenad bland gravar</li>
+                        <li>JFK:s grav - symbolik?</li>
+                    </ul>
+                </div>
+
+                <div class="idea-card subtle">
+                    <h3>Library of Congress</h3>
+                    <p>Enormt bibliotek/arkiv. Research-plats.</p>
+                    <ul>
+                        <li>1940-tals tidningar på mikrofilm</li>
+                        <li>Lungden-relaterat material</li>
+                        <li>Någon annan forskar på samma sak...</li>
+                    </ul>
+                </div>
+
+                <div class="idea-card subtle">
+                    <h3>Fort Meade (NSA HQ)</h3>
+                    <p>Sparkys arbetsplats. Extremt säker.</p>
+                    <ul>
+                        <li>Scener med hans supervisor</li>
+                        <li>Sen natt ensam i serverrummet</li>
+                        <li>Möte med mystisk kollega</li>
+                    </ul>
+                </div>
+
+                <div class="idea-card subtle">
+                    <h3>Quantico Marine Base</h3>
+                    <p>Sullivans arbetsplats. FBI Academy är också här.</p>
+                    <ul>
+                        <li>Pastoral scener</li>
+                        <li>Den döende veteranen</li>
+                        <li>Möte med Marines från Afghanistan</li>
+                    </ul>
+                </div>
+
+                <div class="idea-card subtle">
+                    <h3>Baltimore Inner Harbor</h3>
+                    <p>Scalpels stad. Hamn, akvarier, restauranger.</p>
+                    <ul>
+                        <li>Sen kvällspromenad efter obduktion</li>
+                        <li>Möte med mystisk kontakt</li>
+                        <li>Observation av henne?</li>
+                    </ul>
+                </div>
+
+                <div class="idea-card subtle">
+                    <h3>Tysons Corner</h3>
+                    <p>Stor mall/kontorsområde i Virginia. "Corporate DC."</p>
+                    <ul>
+                        <li>Volkovs hotell (Marriott)</li>
+                        <li>Anonymt mötesplats</li>
+                        <li>Övervakning i folkmassan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== RANDOM ENCOUNTERS ==================== -->
+        <div class="section atmosphere" id="random">
+            <h2>RANDOM ENCOUNTERS</h2>
+            <p style="margin-bottom: 1rem;">Atmosfäriska händelser som kan dyka upp när som helst.</p>
+
+            <div class="idea-card subtle">
+                <h3>Hemlös med budskap</h3>
+                <span class="tag horror">HORROR</span>
+                <p>En hemlös man på gatan stirrar på en av agenterna och säger:</p>
+                <p class="quote">"Du bär isen med dig. Jag kan känna den. De tre männen ser dig nu. Snön kommer."</p>
+                <p>Sedan vänder han sig om och går, som om inget hänt. Om de följer efter honom försvinner han runt ett hörn.</p>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>Barn som pekar</h3>
+                <span class="tag horror">HORROR</span>
+                <p>Ett litet barn på tunnelbanan pekar på agenten som bär fragmentet (i ryggsäck/ficka) och säger till sin mamma:</p>
+                <p class="quote">"Mamma, varför lyser den mannen/kvinnan blå inuti?"</p>
+                <p>Mamman ber om ursäkt för barnet. Men barnet fortsätter stirra.</p>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>Radio-glitch</h3>
+                <span class="tag horror">HORROR</span>
+                <p>Bilradion (eller Spotify/podcasts) glitchar mitt i programmet. Statiskt brus, sedan en svag röst på ryska. Orden är otydliga, men ett upprepas: "Kalenko... Kalenko... Kalenko..."</p>
+                <p>Sedan är det tillbaka till normal musik.</p>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>Déjà vu</h3>
+                <span class="tag horror">HORROR</span>
+                <p>En agent får stark déjà vu - men inte från något de upplevt. De "minns" att ha gått på en snötäckt gata, med gamla ryska byggnader. Lukten av kol och hunger. Datumet: December 1942.</p>
+                <p>Minnena varar 3-4 sekunder, sedan är de borta. Huvudvärk efteråt.</p>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>Strömavbrott</h3>
+                <span class="tag horror">HORROR</span>
+                <p>Strömavbrott i byggnaden där fragmentet förvaras. Varar 247 sekunder. Exakt.</p>
+            </div>
+
+            <div class="idea-card subtle">
+                <h3>Felskickat SMS</h3>
+                <span class="tag mystery">MYSTERY</span>
+                <p>En agent får ett SMS från okänt nummer:</p>
+                <p class="quote">"Paketet anlände. Kraschplatsen bekräftad. V. procedera till fas 2."</p>
+                <p>Om de svarar: "Fel nummer. Ursäkta." Numret är sedan obefintligt.</p>
+            </div>
+        </div>
+
+        <!-- ==================== POTENTIELLA NPCS ==================== -->
+        <div class="section locations" id="npcs">
+            <h2>POTENTIELLA NPCS</h2>
+            <p style="margin-bottom: 1rem;">Karaktärer som kan dyka upp i Washington-området.</p>
+
+            <div class="grid-2">
+                <div class="idea-card subtle">
+                    <h3>Dr. Helen Marsh</h3>
+                    <p><strong>Historiker, Georgetown University</strong></p>
+                    <p>Expert på 1940-talets amerikanska politik och Nazi-infiltration. Har skrivit bok om Lundeen-Viereck-affären.</p>
+                    <h4>Kan ge:</h4>
+                    <ul>
+                        <li>Akademisk kontext</li>
+                        <li>Arkiv-kontakter</li>
+                        <li>"Off-the-record" teorier</li>
+                    </ul>
+                </div>
+
+                <div class="idea-card subtle">
+                    <h3>Agent Derek Stone</h3>
+                    <p><strong>FBI Counterintelligence (pensionerad)</strong></p>
+                    <p>Jobbade med ryska spioner på 90-talet. Känner till Volkov från gamla filer.</p>
+                    <h4>Kan ge:</h4>
+                    <ul>
+                        <li>Volkovs bakgrund (GRU, sedan defector, sedan... ?)
+                        <li>Varning om "vissa filer man inte bör öppna"</li>
+                        <li>Kontakt inom ryska emigrant-community</li>
+                    </ul>
+                </div>
+
+                <div class="idea-card subtle">
+                    <h3>Irina Sokolova</h3>
+                    <p><strong>Rysk-amerikansk pensionär, 80+</strong></p>
+                    <p>Föddes i Leningrad 1941. Familjen flydde under kriget. Hon minns... saker.</p>
+                    <h4>Kan ge:</h4>
+                    <ul>
+                        <li>Barndomsminnen från Leningrad 1942</li>
+                        <li>"Min mor berättade om Kalenko-huset. Vi fick aldrig gå nära."</li>
+                        <li>Koppling till Slavic Association?</li>
+                    </ul>
+                </div>
+
+                <div class="idea-card subtle">
+                    <h3>James "Jimmy" Flannery Jr.</h3>
+                    <p><strong>John Flannerys son, 30-tal</strong></p>
+                    <p>Journalist i DC. Skeptisk till faderns "obsession" med Trip 19, men nyfiken.</p>
+                    <h4>Kan ge:</h4>
+                    <ul>
+                        <li>Intro till John Flannery (inför Session 3)</li>
+                        <li>Journalistiska resurser</li>
+                        <li>Skeptiker-perspektiv</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== ESKALERING ==================== -->
+        <div class="section volkov" id="escalation">
+            <h2>ESKALERING - OM DU VILL HÖJA INSATSERNA</h2>
+
+            <div class="warning">
+                <strong>Varning:</strong> Dessa idéer är mer intensiva och kan förändra kampanjens riktning. Använd sparsamt.
+            </div>
+
+            <div class="idea-card hot">
+                <h3>Volkov tar kontakt direkt</h3>
+                <span class="tag volkov">VOLKOV</span>
+                <span class="tag tension">TENSION</span>
+                <p>Volkov ringer Mac (eller annan agent) direkt.</p>
+                <h4>Samtalet:</h4>
+                <p class="quote">"Agent Riley. Jag vet vad ni hittade i förrådet. Jag vet vad ni söker. Vi vill samma sak - stoppa det som kommer. Men ni förstår inte vad ni håller i. Träffa mig. Ensam. Lincoln Memorial, midnatt. Eller fortsätt gräva blinda och dö som de andra."</p>
+                <p>*klick*</p>
+            </div>
+
+            <div class="idea-card hot">
+                <h3>Någon dör</h3>
+                <span class="tag horror">HORROR</span>
+                <span class="tag tension">TENSION</span>
+                <p>En av de NPCs de pratat med (Emily Johnson? Arkivarien?) hittas död. Officiellt: Hjärtinfarkt. Men om Scalpel undersöker...</p>
+                <h4>Detaljer:</h4>
+                <ul>
+                    <li>Samma anomali: Händerna iskalla</li>
+                    <li>Ansiktsuttryck: Extrem skräck</li>
+                    <li>Inget tvång, inga skador - men dödsorsaken är... oklar</li>
+                </ul>
+            </div>
+
+            <div class="idea-card hot">
+                <h3>Inbrott</h3>
+                <span class="tag volkov">VOLKOV</span>
+                <span class="tag tension">TENSION</span>
+                <p>Någon bryter sig in i lägenheten/campervanen där fragmentet förvaras. Inget stulet - men fragmentet har flyttats. Det ligger nu mitt på bordet, omgivet av tre stenar i en triangel.</p>
+                <h4>Meddelande på väggen (skrivet med något som ser ut som frost):</h4>
+                <p class="quote">"VII tillhör oss."</p>
+            </div>
+
+            <div class="idea-card medium">
+                <h3>DG-sanktion dras tillbaka</h3>
+                <span class="tag dg">DG</span>
+                <span class="tag tension">TENSION</span>
+                <p>Chesapeake Cell får meddelande: De är "temporärt inaktiva" tills utredning av "protokollbrott" är klar. De har ingen backup, inga resurser, ingen sanktion.</p>
+                <p>De är ensamma.</p>
+            </div>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="nav-bar" style="margin-top: 3rem;">
+            <a href="session2.html">← Session 2</a>
+            <span style="color: var(--text-dim);">Washington Downtime Ideas</span>
+            <a href="session3.html">Session 3 →</a>
+        </div>
+
+        <p style="text-align: center; color: var(--text-dim); margin-top: 2rem; font-size: 0.9rem;">
+            <em>Idébank för SL - välj och vraka efter behov. Inget är obligatoriskt.</em>
+        </p>
+    </div>
+</body>
+</html>
