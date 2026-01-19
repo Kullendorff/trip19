@@ -110,14 +110,15 @@
         .redacted-block {
             background: #000;
             height: 0.8in;
-            margin: 0.15in 0;
+            margin: 0.15in 0.1in 0.15in 0;
             position: relative;
+            display: block;
         }
 
         .redacted-block::after {
             content: '(b)(1)';
             position: absolute;
-            right: 0.1in;
+            right: 0.15in;
             top: 50%;
             transform: translateY(-50%);
             color: #fff;
@@ -141,6 +142,7 @@
 
         .document-section {
             margin: 0.3in 0;
+            overflow: hidden;
         }
 
         .section-header {
