@@ -1,7 +1,7 @@
 # CURRENT STATE - Trip 19 / Svarta Madonnan
 
 ## Senast uppdaterad
-2026-01-20 22:15
+2026-01-20 23:00
 
 ## Discord Bot Integration ⚠️ VIKTIGT
 **Agent-data lagras i Discord bot JSON-filer:**
@@ -35,6 +35,28 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
 ## Senaste utveckling (från git-log)
 
 ### Pågående arbete
+
+**Kontinuitetsfix: Bishop Farm + Hamilton House** - Januari 2026 ✅
+- **Problem upptäckt**: Kontinuitetskonflikter i session4.html + hamilton_chase_sequence.html
+  - Bishop-ägare: "Carl" vs korrekt "John"
+  - Hamilton House: Två motstridiga beskrivningar (nybyggt Airbnb vs gammalt farmhouse)
+  - Walter Bishop-släktträd: Oklart förhållande till nuvarande ägare
+- **Lösning**: Systematisk kontinuitetskontroll med database-verifiering
+- **Ändringar i session4.html**:
+  - Carl Bishop → John Bishop (alla omnämnanden)
+  - Hamilton House-beskrivning: Konsoliderad till "1920-tals farmhouse, renoverat"
+  - Caroline Vance etablerad som ägare (köpt från familjen Hamilton, Florida, sept 2022)
+  - Bishops dialog uppdaterad: "lawyer från DC" (inte "Hamiltons i Florida")
+- **Släktträd etablerat**:
+  - Walter Bishop (far-farfar, ägde farmen 1940) → farfar → far → John Bishop (född ~1972, 53 år 2025)
+  - "Min farfars far satte upp minnesstenen 1941" (session4.html rad 612) - nu korrekt
+- **Nya element i continuity_database.md**:
+  - John Bishop-sektion expanderad (släktträd, Volkov-incident, hemligheter)
+  - Hamilton House-sektion konsoliderad (renoverat 1920-tals hus, detaljerad historia)
+  - Flight 19 passagerarlista (passenger.pdf) indexerad som handout
+  - Bishop Farm-sektion uppdaterad med släktträd + GPR-anomali
+- **Filer uppdaterade**: session4.html (3 ändringar), continuity_database.md (4 sektioner)
+- **Verifiering**: Alla "Carl" ändrade till "John", släktträd logiskt (1940-1972 = 3 generationer)
 
 **Hamilton-jakten Integration + Kontinuitetsdatabas-expansion** - Januari 2026 ✅
 - **Ny Session 4-sekvens**: Hamilton-jakten spion/thriller-sekvens (926 rader)

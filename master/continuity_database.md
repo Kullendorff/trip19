@@ -56,16 +56,20 @@ Denna fil är ett **INDEX**. När du söker efter ett element:
 
 ### Session-NPCs (Lovettsville)
 
-#### Carl Bishop
+#### John Bishop
 - **Filer**:
   - `SL/session4.html`
-  - `SL/npc_carl_bishop.md` (om skapad)
+  - `SL/passenger.pdf` (Walter Bishops farm 1940)
   - `SL/Bishop_Farm_Andringslogg.md`
 - **Nyckeldata**:
-  - 53 år, bonde
+  - 53 år (född ~1972), bonde/markägare
   - Lovettsville, Virginia (Bishop Farm)
   - Wine country (INTE southern gothic!)
-  - Jordägare sedan farfar (1890-tal)
+  - **Släktträd:** Walter Bishop (far-farfar, ägde farmen 1940) → farfar → far → John
+  - Familj: Fru (död 2018), två vuxna barn i Richmond
+  - Hemlighet: Såg blått ljus på fältet 1989, pratar inte om det
+  - Skeptisk mot besökare (dokumentärfilmare, podcasters, "turister")
+  - Volkov grävde illegalt maj 2019 (tre hål, John ringde sheriff)
 
 #### John Flannery
 - **Filer**:
@@ -129,11 +133,12 @@ Denna fil är ett **INDEX**. När du söker efter ett element:
 #### Caroline Vance (Hamilton House-ägare)
 - **Filer**:
   - `SL/hamilton_chase_sequence.html`
+  - `SL/session4.html` (Bishops omnämnande)
   - `master/continuity_database.md` (denna fil)
 - **Nyckeldata**:
   - 48 år, tech lawyer (Arlington VA, pendlar till DC)
-  - Köpte Hamilton House **september 2022** efter skilsmässa ($485,000)
-  - Plan: Renovera + hyra ut via Airbnb (ej genomfört)
+  - Köpte Hamilton House **september 2022** efter skilsmässa ($485,000 från familjen Hamilton, Florida)
+  - Plan: Renovera + hyra ut via Airbnb (renovering klar, uthyrning ej påbörjad)
   - Närvaro: 2-3 gånger/år, senaste besök juni 2025
   - Bostad: Arlington, VA (20 min från Pentagon City)
   - VET INTE om Volkovs intrång (Grisha fixade nycklar augusti 2025)
@@ -332,12 +337,17 @@ grep -i "Scalpel.*\bhan\b\|Scalpel.*\bhonom\b\|Scalpel.*\bhans\b" [fil]
 #### Bishop Farm
 - **Filer**:
   - `SL/session4.html`
+  - `SL/passenger.pdf` (nämnd som "Walter Bishops farm 1940")
   - `SL/Bishop_Farm_Andringslogg.md`
 - **Nyckeldata**:
-  - Lovettsville, Virginia
-  - Wine country-estetik
-  - Carl Bishop (53 år, jordägare sedan farfar)
-  - Kraschplats nära fastigheten
+  - Lovettsville, Virginia (Loudoun County)
+  - Wine country-estetik (INTE southern gothic!)
+  - John Bishop (53 år, nuvarande ägare)
+  - **Släktträd:** Walter Bishop (1940) → farfar → far → John
+  - Familjen brukat jorden sedan 1890
+  - Flight 19 kraschade här 31 augusti 1940
+  - Minnesstenen uppsatt 1941 (av Walters generation)
+  - GPR-anomali: Behållare begravd 1.8-2.1m djup (Type-VII)
 
 #### Baltimore OCME (Office of the Chief Medical Examiner)
 - **Filer**:
@@ -362,18 +372,21 @@ grep -i "Scalpel.*\bhan\b\|Scalpel.*\bhonom\b\|Scalpel.*\bhans\b" [fil]
   - `CURRENT_STATE.md`
 
 #### Hamilton House
-- **Adress**: Lovettsville, Virginia (nära Bishop Farm)
+- **Adress**: Lovettsville, Virginia (granne med Bishop Farm)
 - **Filer**:
   - `SL/hamilton_chase_sequence.html`
   - `SL/session4.html`
   - `SL/volkov_notebook_handout.html`
 - **Nyckeldata**:
-  - 1920-tals farmhouse, renovationsbehov
-  - Ägare: Caroline Vance (Arlington VA, köpte sept 2022, $485,000)
-  - Volkovs tillfälliga bas (augusti-september 2025)
-  - Där hans anteckningsbok hittas (nattduksbord i sovrum)
-  - Tomt: Inga möbler, sovsäck på golvet, dammigt men elektricitet fungerar
-  - Grisha fixade nycklar åt Volkov ($500 extra, augusti 2025)
+  - **Byggnad:** 1920-tals farmhouse, omfattande renovering genomförd
+  - **Exteriör:** Vita väggar, nya svarta fönsterluckor, "HAMILTON ESTATE"-skylt (från tidigare ägare)
+  - **Tillägg:** Pool (täckt för säsongen), garage för 3 bilar (tomt)
+  - **Historia:** Tidigare ägare familjen Hamilton (Florida) → såld sept 2022
+  - **Nuvarande ägare:** Caroline Vance (Arlington VA, tech lawyer, $485,000)
+  - **Status 2025:** Tomt sedan juni 2025, möbler täckta med lakan, damm överallt
+  - **Volkovs användning:** Augusti-september 2025 (tillfällig bas via Grisha)
+  - **Inuti (Volkov-tid):** Sovsäck på sovrum-golvet, anteckningsbok på nattduksbord, rysk vattenflaska i kök
+  - **Access:** Grisha fixade nycklar åt Volkov ($500 extra, augusti 2025)
 
 #### Morozov Auto Repair
 - **Adress**: 1247 Commerce Street, Sterling, VA 20166
@@ -543,6 +556,25 @@ Dessa element är plausibla tillägg i dokumenterade historiska gap:
   - Adress: Till Senator Lundeen
 - **Betydelse**: Bevis på tysk kontakt med Lundeen 1939
 - **Relaterade filer**: `SL/harriet_johnson_storage.html`
+
+### Flight 19 Passagerarlista (PDF)
+- **Fil**: `SL/passenger.pdf`
+- **Typ**: Officiell passagerarlista på svenska
+- **Innehåll**:
+  - **Totalt 25 omkomna** (4 besättning + 21 passagerare)
+  - Datum: Lördag 31 augusti 1940, kl. 14:51
+  - Plats: Walter Bishops farm, Lovettsville, Virginia
+  - Flygplan: Douglas DC-3A (NC21789)
+  - **Nyckelpassagerare:**
+    - Senator Ernest Lundeen (Farmer-Labor Party, Minnesota)
+    - William Garbose (Attorney, Criminal Division, DOJ)
+    - Joseph J. Pesci (Special Agent, FBI, Blairsville PA)
+    - Miss Margaret Turner (Secretary, FBI, Huddleston VA)
+  - **Omständigheter:** "Flygplanet träffades av blixtinledslag under ovanligt intensiv storm och störtade i alfalfafält på Walter Bishops farm"
+  - **Källa:** Civil Aeronautics Board Investigation Report, 1940
+- **Betydelse**: Officiell dokumentation, visar FBI/DOJ-närvaro ombord
+- **Kampanjkoppling**: Walter Bishop = John Bishops far-farfar (släktträd etablerat)
+- **Relaterade filer**: `SL/session3.html`, `SL/session4.html`, `master/timeline.md`
 
 ---
 
