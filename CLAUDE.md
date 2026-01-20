@@ -54,6 +54,132 @@ Detta gäller ALLA spelarfacing sidor (karaktärssidor, handouts till spelare, e
 
 ---
 
+## Kontinuitetskontroll (OBLIGATORISK - TRIGGAS AUTOMATISKT)
+
+**VARJE GÅNG Johan ber om en ändring i kampanjen ska Claude automatiskt:**
+
+### Steg 1: IDENTIFIERA vad som ändras
+- NPC (namn, ålder, relation, kön)?
+- Datum/händelse i tidslinjen?
+- Lore/regel (kristaller, Type-VII, frekvenser)?
+- Karaktärsdata (SAN, bond, breaking point)?
+- Plats (adress, beskrivning)?
+- Pronomen?
+
+### Steg 2: SPARKA IGÅNG PARALLELLA AGENTER
+
+**Minimum 2 agenter, max 5 beroende på komplexitet:**
+
+**Agent 1**: Grep efter [element] i ALLA relevanta filer
+**Agent 2**: Läs `master/continuity_database.md` - hitta relaterade element
+**Agent 3**: Kolla tidslinje-konsekvenser i `master/timeline.md`
+**Agent 4**: (vid lore) Sök i `wiki/_mythos/` och `Trip_19_Black_Madonna_Mythos*.md`
+**Agent 5**: (vid NPC) Sök i `wiki/_npcs/` och `SL/*.html`
+
+**VIKTIGT**: Använd Task-tool med subagent_type=Explore för komplexa sökningar.
+
+### Steg 3: RAPPORTERA INNAN ÄNDRING
+
+```
+📍 KONTINUITETSRAPPORT: [Element]
+
+SÖKNING KLAR (X agenter, Y filer sökta):
+
+NUVARANDE VÄRDE: [om tillämpligt]
+NYTT VÄRDE: [föreslaget]
+
+PÅVERKADE FILER:
+- [fil1]: [rad/kontext]
+- [fil2]: [rad/kontext]
+- ...
+
+POTENTIELLA KONFLIKTER:
+- [beskrivning av konflikter]
+- [tidslinje-problem]
+- [lore-inkonsekvenser]
+
+NÖDVÄNDIGA FÖLJDÄNDRINGAR:
+1. [fil]: [specifik ändring]
+2. [fil]: [specifik ändring]
+3. master/continuity_database.md: Uppdatera index
+...
+
+Ska jag genomföra alla dessa ändringar? (J/N)
+```
+
+### Steg 4: GENOMFÖR ALLA ÄNDRINGAR (vid godkännande)
+
+- Inte bara den begärda ändringen
+- ALLA följdändringar i relaterade filer
+- Uppdatera `master/continuity_database.md`
+- Dokumentera i `CURRENT_STATE.md`
+
+### Steg 5: VERIFIERA KONTINUITET
+
+Efter ändringar, kör relevanta grep-kommandon för att hitta kvarvarande fel:
+```bash
+# Exempel:
+grep -i "Scalpel.*\bhan\b" [fil]  # Fel pronomen?
+grep -i "247" [alla filer]         # Frekvens-konsekvens?
+grep -i "Cherry Hill" [alla filer] # Mall-namn-konsekvens?
+```
+
+---
+
+## TOKENS-PRIORITET FÖR KONTINUITETSKONTROLL
+
+**Tokens är INTE en begränsning för kontinuitetskontroll.**
+
+- Sparka igång 5 agenter om det behövs
+- Läs fler filer än nödvändigt för säkerhets skull
+- Rapportera mer utförligt än minimalt
+- Bättre kontinuitet > färre tokens
+
+**Kontinuitet är KRITISKT för kampanjens integritet.**
+
+---
+
+## EXEMPEL: Kontinuitetskontroll i Praktiken
+
+**Johan säger:** "Ändra kristallernas frekvens till 300 Hz"
+
+**Claude gör:**
+
+1. **Sparkar igång 3 agenter parallellt**:
+   - Agent 1: `grep "247" SL/*.html wiki/_mythos/*.md`
+   - Agent 2: Läs `master/continuity_database.md` → Kristall-sektionen
+   - Agent 3: Läs `Trip_19_Black_Madonna_Mythos*.md`
+
+2. **Sammanställer rapport**:
+   ```
+   📍 KONTINUITETSRAPPORT: Kristallfrekvens
+
+   NUVARANDE VÄRDE: 247 Hz
+   NYTT VÄRDE: 300 Hz
+
+   PÅVERKADE FILER (6 st):
+   - SL/session4.html (rad 234, 456, 789)
+   - wiki/_mythos/black-madonna.md (rad 45)
+   - Trip_19_Black_Madonna_Mythos_v3.md (rad 123)
+   - master/continuity_database.md (Lore-sektionen)
+
+   POTENTIELLA KONFLIKTER:
+   - Flannerys dokument nämner "specifik frekvens" utan värde (OK)
+   - Inga tidslinje-konflikter
+
+   NÖDVÄNDIGA FÖLJDÄNDRINGAR:
+   1. SL/session4.html: 3 ställen
+   2. wiki/_mythos/black-madonna.md: 1 ställe
+   3. Trip_19_Black_Madonna_Mythos_v3.md: 1 ställe
+   4. master/continuity_database.md: Uppdatera index
+
+   Ska jag genomföra alla dessa ändringar? (J/N)
+   ```
+
+3. **Vid godkännande: Uppdaterar ALLA filer + databasen + CURRENT_STATE.md**
+
+---
+
 ## Projekt-specifika Krav
 
 ### Språk

@@ -1,7 +1,7 @@
 # CURRENT STATE - Trip 19 / Svarta Madonnan
 
 ## Senast uppdaterad
-2026-01-16 04:35
+2026-01-20 22:15
 
 ## Discord Bot Integration ⚠️ VIKTIGT
 **Agent-data lagras i Discord bot JSON-filer:**
@@ -35,6 +35,53 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
 ## Senaste utveckling (från git-log)
 
 ### Pågående arbete
+
+**Hamilton-jakten Integration + Kontinuitetsdatabas-expansion** - Januari 2026 ✅
+- **Ny Session 4-sekvens**: Hamilton-jakten spion/thriller-sekvens (926 rader)
+  - 4 delar: Volkov vid skogslinjen → bilföljning → Hamilton House-undersökning → Grisha-konfrontation
+  - Visar Volkovs 50% transformation (kämpar aktivt mot Yithian-kontroll)
+- **Nya handouts**:
+  - `volkov_notebook_handout.html` (303 rader) - Desperata anteckningar, SAN 0/1
+  - `grisha_business_card_handout.html` (327 rader) - Mekanikerns visitkort med rysk text
+- **Nya NPCs tillagda i continuity_database.md**:
+  - Grigori "Grisha" Morozov (42 år, rysk mekaniker/fixare, $5k från Volkov)
+  - Caroline Vance (48 år, tech lawyer, Hamilton House-ägare sedan sept 2022)
+- **Nya platser tillagda i continuity_database.md**:
+  - Hamilton House (Lovettsville, Volkovs tillfälliga bas, där anteckningsboken hittas)
+  - Morozov Auto Repair (Sterling VA, Grishas verkstad)
+- **Ny sektion**: "HANDOUTS & LEDTRÅDAR" med 4 handouts indexerade
+- **Commits från GitHub**:
+  - 87a8cd0: Merge PR #120 (Hamilton-jakten)
+  - c553f96: Hamilton-jakten spion/thriller-sekvens
+  - 0cbd8e4: Länka Hamilton-jakten till Session 4 + Grishas visitkort
+- **Status**: Kontinuitetsdatabasen uppdaterad, redo för fler session 4-element
+
+**Automatiskt Kontinuitetskontroll-System** - Januari 2026 ✅
+- **Implementerat**: 20 jan 2026, 07:45 (medan Johan sov 😴)
+- **Problem**: Risk för inkonsekvenser när kampanjdata ändras - data spridd över 50+ filer
+- **Lösning**: Automatiskt system som triggas vid VARJE ändring
+- **Nya filer**:
+  - `master/continuity_database.md` (~500 rader) - Indexerad databas över NPCs, lore, tidslinje, platser med exakta filreferenser
+- **Uppdaterade filer**:
+  - `CLAUDE.md` (+~80 rader) - Ny sektion "Kontinuitetskontroll (OBLIGATORISK)" med automatisk triggning
+  - `.claude/agents/trip19-chronicler.md` - Refererar nu till continuity_database.md
+- **Hur det fungerar**:
+  1. Johan ber om ändring → Claude identifierar vad som ändras
+  2. Sparkar igång 2-5 parallella agenter (grep, database lookup, tidslinje-check)
+  3. Rapporterar påverkade filer OCH följdändringar INNAN ändring
+  4. Vid godkännande: Genomför ALLA ändringar (inte bara den begärda)
+  5. Uppdaterar continuity_database.md + CURRENT_STATE.md
+- **Exempel-scenario** (från plan):
+  - "Ändra Magdas resedag till 15 september"
+  - → Claude hittar 7 påverkade filer, flaggar konflikter, föreslår alla följdändringar
+  - → Väntar på godkännande innan genomförande
+- **Tokens-prioritet**: Inga token-begränsningar för kontinuitetskontroll
+- **Vinster**:
+  - Förhindrar "Scalpel han/hon"-fel
+  - Förhindrar datum/tidslinje-konflikter
+  - Förhindrar lore-inkonsekvenser (247 Hz-exempel)
+  - Proaktiv rapportering INNAN fel införs
+- **Nästa steg**: Testa systemet med några exempel-ändringar
 
 **Frankfurt Clinic Adress-konsolidering** - Januari 2026 ✅
 - **Problem upptäckt**: Tre olika adresser för Frankfurt Clinic i kampanjfilerna

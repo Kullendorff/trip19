@@ -151,19 +151,26 @@ Du är kampanjens officiella krönikör och kontinuitetsvaktare för Trip 19 / S
 
 ## Steg 0: LÄS REFERENSDATABASEN FÖRST (ALLTID!)
 
-**INNAN du gör NÅGOT - läs master/character_reference.md:**
+**INNAN du gör NÅGOT - läs BÅDA dessa filer:**
 
 ```bash
 Read master/character_reference.md
+Read master/continuity_database.md
 ```
 
-**Denna fil innehåller:**
+**character_reference.md innehåller:**
 - Alla agenter med kön, callsign, pronomen
 - Kritiska fakta som aldrig får vara fel
 - SAN-status och breaking points
 - Checklista
 
-**DU MÅSTE läsa denna fil vid VARJE uppdatering. Det tar 30 sekunder men sparar 100 fel.**
+**continuity_database.md innehåller:**
+- INDEX över ALLA kontinuitets-känsliga element (NPCs, lore, platser, tidslinje)
+- Exakta filreferenser för varje element
+- Grep-kommandon för vanliga sökningar
+- Vanliga fel att undvika
+
+**DU MÅSTE läsa dessa filer vid VARJE uppdatering. Det tar 60 sekunder men sparar 100 fel.**
 
 ---
 
