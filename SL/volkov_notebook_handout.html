@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volkovs Anteckningsbok | Handout</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Courier+Prime&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            font-family: 'Courier Prime', monospace;
+        }
+
+        .notebook {
+            background: #f5f0e6;
+            width: 100%;
+            max-width: 500px;
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow:
+                0 0 0 1px rgba(0,0,0,0.1),
+                0 4px 6px rgba(0,0,0,0.1),
+                0 20px 40px rgba(0,0,0,0.3),
+                inset 0 0 80px rgba(139,90,43,0.1);
+            position: relative;
+        }
+
+        .notebook::before {
+            content: '';
+            position: absolute;
+            left: 2rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(255, 100, 100, 0.3);
+        }
+
+        .page {
+            background: linear-gradient(
+                transparent 0px,
+                transparent 27px,
+                rgba(100, 100, 200, 0.15) 27px,
+                rgba(100, 100, 200, 0.15) 28px
+            );
+            background-size: 100% 28px;
+            min-height: 600px;
+            padding: 0.5rem 0.5rem 0.5rem 2.5rem;
+        }
+
+        .entry {
+            margin-bottom: 1.5rem;
+            font-family: 'Caveat', cursive;
+            font-size: 1.3rem;
+            line-height: 1.65;
+            color: #1a1a1a;
+        }
+
+        .entry.russian {
+            font-style: italic;
+            color: #333;
+        }
+
+        .entry.frantic {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .entry.scrawled {
+            font-size: 1.5rem;
+            transform: rotate(-1deg);
+            color: #000;
+        }
+
+        .entry.desperate {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #8b0000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid #8b0000;
+            padding: 0.75rem;
+            margin: 1.5rem 0;
+            background: rgba(139, 0, 0, 0.05);
+        }
+
+        .entry.small {
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .date {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.25rem;
+        }
+
+        .crossed-out {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        .underline {
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+        }
+
+        .circled {
+            border: 2px solid currentColor;
+            border-radius: 50%;
+            padding: 0 0.3rem;
+            display: inline-block;
+        }
+
+        .arrow {
+            color: #8b0000;
+        }
+
+        .sketch {
+            border: 1px solid #999;
+            padding: 0.5rem;
+            margin: 1rem 0;
+            background: rgba(255,255,255,0.5);
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .coffee-stain {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: radial-gradient(
+                ellipse at center,
+                transparent 40%,
+                rgba(139, 90, 43, 0.1) 45%,
+                rgba(139, 90, 43, 0.2) 50%,
+                transparent 55%
+            );
+            top: 3rem;
+            right: 2rem;
+            transform: rotate(15deg);
+        }
+
+        .water-damage {
+            position: absolute;
+            bottom: 2rem;
+            right: 1rem;
+            width: 80px;
+            height: 40px;
+            background: rgba(100, 100, 150, 0.08);
+            border-radius: 40% 60% 50% 50%;
+            filter: blur(2px);
+        }
+
+        hr {
+            border: none;
+            border-top: 1px dashed #999;
+            margin: 1.5rem 0;
+        }
+
+        .print-instructions {
+            background: #0a0f0f;
+            color: #6b7280;
+            padding: 1rem;
+            margin-top: 2rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .print-instructions h3 {
+            color: #4a90a4;
+            margin-bottom: 0.5rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .notebook {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .print-instructions {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <div class="notebook">
+            <div class="coffee-stain"></div>
+            <div class="water-damage"></div>
+
+            <div class="page">
+                <!-- Entry 1 -->
+                <div class="date">2 сентября</div>
+                <div class="entry">
+                    De gräver idag. Fragment <span class="underline">måste</span> finnas. MÅSTE.
+                </div>
+
+                <!-- Entry 2 -->
+                <div class="entry russian">
+                    Три дня без сна. Гул становится хуже.
+                </div>
+                <div class="entry small" style="margin-top: -0.5rem;">
+                    [Tre dagar utan sömn. Hummandet är värre.]
+                </div>
+
+                <!-- Entry 3 -->
+                <div class="entry">
+                    Kan inte <span class="crossed-out">koncentrera mig</span> fokusera. Tankarna glider. Ibland vet jag inte var jag är.
+                </div>
+
+                <hr>
+
+                <!-- Entry 4 - frantic -->
+                <div class="entry frantic">
+                    FBI? Vilka är de? Fem personer. <span class="circled">Varför nu?</span>
+                </div>
+
+                <!-- Entry 5 -->
+                <div class="entry">
+                    De vet inte vad de letar efter. Men de kommer hitta det. <span class="arrow">→</span> Jag måste vara först.
+                </div>
+
+                <!-- Sketch -->
+                <div class="sketch">
+                    [En enkel skiss av monumentet på Bishop Farm, med pilar och mätningar. GPS-koordinater: 39°15'42"N]
+                </div>
+
+                <!-- Entry 6 - scrawled differently -->
+                <div class="entry scrawled">
+                    Hör du det också? Tonen. Alltid samma ton. Jag kan inte få den att sluta.
+                </div>
+
+                <hr>
+
+                <!-- Entry 7 - THE desperate one -->
+                <div class="entry desperate">
+                    OM DU HITTAR DETTA —<br>
+                    DÖDA MIG INNAN DET<br>
+                    ÄR FÖR SENT
+                </div>
+
+                <!-- Entry 8 - calmer, almost resigned -->
+                <div class="entry" style="margin-top: 1.5rem;">
+                    Ibland är jag inte jag. Ibland tittar jag på mina händer och de rör sig utan att jag bestämmer det.
+                </div>
+
+                <!-- Entry 9 -->
+                <div class="entry russian">
+                    Что со мной происходит?
+                </div>
+                <div class="entry small" style="margin-top: -0.5rem;">
+                    [Vad händer med mig?]
+                </div>
+
+                <hr>
+
+                <!-- Entry 10 - final -->
+                <div class="entry">
+                    <span class="underline">Magda</span>? Frankfurt. Hon verkar förstå. Kanske den enda som kan.
+                </div>
+
+                <div class="entry small" style="margin-top: 1rem;">
+                    Om jag förlorar mig själv helt — förlåt mig för det jag kommer göra.
+                </div>
+
+                <!-- Entry 11 - very small, bottom of page -->
+                <div class="entry small" style="margin-top: 2rem; font-size: 0.95rem; color: #666;">
+                    Cherry Hill var inte mitt fel. Inte <span class="crossed-out">helt</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="print-instructions">
+            <h3>SL-INSTRUKTIONER</h3>
+            <p><strong>Utskrift:</strong> Skriv ut på vanligt papper eller gulnat "vintage"-papper för bästa effekt.</p>
+            <p style="margin-top: 0.5rem;"><strong>Presentation:</strong> Ge till spelarna när de undersöker nattduksbordet i Hamilton House.</p>
+            <p style="margin-top: 0.5rem;"><strong>SAN-check:</strong> 0/1 för att läsa "DÖDA MIG"-raden.</p>
+            <p style="margin-top: 0.5rem;"><strong>Ryska översättningar:</strong> Inkluderade i hakparenteser för tydlighet, men kan tas bort om du vill att spelarna ska översätta själva.</p>
+        </div>
+    </div>
+</body>
+</html>

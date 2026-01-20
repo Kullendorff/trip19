@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamilton-jakten | Trip 19</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-green: #00ff41;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --accent-yellow: #ffcc00;
+            --accent-purple: #9b59b6;
+            --accent-orange: #ff8c00;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .session-header {
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-orange);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .session-header h1 {
+            color: var(--accent-orange);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .session-meta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(74, 144, 164, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-bar a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .section {
+            background: var(--bg-panel);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: var(--accent-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section h3 {
+            color: var(--accent-yellow);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .section h4 {
+            color: var(--accent-orange);
+            font-size: 1.1rem;
+            margin: 1.2rem 0 0.75rem 0;
+        }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid var(--accent-red);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .yellow-box {
+            background: rgba(255, 204, 0, 0.1);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .orange-box {
+            background: rgba(255, 140, 0, 0.1);
+            border-left: 4px solid var(--accent-orange);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .read-aloud {
+            background: rgba(155, 89, 182, 0.1);
+            border-left: 4px solid var(--accent-purple);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        .npc-card {
+            background: rgba(10, 14, 23, 0.6);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-green);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .npc-card.antagonist {
+            border-left-color: var(--accent-red);
+        }
+
+        .npc-card.neutral {
+            border-left-color: var(--accent-yellow);
+        }
+
+        .npc-card h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .npc-card.antagonist h4 {
+            color: var(--accent-red);
+        }
+
+        .npc-card.neutral h4 {
+            color: var(--accent-yellow);
+        }
+
+        .san-check {
+            background: rgba(255, 68, 68, 0.15);
+            border: 2px solid var(--accent-red);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .skill-check {
+            background: rgba(74, 144, 164, 0.15);
+            border: 2px solid var(--accent-blue);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+
+        .handout-link {
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid #d4af37;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .handout-link a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .timeline-box {
+            background: rgba(10, 14, 23, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .timeline-item {
+            padding: 0.75rem 0;
+            border-left: 2px solid var(--accent-blue);
+            padding-left: 1rem;
+            margin-left: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item.action {
+            border-left-color: var(--accent-orange);
+        }
+
+        .timeline-item.discovery {
+            border-left-color: var(--accent-green);
+        }
+
+        .timeline-item.danger {
+            border-left-color: var(--accent-red);
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        th {
+            background: rgba(74, 144, 164, 0.2);
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        .dialogue {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 2px solid var(--text-dim);
+        }
+
+        .dialogue .speaker {
+            color: var(--accent-yellow);
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="session-header">
+            <h1>🎯 HAMILTON-JAKTEN</h1>
+            <p style="color: var(--text-dim);">Spion/Thriller-sekvens efter Bishop Farm</p>
+            <div class="session-meta">
+                <div>
+                    <span style="font-weight: bold;">Plats:</span>
+                    <span>Hamilton House → Dulles → Sterling, VA</span>
+                </div>
+                <div>
+                    <span style="font-weight: bold;">Ton:</span>
+                    <span>Tinker Tailor Soldier Spy + tragisk antagonist</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-bar">
+            <a href="session4.html">← Session 4</a>
+            <div>Trip 19 / Black Madonna</div>
+            <a href="sessions.html">Till Sessions →</a>
+        </div>
+
+        <!-- ÖVERSIKT -->
+        <div class="section">
+            <h2>📋 ÖVERSIKT</h2>
+
+            <div class="info-box">
+                <h3 style="color: var(--accent-blue); margin-bottom: 0.75rem;">Sekvensens Syfte</h3>
+                <ul>
+                    <li><strong>Etablera Volkov som verklig:</strong> Spelarna SER honom för första gången</li>
+                    <li><strong>Visa hans tillstånd:</strong> Kompetent men "trasig" - kämpar mot transformation</li>
+                    <li><strong>Spion/thriller-action:</strong> Bilföljning, undersökning, förhör</li>
+                    <li><strong>Ledtrådar:</strong> Anteckningsboken avslöjar hans inre kamp</li>
+                    <li><strong>Grisha-kontakt:</strong> Leder till mer information om Volkovs aktiviteter</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h3 style="color: var(--accent-red); margin-bottom: 0.75rem;">⚠️ VOLKOV VID DENNA TIDPUNKT (September 2025)</h3>
+                <ul>
+                    <li><strong>Transformation:</strong> ~50% Yithian-kontrollerad, ~50% fortfarande Volkov</li>
+                    <li><strong>Tillstånd:</strong> Kämpar AKTIVT mot kontrollen - minnesluckor, mardrömmar</li>
+                    <li><strong>Beteende:</strong> Metodisk men instabil - kan inte längre delegera</li>
+                    <li><strong>Kritiskt:</strong> Han skriver desperata anteckningar till sig själv</li>
+                    <li><strong>Paradox:</strong> Den mänskliga delen av honom kanske VILL att spelarna ska lyckas</li>
+                </ul>
+            </div>
+
+            <h3>Tidsram</h3>
+            <div class="timeline-box">
+                <div class="timeline-item action">
+                    <strong>DEL 1:</strong> Volkov vid skogslinjen → Biljakten (15-20 min)
+                </div>
+                <div class="timeline-item discovery">
+                    <strong>DEL 2:</strong> Hamilton House - undersökning (20-30 min)
+                </div>
+                <div class="timeline-item">
+                    <strong>DEL 3:</strong> Spåra hyrbilen via Sparky (15-20 min)
+                </div>
+                <div class="timeline-item action">
+                    <strong>DEL 4:</strong> Konfrontation med Grisha (20-30 min)
+                </div>
+                <div class="timeline-item danger">
+                    <strong>TOTAL:</strong> ~1.5-2 timmar (kan kortas/förlängas)
+                </div>
+            </div>
+        </div>
+
+        <!-- DEL 1: VOLKOV -->
+        <div class="section">
+            <h2>🎯 DEL 1: VOLKOV VID SKOGSLINJEN</h2>
+
+            <div class="npc-card antagonist">
+                <h4>Dmitri Volkov - Första Skymten</h4>
+                <p><strong>Ålder:</strong> ~45-50 år</p>
+                <p><strong>Utseende:</strong> Mörk jacka, sliten på ett sätt som inte handlar om kläder. Medelålders, men ögonen ser äldre ut. Håret har grånat vid tinningarna sedan Cherry Hill.</p>
+                <p style="margin-top: 0.75rem;"><strong>Kroppsspråk:</strong> Onaturligt stilla. Studerar mer än observerar. Som en forskare som betraktar ett experiment.</p>
+                <p style="margin-top: 0.75rem;"><strong>Detalj (om de ser noga):</strong> Hans läppar rör sig ibland - mumlar något ohörbart. Hummande?</p>
+            </div>
+
+            <h3>Scenen</h3>
+            <div class="read-aloud">
+                <p>Ni reser er från grävhålet. Smuts på knäna. Behållaren - eller fragmentet - i händerna.</p>
+                <p style="margin-top: 1rem;">Och vid skogslinjen: rörelse.</p>
+                <p style="margin-top: 1rem;">En figur. Mörk jacka. Står mellan träden, kanske femtio meter bort. Orörlig. <em>Tittar.</em></p>
+                <p style="margin-top: 1rem;">Det är inte en vanlig blick. Inte nyfikenhet. Inte ens övervakning. Det är något annat - som om han studerar er. Som om ni är intressanta på samma sätt som en insekt under ett förstoringsglas.</p>
+                <p style="margin-top: 1rem;">Sedan skiftar något i hans hållning. Han rycker till, nästan som om han vaknar ur en dvala. Skakar på huvudet. Vänder.</p>
+                <p style="margin-top: 1rem;">Börjar gå snabbt mot det tomma huset i fjärran - Hamiltons.</p>
+            </div>
+
+            <h3>Om Spelarna Följer Efter</h3>
+            <div class="yellow-box">
+                <p><strong>Fotjakten genom skogen:</strong></p>
+                <ul>
+                    <li>Volkov rör sig målmedvetet men inte panikslaget</li>
+                    <li>Han är van vid att inte bli följd - men han springer inte</li>
+                    <li>Terrängen: Skogsmark, löv, nedfallna grenar, staket att klättra över</li>
+                </ul>
+
+                <div class="skill-check">
+                    <strong>Athletics eller DEX×5:</strong> Hålla jämna steg utan att tappa honom ur sikte
+                    <br><em>Misslyckat:</em> De tappar honom i 30 sekunder - hör bara fotsteg
+                </div>
+
+                <p style="margin-top: 1rem;"><strong>Halvvägs - ett konstigt ögonblick:</strong></p>
+            </div>
+
+            <div class="read-aloud">
+                <p>Han stannar. Mitt i steget. Vänder sig om.</p>
+                <p style="margin-top: 1rem;">I skymningen kan ni knappt se hans ansikte. Men ni ser att han öppnar munnen. Som för att säga något.</p>
+                <p style="margin-top: 1rem;">Sedan skakar han på huvudet - våldsamt, nästan spastiskt - och fortsätter. Snabbare nu.</p>
+                <p style="margin-top: 1rem;">Det såg ut som om han kämpade mot sig själv.</p>
+            </div>
+
+            <h3>Vid Hamilton House</h3>
+            <div class="info-box">
+                <p><strong>Vad de ser:</strong></p>
+                <ul>
+                    <li>Volkov försvinner in genom bakdörren</li>
+                    <li>Ljud inifrån - snabba steg, en dörr som slår</li>
+                    <li>Garage-dörren öppnas på andra sidan huset</li>
+                    <li><strong>Motor startar</strong></li>
+                </ul>
+
+                <p style="margin-top: 1rem;"><strong>Om de är snabba (lyckat Athletics + bra beslut):</strong></p>
+                <ul>
+                    <li>De hinner runt huset i tid att se bilen backa ut</li>
+                    <li>Mörk Chevy Malibu, hyrbilsdekal på bakrutan</li>
+                    <li><strong>Registreringsnummer:</strong> Virginia-plåtar, börjar på "KVX-"</li>
+                </ul>
+
+                <p style="margin-top: 1rem;"><strong>Om de är för långsamma:</strong></p>
+                <ul>
+                    <li>Bara däckspår och avgaslukt</li>
+                    <li>Men: de kan fortfarande undersöka huset</li>
+                </ul>
+            </div>
+
+            <h3>Biljakten (Om De Har Bil Nära)</h3>
+            <div class="orange-box">
+                <p><strong>Setup:</strong></p>
+                <p>Volkovs bil försvinner längs grusvägen mot Route 9. De har ~60 sekunder att hämta sin egen bil från Bishop-gården.</p>
+
+                <p style="margin-top: 1rem;"><strong>Bishop (om de springer förbi honom):</strong></p>
+                <p class="dialogue"><span class="speaker">BISHOP:</span> "Vad i helvete - vem var det?!"</p>
+
+                <p style="margin-top: 1rem;"><strong>Jakten på Route 9:</strong></p>
+                <ul>
+                    <li>Slingriga Virginia-vägar i skymning</li>
+                    <li>Volkov kör metodiskt - inte panikslaget, men bestämt</li>
+                    <li>Han verkar veta vart han ska</li>
+                </ul>
+
+                <div class="skill-check">
+                    <strong>Drive eller DEX×5:</strong> Hålla avstånd utan att tappa honom
+                    <br><em>Kritiskt:</em> De kommer tillräckligt nära för att se hans ansikte i backspegeln
+                    <br><em>Fumble:</em> Nästan kör av vägen, tappar honom helt
+                </div>
+
+                <p style="margin-top: 1rem;"><strong>Möjliga utgångar:</strong></p>
+                <table>
+                    <tr>
+                        <th>Resultat</th>
+                        <th>Vad händer</th>
+                    </tr>
+                    <tr>
+                        <td>Lyckas följa</td>
+                        <td>Volkov kör till en parkeringsplats, byter till annan bil (de ser honom göra det), försvinner</td>
+                    </tr>
+                    <tr>
+                        <td>Delvis lyckas</td>
+                        <td>Tappar honom vid I-81, men har registreringsnumret</td>
+                    </tr>
+                    <tr>
+                        <td>Misslyckas helt</td>
+                        <td>Tappar honom tidigt - men kan fortfarande undersöka Hamilton House</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="warning-box">
+                <h4 style="color: var(--accent-red);">⚠️ DE FÅNGAR INTE VOLKOV</h4>
+                <p>Oavsett hur bra de rullar - Volkov kommer undan. Han är för erfaren, och han hade en exit-plan.</p>
+                <p style="margin-top: 0.75rem;"><strong>MEN:</strong> De får tillräckligt med information för att spåra honom vidare.</p>
+                <p style="margin-top: 0.75rem;"><strong>Poängen:</strong> Visa att Volkov är kompetent. Han är inte en amatör. Men han är heller inte oövervinnlig - han gör misstag. Han lämnar spår.</p>
+            </div>
+        </div>
+
+        <!-- DEL 2: HAMILTON HOUSE -->
+        <div class="section">
+            <h2>🏠 DEL 2: HAMILTON HOUSE - UNDERSÖKNING</h2>
+
+            <h3>Husets Exteriör</h3>
+            <div class="read-aloud">
+                <p>Ett tvåvåningshus i kolonialstil - nybyggt, dyrt, designat för att se gammalt ut. Perfekt vit färg, svarta fönsterluckor, en "HAMILTON ESTATE"-skylt i smidesjärn vid infarten.</p>
+                <p style="margin-top: 1rem;">Poolen på baksidan är täckt med presenning för säsongen. Garaget rymmer tre bilar, men står tomt nu.</p>
+                <p style="margin-top: 1rem;">Det här är ett hus som köptes för "livsstilen," inte för att bo i.</p>
+            </div>
+
+            <h3>Ta Sig In</h3>
+            <div class="info-box">
+                <p><strong>Alternativ:</strong></p>
+                <ul>
+                    <li><strong>Bakdörren:</strong> Olåst - Volkov lämnade den öppen i sin hast</li>
+                    <li><strong>Garaget:</strong> Öppet (han körde ut den vägen)</li>
+                    <li><strong>Fönster:</strong> Ett på baksidan är olåst</li>
+                </ul>
+                <p style="margin-top: 0.75rem;"><em>Ingen inbrottscheck behövs - Volkov lämnade huset öppet.</em></p>
+            </div>
+
+            <h3>Interiören</h3>
+            <div class="yellow-box">
+                <p><strong>Första intrycket:</strong></p>
+                <p>Möblerna är täckta med vita lakan. Damm överallt - ingen har bott här på månader. Luften är instängd, som ett museum efter stängning.</p>
+                <p style="margin-top: 1rem;"><strong>MEN:</strong> I köket och ett av sovrummen finns spår av nylig aktivitet.</p>
+            </div>
+
+            <h3>Köket</h3>
+            <div class="info-box">
+                <ul>
+                    <li>Tomma vattenflaskor (rysk text - "Святой Источник")</li>
+                    <li>Matförpackningar (färdigmat, protein bars)</li>
+                    <li>Smutsiga fotavtryck på det vita klinkergolvet</li>
+                    <li>En tom kaffekopp, fortfarande lite varm</li>
+                </ul>
+                <p style="margin-top: 0.75rem;"><strong>Slutsats:</strong> Någon har bott här i flera dagar.</p>
+            </div>
+
+            <h3>Sovrummet (Huvudfynd)</h3>
+            <div class="orange-box">
+                <h4 style="color: var(--accent-orange);">Övervakningsutrustning</h4>
+                <ul>
+                    <li><strong>Teleskop</strong> på stativ vid fönstret - riktat mot Bishop Farm</li>
+                    <li><strong>Kamera</strong> med teleobjektiv (Nikon D850, professionell)</li>
+                    <li><strong>Anteckningsblock</strong> med skisser av kraschplatsen, monumentet, mätningar</li>
+                    <li><strong>Foton</strong> - utskrivna, tejpade på väggen:
+                        <ul>
+                            <li>Bishop Farm från avstånd</li>
+                            <li>Monumentet</li>
+                            <li><strong>SPELARNA</strong> - tagna under deras besök idag</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h4 style="color: var(--accent-red);">Foton av Spelarna</h4>
+                <p>Teleobjektiv-bilder, tagna från detta fönster:</p>
+                <ul>
+                    <li>Mac vid bilen, kollar telefonen</li>
+                    <li>Sullivan och Bishop i samtal på verandan</li>
+                    <li>Sparky vid grävhålet, böjd över behållaren</li>
+                    <li>Gruppen samlad vid monumentet</li>
+                </ul>
+                <p style="margin-top: 0.75rem;"><strong>Känsla:</strong> Han har övervakat dem hela dagen. Metodiskt. Professionellt.</p>
+            </div>
+
+            <h3>Nattduksbordet (Kritiskt Fynd)</h3>
+            <div class="info-box">
+                <ul>
+                    <li><strong>Tom medicinburk</strong> - rysk etikett, receptbelagt (Clozapine - antipsykotika)</li>
+                    <li><strong>Burner phone</strong> - billig Nokia, ligger under kudden</li>
+                    <li><strong>Anteckningsbok</strong> - liten, svart, sliten</li>
+                </ul>
+            </div>
+
+            <div class="handout-link">
+                <span style="font-size: 1.5rem;">📓</span>
+                <div>
+                    <a href="volkov_notebook_handout.html">HANDOUT: Volkovs Anteckningsbok</a>
+                    <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.25rem;">Skriv ut och ge till spelarna</p>
+                </div>
+            </div>
+
+            <div class="san-check">
+                <h3 style="color: var(--accent-red); margin-bottom: 0.75rem;">⚠️ SAN-CHECK: 0/1</h3>
+                <p><strong>Trigger:</strong> Läsa "DÖDA MIG INNAN DET ÄR FÖR SENT"</p>
+                <p style="margin-top: 0.75rem;">Inte för att det är övernaturligt - utan för insikten om vad de har med att göra. Volkov är inte bara en fiende. Han är ett offer som vet vad som händer med honom.</p>
+            </div>
+
+            <h3>Burner Phone</h3>
+            <div class="yellow-box">
+                <p><strong>Kontakter (3 nummer):</strong></p>
+                <table>
+                    <tr>
+                        <th>Namn i telefon</th>
+                        <th>Nummer</th>
+                        <th>Vad det är (SL-info)</th>
+                    </tr>
+                    <tr>
+                        <td>"K"</td>
+                        <td>+1 202-XXX-XXXX</td>
+                        <td>Washington DC - ryska ambassaden (säker linje)</td>
+                    </tr>
+                    <tr>
+                        <td>"B"</td>
+                        <td>+49 30-XXX-XXXX</td>
+                        <td>Berlin - Slavic Association</td>
+                    </tr>
+                    <tr>
+                        <td>"G"</td>
+                        <td>+1 703-XXX-XXXX</td>
+                        <td>Sterling, VA - Grishas verkstad</td>
+                    </tr>
+                </table>
+
+                <p style="margin-top: 1rem;"><strong>Samtalslogg:</strong></p>
+                <ul>
+                    <li>"G" - 5 samtal senaste veckan (korta, 1-2 min)</li>
+                    <li>"B" - 2 samtal, längre (15-20 min)</li>
+                    <li>"K" - 1 samtal för 3 dagar sedan (8 min)</li>
+                </ul>
+
+                <p style="margin-top: 1rem;"><strong>SMS (till "G"):</strong></p>
+                <p class="dialogue" style="font-family: monospace; font-size: 0.9rem;">
+                    "Mat imorgon. Samma plats. Kontant."<br>
+                    "Behöver ny bil fredag. Malibu tillbaka."
+                </p>
+            </div>
+
+            <h3>Under Madrassen</h3>
+            <div class="warning-box">
+                <ul>
+                    <li><strong>Glock 19</strong> - laddad, 15 patroner</li>
+                    <li><strong>Kniv</strong> - rysk militärmodell, "Спецназ" graverat på bladet</li>
+                    <li><strong>$2,000 kontant</strong> - i en plastkasse</li>
+                    <li><strong>Pass</strong> - ryskt, namnet "Viktor Andrejevitj Petrov" (falskt)</li>
+                </ul>
+                <p style="margin-top: 0.75rem;"><em>Volkov lämnade detta - antingen i sin hast, eller medvetet?</em></p>
+            </div>
+        </div>
+
+        <!-- DEL 3: SPÅRA HYRBILEN -->
+        <div class="section">
+            <h2>🚗 DEL 3: SPÅRA HYRBILEN</h2>
+
+            <h3>Vad De Har</h3>
+            <div class="info-box">
+                <ul>
+                    <li><strong>Registreringsnummer:</strong> Virginia KVX-4821 (om de såg det)</li>
+                    <li><strong>Biltyp:</strong> Chevrolet Malibu, mörkgrå, 2024-modell</li>
+                    <li><strong>Hyrbilsdekal:</strong> Enterprise Rent-A-Car</li>
+                </ul>
+            </div>
+
+            <h3>Sparkys Research</h3>
+            <div class="yellow-box">
+                <p><strong>NSA-resurser (eller kreativ hacking):</strong></p>
+
+                <div class="skill-check">
+                    <strong>SIGINT eller Computer Science 60%+:</strong> Spåra hyrbilskontraktet
+                    <br><em>Lyckat:</em> Full information nedan
+                    <br><em>Misslyckat:</em> Tar längre tid, men de får det ändå (detta är inte ett "fail state")
+                </div>
+
+                <p style="margin-top: 1rem;"><strong>Enterprise Rent-A-Car, Dulles Airport:</strong></p>
+                <ul>
+                    <li><strong>Hyrd av:</strong> "Viktor Petrov" (samma namn som passet)</li>
+                    <li><strong>ID:</strong> Ryskt pass (falskt, men Enterprise kollade inte noga)</li>
+                    <li><strong>Betalning:</strong> Kontant - men deposition på kreditkort</li>
+                    <li><strong>Kreditkort:</strong> Prepaid Visa, köpt på CVS i Sterling</li>
+                </ul>
+
+                <p style="margin-top: 1rem;"><strong>Säkerhetskamera vid Enterprise (om de begär):</strong></p>
+                <p style="font-style: italic;">"Viktor Petrov" hämtade inte bilen själv. En annan man gjorde det - yngre, kraftigare byggd, pratade med personalen på bruten engelska.</p>
+
+                <p style="margin-top: 1rem;"><strong>Slutsats:</strong> Volkov använder en mellanhand för praktiska saker.</p>
+            </div>
+
+            <h3>Spåra "G" - Det Lokala Numret</h3>
+            <div class="info-box">
+                <p><strong>Reverse lookup på +1 703-XXX-XXXX:</strong></p>
+                <ul>
+                    <li><strong>Registrerat på:</strong> "Morozov Auto Repair"</li>
+                    <li><strong>Adress:</strong> 1247 Commerce Street, Sterling, VA 20166</li>
+                    <li><strong>Ägare:</strong> Grigori Morozov, 42 år</li>
+                </ul>
+
+                <p style="margin-top: 1rem;"><strong>Google/bakgrundscheck:</strong></p>
+                <ul>
+                    <li>Rysk immigrant, kom till USA 1998</li>
+                    <li>Inga grova brott, men: två arresteringar för häleri (dropped charges)</li>
+                    <li>Känd i rysk-ukrainska communityn i Sterling</li>
+                    <li>Verkstaden har rykte om att "inte ställa frågor"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- DEL 4: GRISHA -->
+        <div class="section">
+            <h2>🔧 DEL 4: KONFRONTATION MED GRISHA</h2>
+
+            <div class="npc-card neutral">
+                <h4>Grigori "Grisha" Morozov - Fixare, 42 år</h4>
+                <p><strong>Utseende:</strong> Kraftig, kort, händer permanent smutsiga av motorolja. Kal hjässa, tjock mustasch. Bär alltid samma slitna overall med "MOROZOV AUTO" broderat på bröstet.</p>
+                <p style="margin-top: 0.75rem;"><strong>Personlighet:</strong> Pragmatisk, lojal mot sina kunder, inte dum. Har sett tillräckligt för att veta när han ska hålla käften - men också när det är dags att prata.</p>
+                <p style="margin-top: 0.75rem;"><strong>Språk:</strong> Talar engelska med tjock accent. Svär på ryska när han är stressad.</p>
+                <p style="margin-top: 1rem;"><strong>Motivationer:</strong></p>
+                <ul>
+                    <li>Pengar (han gör tjänster för betalning)</li>
+                    <li>Community (hjälper "landsmän")</li>
+                    <li>Överlevnad (vill inte ha problem med myndigheter)</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Vad han VET:</strong></p>
+                <ul>
+                    <li>"Dmitri" kontaktade honom via gammal bekant</li>
+                    <li>Betalade $5,000 kontant för: hyrbil, matleveranser, "hålla utkik"</li>
+                    <li>Dmitri verkade "sjuk" - pratade med sig själv, konstiga sömnvanor</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Vad han INTE vet:</strong></p>
+                <ul>
+                    <li>Vad Volkov letar efter</li>
+                    <li>Något om kristaller eller Trip 19</li>
+                    <li>Volkovs verkliga bakgrund (SVR, transformation)</li>
+                </ul>
+            </div>
+
+            <div class="handout-link">
+                <span style="font-size: 1.5rem;">💳</span>
+                <div>
+                    <a href="grisha_business_card_handout.html">HANDOUT: Grishas Visitkort</a>
+                    <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.25rem;">Hittas i Volkovs saker eller ges av Grisha</p>
+                </div>
+            </div>
+
+            <h3>Setting: Morozov Auto Repair</h3>
+            <div class="read-aloud">
+                <p>Verkstaden ligger i ett industriområde i Sterling - omgiven av lagerbyggnader och grossistfirmor. Skylten är handmålad, bokstäverna bleknade av solen.</p>
+                <p style="margin-top: 1rem;">Inuti: lukten av motorolja och cigarettrök. Tre bilar på lyft, verktyg överallt. En radio spelar rysk folkmusik, dämpad.</p>
+                <p style="margin-top: 1rem;">Grisha står böjd över en motor när ni kommer in. Han tittar upp, torkar händerna på en trasa, bedömer er med erfarna ögon.</p>
+            </div>
+
+            <h3>Approach-alternativ</h3>
+
+            <h4>A) FBI-badge (Mac)</h4>
+            <div class="yellow-box">
+                <p class="dialogue"><span class="speaker">MAC:</span> "Federala agenter. Vi har frågor om en av dina kunder."</p>
+                <p style="margin-top: 0.75rem;">Grisha suckar. Lägger ner skiftnyckeln. Tänder en cigarett.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Vilken den här gången?"</p>
+                <p style="margin-top: 0.75rem;">Han är inte rädd. Han har gjort det här förut.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Jag fixar bilar. Ibland för folk som inte vill ha kvitto. Det är inte olagligt."</p>
+
+                <div class="skill-check" style="margin-top: 1rem;">
+                    <strong>Persuade eller HUMINT:</strong> Få honom att prata frivilligt
+                    <br><em>Lyckat:</em> Han ger grundläggande information
+                    <br><em>Kritiskt:</em> Han berättar allt han vet
+                </div>
+            </div>
+
+            <h4>B) Pengar</h4>
+            <div class="yellow-box">
+                <p>$500 i kontanter på disken.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">SPELARE:</span> "Vi vill inte skapa problem. Vi vill bara veta var han är."</p>
+                <p style="margin-top: 0.75rem;">Grisha tittar på pengarna. Tittar på dem. Tittar på pengarna igen.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Vem frågar egentligen?"</p>
+                <p style="margin-top: 0.75rem;">Om de är ärliga (eller åtminstone trovärdiga): Han tar pengarna.</p>
+            </div>
+
+            <h4>C) Visa Anteckningsboken</h4>
+            <div class="warning-box">
+                <p>De visar honom sidan med "DÖDA MIG INNAN DET ÄR FÖR SENT".</p>
+                <p style="margin-top: 0.75rem;">Grisha läser. Hans ansikte bleknar.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Blyad..."</p>
+                <p style="margin-top: 0.75rem;">Han sätter sig ner. Cigaretten darrar i handen.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Vad fan har han dragit in mig i?"</p>
+                <p style="margin-top: 0.75rem;"><strong>Effekt:</strong> Automatiskt lyckat - han pratar.</p>
+            </div>
+
+            <h3>Vad Grisha Berättar</h3>
+            <div class="info-box">
+                <h4 style="color: var(--accent-blue);">Grundläggande (lätt att få)</h4>
+                <p class="dialogue"><span class="speaker">GRISHA:</span> "Han kallar sig Dmitri. Kom för två veckor sen. Sa att han behövde hjälp - diskret hjälp. Jag frågade inte varför."</p>
+                <p style="margin-top: 0.75rem;">Han tänder en ny cigarett från den gamla.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Betalade bra. Femtusen, kontant. Jag hämtade hyrbil, körde mat till honom, höll utkik. Normal grej."</p>
+
+                <h4 style="color: var(--accent-blue); margin-top: 1.5rem;">Om de pressar (kräver övertygelse)</h4>
+                <p class="dialogue"><span class="speaker">GRISHA:</span> "Han var... inte okej. Vet du vad jag menar?"</p>
+                <p style="margin-top: 0.75rem;">Han gör en gest mot sitt eget huvud.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Pratade med sig själv. Sov inte - jag kom dit klockan tre på morgonen en gång, han satt och stirrade ut genom fönstret. Hade gjort det hela natten, sa han."</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Och ibland... han nynnade. Samma ton, om och om igen. Jag sa åt honom att sluta, han verkade inte ens märka att han gjorde det."</p>
+
+                <h4 style="color: var(--accent-blue); margin-top: 1.5rem;">Om de vinner hans förtroende helt (anteckningsboken eller liknande)</h4>
+                <p class="dialogue"><span class="speaker">GRISHA:</span> "Han bad mig köpa en sak. Specifik. Sa att det var viktigt."</p>
+                <p style="margin-top: 0.75rem;">Han går till ett skåp, tar fram en kartong.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Metallbox. Blyfodrad. Specialbeställd från en firma i Baltimore. Kostade åttahundra dollar."</p>
+                <p style="margin-top: 0.75rem;">Han tittar på dem.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Sa att den var för 'känsligt material.' Frågade inte vad. Nu undrar jag."</p>
+            </div>
+
+            <h3>Vad De Får Från Grisha</h3>
+            <div class="yellow-box">
+                <table>
+                    <tr>
+                        <th>Information</th>
+                        <th>Vad det betyder</th>
+                    </tr>
+                    <tr>
+                        <td>Kontaktnummer till Volkov (annan burner)</td>
+                        <td>Kan spåras - men Volkov byter telefoner ofta</td>
+                    </tr>
+                    <tr>
+                        <td>Blyfodrad box beställd</td>
+                        <td>Han planerar att förvara fragment säkert</td>
+                    </tr>
+                    <tr>
+                        <td>"Sov inte, pratade med sig själv"</td>
+                        <td>Bekräftar transformation/mental instabilitet</td>
+                    </tr>
+                    <tr>
+                        <td>"Nynnade samma ton hela tiden"</td>
+                        <td>247 Hz - Yithian-resonans</td>
+                    </tr>
+                    <tr>
+                        <td>Annan adress där Grisha levererade</td>
+                        <td>Möjligt andra safehouse? (SL: kan användas senare)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>Grishas Sista Ord</h3>
+            <div class="read-aloud">
+                <p>Han följer er till dörren. Stannar på tröskeln.</p>
+                <p class="dialogue" style="margin-top: 1rem;"><span class="speaker">GRISHA:</span> "Den där mannen... Dmitri... han verkade rädd. Inte för er, inte för polisen. För sig själv."</p>
+                <p style="margin-top: 1rem;">Han skakar på huvudet.</p>
+                <p class="dialogue" style="margin-top: 1rem;"><span class="speaker">GRISHA:</span> "Jag har sett många män i mitt liv. Desperata män. Farliga män. Men aldrig någon som var rädd för vad han själv skulle göra."</p>
+                <p style="margin-top: 1rem;">Han går tillbaka in. Dörren stängs.</p>
+            </div>
+        </div>
+
+        <!-- SAMMANFATTNING -->
+        <div class="section">
+            <h2>📋 SAMMANFATTNING - VAD SPELARNA LÄR SIG</h2>
+
+            <div class="info-box">
+                <h3 style="color: var(--accent-blue); margin-bottom: 0.75rem;">Bekräftat</h3>
+                <ul>
+                    <li>Volkov är <strong>verklig</strong> - de har sett honom</li>
+                    <li>Han har <strong>övervakat dem</strong> metodiskt</li>
+                    <li>Han är <strong>kompetent</strong> - erfaren, förberedd, undkommer</li>
+                    <li>Han är <strong>instabil</strong> - pratar med sig själv, sover inte, hummar</li>
+                    <li>Han <strong>kämpar mot något</strong> - "döda mig innan det är för sent"</li>
+                    <li>Han <strong>samlar fragment</strong> - beställde blyfodrad förvaringsbox</li>
+                </ul>
+            </div>
+
+            <div class="yellow-box">
+                <h3 style="color: var(--accent-yellow); margin-bottom: 0.75rem;">Fysiska Bevis</h3>
+                <ul>
+                    <li>Volkovs anteckningsbok (handout)</li>
+                    <li>Foton av spelarna (övervakningsbilder)</li>
+                    <li>Burner phone med kontakter (DC, Berlin, Sterling)</li>
+                    <li>Medicin (Clozapine - antipsykotika)</li>
+                    <li>Vapen och kontanter (visar desperation)</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h3 style="color: var(--accent-red); margin-bottom: 0.75rem;">Nya Frågor</h3>
+                <ul>
+                    <li>Vad menar han med "döda mig"? Vad händer med honom?</li>
+                    <li>Vem är "B" i Berlin? (Slavic Association)</li>
+                    <li>Vad ska den blyfodrade boxen användas till?</li>
+                    <li>Var är Volkov nu?</li>
+                    <li>Och vad har Magda att göra med allt detta?</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h3 style="color: var(--accent-blue); margin-bottom: 0.75rem;">Koppling till Nästa Steg</h3>
+                <p><strong>Anteckningsboken nämner:</strong> "Magda? Frankfurt. Hon verkar förstå."</p>
+                <p style="margin-top: 0.75rem;">Detta skapar naturlig övergång till:</p>
+                <ul>
+                    <li>Kontakta Magda (som snart försvinner)</li>
+                    <li>Researcha Frankfurt Clinic</li>
+                    <li>Eventuellt resa till Tyskland</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SL-NOTERINGAR -->
+        <div class="section">
+            <h2>📝 SL-NOTERINGAR</h2>
+
+            <h3>Ton och Pacing</h3>
+            <div class="info-box">
+                <p><strong>Filmreferenser:</strong></p>
+                <ul>
+                    <li><strong>Tinker Tailor Soldier Spy</strong> - långsam tension, professionell övervakning</li>
+                    <li><strong>Sicario</strong> - kort, brutal action när det väl händer</li>
+                    <li><strong>The Americans</strong> - spionage i förortsmiljö, vardagliga platser</li>
+                </ul>
+
+                <p style="margin-top: 1rem;"><strong>Volkov är INTE:</strong></p>
+                <ul>
+                    <li>En Bond-skurk som skryter</li>
+                    <li>En actionhjälte att besegra</li>
+                    <li>Ondskefull för ondskas skull</li>
+                </ul>
+
+                <p style="margin-top: 1rem;"><strong>Volkov ÄR:</strong></p>
+                <ul>
+                    <li>En man som hade rätt om allt - och det förstörde honom</li>
+                    <li>Tragisk antagonist som kämpar mot sin egen transformation</li>
+                    <li>Farlig DÄRFÖR ATT han är desperat, inte därför att han är ond</li>
+                </ul>
+            </div>
+
+            <h3>Flexibilitet</h3>
+            <div class="yellow-box">
+                <p><strong>Om spelarna inte följer Volkov:</strong></p>
+                <p>De kan fortfarande hitta Hamilton House senare (Bishop berättar om det). Sekvensen fungerar även utan biljakten.</p>
+
+                <p style="margin-top: 1rem;"><strong>Om spelarna vill fånga Volkov:</strong></p>
+                <p>Han kommer undan - men gör det trovärdigt. Han hade en plan, en extra bil, en escape route. Belöna deras försök med mer information (de ser honom byta bil, etc.).</p>
+
+                <p style="margin-top: 1rem;"><strong>Om spelarna dödar/skadar Grisha:</strong></p>
+                <p>Detta är ett val med konsekvenser. Grisha är oskyldig - en småkriminell, inte en fiende. SAN-förlust om de går för långt (0/1d4 för oprovocerat våld mot civil).</p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-bar" style="margin-top: 3rem;">
+            <a href="session4.html">← Session 4</a>
+            <div>Hamilton-jakten</div>
+            <a href="sessions.html">Till Sessions →</a>
+        </div>
+    </div>
+</body>
+</html>
