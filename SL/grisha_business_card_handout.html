@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grishas Visitkort | Handout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .business-card {
+            width: 350px;
+            height: 200px;
+            background: linear-gradient(145deg, #f5f5f5 0%, #e8e8e8 100%);
+            border-radius: 8px;
+            box-shadow:
+                0 4px 8px rgba(0,0,0,0.3),
+                0 10px 30px rgba(0,0,0,0.2),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Front of card */
+        .card-front {
+            padding: 1.25rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-front::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #c41e3a 0%, #8b0000 100%);
+        }
+
+        .card-header {
+            margin-top: 0.5rem;
+        }
+
+        .company-name {
+            font-family: 'Arial Black', Helvetica, sans-serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #1a1a1a;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .company-name .auto {
+            color: #c41e3a;
+        }
+
+        .tagline {
+            font-size: 0.7rem;
+            color: #666;
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+
+        .card-body {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .contact-info {
+            font-size: 0.75rem;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .contact-info .name {
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-info .title {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info .detail {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .contact-info .icon {
+            width: 12px;
+            text-align: center;
+            color: #c41e3a;
+        }
+
+        .logo-area {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wrench-icon {
+            font-size: 2rem;
+            color: #c41e3a;
+        }
+
+        /* Wear and tear effects */
+        .card-front::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.03) 50%);
+        }
+
+        .oil-stain {
+            position: absolute;
+            width: 25px;
+            height: 15px;
+            background: rgba(50, 40, 30, 0.15);
+            border-radius: 50%;
+            top: 2.5rem;
+            right: 1rem;
+            transform: rotate(-15deg);
+            filter: blur(1px);
+        }
+
+        .fingerprint {
+            position: absolute;
+            width: 20px;
+            height: 25px;
+            background: radial-gradient(ellipse at center, rgba(100, 80, 60, 0.08) 0%, transparent 70%);
+            bottom: 1rem;
+            left: 2rem;
+            border-radius: 40% 40% 45% 45%;
+        }
+
+        /* Back of card */
+        .card-back {
+            padding: 1.25rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(145deg, #f0f0f0 0%, #e0e0e0 100%);
+        }
+
+        .card-back .services {
+            font-size: 0.7rem;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .card-back .services-title {
+            font-weight: bold;
+            font-size: 0.8rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-back .hours {
+            font-size: 0.65rem;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .card-back .russian {
+            font-size: 0.6rem;
+            color: #888;
+            margin-top: 0.75rem;
+            font-style: italic;
+        }
+
+        .handwritten {
+            position: absolute;
+            bottom: 0.75rem;
+            right: 1rem;
+            font-family: 'Brush Script MT', cursive;
+            font-size: 0.9rem;
+            color: #1a4d8f;
+            transform: rotate(-5deg);
+        }
+
+        .label {
+            color: #6b7280;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .print-instructions {
+            background: #0a0f0f;
+            color: #6b7280;
+            padding: 1rem;
+            margin-top: 2rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            max-width: 350px;
+            width: 100%;
+        }
+
+        .print-instructions h3 {
+            color: #4a90a4;
+            margin-bottom: 0.5rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 1rem;
+            }
+            .print-instructions {
+                display: none;
+            }
+            .label {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <!-- Front -->
+        <div>
+            <div class="label">FRAMSIDA</div>
+            <div class="business-card">
+                <div class="oil-stain"></div>
+                <div class="fingerprint"></div>
+                <div class="card-front">
+                    <div class="card-header">
+                        <div class="company-name">MOROZOV <span class="auto">AUTO</span></div>
+                        <div class="tagline">Foreign & Domestic Repair Since 1998</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="contact-info">
+                            <div class="name">Grigori Morozov</div>
+                            <div class="title">Owner / Mechanic</div>
+                            <div class="detail"><span class="icon">📍</span> 1247 Commerce St, Sterling VA 20166</div>
+                            <div class="detail"><span class="icon">📞</span> (703) 555-0147</div>
+                            <div class="detail"><span class="icon">📱</span> (703) 555-0893</div>
+                        </div>
+                        <div class="logo-area">
+                            <div class="wrench-icon">🔧</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back -->
+        <div>
+            <div class="label">BAKSIDA</div>
+            <div class="business-card">
+                <div class="card-back">
+                    <div class="services-title">Services</div>
+                    <div class="services">
+                        Engine Repair & Diagnostics<br>
+                        Transmission Service<br>
+                        Brake & Suspension<br>
+                        European Specialists<br>
+                        <strong>Cash Discount Available</strong>
+                    </div>
+                    <div class="hours">
+                        Mon-Fri: 7AM - 6PM | Sat: 8AM - 2PM<br>
+                        After Hours by Appointment
+                    </div>
+                    <div class="russian">Говорим по-русски</div>
+                    <div class="handwritten">Ask for Grisha</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="print-instructions">
+        <h3>SL-INSTRUKTIONER</h3>
+        <p><strong>Utskrift:</strong> Skriv ut och klipp ut. Kan lamineras för bättre känsla.</p>
+        <p style="margin-top: 0.5rem;"><strong>Presentation:</strong> Spelarna kan hitta detta i Volkovs saker på Hamilton House, eller få det från Grisha själv.</p>
+        <p style="margin-top: 0.5rem;"><strong>Detaljer:</strong></p>
+        <ul style="margin-left: 1rem; margin-top: 0.25rem;">
+            <li>Oljefläck och fingeravtryck - autentiska verkstadsdetaljer</li>
+            <li>"Cash Discount" - antyder att Grisha föredrar kontanter</li>
+            <li>"Говорим по-русски" = "Vi talar ryska"</li>
+            <li>"After Hours by Appointment" - han gör jobb utanför normal tid</li>
+        </ul>
+        <p style="margin-top: 0.75rem;"><strong>Telefonnummer:</strong> (703) 555-0147 är verkstaden, (703) 555-0893 är hans mobil (burner-kontakten).</p>
+    </div>
+</body>
+</html>
