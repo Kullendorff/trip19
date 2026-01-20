@@ -401,6 +401,15 @@ grep -i "Scalpel.*\bhan\b\|Scalpel.*\bhonom\b\|Scalpel.*\bhans\b" [fil]
   - Volkovs fixare: $5,000 kontant för hyrbil + tjänster
   - Telefon: (703) 555-0147 (verkstad), (703) 555-0893 (Grishas mobil)
 
+#### Hiddencroft Vineyards
+- **Filer**:
+  - `SL/session4.html` (rad 1167, visuell referens)
+  - `SL/Lovettsville_Visuell_Inspiration.md`
+- **Nyckeldata**:
+  - Verklig vingård i Lovettsville-området
+  - Används som visuell referens för spelarna (Google Maps)
+  - Typiskt för Loudoun County wine country-estetik
+
 ### Europa
 
 #### Frankfurt Clinic
@@ -576,6 +585,86 @@ Dessa element är plausibla tillägg i dokumenterade historiska gap:
 - **Kampanjkoppling**: Walter Bishop = John Bishops far-farfar (släktträd etablerat)
 - **Relaterade filer**: `SL/session3.html`, `SL/session4.html`, `master/timeline.md`
 
+### Type-VII Behållare
+- **Fil**: `SL/session4.html` (Del 6, rad 760+)
+- **Hittas**: Bishop Farm kraschplats, 1.8-2.1m djup (Session 4, om spelarna gräver)
+- **Fysisk beskrivning**:
+  - Rektangulär, ca 40 x 25 x 15 cm
+  - Militärgrön färg under rosten
+  - Försluten mekanism **sprängd inifrån** (locket böjt utåt)
+  - Fodrad med bly + sprucket kvarts/glas
+- **Märkningar (tyska):**
+  ```
+  REICHSLUFTFAHRTMINISTERIUM
+  Type-VII Experimentalausrüstung
+  ⚠ ACHTUNG: Elektromagnetische Gefahr
+  Nicht öffnen ohne Genehmigung
+  Berlin, 1939
+  ```
+- **Innehåll**: Nästan tom (något brände sig ut), fragment av kristallint material i ett hörn
+- **Betydelse**: Nazi-teknologi från 1939, koppling till kristaller
+- **SAN-check**: Nej för behållaren själv (bara för fragmentet inuti)
+- **Relaterade filer**: `SL/session4.html`, `wiki/_mythos/black-madonna.md`
+
+### Kristallfragment (från Type-VII)
+- **Fil**: `SL/session4.html` (Del 7: Unnatural Exponering, rad 813+)
+- **Hittas**: Inuti Type-VII behållaren, Bishop Farm (Session 4)
+- **Fysisk beskrivning**:
+  - Matt svart, kristallint
+  - Storlek: Ca tumme stort (fragment)
+  - Temperatur: Kallt - kallare än det borde vara efter 85 år
+  - Yta: Slät, nästan flytande under fingrarna
+  - Känns varmare efter kontakt (som om det "vaknat")
+- **Supernatural effekter vid kontakt**:
+  - **SAN-check: 0/1d4**
+  - Vision: Ser sig själv uppifrån (någon annans perspektiv)
+  - Hummande ljud (så lågt man känner det mer än hör)
+  - Svarta pelare, rum utan väggar, eoner av tid
+  - Figurer i periferin (omöjliga att fokusera på)
+- **Eftereffekter (hemligt)**:
+  - Korta "glimtar" kommande dagar
+  - Drömmar om svarta pelare + hummande
+  - Obehag vid starka elektromagnetiska fält
+  - Kompasser spinner när de håller dem
+- **Koppling**: Samma typ som Volkovs låda från Cherry Hill Mall (december 2024)
+- **Relaterade filer**: `SL/session4.html`, `wiki/_mythos/black-madonna.md`
+
+### GPR-rapport (Ground-Penetrating Radar)
+- **Fil**: `SL/session4.html` (rad 700-720)
+- **Typ**: Teknisk rapport, visar behållarens position
+- **Innehåll**:
+  - Grid reference: 39°15'42"N, 77°38'19"W
+  - Djup: 1.8-2.1 meter
+  - Anomali: Metallic, ferrous, rektangulär (40x25x15cm)
+  - **Ovanligt**: Elektromagnetisk interferens under scan
+  - Equipment malfunction: Kompass drift, signal loss
+  - Researcher note: "Strange readings. Never seen interference pattern like this."
+- **Betydelse**: Leder spelarna till behållaren, visar Volkovs research
+- **Relaterade filer**: `SL/session4.html`
+
+### Belomorkanal Cigarettfimp
+- **Fil**: `SL/session4.html` (rad 869)
+- **Hittas**: Skogslinjen vid Bishop Farm, efter Volkov-övervakning (Session 4)
+- **Typ**: Rysk cigarettmärkning (Belomorkanal)
+- **Betydelse**: Bevisar att Volkov (eller hans agent) övervakade Bishop Farm september 2025
+- **Fysiska spår med fimpen**:
+  - Färska fotavtryck i lövtäcket
+  - Brutna grenar (snabb förflyttning)
+  - Däckspår 500m bort (skogsväg)
+- **Relaterade filer**: `SL/session4.html`, `SL/hamilton_chase_sequence.html`
+
+### Blått Ljus-vittnesberättelse (1940)
+- **Fil**: `SL/session4.html` (rad 930-933)
+- **Källa**: Bishops farfar (död 1978), bevittnade Flight 19-kraschen
+- **Innehåll**:
+  - Natten 31 augusti 1940, innan FBI kom
+  - Såg blått ljus i fältet (INTE från brinnande planet - det var orange)
+  - Ljuset "rörde sig, sökte"
+  - Farfadern gick aldrig ut på den delen av marken efter det
+- **Betydelse**: Vittnesbevis om övernaturlig aktivitet vid kraschplatsen 1940
+- **Koppling**: Kristallfragmentets effekter, Blue light = Unnatural
+- **Relaterade filer**: `SL/session4.html`
+
 ---
 
 ## UPPDATERINGSPROTOKOLL
@@ -700,6 +789,42 @@ grep -i "31 augusti 1940\|august 31.*1940" [fil]
 
 **Projekt Status**:
 - `CURRENT_STATE.md` - Senaste utveckling, blockers, nästa steg
+
+---
+
+---
+
+## SL-STÖD & ATMOSFÄR
+
+### Filmreferenser för Session 4 (Bishop Farm)
+
+**Huvudreferenser (kärnscener)**:
+- **YELLOWSTONE (TV-serie)** - För Bishop-dynamiken, "This is our land, five generations"
+- **SIGNS (2002)** - För bondgård + det okända, Mel Gibson i majsfältet
+- **ARRIVAL (2016)** - För fragmentets vision, flashbacks/flash-forwards
+- **FARGO (TV, Säsong 2)** - För tonen: vackert landskap, begravda hemligheter
+- **CLOSE ENCOUNTERS OF THE THIRD KIND (1977)** - För besatthet, blått ljus
+
+**Sekundära referenser**:
+- **ANNIHILATION (2016)** - The Shimmer, känslan av "fel" vid platsen
+- **UNDER THE SKIN (2013)** - För figuren vid skogslinjen
+- **NO COUNTRY FOR OLD MEN (2007)** - Minimal, tyst, spänd soundtrack
+
+**Filer**: `SL/session4.html` (rad 1027-1178, "SL-STÖD: VISUELLA REFERENSER & TIPS")
+
+### Musikreferenser för Session 4
+
+**För landsbygdsmiljön**:
+- **Yellowstone** soundtrack (Brian Tyler) - ankomst, Bishop Farm
+- **No Country for Old Men** soundtrack - minimal, tyst, spänd
+- **Hell or High Water** soundtrack (Nick Cave, Warren Ellis) - Texas/Virginia landsbygd
+
+**För det onaturliga**:
+- **Arrival** soundtrack (Jóhann Jóhannsson) - fragmentets vision
+- **Annihilation** soundtrack (Ben Salisbury, Geoff Barrow) - grävning, exponering
+- **Under the Skin** soundtrack (Mica Levi) - figuren vid skogslinjen
+
+**Filer**: `SL/session4.html` (rad 1121-1136)
 
 ---
 
