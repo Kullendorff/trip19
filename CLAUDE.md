@@ -66,7 +66,7 @@ Detta gäller ALLA spelarfacing sidor (karaktärssidor, handouts till spelare, e
 - Inline CSS (ingen externa stylesheets)
 - Responsive design (breakpoints: 1024px, 768px, 480px)
 - Character-specific theme colors (Mac: steel blue, Sullivan: copper, Sparky: neon green, Scalpel: gold, Trench: orange)
-- **Tekniska specs:** Se MALL_GUIDE.md
+- **Tekniska specs:** Se SL/MALL_GUIDE.md
 
 ### Midjourney Moodboards
 - **Trip 19 moodboard** används som standard för kampanjmaterial (handouts, NPCs, scener)
