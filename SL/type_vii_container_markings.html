@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type-VII Container Markings | Handout</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            font-family: 'Courier Prime', monospace;
+        }
+
+        .container {
+            background: #2a2520;
+            width: 100%;
+            max-width: 600px;
+            padding: 2rem;
+            border: 3px solid #4a4035;
+            box-shadow:
+                0 0 0 1px rgba(0,0,0,0.3),
+                0 8px 16px rgba(0,0,0,0.6),
+                0 20px 40px rgba(0,0,0,0.8);
+            position: relative;
+        }
+
+        /* Metal texture overlay */
+        .container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 1px,
+                    rgba(255,255,255,0.02) 1px,
+                    rgba(255,255,255,0.02) 2px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 1px,
+                    rgba(255,255,255,0.02) 1px,
+                    rgba(255,255,255,0.02) 2px
+                );
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(212, 165, 32, 0.5);
+        }
+
+        .header h1 {
+            font-size: 1.2rem;
+            color: #d4a520;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #8a9ba8;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        .markings-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid #555;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            font-family: 'Special Elite', monospace;
+            position: relative;
+        }
+
+        .markings-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(212, 165, 32, 0.2);
+            margin: 0.5rem;
+            pointer-events: none;
+        }
+
+        .german-text {
+            color: #e8e8e8;
+            text-align: center;
+            line-height: 2;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .ministry {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #d4a520;
+            margin-bottom: 1rem;
+        }
+
+        .type-designation {
+            font-size: 1.15rem;
+            margin: 0.75rem 0;
+            color: #a8c8e8;
+        }
+
+        .warning-line {
+            color: #ff6b6b;
+            font-weight: 700;
+            margin: 1rem 0;
+            text-shadow: 0 0 4px rgba(255, 107, 107, 0.3);
+        }
+
+        .location-date {
+            color: #8a9ba8;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .divider {
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .divider::after {
+            content: 'ÖVERSÄTTNING';
+            position: absolute;
+            top: -0.6rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2a2520;
+            padding: 0 1rem;
+            color: #d4a520;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .swedish-text {
+            color: #c8d8e8;
+            text-align: center;
+            line-height: 2;
+            font-size: 1rem;
+        }
+
+        .note {
+            background: rgba(212, 165, 32, 0.1);
+            border-left: 3px solid #d4a520;
+            padding: 1rem;
+            margin-top: 2rem;
+            color: #d4a520;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .note strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Type-VII Container</h1>
+            <div class="subtitle">Markings recovered from Bishop Farm excavation site</div>
+        </div>
+
+        <div class="markings-box">
+            <div class="german-text">
+                <div class="ministry">REICHSLUFTFAHRTMINISTERIUM</div>
+
+                <div class="type-designation">Type-VII Experimentalausrüstung</div>
+
+                <div class="warning-line">
+                    ⚠ ACHTUNG: Elektromagnetische Gefahr
+                </div>
+
+                <div>Nicht öffnen ohne Genehmigung</div>
+
+                <div class="location-date">Berlin, 1939</div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="markings-box">
+            <div class="swedish-text">
+                <div class="ministry">RIKSLUFTFARTSMINISTERIET</div>
+
+                <div class="type-designation">Typ-VII Experimentutrustning</div>
+
+                <div class="warning-line">
+                    ⚠ VARNING: Elektromagnetisk fara
+                </div>
+
+                <div>Öppna ej utan tillstånd</div>
+
+                <div class="location-date">Berlin, 1939</div>
+            </div>
+        </div>
+
+        <div class="note">
+            <strong>FIELD NOTE:</strong>
+            Container recovered at depth of 1.8-2.1 meters. Locking mechanism appears to have been breached from the interior. Military-grade construction consistent with 1930s German manufacturing standards. Electromagnetic interference detected in immediate vicinity.
+        </div>
+    </div>
+</body>
+</html>

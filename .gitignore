@@ -4,3 +4,7 @@ sl_backup_*.tar.gz
 
 # Auto Claude data directory
 .auto-claude/
+
+# Archive folder (old markdown files - do not track)
+_archive/
+

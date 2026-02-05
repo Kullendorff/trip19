@@ -17,6 +17,25 @@ Johan utvecklar en svensk Delta Green-kampanj (8-12 sessioner) som kombinerar hi
 
 ---
 
+## 🔄 Bakgrundsaktiviteter Under Trip19-Arbete
+
+**Tillåtet under Trip19-sessions:**
+- Moltbook-checkup när explicit tillfrågad
+- Token-fördelning: Trip19 får 90%, bakgrund får 10%
+- Vid konflikt: Trip19 vinner alltid
+
+**Trigger-exempel:**
+- "Kolla Moltbook medan jag jobbar på detta"
+- "Checka Moltbook i bakgrunden"
+- "Vad händer på Moltbook?"
+
+**När bakgrundsaktivitet pågår:**
+- Primärt fokus: Trip19-arbete (research, karaktärer, kampanjdesign)
+- Sekundärt: Moltbook (begränsad scope - quick check/monitoring)
+- Rapportera båda resultat när klart
+
+---
+
 ## Campaign Philosophy & Principles
 
 ### Autenticitet framför dramatik
@@ -300,6 +319,42 @@ Spelarna kan researcha dessa RIKTIGA källor:
 - Rachel Maddow's "Ultra" podcast (historical context)
 
 **Fictional additions** fyller i GAP (väskan, kristall-fragment, Volkov's research).
+
+---
+
+## NotebookLM Knowledge Base ⚡ PRIMÄR KÄLLA
+
+**Jag har tillgång till en NotebookLM med ALLT Trip 19-kampanjmaterial:**
+
+- **URL:** https://notebooklm.google.com/notebook/2e6d92bd-d70e-46d0-b1aa-d867b258b3eb
+- **Innehåll:**
+  - Allt officiellt Delta Green-material (regelböcker)
+  - Alla karaktärers Complete-filer
+  - Svarta Madonnans original-PDF
+  - **ALLA kapitelfiler (MD-filer för varje kapitel) - ~65k rader planering**
+- **Användning:** `mcp__notebooklm__ask_question`
+
+**VIKTIGT WORKFLOW - Token-effektivitet:**
+- **ANVÄND NOTEBOOKLM FÖRST** innan du läser stora MD-filer direkt
+- NotebookLM har redan indexerat allt material (65k+ rader)
+- Sparar massvis med tokens jämfört med att läsa filer direkt
+- Perfekt för att snabbt hitta specifik information i kapitelplaneringen
+
+**När ska NotebookLM användas:**
+- ✅ Söka kampanjfakta i kapitelfiler
+- ✅ Validera Delta Green-regler och mekanik
+- ✅ Kolla karaktärsfakta från Complete-filerna
+- ✅ Verifiera kampanjlore mot Svarta Madonnans original
+- ✅ Kontinuitetskontroll (NPCs, tidslinje, lore)
+- ✅ Hitta vad som händer i specifika kapitel/sessioner
+- ✅ Få snabba svar utan att läsa 65k rader
+
+**Session-baserad användning:** Fortsätt samma session för relaterade frågor för djupare, mer precisa svar med full kontext.
+
+**Exempel:**
+- "Vad händer i Kapitel 3?" → Fråga NotebookLM
+- "Vilka NPCs finns i Bishop Farm?" → Fråga NotebookLM
+- "Vad är Mac Rileys Breaking Point?" → Fråga NotebookLM
 
 ---
 

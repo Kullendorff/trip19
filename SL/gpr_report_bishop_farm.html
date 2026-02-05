@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPR Survey Report - Bishop Farm | Handout</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            font-family: 'Courier Prime', monospace;
+        }
+
+        .document {
+            background: #f8f5ed;
+            width: 100%;
+            max-width: 700px;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow:
+                0 0 0 1px rgba(0,0,0,0.1),
+                0 4px 6px rgba(0,0,0,0.2),
+                0 20px 40px rgba(0,0,0,0.4);
+            position: relative;
+        }
+
+        /* Vintage paper texture */
+        .document::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(100,100,100,0.03) 2px,
+                    rgba(100,100,100,0.03) 4px
+                );
+            pointer-events: none;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px double #333;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .header .subtitle {
+            font-size: 1rem;
+            color: #444;
+            font-style: italic;
+        }
+
+        .section-title {
+            border-bottom: 1px solid #666;
+            padding-bottom: 0.5rem;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .field-group {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .field-label {
+            font-weight: 700;
+            display: inline-block;
+            min-width: 180px;
+        }
+
+        .field-value {
+            display: inline;
+            color: #1a1a1a;
+        }
+
+        .notes-box {
+            background: rgba(255, 223, 186, 0.3);
+            border: 1px dashed #666;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .notes-box::before {
+            content: 'NOTES:';
+            position: absolute;
+            top: -0.6rem;
+            left: 1rem;
+            background: #f8f5ed;
+            padding: 0 0.5rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .handwritten {
+            background: rgba(240, 248, 255, 0.4);
+            border-left: 3px solid #4169e1;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #1e3a8a;
+        }
+
+        .handwritten::before {
+            content: '✍ Researcher note (handwritten):';
+            display: block;
+            font-weight: 700;
+            font-style: normal;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .anomaly-list {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .anomaly-list li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .warning-marker {
+            color: #dc2626;
+            font-weight: 700;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .document {
+                box-shadow: none;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="document">
+        <div class="header">
+            <h1>VIRGINIA TECH GEOPHYSICAL SURVEY</h1>
+            <div class="subtitle">Loudoun County Agricultural Study</div>
+        </div>
+
+        <div class="section-title">SITE INFORMATION</div>
+
+        <div class="field-group">
+            <span class="field-label">Site Location:</span>
+            <span class="field-value">Bishop Farm, Lovettsville, VA</span>
+        </div>
+
+        <div class="field-group">
+            <span class="field-label">Survey Date:</span>
+            <span class="field-value">July 15, 2013</span>
+        </div>
+
+        <div class="field-group">
+            <span class="field-label">Survey Method:</span>
+            <span class="field-value">Ground-Penetrating Radar (GPR)</span>
+        </div>
+
+        <div class="section-title">GROUND-PENETRATING RADAR RESULTS</div>
+
+        <div class="field-group">
+            <span class="field-label">Grid Reference:</span>
+            <span class="field-value">39°15'42"N, 77°38'19"W</span>
+        </div>
+
+        <div class="field-group">
+            <span class="field-label">Depth:</span>
+            <span class="field-value">1.8 – 2.1 meters</span>
+        </div>
+
+        <div class="field-group">
+            <span class="field-label">Anomaly Classification:</span>
+            <span class="field-value">Metallic, ferrous</span>
+        </div>
+
+        <div class="notes-box">
+            <ul class="anomaly-list">
+                <li>Distinct rectangular signature, approximately 40cm × 25cm × 15cm</li>
+                <li class="warning-marker">Unusual electromagnetic interference during scan</li>
+                <li class="warning-marker">Equipment malfunction noted (compass drift, signal loss)</li>
+                <li>Recommend excavation for identification</li>
+            </ul>
+
+            <div class="handwritten">
+                "Strange readings. Never seen interference pattern like this. Suggest follow-up with specialized equipment."
+            </div>
+        </div>
+
+        <div class="section-title">RECOMMENDATION</div>
+        <p style="line-height: 1.8;">
+            Given the unusual electromagnetic signature and equipment interference patterns, we recommend controlled excavation under supervision of qualified personnel. The anomaly's depth and rectangular profile suggest intentional burial rather than natural deposition.
+        </p>
+    </div>
+</body>
+</html>

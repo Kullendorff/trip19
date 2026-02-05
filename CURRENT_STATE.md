@@ -1,7 +1,24 @@
 # CURRENT STATE - Trip 19 / Svarta Madonnan
 
 ## Senast uppdaterad
-2026-01-20 23:25
+2026-02-05 19:15
+
+## 🔴 KÄNDA PROBLEM - MÅSTE ÅTGÄRDAS
+
+**LOGISKA LUCKOR: 1991 → 2025 ADAPTATION** ⚠️ KRITISKT
+- **Fil:** `SL/LOGICAL_GAPS_2025_ADAPTATION.md`
+- **Status:** Bordlagt, måste återvända till detta
+- **6 identifierade luckor:**
+  1. Finansiellt gap ($100k för smuggling, men Outlaws utan budget under regeringsstängning)
+  2. NSA-övervakningsparadoxen (Sparky kan inte köra XKEYSCORE utan att bli flaggad)
+  3. Märket vs Parasiten (logisk oklarhet hur dessa interagerar)
+  4. Interpol-efterlysning (hur röra sig fritt i biometriskt Europa 2025?)
+  5. Magdas motivation (varför återvänder 86-åriga till Berlin?)
+  6. Biometrisk kordon i Ryssland (247Hz-signal borde flaggas av sensorer)
+- **Sparat i NotebookLM:** Ja
+- **Nästa steg:** Brainstorma lösningar innan session-prep
+
+---
 
 ## Discord Bot Integration ⚠️ VIKTIGT
 **Agent-data lagras i Discord bot JSON-filer:**
@@ -35,6 +52,20 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
 ## Senaste utveckling (från git-log)
 
 ### Pågående arbete
+
+**Markdown Cleanup** - Februari 2026 ✅
+- **Omfattning**: Systematisk arkivering av gamla/föråldrade markdown-filer
+- **Problem**: 40+ gamla .md-filer spridda i root och SL som inte längre används
+- **Lösning**: Skapat `_archive/` med strukturerad arkivering
+- **Arkiverade filer**:
+  - `_archive/old_docs/` (11 filer): Gamla root-dokument, tidiga guider, föråldrade tidslinjer
+  - `_archive/old_planning/` (~30 filer): Gamla SL-planeringar, kapitelstrukturer, scenanteckningar
+- **Aktiva markdown-filer kvar** (endast 10 st i root/SL):
+  - Root: `_index.md`, `CLAUDE.md`, `CURRENT_STATE.md`, `README.md`, `TRANSLATION_RULES.md`
+  - SL: `black_madonna_ch3_content.md`, `HEIST_OPTIONS_BERLIN.md`, `LOGICAL_GAPS_2025_ADAPTATION.md`, `MALL_GUIDE.md`, `README.md`
+- **Uppdaterad .gitignore**: Ignorerar nu `_archive/` för att undvika att tracka gammalt skräp
+- **Vinster**: Mycket renare projektstruktur, enklare att navigera, tydligare vad som är aktivt vs arkiverat
+- **Status**: Cleanup klar ✅
 
 **Session 4 Fullständig Kontinuitetsgranskning** - Januari 2026 ✅
 - **Omfattning**: Systematisk genomgång av session4.html (1,186 rader) för indexering i continuity_database.md

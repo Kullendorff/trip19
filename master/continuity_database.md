@@ -238,7 +238,7 @@ Denna fil är ett **INDEX**. När du söker efter ett element:
 | 4 september 2025 | Session 1: Kampanjstart, briefing, AI-alert | `master/timeline.md`, `SL/session1.html` |
 | 6 september 2025 | Polen NATO Article 4 + Bitcoin ATH $126k | `master/timeline.md`, `SL/campaign_calendar_2025.html`, `SL/us_politics_2025_timeline.html` |
 | 8 september 2025 | Session 3: Lovettsville, möter Magda Orlova | `master/timeline.md`, `SL/session3.html` |
-| TBD sept 2025 | Session 4: Bishop Farm, fortsatt Lovettsville | `master/timeline.md`, `SL/session4.html` |
+| 8 september 2025 | Session 4: Bishop Farm, fortsatt Lovettsville | `master/timeline.md`, `SL/session4.html` |
 
 #### Oktober 2025 (PLANERAT)
 | Datum | Händelse | Filer |
