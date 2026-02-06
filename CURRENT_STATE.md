@@ -1,22 +1,49 @@
 # CURRENT STATE - Trip 19 / Svarta Madonnan
 
 ## Senast uppdaterad
-2026-02-05 19:15
+2026-02-06
+
+## 🎮 SPELLÄGE - Var är vi i kampanjen?
+
+**In-game datum:** 7 september 2025 (söndag eftermiddag)
+**Session:** Mitt i Session 4 (3/4 klar)
+**Plats:** Hamilton House, Lovettsville VA
+**Situation:** Cellen har nått Hamilton House och hittat Volkovs saker. Har inte lämnat huset ännu.
+
+**Sessionsöversikt (spelade):**
+| Session | In-game datum | Vad hände |
+|---------|--------------|-----------|
+| 1 | 4 sept 2025 | Briefing på China Buffet. Hittade förrådet via Emily Johnson |
+| 2 | 6 sept 2025 | Gick igenom Harriets förråd (2 dagar efter att de hittade det) |
+| 3 | 7 sept 2025 | Lovettsville Historical Society, mötte Magda Orlova |
+| 4 | 7 sept 2025 | Bishop Farm → Hamilton House. **PÅGÅENDE** - stannade vid Hamilton House |
+
+---
 
 ## 🔴 KÄNDA PROBLEM - MÅSTE ÅTGÄRDAS
 
-**LOGISKA LUCKOR: 1991 → 2025 ADAPTATION** ⚠️ KRITISKT
-- **Fil:** `SL/LOGICAL_GAPS_2025_ADAPTATION.md`
-- **Status:** Bordlagt, måste återvända till detta
-- **6 identifierade luckor:**
-  1. Finansiellt gap ($100k för smuggling, men Outlaws utan budget under regeringsstängning)
-  2. NSA-övervakningsparadoxen (Sparky kan inte köra XKEYSCORE utan att bli flaggad)
-  3. Märket vs Parasiten (logisk oklarhet hur dessa interagerar)
-  4. Interpol-efterlysning (hur röra sig fritt i biometriskt Europa 2025?)
-  5. Magdas motivation (varför återvänder 86-åriga till Berlin?)
-  6. Biometrisk kordon i Ryssland (247Hz-signal borde flaggas av sensorer)
-- **Sparat i NotebookLM:** Ja
-- **Nästa steg:** Brainstorma lösningar innan session-prep
+**NARRATIVA DESIGNBESLUT** (10 st, bordlagda - inte brådskande)
+- **Källa:** Djupgranskning 2026-02-06 + `SL/LOGICAL_GAPS_2025_ADAPTATION.md`
+- **Status:** Parkerade. Löses successivt under kampanjutveckling.
+
+**Logiska luckor:**
+1. Finansiellt gap ($100k smuggling, Outlaws utan budget)
+2. NSA-paradoxen (Sparkys obehöriga sökningar borde trigga alarm)
+3. Märket vs Parasiten (hur interagerar de? samma fenomen?)
+4. Interpol + biometriskt Europa (hur reser de fritt 2025?)
+5. Biometrisk kordon i Ryssland (247Hz borde flaggas av sensorer)
+
+**Narrativa luckor:**
+6. Volkovs endgame - varför samlar han fragment? Behöver explicit scene/dokument
+7. Fragmenttransport - regler för hantering, förvaring, strålningsrisker under resa
+8. Magdas motivation - dramatisera (visa desperation via handling, inte exposition)
+9. Pacing: downtime-scene saknas mellan Session 2→3
+10. Clue chains för expositöriska - Magda berättar allt vs spelarna upptäcker
+
+**Karaktärsobservationer (inte problem, men bör dramatiseras):**
+- Mac: Breaking Point-marginal = 10 (nära kris)
+- Sullivan: Breaking Point-marginal = 5 (extremt nära)
+- Alternativa clue paths behövs (Lovettsville → Frankfurt)
 
 ---
 
@@ -52,6 +79,22 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
 ## Senaste utveckling (från git-log)
 
 ### Pågående arbete
+
+**Djupgranskning: Inkonsistenser & Narrativa Problem** - Februari 2026 ✅
+- **Omfattning**: Fullständig audit med 5 parallella agenter (pronomen, tidslinje, lore, NPCs, narrativ)
+- **Kritiska textfel fixade (5 st)**:
+  - `SL/session4.html`: "Carl Bishop" → "John Bishop" (3 kvarvarande instanser trots tidigare fix)
+  - `SL/sessions.html`: "Carl Bishop" → "John Bishop" + "Hamiltons Airbnb-hus" → "Hamilton House"
+  - `SL/clues.html`: "SecureStore Leesburg" → "CubeSmart Leesburg"
+  - `SL/session4.html`: "HAn VET" → "HAN VET" (typfel)
+  - `index.html`: "Militär präst" → "Navy Chaplain"
+- **Narrativa problem identifierade** (kräver designbeslut):
+  - Volkovs endgame-motivation aldrig explicit
+  - Kristallfragmentens hantering post-Session 4 odefinierad
+  - Finansieringsgap ($100k smuggling)
+  - NSA-övervakningsparadox
+  - Pacing: Session 1-2 informationstäta, dödläge 2-3
+- **Status**: Textfel fixade ✅, narrativa problem dokumenterade för framtida design
 
 **Markdown Cleanup** - Februari 2026 ✅
 - **Omfattning**: Systematisk arkivering av gamla/föråldrade markdown-filer
