@@ -449,13 +449,13 @@ EXEMPEL: Transformerade från Leningrad
 
 ## EXEMPEL-SCEN: Designing an Investigation
 
-### Scenario: Spelarna undersöker Magdas lägenhet (Berlin)
+### Scenario: Spelarna träffar Magda i Berlin (direct contact, alive)
 
 **Setup:**
-- Magda funnen död, "självmord"
-- Lägenhet genomsökt men inte helt röjd
-- Polisen släppt platsen (inget brott)
-- Spelarna har 4-6 timmar innan fastighetsägare kommer
+- Magda är vid liv men terminalt sjuk (cancer, 6-12 månader)
+- Hon bor i sin lägenhet i Berlin, arbetar från hemmet
+- Magda kontaktar cellen eller spelarna hittar henne genom research
+- Hon är villig att dela research men svag på energi
 
 **Investigation opportunities:**
 
@@ -498,10 +498,11 @@ EXEMPEL: Transformerade från Leningrad
 - Feeling of wrongness intensifies
 
 **Outcomes:**
-- Enough clues → Follow trail to Frankfurt Clinic
-- Forensics → Realize it was murder not suicide
-- Supernatural → First direct Mythos exposure
-- Timeline pressure → Must decide what to prioritize
+- Direct interview with Magda → She shares Frankfurt Clinic research, Leningrad connection
+- Research materials → USB stick with encrypted files, family documents
+- Health conversation → "I don't have much time. Whatever's in those files... it needs to be found"
+- Supernatural → Magda mentions her dreams, PTSD nightmares, the 247 Hz hum in her apartment
+- Emotional investment → Players realize Magda is racing against terminal illness to uncover truth
 
 ---
 

@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session 5 - Grishas Garage | Trip 19</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-green: #00ff41;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --accent-yellow: #ffcc00;
+            --accent-purple: #9b59b6;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .session-header {
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .session-header h1 {
+            color: var(--accent-blue);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .session-meta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            background: rgba(74, 144, 164, 0.2);
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(74, 144, 164, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-bar a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .section {
+            background: var(--bg-panel);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: var(--accent-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section h3 {
+            color: var(--accent-yellow);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .section h4 {
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid var(--accent-red);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .yellow-box {
+            background: rgba(255, 204, 0, 0.1);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .read-aloud {
+            background: rgba(155, 89, 182, 0.1);
+            border-left: 4px solid var(--accent-purple);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        .npc-card {
+            background: rgba(10, 14, 23, 0.6);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-green);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .npc-card.neutral {
+            border-left-color: var(--accent-yellow);
+        }
+
+        .npc-card.ally {
+            border-left-color: var(--accent-green);
+        }
+
+        .npc-card.threat {
+            border-left-color: var(--accent-red);
+        }
+
+        .npc-card h4 {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .npc-card.neutral h4 { color: var(--accent-yellow); }
+        .npc-card.ally h4 { color: var(--accent-green); }
+        .npc-card.threat h4 { color: var(--accent-red); }
+
+        .san-check {
+            background: rgba(255, 68, 68, 0.15);
+            border: 2px solid var(--accent-red);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .gm-note {
+            background: var(--bg-darker);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            font-style: italic;
+            border-radius: 4px;
+        }
+
+        .gm-note::before {
+            content: "SL: ";
+            color: var(--accent-yellow);
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .skill-check {
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid var(--accent-green);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .music-cue {
+            background: rgba(155, 89, 182, 0.08);
+            border: 1px solid var(--accent-purple);
+            padding: 0.75rem 1rem;
+            margin: 0.75rem 0;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .music-cue::before {
+            content: "🎵 ";
+        }
+
+        .clue-chain {
+            background: rgba(0, 255, 65, 0.08);
+            border: 2px solid var(--accent-green);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .clue-chain h4 {
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+        }
+
+        .scene-transition {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+        }
+
+        .dialogue {
+            margin: 0.75rem 0;
+        }
+
+        .speaker {
+            color: var(--accent-yellow);
+            font-weight: bold;
+        }
+
+        .handout-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid #d4af37;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .handout-link a {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .overview-card {
+            background: rgba(10, 14, 23, 0.4);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 4px;
+        }
+
+        .overview-card strong {
+            color: var(--accent-blue);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        th {
+            background: rgba(74, 144, 164, 0.2);
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .secret-box {
+            background: rgba(155, 89, 182, 0.1);
+            border: 2px dashed var(--accent-purple);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .secret-box h4 {
+            color: var(--accent-purple);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="session-header">
+            <h1>SESSION 5: GRISHAS GARAGE</h1>
+            <p style="color: var(--text-dim); margin-top: 0.5rem;">Virginia - cellen samlar ihop trådarna och bestämmer sig</p>
+            <div class="session-meta">
+                <div>
+                    <span style="font-weight: bold;">In-game:</span>
+                    <span>7 september 2025</span>
+                </div>
+                <div>
+                    <span style="font-weight: bold;">Scener:</span>
+                    <span>1-3 (USA)</span>
+                </div>
+                <div>
+                    <span style="font-weight: bold;">Status:</span>
+                    <span class="status-badge">SKELETT</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-bar">
+            <a href="session4.html">← Session 4</a>
+            <div>Trip 19 / Black Madonna</div>
+            <a href="sessions.html">Till Sessions →</a>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- OVERVIEW -->
+        <!-- ============================================================ -->
+        <div class="section">
+            <h2>📋 SESSIONSÖVERSIKT</h2>
+
+            <div class="info-box">
+                <strong>Förutsättningar:</strong> Session 4 avslutades vid Hamilton House, Lovettsville VA (7 september 2025, eftermiddag). Cellen har hittat Volkovs anteckningsbok, Grishas visitkort, kristallfragmentet och diverse spår. De har INTE lämnat huset ännu.
+            </div>
+
+            <div class="warning-box">
+                <h4 style="color: var(--accent-red);">SESSIONSGRÄNS</h4>
+                <p><strong>Session 5 = Scen 1-3 (USA, 7 september).</strong> Tysklandsresan (Hamburg → Berlin) blir en framtida session.</p>
+                <p style="margin-top: 0.5rem;"><strong>Downtime efter Session 5.</strong> Charlie Kirk mördas 10 sept. Magda kontaktar cellen under downtime - bjuder in till <strong>författarkväll i Hamburg</strong> (+1 dag efter landing).</p>
+                <p style="margin-top: 0.5rem;">Session 5 slutar troligen efter Scen 1-2 (Grisha + debriefing). Magdas samtal (Scen 3) presenteras mest troligt mellan sessioner.</p>
+            </div>
+
+            <h3>Scenstruktur (3 scener)</h3>
+
+            <h4 style="color: var(--accent-blue); margin-bottom: 0.5rem;">SESSION 5 - USA</h4>
+            <div class="overview-grid">
+                <div class="overview-card" style="border-left: 3px solid var(--accent-blue);">
+                    <strong>Scen 1: Grishas Garage</strong>
+                    Sterling, VA. ~30-45 min.<br>
+                    Konfrontation med Volkovs fixare.
+                </div>
+                <div class="overview-card" style="border-left: 3px solid var(--accent-blue);">
+                    <strong>Scen 2: Debriefing</strong>
+                    Motel/diner. ~20-30 min.<br>
+                    Cellen sammanställer ALLT. Downtime.
+                </div>
+                <div class="overview-card" style="border-left: 3px solid var(--accent-blue);">
+                    <strong>Scen 3: Beslutet</strong>
+                    ~15-20 min.<br>
+                    Magda ringer. Cellen bestämmer sig.
+                </div>
+            </div>
+
+            <h3>SAN-budget</h3>
+            <table>
+                <tr>
+                    <th>Session</th>
+                    <th>Scen</th>
+                    <th>Trigger</th>
+                    <th>Check</th>
+                    <th>Not</th>
+                </tr>
+                <tr>
+                    <td style="color: var(--accent-blue);">S5</td>
+                    <td>1 - Grisha</td>
+                    <td>Våld mot Grisha</td>
+                    <td>0/1d4</td>
+                    <td>Bara vid oprovocerat våld</td>
+                </tr>
+            </table>
+            <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 0.5rem;"><strong>Session 5 SAN:</strong> 0-1d4 (troligen 0). Medvetet lätt - bygger <em>dread</em>, inte trauma.</p>
+
+            <h3>Teman</h3>
+            <ul>
+                <li><strong>Aftermath:</strong> Vad betyder allt de hittat? Tid att smälta.</li>
+                <li><strong>Consequences:</strong> NSA-alarm, kristalleffekter, arbetsgivare som undrar.</li>
+                <li><strong>Decision:</strong> Cellen måste själva bestämma nästa steg.</li>
+            </ul>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SCEN 1: GRISHAS GARAGE -->
+        <!-- ============================================================ -->
+        <div class="section">
+            <h2>🔧 SCEN 1: GRISHAS GARAGE</h2>
+            <p style="color: var(--text-dim);">Sterling, VA | 7 september 2025, sen eftermiddag | ~30-45 min</p>
+
+            <div class="music-cue">
+                <strong>Musik:</strong> No Country for Old Men soundtrack - minimalt, spänt, tystnaden talar
+            </div>
+
+            <div class="gm-note">
+                Scenen har tre faser: (1) bilresan — spelarna smälter Session 4, (2) ankomst + spaning — taktiska val, (3) konfrontation — dialog med Grisha. Se även <a href="hamilton_chase_sequence.html" style="color: var(--accent-yellow);">hamilton_chase_sequence.html (Del 4)</a> för ursprungligt material.
+            </div>
+
+            <!-- FAS 1: BILRESAN -->
+            <h3>Fas 1: Bilresan (Hamilton House → Sterling)</h3>
+            <div class="read-aloud">
+                <p>Solen sjunker bakom Blue Ridge Mountains när ni lämnar Lovettsville. Route 287 söderut, förbi vingårdarna, förbi de vita staketen och hästarnas hagar. Det är så normalt att det nästan gör ont.</p>
+                <p style="margin-top: 1rem;">Anteckningsboken ligger i baksätet. Ingen vill hålla i den.</p>
+                <p style="margin-top: 1rem;">Fyrtiofem minuter. Ni passerar Leesburg, kör ut på Dulles Greenway, och svänger av mot Sterling. Landskapet byter: vingårdar till kontorsparker, hästhagar till lagerbyggnader.</p>
+            </div>
+
+            <div class="yellow-box">
+                <h4 style="color: var(--accent-yellow);">BILRESAN: ROLLSPELS-PROMPTS</h4>
+                <p style="margin-top: 0.5rem;">Ge spelarna tid att prata. Föreslå ämnen om det stannar av:</p>
+                <ul>
+                    <li><strong>"Vad gör ni med anteckningsboken?"</strong> — Den ligger i baksätet. Vem tar ansvar?</li>
+                    <li><strong>"Vad gör ni med kristallfragmentet?"</strong> — I en ziplock-påse. Var förvarar de det? Vem bär det?</li>
+                    <li><strong>"Vad berättar ni för varandra?"</strong> — Har alla delat allt de vet? Eller håller någon tillbaka?</li>
+                    <li><strong>"Ringer någon sitt jobb?"</strong> — Det är söndag, men imorgon är måndag. Vad ska de säga?</li>
+                </ul>
+                <p style="margin-top: 0.75rem; color: var(--text-dim);">Syftet: Tvinga spelarna att fatta mikrobeslut som definierar gruppens dynamik. Vem leder? Vem håller tillbaka? Vem är rädd?</p>
+            </div>
+
+            <!-- FAS 2: ANKOMST + SPANING -->
+            <h3>Fas 2: Ankomst — Morozov Auto Repair</h3>
+
+            <div class="info-box">
+                <h4>Platsen: 1247 Commerce Street, Sterling, VA</h4>
+                <ul>
+                    <li><strong>Industriområde.</strong> Lagerbyggnader, grossistfirmor, asfalt som spricker. Lite trafik på söndagskvällen.</li>
+                    <li><strong>Verkstaden:</strong> Enplanshus av plåt och betong. Handmålad skylt, bokstäver bleknade av solen. Två garageportar (en öppen). Inhägnad grusplan med 4-5 bilar i olika stadier av förfall.</li>
+                    <li><strong>Belysning:</strong> Fluorescerande ljus inifrån. Skuggor rör sig. Någon jobbar sent.</li>
+                    <li><strong>Fordon:</strong> En vit pickup (Grishas) och en äldre Corolla (kund) på parkeringen.</li>
+                </ul>
+            </div>
+
+            <div class="read-aloud">
+                <p>Sterling. Industriområdet öster om Route 28. Lagerbyggnader. Grossistfirmor med namn som "ProSource Supply" och "Capital Flooring Direct." Tomma parkeringsplatser i kvällsljuset.</p>
+                <p style="margin-top: 1rem;">Morozov Auto Repair. Skylten är handmålad, "M" i Morozov har runnit lite. En garageport står öppen. Fluorescerande ljus. Rysk folkmusik från en radio, dämpad.</p>
+                <p style="margin-top: 1rem;">En man rör sig därinne. Kraftig, kal hjässa, overall. Han är ensam.</p>
+            </div>
+
+            <div class="yellow-box">
+                <h4 style="color: var(--accent-yellow);">TAKTISKA VAL — Låt spelarna bestämma approach</h4>
+                <p style="margin-top: 0.5rem;">Fråga: <em>"Ni sitter i bilen utanför verkstaden. Vad gör ni?"</em></p>
+
+                <table style="margin-top: 1rem;">
+                    <tr>
+                        <th>Val</th>
+                        <th>Konsekvens</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Spana först</strong></td>
+                        <td>Alertness: Ser att Grisha är ensam, obeväpnad, jobbar med en motor. Ingen fara. Surveillance/Tradecraft: Inga kameror utom en gammal, troligen trasig, vid entrén.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gå in direkt (alla)</strong></td>
+                        <td>Fem personer i en verkstad. Grisha blir nervös. Han når reflexmässigt mot en stor skiftnyckel.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Skicka en eller två</strong></td>
+                        <td>Bästa valet. Grisha känner sig inte hotad. Lättare att bygga kontakt. Resten väntar i bilen eller täcker bakdörren.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ringa först</strong></td>
+                        <td>De har numret (visitkortet). Grisha svarar på ryska. Om de pratar engelska: misstänksam paus, sen "Vem är det här?"</td>
+                    </tr>
+                </table>
+
+                <div class="gm-note" style="margin-top: 1rem;">
+                    Det finns inget rätt svar. Syftet är att se hur cellen opererar som TEAM — vem tar ledningen? Vem säkrar? Vem stannar i bilen och är nervös?
+                </div>
+            </div>
+
+            <!-- FAS 3: KONFRONTATION -->
+            <h3>Fas 3: Konfrontation med Grisha</h3>
+
+            <div class="npc-card neutral">
+                <h4>Grigori "Grisha" Morozov — Fixare, 42 år</h4>
+                <p><strong>Utseende:</strong> Kraftig, kort, händer permanent smutsiga av motorolja. Kal hjässa, tjock mustasch. Sliten overall med "MOROZOV AUTO" broderat på bröstet.</p>
+                <p style="margin-top: 0.75rem;"><strong>Personlighet:</strong> Pragmatisk, lojal mot sina kunder, inte dum. Har sett tillräckligt för att veta när han ska hålla käften — men också när det är dags att prata.</p>
+                <p style="margin-top: 0.75rem;"><strong>Språk:</strong> Engelska med tjock rysk accent. Svär på ryska när han är stressad.</p>
+                <p style="margin-top: 1rem;"><strong>Vad han VET:</strong></p>
+                <ul>
+                    <li>"Dmitri" kontaktade honom via gammal bekant</li>
+                    <li>Betalade $5,000 kontant för: hyrbil, matleveranser, "hålla utkik"</li>
+                    <li>Dmitri verkade "sjuk" — pratade med sig själv, konstiga sömnvanor</li>
+                </ul>
+                <p style="margin-top: 0.75rem;"><strong>Vad han INTE vet:</strong> Kristaller, Trip 19, SVR, transformation. Han är en vanlig kille som gjorde ett jobb.</p>
+            </div>
+
+            <h4>Approach A: FBI-badge (Mac)</h4>
+            <div class="yellow-box">
+                <p class="dialogue"><span class="speaker">MAC:</span> "Federala agenter. Vi har frågor om en av dina kunder."</p>
+                <p style="margin-top: 0.75rem;">Grisha suckar. Lägger ner skiftnyckeln. Tänder en cigarett.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Vilken den här gången?"</p>
+                <p style="margin-top: 0.75rem;">Han är inte rädd. Han har gjort det här förut.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Jag fixar bilar. Ibland för folk som inte vill ha kvitto. Det är inte olagligt."</p>
+                <div class="skill-check" style="margin-top: 1rem;">
+                    <strong>Persuade eller HUMINT:</strong> Få honom att prata frivilligt
+                    <br><em>Lyckat:</em> Han ger grundläggande information
+                    <br><em>Kritiskt:</em> Han berättar allt han vet
+                </div>
+            </div>
+
+            <h4>Approach B: Pengar</h4>
+            <div class="yellow-box">
+                <p>$500 i kontanter på disken.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">SPELARE:</span> "Vi vill inte skapa problem. Vi vill bara veta var han är."</p>
+                <p style="margin-top: 0.75rem;">Grisha tittar på pengarna. Tittar på dem. Tittar på pengarna igen.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Vem frågar egentligen?"</p>
+                <p style="margin-top: 0.75rem;">Om de är ärliga (eller åtminstone trovärdiga): han tar pengarna.</p>
+            </div>
+
+            <h4>Approach C: Visa anteckningsboken</h4>
+            <div class="warning-box">
+                <p>De visar honom sidan med "DÖDA MIG INNAN DET ÄR FÖR SENT".</p>
+                <p style="margin-top: 0.75rem;">Grisha läser. Hans ansikte bleknar.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> <em>"Blyad..."</em></p>
+                <p style="margin-top: 0.75rem;">Han sätter sig ner. Cigaretten darrar i handen.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Vad fan har han dragit in mig i?"</p>
+                <p style="margin-top: 0.75rem;"><strong>Effekt:</strong> Automatiskt lyckat — han pratar fritt.</p>
+            </div>
+
+            <h4>Approach D: Hot / våld</h4>
+            <div class="warning-box">
+                <p>Om spelarna hotar eller blir fysiska:</p>
+                <p style="margin-top: 0.75rem;">Grisha reser sig. Han är kort men bred. Händerna knyts.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Jag har bott i det här landet i tjugosju år. Jag har blivit hotad av bättre män än er."</p>
+                <p style="margin-top: 0.75rem;">Han pratar — men motvilligt, kortfattat, och de missar nyanserna. Han ljuger inte, men han utelämnar.</p>
+                <div class="gm-note" style="margin-top: 1rem;">Om de slår honom: SAN-check 0/1d4 Violence. Grisha är en <strong>civilperson</strong>. Han blöder och svär och ger dem vad de vill ha — men de har tappat en potentiell allierad och förstört sin egen moral.</div>
+            </div>
+
+            <!-- VAD GRISHA BERÄTTAR -->
+            <h3>Vad Grisha berättar (tre nivåer)</h3>
+
+            <div class="info-box">
+                <h4 style="color: var(--accent-blue);">NIVÅ 1 — Grundläggande (lätt att få)</h4>
+                <p class="dialogue"><span class="speaker">GRISHA:</span> "Han kallar sig Dmitri. Kom för två veckor sen. Sa att han behövde hjälp — diskret hjälp. Jag frågade inte varför."</p>
+                <p style="margin-top: 0.75rem;">Han tänder en ny cigarett från den gamla.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Betalade bra. Femtusen, kontant. Jag hämtade hyrbil, körde mat till honom, höll utkik. Normal grej."</p>
+            </div>
+
+            <div class="info-box" style="margin-top: 1rem;">
+                <h4 style="color: var(--accent-yellow);">NIVÅ 2 — Om de pressar (kräver övertygelse)</h4>
+                <p class="dialogue"><span class="speaker">GRISHA:</span> "Han var... inte okej. Vet du vad jag menar?"</p>
+                <p style="margin-top: 0.75rem;">Han gör en gest mot sitt eget huvud.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Pratade med sig själv. Sov inte — jag kom dit klockan tre på morgonen en gång, han satt och stirrade ut genom fönstret. Hade gjort det hela natten, sa han."</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Och ibland... han nynnade. Samma ton, om och om igen. Jag sa åt honom att sluta, han verkade inte ens märka att han gjorde det."</p>
+                <p style="margin-top: 0.75rem; color: var(--text-dim);">247 Hz — Yithian-resonans. Fragmentbäraren i cellen kan känna igen beskrivningen.</p>
+            </div>
+
+            <div class="info-box" style="margin-top: 1rem;">
+                <h4 style="color: var(--accent-red);">NIVÅ 3 — Om de vinner hans förtroende helt (anteckningsboken eller liknande)</h4>
+                <p class="dialogue"><span class="speaker">GRISHA:</span> "Han bad mig köpa en sak. Specifik. Sa att det var viktigt."</p>
+                <p style="margin-top: 0.75rem;">Han går till ett skåp, tar fram en kartong.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Metallbox. Blyfodrad. Specialbeställd från en firma i Baltimore. Kostade åttahundra dollar."</p>
+                <p style="margin-top: 0.75rem;">Han tittar på dem.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Sa att den var för 'känsligt material.' Frågade inte vad. Nu undrar jag."</p>
+
+                <div class="gm-note" style="margin-top: 1rem;">
+                    Den blyfodrade boxen ger spelarna ett val: förvara fragmentet i den (säkrare, blockerar 247 Hz-signalen) eller inte. Volkov planerade att använda den — men han försvann innan han hämtade den.
+                </div>
+            </div>
+
+            <!-- BURNER-TELEFONEN -->
+            <h3>Bonusledtråd: Burner-telefonen</h3>
+            <div class="yellow-box">
+                <p>Om spelarna visar Grisha Volkovs burner-telefon (hittad i Hamilton House) och frågar om kontakterna:</p>
+                <p class="dialogue" style="margin-top: 1rem;"><span class="speaker">GRISHA:</span> <em>(tittar på kontaktlistan)</em> "De flesta känner jag inte igen. Men den där... 'K'..."</p>
+                <p style="margin-top: 0.75rem;">Han gnider sig över hakan. Olja under naglarna.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Dmitri nämnde en gång en 'Konstantin vid ambassaden'. Ryska ambassaden, menar jag. Sa att han var en gammal kontakt. Inte vän — kontakt."</p>
+                <p style="margin-top: 0.75rem;">Han skakar på huvudet.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">GRISHA:</span> "Jag frågade inte mer. Man frågar inte om sådant."</p>
+            </div>
+
+            <!-- GRISHAS SISTA ORD -->
+            <h3>Grishas sista ord</h3>
+            <div class="read-aloud">
+                <p>Han följer er till dörren. Stannar på tröskeln. Solen är nästan borta nu. Industriområdet är tyst — bara ett avlägset motorvägsbrus.</p>
+                <p class="dialogue" style="margin-top: 1rem;"><span class="speaker">GRISHA:</span> "Den där mannen... Dmitri... han verkade rädd. Inte för er, inte för polisen. För sig själv."</p>
+                <p style="margin-top: 1rem;">Han skakar på huvudet.</p>
+                <p class="dialogue" style="margin-top: 1rem;"><span class="speaker">GRISHA:</span> "Jag har sett många män i mitt liv. Desperata män. Farliga män. Men aldrig någon som var rädd för vad han själv skulle göra."</p>
+                <p style="margin-top: 1rem;">Han tittar på dem en sista gång. Som om han vill säga något mer. Sedan går han tillbaka in. Dörren stängs. Radion spelar vidare.</p>
+            </div>
+
+            <!-- CLUE OUTPUT -->
+            <h3>Sammanfattning: Vad cellen får från Grisha</h3>
+            <div class="clue-chain">
+                <h4>LEDTRÅDAR & BEVIS</h4>
+                <table>
+                    <tr>
+                        <th>Information</th>
+                        <th>Vad det betyder</th>
+                    </tr>
+                    <tr>
+                        <td>Kontaktnummer till Volkov (annan burner)</td>
+                        <td>Kan spåras — men Volkov byter telefoner ofta</td>
+                    </tr>
+                    <tr>
+                        <td>Blyfodrad box (beställd, aldrig hämtad)</td>
+                        <td>Volkov planerade att förvara fragment säkert. Boxen finns HÄR.</td>
+                    </tr>
+                    <tr>
+                        <td>"Sov inte, pratade med sig själv"</td>
+                        <td>Bekräftar transformation/mental instabilitet</td>
+                    </tr>
+                    <tr>
+                        <td>"Nynnade samma ton hela tiden"</td>
+                        <td>247 Hz — Yithian-resonans. Fragmentbäraren känner igen det.</td>
+                    </tr>
+                    <tr>
+                        <td>"Konstantin vid ambassaden"</td>
+                        <td>Rysk diplomatisk koppling — internationell dimension</td>
+                    </tr>
+                    <tr>
+                        <td>Annan adress där Grisha levererade</td>
+                        <td>Möjligt andra safehouse (SL: kan användas i framtida session)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="clue-chain" style="margin-top: 1rem;">
+                <h4>LEDTRÅDS-KONVERGENS: Tre vektorer pekar mot Tyskland</h4>
+                <table>
+                    <tr>
+                        <th>Källa</th>
+                        <th>Ledtråd</th>
+                        <th>Pekar mot</th>
+                    </tr>
+                    <tr>
+                        <td>Volkovs anteckningsbok</td>
+                        <td>Nämner Magda + Frankfurt + "de tre"</td>
+                        <td>Berlin/Frankfurt</td>
+                    </tr>
+                    <tr>
+                        <td>Grisha: "Konstantin vid ambassaden"</td>
+                        <td>Rysk diplomatisk koppling</td>
+                        <td>Internationell dimension</td>
+                    </tr>
+                    <tr>
+                        <td>Magda (Session 3)</td>
+                        <td>Berättade om sin mors tid i Berlin/Frankfurt</td>
+                        <td>Berlin</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- EDGE CASES -->
+            <h3>Om saker går snett</h3>
+            <div class="yellow-box">
+                <h4 style="color: var(--accent-yellow);">Grisha är inte hemma</h4>
+                <p style="margin-top: 0.5rem;">Om SL vill dra ut på det: verkstaden är stängd. De måste vänta, bryta sig in (Criminology/Lockpicking), eller komma tillbaka. Grisha dyker upp efter 20-30 min med take-away från en rysk deli. Förvånad men inte rädd.</p>
+            </div>
+
+            <div class="yellow-box" style="margin-top: 1rem;">
+                <h4 style="color: var(--accent-yellow);">Spelarna vill inte åka till Grisha</h4>
+                <p style="margin-top: 0.5rem;">Helt okej. De har visitkortet — det kan användas senare. Hoppa till Scen 2 (debriefing). Grisha-informationen kan nå dem via telefon, eller helt enkelt aldrig — det finns redundanta ledtrådar via Magda och anteckningsboken.</p>
+            </div>
+
+            <div class="san-check">
+                <strong>SAN-CHECK (VILLKORLIG): 0/1d4 Violence</strong><br>
+                Triggas BARA om spelarna använder oprovocerat våld mot Grisha. Grisha är en civilperson — inte ett hot.
+            </div>
+
+            <div class="scene-transition">— — — SCEN 1 SLUT — — —</div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SCEN 2: DEBRIEFING -->
+        <!-- ============================================================ -->
+        <div class="section">
+            <h2>🛏️ SCEN 2: DEBRIEFING (DOWNTIME)</h2>
+            <p style="color: var(--text-dim);">Motel / diner / Scalpels lägenhet | 7 september 2025, kväll | ~20-30 min</p>
+
+            <div class="music-cue">
+                <strong>Musik:</strong> Yellowstone soundtrack (Brian Tyler) - lugnt, reflekterande, vidsträckt
+            </div>
+
+            <div class="gm-note">
+                Denna scen fyller pacing-behovet - downtime efter intensiva Session 3-4. Låt spelarna PRATA. Inga skill checks om de inte ber om det. Huvudsyftet: sammanställa information, visa kristallfragmentets effekter, och ge Sparkys NSA-alarm.
+            </div>
+
+            <h3>Setting</h3>
+            <div class="read-aloud">
+                <p>Kvällen. Någonstans utanför DC - ett motel vid motorvägen, eller kanske Scalpels nya lägenhet i Baltimore. Neonljus genom gardinerna. Fläkten surrar.</p>
+                <p style="margin-top: 1rem;">Alla fem runt ett bord. Anteckningsboken. Foton. Grishas visitkort. Kristallfragmentet i en ziplock-påse. Allt de har samlat sedan torsdag.</p>
+                <p style="margin-top: 1rem;">Tre dagar. Tre dagar sedan briefingen på China Buffet.</p>
+            </div>
+
+            <h3>Sammanställning: Vad cellen vet (Session 1-4)</h3>
+            <div class="info-box">
+                <h4>Fakta (bekräftade)</h4>
+                <ul>
+                    <li>Flight 19 kraschade 31 augusti 1940. Senator Lundeen + 24 andra dog.</li>
+                    <li>Volkov grävde på Bishop Farm (maj 2019), bodde i Hamilton House (aug-sept 2025)</li>
+                    <li>Kristallfragment begravt vid kraschplatsen i Type-VII behållare (Nazi-teknologi, 1939)</li>
+                    <li>Fragmentet sänder ut 247 Hz, svag radioaktivitet (85 CPM), ger visioner vid kontakt</li>
+                    <li>Volkov är instabil - kämpar mot "något" (anteckningsboken)</li>
+                    <li>Magda Orlova (86 år, journalist) researchar samma sak - träffades i Lovettsville</li>
+                    <li>Volkov har koppling till "Konstantin vid ambassaden" (rysk diplomat)</li>
+                </ul>
+
+                <h4 style="margin-top: 1rem;">Osäkert / kräver vidare investigation</h4>
+                <ul>
+                    <li>Vad händer med Volkov? Var är han nu?</li>
+                    <li>Kopplingen Lovettsville → Berlin → Leningrad (Magdas berättelse)</li>
+                    <li>"De tre männen" som Magda nämnde</li>
+                    <li>Cherry Hill Mall-massakern (december 2024) - Volkovs motiv</li>
+                    <li>Varför Nazi-teknologi från 1939 på ett flygplan med en amerikansk senator?</li>
+                </ul>
+            </div>
+
+            <h3>Kristallfragmentets eftereffekter</h3>
+            <div class="warning-box">
+                <h4 style="color: var(--accent-red);">FRAGMENTBÄRAREN (den som höll i det)</h4>
+                <p style="margin-top: 0.5rem;">Sedan kontakten i Session 4 har bäraren märkt:</p>
+                <ul style="margin-top: 0.5rem;">
+                    <li><strong>Kompaskänslighet:</strong> Mobilkompass spinner ibland. Bilkompassen avviker 10-15 grader.</li>
+                    <li><strong>Korta "glitches":</strong> Sekundfraktioner där allt känns <em>fel</em> - som att se världen genom någon annans ögon.</li>
+                    <li><strong>Drömmar:</strong> Svarta pelare. Hummande. Figurer man inte kan fokusera på.</li>
+                    <li><strong>Obehag:</strong> Oro nära starka elektromagnetiska fält (mobilmaster, transformatorer).</li>
+                </ul>
+                <p style="margin-top: 1rem; color: var(--accent-red); font-weight: bold;">Ingen SAN-check - detta är atmosfär, inte trauma. Låt spelaren beskriva det själv.</p>
+            </div>
+
+            <div class="gm-note">
+                Beskriv fragmentets effekter genom miljön, inte genom att berätta vad karaktären känner. "Din mobilkompass visar nordost istället för norr." Inte: "Du känner dig orolig."
+            </div>
+
+            <h3>Sparkys NSA-alarm</h3>
+            <div class="yellow-box">
+                <h4 style="color: var(--accent-yellow);">COMPLIANCE-NOTIFIERING</h4>
+                <p style="margin-top: 0.5rem;">Under kvällen: Sparkys jobbtelefon surrar. Ett automatiskt mail från NSA Compliance Office:</p>
+
+                <div style="background: #000; border: 1px solid #333; padding: 1rem; margin: 1rem 0; font-family: 'Courier New', monospace; font-size: 0.85rem;">
+                    <p style="color: #888;">FROM: compliance-review@nsa.ic.gov</p>
+                    <p style="color: #888;">TO: kai.zhang@nsa.ic.gov</p>
+                    <p style="color: #888;">SUBJECT: Quarterly Access Review - Action Required</p>
+                    <p style="color: #888; margin-top: 0.5rem;">---</p>
+                    <p style="color: #ccc; margin-top: 0.5rem;">This is an automated notification. Your system access logs have been flagged for routine quarterly review. You are required to provide justification for flagged queries within 48-72 hours.</p>
+                    <p style="color: #ccc; margin-top: 0.5rem;">Please contact your Section Chief to schedule your review session.</p>
+                    <p style="color: #ccc; margin-top: 0.5rem;">Non-compliance may result in temporary access suspension pending investigation.</p>
+                </div>
+
+                <p style="margin-top: 1rem;"><strong>Vad det betyder:</strong> Sparkys off-books-sökningar (Volkov, ryska diplomater, 247 Hz-frekvenser) har flaggats av automatiska system. Inte en utredning <em>ännu</em> - men klockan tickar.</p>
+                <p style="margin-top: 0.5rem;"><strong>Konsekvenser om Sparky ignorerar:</strong> Access suspension inom en vecka. Möjlig IG-utredning.</p>
+                <p style="margin-top: 0.5rem;"><strong>Konsekvenser om Sparky svarar:</strong> Måste ljuga eller komma på en trovärdig cover story.</p>
+                <p style="margin-top: 0.5rem; color: var(--accent-yellow);"><strong>Tyskland-implikation:</strong> Om Sparky åker till Tyskland utan att svara = automatisk suspension. NSA vet inte var hon är.</p>
+            </div>
+
+            <h3>Rolspels-prompts (valfritt)</h3>
+            <div class="info-box">
+                <p>Ge spelarna dessa prompts om samtalet stannar av. Inget mekaniskt - bara atmosfär:</p>
+                <ul>
+                    <li>"Hur sov din karaktär inatt?" (efter kristall-exponering)</li>
+                    <li>"Vem ringer din karaktär? Eller - vem ringer de INTE?" (Bonds under stress)</li>
+                    <li>"Tre dagar sen. Hur har ditt jobb reagerat?" (arbetsgivare-konsekvenser)</li>
+                </ul>
+            </div>
+
+            <div class="scene-transition">— — — SCEN 2 SLUT — — —</div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SCEN 3: BESLUTET -->
+        <!-- ============================================================ -->
+        <div class="section">
+            <h2>📞 SCEN 3: BESLUTET</h2>
+            <p style="color: var(--text-dim);">Samma plats | 7-8 september 2025 | ~15-20 min</p>
+
+            <div class="music-cue">
+                <strong>Musik:</strong> Arrival soundtrack (Jóhann Jóhannsson) - "Heptapod B" - beslut som förändrar allt
+            </div>
+
+            <h3>Finansiering</h3>
+            <div class="info-box">
+                <h4>Realistisk kostnadskalkyl</h4>
+                <table>
+                    <tr><th>Post</th><th>Kostnad (5 pers)</th></tr>
+                    <tr><td>Flygbiljetter IAD → HAM (economy)</td><td>~$3,000-4,000</td></tr>
+                    <tr><td>Hotell Hamburg + ev. Berlin (3-5 nätter, budget)</td><td>~$800-1,200</td></tr>
+                    <tr><td>Mat, transport, diverse</td><td>~$500-800</td></tr>
+                    <tr><td><strong>Totalt</strong></td><td><strong>~$5,000-8,000</strong></td></tr>
+                </table>
+                <p style="margin-top: 0.5rem; color: var(--text-dim);">Dyrt men görbart med kreditkort och besparingar. $100k-problemet (smuggling till Ryssland) skjuts till Session 9+.</p>
+            </div>
+
+            <h3>Reselogistik</h3>
+            <div class="yellow-box">
+                <h4>Fakta spelarna behöver</h4>
+                <ul>
+                    <li><strong>Pass:</strong> Alla har privata pass (standard för federala anställda)</li>
+                    <li><strong>Visum:</strong> Krävs INTE - USA medborgare i Schengen-zonen, max 90 dagar</li>
+                    <li><strong>Vapen:</strong> Kan INTE tas med. Inga badges, inga guns, inga officiella befogenheter</li>
+                    <li><strong>Cover story:</strong> Turistresa + författarkväll. Fem amerikaner i Hamburg. Inte ovanligt.</li>
+                    <li><strong>Delta Green:</strong> Vet INTE om denna resa. Cellen agerar helt på egen hand.</li>
+                </ul>
+            </div>
+
+            <h3>Magdas samtal</h3>
+
+            <div class="gm-note">
+                Denna scen kan spelas UT i Session 5 (om det finns tid) ELLER presenteras mellan sessionerna som setup för Tyskland-resan. Författarkvällen ger en naturlig, icke-misstänkt anledning att resa till Hamburg. OBS: In-game sker detta samtal ~oktober 2025 (inte direkt efter Grisha).
+            </div>
+
+            <div class="read-aloud">
+                <p>Telefonen ringer. Utlandsprefix. +49 - Tyskland.</p>
+                <p style="margin-top: 1rem;">Det är Magda. Hennes röst är tunnare än i Lovettsville. Mer fokuserad.</p>
+            </div>
+
+            <div class="yellow-box">
+                <p class="dialogue"><span class="speaker">MAGDA:</span> "Jag har hittat min mors dagbok. I Hamburg."</p>
+                <p style="margin-top: 0.75rem;">Paus. Andetag.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">MAGDA:</span> "Det finns saker i den... saker som bekräftar allt jag berättade för er i Lovettsville. Och mer. Mycket mer."</p>
+                <p style="margin-top: 0.75rem;">En annan paus. Längre.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">MAGDA:</span> "Det ordnas en författarkväll i Hamburg. Jag håller ett föredrag om min research - den officiella versionen. Men det är inte därför jag ringer."</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">MAGDA:</span> "Filip Kramer har kontaktat mig. En av de tre männen. Han vill träffas."</p>
+                <p style="margin-top: 1rem;">Om spelarna frågar varför hon litar på honom:</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">MAGDA:</span> "Det gör jag inte. Därför ringer jag er."</p>
+                <p style="margin-top: 1rem;">Om spelarna frågar om hon är okej:</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">MAGDA:</span> <em>(kort tystnad)</em> "Jag har inte mycket tid. Kom till Hamburg."</p>
+                <p style="margin-top: 1rem;">Om spelarna frågar om författarkvällen:</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">MAGDA:</span> "Ett litet arrangemang på en bokhandel. Trettio, fyrtio personer kanske. Jag pratar om Leningrad-belägringen - de försvunna barnen 1942. Det är den officiella versionen."</p>
+                <p style="margin-top: 0.75rem;">En kort paus.</p>
+                <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">MAGDA:</span> "Det ger er en anledning att vara i Hamburg. Ni kan komma som... intresserade akademiker."</p>
+            </div>
+
+            <div class="secret-box">
+                <h4>SL-KUNSKAP: Vad Magda INTE berättar</h4>
+                <ul>
+                    <li><strong>Terminal cancer:</strong> Pankreascancer, steg IV. 3-6 månader. Diagnosticerad i Hamburg innan USA-resan.</li>
+                    <li><strong>Misstanke:</strong> Hon tror Filip lägger en fälla - men hon VILL att det ska vara sant att han ångrar sig.</li>
+                    <li><strong>"Inte mycket tid":</strong> Spelarna tolkar det som hot. Magda menar det bokstavligt.</li>
+                </ul>
+                <p style="margin-top: 1rem; color: var(--accent-purple);">Visa genom handling/observation - aldrig genom exposition. Magda berättar INTE om cancern.</p>
+            </div>
+
+            <div class="gm-note">
+                Cellen bestämmer sig SJÄLVA att åka till Hamburg. SL ger fakta - spelarna driver. Om de tvekar: Magda trycker inte. Hon sa vad hon behövde säga. Det räcker.
+            </div>
+
+            <div class="scene-transition">— — — SCEN 3 SLUT — — —</div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- DOWNTIME: KIRK-MORDET -->
+        <!-- ============================================================ -->
+        <div style="background: linear-gradient(90deg, var(--accent-red), var(--accent-yellow)); padding: 3px; border-radius: 8px; margin: 3rem 0;">
+            <div style="background: var(--bg-darker); padding: 2rem; border-radius: 6px; text-align: center;">
+                <h2 style="color: var(--accent-red); margin-bottom: 0.5rem; font-size: 1.8rem; letter-spacing: 3px;">DOWNTIME</h2>
+                <p style="color: var(--text); font-size: 1.1rem;">Dagar och veckor passerar. Cellen jobbar sina vanliga jobb. Sedan ändras allt.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔴 CHARLIE KIRK-MORDET (10 SEPTEMBER 2025)</h2>
+            <p style="color: var(--text-dim);">Utah → hela USA | 10-20 september 2025 | Downtime-händelse</p>
+
+            <div class="gm-note">
+                Detta är en VÄRLDS-händelse som händer medan cellen lever sina vanliga liv. Det påverkar dem alla - professionellt, personligt och atmosfäriskt. Presentera det som nyhetsflöde: TV i bakgrunden, telefoner som surrar, kollegor som viskar. Kirk-mordet förstärker känslan av att vara ÖVERVAKAD - exakt vad de kommer uppleva i Tyskland.
+            </div>
+
+            <div class="music-cue">
+                <strong>Musik:</strong> Sicario soundtrack (Jóhann Jóhannsson) - "The Beast" - tryckande, oundvikligt, samhälle som kollapsar i slow motion
+            </div>
+
+            <!-- TIDSLINJE -->
+            <h3>Detaljerad tidslinje</h3>
+
+            <h4>10 SEPTEMBER (onsdag) - Skottet</h4>
+            <div class="warning-box">
+                <p><strong>12:00 MT / 14:00 ET</strong> — Charlie Kirk (31 år), grundare av Turning Point USA, skjuts vid "American Comeback Tour" på Utah Valley University i Orem, Utah.</p>
+                <ul style="margin-top: 0.75rem;">
+                    <li><strong>Ensamt skott</strong> från närliggande tak. Träffar Kirk i nacken.</li>
+                    <li><strong>Avstånd:</strong> ~142-150 yards (130-137 meter).</li>
+                    <li><strong>Publik:</strong> Ca 3,000 åskådare. Panik. Evakuering.</li>
+                    <li>Kirk dör kort efter på sjukhus.</li>
+                    <li>Skytten klättrar ner från taket, flyr. Lämnar efter sig gevär och ammunition i skogsområde.</li>
+                </ul>
+            </div>
+
+            <div class="read-aloud">
+                <p>Alla fem telefoner surrar inom minuter. Breaking news-notifikationer. Kollegor som skickar "Har du sett?"-meddelanden. Inom en timme sänder alla kanaler samma bilder: folkmassa i panik, polisbilar, helikoptrar över Utah.</p>
+                <p style="margin-top: 1rem;">Trumps statement kommer snabbt: "radical left violence." Nationella gardet, redan utplacerat i DC sedan veckor, skärper säkerheten ytterligare. Stämningen i huvudstadsregionen skiftar — från spänd till giftig.</p>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">11 SEPTEMBER (torsdag) - Gripandet</h4>
+            <div class="info-box">
+                <p><strong>~22:00 MT</strong> — Tyler Robinson (22 år), elektriker-lärling från Utah, gripen efter 33-timmars manhunt.</p>
+                <ul style="margin-top: 0.5rem;">
+                    <li>FBI hade fått <strong>7,000+ tips</strong> — mest sedan Boston Marathon-bombningen 2013</li>
+                    <li>Robinsons <strong>egen far</strong> kände igen honom från FBI-fotona</li>
+                    <li>Robinson till sin far: <em>"Jag hellre tar livet av mig än överlämnar mig"</em></li>
+                    <li>Fadern övertygar honom att prata med en ungdomspastor kopplad till Sheriff's Office</li>
+                    <li>Överlämnar sig frivilligt med sina föräldrar</li>
+                </ul>
+                <p style="margin-top: 0.75rem; color: var(--text-dim);">Profil: Ingen kriminell historia. "Vanlig kille." Antifascistiska meddelanden ingraverade på patronhylsorna. Lapp under tangentbordet: "I had the opportunity to take out Charlie Kirk and I'm going to take it."</p>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">12-13 SEPTEMBER (fredag-lördag) - Doxxing-stormen</h4>
+            <div class="warning-box">
+                <h4 style="color: var(--accent-red);">DOXXING-KAMPANJEN: "EXPOSE CHARLIE'S MURDERERS"</h4>
+                <p style="margin-top: 0.5rem;"><strong>"Expose Charlie's Murderers"</strong> (senare omdöpt till "Charlie Kirk Data Foundation") lanseras 13 september.</p>
+                <table style="margin-top: 1rem;">
+                    <tr><th>Omfattning</th><th>Detalj</th></tr>
+                    <tr><td>Submissions</td><td><strong>63,000+</strong> insamlade</td></tr>
+                    <tr><td>Publicerade namn</td><td><strong>41</strong> initialt, 20,000+ i backlog</td></tr>
+                    <tr><td>Texas</td><td><strong>350+ lärare</strong> under utredning av Texas Education Agency</td></tr>
+                </table>
+                <p style="margin-top: 1rem;"><strong>Drivkrafter:</strong></p>
+                <ul>
+                    <li>Laura Loomer (högerextrem influencer)</li>
+                    <li>Vice President Vance på Kirks podcast: uppmanar tittare att <em>"ringa deras arbetsgivare"</em></li>
+                </ul>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">14-20 SEPTEMBER - Offren ramlar</h4>
+            <div class="yellow-box">
+                <h4 style="color: var(--accent-yellow);">DOXXING-OFFER (urval som berör cellen geografiskt)</h4>
+                <ul>
+                    <li><strong>Cecil County, Maryland:</strong> Lärare sparkad för "karma"-kommentar på sociala medier</li>
+                    <li><strong>Prince George's County, MD:</strong> Polis under utredning för post om Kirk</li>
+                    <li><strong>Lancaster, PA:</strong> Skoldistrikt stänger av Facebook-kommentarer helt</li>
+                    <li><strong>U.S. Secret Service:</strong> Agent på leave med indragen säkerhetsklassning</li>
+                    <li><strong>U.S. Coast Guard:</strong> Anställd under utredning — för en <em>meme</em></li>
+                    <li><strong>MSNBC:</strong> Analytiker Matthew Dowd sparkad efter kommentarer på live-TV</li>
+                    <li><strong>United Airlines:</strong> Anställda åtgärdade efter transportminister Duffys krav</li>
+                    <li><strong>Minnesota:</strong> Lärare Dane Sehaj McLain doxxad, trakasserisamtal — även hans syster</li>
+                </ul>
+                <p style="margin-top: 1rem; color: var(--accent-yellow); font-weight: bold;">Notera: Maryland, Virginia och Pennsylvania — cellens hemstater — drabbas hårt.</p>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">16 SEPTEMBER - Åtalet</h4>
+            <div class="info-box">
+                <p><strong>Utah County-åklagare Jeff Gray</strong> meddelar sju anklagelser mot Robinson. Dödsstraff söks.</p>
+                <ol style="margin-top: 0.5rem;">
+                    <li>Aggravated murder (mord med försvårande omständigheter)</li>
+                    <li>Obstruction of justice</li>
+                    <li>Obstruction of justice</li>
+                    <li>Felony discharge of firearm causing serious bodily injury</li>
+                    <li>Witness tampering</li>
+                    <li>Witness tampering</li>
+                    <li>Commission of violent offense in presence of child</li>
+                </ol>
+                <p style="margin-top: 0.75rem;"><strong>Bevis:</strong> DNA på avtryckare, gevär, patronhylsa, oavfyrade patroner och handduk. Antifascistiska inskriptioner. Vittnesmål från rumskamrat. Nästa förhandling: 29 september.</p>
+            </div>
+
+            <!-- KARAKTÄRSPÅVERKAN -->
+            <h3 style="margin-top: 2rem;">Påverkan per karaktär</h3>
+
+            <div class="gm-note">
+                Presentera INTE allt detta som exposition. Låt det komma organiskt: en nyhetstext på TV:n, ett SMS från en kollega, en notis på telefonen. Fråga spelarna: "Vad gör din karaktär den 10 september?" och väv in detaljerna i deras svar.
+            </div>
+
+            <!-- MAC -->
+            <div class="npc-card" style="border-left-color: #4a90a4;">
+                <h4 style="color: #4a90a4;">MAC RILEY (FBI, Arlington VA)</h4>
+                <p><strong>Status:</strong> Administrative leave sedan augusti. Full lön, ingen tillsyn.</p>
+
+                <p style="margin-top: 1rem;"><strong>Kirk-mordet ger honom perfekt cover.</strong> FBI DC Field Office exploderar av aktivitet — ALLA resurser dras till Kirk-utredningen och doxxing-efterdyningarna. Ingen har tid att kolla vad en sjukskriven agent gör.</p>
+
+                <ul style="margin-top: 0.75rem;">
+                    <li><strong>Kollegor ringer:</strong> "Har du hört? Vi drar in alla." Mac måste spela normal. Svara lagom engagerat. Inte för mycket, inte för lite.</li>
+                    <li><strong>Lojalitetstester:</strong> FBI:s redan pågående interna granskning intensifieras. Alla som uttryckt minsta sympati med anti-Trump-åsikter granskas. Mac är på leave — men hans mail och telefonloggar kan fortfarande synas.</li>
+                    <li><strong>Arlington:</strong> National Guard redan utplacerat (2,300 beväpnade). Nu förstärkt. Humvees vid varje monument. Helikoptrar dygnet runt.</li>
+                    <li><strong>Bond-risk:</strong> Om Mac har familj eller vänner som postat något om Kirk — de är i farozonen för doxxing. Federalt anställda extra utsatta.</li>
+                </ul>
+
+                <div class="skill-check" style="margin-top: 1rem;">
+                    <strong>Eventuell rollspels-prompt:</strong> "Mac, din gamla partner på Field Office ringer. Hon låter trött. 'De drar in alla som haft semester. Du med — eller?' Vad svarar du?"
+                </div>
+            </div>
+
+            <!-- SULLIVAN -->
+            <div class="npc-card" style="border-left-color: #b87333;">
+                <h4 style="color: #b87333;">FATHER SULLIVAN (Navy Chaplain, Quantico)</h4>
+                <p><strong>Status:</strong> Aktiv tjänst, Quantico Marine Base.</p>
+
+                <p style="margin-top: 1rem;"><strong>Militärbasen går i förhöjt läge.</strong> Briefings. Förstärkta patrullscheman. Sullivan ser soldater som är rädda, förvirrade, arga — och de kommer till honom.</p>
+
+                <ul style="margin-top: 0.75rem;">
+                    <li><strong>Som chaplain söker folk upp honom:</strong> Marines som undrar vad som händer med landet. Några som tyst sympatiserar med Robinson ("the kid snapped, man"). Några som är rasande ("we should execute him on the spot").</li>
+                    <li><strong>Moralisk kris:</strong> Sullivan ser redan militär användas mot civila — NG i DC, ICE-stöd. Nu dessutom en hämndkampanj som kostar oskyldiga jobben. Var går gränsen för hans lojalitet?</li>
+                    <li><strong>Arbetsbörda:</strong> Fler soldater behöver stöd = mindre tid för Delta Green-relaterade saker. Svårare att ta ledigt.</li>
+                    <li><strong>Bond-tryck:</strong> Hans roll som andlig vägledare ställs mot politisk verklighet. Folk vill ha svar han inte har.</li>
+                </ul>
+
+                <div class="skill-check" style="margin-top: 1rem;">
+                    <strong>Eventuell rollspels-prompt:</strong> "Sullivan, en ung corporal sätter sig mittemot dig i kapellet. Han har gråtit. 'Padre, de sa åt mig att jag ska vara redo att skjuta amerikaner om det behövs. Är det rätt?' Vad säger du?"
+                </div>
+            </div>
+
+            <!-- SPARKY -->
+            <div class="npc-card" style="border-left-color: #00ff41;">
+                <h4 style="color: #00ff41;">KAI "SPARKY" ZHANG (NSA, Fort Meade / Laurel MD)</h4>
+                <p><strong>Status:</strong> Aktiv tjänst, SIGINT Specialist. Compliance-alarm obesvarat.</p>
+
+                <p style="margin-top: 1rem;"><strong>NSA:s övervakningskapacitet maximeras.</strong> "Operation Charlotte's Web" (ICE-stöd) redan igång — nu läggs Kirk-utredningen ovanpå. Inhemsk signalspaning på en nivå Sparky aldrig sett.</p>
+
+                <ul style="margin-top: 0.75rem;">
+                    <li><strong>Sparky SER dataflödena:</strong> Hon sitter vid konsolen och ser inhemsk övervakning i realtid. Metadataflöden, telefonavlyssning, sociala medier-scan. Allt riktas inåt, mot amerikanska medborgare.</li>
+                    <li><strong>Hennes egna sökningar:</strong> Compliance-alarmet (Volkov, 247 Hz, ryska diplomater) är fortfarande obesvarat. Kanske drunknar det i Kirk-bruset. Kanske sticker det ut ännu mer — en analytiker som söker på ryska diplomater mitt i en nationell kris.</li>
+                    <li><strong>Laurel:</strong> Redan ICE staging area. Nu ytterligare polisiär närvaro. Omärkta bilar och bussar överallt utanför hennes lägenhet.</li>
+                    <li><strong>Personligt:</strong> NSA har redan förlorat 2,000 kollegor i nedskärningar. Ledarskapsvakuum sedan april. Moralen är i botten. Kirk-mordet gör det värre — nu är de en del av hämndapparaten.</li>
+                </ul>
+
+                <div class="warning-box" style="margin-top: 1rem;">
+                    <h4 style="color: var(--accent-red);">SPARKYS DILEMMA</h4>
+                    <p style="margin-top: 0.5rem;">Om hon åker till Tyskland nu: NSA vet inte var hon är. Compliance-alarm obesvarat. I normala tider = suspension. Under Kirk-krisen = potentiellt flaggad som säkerhetsrisk.</p>
+                    <p style="margin-top: 0.5rem;">Om hon stannar: Compliance-review kräver förklaring av hennes off-books-sökningar. Ljuga? Berätta delar av sanningen?</p>
+                </div>
+
+                <div class="skill-check" style="margin-top: 1rem;">
+                    <strong>Eventuell rollspels-prompt:</strong> "Sparky, du sitter vid din konsol och ser hur ett nytt SIGINT-program aktiveras — brett, inhemskt, riktat mot 'anti-government extremism.' Du ser din egen sökhistorik i feedet. Den är flaggad."
+                </div>
+            </div>
+
+            <!-- SCALPEL -->
+            <div class="npc-card" style="border-left-color: #d4af37;">
+                <h4 style="color: #d4af37;">DR. HANNA "SCALPEL" ENGLER (Medical Examiner, Baltimore)</h4>
+                <p><strong>Status:</strong> Aktiv tjänst, Baltimore County ME's Office.</p>
+
+                <p style="margin-top: 1rem;"><strong>Doxxing-kampanjen träffar Maryland hårt.</strong> Cecil County-läraren, Prince George's County-polisen — det är hennes grannskap. Stämningen på kontoret skiftar.</p>
+
+                <ul style="margin-top: 0.75rem;">
+                    <li><strong>Cecil County:</strong> En lärare i hennes delstat förlorar jobbet för ett ord. "Karma." Det är allt som behövdes.</li>
+                    <li><strong>Baltimore = sanctuary city:</strong> Redan ett mål för ICE-räder. Kirk-mordet eskalerar retoriken. Polisen under press från alla håll.</li>
+                    <li><strong>ME-kontoret:</strong> Kollegor som viskar. Ingen vågar säga något om Kirk öppet. Kafferummet är tystare än vanligt.</li>
+                    <li><strong>Rekordnivåer ICE-förvar:</strong> 59,762 personer (21 sept) — högsta någonsin. Baltimore kan börja få ICE-relaterade dödsfall på hennes bord.</li>
+                </ul>
+
+                <div class="skill-check" style="margin-top: 1rem;">
+                    <strong>Eventuell rollspels-prompt:</strong> "Scalpel, din kollega — den roliga killen som alltid har något sarkastiskt att säga — sitter tyst vid lunchen. Du ser att han raderar något från sin telefon. Han märker att du ser. Ingen av er säger något."
+                </div>
+            </div>
+
+            <!-- TRENCH -->
+            <div class="npc-card" style="border-left-color: #ff8c00;">
+                <h4 style="color: #ff8c00;">SAM "TRENCH" NOVAK (USAR/FEMA, Philadelphia)</h4>
+                <p><strong>Status:</strong> Aktiv FEMA PA-TF1 + Army Reserve.</p>
+
+                <p style="margin-top: 1rem;"><strong>Philadelphia protesterar vilt.</strong> Storstad med stark aktivism — Kirk-mordet polariserar ytterligare.</p>
+
+                <ul style="margin-top: 0.75rem;">
+                    <li><strong>Lancaster, PA:</strong> Skoldistrikt i hans delstat stänger av Facebook-kommentarer. Det är <em>nära</em>.</li>
+                    <li><strong>FEMA-budget:</strong> Redan pressad av "pocket rescission"-paket. Politisk kris = ännu mindre resurser för katastrofberedskap. Trenchs jobb blir svårare.</li>
+                    <li><strong>Army Reserve:</strong> NATO-spänningen (Polen/Ryssland, 6 sept) har redan höjt beredskapen. Kirk-krisen internt drar fokus, men om något händer internationellt kan han kallas in.</li>
+                    <li><strong>Philly-atmosfär:</strong> Proteströrelser. "No Kings"-banderoller. Polishelikoptrar. Trench ser det från sin lägenhet.</li>
+                </ul>
+
+                <div class="skill-check" style="margin-top: 1rem;">
+                    <strong>Eventuell rollspels-prompt:</strong> "Trench, din FEMA-chef samlar teamet. 'Vi har fått order att prioritera "domestic threat response" över naturkatastrofberedskap tills vidare.' Hon ser ut som hon vill kräkas. Vad tänker du?"
+                </div>
+            </div>
+
+            <!-- THE SILENCE -->
+            <h3 style="margin-top: 2rem;">Stämningsläge: "The Silence"</h3>
+            <div class="read-aloud">
+                <p>Dagarna efter Kirk-mordet sänker sig en tystnad. Inte den dramatiska sortens — den vardagliga. Tysta kafferum. Raderade tweets. Folk som tittar ner i sina telefoner istället för att diskutera nyheterna.</p>
+                <p style="margin-top: 1rem;">Viskande samtal. Krypterade appar. Rädsla för grannar.</p>
+                <p style="margin-top: 1rem;">En tystnad på baren när nyheterna kommer på. Bartendern byter kanal till sport. Ingen protesterar.</p>
+            </div>
+
+            <div class="yellow-box">
+                <h4 style="color: var(--accent-yellow);">NARRATIV FUNKTION</h4>
+                <p style="margin-top: 0.5rem;">Kirk-mordet gör tre saker för kampanjen:</p>
+                <ol style="margin-top: 0.5rem;">
+                    <li><strong>Förstärker övervakningstrycket:</strong> Exakt den känsla de kommer uppleva i Tyskland. Att vara övervakad. Att inte kunna prata fritt. Att bli spårad.</li>
+                    <li><strong>Motiverar Tysklandsresan:</strong> USA är inte säkert. Inte på det sättet de trodde. Att åka utomlands känns inte längre som det mest riskfyllda alternativet.</li>
+                    <li><strong>Skapar personlig press:</strong> Varje karaktär har en anledning att vilja <em>bort</em> — inte bara för utredningen, utan för att deras vardag har blivit outhärdlig.</li>
+                </ol>
+            </div>
+
+            <div class="gm-note">
+                Använd Kirk-mordet som BAKGRUND, inte huvudfokus. Det är världen som snurrar medan cellen försöker förstå sin egen situation. Men bakgrunden förstärker huvudtemat: makt, hemligheter och konsekvenser av att gräva för djupt.
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- DESIGNBESLUT -->
+        <!-- ============================================================ -->
+        <div class="section">
+            <h2>⚙️ DESIGNBESLUT (SL-REFERENS)</h2>
+
+            <div class="gm-note">
+                Dessa beslut togs under Session 5-planeringen. Dokumenterade här för kontinuitetens skull. Se även <a href="LOGICAL_GAPS_2025_ADAPTATION.md" style="color: var(--accent-yellow);">LOGICAL_GAPS_2025_ADAPTATION.md</a>.
+            </div>
+
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Problem</th>
+                    <th>Lösning</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Finansiellt gap ($100k)</td>
+                    <td>Skjuts till Ryssland (S9+). Tyskland kostar ~$5-8k ur egna fickor.</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>NSA-paradox</td>
+                    <td>Sparky får compliance-alert i Scen 2. Tyskland = gå under jord.</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Märket vs Parasiten</td>
+                    <td><strong>Märke</strong> = frekvensattunering från kristall. <strong>Parasit</strong> = biologisk transformation vid ritual (S6-7).</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Interpol + biometri</td>
+                    <td>Irrelevant i S5 - de reser som privatpersoner. Problem först vid brott.</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Biometrisk kordon (247Hz)</td>
+                    <td>Infrasonic, extremt svag. Bara specialutrustning/attunerade kan detektera.</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Volkovs endgame</td>
+                    <td>Samlar fragment för att FÖRHINDRA reassembly. Arbetar EMOT de tre männen.</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Fragmenttransport</td>
+                    <td>Tumstort, under scanner-trösklar. Ziplock i handbagage. Risk: 247Hz-detektion.</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Magdas motivation</td>
+                    <td>Terminal cancer (pankreas IV, 3-6 mån). Visas genom observation, aldrig exposition.</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Pacing: downtime</td>
+                    <td>Scen 2 (Debriefing) ÄR downtime-scenen.</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Clue chains</td>
+                    <td>Hybrid: Magda ger ramverk, detaljer kräver investigation.</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SL-STÖD -->
+        <!-- ============================================================ -->
+        <div class="section">
+            <h2>🎬 SL-STÖD: ATMOSFÄR & REFERENSER</h2>
+
+            <h3>Filmreferenser per scen</h3>
+            <table>
+                <tr>
+                    <th>Scen</th>
+                    <th>Referens</th>
+                    <th>Varför</th>
+                </tr>
+                <tr>
+                    <td>1 - Grisha</td>
+                    <td>No Country for Old Men</td>
+                    <td>Minimalt, spänt, tystnad som talar</td>
+                </tr>
+                <tr>
+                    <td>2 - Debriefing</td>
+                    <td>Yellowstone / Sicario</td>
+                    <td>Lugnet före stormen, professionella under press</td>
+                </tr>
+                <tr>
+                    <td>3 - Beslutet</td>
+                    <td>Arrival</td>
+                    <td>Beslut som förändrar allt, tidsperspektiv</td>
+                </tr>
+            </table>
+
+            <h3>Musikspellista</h3>
+            <div class="info-box">
+                <ol>
+                    <li><strong>No Country for Old Men</strong> (tystnad med minimal stråkar) → Grisha</li>
+                    <li><strong>Brian Tyler - Yellowstone</strong> (vidsträckt, reflekterande) → Debriefing</li>
+                    <li><strong>Jóhann Jóhannsson - Arrival</strong> ("Heptapod B") → Beslutet</li>
+                </ol>
+            </div>
+
+            <h3>Ton-guide</h3>
+            <div class="yellow-box">
+                <p><strong>AFTERMATH + BESLUT.</strong> Processa, sammanställ, bestäm.</p>
+                <ul style="margin-top: 0.5rem;">
+                    <li><strong>Scen 1:</strong> Sista pusselbiten från USA-investigation. Grisha ger kontext.</li>
+                    <li><strong>Scen 2:</strong> Andrum. Låt spelarna PRATA. Konsekvenser syns (NSA, kristall, jobb).</li>
+                    <li><strong>Scen 3:</strong> Vändpunkt. Magda ringer (alt: mellan sessioner). Cellen bestämmer.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; color: var(--text-dim); padding: 2rem; border-top: 1px solid var(--border); margin-top: 2rem;">
+            DELTA GREEN // TRIP 19: BLACK MADONNA // SESSION 5 SKELETT<br>
+            <span style="font-size: 0.8rem;">Skapad: 2026-02-07 | Version: 2.0 (rensat - bara USA, Tyskland utbrutet)</span>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -166,22 +166,25 @@ PAYOFF (Session 5):
 - Players re-evaluate everything
 - New questions emerge
 
-**Example - Magdas död (Berlin pivot):**
+**Example - Magdas cancer (Berlin pivot):**
 ```
 BEFORE:
 - Magda är hjälpsam kontakt
 - Skickar research
 - Seems safe
+- Working from Berlin apartment
 
 TRIGGER:
-- News: "German journalist död, suicide"
+- Magda's health deteriorates rapidly
+- OR: Players discover her terminal diagnosis
+- OR: She mentions threats ("someone's watching my apartment")
 
 CASCADE:
-- Hennes lägenhet: Tecken på struggle
-- Emails: "They found me"
-- Research: Leningrad connection
-- Realization: Trip 19 bara början
-- New question: Vem dödade henne?
+- Magda shares Frankfurt Clinic research
+- Mentions dreaming of Leningrad, the 247 Hz frequency
+- Reveals family trauma (1942 camp, strange experiments)
+- Realization: Trip 19 wasn't random - something is HUNTING her
+- New question: Is her illness natural, or connected to the mythos?
 ```
 
 ---

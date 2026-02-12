@@ -1,7 +1,7 @@
 # CURRENT STATE - Trip 19 / Svarta Madonnan
 
 ## Senast uppdaterad
-2026-02-06
+2026-02-09
 
 ## 🎮 SPELLÄGE - Var är vi i kampanjen?
 
@@ -17,33 +17,36 @@
 | 2 | 6 sept 2025 | Gick igenom Harriets förråd (2 dagar efter att de hittade det) |
 | 3 | 7 sept 2025 | Lovettsville Historical Society, mötte Magda Orlova |
 | 4 | 7 sept 2025 | Bishop Farm → Hamilton House. **PÅGÅENDE** - stannade vid Hamilton House |
+| 5 | 7 sept 2025 | **PLANERAD:** Grisha → Debriefing → Beslutet (USA). Se `SL/session5.html` |
+| 6 | TBD (efter downtime) | **PLANERAD:** Tyskland (Hamburg → Berlin). Materialet utbrutet ur session5.html - ännu ingen egen fil. |
 
 ---
 
-## 🔴 KÄNDA PROBLEM - MÅSTE ÅTGÄRDAS
+## 🟢 DESIGNBESLUT - HUVUDSAKLIGEN LÖSTA
 
-**NARRATIVA DESIGNBESLUT** (10 st, bordlagda - inte brådskande)
-- **Källa:** Djupgranskning 2026-02-06 + `SL/LOGICAL_GAPS_2025_ADAPTATION.md`
-- **Status:** Parkerade. Löses successivt under kampanjutveckling.
+**9 av 10 narrativa designbeslut lösta under Session 5-planering (2026-02-07).**
+- **Källa:** `SL/LOGICAL_GAPS_2025_ADAPTATION.md` (uppdaterad med lösningar)
 
-**Logiska luckor:**
-1. Finansiellt gap ($100k smuggling, Outlaws utan budget)
-2. NSA-paradoxen (Sparkys obehöriga sökningar borde trigga alarm)
-3. Märket vs Parasiten (hur interagerar de? samma fenomen?)
-4. Interpol + biometriskt Europa (hur reser de fritt 2025?)
-5. Biometrisk kordon i Ryssland (247Hz borde flaggas av sensorer)
+| # | Problem | Status |
+|---|---------|--------|
+| 1 | Finansiellt gap ($100k) | 🟡 Delvis (Berlin löst, Ryssland kvar) |
+| 2 | NSA-paradox | ✅ Löst (compliance-alarm i Session 5) |
+| 3 | Märket vs Parasiten | ✅ Löst (distinkt: märke=frekvens, parasit=biologisk) |
+| 4 | Interpol + biometri | ⏩ Skjuts (irrelevant tills brott) |
+| 5 | Biometrisk kordon | ✅ Löst (247Hz infrasonisk, under sensortrösklar) |
+| 6 | Volkovs endgame | ✅ Löst (förhindrar reassembly) |
+| 7 | Fragmenttransport | ✅ Löst (under scanner-trösklar) |
+| 8 | Magdas motivation | ✅ Löst (terminal pankreascancer) |
+| 9 | Pacing: downtime | ✅ Löst (Session 5 Scen 2) |
+| 10 | Clue chains | ✅ Löst (hybrid: ramverk + investigation) |
 
-**Narrativa luckor:**
-6. Volkovs endgame - varför samlar han fragment? Behöver explicit scene/dokument
-7. Fragmenttransport - regler för hantering, förvaring, strålningsrisker under resa
-8. Magdas motivation - dramatisera (visa desperation via handling, inte exposition)
-9. Pacing: downtime-scene saknas mellan Session 2→3
-10. Clue chains för expositöriska - Magda berättar allt vs spelarna upptäcker
+**Kvarvarande:**
+- #1: Ryssland-finansiering ($100k) behöver lösas innan Session 9
+- #4: Interpol/biometri om de begår brott i Tyskland
 
-**Karaktärsobservationer (inte problem, men bör dramatiseras):**
+**Karaktärsobservationer:**
 - Mac: Breaking Point-marginal = 10 (nära kris)
 - Sullivan: Breaking Point-marginal = 5 (extremt nära)
-- Alternativa clue paths behövs (Lovettsville → Frankfurt)
 
 ---
 
@@ -79,6 +82,30 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
 ## Senaste utveckling (från git-log)
 
 ### Pågående arbete
+
+**Session 5 Rensning: Bara USA** - Februari 2026 ✅
+- **`SL/session5.html` rensat** - Bara Session 5 (USA, Scen 1-3). Tyskland-material (Scen 4-6) utbrutet.
+  - Scen 1: Grishas Garage (Sterling VA) - konfrontation med Volkovs fixare
+  - Scen 2: Debriefing (downtime) - sammanställning, kristalleffekter, NSA-alarm
+  - Scen 3: Beslutet - Magda ringer (alt: mellan sessioner), författarkväll + dagbok
+- **Magdas replik fixad**: Författarkvällen handlar nu om Leningrad-belägringen och de försvunna barnen 1942 (inte "östeuropeisk journalistik"). Litet bokhandelsarrangemang, 30-40 personer.
+- **Tyskland-material (framtida session)**: Scen 4 (Transatlantisk), Scen 5 (Författarkvällen), Scen 6 (Klipphangare) borttagna ur session5.html. Kommer placeras i egen fil vid Session 6-planering.
+- **Status**: Session 5 skelett klart och rensat ✅
+
+**Session 5 Planering (tidigare)** - Februari 2026 ✅
+- **10 designbeslut lösta** (dokumenterade i `SL/LOGICAL_GAPS_2025_ADAPTATION.md`):
+  - NSA-paradox → compliance-alarm
+  - Märke vs Parasit → distinkt (frekvens vs biologisk)
+  - Magdas motivation → terminal pankreascancer
+  - Volkovs endgame → förhindrar reassembly
+  - Fragmenttransport → under scanner-trösklar
+  - Clue chains → hybrid (ramverk + investigation)
+- **STOR KONTINUITETSÄNDRING**: Magda lever (inte död/försvunnen/kidnappad)
+  - 14+ filer uppdaterade med "Magda lever"-status
+  - Magda: terminal cancer, i Berlin, ringer cellen, arbetar med dem
+  - Alla "Magda död"-scenarier i locations.html, npcs.html, timeline.html, kapitel-filer etc. uppdaterade
+  - `master/timeline.md` och `master/continuity_database.md` uppdaterade
+- **SAN-budget**: Max 0-4 poäng per session (medvetet låg - bygger dread, inte trauma)
 
 **Djupgranskning: Inkonsistenser & Narrativa Problem** - Februari 2026 ✅
 - **Omfattning**: Fullständig audit med 5 parallella agenter (pronomen, tidslinje, lore, NPCs, narrativ)
@@ -443,4 +470,9 @@ Trip19/
 ```
 
 ## Nästa steg
-- [Definieras av användaren]
+- Detaljera Session 5 scener (expand Scen 1-3 till fullständiga scener)
+- Skapa Session 6-fil (Tyskland: flyg, författarkvällen, klipphangare) - materialet finns i git-historik
+- Planera Session 7: Filip-mötet vid Slavic Association
+- Flaggad för framtida revision: `SL/black_madonna_chapter1.html` (förutsätter Magda död + Hamburg bokrelease - behöver total omskrivning)
+- Lösa Ryssland-finansiering (#1) innan Session 8-9 prep
+- Lösa Interpol/biometri (#4) om brott begås i Tyskland

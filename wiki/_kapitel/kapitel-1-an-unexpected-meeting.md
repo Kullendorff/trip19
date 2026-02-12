@@ -13,7 +13,7 @@ ledtradar: ["Magdas forskningsmaterial", "The Power of Dreams", "247 Hz-humming"
 **Ett oväntat möte**
 
 ## SYNOPSIS
-Spelarna möter Magda Orlova i Lovettsville Historical Society. Hon bjuder in dem till sin bokrelease i Hamburg där Anton Mahler och Sasha Pogodin dyker upp. När Magda flyr till Berlin och dör på Charité Hospital får spelarna hennes forskningsmaterial och möter Dr. Richter som kan se "parasiten".
+Spelarna möter Magda Orlova i Lovettsville Historical Society. Hon bjuder in dem till sin bokrelease i Hamburg där Anton Mahler och Sasha Pogodin dyker upp. När Magda flyr till Berlin träffar spelarna henne igen vid Charité Hospital, där Dr. Richter avslöjar sin kunskap om de övernaturliga krafterna. Magda är terminalt sjuk men lever och blir en värdefull medlem av cellen.
 
 ## SESSIONS
 **Session 3-5** (ca 3 sessioners material)
@@ -22,17 +22,17 @@ Spelarna möter Magda Orlova i Lovettsville Historical Society. Hon bjuder in de
 - **Lovettsville Historical Society** - Första mötet med Magda
 - **Hamburg** - Magdas lägenhet, Brahmsallee 16
 - **Thalia Flagship Store** - Boklansering där de tre männen dyker upp
-- **Berlin, Leibnizstraße 97** - Magdas dödsplats
-- **Charité Hospital** - Där Magda dör och Dr. Richter avslöjar "parasit"
+- **Berlin, Leibnizstraße 97** - Magdas lägenhet i Berlin
+- **Charité Hospital** - Där Magda är inlagd; Dr. Richter avslöjar sin kunskap om det övernaturliga
 
 ## NYCKELPERSONER
-- **Magda Orlova** - Historiker, "The Forgotten of Leningrad 1942", dör i detta kapitel
+- **Magda Orlova** - Historiker, "The Forgotten of Leningrad 1942", terminalt sjuk men driver sin forskning från Berlin
 - **Anton Mahler** - Yithian-värd, Slavic Association-ledare, dyker upp på lanseringen
 - **Aleksandr "Sasha" Pogodin** - 247 Hz-transformerad, dyker upp på lanseringen
 - **Dr. Richter** - Läkare på Charité som kan "se" något på Magda
 
 ## STRUKTUR
-**18 scener från första mötet till Magdas död:**
+**18 scener från första mötet till Magdas anslutning till cellen:**
 
 ### Act 1: Lovettsville
 - Möte med Magda på Historical Society
@@ -47,10 +47,11 @@ Spelarna möter Magda Orlova i Lovettsville Historical Society. Hon bjuder in de
 
 ### Act 3: Berlin
 - Magdas Berlin-lägenhet, Leibnizstraße 97
-- Spelarna hittar henne **döende**
-- "The Power of Dreams" öppen på golvet, ritualsida dog-eared
-- **15 minuters fönster** innan ambulans kommer
-- Charité Hospital - Dr. Richter ser "parasit" på Magda
+- Spelarna möter Magda i Charité Hospital där hon är inlagd
+- Hon är svag men alert, forskar från sjukhusrummet
+- "The Power of Dreams" och forskningsmaterial i rummet
+- Dr. Richter avslöjar sin kunskap om övernaturliga krafter
+- Magda och Dr. Richter blir värdefulla resurser för cellen
 
 ## VIKTIGA LEDTRÅDAR
 1. **Magdas forskningsmaterial** - Omfattande research om de tre männen
@@ -68,7 +69,7 @@ Spelarna möter Magda Orlova i Lovettsville Historical Society. Hon bjuder in de
 - **15-minuters window:** Spelarna måste samla bevis snabbt
 
 ## SAN-LOSS POTENTIAL
-- **Magdas död:** 1/1D4
+- **Magdas sjukdom och övernaturliga ursprung:** 0/1D4
 - **Dr. Richters avslöjande:** 0/1 (något onaturligt pågår)
 - **Anton & Sasha:** 0/1 (oroande närvaro)
 
@@ -76,19 +77,21 @@ Spelarna möter Magda Orlova i Lovettsville Historical Society. Hon bjuder in de
 - Spelarna har Magdas forskning
 - De vet att tre män från Leningrad 1942 inte åldras
 - De vet att något är fel med de tre männen
-- Dr. Richter kan bli återkommande kontakt
+- Magda och Dr. Richter är nu del av cellen
+- Dr. Richter kan ses på Charité Hospital för information
 - Frankfurt Clinic nämns i Magdas anteckningar
 
 ## SL-NOTERINGAR
 **Pacing:**
 - Första akten är lugn investigation
 - Hamburg escalerar - första mötet med antagonister
-- Berlin är KRITISK - döende Magda, tidsbrist, ledtrådar
+- Berlin är KRITISK - att träffa Magda igen, sjuk men stridbar, nya allierade
 
-**Magdas död:**
-- Filip Kramer (drömvandrare) attackerade henne i sömnen
+**Magdas tillstånd:**
+- Filip Kramer (drömvandrare) attackerade henne tidigare
+- Hon är terminalt sjuk från dessa attacker men fortfarande mentalt skarp
 - Dr. Richter kan tekniskt sett "se" Yithian-kolonisering
-- Spelarna blir "märkta" genom Magdas död - drömattacker börjar
+- Magda och Richter blir värdegulla resurser för spelarna framåt
 
 **Anton & Sasha:**
 - Första intrycket MÅSTE vara oroande men inte öppet hotfullt

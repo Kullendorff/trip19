@@ -1,6 +1,6 @@
 # TRIP 19 - KONTINUITETSDATABAS
 
-**Senast uppdaterad:** 2026-01-20 (Hamilton-jakten + nya NPCs/platser tillagda)
+**Senast uppdaterad:** 2026-02-07 (Session 5 planerad, Magda lever - terminalt sjuk)
 
 ---
 
@@ -100,20 +100,25 @@ Denna fil är ett **INDEX**. När du söker efter ett element:
   - Adress: 318 Edwards Ferry Rd NE, Leesburg, VA 20176
   - Storage unit: CubeSmart Leesburg, Unit D-47
 
-#### Magda Orlova (Hamburg) [Död/Försvunnen Session 4-5]
+#### Magda Orlova (Hamburg → Berlin) [LEVER - Terminalt sjuk]
 - **Filer**:
   - `SL/session3.html`
+  - `SL/session5.html`
   - `wiki/_npcs/magda-orlova.md`
-  - `master/timeline.md` (augusti-oktober 2025)
+  - `master/timeline.md` (augusti-september 2025)
   - `SL/black_madonna_chapter2.html` (hennes research)
 - **Nyckeldata**:
-  - 86 år (1939-2025)
+  - 86 år (1939-)
   - Pensionerad journalist (2004)
-  - Bodde i Hamburg
-  - Augusti 2025: Reste till USA för Trip 19-research
-  - September 2025: Träffar spelarna i Lovettsville
-  - Oktober 2025: Död/försvunnen/kidnappad
+  - Bodde i Hamburg → nu i Berlin
+  - **Juni 2025:** Diagnosticerad med pankreascancer steg IV (3-6 mån prognos). Vägrar kemoterapi.
+  - **Augusti 2025:** Reste till USA för Trip 19-research
+  - **September 2025:** Träffar spelarna i Lovettsville (Session 3)
+  - **September 2025:** Reser tillbaka till Berlin. Hittar morns dagbok. Filip Kramer kontaktar henne.
+  - **September 2025:** Ringer cellen - bjuder in dem till Berlin (Session 5)
   - Dotter till Leningrad 1942-överlevande
+  - **Terminal cancer visas genom:** Viktförlust, ikterus, äter inte, darrar, fokuserad intensitet (smärtstillande)
+  - **Döljer för cellen:** Cancern, misstanke att Filip lägger en fälla
 
 #### Grigori "Grisha" Morozov
 - **Filer**:
@@ -244,8 +249,8 @@ Denna fil är ett **INDEX**. När du söker efter ett element:
 #### Oktober 2025 (PLANERAT)
 | Datum | Händelse | Filer |
 |-------|----------|-------|
-| Oktober 2025 | Magda-incident (död/försvunnen/kidnappad) | `master/timeline.md` |
-| Oktober 2025 | Berlin & Tyskland-sessioner | `master/timeline.md`, `SL/black_madonna_chapter2.html` |
+| 7-8 september 2025 | Session 5: Grisha-konfrontation, debriefing, Magda ringer, flyg till Berlin, möte med Magda, Volkovs lapp | `master/timeline.md`, `SL/session5.html` |
+| September 2025 | Berlin & Tyskland-sessioner (cellen i Berlin med Magda) | `master/timeline.md`, `SL/session5.html`, `SL/black_madonna_chapter2.html` |
 
 #### November 2025 (PLANERAT)
 | Datum | Händelse | Filer |
@@ -506,7 +511,7 @@ Dessa element är plausibla tillägg i dokumenterade historiska gap:
 
 ### Magda Hamburg's Research
 - **Filer**: `wiki/_npcs/magda-orlova.md`, `master/timeline.md`
-- **Element**: Magda Orlova (1939-2025), journalist, Trip 19-research
+- **Element**: Magda Orlova (1939-), journalist, Trip 19-research, terminalt sjuk (pankreascancer steg IV)
 
 ### Leningrad 1942-incident
 - **Filer**: `wiki/_handelser/leningrad-1942.md`, `master/timeline.md`

@@ -328,7 +328,7 @@ Låt mig veta så delegerar jag till rätt agent!
 3. **npc-personality-generator** - Berliner polisen, landlord
 4. **historical-handout-designer** - Magdas sista email
 5. **trip19-html-generator** - Session 5 SL-sida
-6. **horror-pacing-advisor** - Horror elements (Magdas död)
+6. **horror-pacing-advisor** - Horror elements (Magdas sjukdom, Berlin-dread)
 7. **trip19-swedish-translator** - Granska allt
 8. **campaign-state-documenter** - Uppdatera projekt
 

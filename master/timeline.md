@@ -63,28 +63,25 @@
 - Magda delar sin mors historia från Leningrad
 - Volkovs spår överallt (GPR-anomalier, curator-vittnesmål)
 
-### **Session 4: Fortsatt Lovettsville / Beslut**
-- Vidare undersökning
-- Kanske konfrontation med Volkov?
-- Eller: Bevis att han varit där och tagit något
-- Magda ger mer information om Frankfurt Clinic
-- Beslut: Något driver dem till Berlin
+### **Session 4: Fortsatt Lovettsville / Hamilton House**
+- Bishop Farm → Hamilton House (Volkovs tillfälliga bas)
+- Hittar anteckningsboken, kristallfragmentet, Grishas visitkort
+- Volkov observerad vid skogslinjen men försvinner
+- **PÅGÅENDE** - stannade vid Hamilton House
+
+### **Session 5: Grishas Garage / Transatlantisk** (7-8 september 2025)
+- Konfrontation med Grisha i Sterling VA (bekräftar Volkovs instabilitet, 247 Hz, "Konstantin vid ambassaden")
+- Debriefing: Cellen sammanställer Session 1-4. Sparkys NSA compliance-alarm. Kristallfragmentets effekter.
+- Magda ringer från Berlin: hittat morns dagbok, Filip Kramer har kontaktat henne, bjuder in cellen
+- Cellen bestämmer sig att åka till Berlin (privata pass, inga vapen, ~$5-8k ur egna fickor)
+- Flygresan: Vinjetter, fragment-vision under turbulens (SAN 0/1)
+- Berlin: Möte med Magda (tunnare, mörkare ringar, terminalt sjuk men döljer det)
+- **NYCKELMOMENTET:** 83-årigt foto - tre pojkar 1942 = identiska med tre män 2025 (SAN 0/1)
+- Klipphangare: Volkovs lapp under hotelldörren ("Tala INTE med Filip. 48 timmar.")
 
 ---
 
-## OKTOBER 2025 - BERLIN & TYSKLAND
-
-### **Session 5: Berlin Arrival**
-- Något har hänt med Magda
-  - Alternativ A: Hon är död (mördad)
-  - Alternativ B: Hon är försvunnen
-  - Alternativ C: Hon är kidnappad av de tre männen
-- Team i hennes lägenhet (Kreuzberg)
-- Hittar hennes fullständiga research:
-  - Morns dagbok från 1946
-  - Slavic Association-dokument
-  - Karta med markeringar: Lovettsville, Berlin, Frankfurt, Leningrad
-  - Referenser till "de tre ryska männen"
+## SEPTEMBER-OKTOBER 2025 - BERLIN & TYSKLAND
 
 ### **Session 6: Slavic Association**
 - Infiltration/undersökning
@@ -167,30 +164,36 @@
 ✅ Juli 2025: Polen-incidenten (påverkar Rysslandsresan)
 ✅ Augusti 2025: Magda reser till USA
 ✅ September 2025: Kampanj börjar, möter Magda i Lovettsville
-✅ Oktober 2025: Magda-incident (död/försvunnen) + Berlin/Tyskland
+✅ September 2025: Magda lever, terminalt sjuk, på väg till Berlin. Cellen följer efter.
 ✅ November 2025: Ryssland-infiltration (svår) + Finale
 
 ---
 
 ## KRITISKA ÄNDRINGAR I ADAPTION-GUIDEN:
 
-### **Magda Orlova (1939-2025)**
+### **Magda Orlova (1939-)**
 
 **2025-version:**
 - Pensionerad journalist sedan 2004
 - 86 år gammal
 - Bodde i Hamburg
-- **Augusti 2025:** Reste till USA för Trip 19-research
-- **September 2025:** Träffar spelarna i Lovettsville
-- **Oktober 2025:** Något händer (död/försvunnen/kidnappad)
-- Hennes research blir agenternas vägkarta
+- **Juni 2025:** Diagnosticerad med pankreascancer steg IV (3-6 mån prognos). Vägrar kemoterapi.
+- **Augusti 2025:** Reste till USA för Trip 19-research (vet att tiden är kort)
+- **September 2025:** Träffar spelarna i Lovettsville (Session 3)
+- **September 2025:** Reser tillbaka till Berlin. Hittar morns dagbok. Filip Kramer kontaktar henne.
+- **September 2025:** Ringer cellen - bjuder in dem till Berlin (Session 5)
+- Terminal cancer driver henne: desperation + ånger + "inte mycket tid kvar"
+- Hennes research + dagbok blir agenternas vägkarta
 
 **Hennes roll:**
 - Inte bara NPC - narrativ motor
-- Träffas levande i Session 3
+- Träffas levande i Session 3 (Lovettsville)
 - Delar sin mors historia från Leningrad
 - Visar att Trip 19 → Leningrad är verklig koppling
-- Hennes försvinnande driver dem till Berlin
+- Ringer cellen från Berlin (Session 5) - bjuder in dem
+- Terminal cancer = desperation som drivkraft (visas genom handling, aldrig exposition)
+- Möter cellen i Berlin med dagbok och foto (Session 5)
+- Kopplar cellen till Filip Kramer-möte (Session 6)
 
 ---
 
@@ -238,7 +241,7 @@
 **Kampanj slutar:** Början av november 2025  
 **Total speltid:** ~8-12 sessioner över 2 månader in-game
 
-**Magda:** Träffas levande i Session 3, något händer Session 4-5  
+**Magda:** Träffas levande i Session 3 (Lovettsville), ringer cellen i Session 5 (Berlin), terminalt sjuk  
 **Polen-incident:** Juli 2025, påverkar Rysslandsresan Session 9+
 
 **Backdrop:** Hösten 2025 med verkliga händelser från hösten 2024 som "förra året"

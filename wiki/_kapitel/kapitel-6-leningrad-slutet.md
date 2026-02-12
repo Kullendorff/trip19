@@ -189,7 +189,7 @@ Kampanjens klimax i Leningrad. Spelarna möter de 20 fängslade barnen från 194
 - Nyogtha-konsekvenser (om relevant)
 
 ## KOPPLINGAR TILL TIDIGARE KAPITEL
-- **Kapitel 1:** Magdas död ledde hit
+- **Kapitel 1:** Magdas forskning ledde hit
 - **Kapitel 2:** Pyotr varnade om de 20 barnen
 - **Kapitel 3:** Drömsekvenserna förberedde spelarna
 - **Kapitel 4:** GG-rallyt visade mass-exponering
