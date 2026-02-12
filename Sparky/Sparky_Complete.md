@@ -33,30 +33,30 @@
 | STAT | Värde | Modifikator |
 |------|-------|-------------|
 | **STR** (Styrka) | 9 | -1 |
-| **CON** (Kondition) | 10 | 0 |
+| **CON** (Kondition) | 12 | +1 |
 | **DEX** (Smidighet) | 12 | +1 |
-| **INT** (Intelligens) | 16 | +3 |
+| **INT** (Intelligens) | 18 | +4 |
 | **POW** (Viljestyrka) | 14 | +2 |
-| **CHA** (Karisma) | 11 | 0 |
+| **CHA** (Karisma) | 10 | 0 |
 
-**Summa:** 72 poäng
+**Summa:** 75 poäng
 **HP:** 10 (genomsnitt av STR och CON)
 **WP:** 14 (samma som POW)
 **SAN:** 63/70 (Starting: 70, nuvarande: 63)
-**Breaking Point:** 56 (POW × 5 - SAN loss = 70 - 7 = 63, minus adaptations)
+**Breaking Point:** 56
 
 ### Färdigheter (Professional Skills - 460 poäng)
 
 **Tech & SIGINT Core:**
-- Computer Science: 80%
-- SIGINT (Signals Intelligence): 70%
+- Computer Science: 90%
+- SIGINT (Signals Intelligence): 80%
 - Craft (Electronics): 60%
 - Science (Computer Science): 50%
 - Craft (Microelectronics): 40%
 
 **Operational:**
-- Stealth: 50%
-- Search: 45%
+- Stealth: 30%
+- Search: 40%
 - Alertness: 40%
 - Drive: 35%
 - Firearms (Pistol): 40%
@@ -65,11 +65,14 @@
 - Persuade: 35%
 - HUMINT: 30%
 - Criminology: 25%
+- Bureaucracy: 50%
+- Law: 30%
 
 **Languages:**
 - English: 80% (native speaker)
-- Mandarin: 50% (kan prata med mamma, inte flytande)
-- Russian: 20% (lärt sig för DG operations - Volkov obsession)
+- Mandarin: 40% (kan prata med mamma, inte flytande)
+- Russian: 60% (från NSA-arbete, kan läsa teknisk dokumentation och avlyssna kommunikation)
+- Japanese: 20% (grundläggande, självlärda basics)
 
 **Specializations:**
 - Offensive Cyber Operations

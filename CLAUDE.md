@@ -269,13 +269,21 @@ grep -i "Cherry Hill" [alla filer] # Mall-namn-konsekvens?
 .claude/agents/            # Specialized workflow agents
 ```
 
-**Complete.md-filer** är source of truth för karaktärsinformation (ersätter gamla MD-filer).
+**Complete.md-filer** och **karaktärers website (index.html)** är source of truth för karaktärsinformation.
 
 ---
 
-## Discord Bot Integration ⚠️ KRITISKT
+## Kanonhierarki för karaktärsdata ⚠️ KRITISKT
 
-**Agent-data lagras i Discord bot JSON-filer, INTE i HTML/MD-filer:**
+**Prioritetsordning (högst först):**
+1. **Karaktärens website (index.html)** = KANON (grundstats, skills, bonds, bakgrund)
+2. **Complete.md** = Ska matcha websidan (utökad narrativ + mekanik)
+3. **Discord bot JSON** = Synkas FRÅN ovanstående, INTE tvärtom
+
+**Website/Complete.md bestämmer:** Grundstats (STR/CON/DEX/INT/POW/CHA), skill-värden, bonds, bakgrund
+**Discord bot JSON uppdateras i realtid under spel:** HP current, WP current, SAN current, skill improvements (via `/dgendsession`)
+
+### Discord Bot JSON-filer
 
 ```
 C:\Diceroller\data\deltagreen\agents\
@@ -286,17 +294,22 @@ C:\Diceroller\data\deltagreen\agents\
 └── 477800979295633409.json   # Sullivan (Father Michael)
 ```
 
-**Realtids-uppdateringar från Discord:**
-- HP, WP, SAN (current/max)
-- Skills (0-99%)
-- Bonds (värden ändras)
+**Realtids-uppdateringar under spel (JSON ändras automatiskt):**
+- HP, WP, SAN (current-värden sjunker under spel)
+- Skills (kan öka via `/dgendsession` skill improvement)
+- Bonds (värden kan ändras)
 - Disorders (läggs till över tid)
-- Breaking Point (förändras)
+- Breaking Point (förändras vid SAN-loss)
 
-**Workflow för HTML character sheet-uppdateringar:**
-1. Läs aktuella värden från JSON-filerna ovan
-2. Uppdatera HTML med nya HP/SAN/skills
-3. Validera att synkningen fungerade
+**Workflow vid diskrepans mellan källor:**
+1. Websidan (index.html) = korrekt för grundvärden
+2. Uppdatera Complete.md och JSON att matcha websidan
+3. Validera att alla tre källor är synkade
+
+**Workflow för att synka JSON efter sessions-ändringar:**
+1. Kolla vilka current-värden som ändrats i JSON (HP/WP/SAN)
+2. Uppdatera websida och Complete.md med nya current-värden
+3. Grundvärden (max HP, stats, base skills) ändras INTE av Discord-boten
 
 **Discord bot-kommandon (för referens):**
 - `/dgdmg <weapon>` - Vapenskada mot NPC
