@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DELTA GREEN — Agent Documentation Sheet — MAC</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #1a1a1a;
+            --paper: #f4f0e8;
+            --paper-dark: #e8e0d0;
+            --ink: #1a1a1a;
+            --ink-light: #444;
+            --ink-faint: #888;
+            --green-dg: #2d5016;
+            --green-light: #4a7a2e;
+            --green-accent: #3d6b22;
+            --red: #8b1a1a;
+            --red-light: #a52a2a;
+            --blue-field: #e8eef4;
+            --border: #999;
+            --border-light: #bbb;
+            --highlight: #ffff99;
+            --neon-green: #39ff14;
+        }
+
+        body {
+            font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.3;
+            padding: 20px;
+        }
+
+        .sheet {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--paper);
+            padding: 0;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        /* === HEADER === */
+        .sheet-header {
+            background: var(--green-dg);
+            color: white;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #1a3a0a;
+        }
+
+        .sheet-header h1 {
+            font-family: 'Special Elite', 'Courier New', monospace;
+            font-size: 20px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .sheet-header .subtitle {
+            font-size: 11px;
+            letter-spacing: 2px;
+            opacity: 0.85;
+        }
+
+        .delta-triangle {
+            font-size: 28px;
+            margin-right: 10px;
+            color: var(--neon-green);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        /* === CLASSIFIED STAMP === */
+        .classified-stamp {
+            position: absolute;
+            top: 60px;
+            right: 30px;
+            transform: rotate(-12deg);
+            border: 3px solid var(--red);
+            color: var(--red);
+            padding: 4px 14px;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* === SECTIONS === */
+        .section {
+            padding: 10px 20px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--green-dg);
+            border-bottom: 2px solid var(--green-dg);
+            padding-bottom: 3px;
+            margin-bottom: 8px;
+        }
+
+        .section-number {
+            display: inline-block;
+            background: var(--green-dg);
+            color: white;
+            width: 18px;
+            height: 18px;
+            text-align: center;
+            line-height: 18px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-right: 6px;
+            border-radius: 2px;
+        }
+
+        /* === PERSONAL DATA === */
+        .personal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px 20px;
+        }
+
+        .field {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            padding: 2px 0;
+            border-bottom: 1px dotted var(--border-light);
+        }
+
+        .field-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--ink-faint);
+            white-space: nowrap;
+            min-width: 90px;
+        }
+
+        .field-value {
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--ink);
+            flex: 1;
+        }
+
+        .field-value.handwritten {
+            font-family: 'Special Elite', cursive;
+            font-size: 13px;
+            color: #1a2a4a;
+        }
+
+        /* === STATISTICS === */
+        .stats-container {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .stats-table {
+            flex: 1;
+        }
+
+        .stat-row {
+            display: grid;
+            grid-template-columns: 50px 50px 50px;
+            gap: 2px;
+            margin-bottom: 2px;
+            align-items: center;
+        }
+
+        .stat-row.header-row {
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--ink-faint);
+            padding-bottom: 3px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 4px;
+        }
+
+        .stat-name {
+            font-size: 11px;
+            font-weight: bold;
+            color: var(--green-dg);
+        }
+
+        .stat-score {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: 'Special Elite', monospace;
+            background: var(--blue-field);
+            border: 1px solid var(--border-light);
+            padding: 2px 0;
+            border-radius: 2px;
+        }
+
+        .stat-x5 {
+            text-align: center;
+            font-size: 14px;
+            font-family: 'Special Elite', monospace;
+            color: var(--ink-light);
+        }
+
+        /* Derived stats */
+        .derived-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            flex: 1;
+        }
+
+        .derived-box {
+            border: 2px solid var(--green-dg);
+            border-radius: 4px;
+            padding: 6px 10px;
+            text-align: center;
+            background: white;
+        }
+
+        .derived-box.critical {
+            border-color: var(--red);
+        }
+
+        .derived-label {
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--ink-faint);
+        }
+
+        .derived-value {
+            font-size: 22px;
+            font-weight: bold;
+            font-family: 'Special Elite', monospace;
+            color: var(--green-dg);
+            line-height: 1;
+        }
+
+        .derived-box.critical .derived-value {
+            color: var(--red);
+        }
+
+        .derived-max {
+            font-size: 10px;
+            color: var(--ink-faint);
+        }
+
+        .derived-formula {
+            font-size: 7px;
+            color: var(--ink-faint);
+            margin-top: 2px;
+        }
+
+        /* Distinguishing Features */
+        .features-box {
+            background: var(--blue-field);
+            border: 1px solid var(--border-light);
+            border-radius: 3px;
+            padding: 6px 10px;
+            font-size: 11px;
+            font-family: 'Special Elite', monospace;
+            color: #1a2a4a;
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        .features-label {
+            font-size: 8px;
+            font-family: 'Courier Prime', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--ink-faint);
+            margin-bottom: 3px;
+        }
+
+        /* === SKILLS === */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 20px;
+        }
+
+        .skill-row {
+            display: grid;
+            grid-template-columns: 1fr 40px 50px;
+            align-items: center;
+            padding: 1px 0;
+            border-bottom: 1px dotted #ddd;
+            font-size: 10px;
+        }
+
+        .skill-row:hover {
+            background: rgba(57, 255, 20, 0.05);
+        }
+
+        .skill-name {
+            color: var(--ink);
+        }
+
+        .skill-base {
+            text-align: center;
+            color: var(--ink-faint);
+            font-size: 9px;
+        }
+
+        .skill-value {
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+            font-family: 'Special Elite', monospace;
+        }
+
+        .skill-value.trained {
+            color: var(--green-dg);
+            background: rgba(45, 80, 22, 0.08);
+            border-radius: 2px;
+        }
+
+        .skill-value.expert {
+            color: #1a3a0a;
+            background: rgba(45, 80, 22, 0.15);
+            border-radius: 2px;
+            font-size: 13px;
+        }
+
+        .skill-header {
+            display: grid;
+            grid-template-columns: 1fr 40px 50px;
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--ink-faint);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2px;
+            margin-bottom: 3px;
+        }
+
+        .skill-header span:nth-child(2),
+        .skill-header span:nth-child(3) {
+            text-align: center;
+        }
+
+        /* === BONDS === */
+        .bonds-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .bonds-table th {
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--ink-faint);
+            border-bottom: 1px solid var(--border);
+            padding: 3px 6px;
+            text-align: left;
+        }
+
+        .bonds-table td {
+            padding: 4px 6px;
+            font-size: 11px;
+            border-bottom: 1px dotted #ddd;
+        }
+
+        .bonds-table .bond-name {
+            font-family: 'Special Elite', monospace;
+            font-size: 12px;
+            color: #1a2a4a;
+        }
+
+        .bonds-table .bond-score {
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            font-family: 'Special Elite', monospace;
+            color: var(--green-dg);
+        }
+
+        .bonds-table .bond-relation {
+            font-size: 10px;
+            color: var(--ink-faint);
+        }
+
+        .bond-damaged {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border: 1px solid var(--border);
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+
+        /* === SAN INCIDENTS === */
+        .san-incidents {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .incident-box {
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            padding: 8px;
+            background: white;
+        }
+
+        .incident-title {
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            color: var(--ink-light);
+        }
+
+        .incident-checks {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .check-box {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .check-box.checked {
+            background: var(--red);
+            color: white;
+            border-color: var(--red);
+        }
+
+        .check-box.unchecked {
+            background: white;
+        }
+
+        .adapted-label {
+            font-size: 9px;
+            color: var(--ink-faint);
+            margin-left: 6px;
+        }
+
+        /* === MOTIVATIONS & DISORDERS === */
+        .motivations-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .motivations-list li {
+            padding: 3px 0;
+            border-bottom: 1px dotted #ddd;
+            font-size: 11px;
+            font-family: 'Special Elite', monospace;
+            color: #1a2a4a;
+        }
+
+        .motivations-list li::before {
+            content: '\25B8 ';
+            color: var(--green-dg);
+        }
+
+        .disorder-item {
+            color: var(--red);
+            font-style: italic;
+        }
+
+        /* === WEAPONS === */
+        .weapons-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 9px;
+        }
+
+        .weapons-table th {
+            background: var(--green-dg);
+            color: white;
+            padding: 4px 6px;
+            text-align: left;
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .weapons-table td {
+            padding: 4px 6px;
+            border-bottom: 1px solid #ddd;
+            font-size: 10px;
+        }
+
+        .weapons-table tr:nth-child(even) {
+            background: rgba(0,0,0,0.03);
+        }
+
+        /* === ARMOR & GEAR === */
+        .gear-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .gear-box {
+            border: 1px solid var(--border-light);
+            border-radius: 3px;
+            padding: 6px 10px;
+        }
+
+        .gear-title {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--ink-faint);
+            margin-bottom: 4px;
+        }
+
+        .gear-item {
+            font-size: 10px;
+            padding: 2px 0;
+            border-bottom: 1px dotted #eee;
+        }
+
+        .gear-item:last-child {
+            border-bottom: none;
+        }
+
+        /* === SPECIAL TRAINING === */
+        .training-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .training-table th {
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--ink-faint);
+            border-bottom: 1px solid var(--border);
+            padding: 3px 6px;
+            text-align: left;
+        }
+
+        .training-table td {
+            padding: 4px 6px;
+            font-size: 10px;
+            border-bottom: 1px dotted #ddd;
+        }
+
+        /* === NOTES === */
+        .notes-area {
+            background: var(--blue-field);
+            border: 1px solid var(--border-light);
+            border-radius: 3px;
+            padding: 10px;
+            font-size: 10px;
+            font-family: 'Special Elite', monospace;
+            color: #1a2a4a;
+            line-height: 1.5;
+            min-height: 80px;
+        }
+
+        /* === FOOTER === */
+        .sheet-footer {
+            background: var(--green-dg);
+            color: white;
+            padding: 8px 20px;
+            font-size: 8px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        /* === PRINT === */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .sheet {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .skill-row:hover {
+                background: none;
+            }
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .personal-grid { grid-template-columns: 1fr; }
+            .stats-container { flex-direction: column; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .san-incidents { grid-template-columns: 1fr; }
+            .gear-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="sheet">
+
+    <!-- HEADER -->
+    <div class="sheet-header">
+        <div class="header-left">
+            <span class="delta-triangle">&#9650;</span>
+            <div>
+                <h1>Delta Green</h1>
+                <div class="subtitle">Agent Documentation Sheet</div>
+            </div>
+        </div>
+        <div class="subtitle">OPERATION: TRIP 19</div>
+    </div>
+
+    <div class="classified-stamp">CLASSIFIED</div>
+
+    <!-- 1. PERSONAL DATA -->
+    <div class="section">
+        <div class="section-title"><span class="section-number">1</span> Personal Data</div>
+        <div class="personal-grid">
+            <div class="field">
+                <span class="field-label">Name:</span>
+                <span class="field-value handwritten">Riley, Marcus Patrick</span>
+            </div>
+            <div class="field">
+                <span class="field-label">Code Name:</span>
+                <span class="field-value handwritten">SERGEANT</span>
+            </div>
+            <div class="field">
+                <span class="field-label">Profession:</span>
+                <span class="field-value handwritten">Supervisory Special Agent, BAU-2</span>
+            </div>
+            <div class="field">
+                <span class="field-label">Employer:</span>
+                <span class="field-value handwritten">Federal Bureau of Investigation (FBI)</span>
+            </div>
+            <div class="field">
+                <span class="field-label">Nationality:</span>
+                <span class="field-value handwritten">American</span>
+            </div>
+            <div class="field">
+                <span class="field-label">Sex / Age:</span>
+                <span class="field-value handwritten">M &nbsp;/&nbsp; 38</span>
+            </div>
+            <div class="field" style="grid-column: 1 / -1;">
+                <span class="field-label">Education:</span>
+                <span class="field-value handwritten">B.A. Criminology (Georgetown). FBI Academy, Quantico (Top 15%). USMC 2005&ndash;2011.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. STATISTICAL DATA -->
+    <div class="section">
+        <div class="section-title"><span class="section-number">2</span> Statistical Data</div>
+        <div class="stats-container">
+            <!-- Stats Table -->
+            <div class="stats-table">
+                <div class="stat-row header-row">
+                    <span>Stat</span>
+                    <span style="text-align:center">Score</span>
+                    <span style="text-align:center">&times;5</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-name">STR</span>
+                    <span class="stat-score">14</span>
+                    <span class="stat-x5">70</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-name">CON</span>
+                    <span class="stat-score">14</span>
+                    <span class="stat-x5">70</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-name">DEX</span>
+                    <span class="stat-score">13</span>
+                    <span class="stat-x5">65</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-name">INT</span>
+                    <span class="stat-score">12</span>
+                    <span class="stat-x5">60</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-name">POW</span>
+                    <span class="stat-score">12</span>
+                    <span class="stat-x5">60</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-name">CHA</span>
+                    <span class="stat-score">10</span>
+                    <span class="stat-x5">50</span>
+                </div>
+            </div>
+
+            <!-- Derived Stats -->
+            <div class="derived-stats">
+                <div class="derived-box">
+                    <div class="derived-label">Hit Points</div>
+                    <div class="derived-value">14</div>
+                    <div class="derived-max">max 14</div>
+                    <div class="derived-formula">(STR+CON)/2</div>
+                </div>
+                <div class="derived-box">
+                    <div class="derived-label">Willpower</div>
+                    <div class="derived-value">12</div>
+                    <div class="derived-max">max 12</div>
+                    <div class="derived-formula">= POW</div>
+                </div>
+                <div class="derived-box critical">
+                    <div class="derived-label">Sanity</div>
+                    <div class="derived-value">46</div>
+                    <div class="derived-max">max 60</div>
+                    <div class="derived-formula">POW&times;5 = 60, lost 14</div>
+                </div>
+                <div class="derived-box critical">
+                    <div class="derived-label">Breaking Point</div>
+                    <div class="derived-value">36</div>
+                    <div class="derived-max">&nbsp;</div>
+                    <div class="derived-formula">SAN &minus; POW (post-break)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Distinguishing Features -->
+        <div class="features-label">Distinguishing Features</div>
+        <div class="features-box">
+            STR 14 &mdash; Ex-Marine build. Still physically imposing despite neglect.<br>
+            CON 14 &mdash; Iron constitution, carries damage well.<br>
+            DEX 13 &mdash; Good reflexes, trained hand-eye coordination (boxing, firearms).<br>
+            CHA 10 &mdash; Eroded by violence adaptation. Once warmer, now distant and hard.
+        </div>
+    </div>
+
+    <!-- 3. APPLICABLE SKILL SETS -->
+    <div class="section">
+        <div class="section-title"><span class="section-number">3</span> Skills</div>
+        <div class="skills-grid">
+            <!-- Column 1 -->
+            <div>
+                <div class="skill-header">
+                    <span>Skill</span>
+                    <span>Base</span>
+                    <span>Current</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Accounting</span>
+                    <span class="skill-base">10%</span>
+                    <span class="skill-value">10%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Alertness</span>
+                    <span class="skill-base">20%</span>
+                    <span class="skill-value expert">50%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Anthropology</span>
+                    <span class="skill-base">0%</span>
+                    <span class="skill-value">0%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Archeology</span>
+                    <span class="skill-base">0%</span>
+                    <span class="skill-value">0%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Athletics</span>
+                    <span class="skill-base">30%</span>
+                    <span class="skill-value trained">40%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Bureaucracy</span>
+                    <span class="skill-base">10%</span>
+                    <span class="skill-value expert">60%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Computer Science</span>
+                    <span class="skill-base">0%</span>
+                    <span class="skill-value">0%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Criminology</span>
+                    <span class="skill-base">10%</span>
+                    <span class="skill-value expert">60%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Demolitions</span>
+                    <span class="skill-base">0%</span>
+                    <span class="skill-value">0%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Disguise</span>
+                    <span class="skill-base">10%</span>
+                    <span class="skill-value trained">20%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Dodge</span>
+                    <span class="skill-base">30%</span>
+                    <span class="skill-value expert">50%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Drive</span>
+                    <span class="skill-base">20%</span>
+                    <span class="skill-value trained">40%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Firearms</span>
+                    <span class="skill-base">20%</span>
+                    <span class="skill-value expert">70%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">First Aid</span>
+                    <span class="skill-base">10%</span>
+                    <span class="skill-value trained">20%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Forensics</span>
+                    <span class="skill-base">0%</span>
+                    <span class="skill-value expert">60%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Heavy Machinery</span>
+                    <span class="skill-base">10%</span>
+                    <span class="skill-value">0%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Heavy Weapons</span>
+                    <span class="skill-base">0%</span>
+                    <span class="skill-value trained">20%</span>
+                </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div>
+                <div class="skill-header">
+                    <span>Skill</span>
+                    <span>Base</span>
+                    <span>Current</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">History</span>
+                    <span class="skill-base">10%</span>
+                    <span class="skill-value trained">20%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">HUMINT</span>
+                    <span class="skill-base">10%</span>
+                    <span class="skill-value expert">50%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Law</span>
+                    <span class="skill-base">0%</span>
+                    <span class="skill-value trained">40%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Medicine</span>
+                    <span class="skill-base">0%</span>
+                    <span class="skill-value">0%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Melee Weapons</span>
+                    <span class="skill-base">30%</span>
+                    <span class="skill-value">30%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Military Science</span>
+                    <span class="skill-base">0%</span>
+                    <span class="skill-value trained">20%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Navigate</span>
+                    <span class="skill-base">10%</span>
+                    <span class="skill-value trained">20%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Occult</span>
+                    <span class="skill-base">10%</span>
+                    <span class="skill-value trained">20%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Persuade</span>
+                    <span class="skill-base">20%</span>
+                    <span class="skill-value trained">40%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Pharmacy</span>
+                    <span class="skill-base">0%</span>
+                    <span class="skill-value">0%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Pilot</span>
+                    <span class="skill-base">0%</span>
+                    <span class="skill-value">0%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Psychotherapy</span>
+                    <span class="skill-base">10%</span>
+                    <span class="skill-value">0%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Ride</span>
+                    <span class="skill-base">10%</span>
+                    <span class="skill-value trained">20%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Search</span>
+                    <span class="skill-base">20%</span>
+                    <span class="skill-value expert">50%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">SIGINT</span>
+                    <span class="skill-base">0%</span>
+                    <span class="skill-value">0%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Stealth</span>
+                    <span class="skill-base">10%</span>
+                    <span class="skill-value trained">30%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Surgery</span>
+                    <span class="skill-base">0%</span>
+                    <span class="skill-value">0%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Survival</span>
+                    <span class="skill-base">10%</span>
+                    <span class="skill-value trained">20%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Swim</span>
+                    <span class="skill-base">20%</span>
+                    <span class="skill-value trained">30%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Technology</span>
+                    <span class="skill-base">0%</span>
+                    <span class="skill-value trained">20%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Unarmed Combat</span>
+                    <span class="skill-base">40%</span>
+                    <span class="skill-value expert">50%</span>
+                </div>
+                <div class="skill-row">
+                    <span class="skill-name">Unnatural</span>
+                    <span class="skill-base">0%</span>
+                    <span class="skill-value trained">8%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. PSYCHOLOGICAL DATA -->
+    <div class="section">
+        <div class="section-title"><span class="section-number">4</span> Bonds</div>
+        <table class="bonds-table">
+            <thead>
+                <tr>
+                    <th>Person / Group</th>
+                    <th>Relation</th>
+                    <th style="text-align:center">Score</th>
+                    <th style="text-align:center">Damaged</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="bond-name">Tom Riley</td>
+                    <td class="bond-relation">Father (Front Royal, VA)</td>
+                    <td class="bond-score">10</td>
+                    <td style="text-align:center"><span class="bond-damaged"></span></td>
+                </tr>
+                <tr>
+                    <td class="bond-name">Sarah Riley</td>
+                    <td class="bond-relation">Ex-wife (Bethesda, MD)</td>
+                    <td class="bond-score">8</td>
+                    <td style="text-align:center"><span class="bond-damaged"></span></td>
+                </tr>
+                <tr>
+                    <td class="bond-name">Jake Riley</td>
+                    <td class="bond-relation">Son, age 10 (with Sarah)</td>
+                    <td class="bond-score">8</td>
+                    <td style="text-align:center"><span class="bond-damaged"></span></td>
+                </tr>
+                <tr style="color: #999;">
+                    <td class="bond-name" style="color:#999;">_______________</td>
+                    <td class="bond-relation"></td>
+                    <td class="bond-score" style="color:#ccc;">__</td>
+                    <td style="text-align:center"><span class="bond-damaged"></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="font-size:9px; color:var(--ink-faint); margin-top:4px;">
+            Initial Bond score = CHA (10). Current total: 26 / 40 max. Violence adaptation damaged all bonds.
+        </div>
+    </div>
+
+    <!-- 5. MOTIVATIONS & DISORDERS -->
+    <div class="section">
+        <div class="section-title"><span class="section-number">5</span> Motivations &amp; Mental Disorders</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+            <div>
+                <div style="font-size:9px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">Motivations</div>
+                <ul class="motivations-list">
+                    <li>Find Dmitri Volkov at any cost</li>
+                    <li>Protect what remains of his family</li>
+                    <li>Prove the Mall wasn't his fault</li>
+                    <li>Complete the mission (Marines discipline)</li>
+                    <li>Stop the threat before more civilians die</li>
+                </ul>
+            </div>
+            <div>
+                <div style="font-size:9px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">Mental Disorders</div>
+                <ul class="motivations-list">
+                    <li class="disorder-item">PTSD with obsessive features (Sea Glass, May 2025)</li>
+                    <li class="disorder-item">Volkov fixation &mdash; compulsive research, board obsession</li>
+                    <li class="disorder-item">Crystal/signal hallucinations (visual &amp; auditory)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. INCIDENTS OF SAN LOSS -->
+    <div class="section">
+        <div class="section-title"><span class="section-number">6</span> Incidents of SAN Loss</div>
+        <div class="san-incidents">
+            <div class="incident-box">
+                <div class="incident-title">Violence</div>
+                <div class="incident-checks">
+                    <div class="check-box checked">&times;</div>
+                    <div class="check-box checked">&times;</div>
+                    <div class="check-box checked">&times;</div>
+                    <span class="adapted-label">
+                        3/3 &mdash; ADAPTED
+                    </span>
+                </div>
+            </div>
+            <div class="incident-box">
+                <div class="incident-title">Helplessness</div>
+                <div class="incident-checks">
+                    <div class="check-box checked">&times;</div>
+                    <div class="check-box unchecked"></div>
+                    <div class="check-box unchecked"></div>
+                    <span class="adapted-label">
+                        1/3 &mdash; not yet adapted
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div style="font-size:9px; color:var(--ink-faint); margin-top:6px;">
+            Total SAN lost: 21 pts over 7 operations (Mar 2018 &ndash; May 2025). Breaking Point PASSED at Sea Glass. Margin over BP: 10 pts &mdash; CRITICAL.
+        </div>
+    </div>
+
+    <!-- 7. WOUNDS & AILMENTS -->
+    <div class="section">
+        <div class="section-title"><span class="section-number">7</span> Wounds &amp; Ailments</div>
+        <div style="font-size:11px; font-family:'Special Elite', monospace; color:#1a2a4a;">
+            No current physical wounds. Old IED scar (left arm, Iraq 2008).
+        </div>
+        <div style="font-size:10px; color:var(--ink-faint); margin-top:4px;">
+            Chronic sleep deprivation (3&ndash;4 hrs/night). Alcohol dependency escalating (3&ndash;10 drinks/evening). Overtraining (2 hrs/day gym). Weight gain (~91 kg, was 84 kg peak). Nightmares every night. Crystal/signal hallucinations (visual &amp; auditory).
+        </div>
+    </div>
+
+    <!-- 8. ARMOR & GEAR -->
+    <div class="section">
+        <div class="section-title"><span class="section-number">8</span> Armor &amp; Gear</div>
+        <div class="gear-grid">
+            <div class="gear-box">
+                <div class="gear-title">Armor</div>
+                <div class="gear-item">Tactical vest / plate carrier (AR 3) &mdash; in FBI pool car</div>
+                <div class="gear-item">Kevlar vest &mdash; operations only</div>
+            </div>
+            <div class="gear-box">
+                <div class="gear-title">Key Equipment</div>
+                <div class="gear-item">FBI badge &amp; credentials</div>
+                <div class="gear-item">Handcuffs</div>
+                <div class="gear-item">Tactical flashlight</div>
+                <div class="gear-item">Burner phones (3, rotated monthly)</div>
+                <div class="gear-item">Fake IDs (2 sets, different aliases)</div>
+                <div class="gear-item">Bug-out bag (cash, IDs, ammo, 3-day supplies)</div>
+                <div class="gear-item">Cash stash ($5,000)</div>
+                <div class="gear-item">First aid kit (in pool car)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. WEAPONS -->
+    <div class="section">
+        <div class="section-title"><span class="section-number">9</span> Weapons</div>
+        <table class="weapons-table">
+            <thead>
+                <tr>
+                    <th>Weapon</th>
+                    <th>Skill %</th>
+                    <th>Base Range</th>
+                    <th>Damage</th>
+                    <th>AP</th>
+                    <th>Lethality</th>
+                    <th>Ammo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Glock 17 (service weapon)</strong></td>
+                    <td>70%</td>
+                    <td>20m</td>
+                    <td>1D10</td>
+                    <td>&mdash;</td>
+                    <td>&mdash;</td>
+                    <td>17+1</td>
+                </tr>
+                <tr>
+                    <td>Sig Sauer P226 (backup, home)</td>
+                    <td>70%</td>
+                    <td>20m</td>
+                    <td>1D10</td>
+                    <td>&mdash;</td>
+                    <td>&mdash;</td>
+                    <td>15+1</td>
+                </tr>
+                <tr>
+                    <td>AR-15 (home, concealed)</td>
+                    <td>70%</td>
+                    <td>100m</td>
+                    <td>1D12</td>
+                    <td>3</td>
+                    <td>&mdash;</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>Remington 870 (FBI pool car)</td>
+                    <td>70%</td>
+                    <td>20m</td>
+                    <td>2D8</td>
+                    <td>&mdash;</td>
+                    <td>&mdash;</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Unarmed (boxing)</td>
+                    <td>50%</td>
+                    <td>&mdash;</td>
+                    <td>1D4+1D4</td>
+                    <td>&mdash;</td>
+                    <td>&mdash;</td>
+                    <td>&mdash;</td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="font-size:9px; color:var(--ink-faint); margin-top:4px;">
+            FBI-issued Glock 17 (primary). Personal weapons at home: Sig P226, AR-15. Ammo stockpile: 2000 rds 9mm, 1000 rds 5.56. Currently on admin leave &mdash; FBI pool car access uncertain.
+        </div>
+    </div>
+
+    <!-- 10. SPECIAL TRAINING -->
+    <div class="section">
+        <div class="section-title"><span class="section-number">10</span> Special Training</div>
+        <table class="training-table">
+            <thead>
+                <tr>
+                    <th>Specialization</th>
+                    <th>Tested With</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Criminal Profiling &amp; Behavioral Analysis</td>
+                    <td>Criminology (INT)</td>
+                </tr>
+                <tr>
+                    <td>Threat Assessment &amp; Stalker Analysis</td>
+                    <td>HUMINT (INT)</td>
+                </tr>
+                <tr>
+                    <td>Interview &amp; Interrogation Tactics</td>
+                    <td>HUMINT (POW)</td>
+                </tr>
+                <tr>
+                    <td>Crime Scene Analysis</td>
+                    <td>Forensics (INT)</td>
+                </tr>
+                <tr>
+                    <td>USMC Infantry Combat (CQB)</td>
+                    <td>Firearms (DEX)</td>
+                </tr>
+                <tr>
+                    <td>Boxing &mdash; Technical Fighter</td>
+                    <td>Unarmed Combat (DEX)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 11. PERSONAL DETAILS & NOTES -->
+    <div class="section">
+        <div class="section-title"><span class="section-number">11</span> Personal Details &amp; Notes</div>
+        <div class="notes-area">
+            Recruited Mar 2018 after St. Louis incident (Hastur-cult gisslantagare). Handler: Jonathan
+            Pierce, codename "CARDINAL" (DIA cover). 7 major operations completed. Adapted to Violence
+            (3/3). Breaking Point passed at Sea Glass (May 2025). Currently obsessed with tracking Dmitri
+            Volkov (encountered Dec 2024, "Mall Before Christmas"). Maintains analog investigation board
+            covering entire apartment wall. On FBI administrative leave since Aug 2025.<br><br>
+            USMC 2005&ndash;2011 (Corporal, 2nd Battalion 2nd Marines). Iraq 2007 (Ramadi, IED survivor).
+            Afghanistan 2009&ndash;2010 (Helmand, lost LCpl Rodriguez). FBI 2012&ndash;present (BAU-2,
+            SSA since 2019). Divorced 2021 (Sarah), son Jake (10).<br><br>
+            Address: 2847 Columbia Pike, Arlington, VA 22204, Apt 3F.<br>
+            Bug-out bag always packed. 3 burner phones. 2 fake ID sets.
+        </div>
+    </div>
+
+    <!-- 12. RECRUITMENT -->
+    <div class="section">
+        <div class="section-title"><span class="section-number">12</span> Recruitment</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+            <div>
+                <div style="font-size:9px; color:var(--ink-faint); text-transform:uppercase; margin-bottom:4px;">Why recruited</div>
+                <div class="notes-area" style="min-height:auto;">
+                    FBI BAU profiler. USMC combat veteran. Already encountered Unnatural (St. Louis).
+                    Strong tactical instincts. Expendable field asset with federal credentials.
+                </div>
+            </div>
+            <div>
+                <div style="font-size:9px; color:var(--ink-faint); text-transform:uppercase; margin-bottom:4px;">Why accepted</div>
+                <div class="notes-area" style="min-height:auto;">
+                    Needed answers about St. Louis. Saw 12 similar incidents covered up as "drugs" or
+                    "mental illness." Couldn't unsee it. "You want to help stop it?"
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="sheet-footer">
+        Delta Green &mdash; Agent Documentation Sheet &mdash; Chesapeake Cell &mdash; Need to Know
+    </div>
+
+</div>
+
+</body>
+</html>
