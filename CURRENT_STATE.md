@@ -17,8 +17,8 @@
 | 2 | 6 sept 2025 | Gick igenom Harriets förråd (2 dagar efter att de hittade det) |
 | 3 | 7 sept 2025 | Lovettsville Historical Society, mötte Magda Orlova |
 | 4 | 7 sept 2025 | Bishop Farm → Hamilton House. **PÅGÅENDE** - stannade vid Hamilton House |
-| 5 | 7 sept 2025 | **PLANERAD:** Grisha → Debriefing → Beslutet (USA). Se `SL/session5.html` |
-| 6 | TBD (efter downtime) | **PLANERAD:** Tyskland (Hamburg → Berlin). Materialet utbrutet ur session5.html - ännu ingen egen fil. |
+| 5 | 7 sept 2025 | **PLANERAD:** Grisha → Debriefing → Beslutet (USA). Se `SL/session5-6.html` |
+| 6 | TBD (efter downtime) | **PLANERAD:** Tyskland (Hamburg → Berlin). Materialet utbrutet ur session5-6.html - ännu ingen egen fil. |
 
 ---
 
@@ -84,12 +84,12 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
 ### Pågående arbete
 
 **Session 5 Rensning: Bara USA** - Februari 2026 ✅
-- **`SL/session5.html` rensat** - Bara Session 5 (USA, Scen 1-3). Tyskland-material (Scen 4-6) utbrutet.
+- **`SL/session5-6.html` rensat** - Bara Session 5 (USA, Scen 1-3). Tyskland-material (Scen 4-6) utbrutet.
   - Scen 1: Grishas Garage (Sterling VA) - konfrontation med Volkovs fixare
   - Scen 2: Debriefing (downtime) - sammanställning, kristalleffekter, NSA-alarm
   - Scen 3: Beslutet - Magda ringer (alt: mellan sessioner), författarkväll + dagbok
 - **Magdas replik fixad**: Författarkvällen handlar nu om Leningrad-belägringen och de försvunna barnen 1942 (inte "östeuropeisk journalistik"). Litet bokhandelsarrangemang, 30-40 personer.
-- **Tyskland-material (framtida session)**: Scen 4 (Transatlantisk), Scen 5 (Författarkvällen), Scen 6 (Klipphangare) borttagna ur session5.html. Kommer placeras i egen fil vid Session 6-planering.
+- **Tyskland-material (framtida session)**: Scen 4 (Transatlantisk), Scen 5 (Författarkvällen), Scen 6 (Klipphangare) borttagna ur session5-6.html. Kommer placeras i egen fil vid Session 6-planering.
 - **Status**: Session 5 skelett klart och rensat ✅
 
 **Session 5 Planering (tidigare)** - Februari 2026 ✅

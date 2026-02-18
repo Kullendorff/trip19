@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Washington DC to Hamburg — Flight Comparison | TravelSmart</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f0f2f5;
+            color: #1a1a2e;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        /* TOP NAV */
+        .topnav {
+            background: #1a3a5c;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            height: 56px;
+        }
+        .topnav-logo {
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .topnav-logo span { color: #f0a500; }
+        .topnav-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-left: auto;
+        }
+        .topnav-links a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        /* SEARCH BAR */
+        .search-hero {
+            background: linear-gradient(135deg, #1a3a5c 0%, #0e2340 100%);
+            padding: 2rem 2rem 3rem;
+        }
+        .search-box {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        .search-field {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            flex: 1;
+            min-width: 120px;
+        }
+        .search-field label {
+            font-size: 0.7rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .search-field input, .search-field select {
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            background: transparent;
+            outline: none;
+            font-family: inherit;
+        }
+        .search-divider {
+            width: 1px;
+            height: 40px;
+            background: #e5e7eb;
+        }
+        .search-btn {
+            background: #f0a500;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 1.75rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        /* MAIN LAYOUT */
+        .main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 1.5rem;
+        }
+
+        /* FILTERS */
+        .filters {
+            background: white;
+            border-radius: 10px;
+            padding: 1.25rem;
+            height: fit-content;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .filter-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+        .filter-section { margin-bottom: 1.5rem; }
+        .filter-section h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #333;
+        }
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.3rem 0;
+            font-size: 0.85rem;
+            color: #555;
+            cursor: pointer;
+        }
+        .filter-option input[type="checkbox"] { accent-color: #1a3a5c; }
+        .filter-badge {
+            margin-left: auto;
+            background: #f0f2f5;
+            border-radius: 10px;
+            padding: 1px 8px;
+            font-size: 0.75rem;
+            color: #888;
+        }
+        .price-range {
+            width: 100%;
+            accent-color: #1a3a5c;
+        }
+        .price-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: #888;
+            margin-top: 0.3rem;
+        }
+
+        /* RESULTS */
+        .results { display: flex; flex-direction: column; gap: 1rem; }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .results-count {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .results-count strong { color: #1a1a2e; }
+
+        .sort-tabs {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .sort-tab {
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            background: white;
+            color: #666;
+        }
+        .sort-tab.active {
+            background: #1a3a5c;
+            color: white;
+            border-color: #1a3a5c;
+        }
+
+        /* FLIGHT CARD */
+        .flight-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid #e5e7eb;
+            transition: box-shadow 0.2s;
+        }
+        .flight-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+        .flight-card.best-value {
+            border-color: #f0a500;
+        }
+
+        .card-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+        }
+        .badge-best { background: #fef3cd; color: #856404; }
+        .badge-fastest { background: #d1ecf1; color: #0c5460; }
+        .badge-cheapest { background: #d4edda; color: #155724; }
+        .badge-premium { background: #e8d5f5; color: #5a1b8b; }
+
+        .flight-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto auto;
+            align-items: center;
+            gap: 1rem;
+        }
+        .airline-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .airline-logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 800;
+            color: white;
+            flex-shrink: 0;
+        }
+        .airline-name { font-size: 0.85rem; font-weight: 600; color: #333; }
+        .airline-class { font-size: 0.75rem; color: #888; }
+
+        .time-block { text-align: center; }
+        .time-main { font-size: 1.1rem; font-weight: 700; }
+        .time-airport { font-size: 0.75rem; color: #888; }
+
+        .route-info { text-align: center; }
+        .route-duration { font-size: 0.8rem; font-weight: 600; color: #555; }
+        .route-line {
+            height: 1px;
+            background: #ddd;
+            position: relative;
+            margin: 4px 0;
+        }
+        .route-line::after {
+            content: '✈';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            color: #aaa;
+            background: white;
+            padding: 0 4px;
+        }
+        .route-stops { font-size: 0.75rem; color: #888; }
+        .route-stops.nonstop { color: #28a745; font-weight: 600; }
+
+        .price-block { text-align: right; min-width: 90px; }
+        .price-main { font-size: 1.3rem; font-weight: 800; color: #1a3a5c; }
+        .price-per { font-size: 0.75rem; color: #888; }
+
+        .select-btn {
+            background: #1a3a5c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0.6rem 1.25rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .select-btn:hover { background: #0e2340; }
+
+        .flight-details {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #f0f0f0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .detail-item strong { display: block; color: #333; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 2px; }
+
+        /* ALTERNATIVE SECTION */
+        .alt-section {
+            background: white;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid #e5e7eb;
+        }
+        .alt-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a3a5c;
+        }
+        .alt-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+        .alt-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+            border: 1px solid #e5e7eb;
+        }
+        .alt-card-title { font-size: 0.85rem; font-weight: 700; color: #333; margin-bottom: 0.3rem; }
+        .alt-card-price { font-size: 1.1rem; font-weight: 800; color: #1a3a5c; margin-bottom: 0.4rem; }
+        .alt-card-desc { font-size: 0.78rem; color: #777; line-height: 1.4; }
+
+        /* TIPS BOX */
+        .tips-box {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+        }
+        .tips-box h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 0.75rem;
+        }
+        .tips-box ul { list-style: none; }
+        .tips-box li {
+            font-size: 0.82rem;
+            color: #374151;
+            padding: 0.3rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+        .tips-box li::before { content: "💡"; position: absolute; left: 0; font-size: 0.7rem; top: 5px; }
+
+        /* FOOTER */
+        .site-footer {
+            background: #1a3a5c;
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.8rem;
+            margin-top: 3rem;
+        }
+        .site-footer strong { color: rgba(255,255,255,0.9); }
+
+        @media (max-width: 768px) {
+            .main { grid-template-columns: 1fr; }
+            .flight-row { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
+            .alt-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topnav">
+    <div class="topnav-logo">Travel<span>Smart</span></div>
+    <div class="topnav-links">
+        <a href="#">Flights</a>
+        <a href="#">Hotels</a>
+        <a href="#">Cars</a>
+        <a href="#">Deals</a>
+        <a href="#">Sign In</a>
+    </div>
+</nav>
+
+<!-- SEARCH HERO -->
+<div class="search-hero">
+    <div class="search-box">
+        <div class="search-field">
+            <label>From</label>
+            <input type="text" value="Washington DC (IAD/DCA/BWI)" readonly>
+        </div>
+        <div class="search-divider"></div>
+        <div class="search-field">
+            <label>To</label>
+            <input type="text" value="Hamburg, Germany (HAM)" readonly>
+        </div>
+        <div class="search-divider"></div>
+        <div class="search-field" style="max-width: 110px;">
+            <label>Depart</label>
+            <input type="text" value="Flexible" readonly>
+        </div>
+        <div class="search-divider"></div>
+        <div class="search-field" style="max-width: 80px;">
+            <label>Travelers</label>
+            <input type="text" value="1 adult" readonly>
+        </div>
+        <button class="search-btn">Search</button>
+    </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <!-- FILTERS -->
+    <aside class="filters">
+        <div class="filter-title">Filters</div>
+
+        <div class="filter-section">
+            <h4>Stops</h4>
+            <label class="filter-option"><input type="checkbox"> Nonstop <span class="filter-badge">0</span></label>
+            <label class="filter-option"><input type="checkbox" checked> 1 stop <span class="filter-badge">9</span></label>
+            <label class="filter-option"><input type="checkbox"> 2+ stops <span class="filter-badge">4</span></label>
+        </div>
+
+        <div class="filter-section">
+            <h4>Price per person</h4>
+            <input type="range" class="price-range" min="400" max="2000" value="1200">
+            <div class="price-labels"><span>$400</span><span>$1,200</span></div>
+        </div>
+
+        <div class="filter-section">
+            <h4>Airlines</h4>
+            <label class="filter-option"><input type="checkbox" checked> Lufthansa</label>
+            <label class="filter-option"><input type="checkbox" checked> KLM</label>
+            <label class="filter-option"><input type="checkbox" checked> SAS</label>
+            <label class="filter-option"><input type="checkbox" checked> British Airways</label>
+            <label class="filter-option"><input type="checkbox" checked> Icelandair</label>
+            <label class="filter-option"><input type="checkbox"> Turkish Airlines</label>
+            <label class="filter-option"><input type="checkbox"> United Airlines</label>
+        </div>
+
+        <div class="filter-section">
+            <h4>Departure time (IAD)</h4>
+            <label class="filter-option"><input type="checkbox"> Morning (6am–12pm)</label>
+            <label class="filter-option"><input type="checkbox" checked> Afternoon (12pm–6pm)</label>
+            <label class="filter-option"><input type="checkbox" checked> Evening (6pm–12am)</label>
+        </div>
+
+        <div class="filter-section">
+            <h4>Cabin class</h4>
+            <label class="filter-option"><input type="checkbox" checked> Economy</label>
+            <label class="filter-option"><input type="checkbox"> Premium Economy</label>
+            <label class="filter-option"><input type="checkbox"> Business</label>
+            <label class="filter-option"><input type="checkbox"> First</label>
+        </div>
+    </aside>
+
+    <!-- RESULTS -->
+    <div class="results">
+
+        <div class="results-header">
+            <div class="results-count"><strong>13 results</strong> for Washington DC → Hamburg</div>
+            <div class="sort-tabs">
+                <div class="sort-tab active">Best</div>
+                <div class="sort-tab">Cheapest</div>
+                <div class="sort-tab">Fastest</div>
+            </div>
+        </div>
+
+        <!-- RESULT 1: SAS via CPH — fastest -->
+        <div class="flight-card best-value">
+            <div style="display:flex; gap:0.5rem; margin-bottom:0.75rem;">
+                <span class="card-badge badge-fastest">✈ Fastest route</span>
+                <span class="card-badge badge-best">⭐ Best value</span>
+            </div>
+            <div class="flight-row">
+                <div class="airline-info">
+                    <div class="airline-logo" style="background: #003087;">SK</div>
+                    <div>
+                        <div class="airline-name">SAS Scandinavian</div>
+                        <div class="airline-class">Economy — SK 907 / SK 2861</div>
+                    </div>
+                </div>
+                <div class="time-block">
+                    <div class="time-main">18:40</div>
+                    <div class="time-airport">IAD</div>
+                </div>
+                <div class="route-info" style="min-width: 140px;">
+                    <div class="route-duration">11h 20min total</div>
+                    <div class="route-line"></div>
+                    <div class="route-stops">1 stop · Copenhagen (CPH) · 1h 30min layover</div>
+                </div>
+                <div class="time-block">
+                    <div class="time-main">13:00<span style="font-size:0.7rem; color:#888;">+1</span></div>
+                    <div class="time-airport">HAM</div>
+                </div>
+                <div class="price-block">
+                    <div class="price-main">$729</div>
+                    <div class="price-per">per person</div>
+                </div>
+                <button class="select-btn">Select</button>
+            </div>
+            <div class="flight-details">
+                <div class="detail-item"><strong>Layover</strong>Copenhagen Airport (CPH) — modern, uncrowded</div>
+                <div class="detail-item"><strong>Baggage</strong>1 checked bag included in fare</div>
+                <div class="detail-item"><strong>Flexibility</strong>Changes allowed for $75 fee</div>
+            </div>
+        </div>
+
+        <!-- RESULT 2: KLM via AMS -->
+        <div class="flight-card">
+            <div class="flight-row">
+                <div class="airline-info">
+                    <div class="airline-logo" style="background: #00a3e0;">KL</div>
+                    <div>
+                        <div class="airline-name">KLM Royal Dutch</div>
+                        <div class="airline-class">Economy — KL 641 / KL 1773</div>
+                    </div>
+                </div>
+                <div class="time-block">
+                    <div class="time-main">17:25</div>
+                    <div class="time-airport">IAD</div>
+                </div>
+                <div class="route-info" style="min-width: 140px;">
+                    <div class="route-duration">12h 55min total</div>
+                    <div class="route-line"></div>
+                    <div class="route-stops">1 stop · Amsterdam (AMS) · 2h 10min layover</div>
+                </div>
+                <div class="time-block">
+                    <div class="time-main">13:20<span style="font-size:0.7rem; color:#888;">+1</span></div>
+                    <div class="time-airport">HAM</div>
+                </div>
+                <div class="price-block">
+                    <div class="price-main">$681</div>
+                    <div class="price-per">per person</div>
+                </div>
+                <button class="select-btn">Select</button>
+            </div>
+            <div class="flight-details">
+                <div class="detail-item"><strong>Layover</strong>Amsterdam Schiphol (AMS) — efficient hub, extensive shopping</div>
+                <div class="detail-item"><strong>Baggage</strong>1 checked bag included</div>
+                <div class="detail-item"><strong>Flexibility</strong>Fully refundable fare available (+$180)</div>
+            </div>
+        </div>
+
+        <!-- RESULT 3: Lufthansa via FRA -->
+        <div class="flight-card">
+            <div class="flight-row">
+                <div class="airline-info">
+                    <div class="airline-logo" style="background: #05164d;">LH</div>
+                    <div>
+                        <div class="airline-name">Lufthansa</div>
+                        <div class="airline-class">Economy — LH 418 / LH 038</div>
+                    </div>
+                </div>
+                <div class="time-block">
+                    <div class="time-main">18:05</div>
+                    <div class="time-airport">IAD</div>
+                </div>
+                <div class="route-info" style="min-width: 140px;">
+                    <div class="route-duration">13h 10min total</div>
+                    <div class="route-line"></div>
+                    <div class="route-stops">1 stop · Frankfurt (FRA) · 2h 45min layover</div>
+                </div>
+                <div class="time-block">
+                    <div class="time-main">14:15<span style="font-size:0.7rem; color:#888;">+1</span></div>
+                    <div class="time-airport">HAM</div>
+                </div>
+                <div class="price-block">
+                    <div class="price-main">$798</div>
+                    <div class="price-per">per person</div>
+                </div>
+                <button class="select-btn">Select</button>
+            </div>
+            <div class="flight-details">
+                <div class="detail-item"><strong>Layover</strong>Frankfurt Airport (FRA) — direct train to city center available</div>
+                <div class="detail-item"><strong>Baggage</strong>1 checked bag included</div>
+                <div class="detail-item"><strong>Flexibility</strong>No change fees on this fare</div>
+            </div>
+        </div>
+
+        <!-- RESULT 4: BA via LHR -->
+        <div class="flight-card">
+            <div class="flight-row">
+                <div class="airline-info">
+                    <div class="airline-logo" style="background: #075aaa;">BA</div>
+                    <div>
+                        <div class="airline-name">British Airways</div>
+                        <div class="airline-class">Economy — BA 218 / BA 957</div>
+                    </div>
+                </div>
+                <div class="time-block">
+                    <div class="time-main">21:10</div>
+                    <div class="time-airport">IAD</div>
+                </div>
+                <div class="route-info" style="min-width: 140px;">
+                    <div class="route-duration">13h 45min total</div>
+                    <div class="route-line"></div>
+                    <div class="route-stops">1 stop · London Heathrow (LHR) · 2h 30min layover</div>
+                </div>
+                <div class="time-block">
+                    <div class="time-main">15:55<span style="font-size:0.7rem; color:#888;">+1</span></div>
+                    <div class="time-airport">HAM</div>
+                </div>
+                <div class="price-block">
+                    <div class="price-main">$644</div>
+                    <div class="price-per">per person</div>
+                </div>
+                <button class="select-btn">Select</button>
+            </div>
+            <div class="flight-details">
+                <div class="detail-item"><strong>Layover</strong>Heathrow Terminal 5 (LHR) — allow extra transit time</div>
+                <div class="detail-item"><strong>Baggage</strong>Carry-on only. Checked bag +$65.</div>
+                <div class="detail-item"><strong>Note</strong>Earlier departure recommended for LHR connections</div>
+            </div>
+        </div>
+
+        <!-- RESULT 5: Icelandair — cheapest -->
+        <div class="flight-card">
+            <span class="card-badge badge-cheapest">💰 Lowest price</span>
+            <div class="flight-row">
+                <div class="airline-info">
+                    <div class="airline-logo" style="background: #003882;">FI</div>
+                    <div>
+                        <div class="airline-name">Icelandair</div>
+                        <div class="airline-class">Economy — FI 614 / FI 751</div>
+                    </div>
+                </div>
+                <div class="time-block">
+                    <div class="time-main">16:55</div>
+                    <div class="time-airport">IAD</div>
+                </div>
+                <div class="route-info" style="min-width: 140px;">
+                    <div class="route-duration">14h 40min total</div>
+                    <div class="route-line"></div>
+                    <div class="route-stops">1 stop · Reykjavik (KEF) · 2h 55min layover</div>
+                </div>
+                <div class="time-block">
+                    <div class="time-main">14:35<span style="font-size:0.7rem; color:#888;">+1</span></div>
+                    <div class="time-airport">HAM</div>
+                </div>
+                <div class="price-block">
+                    <div class="price-main">$523</div>
+                    <div class="price-per">per person</div>
+                </div>
+                <button class="select-btn">Select</button>
+            </div>
+            <div class="flight-details">
+                <div class="detail-item"><strong>Layover</strong>Keflavik Airport (KEF) — small, stress-free, good food</div>
+                <div class="detail-item"><strong>Baggage</strong>Carry-on only. Checked bag +$60.</div>
+                <div class="detail-item"><strong>Note</strong>Stopover in Iceland available as free upgrade</div>
+            </div>
+        </div>
+
+        <!-- RESULT 6: Turkish Airlines -->
+        <div class="flight-card">
+            <div class="flight-row">
+                <div class="airline-info">
+                    <div class="airline-logo" style="background: #c8102e;">TK</div>
+                    <div>
+                        <div class="airline-name">Turkish Airlines</div>
+                        <div class="airline-class">Economy — TK 8 / TK 1631</div>
+                    </div>
+                </div>
+                <div class="time-block">
+                    <div class="time-main">22:00</div>
+                    <div class="time-airport">IAD</div>
+                </div>
+                <div class="route-info" style="min-width: 140px;">
+                    <div class="route-duration">17h 25min total</div>
+                    <div class="route-line"></div>
+                    <div class="route-stops">1 stop · Istanbul (IST) · 3h 20min layover</div>
+                </div>
+                <div class="time-block">
+                    <div class="time-main">18:25<span style="font-size:0.7rem; color:#888;">+1</span></div>
+                    <div class="time-airport">HAM</div>
+                </div>
+                <div class="price-block">
+                    <div class="price-main">$561</div>
+                    <div class="price-per">per person</div>
+                </div>
+                <button class="select-btn">Select</button>
+            </div>
+            <div class="flight-details">
+                <div class="detail-item"><strong>Layover</strong>Istanbul Airport (IST) — enormous, allow extra time</div>
+                <div class="detail-item"><strong>Baggage</strong>2 checked bags included — best allowance</div>
+                <div class="detail-item"><strong>Note</strong>Complimentary meal service on all legs</div>
+            </div>
+        </div>
+
+        <!-- DIVIDER: ALTERNATIVES -->
+        <div class="alt-section">
+            <div class="alt-title">🚆 Fly into a nearby city — then take the train</div>
+            <p style="font-size:0.82rem; color:#666; margin-bottom:1rem;">More flight options + cheaper fares. Germany's ICE high-speed rail makes this seamless.</p>
+            <div class="alt-grid">
+
+                <div class="alt-card">
+                    <div class="alt-card-title">✈ Fly to Frankfurt (FRA) + ICE train</div>
+                    <div class="alt-card-price">from $489 <span style="font-size:0.75rem; color:#888;">+ €20–80 train</span></div>
+                    <div class="alt-card-desc">Frankfurt Airport has its own train station directly below the terminals. ICE to Hamburg: <strong>3h 33min</strong>. Trains every 30 min. Most flights from IAD arrive 7–10am — you're in Hamburg by early afternoon.</div>
+                </div>
+
+                <div class="alt-card" style="border-color: #bfdbfe; background: #eff6ff;">
+                    <div class="alt-card-title">✈ Fly to Berlin (BER) + ICE train ⭐</div>
+                    <div class="alt-card-price">from $541 <span style="font-size:0.75rem; color:#888;">+ €9–45 train</span></div>
+                    <div class="alt-card-desc">Berlin Brandenburg is modern and uncrowded. ICE to Hamburg: <strong>only 1h 45min</strong> — fastest land connection. 34 trains daily. Excellent option if deals appear on Berlin routing.</div>
+                </div>
+
+                <div class="alt-card">
+                    <div class="alt-card-title">✈ Fly to Amsterdam (AMS) + train</div>
+                    <div class="alt-card-price">from $510 <span style="font-size:0.75rem; color:#888;">+ €40–90 train</span></div>
+                    <div class="alt-card-desc">Many cheap transatlantic flights into AMS. Train to Hamburg: ~5h 30min with connection. Less efficient than Frankfurt or Berlin options but fare savings can be significant.</div>
+                </div>
+
+                <div class="alt-card">
+                    <div class="alt-card-title">🚢 Queen Mary 2 — Transatlantic Crossing</div>
+                    <div class="alt-card-price">from $1,200</div>
+                    <div class="alt-card-desc">New York → Southampton, 7 nights at sea. Then train via London to Hamburg (~6h). Cunard's QM2 runs approximately monthly. A genuine ocean liner experience — not a cruise ship. Total journey: 9–10 days.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BUSINESS CLASS -->
+        <div class="alt-section">
+            <div class="alt-title">💼 Business & First Class options</div>
+            <div class="alt-grid">
+                <div class="alt-card" style="border-color: #e8d5f5;">
+                    <div class="alt-card-title">Lufthansa Business (Allegris)</div>
+                    <div class="alt-card-price" style="color: #5a1b8b;">$2,800–5,000</div>
+                    <div class="alt-card-desc">Fully lie-flat seat, direct aisle access, premium catering. Via Frankfurt. Access to Lufthansa Business Lounge. Arrive rested.</div>
+                </div>
+                <div class="alt-card" style="border-color: #e8d5f5;">
+                    <div class="alt-card-title">KLM / BA Business Class</div>
+                    <div class="alt-card-price" style="color: #5a1b8b;">$2,500–5,500</div>
+                    <div class="alt-card-desc">Comparable flat-bed products. KLM World Business Class and BA Club Suite are both strong options. Amsterdam and London hubs.</div>
+                </div>
+                <div class="alt-card" style="border-color: #c4b5fd; background: #faf5ff;">
+                    <div class="alt-card-title">Lufthansa First Class</div>
+                    <div class="alt-card-price" style="color: #3b0764;">$8,500–15,000</div>
+                    <div class="alt-card-desc">Private suite on 747-8 or A380. Dedicated Frankfurt First Class Terminal with restaurant, spa, and limousine transfer. One of the world's best inflight experiences.</div>
+                </div>
+                <div class="alt-card" style="border-color: #c4b5fd; background: #faf5ff;">
+                    <div class="alt-card-title">Private Charter — IAD to HAM</div>
+                    <div class="alt-card-price" style="color: #3b0764;">$90,000–180,000 <span style="font-size:0.75rem;">full aircraft</span></div>
+                    <div class="alt-card-desc">Gulfstream G650 or similar. 9–10h nonstop to Hamburg. Private terminal, no TSA, no lines. Contact Paramount Business Jets or Mercury Jets for availability.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TIPS -->
+        <div class="tips-box">
+            <h4>📋 Booking tips — Washington DC to Hamburg</h4>
+            <ul>
+                <li>Use all three DC airports: IAD (Dulles), DCA (Reagan National), and BWI (Baltimore/Washington). Prices can vary $100–200 between them for the same week.</li>
+                <li>No nonstop flights exist between Washington DC and Hamburg — a European connection is always required.</li>
+                <li>The Frankfurt + ICE train combo is often the best total value. Frankfurt Airport has its own train hall — no need to exit the terminal.</li>
+                <li>Berlin BER is a modern, uncrowded airport opened in 2020. The 1h 45min ICE to Hamburg is hard to beat.</li>
+                <li>Booking 1–2 weeks in advance: expect economy fares $600–1,100 on major carriers. Under $600 is possible on Icelandair or Turkish.</li>
+                <li>Google Flights flexible date view will show you the cheapest day within ±3 days of your preferred travel window.</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div class="site-footer">
+    <strong>TravelSmart</strong> — Flight comparison for savvy travelers<br>
+    Prices shown are estimates and may change at time of booking. All times local. +1 indicates next-day arrival.
+</div>
+
+</body>
+</html>

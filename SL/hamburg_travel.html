@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resa till Hamburg — TRIP 19 SL-Kontrollpanel</title>
+    <style>
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+            --accent-primary: #4a90a4;
+            --accent-secondary: #e89a3c;
+            --classified: #ff4444;
+            --success: #4ade80;
+            --warning: #d4a520;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: var(--bg-darker);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        .header {
+            background: var(--bg-dark);
+            border-bottom: 1px solid var(--accent-primary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            color: var(--accent-primary);
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .status {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        /* CLASSIFIED BANNER */
+        .classified-banner {
+            background: rgba(255, 68, 68, 0.1);
+            border-bottom: 1px solid var(--classified);
+            color: var(--classified);
+            text-align: center;
+            padding: 0.4rem;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 2rem;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        .nav-section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .nav-title {
+            color: var(--accent-primary);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        .nav-link {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            padding: 0.35rem 0;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .nav-link:hover { color: var(--accent-primary); }
+        .nav-link.active { color: var(--accent-secondary); }
+
+        /* MAIN CONTENT */
+        .main-content { min-width: 0; }
+
+        .page-header {
+            background: var(--bg-panel);
+            border: 1px solid var(--accent-primary);
+            border-radius: 4px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+        }
+        .page-header h1 {
+            color: var(--accent-primary);
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+        .page-header p { color: var(--text-dim); font-size: 0.9rem; }
+
+        /* SECTIONS */
+        .section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .section h2 {
+            color: var(--accent-primary);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .section h3 {
+            color: var(--accent-secondary);
+            font-size: 0.95rem;
+            margin: 1.25rem 0 0.5rem;
+        }
+
+        /* ALERT BOXES */
+        .alert {
+            border-radius: 3px;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        .alert-red {
+            background: rgba(255, 68, 68, 0.08);
+            border: 1px solid rgba(255, 68, 68, 0.4);
+            color: #ff8888;
+        }
+        .alert-yellow {
+            background: rgba(212, 165, 32, 0.08);
+            border: 1px solid rgba(212, 165, 32, 0.4);
+            color: var(--warning);
+        }
+        .alert-blue {
+            background: rgba(74, 144, 164, 0.08);
+            border: 1px solid rgba(74, 144, 164, 0.4);
+            color: var(--accent-primary);
+        }
+        .alert-green {
+            background: rgba(74, 222, 128, 0.08);
+            border: 1px solid rgba(74, 222, 128, 0.4);
+            color: var(--success);
+        }
+
+        /* PRICE TIER CARDS */
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .tier-card {
+            border-radius: 4px;
+            padding: 1.25rem;
+            border: 1px solid;
+        }
+        .tier-budget {
+            background: rgba(74, 222, 128, 0.05);
+            border-color: rgba(74, 222, 128, 0.3);
+        }
+        .tier-standard {
+            background: rgba(74, 144, 164, 0.05);
+            border-color: rgba(74, 144, 164, 0.3);
+        }
+        .tier-premium {
+            background: rgba(232, 154, 60, 0.05);
+            border-color: rgba(232, 154, 60, 0.3);
+        }
+        .tier-black {
+            background: rgba(139, 71, 137, 0.05);
+            border-color: rgba(139, 71, 137, 0.3);
+        }
+        .tier-label {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .tier-budget .tier-label { color: var(--success); }
+        .tier-standard .tier-label { color: var(--accent-primary); }
+        .tier-premium .tier-label { color: var(--accent-secondary); }
+        .tier-black .tier-label { color: #b06ab3; }
+
+        .tier-name {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+        .tier-price {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+        .tier-budget .tier-price { color: var(--success); }
+        .tier-standard .tier-price { color: var(--accent-primary); }
+        .tier-premium .tier-price { color: var(--accent-secondary); }
+        .tier-black .tier-price { color: #b06ab3; }
+
+        .tier-details { font-size: 0.85rem; color: var(--text-dim); }
+        .tier-details li { margin-bottom: 0.3rem; list-style: none; padding-left: 1rem; position: relative; }
+        .tier-details li::before { content: "→"; position: absolute; left: 0; color: var(--text-dim); }
+
+        /* ROUTE TABLE */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+        th {
+            background: rgba(74, 144, 164, 0.1);
+            color: var(--accent-primary);
+            padding: 0.6rem 0.75rem;
+            text-align: left;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border);
+        }
+        td {
+            padding: 0.6rem 0.75rem;
+            border-bottom: 1px solid rgba(26, 35, 50, 0.5);
+            vertical-align: top;
+        }
+        tr:hover td { background: rgba(74, 144, 164, 0.04); }
+        .price-col { color: var(--success); }
+        .time-col { color: var(--text-dim); }
+
+        /* CHARACTER CARDS */
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .agent-card {
+            border-radius: 4px;
+            padding: 1.25rem;
+            border: 1px solid var(--border);
+            background: var(--bg-dark);
+        }
+        .agent-name {
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 0.25rem;
+        }
+        .agent-role { font-size: 0.75rem; color: var(--text-dim); margin-bottom: 0.75rem; }
+        .agent-rec {
+            font-size: 0.8rem;
+            background: rgba(74, 144, 164, 0.08);
+            border: 1px solid rgba(74, 144, 164, 0.2);
+            border-radius: 3px;
+            padding: 0.5rem 0.75rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-primary);
+        }
+        .agent-rec-label {
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 0.2rem;
+        }
+        .agent-notes { font-size: 0.8rem; color: var(--text-dim); }
+        .agent-notes li { list-style: none; padding-left: 1rem; position: relative; margin-bottom: 0.3rem; }
+        .agent-notes li::before { content: "•"; position: absolute; left: 0; }
+
+        /* SPARKY SPECIAL */
+        .agent-card.sparky-card {
+            border-color: rgba(0, 255, 65, 0.3);
+            background: rgba(0, 255, 65, 0.02);
+        }
+        .agent-card.sparky-card .agent-name { color: #00ff41; }
+
+        /* TRADECRAFT BOX */
+        .tradecraft-list {
+            list-style: none;
+            font-size: 0.875rem;
+        }
+        .tradecraft-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(26, 35, 50, 0.5);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .tradecraft-list li:last-child { border-bottom: none; }
+        .tradecraft-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+        }
+        .tradecraft-list li strong { color: var(--accent-secondary); }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 1024px) {
+            .container { grid-template-columns: 1fr; }
+            .sidebar { position: relative; top: 0; }
+        }
+        @media (max-width: 768px) {
+            .tier-grid { grid-template-columns: 1fr; }
+            .agent-grid { grid-template-columns: 1fr; }
+            .container { padding: 0 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-content">
+        <div class="logo">▲ TRIP 19 // BLACK MADONNA</div>
+        <div class="status">SL-KONTROLLPANEL</div>
+    </div>
+</div>
+
+<div class="classified-banner">
+    KLASSIFICERAD // DELTA GREEN ENDAST FÖR SL // OPERATION TRIP 19
+</div>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="nav-section">
+            <div class="nav-title">På denna sida</div>
+            <a href="#operativt" class="nav-link">Operativt läge</a>
+            <a href="#alternativ" class="nav-link">Resealternativ</a>
+            <a href="#rutter" class="nav-link">Alla rutter</a>
+            <a href="#agenter" class="nav-link">Per agent</a>
+            <a href="#tradecraft" class="nav-link">Tradecraft</a>
+        </div>
+        <div class="nav-section">
+            <div class="nav-title">Session-material</div>
+            <a href="session5-6.html" class="nav-link">Session 5-6</a>
+            <a href="sessions.html" class="nav-link">Alla sessioner</a>
+            <a href="index.html" class="nav-link">SL-översikt</a>
+        </div>
+        <div class="nav-section">
+            <div class="nav-title">Info</div>
+            <div style="font-size: 0.8rem; color: var(--text-dim); line-height: 1.5;">
+                Uppdrag: Hamburg<br>
+                Avresa: TBD<br>
+                Destination: Hamburg (HAM)<br>
+                Avreseort: DC-området<br>
+                Status: Planering
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <div class="page-header">
+            <h1>✈ RESA: WASHINGTON DC → HAMBURG</h1>
+            <p>Resealternativ och operativt läge för Chesapeake Cells resa till Tyskland. Alla prislägen. Kirk mördades 10 september — flygplatser är under förhöjd bevakning.</p>
+        </div>
+
+        <!-- OPERATIVT LÄGE -->
+        <div class="section" id="operativt">
+            <h2>Operativt läge</h2>
+
+            <div class="alert alert-red">
+                <strong>KRITISKT:</strong> Cellen reser INTE tillsammans. Fem federala tjänstemän som bokar samma flyg till samma destination veckan efter ett politiskt mord är en röd flagga i alla databaser.
+            </div>
+
+            <div class="alert alert-yellow">
+                <strong>KONTEXT — 10 september:</strong> Charlie Kirk mördas. FBI, DHS och TSA höjer beredskapen omedelbart. Inhemsk extremism är prioritet ett. Datorer som flaggar reseköp med "ovanliga mönster" körs dygnet runt.
+            </div>
+
+            <h3>Varför separat?</h3>
+            <ul class="tradecraft-list">
+                <li><strong>Analys-algoritmerna:</strong> Grupper som bokar transatlantiska flyg samtidigt till samma destination flaggas automatiskt — särskilt efter Kirk-mordet</li>
+                <li><strong>Plausible deniability:</strong> Separata resvägar = separata cover stories som inte behöver stämma med varandra</li>
+                <li><strong>Operational security:</strong> Om en agent komprometteras på vägen, exponeras inte hela cellen</li>
+                <li><strong>Staggered arrival:</strong> Anländer med 12–48h mellanrum — ingen bild av en grupp som samlas</li>
+            </ul>
+
+            <div class="alert alert-blue" style="margin-top: 1rem;">
+                <strong>TIDSFÖNSTER:</strong> Inga direktflyg Washington DC → Hamburg. Alla reser via europeisk hub. Resttid 11–16 timmar beroende på route.
+            </div>
+        </div>
+
+        <!-- RESEALTERNATIV PRISLÄGEN -->
+        <div class="section" id="alternativ">
+            <h2>Resealternativ — prislägen</h2>
+
+            <div class="tier-grid">
+
+                <div class="tier-card tier-budget">
+                    <div class="tier-label">Budget</div>
+                    <div class="tier-name">Billigaste vägen</div>
+                    <div class="tier-price">$500–900 / person</div>
+                    <ul class="tier-details">
+                        <li>Icelandair via Reykjavik — 13–16h total</li>
+                        <li>Turkish Airlines via Istanbul — 16–20h total</li>
+                        <li>Flyg till Frankfurt + ICE-tåg (3h 33min) — ofta billigast totalt</li>
+                        <li>Economy. Grundläggande stolar. Anländer utmattade.</li>
+                        <li>Bäst cover: "Privat resa, sparar pengar"</li>
+                    </ul>
+                </div>
+
+                <div class="tier-card tier-standard">
+                    <div class="tier-label">Standard</div>
+                    <div class="tier-name">Federal per diem</div>
+                    <div class="tier-price">$650–1100 / person</div>
+                    <ul class="tier-details">
+                        <li>Lufthansa via Frankfurt — 12–14h</li>
+                        <li>KLM via Amsterdam — 12–14h</li>
+                        <li>SAS via Köpenhamn — 11–13h (kortast)</li>
+                        <li>British Airways via London — 12–15h</li>
+                        <li>Economy med lite mer benutrymme. Professionell men oanmärklig.</li>
+                    </ul>
+                </div>
+
+                <div class="tier-card tier-premium">
+                    <div class="tier-label">Premium</div>
+                    <div class="tier-name">Business class</div>
+                    <div class="tier-price">$2000–6000 / person</div>
+                    <ul class="tier-details">
+                        <li>Lufthansa Business (Allegris) — liggplats, direktgång</li>
+                        <li>United Polaris — konkurrenskraftig business</li>
+                        <li>KLM World Business Class</li>
+                        <li>Anländer utvilade. Separat lounge. Ingen kö.</li>
+                        <li>Cover: konsult, advokat, affärsresenär</li>
+                    </ul>
+                </div>
+
+                <div class="tier-card tier-black">
+                    <div class="tier-label">Black budget</div>
+                    <div class="tier-name">Privat charter</div>
+                    <div class="tier-price">$18 000–36 000 / person</div>
+                    <ul class="tier-details">
+                        <li>Hela planet: $90 000–180 000 för gruppen</li>
+                        <li>Gulfstream G650 eller liknande — 9–10h nonstop till Hamburg</li>
+                        <li>Privat terminal, inga köer, ingen TSA</li>
+                        <li>Inga passagerlistor i offentliga system</li>
+                        <li>Kräver DG-kanalfinansiering eller extern täckmantel</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="alert alert-yellow" style="margin-top: 1.5rem;">
+                <strong>ALTERNATIV INGÅNG:</strong> Flyg till <strong>Berlin BER</strong> istället för Hamburg — ICE-tåg Hamburg–Berlin tar bara <strong>1h 45min</strong> och är nästan alltid billigare. Bra option om bra deals dyker upp på Berlin-flyg.
+            </div>
+        </div>
+
+        <!-- ALLA RUTTER -->
+        <div class="section" id="rutter">
+            <h2>Alla rutter — snabböversikt</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Route</th>
+                        <th>Via</th>
+                        <th>Tid</th>
+                        <th>Economy</th>
+                        <th>Business</th>
+                        <th>Notering</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SAS</td>
+                        <td>Köpenhamn</td>
+                        <td class="time-col">11–13h</td>
+                        <td class="price-col">$700–1100</td>
+                        <td class="price-col">$2000–4000</td>
+                        <td style="color: var(--text-dim);">Kortaste restid. CPH är lugnt.</td>
+                    </tr>
+                    <tr>
+                        <td>KLM</td>
+                        <td>Amsterdam</td>
+                        <td class="time-col">12–14h</td>
+                        <td class="price-col">$650–1000</td>
+                        <td class="price-col">$2500–5000</td>
+                        <td style="color: var(--text-dim);">Schiphol är effektivt. Bra priser.</td>
+                    </tr>
+                    <tr>
+                        <td>Lufthansa / United</td>
+                        <td>Frankfurt</td>
+                        <td class="time-col">12–14h</td>
+                        <td class="price-col">$700–1100</td>
+                        <td class="price-col">$2500–6000</td>
+                        <td style="color: var(--text-dim);">FRA = tågstation i terminalen.</td>
+                    </tr>
+                    <tr>
+                        <td>British Airways</td>
+                        <td>London</td>
+                        <td class="time-col">12–15h</td>
+                        <td class="price-col">$600–1000</td>
+                        <td class="price-col">$3000–6000</td>
+                        <td style="color: var(--text-dim);">LHR är kaotiskt. Tidsbuffert.</td>
+                    </tr>
+                    <tr>
+                        <td>Icelandair</td>
+                        <td>Reykjavik</td>
+                        <td class="time-col">13–16h</td>
+                        <td class="price-col">$500–800</td>
+                        <td class="price-col">—</td>
+                        <td style="color: var(--text-dim);">Billigast. KEF är litet och lugnt.</td>
+                    </tr>
+                    <tr>
+                        <td>Turkish Airlines</td>
+                        <td>Istanbul</td>
+                        <td class="time-col">16–20h</td>
+                        <td class="price-col">$550–900</td>
+                        <td class="price-col">$2000–4000</td>
+                        <td style="color: var(--text-dim);">Lång men billig. IST är enorm.</td>
+                    </tr>
+                    <tr>
+                        <td>Flyg till FRA + ICE-tåg</td>
+                        <td>Frankfurt</td>
+                        <td class="time-col">13–16h</td>
+                        <td class="price-col">$550–900<br><span style="font-size:0.75rem;">+ €20–80 tåg</span></td>
+                        <td class="price-col">—</td>
+                        <td style="color: var(--text-dim);">Bästa budget-val totalt.</td>
+                    </tr>
+                    <tr style="background: rgba(0,255,65,0.03);">
+                        <td>Flyg till BER + ICE-tåg</td>
+                        <td>Berlin</td>
+                        <td class="time-col">12–16h</td>
+                        <td class="price-col">$600–1000<br><span style="font-size:0.75rem;">+ €10–50 tåg</span></td>
+                        <td class="price-col">—</td>
+                        <td style="color: var(--success);">BER–Hamburg: 1h 45min. Rekommenderas.</td>
+                    </tr>
+                    <tr style="background: rgba(139,71,137,0.04);">
+                        <td>Privatjet</td>
+                        <td>Nonstop IAD→HAM</td>
+                        <td class="time-col">9–10h</td>
+                        <td class="price-col">—</td>
+                        <td class="price-col" style="color: #b06ab3;">$18–36k/p</td>
+                        <td style="color: var(--text-dim);">$90–180k för hela planet.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- PER AGENT -->
+        <div class="section" id="agenter">
+            <h2>Per agent — analys</h2>
+            <p style="color: var(--text-dim); font-size: 0.85rem; margin-bottom: 1.25rem;">Vad är rimligt för respektive agent givet deras cover, ekonomi och situation efter Kirk-mordet?</p>
+
+            <div class="agent-grid">
+
+                <!-- MAC -->
+                <div class="agent-card">
+                    <div class="agent-name" style="color: #4a90a4;">MAC RILEY</div>
+                    <div class="agent-role">FBI Special Agent, DC Field Office — sjukskriven</div>
+                    <div class="agent-rec">
+                        <div class="agent-rec-label">Rekommenderat</div>
+                        Lufthansa economy via Frankfurt — $700–900
+                    </div>
+                    <ul class="agent-notes">
+                        <li>FBI DC exploderar av Kirk-utredningen — ingen märker att Mac är borta</li>
+                        <li>Reser på privata medel, INTE federal budget (ingen pappersspår till DG)</li>
+                        <li>Cover: "Semester/familjebesök i Europa"</li>
+                        <li>Bör betala kontant om möjligt — eller med ett kreditkort som inte är kopplat till FBI</li>
+                        <li>Kan ej använda FBI-credentials utan att trigga intern logg</li>
+                    </ul>
+                </div>
+
+                <!-- SULLIVAN -->
+                <div class="agent-card">
+                    <div class="agent-name" style="color: #cd7f32;">FATHER SULLIVAN</div>
+                    <div class="agent-role">Navy Chaplain — religiös täckmantel</div>
+                    <div class="agent-rec">
+                        <div class="agent-rec-label">Rekommenderat</div>
+                        KLM via Amsterdam eller SAS via Köpenhamn — $650–1000
+                    </div>
+                    <ul class="agent-notes">
+                        <li>Cover: ekumenisk konferens, pastoralt besök, pilgrimsresa</li>
+                        <li>Militärt ID kan öppna militärståndet på flygplats (snabbare kö) — men lämnar spår</li>
+                        <li>Prästkragen är en social sköld — väcker sällan misstanke vid säkerhetskontroll</li>
+                        <li>Ska helst inte resa i uniform — civila kläder med ID</li>
+                        <li>Amsterdam: många direktförbindelser, lätt att "försvinna" i Schiphol</li>
+                    </ul>
+                </div>
+
+                <!-- SPARKY -->
+                <div class="agent-card sparky-card">
+                    <div class="agent-name">KAI "SPARKY" ZHANG ⚠</div>
+                    <div class="agent-role">NSA Intelligence Analyst — reser under ALIAS</div>
+                    <div class="agent-rec" style="background: rgba(0,255,65,0.08); border-color: rgba(0,255,65,0.3); color: #00ff41;">
+                        <div class="agent-rec-label">KRITISKT</div>
+                        Reser under täckidentitet — INTE som Kai Zhang
+                    </div>
+                    <ul class="agent-notes">
+                        <li>NSA:s övervakningskapacitet är maximerad efter Kirk — hon KAN INTE lämna spår</li>
+                        <li>Hennes compliance-alarm (Volkov-sökning) är fortfarande obesvarad</li>
+                        <li>Om hon åker som sig själv: NSA-systemet flaggar "analyst reser till Europa utan godkänt uppdrag"</li>
+                        <li>Cover-identitet behöver vara etablerad i förväg — inte skapad i panik</li>
+                        <li>Bästa route: Icelandair eller Turkish — bolag med svagare koppling till US intel-databaser</li>
+                        <li>Betalar kontant eller förbetalda kort</li>
+                        <li>Anländer via annan flygplats — t.ex. Köpenhamn och tar tåg</li>
+                    </ul>
+                </div>
+
+                <!-- SCALPEL -->
+                <div class="agent-card">
+                    <div class="agent-name" style="color: #d4a520;">SCALPEL (DR. HANNA ENGLER)</div>
+                    <div class="agent-role">Medical Examiner, Baltimore — civilt jobb</div>
+                    <div class="agent-rec">
+                        <div class="agent-rec-label">Rekommenderat</div>
+                        Budget eller standard economy — $600–900
+                    </div>
+                    <ul class="agent-notes">
+                        <li>Civilt pass, inget federalt — lägst risk i gruppen vid reselogg</li>
+                        <li>Cover: privat resa, konferens (rättsmedicin finns i Hamburg), semesterresa</li>
+                        <li>Kirk-mordet: ME-kontoret i Baltimore är tyst och spänt — hon saknas inte direkt</li>
+                        <li>Behöver ta tjänstledigt eller sjukanmäla — orsakar lite intern friktion</li>
+                        <li>Kan resa ensam utan att väcka uppmärksamhet alls</li>
+                    </ul>
+                </div>
+
+                <!-- TRENCH -->
+                <div class="agent-card">
+                    <div class="agent-name" style="color: #e07b39;">TRENCH (SAM NOVAK)</div>
+                    <div class="agent-role">Army Reserve, Philadelphia — NATO-beredskap aktiverad</div>
+                    <div class="agent-rec">
+                        <div class="agent-rec-label">Rekommenderat</div>
+                        Budgetflyg (Icelandair / Frankfurt-combo) — $500–900
+                    </div>
+                    <ul class="agent-notes">
+                        <li><strong>KOMPLIKATION:</strong> NATO-spänningen (Polen/Ryssland, 6 sept) har höjt beredskapen — han kan potentiellt kallas in</li>
+                        <li>Om han reser till Europa: Army Reserve-systemet kan märka det</li>
+                        <li>Cover: Privat resa. Berättar inte var han är.</li>
+                        <li>Philadelphia: starkt aktivistiskt klimat efter Kirk — han behöver lämna diskret</li>
+                        <li>Bör undvika militärrelaterade flygbolag eller rabatter som kräver ID</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- TRADECRAFT -->
+        <div class="section" id="tradecraft">
+            <h2>Tradecraft — generella råd</h2>
+            <ul class="tradecraft-list">
+                <li><strong>Staggered avresa:</strong> Minst 12h mellan varje agent. Helst olika dagar. Ingen träffas på IAD.</li>
+                <li><strong>Olika flygplatser:</strong> Sprid avresorna — IAD, DCA och BWI. Gör det svårare att koppla dem.</li>
+                <li><strong>Olika hubbar:</strong> Frankfurt, Amsterdam, Köpenhamn, London — inte samma mellanlandning.</li>
+                <li><strong>Kontantbetalning:</strong> Förbetalda kreditkort eller kontanter. Kreditkort kopplade till federala löner lämnar spår.</li>
+                <li><strong>Kommunikation tystnad:</strong> Ingen textar varandra om resedetaljer. Mötesplats bestämd i förväg.</li>
+                <li><strong>Cover story:</strong> Varje agent har en separat, trovärdig anledning. Ingen säger "jag är på semester" om de bokar affärsklass.</li>
+                <li><strong>Ankomstpunkt Hamburg:</strong> Hamburg Hauptbahnhof fungerar bättre som mötesplats än flygplatsen — färre kameror, lättare att blanda ihop sig.</li>
+                <li><strong>Sparky-protokoll:</strong> Hon kommunicerar inte sin route till någon utom Friendly — inte ens till övriga cellen.</li>
+                <li><strong>Kirk-effekten:</strong> TSA och CBP kör extra loggning just nu. Allt ovanligt flaggas. Var oanmärkliga.</li>
+            </ul>
+
+            <div class="alert alert-green" style="margin-top: 1.5rem;">
+                <strong>SL-notering:</strong> Spelarna behöver inte lösa alla detaljer i detalj — låt dem bestämma "hur" de reser (budget/standard/premium) och vilken cover story de använder. Det ger karaktärsmoment och operativt tänkande utan att fastna i biljettbokning.
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<div class="footer">
+    DELTA GREEN // TRIP 19: BLACK MADONNA // SL-MATERIAL
+</div>
+
+</body>
+</html>

@@ -103,7 +103,7 @@ Denna fil är ett **INDEX**. När du söker efter ett element:
 #### Magda Orlova (Hamburg → Berlin) [LEVER - Terminalt sjuk]
 - **Filer**:
   - `SL/session3.html`
-  - `SL/session5.html`
+  - `SL/session5-6.html`
   - `wiki/_npcs/magda-orlova.md`
   - `master/timeline.md` (augusti-september 2025)
   - `SL/black_madonna_chapter2.html` (hennes research)
@@ -249,8 +249,8 @@ Denna fil är ett **INDEX**. När du söker efter ett element:
 #### Oktober 2025 (PLANERAT)
 | Datum | Händelse | Filer |
 |-------|----------|-------|
-| 7-8 september 2025 | Session 5: Grisha-konfrontation, debriefing, Magda ringer, flyg till Berlin, möte med Magda, Volkovs lapp | `master/timeline.md`, `SL/session5.html` |
-| September 2025 | Berlin & Tyskland-sessioner (cellen i Berlin med Magda) | `master/timeline.md`, `SL/session5.html`, `SL/black_madonna_chapter2.html` |
+| 7-8 september 2025 | Session 5: Grisha-konfrontation, debriefing, Magda ringer, flyg till Berlin, möte med Magda, Volkovs lapp | `master/timeline.md`, `SL/session5-6.html` |
+| September 2025 | Berlin & Tyskland-sessioner (cellen i Berlin med Magda) | `master/timeline.md`, `SL/session5-6.html`, `SL/black_madonna_chapter2.html` |
 
 #### November 2025 (PLANERAT)
 | Datum | Händelse | Filer |
