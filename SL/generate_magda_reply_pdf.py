@@ -62,14 +62,11 @@ ADDRESS_LINES = [
 
 PARAGRAPHS2 = [
     ("space",  ""),
-    ("normal", "Ni frågar om Filip. Ni känner till hans namn från mitt förra mail — jag nämnde"
-               " honom, Anton och Sasha. Filip Kramer är en av de tre männen i min forskning."
+    ("normal", "Ni frågar om Filip. Filip Kramer är en av de tre männen i min forskning."
                " Han var på Camp S-17 nära Leningrad 1942, som liten pojke. Han var på Frankfurt-kliniken"
-               " under DDR-tid. Han är idag 85 år gammal och borde inte vara vid liv. Men han är det."
-               " Han ringde mig igen förra natten. Han vet att jag hittade dagboken."),
+               " under DDR-tid. Han ringde mig igen förra natten. Han vet att jag hittade dagboken."),
     ("space",  ""),
-    ("normal", "Ni frågar om jag kan skjuta upp presentationen. Jag kan inte."
-               " Jag är sjuk — ni vet det. Om inte nu, när?"),
+    ("normal", "Ni frågar om jag kan skjuta upp presentationen. Jag kan inte. Jag är sjuk. Om inte nu, när?"),
     ("space",  ""),
     ("normal", "Kom på fredag. Håll er nära mig under kvällen."),
     ("space",  ""),
