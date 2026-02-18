@@ -351,6 +351,38 @@
         .neighborhood-card strong { display: block; font-size: 0.78rem; color: #003580; margin-bottom: 2px; }
         .neighborhood-card p { font-size: 0.72rem; color: #555; line-height: 1.4; }
 
+        /* HOTEL LINKS */
+        .hotel-link-row { display: flex; gap: 6px; margin-top: 8px; }
+        .hotel-link-btn {
+            flex: 1;
+            display: inline-block;
+            text-align: center;
+            padding: 5px 6px;
+            border-radius: 3px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .hotel-link-map { background: #e8f4e8; color: #2d7a2d; border: 1px solid #b5d9b5; }
+        .hotel-link-map:hover { background: #c8e8c8; }
+        .hotel-link-web { background: #e8f0fe; color: #1a56c4; border: 1px solid #b5cffa; }
+        .hotel-link-web:hover { background: #ccdefa; }
+
+        .magda-badge {
+            display: inline-block;
+            background: #b5860d;
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         /* FOOTER */
         .site-footer {
             background: #003580;
@@ -518,6 +550,67 @@
             </div>
         </div>
 
+        <!-- MAGDA EMAIL RESPONSE -->
+        <div style="background:#fffdf5; border:1px solid #d4b87a; border-left:4px solid #b5860d; border-radius:4px; padding:16px 20px; margin-bottom:16px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+                <div style="background:#b5860d; color:white; font-size:0.65rem; font-weight:700; padding:2px 8px; border-radius:3px; letter-spacing:0.5px; white-space:nowrap;">EMAIL MOTTAGET</div>
+                <div style="font-size:0.8rem; color:#666;">Från: Magda Orlova &lt;magda.orlova@uni-hamburg.de&gt; · 14 september 2025</div>
+            </div>
+            <div style="font-size:0.88rem; color:#3a2e00; line-height:1.7;">
+                Tacksam att ni kan komma.<br><br>
+                <em>"Jag har bokat hotell åt er nära Thalia. Jag betalar — detta är viktigt."</em><br><br>
+                <em>"Presentationen är på kvällen. Kan vi ses dagen efter, kl 10:00 vid min lägenhet? Jag visar er allt då."</em><br><br>
+                Adress: <strong>Brahmsallee 16, Harvestehude, 20144 Hamburg</strong> (tredje våningen)
+                <a href="https://maps.google.com/?q=Brahmsallee+16+Harvestehude+Hamburg" target="_blank" style="margin-left:8px; font-size:0.75rem; color:#1a56c4; text-decoration:none;">📍 Visa på karta</a>
+            </div>
+        </div>
+
+        <!-- HOTEL 0: Wedina - MAGDA'S BOOKING -->
+        <div class="hotel-card" style="border: 2px solid #b5860d; background: #fffdf5;">
+            <div class="hotel-img" style="background: linear-gradient(135deg, #7a5c1e, #4a3510); position:relative;">
+                📚
+                <div class="hotel-img-label">St. Georg</div>
+                <div style="position:absolute; top:8px; left:0; right:0; text-align:center; background:#b5860d; color:white; font-size:0.65rem; font-weight:700; padding:3px 0; letter-spacing:1px;">FÖRBOKAD AV MAGDA</div>
+            </div>
+            <div class="hotel-info">
+                <div class="magda-badge">✦ Magda Orlova har bokat 3 nätter åt er</div>
+                <div class="hotel-name" style="color:#7a5c1e;">Hotel Wedina</div>
+                <div class="hotel-location">Gurlittstraße 23, St. Georg, 20099 Hamburg · Boutique literature hotel</div>
+                <div class="hotel-stars" style="color:#b5860d;">★★★★</div>
+                <div class="hotel-tags">
+                    <span class="hotel-tag" style="background:#fff3cd; color:#7a5c1e; border:1px solid #e6c96a;">Pre-booked Sep 17–20</span>
+                    <span class="hotel-tag">Free WiFi</span>
+                    <span class="hotel-tag gray">Breakfast included</span>
+                </div>
+                <div class="hotel-distance">📍 20 min U-Bahn to Thalia · 8 min walk to Hauptbahnhof · 20–25 min to Brahmsallee (Magdas lägenhet)</div>
+                <ul class="hotel-highlights">
+                    <li>Boutique hotel where every room is dedicated to a different author</li>
+                    <li>Literary atmosphere — popular with writers, academics, and journalists</li>
+                    <li>Three connected buildings around a garden courtyard</li>
+                    <li>Magda's personal recommendation — she stays here when visiting Hamburg</li>
+                </ul>
+            </div>
+            <div class="hotel-price-block">
+                <div>
+                    <div class="hotel-score-row">
+                        <div class="hotel-score" style="background:#b5860d;">9.1</div>
+                        <div class="hotel-score-label">Exceptional</div>
+                    </div>
+                    <div class="hotel-reviews">744 reviews</div>
+                </div>
+                <div>
+                    <div style="font-size:0.72rem; color:#b5860d; font-weight:700; margin-bottom:2px;">BOOKING CONFIRMED</div>
+                    <div class="hotel-price-main" style="color:#7a5c1e;">€120</div>
+                    <div class="hotel-price-sub">€360 total · 3 nights · paid by Magda</div>
+                    <button class="hotel-book-btn" style="background:#b5860d; cursor:default;" disabled>Confirmed — 3 nights</button>
+                    <div class="hotel-link-row">
+                        <a href="https://maps.google.com/?q=Hotel+Wedina+Gurlittstraße+23+Hamburg" target="_blank" class="hotel-link-btn hotel-link-map">📍 Map</a>
+                        <a href="https://www.wedina.de/en/" target="_blank" class="hotel-link-btn hotel-link-web">🌐 Website</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- HOTEL 1: Budget - Generator -->
         <div class="hotel-card">
             <div class="hotel-img" style="background: linear-gradient(135deg, #4a7c9e, #2d5a7a);">
@@ -555,6 +648,10 @@
                     <div class="hotel-price-sub">€186 total · taxes included</div>
                     <button class="hotel-book-btn">See availability</button>
                     <div class="hotel-availability">Only 3 rooms left!</div>
+                    <div class="hotel-link-row">
+                        <a href="https://maps.google.com/?q=Generator+Hamburg+Steintorplatz+3" target="_blank" class="hotel-link-btn hotel-link-map">📍 Map</a>
+                        <a href="https://staygenerator.com/en/hotels/hamburg" target="_blank" class="hotel-link-btn hotel-link-web">🌐 Website</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -595,6 +692,10 @@
                     <div class="hotel-price-main">€89</div>
                     <div class="hotel-price-sub">€267 total · taxes included</div>
                     <button class="hotel-book-btn">See availability</button>
+                    <div class="hotel-link-row">
+                        <a href="https://maps.google.com/?q=ibis+Hamburg+City+Amsinckstraße+2" target="_blank" class="hotel-link-btn hotel-link-map">📍 Map</a>
+                        <a href="https://all.accor.com/hotel/3278/index.en.shtml" target="_blank" class="hotel-link-btn hotel-link-web">🌐 Website</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -636,6 +737,10 @@
                     <div class="hotel-price-main">€118</div>
                     <div class="hotel-price-sub">€354 total · taxes included</div>
                     <button class="hotel-book-btn">See availability</button>
+                    <div class="hotel-link-row">
+                        <a href="https://maps.google.com/?q=Motel+One+Hamburg-Alster+Steintorwall+6" target="_blank" class="hotel-link-btn hotel-link-map">📍 Map</a>
+                        <a href="https://www.motel-one.com/en/hotels/hamburg/hamburg-alster/" target="_blank" class="hotel-link-btn hotel-link-web">🌐 Website</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -677,6 +782,10 @@
                     <div class="hotel-price-sub">€477 total · taxes included</div>
                     <button class="hotel-book-btn">See availability</button>
                     <div class="hotel-availability">Last 2 rooms at this price</div>
+                    <div class="hotel-link-row">
+                        <a href="https://maps.google.com/?q=25hours+Hotel+HafenCity+Überseeallee+5+Hamburg" target="_blank" class="hotel-link-btn hotel-link-map">📍 Map</a>
+                        <a href="https://25hours-hotels.com/en/hotels/hamburg/hafen-city/" target="_blank" class="hotel-link-btn hotel-link-web">🌐 Website</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -718,6 +827,10 @@
                     <div class="hotel-price-main">€178</div>
                     <div class="hotel-price-sub">€534 total · taxes included</div>
                     <button class="hotel-book-btn">See availability</button>
+                    <div class="hotel-link-row">
+                        <a href="https://maps.google.com/?q=Hotel+Hafen+Hamburg+Seewartenstraße+9" target="_blank" class="hotel-link-btn hotel-link-map">📍 Map</a>
+                        <a href="https://www.hotel-hafen-hamburg.de/en/" target="_blank" class="hotel-link-btn hotel-link-web">🌐 Website</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -759,6 +872,10 @@
                     <div class="hotel-price-main">€485</div>
                     <div class="hotel-price-sub">€1,455 total · taxes included</div>
                     <button class="hotel-book-btn" style="background:#7d6608;">See availability</button>
+                    <div class="hotel-link-row">
+                        <a href="https://maps.google.com/?q=Fairmont+Hotel+Vier+Jahreszeiten+Hamburg+Neuer+Jungfernstieg" target="_blank" class="hotel-link-btn hotel-link-map">📍 Map</a>
+                        <a href="https://www.fairmont.com/vier-jahreszeiten-hamburg/" target="_blank" class="hotel-link-btn hotel-link-web">🌐 Website</a>
+                    </div>
                 </div>
             </div>
         </div>
