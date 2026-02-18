@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotels in Hamburg, Germany — Booking.com</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f2f2f2;
+            color: #1a1a1a;
+            font-size: 14px;
+        }
+
+        /* HEADER */
+        .header {
+            background: #003580;
+            padding: 0;
+        }
+        .header-top {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            color: white;
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+        .logo span { color: #febb02; }
+        .header-links { display: flex; gap: 1rem; }
+        .header-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 3px;
+        }
+        .header-links a:hover { background: rgba(255,255,255,0.1); }
+
+        /* SEARCH BAR */
+        .search-bar {
+            background: #003580;
+            padding: 0 20px 16px;
+        }
+        .search-form {
+            max-width: 1140px;
+            margin: 0 auto;
+            background: #febb02;
+            border-radius: 4px;
+            padding: 4px;
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        .search-field {
+            background: white;
+            border-radius: 3px;
+            padding: 8px 12px;
+            flex: 1;
+            min-width: 140px;
+        }
+        .search-field label {
+            display: block;
+            font-size: 0.68rem;
+            color: #666;
+            margin-bottom: 1px;
+        }
+        .search-field input {
+            border: none;
+            outline: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            width: 100%;
+            font-family: inherit;
+        }
+        .search-btn {
+            background: #0071c2;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 0 20px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* BREADCRUMB */
+        .breadcrumb {
+            background: #f2f2f2;
+            padding: 8px 20px;
+            font-size: 0.78rem;
+            color: #666;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .breadcrumb a { color: #0071c2; text-decoration: none; }
+        .breadcrumb span { margin: 0 4px; }
+
+        /* MAIN */
+        .main {
+            max-width: 1140px;
+            margin: 16px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 16px;
+        }
+
+        /* FILTERS */
+        .filters {
+            background: white;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            overflow: hidden;
+            height: fit-content;
+        }
+        .filter-header {
+            background: #003580;
+            color: white;
+            padding: 10px 14px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+        .filter-section {
+            padding: 12px 14px;
+            border-bottom: 1px solid #f2f2f2;
+        }
+        .filter-section h4 {
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 3px 0;
+            font-size: 0.8rem;
+            color: #333;
+            cursor: pointer;
+        }
+        .filter-option input { accent-color: #0071c2; }
+        .filter-count {
+            margin-left: auto;
+            color: #999;
+            font-size: 0.75rem;
+        }
+        .star-row { display: flex; gap: 6px; margin-top: 4px; }
+        .star-btn {
+            border: 1px solid #d4d4d4;
+            border-radius: 3px;
+            padding: 3px 7px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            background: white;
+            color: #333;
+        }
+        .star-btn.active { background: #ebf3ff; border-color: #0071c2; color: #0071c2; }
+        .price-slider { width: 100%; accent-color: #0071c2; margin: 6px 0 2px; }
+        .price-labels { display: flex; justify-content: space-between; font-size: 0.75rem; color: #666; }
+
+        /* RESULTS */
+        .results { display: flex; flex-direction: column; gap: 12px; }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .results-title { font-size: 1.1rem; font-weight: 700; }
+        .results-count { font-size: 0.82rem; color: #666; margin-top: 2px; }
+        .sort-row {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+        .sort-label { font-size: 0.8rem; color: #666; }
+        .sort-select {
+            border: 1px solid #d4d4d4;
+            border-radius: 3px;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            background: white;
+            font-family: inherit;
+        }
+
+        /* HOTEL CARD */
+        .hotel-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 220px 1fr auto;
+        }
+        .hotel-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+
+        .hotel-img {
+            background: #c8d6e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            min-height: 160px;
+            color: #888;
+            position: relative;
+        }
+        .hotel-img-label {
+            position: absolute;
+            bottom: 6px;
+            left: 6px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            font-size: 0.68rem;
+            padding: 2px 6px;
+            border-radius: 2px;
+        }
+
+        .hotel-info { padding: 14px 16px; }
+        .hotel-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0071c2;
+            margin-bottom: 2px;
+        }
+        .hotel-location {
+            font-size: 0.78rem;
+            color: #0071c2;
+            margin-bottom: 6px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .hotel-stars { color: #febb02; font-size: 0.85rem; margin-bottom: 6px; }
+        .hotel-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+        .hotel-tag {
+            background: #ebf3ff;
+            color: #0071c2;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-weight: 600;
+        }
+        .hotel-tag.green { background: #e8f5e9; color: #2e7d32; }
+        .hotel-tag.gray { background: #f5f5f5; color: #666; }
+        .hotel-distance {
+            font-size: 0.78rem;
+            color: #666;
+            margin-bottom: 4px;
+        }
+        .hotel-highlights {
+            font-size: 0.78rem;
+            color: #333;
+            line-height: 1.5;
+        }
+        .hotel-highlights li { list-style: none; padding-left: 12px; position: relative; }
+        .hotel-highlights li::before { content: "✓"; position: absolute; left: 0; color: #0071c2; }
+
+        .hotel-price-block {
+            padding: 14px 16px;
+            text-align: right;
+            min-width: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-left: 1px solid #f2f2f2;
+        }
+        .hotel-score-row { display: flex; align-items: center; gap: 6px; justify-content: flex-end; margin-bottom: 4px; }
+        .hotel-score {
+            background: #003580;
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 4px 7px;
+            border-radius: 4px 4px 0 4px;
+        }
+        .hotel-score-label { font-size: 0.75rem; font-weight: 700; color: #1a1a1a; }
+        .hotel-reviews { font-size: 0.7rem; color: #666; text-align: right; }
+        .hotel-price-main {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        .hotel-price-sub { font-size: 0.72rem; color: #666; }
+        .hotel-book-btn {
+            background: #0071c2;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 8px 14px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 8px;
+        }
+        .hotel-book-btn:hover { background: #00487a; }
+        .hotel-availability { font-size: 0.72rem; color: #cc0000; text-align: right; margin-top: 4px; }
+        .hotel-genius {
+            background: #003580;
+            color: #febb02;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 2px 5px;
+            border-radius: 2px;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+
+        /* MAP STRIP */
+        .map-strip {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .map-thumb {
+            width: 80px;
+            height: 60px;
+            background: linear-gradient(135deg, #b8d4c8 0%, #88b4a8 50%, #5890a0 100%);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+        .map-info { font-size: 0.82rem; color: #333; }
+        .map-info strong { display: block; margin-bottom: 2px; }
+        .map-link { color: #0071c2; text-decoration: none; font-size: 0.8rem; }
+
+        /* NEIGHBORHOOD INFO */
+        .neighborhood-box {
+            background: #ebf3ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 4px;
+            padding: 12px 16px;
+        }
+        .neighborhood-box h4 { font-size: 0.85rem; font-weight: 700; color: #003580; margin-bottom: 6px; }
+        .neighborhood-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 6px; }
+        .neighborhood-card { background: white; border-radius: 3px; padding: 8px 10px; border: 1px solid #d0dfe8; }
+        .neighborhood-card strong { display: block; font-size: 0.78rem; color: #003580; margin-bottom: 2px; }
+        .neighborhood-card p { font-size: 0.72rem; color: #555; line-height: 1.4; }
+
+        /* FOOTER */
+        .site-footer {
+            background: #003580;
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 16px;
+            font-size: 0.75rem;
+            margin-top: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .main { grid-template-columns: 1fr; }
+            .hotel-card { grid-template-columns: 1fr; }
+            .neighborhood-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <div class="header-top">
+        <div class="logo">booking<span>.</span>com</div>
+        <div class="header-links">
+            <a href="#">List your property</a>
+            <a href="#">Sign in</a>
+            <a href="#">Register</a>
+        </div>
+    </div>
+    <div class="search-bar">
+        <div class="search-form">
+            <div class="search-field" style="flex: 2;">
+                <label>Destination</label>
+                <input type="text" value="Hamburg, Germany" readonly>
+            </div>
+            <div class="search-field">
+                <label>Check-in</label>
+                <input type="text" value="Sep 17, 2025" readonly>
+            </div>
+            <div class="search-field">
+                <label>Check-out</label>
+                <input type="text" value="Sep 20, 2025" readonly>
+            </div>
+            <div class="search-field" style="max-width: 120px;">
+                <label>Guests</label>
+                <input type="text" value="1 adult · 1 room" readonly>
+            </div>
+            <button class="search-btn">Search</button>
+        </div>
+    </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+    <a href="#">Home</a> <span>›</span>
+    <a href="#">Germany</a> <span>›</span>
+    <a href="#">Hamburg</a> <span>›</span>
+    Hotels in Hamburg
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <!-- FILTERS -->
+    <aside class="filters">
+        <div class="filter-header">Filter by:</div>
+
+        <div class="filter-section">
+            <h4>Your budget (per night)</h4>
+            <input type="range" class="price-slider" min="40" max="500" value="300">
+            <div class="price-labels"><span>€40</span><span>€300+</span></div>
+            <div style="font-size:0.75rem; color:#0071c2; margin-top:4px;">€40 – €300+</div>
+        </div>
+
+        <div class="filter-section">
+            <h4>Star rating</h4>
+            <div class="star-row">
+                <div class="star-btn">1 ★</div>
+                <div class="star-btn">2 ★</div>
+                <div class="star-btn active">3 ★</div>
+                <div class="star-btn active">4 ★</div>
+                <div class="star-btn">5 ★</div>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <h4>Property type</h4>
+            <label class="filter-option"><input type="checkbox" checked> Hotels <span class="filter-count">34</span></label>
+            <label class="filter-option"><input type="checkbox"> Apartments <span class="filter-count">18</span></label>
+            <label class="filter-option"><input type="checkbox"> Hostels <span class="filter-count">8</span></label>
+            <label class="filter-option"><input type="checkbox"> Guest houses <span class="filter-count">5</span></label>
+        </div>
+
+        <div class="filter-section">
+            <h4>Neighborhood</h4>
+            <label class="filter-option"><input type="checkbox" checked> HafenCity <span class="filter-count">6</span></label>
+            <label class="filter-option"><input type="checkbox" checked> Altstadt (City Center) <span class="filter-count">12</span></label>
+            <label class="filter-option"><input type="checkbox"> St. Pauli / Reeperbahn <span class="filter-count">9</span></label>
+            <label class="filter-option"><input type="checkbox"> Eppendorf <span class="filter-count">4</span></label>
+            <label class="filter-option"><input type="checkbox"> Altona <span class="filter-count">7</span></label>
+        </div>
+
+        <div class="filter-section">
+            <h4>Facilities</h4>
+            <label class="filter-option"><input type="checkbox"> Free WiFi</label>
+            <label class="filter-option"><input type="checkbox"> Free parking</label>
+            <label class="filter-option"><input type="checkbox"> Non-smoking rooms</label>
+            <label class="filter-option"><input type="checkbox"> Fitness center</label>
+            <label class="filter-option"><input type="checkbox"> Bar</label>
+        </div>
+
+        <div class="filter-section">
+            <h4>Meals</h4>
+            <label class="filter-option"><input type="checkbox"> Breakfast included</label>
+            <label class="filter-option"><input type="checkbox"> All-inclusive</label>
+            <label class="filter-option"><input type="checkbox"> Self-catering</label>
+        </div>
+    </aside>
+
+    <!-- RESULTS -->
+    <div class="results">
+
+        <div class="results-header">
+            <div>
+                <div class="results-title">Hamburg: 65 properties found</div>
+                <div class="results-count">Sep 17–20, 2025 · 3 nights · 1 adult</div>
+            </div>
+            <div class="sort-row">
+                <span class="sort-label">Sort by:</span>
+                <select class="sort-select">
+                    <option>Our top picks</option>
+                    <option>Price (lowest first)</option>
+                    <option>Best reviewed</option>
+                    <option>Distance from center</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- MAP STRIP -->
+        <div class="map-strip">
+            <div class="map-thumb">🗺️</div>
+            <div class="map-info">
+                <strong>See all 65 properties on the map</strong>
+                Hamburg is a compact city — most hotels are within 20 minutes of HafenCity and the main station (Hauptbahnhof).
+            </div>
+            <a href="#" class="map-link" style="margin-left:auto; white-space:nowrap;">View map →</a>
+        </div>
+
+        <!-- NEIGHBORHOOD INFO -->
+        <div class="neighborhood-box">
+            <h4>📍 Key areas for your stay</h4>
+            <div class="neighborhood-grid">
+                <div class="neighborhood-card">
+                    <strong>HafenCity</strong>
+                    <p>Modern harbor district. Walking distance to Überseequartier and Elbphilharmonie. Trendy, expensive, excellent transport.</p>
+                </div>
+                <div class="neighborhood-card">
+                    <strong>Altstadt / City Center</strong>
+                    <p>Central, near Hauptbahnhof. Best transport connections. Mix of business and tourist hotels. Easy access everywhere.</p>
+                </div>
+                <div class="neighborhood-card">
+                    <strong>St. Pauli</strong>
+                    <p>Lively, budget-friendly. Famous nightlife district. 15 min to HafenCity by U-Bahn. Good value, less conspicuous.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOTEL 1: Budget - Generator -->
+        <div class="hotel-card">
+            <div class="hotel-img" style="background: linear-gradient(135deg, #4a7c9e, #2d5a7a);">
+                🏨
+                <div class="hotel-img-label">St. Pauli</div>
+            </div>
+            <div class="hotel-info">
+                <div class="hotel-name">Generator Hamburg</div>
+                <div class="hotel-location">Steintorplatz 3, St. Pauli · 1.4 km from HafenCity</div>
+                <div class="hotel-stars">★★★</div>
+                <div class="hotel-tags">
+                    <span class="hotel-tag green">Breakfast available</span>
+                    <span class="hotel-tag">Free WiFi</span>
+                    <span class="hotel-tag gray">Shared/Private rooms</span>
+                </div>
+                <div class="hotel-distance">📍 12 min by U-Bahn to Überseequartier · Hauptbahnhof 5 min walk</div>
+                <ul class="hotel-highlights">
+                    <li>Modern design hostel with private rooms available</li>
+                    <li>24-hour reception, luggage storage</li>
+                    <li>Bar and common areas — easy to blend in with other travelers</li>
+                    <li>Cash payment accepted at reception</li>
+                </ul>
+            </div>
+            <div class="hotel-price-block">
+                <div>
+                    <div class="hotel-score-row">
+                        <div class="hotel-score">7.9</div>
+                        <div class="hotel-score-label">Good</div>
+                    </div>
+                    <div class="hotel-reviews">1,847 reviews</div>
+                </div>
+                <div>
+                    <div style="font-size:0.72rem; color:#666; margin-bottom:2px;">Private room, per night</div>
+                    <div class="hotel-price-main">€62</div>
+                    <div class="hotel-price-sub">€186 total · taxes included</div>
+                    <button class="hotel-book-btn">See availability</button>
+                    <div class="hotel-availability">Only 3 rooms left!</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOTEL 2: Budget/mid - ibis -->
+        <div class="hotel-card">
+            <div class="hotel-img" style="background: linear-gradient(135deg, #c0392b, #922b21);">
+                🏩
+                <div class="hotel-img-label">City Center</div>
+            </div>
+            <div class="hotel-info">
+                <div class="hotel-name">ibis Hamburg City</div>
+                <div class="hotel-location">Amsinckstraße 2, Altstadt · 0.8 km from Hauptbahnhof</div>
+                <div class="hotel-stars">★★★</div>
+                <div class="hotel-tags">
+                    <span class="hotel-tag">Free WiFi</span>
+                    <span class="hotel-tag gray">Air conditioning</span>
+                    <span class="hotel-tag gray">24h reception</span>
+                </div>
+                <div class="hotel-distance">📍 15 min by U4 to Überseequartier · Hauptbahnhof 10 min walk</div>
+                <ul class="hotel-highlights">
+                    <li>International chain — anonymous, no-frills, reliable</li>
+                    <li>Walk-in rates often available at reception</li>
+                    <li>Clean, functional. No one asks questions.</li>
+                    <li>Near Hamburg Hauptbahnhof rail connections</li>
+                </ul>
+            </div>
+            <div class="hotel-price-block">
+                <div>
+                    <div class="hotel-score-row">
+                        <div class="hotel-score">7.6</div>
+                        <div class="hotel-score-label">Good</div>
+                    </div>
+                    <div class="hotel-reviews">3,241 reviews</div>
+                </div>
+                <div>
+                    <div style="font-size:0.72rem; color:#666; margin-bottom:2px;">Standard room, per night</div>
+                    <div class="hotel-price-main">€89</div>
+                    <div class="hotel-price-sub">€267 total · taxes included</div>
+                    <button class="hotel-book-btn">See availability</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOTEL 3: Mid-range - Motel One -->
+        <div class="hotel-card">
+            <div class="hotel-img" style="background: linear-gradient(135deg, #1a3a5c, #0e2340);">
+                🏢
+                <div class="hotel-img-label">Alster / City Center</div>
+            </div>
+            <div class="hotel-info">
+                <div class="hotel-name">Motel One Hamburg-Alster</div>
+                <div class="hotel-location">Steintorwall 6, City Center · Near Alster Lake</div>
+                <div class="hotel-stars">★★★</div>
+                <div class="hotel-tags">
+                    <span class="hotel-tag green">Excellent location</span>
+                    <span class="hotel-tag">Free WiFi</span>
+                    <span class="hotel-tag">Bar</span>
+                </div>
+                <div class="hotel-distance">📍 12 min to HafenCity by U-Bahn · Hauptbahnhof 8 min walk</div>
+                <ul class="hotel-highlights">
+                    <li>Design hotel with consistent quality across Europe</li>
+                    <li>Bar open late — useful meeting point</li>
+                    <li>Walking distance to major U-Bahn and S-Bahn connections</li>
+                    <li>Popular with business travelers — easy to blend in</li>
+                </ul>
+            </div>
+            <div class="hotel-price-block">
+                <div>
+                    <div class="hotel-score-row">
+                        <div class="hotel-score">8.7</div>
+                        <div class="hotel-score-label">Superb</div>
+                    </div>
+                    <div class="hotel-reviews">4,108 reviews</div>
+                </div>
+                <div>
+                    <div class="hotel-genius">Genius discount available</div>
+                    <div style="font-size:0.72rem; color:#666; margin-bottom:2px;">Standard room, per night</div>
+                    <div class="hotel-price-main">€118</div>
+                    <div class="hotel-price-sub">€354 total · taxes included</div>
+                    <button class="hotel-book-btn">See availability</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOTEL 4: Mid-range - 25hours HafenCity -->
+        <div class="hotel-card">
+            <div class="hotel-img" style="background: linear-gradient(135deg, #5d4037, #3e2723);">
+                ⚓
+                <div class="hotel-img-label">HafenCity</div>
+            </div>
+            <div class="hotel-info">
+                <div class="hotel-name">25hours Hotel HafenCity</div>
+                <div class="hotel-location">Überseeallee 5, HafenCity · 0.4 km from Thalia Überseequartier</div>
+                <div class="hotel-stars">★★★★</div>
+                <div class="hotel-tags">
+                    <span class="hotel-tag green">Best location for event</span>
+                    <span class="hotel-tag">Free WiFi</span>
+                    <span class="hotel-tag">Restaurant & Bar</span>
+                </div>
+                <div class="hotel-distance">📍 5 min walk to Thalia Flagship Store · Überseequartier U4 100m</div>
+                <ul class="hotel-highlights">
+                    <li>Nautical-themed design hotel in the heart of HafenCity</li>
+                    <li>Walking distance to Elbphilharmonie and harbor</li>
+                    <li>Lively bar and restaurant — good cover for meetings</li>
+                    <li>Direct U4 connection to Hauptbahnhof (10 min)</li>
+                </ul>
+            </div>
+            <div class="hotel-price-block">
+                <div>
+                    <div class="hotel-score-row">
+                        <div class="hotel-score">8.5</div>
+                        <div class="hotel-score-label">Fabulous</div>
+                    </div>
+                    <div class="hotel-reviews">2,390 reviews</div>
+                </div>
+                <div>
+                    <div style="font-size:0.72rem; color:#666; margin-bottom:2px;">Standard room, per night</div>
+                    <div class="hotel-price-main">€159</div>
+                    <div class="hotel-price-sub">€477 total · taxes included</div>
+                    <button class="hotel-book-btn">See availability</button>
+                    <div class="hotel-availability">Last 2 rooms at this price</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOTEL 5: Upper mid - Hotel Hafen -->
+        <div class="hotel-card">
+            <div class="hotel-img" style="background: linear-gradient(135deg, #2c3e50, #34495e);">
+                🚢
+                <div class="hotel-img-label">St. Pauli / Harbor</div>
+            </div>
+            <div class="hotel-info">
+                <div class="hotel-name">Hotel Hafen Hamburg</div>
+                <div class="hotel-location">Seewartenstraße 9, St. Pauli · Overlooking the Elbe</div>
+                <div class="hotel-stars">★★★★</div>
+                <div class="hotel-tags">
+                    <span class="hotel-tag green">Harbor views</span>
+                    <span class="hotel-tag">Free WiFi</span>
+                    <span class="hotel-tag">Bar & Restaurant</span>
+                    <span class="hotel-tag gray">Parking €18/night</span>
+                </div>
+                <div class="hotel-distance">📍 18 min to HafenCity · Landungsbrücken U/S-Bahn 3 min walk</div>
+                <ul class="hotel-highlights">
+                    <li>Hamburg institution since 1914 — iconic harbor views</li>
+                    <li>Captain's Bar is a Hamburg landmark</li>
+                    <li>Mix of tourists and business guests</li>
+                    <li>Good transport connections via Landungsbrücken station</li>
+                </ul>
+            </div>
+            <div class="hotel-price-block">
+                <div>
+                    <div class="hotel-score-row">
+                        <div class="hotel-score">8.2</div>
+                        <div class="hotel-score-label">Very Good</div>
+                    </div>
+                    <div class="hotel-reviews">1,654 reviews</div>
+                </div>
+                <div>
+                    <div style="font-size:0.72rem; color:#666; margin-bottom:2px;">Superior room, per night</div>
+                    <div class="hotel-price-main">€178</div>
+                    <div class="hotel-price-sub">€534 total · taxes included</div>
+                    <button class="hotel-book-btn">See availability</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOTEL 6: Luxury - Vier Jahreszeiten -->
+        <div class="hotel-card">
+            <div class="hotel-img" style="background: linear-gradient(135deg, #7d6608, #5d4e07);">
+                👑
+                <div class="hotel-img-label">Binnenalster · Luxury</div>
+            </div>
+            <div class="hotel-info">
+                <div class="hotel-name">Fairmont Hotel Vier Jahreszeiten</div>
+                <div class="hotel-location">Neuer Jungfernstieg 9–14 · On Binnenalster Lake</div>
+                <div class="hotel-stars">★★★★★</div>
+                <div class="hotel-tags">
+                    <span class="hotel-tag" style="background:#fff8e1; color:#7d6608;">5-Star Luxury</span>
+                    <span class="hotel-tag">Spa & Wellness</span>
+                    <span class="hotel-tag">Fine Dining</span>
+                    <span class="hotel-tag gray">Concierge 24h</span>
+                </div>
+                <div class="hotel-distance">📍 20 min to HafenCity · Jungfernstieg U/S-Bahn 2 min walk</div>
+                <ul class="hotel-highlights">
+                    <li>Hamburg's most prestigious address since 1897</li>
+                    <li>Lake views, Michelin-recommended restaurant</li>
+                    <li>Favored by visiting dignitaries, executives, and royalty</li>
+                    <li>Discreet, highly professional staff</li>
+                </ul>
+            </div>
+            <div class="hotel-price-block">
+                <div>
+                    <div class="hotel-score-row">
+                        <div class="hotel-score">9.2</div>
+                        <div class="hotel-score-label">Exceptional</div>
+                    </div>
+                    <div class="hotel-reviews">892 reviews</div>
+                </div>
+                <div>
+                    <div style="font-size:0.72rem; color:#666; margin-bottom:2px;">Classic room, per night</div>
+                    <div class="hotel-price-main">€485</div>
+                    <div class="hotel-price-sub">€1,455 total · taxes included</div>
+                    <button class="hotel-book-btn" style="background:#7d6608;">See availability</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div class="site-footer">
+    <strong style="color:rgba(255,255,255,0.85);">Booking.com</strong> is part of Booking Holdings Inc., the world leader in online travel.<br>
+    Copyright © 1996–2025 Booking.com™. All rights reserved. Prices shown are per night including taxes for the selected dates.
+</div>
+
+</body>
+</html>
