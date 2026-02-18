@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space-A Travel Guide — Air Mobility Command</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: #f5f4f0;
+            color: #1a1a1a;
+            font-size: 15px;
+            line-height: 1.65;
+        }
+
+        /* GOV HEADER */
+        .gov-banner {
+            background: #112e51;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            padding: 6px 20px;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .gov-banner::before {
+            content: "🇺🇸";
+            font-size: 0.9rem;
+        }
+        .gov-banner a { color: #9bdaf1; text-decoration: none; }
+
+        .site-header {
+            background: #112e51;
+            border-bottom: 4px solid #d12229;
+            padding: 0 20px;
+        }
+        .site-header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 0.75rem 0;
+        }
+        .amc-seal {
+            width: 64px;
+            height: 64px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        .site-title-block { color: white; font-family: Arial, sans-serif; }
+        .site-title-block .org { font-size: 0.75rem; opacity: 0.7; letter-spacing: 1px; text-transform: uppercase; }
+        .site-title-block .name { font-size: 1.4rem; font-weight: 700; line-height: 1.2; }
+        .site-title-block .sub { font-size: 0.8rem; opacity: 0.8; }
+
+        .top-nav {
+            background: #1a4480;
+            font-family: Arial, sans-serif;
+            border-bottom: 1px solid #0f2d4f;
+        }
+        .top-nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+        }
+        .top-nav a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            padding: 0.6rem 1rem;
+            font-size: 0.82rem;
+            display: block;
+        }
+        .top-nav a:hover { background: rgba(255,255,255,0.1); color: white; }
+        .top-nav a.active { background: #d12229; color: white; }
+
+        /* BREADCRUMB */
+        .breadcrumb {
+            background: #e6e6e2;
+            border-bottom: 1px solid #d0cfc8;
+            padding: 0.4rem 20px;
+            font-family: Arial, sans-serif;
+            font-size: 0.78rem;
+            color: #555;
+        }
+        .breadcrumb a { color: #0071bc; text-decoration: none; }
+        .breadcrumb span { margin: 0 0.4rem; color: #aaa; }
+
+        /* MAIN LAYOUT */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.5rem 20px;
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 2rem;
+        }
+
+        /* LEFT NAV */
+        .left-nav {
+            font-family: Arial, sans-serif;
+        }
+        .left-nav-title {
+            background: #112e51;
+            color: white;
+            padding: 0.6rem 0.75rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .left-nav ul {
+            list-style: none;
+            border: 1px solid #d0cfc8;
+            border-top: none;
+        }
+        .left-nav li a {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.82rem;
+            color: #0071bc;
+            text-decoration: none;
+            border-bottom: 1px solid #e6e6e2;
+        }
+        .left-nav li a:hover { background: #f0f0ea; }
+        .left-nav li a.active {
+            background: #e6eef5;
+            color: #112e51;
+            font-weight: 700;
+            border-left: 3px solid #d12229;
+        }
+        .left-nav-section {
+            margin-top: 1.25rem;
+        }
+        .update-box {
+            margin-top: 1.25rem;
+            background: #e6f3fb;
+            border: 1px solid #9bdaf1;
+            border-left: 4px solid #0071bc;
+            padding: 0.75rem;
+            font-size: 0.78rem;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .update-box strong { display: block; color: #112e51; margin-bottom: 0.3rem; }
+
+        /* MAIN CONTENT */
+        .content h1 {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.7rem;
+            color: #112e51;
+            border-bottom: 2px solid #d12229;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.3;
+        }
+
+        .content h2 {
+            font-family: Arial, sans-serif;
+            font-size: 1.1rem;
+            color: #112e51;
+            margin: 1.75rem 0 0.6rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #d0cfc8;
+        }
+
+        .content h3 {
+            font-family: Arial, sans-serif;
+            font-size: 0.95rem;
+            color: #1a4480;
+            margin: 1.25rem 0 0.4rem;
+        }
+
+        .content p { margin-bottom: 0.9rem; }
+
+        .content ul, .content ol {
+            margin: 0.5rem 0 1rem 1.5rem;
+        }
+        .content li { margin-bottom: 0.35rem; }
+
+        /* INFO BOXES */
+        .info-box {
+            margin: 1.25rem 0;
+            padding: 1rem 1.25rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.875rem;
+        }
+        .info-blue {
+            background: #e6f3fb;
+            border: 1px solid #9bdaf1;
+            border-left: 4px solid #0071bc;
+        }
+        .info-yellow {
+            background: #fff8e5;
+            border: 1px solid #f5d76e;
+            border-left: 4px solid #e6a817;
+        }
+        .info-green {
+            background: #e8f5e9;
+            border: 1px solid #a5d6a7;
+            border-left: 4px solid #2e7d32;
+        }
+        .info-red {
+            background: #fdecea;
+            border: 1px solid #f5b7b1;
+            border-left: 4px solid #c0392b;
+        }
+        .info-box strong { display: block; margin-bottom: 0.3rem; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.3px; }
+
+        /* CATEGORY TABLE */
+        .cat-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+            margin: 0.75rem 0 1.25rem;
+        }
+        .cat-table thead tr {
+            background: #112e51;
+            color: white;
+        }
+        .cat-table th {
+            padding: 0.5rem 0.75rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+        }
+        .cat-table td {
+            padding: 0.5rem 0.75rem;
+            border-bottom: 1px solid #e0ddd5;
+            vertical-align: top;
+        }
+        .cat-table tr:nth-child(even) td { background: #f5f4f0; }
+        .cat-table tr.highlight td { background: #e6f3fb; font-weight: 600; }
+        .cat-highlight { color: #d12229; font-weight: 700; }
+
+        /* TERMINAL TABLE */
+        .terminal-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+            margin: 0.75rem 0 1.25rem;
+        }
+        .terminal-table th {
+            background: #1a4480;
+            color: white;
+            padding: 0.5rem 0.75rem;
+            text-align: left;
+            font-size: 0.78rem;
+        }
+        .terminal-table td {
+            padding: 0.5rem 0.75rem;
+            border-bottom: 1px solid #e0ddd5;
+            vertical-align: top;
+        }
+        .terminal-table tr:nth-child(even) td { background: #f5f4f0; }
+
+        /* STEP BOX */
+        .steps {
+            list-style: none;
+            margin: 0.5rem 0 1.25rem;
+            counter-reset: step-counter;
+        }
+        .steps li {
+            counter-increment: step-counter;
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.875rem;
+        }
+        .steps li::before {
+            content: counter(step-counter);
+            background: #112e51;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* PRACTICAL TIPS */
+        .tip-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 0.75rem 0 1.25rem;
+        }
+        .tip-card {
+            background: white;
+            border: 1px solid #d0cfc8;
+            border-top: 3px solid #1a4480;
+            padding: 0.9rem 1rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+        }
+        .tip-card h4 {
+            font-size: 0.85rem;
+            color: #112e51;
+            margin-bottom: 0.4rem;
+        }
+        .tip-card p { color: #444; line-height: 1.5; margin: 0; }
+
+        /* FOOTER */
+        .site-footer {
+            background: #112e51;
+            color: rgba(255,255,255,0.6);
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+            padding: 1.25rem 20px;
+            margin-top: 2rem;
+        }
+        .site-footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .site-footer a { color: #9bdaf1; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; }
+            .tip-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- GOV BANNER -->
+<div class="gov-banner">
+    An official website of the United States government &nbsp;|&nbsp; <a href="#">How you know ▾</a>
+</div>
+
+<!-- SITE HEADER -->
+<div class="site-header">
+    <div class="site-header-inner">
+        <div class="amc-seal">✈</div>
+        <div class="site-title-block">
+            <div class="org">U.S. Air Force — Air Mobility Command</div>
+            <div class="name">Space-Available Travel Program</div>
+            <div class="sub">Official AMC Passenger Terminal Information</div>
+        </div>
+    </div>
+</div>
+
+<!-- TOP NAV -->
+<div class="top-nav">
+    <div class="top-nav-inner">
+        <a href="#">Home</a>
+        <a href="#" class="active">Space-A Travel</a>
+        <a href="#">Terminals</a>
+        <a href="#">Passenger Services</a>
+        <a href="#">Forms & Regs</a>
+        <a href="#">Contact AMC</a>
+    </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+    <a href="#">AMC Home</a>
+    <span>›</span>
+    <a href="#">Passenger Services</a>
+    <span>›</span>
+    Space-Available Travel Guide
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+    <!-- LEFT NAV -->
+    <aside class="left-nav">
+        <div class="left-nav-title">Space-A Travel</div>
+        <ul>
+            <li><a href="#overview" class="active">Program Overview</a></li>
+            <li><a href="#eligibility">Who is Eligible</a></li>
+            <li><a href="#categories">Priority Categories</a></li>
+            <li><a href="#how-to">How to Travel Space-A</a></li>
+            <li><a href="#terminals">Key Terminals</a></li>
+            <li><a href="#europe">Routes to Europe</a></li>
+            <li><a href="#tips">Practical Tips</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+
+        <div class="left-nav-section">
+            <div class="left-nav-title">Quick Links</div>
+            <ul>
+                <li><a href="#">AMC Travel App</a></li>
+                <li><a href="#">72-Hour Patriot Express</a></li>
+                <li><a href="#">Dover AFB Terminal</a></li>
+                <li><a href="#">Andrews Terminal (JBA)</a></li>
+                <li><a href="#">Ramstein AB Terminal</a></li>
+                <li><a href="#">Sign Up for Rollcall Emails</a></li>
+            </ul>
+        </div>
+
+        <div class="update-box">
+            <strong>Last Updated:</strong>
+            This page reflects current Space-A policies as of September 2025. Policies are subject to change. Always verify with your local passenger terminal before travel.
+        </div>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="content">
+
+        <h1>Space-Available (Space-A) Travel: Complete Guide</h1>
+
+        <p>Space-Available travel — commonly called "Space-A" or "military hops" — allows eligible members of the military community to fly on Department of Defense aircraft at little to no cost when seats are not needed for official duty passengers. This guide covers everything you need to know to travel Space-A successfully.</p>
+
+        <div class="info-blue">
+            <strong>Key Facts</strong>
+            Space-A travel is a <em>privilege</em>, not a right. Seats are filled on a first-come, first-served basis within priority categories. There are no guarantees of transportation — passengers must be flexible and prepared for delays.
+        </div>
+
+        <!-- ELIGIBILITY -->
+        <h2 id="eligibility">Who is Eligible</h2>
+
+        <p>The following categories of personnel and their dependents are generally eligible for Space-A travel:</p>
+
+        <ul>
+            <li><strong>Active duty members</strong> of all U.S. Armed Forces (Army, Navy, Marine Corps, Air Force, Coast Guard, Space Force)</li>
+            <li><strong>Active duty members on leave</strong> — must present leave orders</li>
+            <li><strong>Reservists and National Guard</strong> on active duty orders of 30+ days</li>
+            <li><strong>Retired military members</strong> (Regular and Reserve retired, with a valid Uniformed Services ID)</li>
+            <li><strong>DoD civilian employees</strong> on official orders (limited circumstances)</li>
+            <li><strong>Dependents</strong> of eligible sponsors traveling with or separately under certain conditions</li>
+        </ul>
+
+        <div class="info-green">
+            <strong>For Chaplains specifically</strong>
+            Military Chaplains on active duty status are fully eligible as Category III passengers. A Navy Chaplain on active duty orders — including those assigned to shore commands — may travel Space-A. Present your military ID (CAC card) and any relevant orders at the terminal. <em>You do not need leave orders if you are on ordinary liberty or pass.</em>
+        </div>
+
+        <!-- CATEGORIES -->
+        <h2 id="categories">Priority Categories</h2>
+
+        <p>Space-A seats are allocated in strict priority order. Within each category, passengers are further prioritized by the date and time they signed up.</p>
+
+        <table class="cat-table">
+            <thead>
+                <tr>
+                    <th>Cat.</th>
+                    <th>Who</th>
+                    <th>Typical Availability</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align:center; font-weight:700;">I</td>
+                    <td>Emergency leave passengers</td>
+                    <td>Highest priority, almost always boarded</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; font-weight:700;">II</td>
+                    <td>Permissive TDY (environmental/morale)</td>
+                    <td>High priority</td>
+                </tr>
+                <tr class="highlight">
+                    <td style="text-align:center;" class="cat-highlight">III</td>
+                    <td><strong>Active duty on leave or ordinary liberty; active reservists on 30+ day orders</strong></td>
+                    <td>Moderate — usually several seats available on major routes</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; font-weight:700;">IV</td>
+                    <td>DoD civilians on leave (overseas only)</td>
+                    <td>Lower priority</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; font-weight:700;">V</td>
+                    <td>Retired military and their dependents</td>
+                    <td>Fills remaining seats — popular routes can take days</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; font-weight:700;">VI</td>
+                    <td>Dependents traveling alone (Command Sponsored overseas)</td>
+                    <td>Lowest — not recommended for time-sensitive travel</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-yellow">
+            <strong>What this means in practice</strong>
+            As a Category III passenger, you have a reasonable chance of getting a seat on most transatlantic military flights — but it may take 1–3 days at the terminal before a seat opens up. During high-demand periods (summer, holidays, exercises), wait times can be longer.
+        </div>
+
+        <!-- HOW TO -->
+        <h2 id="how-to">How to Travel Space-A: Step by Step</h2>
+
+        <ol class="steps">
+            <li>
+                <div>
+                    <strong>Sign up in advance.</strong> You can register for Space-A up to 60 days before your desired travel date. Sign up via email to the passenger terminal(s) you plan to depart from. Include your name, rank, SSN (last 4), number of travelers, desired destinations, and travel dates. Your sign-up date determines your order within your category — earlier is always better.
+                </div>
+            </li>
+            <li>
+                <div>
+                    <strong>Check the AMC Travel App or terminal Facebook page.</strong> Most terminals post upcoming flight listings 72 hours in advance. The official AMC Travel App (iOS/Android) consolidates schedules from all major terminals. Seats are not guaranteed until rollcall.
+                </div>
+            </li>
+            <li>
+                <div>
+                    <strong>Arrive at the terminal.</strong> Show up at least 2 hours before the posted departure (earlier for international flights). Bring your CAC card, passport (for international travel), leave orders or liberty authorization if applicable, and any required country entry documents. For travel to Germany: your passport is sufficient. No visa required for U.S. military.
+                </div>
+            </li>
+            <li>
+                <div>
+                    <strong>Attend rollcall.</strong> The terminal will call passengers in category/sign-up order. If your name is called, you're on the flight. If not, you remain on the list for future flights — your sign-up date stays the same.
+                </div>
+            </li>
+            <li>
+                <div>
+                    <strong>Board and fly.</strong> Dress appropriately (see tips). Expect military aircraft conditions — C-17s have canvas seats along the sides, limited amenities. Bring snacks, earplugs, and a neck pillow.
+                </div>
+            </li>
+        </ol>
+
+        <!-- TERMINALS -->
+        <h2 id="terminals">Key Departure Terminals — East Coast</h2>
+
+        <table class="terminal-table">
+            <thead>
+                <tr>
+                    <th>Terminal</th>
+                    <th>Location</th>
+                    <th>Transatlantic Flights</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Dover AFB</strong><br>60th APS</td>
+                    <td>Dover, DE<br>(~2h from DC)</td>
+                    <td>Yes — primary East Coast hub. Daily C-17 flights to Ramstein.</td>
+                    <td>Best option for East Coast transatlantic travel. High volume of Europe-bound missions.</td>
+                </tr>
+                <tr>
+                    <td><strong>Joint Base Andrews</strong><br>(JBA)</td>
+                    <td>Prince George's Co, MD<br>(~30 min from DC)</td>
+                    <td>Occasional — less frequent than Dover</td>
+                    <td>More convenient to DC but fewer Space-A seats. Check listings carefully.</td>
+                </tr>
+                <tr>
+                    <td><strong>McGuire AFB</strong><br>(Joint Base MDL)</td>
+                    <td>Wrightstown, NJ<br>(~2h from DC)</td>
+                    <td>Yes — frequent Europe missions</td>
+                    <td>Strong alternative to Dover. Patriot Express routes include Ramstein.</td>
+                </tr>
+                <tr>
+                    <td><strong>Norfolk NAS</strong></td>
+                    <td>Norfolk, VA<br>(~3.5h from DC)</td>
+                    <td>Navy-focused, occasional AMC coordination</td>
+                    <td>Primarily naval aviation. Some Space-A to Mediterranean and Europe.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- EUROPE ROUTES -->
+        <h2 id="europe">Routes to Europe — Transatlantic</h2>
+
+        <p>The vast majority of transatlantic military flights from the East Coast route through <strong>Ramstein Air Base, Germany</strong> (near Kaiserslautern, Rheinland-Pfalz). Ramstein is the primary U.S. Air Force hub in Europe and sees constant air traffic.</p>
+
+        <h3>Ramstein AB as your arrival point</h3>
+
+        <p>Ramstein itself is not a destination for most travelers — it's a transit point. From Ramstein you have several onward options:</p>
+
+        <ul>
+            <li><strong>Hamburg:</strong> ~600 km north. ICE train from Kaiserslautern Hbf or Frankfurt Hbf to Hamburg Hbf — approximately 3.5–4.5 hours. Train tickets from €20–130 depending on advance booking. Highly recommended.</li>
+            <li><strong>Frankfurt (FRA):</strong> ~90 km east. S-Bahn or taxi from Ramstein. If your onward travel is by commercial flight, Frankfurt Airport is the largest in Germany.</li>
+            <li><strong>Berlin:</strong> ICE from Frankfurt Hbf — approximately 4 hours.</li>
+            <li><strong>Rental car:</strong> Available at Ramstein through AAFES. German Autobahn from Ramstein to Hamburg is approximately 5.5–6 hours driving.</li>
+        </ul>
+
+        <div class="info-blue">
+            <strong>Patriot Express</strong>
+            The Patriot Express is a contracted commercial charter service run by AMC on certain high-demand routes. It uses civilian aircraft (typically Boeing 767s) but operates under Space-A rules. Seats are more comfortable than cargo aircraft, meals are included, and baggage allowances are more generous. Check if Patriot Express runs to your destination — it operates out of several East Coast terminals to Ramstein and other European bases.
+        </div>
+
+        <h3>Other European entry points via Space-A</h3>
+        <ul>
+            <li><strong>RAF Mildenhall, UK</strong> — Another common transatlantic destination. From there, commercial or Eurostar/ferry to mainland Europe.</li>
+            <li><strong>Rota Naval Station, Spain</strong> — Less common from East Coast, more Navy traffic.</li>
+            <li><strong>Lajes Field, Azores</strong> — Frequent stopover on transatlantic routes (not always listed as a destination).</li>
+        </ul>
+
+        <!-- TIPS -->
+        <h2 id="tips">Practical Tips</h2>
+
+        <div class="tip-grid">
+            <div class="tip-card">
+                <h4>📋 What to bring</h4>
+                <p>CAC card, passport, any orders. Earplugs (military aircraft are loud). Neck pillow and eye mask. Snacks and water — galley service is not guaranteed. Entertainment on your device — no in-flight WiFi. Warm layers — cargo aircraft can be cold at altitude.</p>
+            </div>
+            <div class="tip-card">
+                <h4>⏰ Timing expectations</h4>
+                <p>Plan for at least 2–3 days at the terminal before you fly, especially to Europe. If you need to arrive by a specific date, leave 3–4 days of buffer or book commercial. Missions can be delayed, rerouted, or cancelled with short notice.</p>
+            </div>
+            <div class="tip-card">
+                <h4>📱 Stay informed</h4>
+                <p>Download the AMC Travel App. Follow your departure terminal's official Facebook page — most post flight listings daily. Sign up for rollcall email notifications. Terminals also have phone lines for recorded listings (check individual terminal websites for numbers).</p>
+            </div>
+            <div class="tip-card">
+                <h4>🧳 Baggage</h4>
+                <p>Standard allowance: 2 bags at 70 lbs each, plus one carry-on. Baggage limits can vary by aircraft type and mission. C-17 cargo missions are more permissive. Label all bags with name, rank, and destination. Do not pack prohibited items per standard DoD regulations.</p>
+            </div>
+            <div class="tip-card">
+                <h4>👔 Dress code</h4>
+                <p>Uniform or neat civilian attire. No sleeveless shirts, ripped clothing, or flip-flops. Chaplains in civilian clothes are common — business casual is fine. Remember you represent the U.S. military even in civilian clothing.</p>
+            </div>
+            <div class="tip-card">
+                <h4>📝 Sign up early</h4>
+                <p>The 60-day sign-up window exists for a reason — use it. If you're serious about traveling on a specific date range, sign up 60 days out. Your sign-up date is your tiebreaker within your category. You can sign up for multiple terminals simultaneously.</p>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <h2 id="faq">Frequently Asked Questions</h2>
+
+        <h3>Can I travel Space-A without leave orders?</h3>
+        <p>Active duty members on ordinary liberty or pass do not require leave orders. You should be prepared to show your CAC and explain your status to terminal personnel. If you are on terminal leave, bring your leave orders.</p>
+
+        <h3>What happens if I miss my flight at the destination?</h3>
+        <p>You are responsible for your own return travel. Space-A is one-way by nature — getting home requires signing up again at the destination terminal. This is why flexibility is essential. Ensure you have funds and a backup plan for commercial travel home.</p>
+
+        <h3>Can I bring my family?</h3>
+        <p>Dependents of active duty sponsors may travel Space-A either with the sponsor (Cat III) or, under limited circumstances, independently. Policies for unaccompanied dependent travel have restrictions — consult AFI 65-114 and your specific terminal for current rules.</p>
+
+        <h3>Is Space-A safe?</h3>
+        <p>Military aircraft maintain rigorous safety standards. C-17s and C-5s are modern, well-maintained aircraft. The passenger experience differs from commercial aviation — expect noise, no flight attendants, and utilitarian seating — but the aircraft themselves are among the most capable in the world.</p>
+
+        <h3>What aircraft will I fly on?</h3>
+        <p>For transatlantic routes, most commonly the <strong>C-17 Globemaster III</strong> or (less frequently) the <strong>C-5 Galaxy</strong>. Patriot Express routes use contracted commercial aircraft. Occasionally a KC-135 tanker with passenger capability. The C-17 has fold-down canvas seating along the fuselage sides — not comfortable for 8+ hour flights, but manageable with preparation.</p>
+
+        <h3>How much does it cost?</h3>
+        <p>Space-A passengers pay only the <strong>ICAO (International Civil Aviation Organization) tax</strong> for international travel — typically $5–35 per flight segment. There is no base fare. This is one of the most significant benefits of military service.</p>
+
+        <div class="info-green">
+            <strong>Bottom line for transatlantic travel to Germany</strong>
+            Dover AFB or Joint Base McGuire-Dix-Lakehurst are your best bets on the East Coast. Sign up 60 days out, plan to spend 1–3 days at the terminal, and have a commercial flight backup. Ramstein AB will be your arrival point — from there, Hamburg is an easy 3.5-hour ICE train ride north.
+        </div>
+
+    </main>
+</div>
+
+<!-- FOOTER -->
+<div class="site-footer">
+    <div class="site-footer-inner">
+        <div>
+            <strong style="color: rgba(255,255,255,0.85);">Air Mobility Command</strong> — Scott Air Force Base, Illinois 62225<br>
+            DSN: 779-6123 | Commercial: (618) 229-6123
+        </div>
+        <div style="text-align: right;">
+            <a href="#">Accessibility</a> &nbsp;|&nbsp;
+            <a href="#">Privacy Policy</a> &nbsp;|&nbsp;
+            <a href="#">No FEAR Act</a> &nbsp;|&nbsp;
+            <a href="#">FOIA</a><br>
+            Content last reviewed: September 2025
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
