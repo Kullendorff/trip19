@@ -109,7 +109,7 @@
 
 ---
 
-## NOVEMBER 2025 - RYSSLAND & FINALE
+## OKTOBER 2025 - RYSSLAND & FINALE
 
 ### **Session 9: Ryssland-infiltration**
 - **Mycket svårt pga Polen-incidenten**
@@ -165,7 +165,7 @@
 ✅ Augusti 2025: Magda reser till USA
 ✅ September 2025: Kampanj börjar, möter Magda i Lovettsville
 ✅ September 2025: Magda lever, terminalt sjuk, på väg till Berlin. Cellen följer efter.
-✅ November 2025: Ryssland-infiltration (svår) + Finale
+✅ Oktober 2025: Ryssland-infiltration (svår) + Finale
 
 ---
 
@@ -238,7 +238,7 @@
 ## SAMMANFATTNING:
 
 **Kampanj börjar:** 4 september 2025  
-**Kampanj slutar:** Början av november 2025  
+**Kampanj slutar:** Början av oktober 2025  
 **Total speltid:** ~8-12 sessioner över 2 månader in-game
 
 **Magda:** Träffas levande i Session 3 (Lovettsville), ringer cellen i Session 5 (Berlin), terminalt sjuk  
@@ -248,7 +248,7 @@
 
 ---
 
-*Tidslinje korrigerad: 14 november 2025*  
+*Tidslinje korrigerad: 25 september 2025*  
 *För: Trip 19 → Black Madonna Delta Green kampanj*  
 *Nästa steg: Uppdatera alla dokument med dessa datum*
 
