@@ -208,7 +208,7 @@ Denna fil är ett **INDEX**. När du söker efter ett element:
 |-------|----------|-------|
 | 1946 | Frankfurt Clinic (Dorfstraße 42c, Frankfurt (Oder)-Güldendorf) | `SL/black_madonna_chapter2.html`, `SL/locations.html`, `SL/reinhardt_business_card.html`, `SL/washington_post_1946_article.html` |
 | 1946 | De tre männen patienter där | `SL/black_madonna_chapter2.html` |
-| 1946 | Magdas mor (Leningrad-överlevande) patient där | `SL/black_madonna_chapter2.html` |
+| 1946 | Elsa Orlova (Magdas mor, Leningrad-överlevande) patient där | `SL/black_madonna_chapter2.html` |
 
 ### 2024
 | Datum | Händelse | Filer |
@@ -430,7 +430,7 @@ grep -i "Scalpel.*\bhan\b\|Scalpel.*\bhonom\b\|Scalpel.*\bhans\b" [fil]
   - 1946 displaced persons camp
   - Frankfurt an der Oder (INTE Frankfurt am Main!)
   - Sovjetisk zon (1946)
-  - De tre männen + Magdas mor patienter där
+  - De tre männen + Elsa Orlova (Magdas mor) patienter där
 
 #### Magdas lägenhet (Hamburg)
 - **Filer**:

@@ -94,7 +94,7 @@
 - Reser till Frankfurt an der Oder
 - Gamla arkiv från 1946 displaced persons camp
 - Patient-journaler:
-  - Magdas mor
+  - Elsa Orlova (Magdas mor)
   - De tre männen
   - Referenser till "Leningrad trauma 1942"
   - Camp S-17 nämns
