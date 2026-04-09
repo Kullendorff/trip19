@@ -6,7 +6,7 @@
 ## 🎮 SPELLÄGE - Var är vi i kampanjen?
 
 **In-game datum:** 22 september 2025 (måndag morgon)
-**Session:** Session 9 — nästa att spela
+**Session:** Session 9 — **SPELAS IKVÄLL 9 APRIL 2026**
 **Kapitel:** Kapitel 1 — Mördarnas Dans (scen 7–9 av 18 i `black_madonna_chapter1.html`)
 **Plats:** Graefestraße 66, 4:e vån, Kreuzberg, Berlin — Scalpels farbror Jürgens lägenhet
 **Situation:** Cellen anlände Berlin natten 21→22 sept. Magda Orlova DÖD (21 sept kl 15:39, Charité Hospital). Mac + Sullivan parasit-positiva (blodprov). Richters diagnos: 2–6 månader, ingen medicinsk behandling — förbannelsen måste brytas vid källan. Alla fem infekterade (feber 20–21 sept). Sparky sätter upp ops-room. Cellen har en bas, material, och mer frågor än svar.
