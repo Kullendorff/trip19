@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charité — Patientenakte Orlova</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@400;600&display=swap');
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         @page { size: A4; margin: 1.5cm 2cm; }
@@ -76,42 +76,53 @@
             padding-bottom: 3px; border-bottom: 2px solid #1a1a1a;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 10px;
-            margin: 0.5rem 0;
+        .timeline-entry {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+            font-size: 10.5px;
         }
 
-        th {
-            text-align: left;
-            padding: 5px 8px;
-            border-bottom: 2px solid #1a1a1a;
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .timeline-date {
+            font-weight: 500;
+            color: #2a2a2a;
+        }
+
+        .timeline-event { color: #1a1a1a; }
+
+        .subsection {
+            font-size: 10px; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 1px;
             color: #4a4a4a;
+            margin: 1.2rem 0 0.5rem 0;
+            padding-top: 0.5rem;
+            border-top: 1px solid #eee;
         }
 
-        td {
-            padding: 5px 8px;
-            border-bottom: 1px solid #eee;
-            vertical-align: top;
+        ul { margin: 0.3rem 0 0.5rem 1.5rem; }
+        li { margin-bottom: 0.3rem; font-size: 10.5px; }
+        p { margin-bottom: 0.4rem; }
+
+        .margin-note {
+            font-family: 'Caveat', cursive;
+            color: #1a3a6a;
+            font-size: 14px;
+            line-height: 1.4;
         }
 
-        .note-section {
-            margin-top: 1.5rem;
-            font-size: 10px;
-            color: #3a3a3a;
+        .margin-block {
+            font-family: 'Caveat', cursive;
+            color: #1a3a6a;
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0.6rem 0;
+            padding: 0.4rem 0.75rem;
+            border-left: 2px solid rgba(26, 58, 106, 0.3);
+            background: rgba(26, 58, 106, 0.02);
         }
 
-        .note-section ul {
-            margin: 0.3rem 0 0 1.5rem;
-        }
-
-        .note-section li {
-            margin-bottom: 0.25rem;
-        }
+        .highlight { background: rgba(255, 255, 0, 0.15); padding: 0 2px; }
 
         .stamp {
             position: absolute;
@@ -124,8 +135,25 @@
             transform: rotate(-8deg);
         }
 
+        .page-break {
+            margin: 2.5rem 0;
+            border-top: 1px dashed #ccc;
+            padding-top: 1.5rem;
+        }
+
+        .page-header {
+            font-size: 9px; color: #6a6a6a;
+            margin-bottom: 1rem; padding-bottom: 0.4rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .conclusion-box {
+            border: 1px solid #1a1a1a;
+            padding: 1rem; margin: 1rem 0;
+        }
+
         .signature-block {
-            margin-top: 2.5rem;
+            margin-top: 2rem;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -140,28 +168,30 @@
         @media print {
             body { background: white; padding: 0; }
             .page { box-shadow: none; padding: 1.5cm 2cm; max-width: none; }
+            .page-break { page-break-before: always; margin-top: 0; border-top: none; }
         }
     </style>
 </head>
 <body>
 <div class="page">
 
-    <div class="stamp">VERTRAULICH</div>
+    <div class="stamp">ZUSAMMENSTELLUNG</div>
 
     <div class="hospital-header">
         <div class="hospital-name">Charité</div>
         <div class="hospital-sub">Universitätsmedizin Berlin — Campus Charité Mitte</div>
-        <div class="department">Institut für Rechtsmedizin — Patientenakte (Zusammenstellung)</div>
+        <div class="department">Institut für Rechtsmedizin — Zusammenstellung Patientenakte</div>
     </div>
 
     <div class="report-id">
         Akt.-Nr.: RM-2025-09-4471<br>
+        Zusammengestellt: Dr. med. H.G. Richter<br>
         Datum: 22. September 2025
     </div>
 
-    <div class="report-title">Patientenakte — Orlova, Magda</div>
+    <div class="report-title">Medizinische Gesamtübersicht — Orlova, Magda</div>
 
-    <!-- PATIENTDATA -->
+    <!-- PATIENT DATA -->
     <div class="field-grid">
         <div class="field-label">Name</div>
         <div class="field-value">Orlova, Magda</div>
@@ -172,128 +202,295 @@
         <div class="field-label">Todesdatum</div>
         <div class="field-value">21. September 2025, 15:39 Uhr, Charité Berlin</div>
 
-        <div class="field-label">Todesursache</div>
-        <div class="field-value">Akuter Myokardinfarkt sekundär Pankreaskarzinom Stadium IV</div>
+        <div class="field-label">Alter bei Tod</div>
+        <div class="field-value">86 Jahre</div>
 
         <div class="field-label">Staatsangehörigkeit</div>
         <div class="field-value">Deutsch (eingebürgert 1962, geb. sowjetisch)</div>
 
+        <div class="field-label">Wohnsitz</div>
+        <div class="field-value">Brahmsallee 16, Hamburg (primär) / Leibnizstraße 97, Berlin</div>
+
         <div class="field-label">Nächste Kontakt</div>
-        <div class="field-value">Filip Kramer</div>
+        <div class="field-value">Irene Adler, Antiquariat, Hamburg (+49 40 xxx xxxx)</div>
+
+        <div class="field-label">Beruf</div>
+        <div class="field-value">Autorin / Journalistin / Historikerin (pensioniert)</div>
     </div>
 
-    <!-- MEDICINSK JOURNAL -->
-    <div class="section-title">Medizinische Dokumentation</div>
+    <!-- KRONOLOGISK MEDICINSK HISTORIA -->
+    <div class="section-title">I. Chronologische Krankengeschichte</div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Datum</th>
-                <th>Einrichtung</th>
-                <th>Diagnose</th>
-                <th>Maßnahme</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>22.02.1946</td>
-                <td>Kirov-Klinik, Moskau</td>
-                <td>Nervöse Hysterie</td>
-                <td>Isolation</td>
-            </tr>
-            <tr>
-                <td>12.07.1947</td>
-                <td>Kirov-Klinik, Moskau</td>
-                <td>Nahrungsverweigerung</td>
-                <td>Zwangsernährung</td>
-            </tr>
-            <tr>
-                <td>03.05.1949</td>
-                <td>Kirov-Klinik, Moskau</td>
-                <td>Aggressive Ausbrüche</td>
-                <td>Isolation</td>
-            </tr>
-            <tr>
-                <td>10.02.1951</td>
-                <td>Frankfurt Klinik f. Neuropsychiatrie</td>
-                <td>Apathie</td>
-                <td>Keine</td>
-            </tr>
-            <tr>
-                <td>25.09.1954</td>
-                <td>Frankfurt Klinik f. Neuropsychiatrie</td>
-                <td>Deutliche Besserung</td>
-                <td>Vorläufige Entlassung</td>
-            </tr>
-            <tr>
-                <td>07.11.1954</td>
-                <td>Frankfurt Klinik f. Neuropsychiatrie</td>
-                <td>Hysterische Ausbrüche</td>
-                <td>Zwangsjacke</td>
-            </tr>
-            <tr>
-                <td>03.03.1958</td>
-                <td>Frankfurt Klinik f. Neuropsychiatrie</td>
-                <td>Positive Besserung</td>
-                <td>Vorläufige Entlassung</td>
-            </tr>
-            <tr>
-                <td>16.06.1962</td>
-                <td>Johannes Hospital, Berlin</td>
-                <td>Katatonie</td>
-                <td>Lorazepam</td>
-            </tr>
-            <tr>
-                <td>18.09.1963</td>
-                <td>Johannes Hospital, Berlin</td>
-                <td>Aggressive Ausbrüche</td>
-                <td>Zwangsjacke</td>
-            </tr>
-            <tr>
-                <td>23.04.1964</td>
-                <td>Johannes Hospital, Berlin</td>
-                <td>Positive Besserung</td>
-                <td>Vorläufige Entlassung</td>
-            </tr>
-            <tr>
-                <td>12.07.1968</td>
-                <td>Johannes Hospital, Berlin</td>
-                <td>Schock</td>
-                <td>Dobutamin</td>
-            </tr>
-            <tr>
-                <td>28.05.1970</td>
-                <td>Johannes Hospital, Berlin</td>
-                <td>Aggressiv</td>
-                <td>Isolation</td>
-            </tr>
-            <tr>
-                <td>14.05.1971</td>
-                <td>Johannes Hospital, Berlin</td>
-                <td>Positive Besserung</td>
-                <td>Entlassung</td>
-            </tr>
-        </tbody>
+    <div class="subsection">Kindheit & Jugend (1939–1958)</div>
+
+    <div class="timeline-entry">
+        <div class="timeline-date">14.01.1939</div>
+        <div class="timeline-event">Geboren in Leningrad. Mutter: Name unbekannt (gest. 1952). Vater: unbekannt.</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">31.12.1941</div>
+        <div class="timeline-event">Aufenthalt in Leningrad während der Blockade. <span class="highlight">Patientin war 3 Jahre alt.</span> Keine medizinischen Aufzeichnungen aus dieser Periode erhalten.</div>
+    </div>
+
+    <div class="margin-block">
+        Leningrad Nyårsnatt. Hon var där. 3 år. Exponerad för... vad? Kristallen? Ljuset? Samma händelse som de tre männen.
+    </div>
+
+    <div class="timeline-entry">
+        <div class="timeline-date">1942–1946</div>
+        <div class="timeline-event">Evakuiert nach Camp S-17, Vladykino (bei Moskau). Sowjetisches Auffanglager für "kontaminierte" Zivilisten. <span class="highlight">Keine medizinischen Unterlagen verfügbar.</span></div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">1946–1951</div>
+        <div class="timeline-event">Kirov-Klinik, Moskau. Kinderpsychiatrische Abteilung unter Dr. Natalya Tatlina. Behandlung: Elektrokonvulsionstherapie (EKT), experimentelle Medikamente ("Präparat 7").</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">1951–1958</div>
+        <div class="timeline-event">Frankfurt Klinik für Neuropsychiatrie, <span class="highlight">Frankfurt (Oder)</span>, Brandenburg. Transfer mit Mutter und 43 weiteren Kindern. Direktor: Dr. Klaus Reinhardt, dann Dr. Helmut Schäfer.</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">Feb. 1952</div>
+        <div class="timeline-event"><strong>Tod der Mutter.</strong> Offizielle Ursache: "natürlicher Tod." Alter: 52 Jahre. <span class="margin-note">← Parasit? Gleiche Symptome wie Tochter 73 Jahre später?</span></div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">1958</div>
+        <div class="timeline-event">Entlassung aus Frankfurt Klinik. Status: "rehabilitiert." Umzug nach Berlin, dann Hamburg.</div>
+    </div>
+
+    <div class="subsection">Erwachsenenalter (1958–2024)</div>
+
+    <div class="timeline-entry">
+        <div class="timeline-date">1958–1990</div>
+        <div class="timeline-event">Keine signifikanten medizinischen Einträge. Regelmäßige Vorsorge. Keine chronischen Erkrankungen dokumentiert. Beruf: Journalistin/Autorin (4 Bücher publiziert).</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">1961</div>
+        <div class="timeline-event">Mitgründerin der Slawischen Vereinigung, Berlin.</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">1990–1991</div>
+        <div class="timeline-event">Rückkehr nach Berlin. Erste dokumentierte psychische Symptome: Schlafstörungen, Hautjucken, "Würmer unter der Haut" (lt. Tagebuch). <span class="highlight">6 Ärzte diagnostizieren Wahnvorstellungen.</span> Valium-Verschreibung. Umzug zurück nach Hamburg (Juli 1991).</div>
+    </div>
+
+    <div class="margin-block">
+        1990-91: Identiska symptom som 2024-2025. Parasit aktiveras första gången? Eller reaktiveras efter kontakt med de tre?
+    </div>
+
+    <div class="timeline-entry">
+        <div class="timeline-date">1991–2024</div>
+        <div class="timeline-event">Stabil period. Boende: Hamburg. Sporadisk ångest behandlad med Lorazepam (låg dos). Inga psykotiska episoder dokumenterade. Livsstil: isolerad, intensiv forskning.</div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page-break">
+        <div class="page-header">Charité — Rechtsmedizin | Akt.-Nr. RM-2025-09-4471 | Orlova, Magda | Seite 2 von 3</div>
+    </div>
+
+    <div class="subsection">Terminale Phase (2024–2025)</div>
+
+    <div class="timeline-entry">
+        <div class="timeline-date">Aug. 2024</div>
+        <div class="timeline-event">Återupptar forskning om Trip 19, Volkov/"Mr. Petrov", de tre männen. Reser till Lovettsville, Virginia (USA). Träffar amerikanska forskare.</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">Okt. 2024</div>
+        <div class="timeline-event">Hittar moderns dagbok (gömd i garderob, Hamburg). Börjar läsa. Upprörd, intensifierad forskning.</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">Nov. 2024</div>
+        <div class="timeline-event"><span class="highlight">Första subkutana lesion ("bula") rapporterad.</span> Lokaliserad till vänster underarm. Patientin beskriver den som "rörlig." Läkare: "insektsbett."</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">Dec. 2024</div>
+        <div class="timeline-event">5 lesioner. Dr. Schönblum (Hamburg): "Psykosomatiskt. Hänvisning till psykiater."</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">Jan. 2025</div>
+        <div class="timeline-event">Filip Kramer ringer. Nämner "ritual som kan bryta förbannelsen." Patientin dokumenterar i dagbok men avvisar erbjudandet.</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">Mars 2025</div>
+        <div class="timeline-event">23 lesioner. Multipla läkarbesök. Inga organiska fynd. Dermatologisk konsultation: "kontaktdermatit?" Behandling med kortisol-kräm. Ingen effekt.</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">Juni 2025</div>
+        <div class="timeline-event"><strong>Erstdiagnose: Pankreaskarzinom Stadium IV.</strong> Dr. Nathan Schönblum, Hamburg. Hepatische Metastasierung. Inoperabel. Prognose: 3–6 Monate. <span class="highlight">Patientin lehnt Chemotherapie ab.</span></div>
+    </div>
+
+    <div class="margin-block">
+        Timing. Cancer diagnostiseras EXAKT när lesionerna accelererar. Samband? Försvagat immunsystem → parasiten vaknar? Eller: parasiten ÄR cancern?
+    </div>
+
+    <div class="timeline-entry">
+        <div class="timeline-date">Juni 2025</div>
+        <div class="timeline-event">Psykiatrisk remiss. Insättning: <strong>Clozapin 100mg</strong> + <strong>Olanzapin 10mg</strong> (atypische Antipsychotika). Diagnos: "paranoid schizofreni." Patientin protesterar: "Jag VET vad jag ser."</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">Aug. 2025</div>
+        <div class="timeline-event">Utsättning av antipsykotika (patientens eget beslut). <span class="highlight">Tomma förpackningar Clozapin, Olanzapin, Valium hittade i badrum (Hamburg).</span></div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">Sept. 1–12, 2025</div>
+        <div class="timeline-event">8 läkarbesök i Hamburg (6 allmänläkare, 1 kiropraktor Karl Essen, 1 bokad tid medium Helena Ackerman — ej infunnen). Ingen organisk förklaring till lesioner. 100+ bulor rapporterade.</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">14.09.2025</div>
+        <div class="timeline-event">Sista dagboksinlägg (Hamburg): "Filip ringde igen... bulorna sprider sig. Sex läkare säger psykosomatiskt. Men jag KÄNNER dem röra sig under huden."</div>
+    </div>
+
+    <div class="subsection">Sista veckan (19–21 september 2025)</div>
+
+    <div class="timeline-entry">
+        <div class="timeline-date">19.09.2025</div>
+        <div class="timeline-event"><strong>Bokpresentation</strong>, Thalia Hamburg. Kontakt med Anton Mahler och Sasha Pogodin (de tre männen). Patientin synbart skakad efteråt.</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">20.09., 05:30</div>
+        <div class="timeline-event">Sista dagboksinlägget (Hamburg): "Åker till Berlin. Om jag dör — amerikanerna vet."</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">20.09., 06:42</div>
+        <div class="timeline-event">Tåg Hamburg → Berlin (Deutsche Bahn). Ensam.</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">20.09., ~09:00</div>
+        <div class="timeline-event"><span class="highlight">Kollaps utanför Charité Hospital, Campus Mitte.</span> Förbipasserande ringer 112. Ambulans anländer 09:08.</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">20.09., 09:14</div>
+        <div class="timeline-event">Inlämning Notaufnahme. Behandlande: Dr. Maria Kellerman. Tillstånd: akut andnöd, hjärtarytmi, extremt kachektisk, dehydrerad, febricitant (40.1°C).</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date">20–21.09.</div>
+        <div class="timeline-event">Intensivvård. Stabiliseringsförsök. Hjärtrytm instabil. Patientens tillstånd försämras stadigt trots behandling.</div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-date"><strong>21.09., 15:39</strong></div>
+        <div class="timeline-event"><strong>Exitus.</strong> Offiziell: akuter Myokardinfarkt sekundär Pankreaskarzinom IV. Keine Fremdeinwirkung.</div>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div class="page-break">
+        <div class="page-header">Charité — Rechtsmedizin | Akt.-Nr. RM-2025-09-4471 | Orlova, Magda | Seite 3 von 3</div>
+    </div>
+
+    <div class="section-title">II. Medikamentenhistorie</div>
+
+    <table style="width: 100%; border-collapse: collapse; font-size: 10px; margin: 0.5rem 0;">
+        <tr style="border-bottom: 2px solid #1a1a1a;">
+            <th style="text-align: left; padding: 4px;">Medikament</th>
+            <th style="text-align: left; padding: 4px;">Typ</th>
+            <th style="text-align: left; padding: 4px;">Dos</th>
+            <th style="text-align: left; padding: 4px;">Period</th>
+            <th style="text-align: left; padding: 4px;">Status</th>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 4px;">Clozapin</td>
+            <td style="padding: 4px;">Atypisches Antipsychotikum</td>
+            <td style="padding: 4px;">100mg</td>
+            <td style="padding: 4px;">Juni–Aug 2025</td>
+            <td style="padding: 4px;">Abgesetzt (eigen)</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 4px;">Olanzapin</td>
+            <td style="padding: 4px;">Atypisches Antipsychotikum</td>
+            <td style="padding: 4px;">10mg</td>
+            <td style="padding: 4px;">Juni–Aug 2025</td>
+            <td style="padding: 4px;">Abgesetzt (eigen)</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 4px;">Lorazepam</td>
+            <td style="padding: 4px;">Anxiolytikum (Benzodiazepin)</td>
+            <td style="padding: 4px;">1mg</td>
+            <td style="padding: 4px;">~2020–Tod</td>
+            <td style="padding: 4px;">Aktiv</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 4px;">Zolpidem (Ambien)</td>
+            <td style="padding: 4px;">Schlafmittel</td>
+            <td style="padding: 4px;">10mg</td>
+            <td style="padding: 4px;">~2024–Tod</td>
+            <td style="padding: 4px;">Aktiv</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 4px;">Diazepam (Valium)</td>
+            <td style="padding: 4px;">Anxiolytikum (Benzodiazepin)</td>
+            <td style="padding: 4px;">5–10mg</td>
+            <td style="padding: 4px;">1990–1991</td>
+            <td style="padding: 4px;">Abgesetzt</td>
+        </tr>
     </table>
 
-    <div class="note-section">
-        <div class="section-title">Anmerkungen</div>
-        <ul>
-            <li>Unterlagen vor 1951: auf Russisch</li>
-            <li>Vor 1958: kein Familienname dokumentiert</li>
-            <li>1958–1963: "Magda Schmidt"</li>
-            <li>Ab 1964: "Magda Orlova"</li>
-            <li>Nächster Angehöriger (alle Einrichtungen): Filip Kramer</li>
-            <li>Drei weitere Patienten mit identischer Einrichtungshistorie und überlappenden Aufenthaltszeiträumen</li>
-        </ul>
+    <div class="margin-block">
+        Mönster: 1990-91 = Valium. 2024-25 = allt på en gång. Båda perioderna sammanfaller med förnyad kontakt med de tre männen + parasit-reaktivering.
+    </div>
+
+    <div class="section-title">III. Lesionsprogression (nicht in offizieller Akte)</div>
+
+    <table style="width: 100%; border-collapse: collapse; font-size: 10px; margin: 0.5rem 0;">
+        <tr style="border-bottom: 2px solid #1a1a1a;">
+            <th style="text-align: left; padding: 4px;">Datum</th>
+            <th style="text-align: left; padding: 4px;">Antal lesioner</th>
+            <th style="text-align: left; padding: 4px;">Anmerkung</th>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 4px;">Nov 2024</td>
+            <td style="padding: 4px;">1</td>
+            <td style="padding: 4px;">Vänster underarm. "Insektsbett."</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 4px;">Dec 2024</td>
+            <td style="padding: 4px;">5</td>
+            <td style="padding: 4px;">"Psykosomatiskt" (Dr. Schönblum)</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 4px;">Mars 2025</td>
+            <td style="padding: 4px;">23</td>
+            <td style="padding: 4px;">Spridning till bål och hals</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 4px;">Sept 2025</td>
+            <td style="padding: 4px;">100+</td>
+            <td style="padding: 4px;">Hela kroppen. "De rör sig."</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 4px;">21.09.2025</td>
+            <td style="padding: 4px;">—</td>
+            <td style="padding: 4px;"><strong>Exitus.</strong> Larver i perikard och myokard vid obduktion.</td>
+        </tr>
+    </table>
+
+    <div class="margin-block">
+        10 månader från första lesion till död. Progression exponentiell sista 3 mån. Jmf. Toporov (1922): "2-6 months from activation."<br><br>
+        MEN: parasiten var vilande sedan 1942. 83 år. Vad aktiverade den? Tre hypoteser:<br>
+        1. Bokpresentationen 8 nov 2024? (Första kontakt med Anton/Sasha sedan 1990?)<br>
+        2. Mammans dagbok? (Okt 2024 — trauma-trigger?)<br>
+        3. Cancern? (Juni 2025 — försvagat immunsystem)<br><br>
+        Troligast: kombination av alla tre. Kontakt med de tre → emotionell stress → dagbok → cancer → kaskad.
+    </div>
+
+    <div class="section-title">IV. Zusammenfassung</div>
+
+    <div class="conclusion-box">
+        <p><strong>Offiziell:</strong> 86-jährige Frau mit terminalem Pankreaskarzinom. Tod durch Herzversagen. Psychiatrische Nebendiagnosen: Angststörung, Schlafstörung. Keine Fremdeinwirkung.</p>
+    </div>
+
+    <div class="margin-block" style="border-left-color: rgba(180,40,40,0.5); background: rgba(180,40,40,0.02);">
+        Inoffiziell: Parasitinfektion sedan 1942. Vilande i 83 år. Reaktiverad hösten 2024 genom förnyad kontakt med de tre infekterade männen. Progression: 10 månader. Multipla läkare missade — parasiten är osynlig för de flesta.<br><br>
+        Centrala frågor:<br>
+        1. Varför kunde hon bära parasiten i 83 år utan symptom?<br>
+        2. Varför dödade den henne på 10 månader efter aktivering?<br>
+        3. Bär de fem amerikanerna samma parasit?<br>
+        4. Om ja: har de 2-6 månader.<br><br>
+        — H.G.R., 22 september 2025
     </div>
 
     <div class="signature-block">
         <div style="font-size: 10px; color: #4a4a4a;">Berlin, den 22. September 2025</div>
         <div>
             <div class="signature-line">
-                Zusammengestellt: Institut für Rechtsmedizin<br>
-                Charité — Universitätsmedizin Berlin
+                Dr. med. Hans Georg Richter<br>
+                Facharzt für Rechtsmedizin
             </div>
         </div>
     </div>
