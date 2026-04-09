@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session 8 — Hamburg till Berlin | Trip 19</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-green: #00ff41;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --accent-yellow: #ffcc00;
+            --accent-purple: #9b59b6;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+            /* Karaktärsfärger */
+            --mac: #4682b4;
+            --sullivan: #b87333;
+            --sparky: #00ff41;
+            --scalpel: #d4af37;
+            --trench: #ff8c00;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container { max-width: 1400px; margin: 0 auto; }
+
+        .session-header {
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .session-header h1 {
+            color: var(--accent-blue);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .session-header p { color: var(--text-dim); margin-top: 0.5rem; }
+
+        .session-meta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            background: rgba(74, 144, 164, 0.2);
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(74, 144, 164, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-bar a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .section {
+            background: var(--bg-panel);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: var(--accent-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section h3 {
+            color: var(--accent-yellow);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .section h4 {
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid var(--accent-red);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .yellow-box {
+            background: rgba(255, 204, 0, 0.1);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .read-aloud {
+            background: rgba(155, 89, 182, 0.1);
+            border-left: 4px solid var(--accent-purple);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        .npc-card {
+            background: rgba(10, 14, 23, 0.6);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-green);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .npc-card.ally { border-left-color: var(--accent-green); }
+        .npc-card.threat { border-left-color: var(--accent-red); }
+        .npc-card.neutral { border-left-color: var(--accent-yellow); }
+
+        .npc-card h4 { color: var(--accent-green); font-size: 1.1rem; margin-bottom: 0.75rem; }
+        .npc-card.ally h4 { color: var(--accent-green); }
+        .npc-card.threat h4 { color: var(--accent-red); }
+        .npc-card.neutral h4 { color: var(--accent-yellow); }
+
+        .san-check {
+            background: rgba(255, 68, 68, 0.15);
+            border: 2px solid var(--accent-red);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .san-check strong { color: var(--accent-red); }
+
+        .gm-note {
+            background: var(--bg-darker);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            font-style: italic;
+            border-radius: 4px;
+        }
+
+        .gm-note::before {
+            content: "SL: ";
+            color: var(--accent-yellow);
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .skill-check {
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid var(--accent-green);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .skill-check strong { color: var(--accent-green); }
+
+        .music-cue {
+            background: rgba(155, 89, 182, 0.08);
+            border: 1px solid var(--accent-purple);
+            padding: 0.75rem 1rem;
+            margin: 0.75rem 0;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--accent-purple);
+        }
+
+        .music-cue::before { content: "🎵 "; }
+
+        .secret-box {
+            background: rgba(155, 89, 182, 0.1);
+            border: 2px dashed var(--accent-purple);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .secret-box h4 { color: var(--accent-purple); margin-bottom: 0.75rem; }
+
+        .clue-chain {
+            background: rgba(0, 255, 65, 0.08);
+            border: 2px solid var(--accent-green);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .clue-chain h4 { color: var(--accent-green); margin-bottom: 1rem; }
+
+        .scene-transition {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+        }
+
+        .dialogue { margin: 0.75rem 0; }
+        .speaker { color: var(--accent-yellow); font-weight: bold; }
+
+        .decision-box {
+            background: rgba(255, 204, 0, 0.05);
+            border: 2px solid var(--accent-yellow);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .decision-box h4 { color: var(--accent-yellow); margin-bottom: 1rem; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: rgba(74, 144, 164, 0.2);
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        .agent-tag {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin: 0.1rem;
+        }
+
+        .tag-mac { background: rgba(70,130,180,0.2); color: var(--mac); border: 1px solid var(--mac); }
+        .tag-sullivan { background: rgba(184,115,51,0.2); color: var(--sullivan); border: 1px solid var(--sullivan); }
+        .tag-sparky { background: rgba(0,255,65,0.2); color: var(--sparky); border: 1px solid var(--sparky); }
+        .tag-scalpel { background: rgba(212,175,55,0.2); color: var(--scalpel); border: 1px solid var(--scalpel); }
+        .tag-trench { background: rgba(255,140,0,0.2); color: var(--trench); border: 1px solid var(--trench); }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .overview-card {
+            background: rgba(10, 14, 23, 0.4);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 4px;
+        }
+
+        .overview-card strong {
+            color: var(--accent-blue);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        ul, ol { margin-left: 2rem; margin-top: 0.5rem; }
+        li { margin-bottom: 0.5rem; }
+
+        p { margin-bottom: 0.75rem; }
+
+        .beat-number {
+            display: inline-block;
+            background: var(--accent-red);
+            color: #000;
+            font-weight: bold;
+            width: 1.6rem;
+            height: 1.6rem;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 1.6rem;
+            margin-right: 0.5rem;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .beat-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .beat-content { flex: 1; }
+
+        @media (max-width: 768px) {
+            body { padding: 1rem; }
+            .overview-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="session-header">
+        <h1>SESSION 8 — HAMBURG TILL BERLIN</h1>
+        <p>Brahmsallee 16 → Charité Hospital, Berlin</p>
+        <div class="session-meta">
+            <span>📅 21 september 2025, ~21:00</span>
+            <span>📍 Hamburg → Berlin</span>
+            <span>⏱ Hela natten</span>
+            <span class="status-badge">PLANERAD</span>
+        </div>
+        <div style="margin-top: 1rem;">
+            <span class="agent-tag tag-mac">Mac</span>
+            <span class="agent-tag tag-sullivan">Sullivan</span>
+            <span class="agent-tag tag-sparky">Sparky</span>
+            <span class="agent-tag tag-scalpel">Scalpel</span>
+            <span class="agent-tag tag-trench">Trench</span>
+        </div>
+    </div>
+
+    <!-- NAV -->
+    <div class="nav-bar">
+        <a href="session5-6.html">← Session 5–6: Grishas Garage</a>
+        <span style="color: var(--text-dim);">Kapitel 1 — Hamburg till Berlin</span>
+        <a href="black_madonna_chapter1.html">Kapitel 1 →</a>
+    </div>
+
+    <!-- BAKGRUND -->
+    <div class="section">
+        <h2>BAKGRUND — VAR ÄR VI?</h2>
+
+        <div class="overview-grid">
+            <div class="overview-card">
+                <strong>In-game tid</strong>
+                21 september 2025, ~21:00
+            </div>
+            <div class="overview-card">
+                <strong>Plats</strong>
+                Brahmsallee 16, Harvestehude, Hamburg — på väg ut
+            </div>
+            <div class="overview-card">
+                <strong>Cellen</strong>
+                Precis friska efter 1.5 dygn feber (20–21 sept)
+            </div>
+            <div class="overview-card">
+                <strong>Magda Orlova</strong>
+                DÖD sedan kl 15:39 idag — cellen vet INTE
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <strong>⚠ KRITISK SL-INFO</strong>
+            <p>Magda dog kl 15:39 på Charité Hospital, Berlin. Officiell dödsorsak: hjärtsvikt komplicerad av pankreascancer stadium IV. Verklig orsak: parasitlarver åt sig igenom hjärtmuskeln.</p>
+            <p>Cellen vet bara att Magda är på sjukhus. Irene ringde dem 20 september (medan de låg feberdåliga) och berättade att Magda kollapsade utanför Charité. Sedan dess: inga uppdateringar. De är fast i Hamburg, för sjuka för att åka.</p>
+            <p><strong>Nu — kvällen den 21:e — är de äntligen friska nog.</strong> De har precis lämnat Magdas lägenhet med ett armfullt ledtrådar och ett enkelt mål: kom till Berlin.</p>
+        </div>
+
+        <h3>Vad cellen vet när session 8 börjar</h3>
+        <div class="info-box">
+            <ul>
+                <li><strong>Från Hamburg-lägenheten:</strong> Pyotrs vykort ("Jag har sett HAN" — Frankfurt an der Oder), Berlinnycklar (Leibnizstraße 97), Filips panikade röstmeddelanden, foton som bevisar att de tre männen inte åldras (1942→2024), karta över Leningrad/Vasilyevsky Island, Slavic Association-medlemskort, dagboken med sista inlägg 05:30 den 20:e</li>
+                <li><strong>Från Irenes samtal (20 sept):</strong> Magda är på Charité. Hon frågade efter dem. Sa något om "de har börjat förvandla dem också." Irene: "Var försiktiga. De tre männen Magda nämnde — de är farliga."</li>
+                <li><strong>Scalpel specifikt:</strong> Hon lämnade ett meddelande på Charité till en gammal handledare, Dr. Hans Georg Richter (patolog) — "studenten som ritade dödsskallar söker en intagen, Magda Orlova." Inget svar ännu.</li>
+                <li><strong>Cellen vet INTE:</strong> Magda är redan död. Att de är under aktiv övervakning. Att Filip var på Charité och grät.</li>
+            </ul>
+        </div>
+
+        <div class="clue-chain">
+            <h4>LEDTRÅDAR HITTILLS SAMLADE</h4>
+            <table>
+                <tr><th>Ledtråd</th><th>Källa</th><th>Vart leder den</th></tr>
+                <tr><td>Pyotrs vykort ("Jag har sett HAN")</td><td>Posten, Hamburg-lägenheten</td><td>Frankfurt Clinic, Frankfurt an der Oder</td></tr>
+                <tr><td>Berlinnycklar (Leibnizstraße 97)</td><td>Kök, Hamburg-lägenheten</td><td>Magdas Berlin-lägenhet</td></tr>
+                <tr><td>Filips röstmeddelanden (4 st, panik)</td><td>Magdas telefon, Hamburg-lägenheten</td><td>Filip som möjlig allierad? Han varnade Magda.</td></tr>
+                <tr><td>Foton — de tre männen åldras INTE</td><td>Kontoret, Hamburg-lägenheten</td><td>Odödlighet / transformation 1942</td></tr>
+                <tr><td>Leningrad-karta, Vasilyevsky Island</td><td>Kontoret, Hamburg-lägenheten</td><td>"Hier wurden wir zu Monstern"</td></tr>
+                <tr><td>Slavic Association-medlemskort 1961–1990</td><td>Garderoben, Hamburg-lägenheten</td><td>Magda var GRUNDARE av föreningen</td></tr>
+                <tr><td>Dagbok — sista inlägg 05:30 den 20:e</td><td>Nattduksbord, Hamburg-lägenheten</td><td>"Om jag dör — amerikanerna vet."</td></tr>
+                <tr><td>Adress till Arnold Weiss</td><td>Post-its, Hamburg-lägenheten</td><td>Gammal vän i Berlin — kontakt?</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SCEN 1: BRAHMSALLEE -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SCEN 1 — BRAHMSALLEE: UTPASSET (~21:00)</h2>
+
+        <div class="music-cue">Under the Skin (Mica Levi) — gles, rovdjursaktig, känslan av att iakttas från något omänskligt</div>
+
+        <div class="read-aloud">
+            Brahmsallee på natten. Lindarna längs gatan är fortfarande gröna — september har inte nått dem ännu. Gatlyktan närmast porten flimrar en gång, sedan håller den. Från Grindelallee, tre kvarter bort, hörs svagt bilbuller. Annars: tyst.
+            <br><br>
+            September-luften är mild men fuktig. Alster-lukten hänger kvar — vatten och nedfallna löv. I lägenheten ovanför brinner ett ljus. Annars är fasaden mörk.
+            <br><br>
+            Cellen står på trottoaren utanför nummer 16 med allt de funnit. Magdas bil står i garaget under byggnaden. Närmaste tågstation är sju minuters promenad.
+        </div>
+
+        <div class="gm-note">Ge spelarna 2–3 minuter att diskutera spontant. Vad är planen? Direkt till Berlin? Hämta bilen? Ring Richter? Låt konversationen landa naturligt. Scen 2 (Richters samtal) triggas sedan automatiskt inom 20–30 minuter oavsett vad de väljer att göra.</div>
+
+        <h3>ÖVERVAKNINGSTEAMET — Tre beats</h3>
+
+        <p>Blobels team har haft koll på lägenheten sedan de kom dit. Tre enheter. Professionellt. Ex-Stasi. De rör sig inte förrän cellen börjar röra sig.</p>
+
+        <div class="beat-row">
+            <span class="beat-number">1</span>
+            <div class="beat-content">
+                <strong style="color: var(--accent-yellow);">FRÖET (passivt)</strong>
+                <p>En mörk Mercedes Vito, mörkgrå/svart, Hamburgplåtar, parkerad 40 meter åt höger. Fordonet har stått här länge — en svag kondensring syns runt avgasröret. Förrarfönstret är öppet 2 centimeter.</p>
+                <p>Beskrivs som del av scenbilden, inte flaggas explicit. En skåpbil i ett villakvarter vid 21-tiden. SL berättar det som ett faktum, inte som en varning.</p>
+                <div class="gm-note">Berätta det när de tittar sig omkring, eller lägg in det i den initiala scenbeskrivningen. Säg INGENTING mer. Låt spelarna reagera om de vill.</div>
+            </div>
+        </div>
+
+        <div class="beat-row">
+            <span class="beat-number">2</span>
+            <div class="beat-content">
+                <strong style="color: var(--accent-yellow);">BEKRÄFTELSEN (kräver uppmärksamhet)</strong>
+                <p>Tvärs över gatan: en man med en hund. Mörkblå jacka. Han skulle ha gått vidare — men han har stannat. Han tittar på sin telefon. Hunden sitter. Perfekt. Tränad.</p>
+
+                <div class="skill-check">
+                    <strong>ALERTNESS 40% / HUMINT 40% / Sparkys SIGINT (automatisk)</strong>
+                    <p>Vid lyckad roll (eller om spelarna specifikt tittar): Telefonskärmens sken reflekteras svagt i bakrutan på en parkerad Passat. Det är inte ett vanligt skärmljus — det rör sig inte. Det är ett stillbild. Kameraläge.</p>
+                    <p>Han fotograferar dem.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="beat-row">
+            <span class="beat-number">3</span>
+            <div class="beat-content">
+                <strong style="color: var(--accent-yellow);">ESKALERING (om spelarna reagerar)</strong>
+                <p>Om cellen reagerar (rör sig mot mannen, ändrar riktning, diskuterar högt):</p>
+                <ul>
+                    <li>Mannen rundar hörnet mot Brahmsallee 30. Hunden följer utan brådska. Professionellt.</li>
+                    <li>Två kvarter upp startar en mörk BMW 3-serie. Strålkastarna sveper över fasaden. Bilen kör iväg — bort från dem.</li>
+                    <li>Vito:n är kvar. Motorn startar inte.</li>
+                </ul>
+                <div class="gm-note">Tre separata enheter. Staffettsystem. Vito = statisk observation/reläpunkt. Hundvandraren (Karl-Friedrich Brandt) = närkontakt/fotografi. BMW:n = mobil, redo att följa. De agerar inte mer — bara dokumenterar. Blobel vill veta vart cellen är på väg.</div>
+            </div>
+        </div>
+
+        <div class="npc-card threat">
+            <h4>KARL-FRIEDRICH BRANDT — Hundvandraren</h4>
+            <p><strong>Ålder:</strong> 54 | <strong>Bakgrund:</strong> Ex-Stasi Abteilung IX (kontraspionage) | <strong>Nu:</strong> Alexi Blobels närmaste operative</p>
+            <p><strong>Hund:</strong> Svart labrador, heter "Schippe". Tränad som signaldjur — sitter på kommando, vänder sig bort på kommando.</p>
+            <p><strong>Om konfronterad:</strong> Ler vänligt. "Guten Abend." Inget mer. Ger inte efter. Försvinner inte förrän han vill.</p>
+            <p><strong>Om gripen (osannolikt):</strong> Inga papper som binder honom till Blobel. Telefonen är en engångstelefon. Han pratar inte.</p>
+        </div>
+
+        <div class="yellow-box">
+            <strong>SL: Vad händer om cellen ignorerar allt?</strong>
+            <p>Det är OK. Inte alla scener ska explodera. Om cellen bara promenerar mot stationen eller garaget utan att reagera — låt det vara. Blobels team noterar riktningen, berättar för Alexi. Cellen märker ingenting än. Det är en långsam skruv. De ska börja ifrågasätta saker en bit in på resan.</p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SCEN 2: RICHTERS SAMTAL -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SCEN 2 — RICHTERS SAMTAL: BOMBEN (~21:30)</h2>
+
+        <div class="music-cue">Max Richter — "On the Nature of Daylight" (eller Arrival, Jóhann Jóhannsson). Det ögonblick allt förändras.</div>
+
+        <p>Kan hända var som helst: på gatan, i en taxi, i väntan på tåget, i Magdas bil på garagerampen. Scalpels telefon ringer. Okänt Berlinnummer. +49 30 450 xxx xxx.</p>
+
+        <h3>Telefonsamtalet</h3>
+
+        <div class="info-box">
+            <strong>Bakgrund — varför ringer Richter?</strong>
+            <p>Scalpel lämnade ett meddelande via Charités receptionen tidigare under dagen: "Studenten som ritade dödsskallar söker en intagen — Magda Orlova. Kontakta Dr. Hans Georg Richter om han fortfarande arbetar där."</p>
+            <p>Richter fick meddelandet. Han är patolog på rättsmedicinska avdelningen — han utförde den preliminära obduktionen på Magda kl 17:00. Han satte ihop ett och ett.</p>
+        </div>
+
+        <div class="npc-card ally">
+            <h4>DR. HANS GEORG RICHTER — Patolog, Charité</h4>
+            <p><strong>Ålder:</strong> Sent 40-tal | <strong>Avdelning:</strong> Rättsmedicin, källaren i Byggnad B, Charité Campus Mitte</p>
+            <p><strong>Utseende:</strong> Glasögon. Lätt framåtböjd hållning. Talar tyst, nästan viskande. Kaffefläck på rocken.</p>
+            <p><strong>Gåvan:</strong> Han har Synen — ser det övernaturliga. Har haft det sen barndomen. Vet vad han ser. Det skrämmer honom fortfarande.</p>
+            <p><strong>Koppling till Scalpel:</strong> Han var assistent till hennes handledare Klaus Hoffmann 2010–2011 och handledde henne under patologirotationerna på Charité. Han minns "den amerikanska studenten som ritade anatomiska dödsskallar med något levande under skinnet." Han frågade aldrig vad hon egentligen såg. Nu vet han.</p>
+        </div>
+
+        <h3>Dialogmanus</h3>
+
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Hanna? Hans Georg Richter. Charité."
+        </div>
+        <p><em>[En paus. Sjukhusljud i bakgrunden — intercom, avlägsna fotssteg.]</em></p>
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Du lämnade ett meddelande om Magda Orlova."
+        </div>
+        <p><em>[Han väntar på att hon ska bekräfta.]</em></p>
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Hon är här. Eller... hon var här."
+        </div>
+        <p><em>[Ännu en paus. Längre denna gång.]</em></p>
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Hanna, hon dog. Klockan 15:39 idag. Officiellt: hjärtsvikt komplicerad av pankreascancer."
+        </div>
+        <p><em>[Och sedan, lägre:]</em></p>
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Men det är inte det jag såg."
+        </div>
+
+        <div class="san-check">
+            <strong>SAN CHECK: 0/1 (Unnatural)</strong>
+            <p>Bara för Scalpel initialt — eller hela cellen om hon sätter på högtalare. Att höra orden räcker. Det är fortfarande sekundär information, inte visuellt. Men det bekräftar att det finns något övernaturligt — och att Magda är DÖD.</p>
+        </div>
+
+        <h3>Om Scalpel frågar vad han såg</h3>
+
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Larver. Svarta, med mörka huvuden som drog sig tillbaka från ljuset. Under huden. I bröstkorgen, runt hjärtat."
+        </div>
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Ingen annan såg dem. Dr. Kellerman i akuten — ingenting. Sköterskorna — ingenting. Den officiella rapporten säger hjärtsvikt."
+        </div>
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Jag har lagt dem i formalin. De är synliga för mig. Jag vet inte om de är synliga för dig."
+        </div>
+
+        <h3>Richters fråga till Scalpel</h3>
+
+        <div class="secret-box">
+            <h4>DEN RIKTIGA FRÅGAN</h4>
+            <div class="dialogue">
+                <span class="speaker">RICHTER:</span> "Hanna. Du ritade dem. 2011. Dödskallar med något levande inuti — under skinnet, runt ögonhålorna. Jag trodde det var anatomisk konst. Förklädd fantasi."
+            </div>
+            <div class="dialogue">
+                <span class="speaker">RICHTER:</span> "Men du såg dem, eller hur? Redan då."
+            </div>
+            <p><em>[Han väntar. Lång tystnad.]</em></p>
+            <div class="gm-note">Detta är Daniel/Scalpels moment. SL bestämmer INGENTING här — det är spelarens val om Scalpel har Synen eller inte, och om hon erkänner det. Richter tolkar svaret som han vill. Håll det öppet.</div>
+        </div>
+
+        <h3>Mer information om Scalpel frågar</h3>
+
+        <div class="info-box">
+            <h4>Om Filip</h4>
+            <div class="dialogue">
+                <span class="speaker">RICHTER:</span> "Det var en man här. Äldre. Välklädd. Han ville komma in till henne. Personalen nekade — hon var redan borta. Han skrek, omväxlande på tyska och ryska. 'Magda. Magda.' Säkerhetsvakten fick ta i honom."
+            </div>
+            <div class="dialogue">
+                <span class="speaker">RICHTER:</span> "Sedan var han borta. Försvann bara. En man i 70-årsåldern rör sig inte så."
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h4>Om cancern och larverna</h4>
+            <div class="dialogue">
+                <span class="speaker">RICHTER:</span> "Cancern var terminal, ja. Tre månader kvar, möjligen fyra. Men det var inte det som dödade henne. Larverna åt sig igenom cancervävnaden — som om de sökte något specifikt. Hjärtmuskeln var... äten. Inifrån."
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h4>Om han har tid att vänta</h4>
+            <div class="dialogue">
+                <span class="speaker">RICHTER:</span> "Jag har ingen bråttom. Jag sover inte bra i vilket fall."
+            </div>
+            <div class="dialogue">
+                <span class="speaker">RICHTER:</span> "Om ni kan ta er till Berlin — kom till sidoingången vid rättsmedicin. Söder om huvudbyggnaden, källarplan. Jag ska vara där."
+            </div>
+        </div>
+
+        <div class="yellow-box">
+            <h4>SPELARVAL — Delar Scalpel med sig?</h4>
+            <ul>
+                <li><strong>Sätter hon på högtalare:</strong> Hela cellen hör. Magdas död slår till direkt. Motivation att åka till Berlin omedelbart.</li>
+                <li><strong>Håller hon det privat:</strong> Intra-party-spänning. Hon måste välja när och hur hon berättar. Cellen ser att hon ser ut annorlunda efter samtalet.</li>
+                <li><strong>Säger hon ingenting om Synen-frågan:</strong> Också OK. Richter respekterar det. Han förstår tystnad.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SCEN 3: BESLUTET -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SCEN 3 — BESLUTET: TÅG ELLER BIL? (~22:00)</h2>
+
+        <p>Richter väntar på Charité. Blobels team rör sig. Magda är redan borta men de vet det ännu inte. Det finns ingen rätt väg — bara olika slags mörker att köra igenom.</p>
+
+        <div class="decision-box">
+            <h4>DE TVÅ VÄGARNA</h4>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>🚄 TÅG (ICE)</th>
+                    <th>🚗 BIL (Magdas Opel Vectra)</th>
+                </tr>
+                <tr>
+                    <td><strong>Restid</strong></td>
+                    <td>~1h 50min</td>
+                    <td>~3 timmar (A24 → A10 → A115)</td>
+                </tr>
+                <tr>
+                    <td><strong>Avgång</strong></td>
+                    <td>ICE 22:51 Hamburg Hbf → Berlin Hbf 00:47<br><em>(Eller ICE 21:51 → 23:43 om de skyndar sig)</em></td>
+                    <td>Garaget under Brahmsallee 16. Opel Vectra nyckel hängde i köket.</td>
+                </tr>
+                <tr>
+                    <td><strong>Kostnad</strong></td>
+                    <td>~€60–80/person (DB Navigator-app)</td>
+                    <td>Gratis (Magdas bil). Bensinkostnad.</td>
+                </tr>
+                <tr>
+                    <td><strong>Fördel</strong></td>
+                    <td>Snabbt, pålitligt, kan planera på tåget</td>
+                    <td>Flexibelt, privat, kan stanna, svårare att följa koordinerat</td>
+                </tr>
+                <tr>
+                    <td><strong>Risk</strong></td>
+                    <td>Offentlig plats, lätt att sätta in en operative</td>
+                    <td>Trötthetsrisk (feber nyligen), nattköring, A24 är mörk och tom</td>
+                </tr>
+                <tr>
+                    <td><strong>Övervakning</strong></td>
+                    <td>Man med laptop i annan vagn (IMSI-catcher)</td>
+                    <td>Strålkastare i backspegeln som aldrig försvinner</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="info-box">
+            <h4>OM MAGDAS OPEL VECTRA</h4>
+            <ul>
+                <li>Bil från 2002–2004. Grå. Hamburgplåtar (HH-XX xxxx).</li>
+                <li>Garaget: källarplan under Brahmsallee 16, via ramp på baksidan av byggnaden.</li>
+                <li>Handskfacket: försäkringspapper, registreringsbevis — på Magda Orlovas namn. Körde en 86-åring, alltså.</li>
+                <li>Luktar gammal skinn och lavendel. Kassettadapter i 12V-uttaget. Radio: NDR Info.</li>
+                <li><strong>Om Sparky kollar bilen på GPS/spårare:</strong> Computer Science 50%. Hit: Ingen fabriksmonterad GPS. Kan dock ha en extern fäst under chassit av Blobels team under dagen.</li>
+            </ul>
+        </div>
+
+        <div class="gm-note">Cellen kan också välja att dela upp sig — några tar tåget, andra kör. Det komplicerar Blobels tail-arbete. Skapa parallella micro-scener om det händer, men håll tempot uppe.</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SCEN 3B: TÅGRESAN -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SCEN 3B — TÅGRESAN (om de väljer tåg)</h2>
+
+        <div class="music-cue">Annihilation — Ben Salisbury &amp; Geoff Barrow. Lågt, störande, fluorescerande. Eller: Arrival, "Heptapod B"</div>
+
+        <h3>Hamburg Hauptbahnhof (~22:30)</h3>
+
+        <div class="read-aloud">
+            Hamburg Hbf på sena kvällen. Den massiva Jugendstil-hallen är halvtom — en renspolad version av dagtid. Röster ekar högt under det välvda järntaket. Avgångsskyltar roterar. Gleis 11–14 för long distance.
+            <br><br>
+            DB Navigator på telefonen: ICE 22:51 till Berlin Hauptbahnhof, ankomst 00:47. Biljetter €67 styck. Inga sittplatsbokningar tillgängliga — men det är gott om plats.
+            <br><br>
+            Perrongen luktar diesel och kaffe från kiosken på nedervåningen.
+        </div>
+
+        <div class="gm-note">Övervakningsbeaten på perrongen: Om spelarna studerar omgivningen (Alertness/SIGINT) — en man i beige vindjakka, ryggsäck, håller sig tillbaka längs perrongkanten. Han köper ingenting i kiosken. Kliver på sista vagnen, de i de bakre. Eller: han kliver aldrig på tåget — en annan operative tar vid i Berlin.</div>
+
+        <h3>På tåget (22:51 – 00:47)</h3>
+
+        <div class="read-aloud">
+            ICE glider ut från Hamburg Hbf. Staden försvinner snabbt — Wandsbek, förorterna, sedan ingenting. Norddeutsche Tiefebene öppnar sig: platt som ett bord, svart som havets botten. Vindkraftverk blinkar rött mot himlen i rad. Satellitljus från enstaka bondgårdar.
+            <br><br>
+            Tåget kör i 250 km/h. Inne: fluorescerande, tyst. De flesta passagerare sover eller har hörlurar.
+        </div>
+
+        <h4>Surveillance micro-beat</h4>
+
+        <div class="info-box">
+            Tre rader bak: en man i 40-årsåldern. Öppen laptop. Han skriver inte. Skärmen visar ett terminalfönster med rullande text.
+            <div class="skill-check">
+                <strong>Sparky — SIGINT (automatisk) / Computer Science 50% för övriga:</strong>
+                Telefonbatteriet dräneras onormalt snabbt (IMSI-catcher-attack, "false base station"). Samtal och SMS kan avlyssnas i realtid. Slå på flygplansläge förhindrar detta — men de tappar kommunikationen.
+            </div>
+        </div>
+
+        <h4>Karaktärsögonblicken (den långa tystnaden)</h4>
+
+        <div class="yellow-box">
+            <p>Cellen har 1h 50min. Richters ord hänger i luften. Ingen sover. Eller kanske någon sover — mot fönstret, mot glaset som blir kallt när tåget lämnar städerna.</p>
+            <p>Det finns ingen dramatik här. Det är tröttheten efter febern, informationens tyngd, frågorna som inte har svar ännu.</p>
+            <p><strong>Möjliga karaktärsstunder — SL prompts (frivilliga, om stämningen tillåter):</strong></p>
+            <ul>
+                <li>Någon läser Pyotrs vykort igen. Rysk handstil, knappt läslig. "Jag har sett HAN."</li>
+                <li>Någon öppnar foton på telefonen — de tre männen. 1942. 1960. 1980. 2024. Samma ansikten.</li>
+                <li>Vem ringer en Bond? Mac ringer Emma. Sullivan ber tyst. Trench textar Sandra "Allt bra. Jobbar."</li>
+                <li>Scalpel tittar ut genom fönstret. Det hon vet om Magda bär hon ensam tills hon väljer att dela med sig.</li>
+            </ul>
+        </div>
+
+        <h3>Ankomst Berlin Hbf (~00:47)</h3>
+
+        <div class="read-aloud">
+            Berlin Hauptbahnhof mitt i natten. Glashuset på fem plan är halvdött vid ett-tiden. Städvagnar, några oröriga backpackers på bänkar. Taxizon utanför: fyra bilar i kö.
+            <br><br>
+            Utifrån: Spreens vatten syns svagt. Alexanderplatz TV-torn blinkar orange i fjärran. Berlin luktar inte Hamburg. Det är torrare. Äldre.
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SCEN 3C: BILRESAN -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SCEN 3C — BILRESAN (om de väljer bilen)</h2>
+
+        <div class="music-cue">Hell or High Water — Nick Cave &amp; Warren Ellis. Sedan övergår till Under the Skin (Mica Levi). Nattlig körmusik — ensamhet, vidder.</div>
+
+        <h3>Garaget (~22:00)</h3>
+
+        <div class="read-aloud">
+            Källargaraget under Brahmsallee 16. Betongramp, en fluorescerande rörlampa som flimrar. Opel Vectra parkerad i box nummer 7 — som det stod på nyckelbrickan.
+            <br><br>
+            Grå. Lite rost längs bakhjulhuset. Innanför luktar det gammalt skinn och lavendel-luftfräschare. Handskfacket: försäkringspapper, registreringsbevis. Magda Orlovas namn.
+            <br><br>
+            Bilen startar på andra försöket.
+        </div>
+
+        <h3>A24 norrut, sedan österut (~22:15 – 01:30)</h3>
+
+        <div class="read-aloud">
+            A24 ut ur Hamburg i mörkret. Lyktstolparna upphör efter Reinbek. Sedan: ingenting. Norddeutsche Tiefebene. Platt mark i varje riktning, vindkraftverk vars röda varningslampor blinkar synkroniserat som en sovande armé.
+            <br><br>
+            Radion: NDR Info. Nattens nyheter. Något om riksdagen. Någon journalist som pratar med lugn röst om saker som inte handlar om dem.
+        </div>
+
+        <h4>Relay-tail — staffettföljandet</h4>
+
+        <div class="info-box">
+            30 km efter Hamburg dyker strålkastarna upp. En bil, 200 meter bak. Håller avstånd exakt.
+            <ul>
+                <li><strong>Om de accelererar:</strong> Bilen matchar.</li>
+                <li><strong>Om de saktar ner under 60 km/h:</strong> Bilen matchar, håller 200 meter.</li>
+                <li><strong>Om de kör av motorvägen (t.ex. Ludwigslust):</strong> Bilen kör rakt förbi. Fem kilometer senare: en annan bil. BMW-format, mörkblå.</li>
+                <li><strong>Om de stannar på en Rasthaus (t.ex. Schönberger Heide):</strong> Bilen parkerar vid ingången, föraren går in. Normalt utseende. Kaffe. Tittar inte på dem. Åker när de åker.</li>
+            </ul>
+            <div class="skill-check">
+                <strong>HUMINT 40% / Military Science 40% / Mac FBI-intuition:</strong>
+                Detta är ett professionellt relay-tail. Tre eller fler fordon, koordinerade via radio. De kan inte skaka dem på motorvägen utan att agera aggressivt. Alternativ: stanna, analysera, byta strategi.
+            </div>
+        </div>
+
+        <h4>Havelland-sträckan (~01:00)</h4>
+
+        <div class="read-aloud">
+            Havelland. Dimma kryper in från fälten på båda sidor. Sikten sjunker till 100 meter. GPS säger 45 minuter till Berlin.
+            <br><br>
+            Någon i baksätet har somnat. Vindrutan börjar imma lätt trots AC:n på lågeffekt. Längre bort lyser ett enda hus vid en landsvägsavstickare.
+        </div>
+
+        <div class="gm-note">Om någon bär ett kristallfragment: kompassen på Vectras instrument-panel — om den har en — rör sig sakta. Inte dramatiskt. Knappt märkbart. En halv grads drift, sedan tillbaka. SL nämner det, sedan aldrig mer.</div>
+
+        <h3>Berliner Ring → A115 → Charlottenburg (~01:30)</h3>
+
+        <div class="read-aloud">
+            Berliner Ring, sedan A115 in i staden. Mörkret börjar ge vika — orangea gatulyktor, motorvägsljus, reklamskyltar. Trafiken ökar. Inte mycket, men den finns.
+            <br><br>
+            Charlottenburg. Kurfürstendamm i nattdimma. Galeriorna stängda, kafékratsarna upplysta men tomma. Tagelbergman-skulpturer skymtar vid Breitscheidplatz.
+            <br><br>
+            Berlin är vaken fast det är natt. Det är alltid vaken.
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SCEN 4: BERLIN ANKOMST -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SCEN 4 — BERLIN ANKOMST (22 september, ~01:00–02:00)</h2>
+
+        <div class="music-cue">Arrival — "Heptapod B" (Jóhann Jóhannsson). Eller Blade Runner 2049-soundtrack (Hans Zimmer). Tomma urbana rum i natriumljus.</div>
+
+        <div class="read-aloud">
+            Berlin vid ett-tiden på en måndag. Alexanderplatz TV-torn blinkar orange. Tiergarten är svart. Friedrichstraße är halvtom. Polispatrull kör förbi, saktar inte ner.
+            <br><br>
+            Staden luktar inte Hamburg. Det är torrare. Äldre. Det finns en tyngd i luften som saknar namn.
+        </div>
+
+        <h3>Vart tar de sig?</h3>
+
+        <div class="decision-box">
+            <h4>TRE ALTERNATIV</h4>
+            <table>
+                <tr>
+                    <th>Mål</th>
+                    <th>Argument för</th>
+                    <th>Argument emot</th>
+                </tr>
+                <tr>
+                    <td><strong>Charité Hospital</strong><br><em>Charitéplatz 1, Mitte</em></td>
+                    <td>Richter väntar. Bevismaterial. Larvproverna. Magdas kropp. Filip-spåret (säkerhetskameran).</td>
+                    <td>Det är 01:00. Sjukhus med säkerhet. De ser inte ut som sjukhuspersonal.</td>
+                </tr>
+                <tr>
+                    <td><strong>Magdas Berlin-lägenhet</strong><br><em>Leibnizstraße 97, Charlottenburg</em></td>
+                    <td>De har nycklarna. Hennes forskning är där — dagboken, MacBook, corkboard. Filip-boken "The Power of Dreams" öppen på ritualsidan.</td>
+                    <td>Polisen kan ha förseglade den. Blobels team kan ha genomsökt den redan.</td>
+                </tr>
+                <tr>
+                    <td><strong>Jürgens lägenhet</strong><br><em>Graefestraße 66, Kreuzberg</em><br><span class="agent-tag tag-scalpel">Scalpel</span></td>
+                    <td>Safe house. Ingen koppling till Magda. Jürgen är i Japan — lägenheten är tom. Nyckel under balkongkruka.</td>
+                    <td>Scalpel har inte pratat med sin far på 4–6 månader. Han vet inte hon är i Berlin.</td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>Charité: Richter möter dem</h3>
+
+        <div class="read-aloud">
+            Charités rättsmedicinska ingång. Södra fasaden på Byggnad B, källarplan. En metallport märkt med ett litet gult skylthänger: "Rechtsmedizin — Eingang nur für Personal."
+            <br><br>
+            Richter öppnar porten innan de hinner ringa. Han har väntat. Vit rock, skrynklig. Kaffefläck på bröstfickan. Han ser tröttare ut än han lät på telefon.
+        </div>
+
+        <div class="info-box">
+            <h4>Vad Richter visar dem</h4>
+            <ul>
+                <li><strong>Patologilabbet:</strong> Kallt, fluorescerande. Formaldehyd-lukt. Glasburkar på hyllor.</li>
+                <li><strong>Larvproverna:</strong> Tre burkar med formalin. <em>Till Richters ögon: svarta larver, rör sig sakta.</em> Till vanliga ögon: tomma burkar. Vad ser Scalpel?</li>
+                <li><strong>Magdas kropp (kylförvaring):</strong> Grå-vit hud, orörlig. Ser fridsam ut. Till vanliga ögon: inga märkbara bitmärken. Till Richters ögon: avtryck av larver längs revbenen, tydliga som fingeravtryck i ler.</li>
+                <li><strong>Säkerhetskamerafootage:</strong> Richter kan be receptionen om footage. Kl 16:15 — en äldre man, välklädd, upprörd. Filip Kramer. Argumenterar med vakten. Försvinner ut mot Invalidenstraße.</li>
+            </ul>
+        </div>
+
+        <div class="san-check">
+            <strong>SAN CHECK: 0/1d4 (Unnatural)</strong>
+            <p>Om någon ser larverna i burkarna (med Synen, eller vid lyckad POW×5-slag för de som kan "ana" det). Första direkta fysiska beviset på det övernaturliga. Inga larver = ingen SAN-förlust.</p>
+        </div>
+
+        <div class="info-box">
+            <h4>Magdas väska (överlämnad från akuten)</h4>
+            <p>Dr. Kellerman (akutläkaren) skickade väskan till rättsmedicin när Richter identifierade sig som kontakt. Innehåll:</p>
+            <ul>
+                <li>Moderns dagbok (ryska, 1942–1960) — DET Magda åkte till Berlin för att hämta</li>
+                <li>Låst MacBook (samma lösenord som i Hamburg? Spelarens val att försöka.)</li>
+                <li>12 foton av de tre männen (duplikat av vad cellen redan har från Hamburg)</li>
+                <li>Magdas sammanfattning, handskrivna A4-sidor: namnlista, kronologi, tre frågetecken: "Camp S-17?", "Vasilyevsky Island?", "Vad hände i källaren 1942?"</li>
+                <li>Visitkort: Anton Mahler ("Secure Consulting") och Filip Kramer</li>
+            </ul>
+        </div>
+
+        <div class="gm-note">Richter behöver inte avslöja allt på en gång. Han ger vad de frågar om. Han testar dem lite — vill se att de tar det på allvar, inte som nyfikna turister. Om de reagerar genomtänkt: han öppnar sig mer. "Jag har läst om detta. Det finns böcker. Gamla böcker."</div>
+
+        <h3>Jürgens lägenhet som safe house</h3>
+
+        <p><span class="agent-tag tag-scalpel">Scalpel</span> Jürgen Engler bor i Kreuzberg, <strong>Graefestraße 66</strong>. Han är i Japan på residency till 26 oktober. Lägenheten är tom. Extranyckel under balkongkrukan till vänster om dörren — "klassiskt Jürgen".</p>
+
+        <details style="margin: 1rem 0;">
+            <summary style="cursor:pointer; font-weight:600; color: var(--accent-yellow); padding: 0.5rem 0;">▶ GRAEFESTRASSE 66 — STÄMNINGSTEXTER</summary>
+            <div style="margin-top: 1rem;">
+
+                <h4 style="color: var(--accent-blue); margin-bottom: 0.5rem;">NATT — ca 01:30 (ankomst)</h4>
+                <div class="read-aloud">
+                    Graefestraße är nästan tom. Några parkerade bilar, en cykel fastlåst mot ett träd, en katt som försvinner in under ett staket. Träden längs trottoaren — höga, nakna i toppen men fortfarande med lite mörka septemberblad — kastar oregelbundna skuggor mot asfalten.<br><br>
+                    Spielcasinot på andra sidan lyser gult och orange. Det är den enda riktiga ljuskällan. Skylten blinkar inte — den bara <em>brinner</em>, konstant, som om den alltid gjort det och alltid kommer göra det. Innanför fönstret syns ingen rörelse.<br><br>
+                    Portuppgången till nummer 66 är i skugga. Albatross Bakery har stängt för länge sedan — mörka skyltfönster, stolar uppfällda på borden, ett halvt neddraget rullgaller. Det luktar fortfarande lite av bröd i luften. Eller kanske är det Orient Falafel längre bort, som verkar ha öppet.<br><br>
+                    Porten är tung. Grönmålad metall, lite rost vid gångjärnen. Brevlådor i rostfritt stål till vänster, handskrivna lappar med namn — <em>Engler</em> på tredje raden. Ingen hiss, trappan i mörkt trä, stegen knarrar.
+                </div>
+
+                <h4 style="color: var(--accent-blue); margin: 1.5rem 0 0.5rem;">EFTERMIDDAG — ca 15:00</h4>
+                <div class="read-aloud">
+                    Graefestraße lever på eftermiddagen. Albatross har kundkö ut på trottoaren — folk med bärkassar, hundar, barnvagnar. Doften av smör och kaffe sprider sig ut genom den öppna dörren. Borden innanför är fulla.<br><br>
+                    Träden längs gatan är fortfarande gröna men trötta — det där sena septembergrön som snart ger upp. Löven har börjat bli slappa, lite genomskinliga i solljuset. Några har fallit och klistrat sig mot asfalten.<br><br>
+                    Orient Falafel har kö vid disken. Folk äter stående med papperstallrikar. En man på Spielcasinots trappa röker med blicken riktad mot ingenting. Han har stått där länge.
+                </div>
+
+                <h4 style="color: var(--accent-blue); margin: 1.5rem 0 0.5rem;">KVÄLL — ca 19:00–21:00</h4>
+                <div class="read-aloud">
+                    I skymningen förändras gatan gradvis. Albatross stänger — personalen välter ut med jackor och ryggsäckar, pratar på tyska och en del på engelska. Orient Falafel är fullt, kön rör sig snabbt.<br><br>
+                    Spielcasino börjar ta plats. I dagsljuset var skylten nästan ful — nu börjar det gula lysa. Gatlyktorna är ännu inte riktigt nödvändiga men snart. I lägenhetsfonsterraderna ovanför tänds lampor, ett i taget. Silhuetter rör sig bakom gardiner.<br><br>
+                    Portuppgången till 66 är i det dämpade gränslandet mellan ljust och mörkt. Någon har kommit hem sent och glömt att stänga innerdörren — den står på glänt, trappans lampor tänds automatiskt med rörelsesensor, slocknar, tänds igen.
+                </div>
+
+            </div>
+        </details>
+
+        <div class="info-box">
+            <h4>Lägenheten — snabbfakta</h4>
+            <ul>
+                <li>Altbau, 4 rum, 4:e våningen. Högt i tak, träbjälkar. Bohemiskt kaotisk.</li>
+                <li>Gammalt piano — det Hanna lärde sig spela på som barn.</li>
+                <li>Konstböcker, vinylsamlingar, halvfärdiga målningar.</li>
+                <li>WiFi-lösenord: troligtvis något absurt poetiskt. Hanna måste gissa eller ringa honom (det vill hon förmodligen inte).</li>
+                <li>Grannarna känner Jürgen sedan 80-talet. De reagerar inte om hans dotter är där.</li>
+            </ul>
+        </div>
+
+        <details style="margin: 1rem 0;">
+            <summary style="cursor:pointer; font-weight:600; color: var(--accent-yellow); padding: 0.5rem 0;">▶ LÄGENHETEN — DETALJERAD BESKRIVNING (rum för rum)</summary>
+            <div style="margin-top: 1rem;">
+
+                <h4 style="color: var(--accent-blue); margin-bottom: 0.5rem;">PORTUPPGÅNGEN</h4>
+                <div class="read-aloud">
+                    Porten är tung. Grönlackad metall, lite rost vid gångjärnen, ett handtag som sitter löst sedan länge. Brevlådorna i rostfritt stål till vänster — handskrivna lappar med namn, några med tejp ovanpå tejp. <em>Engler</em> på tredje raden. Inga andra meddelanden.<br><br>
+                    Trapphuset luktar gammalt trä och någon annans matlagning. Rörelsesensorlamporna tänds med ett klick och ger ett gulaktigt halvljus. Ingen hiss. Fyra våningar upp, trappräcket skavt av decennier av händer. På tredje landningen — en välkomstmatta med ett halvdött kaktusprov och en cykel fastlåst mot värmaren.
+                </div>
+
+                <h4 style="color: var(--accent-blue); margin: 1.5rem 0 0.5rem;">HALLEN</h4>
+                <div class="read-aloud">
+                    Dörren till 4B. Nyckeln under balkongkrukan till vänster — stor terrakottakruka, torr jord, ingenting levande. Nyckeln är tejpad mot undersidan med isoleringstejp. <em>Klassiskt Jürgen.</em><br><br>
+                    Hallen är smal. Jürgens vinterkappa hänger fortfarande på kroken — han reste i augusti, behövde inte ta den. En liten spegel med sprucken ram, kornet längs ena kanten. Runt kanten har han stoppat in vykort och utrivet ur kataloger: Basquiat, Anselm Kiefer, ett svartvitt foto av Chet Baker. Lukten slår emot direkt — linolja, papper, en svag rest av terpentin.
+                </div>
+
+                <h4 style="color: var(--accent-blue); margin: 1.5rem 0 0.5rem;">VARDAGSRUMMET / ATELJÉN</h4>
+                <div class="read-aloud">
+                    Det stora rummet är också ateljén — det har det alltid varit. Fönstren vetter mot gatan, och sent på natten syns Spielcasinots gula neon reflekteras svagt i parkettgolvet.<br><br>
+                    Pianot står i hörnet till vänster. Mörkbrun, upprätt, lite lätt ur stämning — det har det alltid varit. Notstället är inte tomt: Satie, ett slitet Schubert-häfte, och under dem ett handskrivet papper med noter utan titel. Jürgens handstil.<br><br>
+                    En stor duk på staffliet, halvfärdig. Ett porträtt. Hanna känner inte igen modellen. Blicken är riktad något snett förbi betraktaren — eller kanske direkt mot den.<br><br>
+                    Längs en hel vägg: vinylskivor i trälådor, strikt alfabetiskt. Krautrock, klassiskt, en bred sektion jazz. Can. Coltrane. Klaus Schulze. En läderfåtölj, nött vid armstöden, med en filt kastad över armen. Konstböcker staplade på varje horisontell yta — golvet, fönsterkarmen, stolen. Kaffe-ring på bordet från hans sista morgon.
+                </div>
+                <div class="gm-note" style="margin-top:0.5rem;">Om Scalpel sätter sig vid pianot och spelar något — lyssna. Det är hennes scen. Låt de andra karaktärerna reagera. Säg ingenting.</div>
+
+                <h4 style="color: var(--accent-blue); margin: 1.5rem 0 0.5rem;">KÖKET</h4>
+                <div class="read-aloud">
+                    Litet, klustrat, men rent — han diskade innan han reste. En french press, ett halvt paket etiopiskt kaffe. Kylskåpsdörren: en handritad karta över Tokyo, magnetnoter med galeria-adresser och ett restaurangnamn inringat. En öppnad flaska Riesling, korken nertryckt igen. Två glas i diskhyllan.
+                </div>
+
+                <h4 style="color: var(--accent-blue); margin: 1.5rem 0 0.5rem;">HANNAS GAMLA RUM</h4>
+                <div class="read-aloud">
+                    Det lilla rummet på slutet. Smal säng, annan dynöverdrag än hon minns — det gamla var blommigt, det här är randigt. Bokhyllan längs en vägg: tyska barnböcker, en svensk-tysk ordbok, Astrid Lindgren på svenska. Längst in på hyllan: en kassett utan etikett.<br><br>
+                    På väggen, inramat av Jürgen: en teckning av ett hus med rök ur skorstenen och en sol med åtta strålar. Nedre högra hörnet: <em>Hanna, 8 år</em> i blyerts.
+                </div>
+                <div class="gm-note" style="margin-top:0.5rem;"><span class="agent-tag tag-scalpel">Scalpel</span> Vad minns hon om det här rummet? Erbjud spelaren att fylla i ett minne — ett specifikt. Ingenting förberett. Hennes val.</div>
+
+                <h4 style="color: var(--accent-blue); margin: 1.5rem 0 0.5rem;">GÄSTRUMMET / STUDION</h4>
+                <div class="read-aloud">
+                    Det fjärde rummet. Jürgen kallar det "studion" men det har aldrig haft en enda funktion. Just nu: en hopfällbar bäddsoffa mot väggen, ett litet skrivbord framför fönstret mot innergården, och en bokhylla som fungerar som gräns mellan sovdel och arbetsdel.<br><br>
+                    Skrivbordet: en gammal Anglepoise-lampa, en ask med blyertspennor (alla vässade, alla olika längd), ett ritstift, en halvtom kopp som blivit möglig. En korkvägg ovanför med fastnålade vykort — Warszawa, Prag, Tokyo, Reykjavik — alla från turnéer. Mellan dem: en svartvit bild av Hanna, kanske sexton, vid pianot. Hon ser inte in i kameran.<br><br>
+                    Bäddsoffan har rena lakan — Jürgen bäddade inför sin resa, som om han väntade sig att någon skulle komma. Kanske var det bara ordning. Kanske var det hopp.
+                </div>
+                <div class="gm-note" style="margin-top:0.5rem;">Cellen kan använda detta rum som operationsbas i Berlin. Skrivbordet fungerar som arbetsstation. Bäddsoffan tar två personer (eller en som sover och en som jobbar). Det är det närmaste ett "ops room" de har utan att boka hotell.</div>
+
+                <h4 style="color: var(--accent-blue); margin: 1.5rem 0 0.5rem;">BALKONGEN (mot innergården)</h4>
+                <div class="read-aloud">
+                    Två omatchade stolar och ett litet runt bord, mönstrat av många vintrar. En terrakottakruka med torr jord — den stora, den med nyckeln. Nere i innergården: mörkt, stilla, en ensam lampa vid källartrappan. Berliner Hinterhof. Inga träd här, bara asfalt och cykelförråd och en pingisbord som ingen använder.
+                </div>
+
+            </div>
+        </details>
+
+        <div class="gm-note">Om Scalpel inte föreslår Jürgens lägenhet — fråga inte. Cellen kan ta ett hotell nära Bahnhof Zoo (150–300 EUR/natt) eller boka Airbnb. Om de föreslår det: låt det hända naturligt. Pianot i hörnet. Barndomsfoton på väggen. Det är Hannas Berlin, inte cellens.</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SESSIONSAVSLUT -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SESSIONSAVSLUT — TRÅDAR ÖPPNA IN I NÄSTA SESSION</h2>
+
+        <div class="clue-chain">
+            <h4>AKTIVA LEDTRÅDAR (vid Berlin-ankomst)</h4>
+            <table>
+                <tr><th>Tråd</th><th>Status</th><th>Nästa steg</th></tr>
+                <tr><td>Magdas mors dagbok (ryska, 1942–1960)</td><td>I händerna — men på ryska</td><td>Översätta. Vad hände i källaren på Vasilyevsky Island?</td></tr>
+                <tr><td>Filip Kramer på Charité 16:15</td><td>Bekräftad via kamera</td><td>Kontakta? Hans visitkort finns. Han varnade Magda.</td></tr>
+                <tr><td>Slavic Association (Reichenberger Str. 124)</td><td>Adress känd</td><td>Infiltrera? Observera? Magda var GRUNDARE 1961.</td></tr>
+                <tr><td>Pyotrs vykort — Frankfurt an der Oder</td><td>Vykort i fickan</td><td>Frankfurt Clinic. Pyotr är vid liv. Vad har han sett?</td></tr>
+                <tr><td>Arnold Weiss (Reichenberger Str. 124)</td><td>Adress i Magdas dator</td><td>Gammal vän. SA-koppling? Möjlig kontakt.</td></tr>
+                <tr><td>Blobels team</td><td>Följer dem — de vet nu</td><td>Hur hanterar man professionell övervakning i en ny stad?</td></tr>
+                <tr><td>Richter och larvproverna</td><td>I Charités kylförvaring</td><td>Vad kan han lära dem om parasiten? De är smittade?</td></tr>
+            </table>
+        </div>
+
+        <div class="warning-box">
+            <strong>⚠ PÅMINNELSE: SCEN 8 — ONDA DRÖMMAR</strong>
+            <p>Första natten i Berlin triggar Scen 8 i <a href="black_madonna_chapter1.html" style="color: var(--accent-red);">black_madonna_chapter1.html</a>. Mörka bilder, halvkända figurer, brännande smärta som försvinner vid uppvaknandet. Effekt: -1 på alla slag (valfritt), ökande paranoia, klåda i huden.</p>
+            <p>Trigger: Första gången de sover i Berlin.</p>
+        </div>
+
+        <div class="scene-transition">— SESSION 8 SLUT —</div>
+
+        <div class="gm-note">Bra sessionsslut: De är i Berlin. De vet att Magda är död. De vet att de är övervakade. De har mer frågor än svar. Och det är precis rätt.</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SAN-SAMMANFATTNING -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SAN-SAMMANFATTNING</h2>
+        <table>
+            <tr>
+                <th>Trigger</th>
+                <th>Check</th>
+                <th>Typ</th>
+                <th>Kräver</th>
+            </tr>
+            <tr>
+                <td>Richters samtal — larver under huden (sekundärt)</td>
+                <td>0/1</td>
+                <td>Unnatural</td>
+                <td>Höra Richters beskrivning</td>
+            </tr>
+            <tr>
+                <td>Larvproverna på Charité (se burkarna)</td>
+                <td>0/1d4</td>
+                <td>Unnatural</td>
+                <td>Ha Synen, eller POW×5-slag</td>
+            </tr>
+            <tr>
+                <td><strong>Totalt möjligt</strong></td>
+                <td><strong>0–5</strong></td>
+                <td></td>
+                <td>Marginellt över 0–4-budget</td>
+            </tr>
+        </table>
+        <div class="gm-note">SAN-budgeten är medvetet låg denna session. Det är en resa-och-investigation-session, inte horror. Dreden byggs av information, inte av monsters.</div>
+    </div>
+
+</div>
+</body>
+</html>

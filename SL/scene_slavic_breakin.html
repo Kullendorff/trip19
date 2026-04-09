@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scen — Slavic Association: Inbrottet | Trip 19</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-green: #00ff41;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --accent-yellow: #ffcc00;
+            --accent-purple: #9b59b6;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+            --mac: #4682b4;
+            --sullivan: #b87333;
+            --sparky: #00ff41;
+            --scalpel: #d4af37;
+            --trench: #ff8c00;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container { max-width: 1400px; margin: 0 auto; }
+
+        .session-header {
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .session-header h1 { color: var(--accent-blue); font-size: 2rem; margin-bottom: 0.5rem; }
+        .session-header p { color: var(--text-dim); margin-top: 0.5rem; }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(74, 144, 164, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-bar a { color: var(--accent-blue); text-decoration: none; font-weight: bold; }
+
+        .section {
+            background: var(--bg-panel);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: var(--accent-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section h3 { color: var(--accent-yellow); font-size: 1.3rem; margin: 1.5rem 0 1rem 0; }
+        .section h4 { color: var(--accent-blue); font-size: 1.1rem; margin: 1rem 0 0.5rem 0; }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid var(--accent-red);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .yellow-box {
+            background: rgba(255, 204, 0, 0.1);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .read-aloud {
+            background: rgba(155, 89, 182, 0.1);
+            border-left: 4px solid var(--accent-purple);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        .gm-note {
+            background: var(--bg-darker);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            font-style: italic;
+            border-radius: 4px;
+        }
+
+        .gm-note::before { content: "SL: "; color: var(--accent-yellow); font-weight: bold; font-style: normal; }
+
+        .skill-check {
+            background: rgba(74, 144, 164, 0.15);
+            border: 1px solid var(--accent-blue);
+            padding: 1rem 1.5rem;
+            margin: 0.75rem 0;
+            border-radius: 4px;
+        }
+
+        .skill-check strong { color: var(--accent-blue); }
+
+        .san-check {
+            background: rgba(255, 68, 68, 0.15);
+            border: 2px solid var(--accent-red);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .san-check strong { color: var(--accent-red); }
+
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { border: 1px solid var(--border); padding: 0.75rem; text-align: left; font-size: 0.9rem; }
+        th { background: var(--bg-darker); color: var(--accent-blue); }
+
+        ul, ol { margin-left: 2rem; margin-top: 0.5rem; }
+        li { margin-bottom: 0.5rem; }
+        p { margin-bottom: 0.75rem; }
+
+        .room-card {
+            background: rgba(10, 14, 23, 0.6);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-blue);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .room-card h4 { color: var(--accent-green); margin-bottom: 0.75rem; }
+        .room-card.target { border-left-color: var(--accent-red); }
+        .room-card.target h4 { color: var(--accent-red); }
+        .room-card.locked { border-left-color: var(--accent-yellow); }
+        .room-card.locked h4 { color: var(--accent-yellow); }
+
+        .phase-tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            background: rgba(74, 144, 164, 0.2);
+            color: var(--accent-blue);
+            border: 1px solid var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .complication-row {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            align-items: flex-start;
+        }
+
+        .comp-number {
+            display: inline-block;
+            background: var(--accent-red);
+            color: #000;
+            font-weight: bold;
+            width: 1.8rem;
+            height: 1.8rem;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 1.8rem;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .comp-content { flex: 1; }
+
+        @media (max-width: 768px) {
+            body { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="session-header">
+        <h1>SLAVIC ASSOCIATION — INBROTTET</h1>
+        <p>Reichenberger Straße 124, Kreuzberg, Berlin</p>
+        <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 0.5rem;">SL-referens — Kapitel 1, efter Charité-besöket</p>
+    </div>
+
+    <!-- NAV -->
+    <div class="nav-bar">
+        <a href="session8.html">← Session 8</a>
+        <span style="color: var(--text-dim);">Kapitel 1 — Berlin</span>
+        <a href="black_madonna_chapter1.html">Kapitel 1 →</a>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- ÖVERSIKT -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>ÖVERSIKT — VARFÖR BRYTA SIG IN?</h2>
+
+        <p>Cellen har minst tre ledtrådar som pekar hit:</p>
+        <ul>
+            <li><strong>Slavic Association-medlemskort (1961–1990)</strong> — Magda var grundare</li>
+            <li><strong>Post-it i Berlin-lägenheten</strong> — "Arnold Weiss — Reichenberger Straße 124" (= SA:s adress)</li>
+            <li><strong>Mammans dagbok</strong> — "Slaviska Sällskapet. Berlin." (sista inlägget)</li>
+        </ul>
+
+        <div class="info-box">
+            <h4>VAD FINNS DÄR INNE?</h4>
+            <table>
+                <tr><th>Rum</th><th>Våning</th><th>Innehåll</th><th>Värde</th></tr>
+                <tr><td><strong>[B7] Helgas sekretariat</strong></td><td>Botten</td><td>Medlemslista 840+, Inner Circle 15 pers, dator</td><td>HÖG</td></tr>
+                <tr><td><strong>[B15] Kochners kontor</strong></td><td>Botten</td><td>"The Power of Dreams" (ritual-bok), almanacka</td><td>MEDEL</td></tr>
+                <tr><td><strong>[T8] Pogodins kontor</strong></td><td>Övre</td><td>NYCKEL till arkivet, ritual-anteckningar, 5000 EUR</td><td>HÖG</td></tr>
+                <tr><td><strong>[T10] Adas kontor</strong></td><td>Övre</td><td>Dator med databas, brev Mahler→polischef</td><td>HÖG</td></tr>
+                <tr><td><strong>[T14] Arkivet</strong></td><td>Övre</td><td>Frankfurt Clinic-dokument, Camp S-17-register</td><td>KRITISKT</td></tr>
+            </table>
+        </div>
+
+        <div class="gm-note">Spelarna behöver inte bryta sig in. De kan infiltrera socialt (dagtid), övertyga Helga, eller hitta en annan väg. Inbrottet är ETT alternativ. Denna scen beskriver alla.</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- FAS 1: REKOGNOSERING -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>FAS 1 — REKOGNOSERING</h2>
+        <span class="phase-tag">OBSERVATION</span>
+
+        <h3>Byggnaden utifrån</h3>
+
+        <div class="read-aloud">
+            Reichenberger Straße 124. Röd tegelbyggnad, f.d. fabrik från sekelskiftet, fem våningar. En rostig grind leder in till en innergård fylld med skräp och överfulla soptunnor. En gammal lastbil står parkerad. Tre ingångar från gården: Berlins Naturskyddsförening, Höders Möbelverkstad, och — längst in — Slaviska Sällskapets kontor.
+            <br><br>
+            Dörren har en mässingsskylt med kyrillisk text under den tyska: <em>Славянское объединение</em>. Glasdörr, halvisolerad. Ljus innanför.
+        </div>
+
+        <h3>Trafikmönster (vid övervakning)</h3>
+
+        <div class="skill-check">
+            <strong>Surveillance 50% / HUMINT 40% / Alertness 40%</strong>
+            <p>En dags observation ger följande bild:</p>
+        </div>
+
+        <table>
+            <tr><th>Tid</th><th>Vad händer</th></tr>
+            <tr><td>08:00</td><td>Helga Krausst (ung kvinna, 20-tal) öppnar. Bär med sig kaffe och katt-mat.</td></tr>
+            <tr><td>09:00</td><td>Ada Lohman / Lena Blühme (vikarie) anländer. Rosa Treutiger (ti/to).</td></tr>
+            <tr><td>10:00</td><td><strong>Anton Mahler</strong> anländer. Mörk kostym. Lämnar innan lunch. <em>Enda av de tre som kommer dagligen.</em></td></tr>
+            <tr><td>10:00–12:00</td><td><strong>Sasha Pogodin</strong> — 1–2 morgnar/vecka. Möter Anton i en timme, lämnar.</td></tr>
+            <tr><td>—</td><td><strong>Filip Kramer</strong> — kommer ALDRIG till kontoret.</td></tr>
+            <tr><td>12:00–17:00</td><td>Enstaka besökare. Språkkurser. Lugnt.</td></tr>
+            <tr><td>17:00</td><td>Helga stänger sekretariatet. Övervåningens reception obevakad.</td></tr>
+            <tr><td>18:00</td><td><strong>Nyckelbricka-systemet aktiveras.</strong> Hissarna till övervåningen låses.</td></tr>
+            <tr><td>19:00–23:00</td><td>Kvällsmöten (oregelbundna). 10–20 personer.</td></tr>
+            <tr><td>~Midnatt (ti/to)</td><td><strong>Inner Circle</strong>. 15–20 personer i mörka kläder. Möte i caféet [B10]. Lämnar 02–03.</td></tr>
+        </table>
+
+        <div class="yellow-box">
+            <strong>BÄSTA FÖNSTER FÖR INBROTT:</strong> 18:00–22:00 (personal borta, innan Inner Circle). Alternativt: 03:00–06:00 (efter att alla lämnat, djupaste natten).
+        </div>
+
+        <div class="gm-note">Om Blobels team fortfarande följer cellen: de SER rekognoseringen. Det rapporteras till Anton inom timmar. Konsekvens: Anton vet att de är intresserade av SA — men agerar inte direkt. Han vill veta VAD de letar efter.</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- FAS 2: INTRÅNG -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>FAS 2 — INTRÅNG: FYRA VÄGAR IN</h2>
+        <span class="phase-tag">SPELARVAL</span>
+
+        <h3>A — Nattinbrott (klassiskt)</h3>
+        <div class="info-box">
+            <p><strong>Tid:</strong> Efter 22:00 (eller 03:00+)</p>
+            <p><strong>Ingång:</strong> Innergårdens grind (rostig, kan brytas med kofot — STR×5) eller via Naturskyddsföreningen/Möbelverkstaden (enklare lås).</p>
+            <p><strong>SA-dörren:</strong> Glasdörr, enkel lås. Craft: Locksmith 40% eller STR-check (högljutt).</p>
+            <p><strong>Övervåningen:</strong> Hiss låst med nyckelbricka efter 18:00. Alternativ: trappan (olåst men smal, mörk). Eller hacka hissens kort-system — Computer Science 50% (Sparky).</p>
+            <div class="skill-check">
+                <strong>Stealth 40% per person</strong> — för att ta sig genom innergården utan att väcka grannar. Misslyckande: ljus tänds i fönster ovanför, ansikte i gardinen. Inget händer — men klockan tickar.
+            </div>
+        </div>
+
+        <h3>B — Social infiltration (dagtid)</h3>
+        <div class="info-box">
+            <p><strong>Metod:</strong> Besöka SA under kontorstid. Säga att de är intresserade av rysk kultur/språkkurs.</p>
+            <p><strong>Helga:</strong> Överdrivet vänlig. Pratar om fem saker samtidigt. Ger broschyr, visar runt (bottenvåning). Frågar efter kontaktuppgifter.</p>
+            <p><strong>Begränsning:</strong> Bottenvåningen fritt. Övervåningen: "Det är administrativa kontor, tyvärr." Kräver Persuade 50% eller HUMINT 50% för att komma upp utan misstanke.</p>
+            <p><strong>Fördel:</strong> Ingen risk. Nackdel: får inte tillgång till Arkivet eller kontoren.</p>
+        </div>
+
+        <h3>C — Snabbinsats (tailing)</h3>
+        <div class="info-box">
+            <p><strong>Metod:</strong> Följ någon in genom dörren. Vänta vid grinden tills en medlem lämnar/anländer, gå in innan dörren stängs.</p>
+            <p><strong>Risk:</strong> Alertness-roll från medlemmen. Misslyckande: "Ursäkta, kan jag hjälpa er?" — kräver snabb cover story (Persuade).</p>
+        </div>
+
+        <h3>D — Distraction + raid</h3>
+        <div class="info-box">
+            <p><strong>Metod:</strong> Skapa ett problem någon annanstans — falskt brandlarm i Naturskyddsföreningen, bilolycka utanför — som drar uppmärksamhet. En person raider medan andra skapar scen.</p>
+            <p><strong>Risk:</strong> Polisen anländer inom 10–15 minuter. Brandkår 5–8 minuter.</p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- FAS 3: INUTI -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>FAS 3 — INUTI: RUM FÖR RUM</h2>
+        <span class="phase-tag">INVESTIGATION</span>
+
+        <div class="gm-note">Varje rum tar 10–15 minuter att söka igenom ordentligt. Snabb genomgång (Search 40%): 5 min men missar detaljer. Grundlig (Search 50%+): 15 min, hittar allt.</div>
+
+        <h3>BOTTENVÅNING (fritt tillgänglig)</h3>
+
+        <div class="room-card">
+            <h4>[B4] RECEPTION / VÄNTRUM</h4>
+            <p>Röda soffor, resebyråaffischer (Moskva, St Petersburg), enorm monstera-växt. Glidande dörr mot korridoren.</p>
+            <p><strong>Fynd:</strong> Evenemangskalender (kommande kulturkvällar, språkkurser). Inget känsligt.</p>
+        </div>
+
+        <div class="room-card target">
+            <h4>[B7] HELGAS SEKRETARIAT — MÅLRUM</h4>
+            <p>Skrivbord med elektrisk skrivmaskin. Arkivskåp längs väggarna. Anslagstavla med 20+ vykort och barnteckningar. Gröna växter överallt. En fet svartvit katt sover i en dokumentlåda.</p>
+            <p><strong>Dator:</strong> Lösenord: <strong>"Leningrad1942"</strong></p>
+            <ul>
+                <li><strong>Medlemslista:</strong> 840+ namn, adresser, telefonnummer</li>
+                <li><strong>Inner Circle:</strong> 15 namn — markerade med asterisk (*) i databasen</li>
+                <li>Ansökningar om bidrag, protokoll, officiella handlingar</li>
+            </ul>
+            <div class="skill-check">
+                <strong>Computer Science 30% för att hitta Inner Circle-listan</strong> — den är inte gömd, bara i en separat mapp ("IC_Mitglieder")
+            </div>
+            <div class="gm-note">Katten vaknar och jamsar om spelarna gör oväsen. Inte ett problem — men det skapar stämning. "Shhh."</div>
+        </div>
+
+        <div class="room-card">
+            <h4>[B10] CAFÉET</h4>
+            <p>Kaffebryggare på disk, mini-kylskåp, bord med pelargoner. Dagtid: oskyldigt. <strong>Ti/To efter midnatt:</strong> Inner Circle-möten här.</p>
+            <p><strong>Fynd (om natten, efter möte):</strong> Rökelse-rester, kritringar på golvet (tvättade men svagt synliga i UV-ljus), anteckningar glömda på bordet.</p>
+        </div>
+
+        <div class="room-card target">
+            <h4>[B15] KOCHNERS KONTOR (Black Sun Publishing)</h4>
+            <p>Stort konferensbord, akvarellmålningar av hindugudomar, bokhyllor med hela Black Suns produktionslinje sedan 1978.</p>
+            <ul>
+                <li><strong>"The Power of Dreams" av Filip Kramer</strong> — 10 exemplar. Sidan med ritualen ("Breaking of Curses") är hundörad.</li>
+                <li><strong>Nigel Harcombes böcker (1978–1983):</strong> 9 titlar. Baksidan beskriver honom som "ledande medlem av Slavic Association."</li>
+                <li><strong>Kochners almanacka:</strong> "Pogodin's at 10" — imorgon kväll.</li>
+            </ul>
+            <div class="gm-note">"The Power of Dreams" är nyckeln till ritualen som bryter parasiten. Spelarna vet inte det ännu. Men de bör ta med sig minst ett exemplar.</div>
+        </div>
+
+        <h3>ÖVERVÅNING (kräver nyckelbricka / hack / trappa)</h3>
+
+        <div class="room-card">
+            <h4>[T7] KAFFERUM</h4>
+            <p>Tre kaffebord, bryggare. Icke-figurativa tavlor på väggarna.</p>
+            <div class="skill-check">
+                <strong>Occult 40% / Unnatural 20%:</strong> Tavlorna innehåller dolda magiska symboler. Inte dekorativa — rituella.
+            </div>
+        </div>
+
+        <div class="room-card target">
+            <h4>[T8] POGODINS KONTOR — MÅLRUM</h4>
+            <p>Tomt. Pappershögar på skrivbordet. Helt vita, odekorerade väggar. Bokhyllor med ockultistiska tidskrifter.</p>
+            <ul>
+                <li><strong>Almanacka:</strong> Senaste noteringen (för några veckor sedan): "Meeting. 22:00. The Mansion."</li>
+                <li><strong>ARKIVNYCKEL:</strong> Gömd i dåligt stängd hemlig låda i skrivbordet. Search 30% eller Alertness 40%.</li>
+                <li><strong>Ritual-skisser:</strong> Dot-matrix-utskrifter med ofullständig portal-ritual.</li>
+                <li><strong>Kontanter:</strong> 5 000 EUR i kuvert.</li>
+            </ul>
+        </div>
+
+        <div class="room-card">
+            <h4>[T9] KRAMERS KONTOR</h4>
+            <p>Tomt sedan 6 månader. Apple Mac på skrivbordet (avstängt). Tomma bokhyllor. Oanvänd almanacka.</p>
+            <p><strong>Enda fynd:</strong> Post-it-lapp under tangentbordet: <strong>"Müggel Str. 89"</strong> — Pogodins mansion-adress.</p>
+        </div>
+
+        <div class="room-card target">
+            <h4>[T10] ADAS KONTOR — MÅLRUM</h4>
+            <p>Ada Lohman är sjukskriven. Vikarie Lena Blühme har lämnat halvfärdigt arbete.</p>
+            <ul>
+                <li><strong>Dator:</strong> Lösenord: <strong>"DepthsRising"</strong></li>
+                <li><strong>Adressdatabas:</strong> 840+ medlemmar, sökbar. Inkluderar <strong>Harold Treuber, polischef Friedrichshain</strong>.</li>
+                <li><strong>Inner Circle-lista:</strong> 15 namn med adresser och roller.</li>
+                <li><strong>BREVET:</strong> Halvskrivet brev från Anton Mahler till "Herr Treuber" — tackar för "fortsatt diskretion" angående "föreningen." <em>Polischefen är köpt.</em></li>
+            </ul>
+            <div class="warning-box">
+                <strong>⚠ KONSEKVENS:</strong> Om spelarna går till polisen med SA-information → Treuber varnar Anton. Cellen komprometterad. Potentiellt dödligt.
+            </div>
+        </div>
+
+        <div class="room-card">
+            <h4>[T12] HALL (övervåning)</h4>
+            <p>Grå soffa. En målning på väggen, signerad "F. Kramer."</p>
+            <div class="san-check">
+                <strong>SAN CHECK: 0/1 (Unnatural)</strong>
+                <p>Målningen föreställer en människa vänd ut och in — muskler, senor, organ exponerade, men ögonen fortfarande levande. Vid en andra blick: det rör sig. Organen pulserar. Ögonen följer betraktaren. <em>Det slutar när man tittar bort.</em></p>
+            </div>
+        </div>
+
+        <div class="room-card locked">
+            <h4>[T14] ARKIVET — HUVUDMÅLET (LÅST)</h4>
+            <p>Metalldörr, tyngre lås än resten av byggnaden. Kan absorbera kraftigt våld.</p>
+            <div class="skill-check">
+                <strong>Öppna:</strong> Nyckeln från T8 (enklast) ELLER Craft: Locksmith 60% (svårt lås) ELLER STR×3 + verktyg (EXTREMT HÖGLJUTT — hörs i hela byggnaden)
+            </div>
+            <p><strong>Inuti:</strong></p>
+            <ul>
+                <li><strong>Frankfurt Clinic-dokument (1946–1952):</strong> Medicinska journaler. Fyra patientnamn: Magdas mor, Anton, Sasha, Filip. Behandlingsprotokoll. Klinisk adress: <strong>Dorfstraße 42c, Frankfurt (Oder)</strong>.</li>
+                <li><strong>Camp S-17-register:</strong> Lista på 44 överlevande barn. 9 markerade som "transformerade." Pyotr Gallentinov (#23).</li>
+                <li><strong>Leningrad 1942-journaler:</strong> Rituella/mystiska anteckningar. Skisser av Kalenko-huset. Kartor över Vasilyevsky Island.</li>
+                <li><strong>Fotografi:</strong> Gäng unga män i Wehrmacht-jackor framför rivningshus. Tre identifierade: Filip Kramer, Alexi Blobel, Leonard Freude. Baksidan: <em>"Remember this first day when we achieve the endsieg — Leo."</em></li>
+                <li><strong>Black Sun Publishing-bokföring:</strong> Hundratusentals euro i inkomst. Stora betalningar till "Germanische Gemeinschaft" som "konsultarvode."</li>
+            </ul>
+            <div class="gm-note">Arkivet är JACKPOT. Om spelarna tar sig in hit har de bevis på: (1) de tre männens identitet och historia, (2) Frankfurt Clinic-kopplingen, (3) nynazistiska kopplingar, (4) Blobels roll. Det tar 30+ minuter att fotografera allt. Varje minut ökar risken.</div>
+        </div>
+
+        <div class="room-card">
+            <h4>[T15] FÖRRÅD</h4>
+            <p>Kontorsmaterial, kartonger med rökelse, koppar- och silvertrådar, färgade pulver (märkta på hindi), markeringspennor.</p>
+            <p>Och — i en kartong längst in — ett <strong>mänskligt skelett</strong>.</p>
+            <div class="san-check">
+                <strong>SAN CHECK: 0/1 (Violence)</strong>
+                <p>Komplett skelett. Inga märkningar. Vem var det? Ingen vet. Det har stått här länge.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- FAS 4: KOMPLIKATIONER -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>FAS 4 — KOMPLIKATIONER</h2>
+        <span class="phase-tag">SLUMPTABELL + TRIGGERS</span>
+
+        <p>Dessa händer inte alla. Välj 1–3 baserat på spelarnas timing, framgång, och hur mycket spänning scenen behöver.</p>
+
+        <div class="complication-row">
+            <span class="comp-number">1</span>
+            <div class="comp-content">
+                <strong style="color: var(--accent-red);">BLOBELS TEAM SER DEM</strong>
+                <p><strong>Trigger:</strong> Cellen är under övervakning sedan Hamburg. Om de inte aktivt skakar dem (Tradecraft 50%) rapporteras allt till Anton.</p>
+                <p><strong>Konsekvens:</strong> Anton vet att cellen är inne i SA. Han gör INGENTING — ännu. Han vill veta vad de hittade. Nästa dag: saker försvinner från arkivet. Datasystemen rensas. De har ETT försök.</p>
+            </div>
+        </div>
+
+        <div class="complication-row">
+            <span class="comp-number">2</span>
+            <div class="comp-content">
+                <strong style="color: var(--accent-yellow);">INNER CIRCLE ANLÄNDER TIDIGT</strong>
+                <p><strong>Trigger:</strong> Spelarna dröjer förbi 23:00 en tisdag eller torsdag.</p>
+                <p><strong>Vad händer:</strong> 3–5 personer i mörka kläder anländer via innergården. Rökelse-doft. Lågmäld konversation. De går in i caféet [B10].</p>
+                <p><strong>Risk:</strong> Om spelarna är på övervåningen — säkra. Om de är på bottenvåningen — Stealth 40% för att inte synas.</p>
+            </div>
+        </div>
+
+        <div class="complication-row">
+            <span class="comp-number">3</span>
+            <div class="comp-content">
+                <strong style="color: var(--accent-yellow);">HELGA HAR GLÖMT NÅGOT</strong>
+                <p><strong>Trigger:</strong> Luck roll (20%) — eller om SL vill höja spänningen.</p>
+                <p><strong>Vad händer:</strong> Kl ~21:00 hörs en nyckel i ytterdörren. Helga kommer tillbaka för att hämta sin väska. Hon stannar 5 minuter. Katten jamar när hon plockar upp den.</p>
+                <p><strong>Om hon upptäcker intrånget:</strong> Ringer inte polisen — ringer Anton. "Någon har varit här."</p>
+            </div>
+        </div>
+
+        <div class="complication-row">
+            <span class="comp-number">4</span>
+            <div class="comp-content">
+                <strong style="color: var(--accent-blue);">ARKIVDÖRREN KÄRVAR</strong>
+                <p><strong>Trigger:</strong> Spelarna har nyckeln från T8 men dörren öppnas inte smidigt.</p>
+                <p><strong>Mekanik:</strong> STR×5 eller Craft: Mechanics 40%. Misslyckande: BANG. Metalliskt skrammel ekar genom trapphuset. Alla inom 50 meter hör det.</p>
+                <p><strong>Konsekvens:</strong> Grannar? Polispatrull? Eller bara paranoia. SL väljer.</p>
+            </div>
+        </div>
+
+        <div class="complication-row">
+            <span class="comp-number">5</span>
+            <div class="comp-content">
+                <strong style="color: var(--accent-purple);">FILIPS MÅLNING</strong>
+                <p><strong>Trigger:</strong> Någon stannar och tittar på tavlan i T12 i mer än 5 sekunder.</p>
+                <p><strong>Vad händer:</strong> Den rör sig. Organen pulserar. Ögonen följer. SAN 0/1 (Unnatural).</p>
+                <p><strong>Bonusinformation:</strong> Den som misslyckas med SAN-roll hör ett svagt hummande från tavlan. 247 Hz.</p>
+            </div>
+        </div>
+
+        <div class="complication-row">
+            <span class="comp-number">6</span>
+            <div class="comp-content">
+                <strong style="color: var(--accent-yellow);">TREUBER-BREVET</strong>
+                <p><strong>Trigger:</strong> Spelarna läser brevet i T10.</p>
+                <p><strong>Konsekvens:</strong> De inser att polischefen i Friedrichshain är köpt. All kontakt med tysk polis i Berlin = potentiellt farligt. De kan inte lita på lokala myndigheter.</p>
+                <p><strong>Moraliskt dilemma:</strong> Behålla beviset? Publicera det? Använda det som utpressning?</p>
+            </div>
+        </div>
+
+        <div class="complication-row">
+            <span class="comp-number">7</span>
+            <div class="comp-content">
+                <strong style="color: var(--accent-red);">SASHA DYKER UPP</strong>
+                <p><strong>Trigger:</strong> Extremt dålig timing (Luck roll 5%) ELLER om SL vill eskalera dramatiskt.</p>
+                <p><strong>Vad händer:</strong> Sasha Pogodin anländer ensam, kl ~01:00. Han går direkt till sitt kontor [T8]. Han hummar. 247 Hz. Konstant.</p>
+                <p><strong>Om spelarna gömmer sig:</strong> Stealth vs. Sashas Alertness 60%. Han KÄNNER att någon är här — inte ser, känner. Frekvensen ändras. Intensifieras.</p>
+                <p><strong>Om han hittar dem:</strong> Han säger ingenting. Han bara tittar. Sedan går han. Nästa dag: allt förändras.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- FAS 5: EXFILTRATION -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>FAS 5 — EXFILTRATION</h2>
+        <span class="phase-tag">UTDRAGNING</span>
+
+        <h3>Vad tar de med sig?</h3>
+        <div class="info-box">
+            <p><strong>Alternativ A — Fotografera allt:</strong> Snabbt (15–20 min i arkivet). Sparky kan organisera bilderna. Risk: telefonens blixt syns utifrån om persienner inte är stängda.</p>
+            <p><strong>Alternativ B — Ta fysiska dokument:</strong> Mer bevis men MÄRKBART. Anton vet att någon var inne. Klockan tickar.</p>
+            <p><strong>Alternativ C — Kopiera datorer:</strong> USB-sticka (Sparky — Computer Science 50%). Tar 10 min per dator. Två datorer = 20 min.</p>
+        </div>
+
+        <h3>Att lämna byggnaden</h3>
+        <div class="read-aloud">
+            Innergården igen. Mörk. Soptunnorna luktar sur. Lastbilen kastar skugga över halva gården. Grinden gnisslar. Reichenberger Straße är tyst — en cyklist, en taxi som passerar, inget mer.
+            <br><br>
+            Bakom dem: byggnaden ser ut som den alltid gjort. Ingenting har förändrats. Men de vet nu vad som finns inuti.
+        </div>
+
+        <div class="gm-note">Om Blobels team väntar utanför: de ser cellen lämna med material. Staffettföljning. Rapport till Anton. Klockan tickar nu på riktigt — cellen har kanske 24 timmar innan SA:s arkiv rensas och de tre männen agerar.</div>
+
+        <h3>Vad händer EFTERÅT?</h3>
+        <table>
+            <tr><th>Scenario</th><th>Konsekvens</th></tr>
+            <tr><td>Ren exfil, inga spår</td><td>Cellen har tid. Dagarna tickar. Anton misstänker ingenting — ännu.</td></tr>
+            <tr><td>Blobel rapporterade</td><td>Anton vet inom timmar. Arkivet rensas. Datasystem wipeas. Cellen har vad de har — inget mer.</td></tr>
+            <tr><td>Helga upptäckte</td><td>Anton vet nästa morgon. Samma som ovan, men 6–8 timmar fördröjning.</td></tr>
+            <tr><td>Inner Circle såg dem</td><td>Jakt. Pogodins mansion mobiliseras. Cellen är nu MÅLTAVLA.</td></tr>
+            <tr><td>Sasha kände dem</td><td>Värst. Sasha VET vem de är nu. Han kan besöka dem i drömmar. Ingen säker plats kvar i Berlin.</td></tr>
+        </table>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SKILL-MAPPNING & KREATIVA TAKTIKER -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>CHESAPEAKE CELL — SKILL-MAPPNING</h2>
+
+        <div class="info-box">
+            <h4>CELLENS PROFIL (snabböversikt)</h4>
+            <table>
+                <tr><th>Agent</th><th>Roll</th><th>Topp-skills</th><th>SA-nytta</th></tr>
+                <tr>
+                    <td><span class="agent-tag tag-mac">Mac</span></td>
+                    <td>FBI Profiler</td>
+                    <td>Firearms 70%, Forensics 60%, HUMINT 50%, STR 70%</td>
+                    <td>Vakt, muskel, igenkänning</td>
+                </tr>
+                <tr>
+                    <td><span class="agent-tag tag-sullivan">Sullivan</span></td>
+                    <td>Navy Chaplain</td>
+                    <td>HUMINT 70%, Persuade 60%, CHA 70%, POW 80%</td>
+                    <td>Face, social infiltration, rescue</td>
+                </tr>
+                <tr>
+                    <td><span class="agent-tag tag-sparky">Sparky</span></td>
+                    <td>NSA Tech</td>
+                    <td>Computer Science 90%, SIGINT 80%, Electronics 60%, Locksmith 40%, Ryska 60%</td>
+                    <td>Teknik, datorer, lås, avlyssning</td>
+                </tr>
+                <tr>
+                    <td><span class="agent-tag tag-scalpel">Scalpel</span></td>
+                    <td>Medical Examiner</td>
+                    <td>Medicine 80%, Forensics 60%, German 50%, INT 80%</td>
+                    <td>Tyska dokument, forensik, Berlin-kunskap</td>
+                </tr>
+                <tr>
+                    <td><span class="agent-tag tag-trench">Trench</span></td>
+                    <td>USAR/Demo</td>
+                    <td>Alertness 70%, Search 60%, First Aid 80%, Demolitions 60%, STR 70%</td>
+                    <td>Sökning, observation, muskel, sprängning</td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>SKILL-CHECK PER RUM</h3>
+
+        <h4>[B7] Helgas sekretariat</h4>
+        <table>
+            <tr><th>Uppgift</th><th>Bästa agent</th><th>Skill</th><th>%</th><th>Alternativ</th></tr>
+            <tr><td>Logga in (lösen: "Leningrad1942")</td><td><span class="agent-tag tag-sparky">Sparky</span></td><td>CS 90%</td><td>Auto</td><td>Gissar baserat på SA:s tema</td></tr>
+            <tr><td>Hitta Inner Circle-mappen</td><td><span class="agent-tag tag-sparky">Sparky</span></td><td>CS 90%</td><td>30%+</td><td>Mappen heter "IC_Mitglieder"</td></tr>
+            <tr><td>Kopiera databas → USB</td><td><span class="agent-tag tag-sparky">Sparky</span></td><td>CS 90%</td><td>Auto</td><td>3 minuter</td></tr>
+            <tr><td>Söka arkivskåp (papper)</td><td><span class="agent-tag tag-trench">Trench</span></td><td>Search 60%</td><td>60%</td><td>Mac Search 40%</td></tr>
+        </table>
+
+        <h4>[B15] Kochners kontor</h4>
+        <table>
+            <tr><th>Uppgift</th><th>Bästa agent</th><th>Skill</th><th>%</th><th>Alternativ</th></tr>
+            <tr><td>Hitta "The Power of Dreams"</td><td>Vem som helst</td><td>—</td><td>Auto</td><td>10 exemplar, synliga i bokhyllan</td></tr>
+            <tr><td>Identifiera ockult titlar</td><td><span class="agent-tag tag-sullivan">Sullivan</span></td><td>Occult 30%</td><td>30%</td><td>INT-check (Scalpel 80%, Sparky 90%)</td></tr>
+            <tr><td>Läsa almanackan</td><td><span class="agent-tag tag-scalpel">Scalpel</span></td><td>German 50%</td><td>Auto</td><td>"Pogodin's at 10" = engelska</td></tr>
+        </table>
+
+        <h4>[T8] Pogodins kontor</h4>
+        <table>
+            <tr><th>Uppgift</th><th>Bästa agent</th><th>Skill</th><th>%</th><th>Alternativ</th></tr>
+            <tr><td>Hitta hemliga lådan (arkivnyckel)</td><td><span class="agent-tag tag-trench">Trench</span></td><td>Alertness 70%</td><td>70%</td><td>Search 60%, eller Mac Alertness 50%</td></tr>
+            <tr><td>Tolka ritual-skisser</td><td><span class="agent-tag tag-sullivan">Sullivan</span></td><td>Occult 30%</td><td>30%</td><td>Scalpel INT 80% → "det ser ut som... instruktioner"</td></tr>
+            <tr><td>Fotografera skisserna</td><td><span class="agent-tag tag-sparky">Sparky</span></td><td>—</td><td>Auto</td><td>Organiserad, metadata-clean</td></tr>
+        </table>
+
+        <h4>[T10] Adas kontor</h4>
+        <table>
+            <tr><th>Uppgift</th><th>Bästa agent</th><th>Skill</th><th>%</th><th>Alternativ</th></tr>
+            <tr><td>Logga in (lösen: "DepthsRising")</td><td><span class="agent-tag tag-sparky">Sparky</span></td><td>CS 90%</td><td>Auto</td><td>Bruteforce om lösen okänt: CS 50%+</td></tr>
+            <tr><td>Kopiera ALLT → USB</td><td><span class="agent-tag tag-sparky">Sparky</span></td><td>CS 90%</td><td>Auto</td><td>10 minuter</td></tr>
+            <tr><td>Läsa Treuber-brevet (tyska)</td><td><span class="agent-tag tag-scalpel">Scalpel</span></td><td>German 50%</td><td>50%</td><td>Fotografera, översätt senare</td></tr>
+            <tr><td>Förstå implikationerna</td><td><span class="agent-tag tag-mac">Mac</span></td><td>Law 40% + HUMINT 50%</td><td>—</td><td>"Polischefen är köpt. Vi kan inte gå till polisen."</td></tr>
+        </table>
+
+        <h4>[T14] Arkivet (LÅST)</h4>
+        <table>
+            <tr><th>Uppgift</th><th>Bästa agent</th><th>Skill</th><th>%</th><th>Alternativ</th></tr>
+            <tr><td>Öppna med nyckel (kärvar)</td><td><span class="agent-tag tag-trench">Trench</span> / <span class="agent-tag tag-mac">Mac</span></td><td>STR×5</td><td>70%</td><td>Craft: Mechanics (Trench 40%)</td></tr>
+            <tr><td>Öppna UTAN nyckel</td><td><span class="agent-tag tag-sparky">Sparky</span></td><td>Locksmith 40%</td><td>40%*</td><td>*Svårt lås = -20%? SL avgör</td></tr>
+            <tr><td>Sista utväg: spräng</td><td><span class="agent-tag tag-trench">Trench</span></td><td>Demolitions 60%</td><td>60%</td><td>EXTREMT OVÄSEN. Hela kvarteret hör.</td></tr>
+            <tr><td>Söka dokument</td><td><span class="agent-tag tag-trench">Trench</span></td><td>Search 60%</td><td>60%</td><td>Mac 40%</td></tr>
+            <tr><td>Fotografera allt</td><td><span class="agent-tag tag-sparky">Sparky</span></td><td>—</td><td>Auto</td><td>20–30 min systematiskt</td></tr>
+            <tr><td>Läsa tyska dokument</td><td><span class="agent-tag tag-scalpel">Scalpel</span></td><td>German 50%</td><td>50%</td><td>Medicinsk terminologi: Medicine 80% bonus</td></tr>
+            <tr><td>Läsa ryska dokument</td><td><span class="agent-tag tag-sparky">Sparky</span></td><td>Russian 60%</td><td>60%</td><td>Enda i cellen som kan ryska</td></tr>
+            <tr><td>Identifiera foto (Kramer, Blobel, Freude)</td><td><span class="agent-tag tag-mac">Mac</span></td><td>HUMINT 50%</td><td>50%</td><td>Jämför med foton de redan har</td></tr>
+        </table>
+
+        <h4>[T15] Förråd</h4>
+        <table>
+            <tr><th>Uppgift</th><th>Bästa agent</th><th>Skill</th><th>%</th></tr>
+            <tr><td>Identifiera ritualmaterial</td><td><span class="agent-tag tag-sullivan">Sullivan</span></td><td>Occult 30%</td><td>30%</td></tr>
+            <tr><td>Analysera skelett</td><td><span class="agent-tag tag-scalpel">Scalpel</span></td><td>Forensics 60% / Medicine 80%</td><td>60–80%</td></tr>
+        </table>
+
+        <h3>KOMPLIKATIONER — VEM HANTERAR VAD?</h3>
+        <table>
+            <tr><th>Problem</th><th>Bästa hanterare</th><th>Skill</th><th>Approach</th></tr>
+            <tr><td>Upptäcka Blobels team INNAN</td><td><span class="agent-tag tag-sparky">Sparky</span></td><td>SIGINT 80%</td><td>Skannar radiokommunikation/telefoner</td></tr>
+            <tr><td>Inner Circle anländer</td><td><span class="agent-tag tag-trench">Trench</span></td><td>Alertness 70%</td><td>Hör fotsteg, varnar gruppen</td></tr>
+            <tr><td>Helga kommer tillbaka</td><td><span class="agent-tag tag-sullivan">Sullivan</span></td><td>Persuade 60%</td><td>"Vi är vänner till Magda Orlova..."</td></tr>
+            <tr><td>Arkivdörren kärvar</td><td><span class="agent-tag tag-mac">Mac</span> / <span class="agent-tag tag-trench">Trench</span></td><td>STR 70%</td><td>Kontrollerad kraft (inte slam)</td></tr>
+            <tr><td>Polisen dyker upp</td><td><span class="agent-tag tag-mac">Mac</span></td><td>Law 40% + FBI-creds</td><td>"FBI, international cooperation" + <span class="agent-tag tag-scalpel">Scalpel</span> German 50%</td></tr>
+            <tr><td>Sasha dyker upp</td><td><strong>INGEN</strong></td><td>Stealth 30–40%</td><td>Göm er. Rör er inte. Andas inte.</td></tr>
+        </table>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- KREATIVA TAKTIKER -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>KREATIVA TAKTIKER — UTÖVER STANDARD-INTRÅNG</h2>
+
+        <h3>TAKTIK 1: "Flipper-klonen"</h3>
+        <div class="info-box">
+            <p><span class="agent-tag tag-sparky">Sparky</span> <strong>SIGINT 80% + Craft: Electronics 60%</strong></p>
+            <p><strong>Idé:</strong> Sparky har sin "Spark" (modifierad Flipper Zero). Under dagsbesöket (social infiltration) ställer hon sig nära en SA-medlem som har nyckelbricka — i kön till caféet, vid garderobshängaren, vid hissen. Flipper Zero klonar RFID-brickan trådlöst på 3 sekunder.</p>
+            <p><strong>Roll:</strong> SIGINT 80% (identifiera frekvens) + Stealth 30% (inte bli sedd med enheten)</p>
+            <p><strong>Resultat:</strong> Klonad bricka = hiss till övervåningen utan hack, utan trappa, utan oväsen. Guld.</p>
+            <p><strong>Risk:</strong> Om medlem märker att Sparky står för nära: HUMINT-check mot dem. Misslyckat → "Ursäkta, var tvungen att kolla telefonen."</p>
+        </div>
+
+        <h3>TAKTIK 2: "Magdas dotter"</h3>
+        <div class="info-box">
+            <p><span class="agent-tag tag-scalpel">Scalpel</span> <strong>German 50% + Persuade 40%</strong></p>
+            <p><strong>Idé:</strong> Scalpel besöker SA dagtid, ensam. Presenterar sig som Magda Orlovas "nièce" (systerdotter) — halvtysk, halvamerikansk. "Min moster dog nyligen. Jag försöker förstå hennes liv. Hon var medlem här." Helga, som är "överdrivet vänlig", bjuder in henne, visar runt, pratar.</p>
+            <p><strong>Fördel:</strong> Scalpel talar tyska, har Magda-koppling (äkta!), och är den enda med Berlin-bakgrund. Helga släpper henne längre in än en random besökare.</p>
+            <p><strong>Vad hon får:</strong> Bottenvåningens layout, var datorerna står, vem som jobbar när, kanske till och med en inbjudan till nästa kulturkväll. Helga kanske nämner "övervåningen — men dit får jag tyvärr inte ta besökare."</p>
+            <p><strong>Bonus:</strong> Om Scalpel frågar om Magda → Helga minns henne: "Magda! Ja, hon grundade föreningen 1961. Vi hörde att hon var sjuk..." Helga vet inte att hon är DÖD ännu.</p>
+            <p><strong>Risk:</strong> Helga noterar Scalpels namn och kontaktinfo. Om Anton kollar → han vet vem hon är.</p>
+        </div>
+
+        <h3>TAKTIK 3: "Kabeldragaren"</h3>
+        <div class="info-box">
+            <p><span class="agent-tag tag-trench">Trench</span> <strong>Craft: Structural 40% + Heavy Machinery 70%</strong></p>
+            <p><strong>Idé:</strong> Trench har USAR-bakgrund. Han ser ut som en hantverkare. Overaller, verktygsbälte, clipboard. Går in via Naturskyddsföreningen eller Möbelverkstaden — "Hej, jag ska kolla elskåpet i källaren, hyresvärden skickade mig." Berlins Altbau-byggnader har ALLTID elproblem.</p>
+            <p><strong>Roll:</strong> Persuade 30% (låg — men uniformen gör jobbet) ELLER Craft: Structural 40% (han vet faktiskt hur elskåp fungerar, så han låter trovärdig)</p>
+            <p><strong>Vad han får:</strong> Tillgång till innergården, källarplan, eventuellt trapphuset. Kan rekognosera lås, dörrar, larmkablar. Fotograferar med telefon.</p>
+            <p><strong>Bonus:</strong> Om han hittar elskåpet kan han notera vilka kretsar som går till SA:s våning. Användbart för att stänga av specifika delar vid inbrottet.</p>
+            <p><strong>Risk:</strong> Minimal. Hantverkare i Berlin Altbau-hus är så vanligt att ingen reagerar.</p>
+        </div>
+
+        <h3>TAKTIK 4: "WiFi-fällan"</h3>
+        <div class="info-box">
+            <p><span class="agent-tag tag-sparky">Sparky</span> <strong>SIGINT 80% + Computer Science 90%</strong></p>
+            <p><strong>Idé:</strong> Sparky behöver inte vara i byggnaden för att komma åt datorerna. Från ops-room på Graefestraße (eller en parkerad bil utanför SA) sätter hon upp en "Evil Twin" WiFi-hotspot som imiterar SA:s nätverk. När Helga eller Ada ansluter → Sparky har nätverkstrafik.</p>
+            <p><strong>Variant:</strong> Om Trench ("Kabeldragaren") planterar en liten Raspberry Pi i SA:s elskåp → Sparky har permanent bakdörr till deras nätverk.</p>
+            <p><strong>Roll:</strong> Computer Science 90% (setup) + SIGINT 80% (identifiera SA:s WiFi-SSID)</p>
+            <p><strong>Vad hon får:</strong> Nätverkstrafik → e-post, fildelning, eventuellt lösenord i klartext. Kanske hela databasen utan att behöva vara i byggnaden.</p>
+            <p><strong>Begränsning:</strong> Kräver att SA har WiFi (troligt — modern kontorsmiljö). Fungerar inte mot datorer som inte är nätverksanslutna (arkivets papper kräver fortfarande fysisk access).</p>
+            <p><strong>Tidsåtgång:</strong> Setup 2–3 timmar. Avlyssning pågår sedan passivt.</p>
+        </div>
+
+        <h3>TAKTIK 5: "Kulturkvällen"</h3>
+        <div class="info-box">
+            <p><span class="agent-tag tag-sullivan">Sullivan</span> + <span class="agent-tag tag-scalpel">Scalpel</span> <strong>Persuade 60% / HUMINT 70% / German 50%</strong></p>
+            <p><strong>Idé:</strong> SA har regelbundna kulturkvällar (19–23, oregelbundna). Sullivan och Scalpel anmäler sig som besökare. Sullivan = "retired American pastor, fascinated by Russian Orthodox culture." Scalpel = hans "translator" (halvtysk).</p>
+            <p><strong>Vad de får:</strong> Legitimt skäl att vara i byggnaden på kvällen. Ser vilka som kommer, hur de rör sig, var de går. Identifierar Inner Circle-medlemmar (medelålders män i mörka kläder, dyker upp sent).</p>
+            <p><strong>Medan de är inne:</strong> Sparky sitter i en parkerad bil utanför med SIGINT — skannar alla telefoner som ansluter, kartlägger vilka som är inne.</p>
+            <p><strong>Bonus:</strong> Sullivan med HUMINT 70% läser av ALLT. Vem är nervös? Vem tittar mot övervåningen? Vem undviker ögonkontakt? Hans people-reading är cellens starkaste vapen.</p>
+            <p><strong>Risk:</strong> Om Erich Karpov (studiegrupp-ledare) närmar sig: han testar nya medlemmar för "ockult potential." Sullivan POW 80% — om Karpov känner något ovanligt kan det gå åt båda håll.</p>
+        </div>
+
+        <h3>TAKTIK 6: "Brandlarmet"</h3>
+        <div class="info-box">
+            <p><span class="agent-tag tag-trench">Trench</span> <strong>Demolitions 60% + Craft: Structural 40%</strong></p>
+            <p><strong>Idé:</strong> Trench triggar brandlarmet i Naturskyddsföreningens del av byggnaden (intilliggande). Små mängd rökgranulat i ventilationen — ser dramatiskt ut, skadar ingenting. Brandkåren kommer (5–8 min). ALLA evakuerar, inklusive SA-personalen.</p>
+            <p><strong>Medan byggnaden evakueras:</strong> Resten av cellen smiter in genom bakingången/innergården. De har 15–20 minuter innan brandkåren ger all-clear.</p>
+            <p><strong>Roll:</strong> Demolitions 60% (dosera exakt rätt — för lite: inget larm. För mycket: riktig brand)</p>
+            <p><strong>Risk:</strong> MEDEL. Brandkåren undersöker alla delar av byggnaden. Om cellen är inuti SA:s övervåning när de kollar — svårt att förklara.</p>
+            <p><strong>Timing:</strong> Bäst kl ~17:30 — Helga har precis gått, men byggnaden är inte helt tom. Brandlarmet "stänger" byggnaden officiellt, vilket ger cover för att vara kvar.</p>
+        </div>
+
+        <h3>TAKTIK 7: "Mülltonnen" (Sophämtning)</h3>
+        <div class="info-box">
+            <p><span class="agent-tag tag-mac">Mac</span> + <span class="agent-tag tag-trench">Trench</span> <strong>Criminology 50% / Forensics 60%</strong></p>
+            <p><strong>Idé:</strong> SA:s sopor. Innergården har överfulla soptunnor. Tysk byråkrati kräver att företag/föreningar sorterar — papper, plast, rest. SA:s pappersåtervinning = utskrifter, anteckningar, sönderrivna dokument.</p>
+            <p><strong>Vad Mac gör:</strong> FBI-agent vet att soporna är den enklaste informationskällan. Ingen lås. Ingen lag mot att ta andras sopor (i Tyskland = grått område men inte brott om det är på gatan). Nattlig sopraid.</p>
+            <p><strong>Roll:</strong> Forensics 60% (Mac) — rekonstruera sönderrivna dokument. Search 60% (Trench) — hitta relevanta papper bland skräp.</p>
+            <p><strong>Vad de kan hitta:</strong> Utskrifter med adresser, telefonnummer, mötesanteckningar. Kanske kasserade versioner av Treuber-brevet. Kanske en almanacka-kopia.</p>
+            <p><strong>Fördel:</strong> NOLL RISK. Ingen bryter sig in. Ingen märker. Kan göras INNAN det riktiga inbrottet som förarbete.</p>
+        </div>
+
+        <h3>TAKTIK 8: "Arnolds ingång"</h3>
+        <div class="info-box">
+            <p><strong>NPC: Arnold Weiss</strong> + <span class="agent-tag tag-scalpel">Scalpel</span></p>
+            <p><strong>Idé:</strong> Arnold besökte SA en gång (kulturkväll 2003–2004). Han är inte medlem men hans namn kan finnas i besöksregistret. Om cellen frågar honom: "Kan du ta oss dit?" → Arnold tvekar men kan ringa SA och boka ett besök ("Jag vill se utställningen om rysk poesi, jag tar med vänner").</p>
+            <p><strong>Vad det ger:</strong> Legitimt besök, dagtid, med en "känd" person. Helga vet vem Arnold är. Dörrar öppnas.</p>
+            <p><strong>Risk:</strong> Arnolds namn kopplas till cellen. Om de tre männen får veta → Arnold blir måltavla. Scalpel måste väga: information vs. Arnolds säkerhet.</p>
+            <p><strong>Moralisk vikt:</strong> Använder de en 65-årig universitetslärare som verktyg? Bond-risk om det går fel.</p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- TEAMFÖRDELNINGAR -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>REKOMMENDERADE TEAMFÖRDELNINGAR</h2>
+
+        <h3>PLAN A: Nattinbrott (klassiskt)</h3>
+        <div class="info-box">
+            <p><strong>Inuti:</strong></p>
+            <ul>
+                <li><span class="agent-tag tag-sparky">Sparky</span> — teknik: lås, datorer, fotografering, ryska dokument</li>
+                <li><span class="agent-tag tag-trench">Trench</span> — sökning: Search 60%, Alertness 70%, STR för dörrar</li>
+                <li><span class="agent-tag tag-scalpel">Scalpel</span> — tyska dokument, forensik på skelettet, Berlin-orientering</li>
+                <li><span class="agent-tag tag-mac">Mac</span> — vakt: Alertness 50%, Firearms 70% (worst case), FBI-instinkt</li>
+            </ul>
+            <p><strong>Utanför (rescue/lookout):</strong></p>
+            <ul>
+                <li><span class="agent-tag tag-sullivan">Sullivan</span> — om polisen dyker upp: Persuade 60% + CHA 70%. Pratar sig ur ALLT. Om Helga kommer tillbaka: "Vi är Magdas vänner." Bäst som rescue utanför än risk inuti.</li>
+            </ul>
+            <p><strong>Tidsfönster:</strong> 20:00–23:00 (efter personal, innan Inner Circle ti/to)</p>
+        </div>
+
+        <h3>PLAN B: Social infiltration + natt-raid</h3>
+        <div class="info-box">
+            <p><strong>Dag 1 — Social rekon:</strong></p>
+            <ul>
+                <li><span class="agent-tag tag-sullivan">Sullivan</span> + <span class="agent-tag tag-scalpel">Scalpel</span> besöker dagtid (kulturintresse / "Magdas systerdotter")</li>
+                <li><span class="agent-tag tag-sparky">Sparky</span> klonar nyckelbricka (Flipper Zero) under besöket</li>
+                <li><span class="agent-tag tag-trench">Trench</span> rekognoserar utsidan ("Kabeldragaren")</li>
+                <li><span class="agent-tag tag-mac">Mac</span> kollar soporna (Mülltonnen-taktiken)</li>
+            </ul>
+            <p><strong>Natt 1 — Raid med intel:</strong></p>
+            <ul>
+                <li>Klonad bricka → hiss direkt till övervåningen (inget hack, inget oväsen)</li>
+                <li>Trench vet var elskåpet sitter (kan stänga av larm om det finns)</li>
+                <li>Mac har redan hittat intressanta papper i soporna (vet vad de letar efter)</li>
+                <li>Sullivan + Scalpel vet byggnadslay-outen</li>
+            </ul>
+            <p><strong>Tidsåtgång:</strong> 2 dagar totalt. Bättre förberedda, lägre risk.</p>
+        </div>
+
+        <h3>PLAN C: Rent digitalt (minimalt fysiskt intrång)</h3>
+        <div class="info-box">
+            <p><strong>Enbart Sparky:</strong></p>
+            <ul>
+                <li>Steg 1: WiFi Evil Twin från parkerad bil utanför (CS 90%, SIGINT 80%)</li>
+                <li>Steg 2: Fånga nätverkstrafik → lösenord, e-post, filer</li>
+                <li>Steg 3: Om Trench planterat Raspberry Pi → permanent bakdörr</li>
+                <li>Steg 4: Remote access till Adas dator och Helgas dator</li>
+            </ul>
+            <p><strong>Fördel:</strong> Ingen fysisk risk. Kan göras från Graefestraße.</p>
+            <p><strong>Nackdel:</strong> Arkivet (papper, foton, skelett) kräver fortfarande fysisk access. MacBook-innehåll och fotografier kan inte nås digitalt.</p>
+            <p><strong>Bäst som:</strong> Komplement till Plan A eller B, inte ersättning.</p>
+        </div>
+
+        <h3>PLAN D: "In-and-out i 10 minuter" (smash & grab)</h3>
+        <div class="info-box">
+            <p><strong>Om tiden är knapp (Blobel rapporterade, arkivet rensas snart):</strong></p>
+            <ul>
+                <li><span class="agent-tag tag-mac">Mac</span> + <span class="agent-tag tag-trench">Trench</span> bryter sig in med kofot (STR 70% × 2)</li>
+                <li>Rakt till [T8] → nyckel → [T14] arkivet</li>
+                <li><span class="agent-tag tag-sparky">Sparky</span> tar hela Adas dator-enhet (inte kopiera — TA MED)</li>
+                <li>Trench bär ut arkiv-lådor</li>
+                <li>10 minuter, in och ut, inga finurligheter</li>
+            </ul>
+            <p><strong>Fördel:</strong> Snabbt. Allt bevis säkrat.</p>
+            <p><strong>Nackdel:</strong> OVÄSEN. SA vet direkt. Polisanmälan möjlig (men Treuber = köpt, så kanske inte). Cellen bränner SA som framtida informationskälla.</p>
+            <p><strong>När:</strong> Bara om de VET att Anton planerar rensa arkivet. Desperat drag.</p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SPARKYS VERKTYGSLÅDA -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SPARKYS VERKTYGSLÅDA — TECH-DETALJ</h2>
+
+        <div class="gm-note">Sparky är cellens överlägset mest kraftfulla agent för detta uppdrag. Hennes 90% CS + 80% SIGINT + 60% Electronics + 40% Locksmith + "Spark" (Flipper Zero) gör henne till en one-woman heist-crew. Här är vad hon kan göra och vilka rolls som krävs.</div>
+
+        <table>
+            <tr><th>Verktyg/Metod</th><th>Skill</th><th>%</th><th>Vad det ger</th><th>Tid</th></tr>
+            <tr><td>Flipper Zero RFID-klon</td><td>SIGINT</td><td>80%</td><td>Klonad nyckelbricka → hiss till övervåning</td><td>3 sek (+ proximity)</td></tr>
+            <tr><td>WiFi Evil Twin</td><td>CS + SIGINT</td><td>90/80%</td><td>Nätverkstrafik, lösenord, e-post</td><td>2–3h setup</td></tr>
+            <tr><td>Raspberry Pi planterad</td><td>Electronics</td><td>60%</td><td>Permanent bakdörr i SA:s nätverk</td><td>5 min (fysisk access)</td></tr>
+            <tr><td>USB-dump (Helgas dator)</td><td>CS</td><td>90%</td><td>Hela databasen, IC-lista</td><td>3 min</td></tr>
+            <tr><td>USB-dump (Adas dator)</td><td>CS</td><td>90%</td><td>Medlemsdatabas, Treuber-brev, allt</td><td>10 min</td></tr>
+            <tr><td>Lockpick (SA-dörr)</td><td>Locksmith</td><td>40%</td><td>Tyst intrång utan kofot</td><td>5–10 min</td></tr>
+            <tr><td>IMSI-catcher detection</td><td>SIGINT</td><td>80%</td><td>Upptäcka om DERAS telefoner avlyssnas</td><td>Automatisk (passive)</td></tr>
+            <tr><td>Scan SA för larm/kameror</td><td>SIGINT</td><td>80%</td><td>Fullständig säkerhetsbild</td><td>30 min (från utanför)</td></tr>
+            <tr><td>MacBook-hack (Magdas)</td><td>CS</td><td>90% (50% räcker)</td><td>All Magdas research</td><td>1–2h</td></tr>
+            <tr><td>Telefon-lokalisering (Blobels team)</td><td>SIGINT</td><td>80%</td><td>Identifiera övervakningsteamets telefoner</td><td>1h passiv scanning</td></tr>
+        </table>
+
+        <div class="yellow-box">
+            <strong>VIKTIGT: NSA-verktyg vs. personliga verktyg</strong>
+            <p>Sparkys CS 90% och SIGINT 80% representerar hennes förmåga — inte NSA:s infrastruktur. Hon har INTE access till XKEYSCORE eller PRISM i Berlin. Hennes "Spark" (Flipper Zero) och personliga laptop är vad hon har. Fortfarande: 90% Computer Science med en bra laptop gör henne till en av de farligaste personerna i rummet.</p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SAN-SAMMANFATTNING -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SAN-SAMMANFATTNING</h2>
+        <table>
+            <tr><th>Trigger</th><th>Check</th><th>Typ</th><th>Villkor</th></tr>
+            <tr><td>Filips målning (T12)</td><td>0/1</td><td>Unnatural</td><td>Titta i 5+ sekunder</td></tr>
+            <tr><td>Skelett i förråd (T15)</td><td>0/1</td><td>Violence</td><td>Öppna kartongen</td></tr>
+            <tr><td><strong>Totalt möjligt</strong></td><td><strong>0–2</strong></td><td></td><td>Låg budget — detta är heist, inte horror</td></tr>
+        </table>
+        <div class="gm-note">SAN-budgeten är medvetet minimal. Inbrottet ska bygga SPÄNNING, inte SAN-förlust. Horsen kommer efteråt — när de inser vad de hittat.</div>
+    </div>
+
+</div>
+</body>
+</html>

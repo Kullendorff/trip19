@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dagbok — Del 5: Sista inlägget</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=IM+Fell+English:ital@0;1&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @page { size: A4; margin: 2cm 2.5cm; }
+
+        body {
+            background: #f4ead0;
+            color: #2c2318;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            line-height: 1.85;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            background-image:
+                radial-gradient(ellipse at 20% 50%, rgba(139, 109, 63, 0.06) 0%, transparent 70%),
+                radial-gradient(ellipse at 80% 20%, rgba(101, 67, 33, 0.04) 0%, transparent 60%);
+        }
+
+        .page-edge {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            box-shadow: inset 0 0 80px rgba(101, 67, 33, 0.12);
+            z-index: 100;
+        }
+
+        .margin-line {
+            position: fixed; top: 0; left: 60px; bottom: 0;
+            width: 1px; background: rgba(180, 60, 60, 0.12);
+            z-index: 50; pointer-events: none;
+        }
+
+        .diary-header {
+            text-align: center; margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem; border-bottom: 1px solid rgba(44, 35, 24, 0.15);
+        }
+
+        .diary-header h1 { font-family: 'IM Fell English', Georgia, serif; font-size: 1.4rem; color: #3a2a18; letter-spacing: 1px; margin-bottom: 0.3rem; }
+        .diary-header .cyrillic { font-size: 1.8rem; color: #4a3520; margin-bottom: 0.5rem; letter-spacing: 2px; }
+        .diary-header .subtitle { font-size: 0.95rem; color: #7a6a52; font-style: italic; }
+
+        .entry { margin-bottom: 2.5rem; }
+        .entry-date { font-family: 'IM Fell English', Georgia, serif; font-size: 1rem; color: #5a3a1a; font-weight: 600; margin-bottom: 0.6rem; letter-spacing: 0.5px; }
+        .entry-text { font-size: 1.15rem; color: #2c2318; padding-left: 0.5rem; }
+        .entry-text p { margin-bottom: 0.7rem; text-indent: 1.5rem; }
+        .entry-text p:first-child { text-indent: 0; }
+
+        .russian { font-style: italic; color: #4a3520; }
+        .emphasis { font-weight: 600; }
+
+        .final-entry {
+            border: 2px solid rgba(120, 40, 40, 0.25);
+            padding: 2rem;
+            background: rgba(120, 40, 40, 0.02);
+        }
+
+        .final-entry .entry-date {
+            color: #6a2020;
+            font-size: 1.1rem;
+        }
+
+        .final-entry .entry-text {
+            font-size: 1.2rem;
+        }
+
+        .trembling {
+            letter-spacing: 0.5px;
+            word-spacing: 1px;
+        }
+
+        .signature {
+            margin-top: 2rem;
+            text-align: right;
+            font-style: italic;
+            color: #5a3a1a;
+            font-size: 1.3rem;
+        }
+
+        .torn-edge {
+            margin-top: 2rem;
+            text-align: center;
+            color: #8a7a62;
+            font-size: 0.9rem;
+            font-style: italic;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(44, 35, 24, 0.1);
+        }
+
+        .page-number {
+            text-align: center; margin-top: 3rem;
+            font-size: 0.85rem; color: #9a8a72; letter-spacing: 2px;
+        }
+
+        @media print {
+            body { padding: 0; background: #f4ead0; }
+            .page-edge, .margin-line { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-edge"></div>
+    <div class="margin-line"></div>
+
+    <div class="diary-header">
+        <div class="cyrillic">Дневник</div>
+        <h1>Frankfurt an der Oder, 1951–1952</h1>
+        <div class="subtitle">Del V — Sista inlägget</div>
+    </div>
+
+    <!-- FINAL ENTRY -->
+    <div class="entry final-entry">
+        <div class="entry-date">3 februari 1952</div>
+        <div class="entry-text trembling">
+            <p>Jag orkar inte mer. Kroppen sviker mig. Dr. Schäfer säger att det inte finns något fel — men jag känner det inuti. Samma sak som Leningrad. Något som <span class="emphasis">rör sig under huden</span>. Klåda som inte går att nå.</p>
+            <p>Filip var här igår. I drömmen eller på riktigt — jag vet inte längre. Han satt vid sängkanten. Han sa: <span class="russian">"Спасибо, что помнишь нас."</span></p>
+            <p>"Tack för att du minns oss."</p>
+            <p>Han grät. Jag tror att han grät.</p>
+
+            <p style="margin-top: 1.5rem;">Magda. Min lilla Magda. Om du läser detta en dag —</p>
+
+            <p><span class="emphasis">De tre männen lever.</span></p>
+            <p><span class="emphasis">Berlin. Slaviska Sällskapet.</span></p>
+            <p><span class="emphasis">De ser ut som barn men de är inte barn. De åldras inte. De väntar på något.</span></p>
+            <p><span class="emphasis">Spring inte till dem. Spring inte från dem. De hittar dig ändå.</span></p>
+            <p><span class="emphasis">Sök sanningen men lita inte på dina drömmar.</span></p>
+
+            <p style="margin-top: 1.5rem;">Förlåt mig. Jag ville ge dig ett bättre liv.</p>
+
+            <div class="signature">— M.</div>
+        </div>
+    </div>
+
+    <div class="torn-edge">
+        Resterande sidor är tomma.<br>
+        Bläckfläckar på sista sidans baksida, som om pennan lämnades liggande öppen.
+    </div>
+
+    <div class="page-number">— V —</div>
+
+</body>
+</html>

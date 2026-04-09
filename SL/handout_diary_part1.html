@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dagbok — Del 1: Ankomsten</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=IM+Fell+English:ital@0;1&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        @page {
+            size: A4;
+            margin: 2cm 2.5cm;
+        }
+
+        body {
+            background: #f4ead0;
+            color: #2c2318;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            line-height: 1.85;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            background-image:
+                radial-gradient(ellipse at 20% 50%, rgba(139, 109, 63, 0.06) 0%, transparent 70%),
+                radial-gradient(ellipse at 80% 20%, rgba(101, 67, 33, 0.04) 0%, transparent 60%);
+        }
+
+        .page-edge {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            box-shadow: inset 0 0 80px rgba(101, 67, 33, 0.12);
+            z-index: 100;
+        }
+
+        .margin-line {
+            position: fixed;
+            top: 0;
+            left: 60px;
+            bottom: 0;
+            width: 1px;
+            background: rgba(180, 60, 60, 0.12);
+            z-index: 50;
+            pointer-events: none;
+        }
+
+        .diary-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(44, 35, 24, 0.15);
+        }
+
+        .diary-header h1 {
+            font-family: 'IM Fell English', Georgia, serif;
+            font-size: 1.4rem;
+            color: #3a2a18;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .diary-header .cyrillic {
+            font-size: 1.8rem;
+            color: #4a3520;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .diary-header .subtitle {
+            font-size: 0.95rem;
+            color: #7a6a52;
+            font-style: italic;
+        }
+
+        .translator-note {
+            background: rgba(74, 90, 100, 0.06);
+            border: 1px solid rgba(74, 90, 100, 0.15);
+            padding: 0.75rem 1rem;
+            margin-bottom: 2rem;
+            font-size: 0.85rem;
+            color: #5a6a6a;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .entry {
+            margin-bottom: 2.5rem;
+        }
+
+        .entry-date {
+            font-family: 'IM Fell English', Georgia, serif;
+            font-size: 1rem;
+            color: #5a3a1a;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.5px;
+        }
+
+        .entry-text {
+            font-size: 1.15rem;
+            color: #2c2318;
+            padding-left: 0.5rem;
+        }
+
+        .entry-text p {
+            margin-bottom: 0.7rem;
+            text-indent: 1.5rem;
+        }
+
+        .entry-text p:first-child {
+            text-indent: 0;
+        }
+
+        .russian {
+            font-style: italic;
+            color: #4a3520;
+        }
+
+        .emphasis {
+            font-weight: 600;
+        }
+
+        .sketch {
+            border: 1px dashed rgba(44, 35, 24, 0.15);
+            padding: 0.6rem 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: #7a6a52;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .page-number {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: #9a8a72;
+            letter-spacing: 2px;
+        }
+
+        .stain {
+            position: relative;
+        }
+
+        .stain::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(ellipse, rgba(101, 67, 33, 0.09) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .stain-tr::after { right: -5px; top: -10px; }
+        .stain-bl::after { left: 10px; bottom: 5px; width: 35px; height: 35px; }
+
+        @media print {
+            body { padding: 0; background: #f4ead0; }
+            .page-edge, .margin-line { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-edge"></div>
+    <div class="margin-line"></div>
+
+    <div class="diary-header">
+        <div class="cyrillic">Дневник</div>
+        <h1>Kirovkliniken, Moskva, 1946–1951</h1>
+        <div class="subtitle">Del I — Ankomsten</div>
+    </div>
+
+    <div class="translator-note">
+        Översatt från ryska. Originalet skrivet med blyerts och bläck i tunn skrivbok med pappärm. Vissa sidor vattenskadade. Handstilen är liten och kontrollerad i de tidiga inläggen (Moskva), och blir alltmer oregelbunden efter flytten till Frankfurt an der Oder 1951.
+    </div>
+
+    <!-- ENTRY 1 -->
+    <div class="entry stain stain-tr">
+        <div class="entry-date">17 mars 1946</div>
+        <div class="entry-text">
+            <p>Vi kom hit igår. Från lägret till detta — de kallar det <span class="russian">Кировская клиника</span>, Kirovkliniken. Byggnaden är stor, grå betong, men det finns fönster som inte är bommade. Jag har ett rum med Magda. Vit vägg, järnsäng, ett litet fönster mot innergården. Magda fick en docka av en sköterska. Det är den första leksaken hon haft sedan Leningrad.</p>
+            <p>Det är inte S-17. Ingen talar om det här som ett läger. De säger <span class="russian">клиника</span>, klinik. Det finns mat. Det finns varmt vatten. Moskva utanför fönstret — grått, enormt, men levande. Jag gråter på toaletten så att Magda inte ser.</p>
+            <p>Dr. Tatlina driver avdelningen. Hon flyttade oss från S-17 i januari. Hon ser trött ut. Jag tror hon är den enda som förstår vad vi har sett.</p>
+        </div>
+    </div>
+
+    <!-- ENTRY 2 -->
+    <div class="entry">
+        <div class="entry-date">9 juni 1946</div>
+        <div class="entry-text">
+            <p>Magda leker med de andra barnen i trädgården. Sju år. Hon skrattar. Jag har inte hört det ljudet sedan innan.</p>
+            <p>De tre pojkarna är i en annan flygel. Anatoly, Sasha, Filip. Jag ser dem ibland genom fönstret — de sitter i gräset, tysta, rör sig inte. De andra barnen undviker dem instinktivt, som djur som känner rök innan elden syns.</p>
+            <p>Sköterska Hilde säger att de tre pojkarna är "friska" och "normala." Hon tror det. Hon var inte i Leningrad.</p>
+        </div>
+    </div>
+
+    <!-- ENTRY 3 -->
+    <div class="entry stain stain-bl">
+        <div class="entry-date">22 december 1946</div>
+        <div class="entry-text">
+            <p>Jul närmar sig. Sköterskan har hängt en kvist i matsalen. Barnen sjöng igår kväll — tyska julsånger som ingen av dem kan. De försöker. Det är gripande och fel på samma gång.</p>
+            <p>Jag förmår inte fira. Varje vinter tar mig tillbaka. Kölden. Mörkret. Ljuden som kom genom golvplankorna i Kalenkos hus. Magda frågar varför jag inte sjunger med. Jag säger att jag har ont i halsen.</p>
+            <p>Dr. Tatlina började sina intervjuer med mig i oktober. Vi sitter i ett litet rum med bandspelare. Hon frågar om Leningrad. Om natten. Om barnen. Jag berättar vad jag kan. Allt jag inte kan berätta skriver jag här.</p>
+        </div>
+    </div>
+
+    <div class="page-number">— I —</div>
+
+</body>
+</html>

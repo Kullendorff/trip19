@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charité — Patient File Orlova (Translated)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @page { size: A4; margin: 1.5cm 2cm; }
+
+        body {
+            background: #e8e4dc;
+            font-family: 'IBM Plex Mono', 'Courier New', monospace;
+            font-size: 10.5px;
+            color: #1a1a1a;
+            line-height: 1.55;
+            padding: 2rem;
+        }
+
+        .page {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 3rem 3.5rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .hospital-header {
+            border-bottom: 3px solid #1a1a1a;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hospital-name { font-size: 22px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; }
+        .hospital-sub { font-size: 10px; letter-spacing: 1.5px; color: #4a4a4a; margin-top: 2px; }
+        .department { font-size: 11px; font-weight: 500; margin-top: 0.5rem; color: #2a2a2a; }
+
+        .report-id {
+            position: absolute; top: 3rem; right: 3.5rem;
+            font-size: 9px; color: #6a6a6a; text-align: right;
+        }
+
+        .report-title {
+            text-align: center;
+            font-size: 13px; font-weight: 500;
+            letter-spacing: 2px; text-transform: uppercase;
+            margin: 1.5rem 0; padding: 0.5rem 0;
+            border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;
+        }
+
+        .translation-note {
+            font-size: 9px; color: #888;
+            text-align: center; margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .field-grid {
+            display: grid;
+            grid-template-columns: 155px 1fr;
+            gap: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .field-label {
+            font-size: 9px; text-transform: uppercase;
+            letter-spacing: 1px; color: #5a5a5a;
+            padding: 4px 0; border-bottom: 1px solid #eee;
+        }
+
+        .field-value {
+            font-size: 10.5px; padding: 4px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section-title {
+            font-size: 11px; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 1.5px;
+            margin: 1.5rem 0 0.75rem 0;
+            padding-bottom: 3px; border-bottom: 2px solid #1a1a1a;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10px;
+            margin: 0.5rem 0;
+        }
+
+        th {
+            text-align: left;
+            padding: 5px 8px;
+            border-bottom: 2px solid #1a1a1a;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #4a4a4a;
+        }
+
+        td {
+            padding: 5px 8px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+
+        .note-section {
+            margin-top: 1.5rem;
+            font-size: 10px;
+            color: #3a3a3a;
+        }
+
+        .note-section ul {
+            margin: 0.3rem 0 0 1.5rem;
+        }
+
+        .note-section li {
+            margin-bottom: 0.25rem;
+        }
+
+        .stamp {
+            position: absolute;
+            top: 120px; right: 40px;
+            border: 3px solid rgba(180, 40, 40, 0.5);
+            color: rgba(180, 40, 40, 0.5);
+            padding: 4px 14px;
+            font-size: 12px; font-weight: 500;
+            letter-spacing: 3px; text-transform: uppercase;
+            transform: rotate(-8deg);
+        }
+
+        .signature-block {
+            margin-top: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .signature-line {
+            border-top: 1px solid #1a1a1a;
+            width: 250px; padding-top: 4px;
+            font-size: 9px; color: #5a5a5a;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .page { box-shadow: none; padding: 1.5cm 2cm; max-width: none; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <div class="stamp">CONFIDENTIAL</div>
+
+    <div class="hospital-header">
+        <div class="hospital-name">Charité</div>
+        <div class="hospital-sub">University Medicine Berlin — Campus Charité Mitte</div>
+        <div class="department">Institute of Forensic Medicine — Patient File (Compilation)</div>
+    </div>
+
+    <div class="report-id">
+        Case No.: RM-2025-09-4471<br>
+        Date: September 22, 2025
+    </div>
+
+    <div class="report-title">Patient File — Orlova, Magda</div>
+
+    <div class="translation-note">Translated from German original by Dr. H. Engler</div>
+
+    <!-- PATIENT DATA -->
+    <div class="field-grid">
+        <div class="field-label">Name</div>
+        <div class="field-value">Orlova, Magda</div>
+
+        <div class="field-label">Date of birth</div>
+        <div class="field-value">January 14, 1939, Leningrad, USSR</div>
+
+        <div class="field-label">Date of death</div>
+        <div class="field-value">September 21, 2025, 15:39, Charité Berlin</div>
+
+        <div class="field-label">Cause of death</div>
+        <div class="field-value">Acute myocardial infarction secondary to pancreatic carcinoma stage IV</div>
+
+        <div class="field-label">Citizenship</div>
+        <div class="field-value">German (naturalized 1962, born Soviet)</div>
+
+        <div class="field-label">Emergency contact</div>
+        <div class="field-value">Filip Kramer</div>
+    </div>
+
+    <!-- MEDICAL RECORDS -->
+    <div class="section-title">Medical Documentation</div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Institution</th>
+                <th>Diagnosis</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>02/22/1946</td>
+                <td>Kirov Clinic, Moscow</td>
+                <td>Nervous hysteria</td>
+                <td>Isolation</td>
+            </tr>
+            <tr>
+                <td>07/12/1947</td>
+                <td>Kirov Clinic, Moscow</td>
+                <td>Refusal to eat</td>
+                <td>Force-feeding</td>
+            </tr>
+            <tr>
+                <td>05/03/1949</td>
+                <td>Kirov Clinic, Moscow</td>
+                <td>Aggressive outbursts</td>
+                <td>Isolation</td>
+            </tr>
+            <tr>
+                <td>02/10/1951</td>
+                <td>Frankfurt Clinic for Neuropsychiatry</td>
+                <td>Apathy</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>09/25/1954</td>
+                <td>Frankfurt Clinic for Neuropsychiatry</td>
+                <td>Significant improvement</td>
+                <td>Provisional discharge</td>
+            </tr>
+            <tr>
+                <td>11/07/1954</td>
+                <td>Frankfurt Clinic for Neuropsychiatry</td>
+                <td>Hysterical outbursts</td>
+                <td>Straitjacket</td>
+            </tr>
+            <tr>
+                <td>03/03/1958</td>
+                <td>Frankfurt Clinic for Neuropsychiatry</td>
+                <td>Positive improvement</td>
+                <td>Provisional discharge</td>
+            </tr>
+            <tr>
+                <td>06/16/1962</td>
+                <td>Johannes Hospital, Berlin</td>
+                <td>Catatonia</td>
+                <td>Lorazepam</td>
+            </tr>
+            <tr>
+                <td>09/18/1963</td>
+                <td>Johannes Hospital, Berlin</td>
+                <td>Aggressive outbursts</td>
+                <td>Straitjacket</td>
+            </tr>
+            <tr>
+                <td>04/23/1964</td>
+                <td>Johannes Hospital, Berlin</td>
+                <td>Positive improvement</td>
+                <td>Provisional discharge</td>
+            </tr>
+            <tr>
+                <td>07/12/1968</td>
+                <td>Johannes Hospital, Berlin</td>
+                <td>Shock</td>
+                <td>Dobutamine</td>
+            </tr>
+            <tr>
+                <td>05/28/1970</td>
+                <td>Johannes Hospital, Berlin</td>
+                <td>Aggressive</td>
+                <td>Isolation</td>
+            </tr>
+            <tr>
+                <td>05/14/1971</td>
+                <td>Johannes Hospital, Berlin</td>
+                <td>Positive improvement</td>
+                <td>Discharged</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="note-section">
+        <div class="section-title">Notes</div>
+        <ul>
+            <li>Records before 1951: in Russian</li>
+            <li>Before 1958: no family name documented</li>
+            <li>1958–1963: "Magda Schmidt"</li>
+            <li>From 1964: "Magda Orlova"</li>
+            <li>Emergency contact (all institutions): Filip Kramer</li>
+            <li>Three other patients with identical institutional history and overlapping periods of stay</li>
+        </ul>
+    </div>
+
+    <div class="signature-block">
+        <div style="font-size: 10px; color: #4a4a4a;">Berlin, September 22, 2025</div>
+        <div>
+            <div class="signature-line">
+                Compiled: Institute of Forensic Medicine<br>
+                Charité — University Medicine Berlin
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

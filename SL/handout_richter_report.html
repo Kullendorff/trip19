@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charité — Vorläufiger Obduktionsbericht</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@400;600&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        @page {
+            size: A4;
+            margin: 1.5cm 2cm;
+        }
+
+        body {
+            background: #e8e4dc;
+            font-family: 'IBM Plex Mono', 'Courier New', monospace;
+            font-size: 11px;
+            color: #1a1a1a;
+            line-height: 1.5;
+            padding: 2rem;
+        }
+
+        .page {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 3rem 3.5rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        /* CHARITÉ HEADER */
+        .hospital-header {
+            border-bottom: 3px solid #1a1a1a;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .hospital-name {
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #1a1a1a;
+        }
+
+        .hospital-sub {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            color: #4a4a4a;
+            margin-top: 2px;
+        }
+
+        .department {
+            font-size: 11px;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            color: #2a2a2a;
+        }
+
+        .report-id {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 9px;
+            color: #6a6a6a;
+            text-align: right;
+        }
+
+        /* REPORT BODY */
+        .report-title {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 1.5rem 0;
+            padding: 0.5rem 0;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .field-grid {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .field-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #5a5a5a;
+            padding: 4px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .field-value {
+            font-size: 11px;
+            padding: 4px 0;
+            border-bottom: 1px solid #eee;
+            color: #1a1a1a;
+        }
+
+        .section-title {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #1a1a1a;
+            margin: 1.5rem 0 0.75rem 0;
+            padding-bottom: 3px;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .findings {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+        }
+
+        .findings li {
+            margin-bottom: 0.4rem;
+            font-size: 10.5px;
+            line-height: 1.5;
+        }
+
+        .findings li strong {
+            font-weight: 500;
+        }
+
+        .conclusion-box {
+            border: 1px solid #1a1a1a;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .conclusion-box p {
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        .signature-block {
+            margin-top: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .signature-line {
+            border-top: 1px solid #1a1a1a;
+            width: 250px;
+            padding-top: 4px;
+            font-size: 9px;
+            color: #5a5a5a;
+        }
+
+        .date-stamp {
+            font-size: 10px;
+            color: #4a4a4a;
+        }
+
+        /* HANDSKRIVNA MARGINALER — Richters egna noter */
+        .margin-note {
+            font-family: 'Caveat', cursive;
+            color: #1a3a6a;
+            font-size: 15px;
+            line-height: 1.4;
+            position: relative;
+            padding-left: 0.5rem;
+        }
+
+        .margin-right {
+            position: absolute;
+            right: -15px;
+            width: 220px;
+            transform: rotate(-1deg);
+        }
+
+        .inline-note {
+            font-family: 'Caveat', cursive;
+            color: #1a3a6a;
+            font-size: 14px;
+            display: inline;
+        }
+
+        .margin-block {
+            font-family: 'Caveat', cursive;
+            color: #1a3a6a;
+            font-size: 15px;
+            line-height: 1.5;
+            margin: 0.75rem 0;
+            padding: 0.5rem 0.75rem;
+            border-left: 2px solid rgba(26, 58, 106, 0.3);
+            background: rgba(26, 58, 106, 0.02);
+        }
+
+        .arrow {
+            font-family: 'Caveat', cursive;
+            color: #1a3a6a;
+            font-size: 16px;
+        }
+
+        .underline-hand {
+            border-bottom: 2px solid rgba(26, 58, 106, 0.4);
+            padding-bottom: 1px;
+        }
+
+        .circle-hand {
+            border: 2px solid rgba(26, 58, 106, 0.35);
+            border-radius: 50%;
+            padding: 0 4px;
+        }
+
+        /* STÄMPLAR */
+        .stamp-preliminary {
+            position: absolute;
+            top: 140px;
+            right: 40px;
+            border: 3px solid rgba(180, 40, 40, 0.6);
+            color: rgba(180, 40, 40, 0.6);
+            padding: 4px 14px;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transform: rotate(-8deg);
+        }
+
+        .stamp-confidential {
+            position: absolute;
+            top: 85px;
+            right: 35px;
+            border: 2px solid rgba(40, 40, 180, 0.4);
+            color: rgba(40, 40, 180, 0.4);
+            padding: 2px 10px;
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transform: rotate(-5deg);
+        }
+
+        p { margin-bottom: 0.5rem; font-size: 10.5px; line-height: 1.6; }
+
+        /* SECOND PAGE */
+        .page-break {
+            margin: 3rem 0;
+            border-top: 1px dashed #ccc;
+            padding-top: 2rem;
+        }
+
+        .page2-header {
+            font-size: 9px;
+            color: #6a6a6a;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .page { box-shadow: none; padding: 1.5cm 2cm; max-width: none; }
+            .page-break { page-break-before: always; margin-top: 0; border-top: none; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- STÄMPLAR -->
+    <div class="stamp-preliminary">VORLÄUFIG</div>
+    <div class="stamp-confidential">VERTRAULICH</div>
+
+    <!-- CHARITÉ HEADER -->
+    <div class="hospital-header">
+        <div class="hospital-name">Charité</div>
+        <div class="hospital-sub">Universitätsmedizin Berlin — Campus Charité Mitte</div>
+        <div class="department">Institut für Rechtsmedizin — Abteilung Forensische Pathologie</div>
+        <div class="report-id">
+            Akt.-Nr.: RM-2025-09-4471<br>
+            Bearb.: Dr. med. H.G. Richter<br>
+            Gebäude B, UG-2
+        </div>
+    </div>
+
+    <!-- TITLE -->
+    <div class="report-title">Vorläufiger Obduktionsbericht</div>
+
+    <!-- PATIENT DATA -->
+    <div class="field-grid">
+        <div class="field-label">Verstorbene</div>
+        <div class="field-value">Orlova, Magda</div>
+
+        <div class="field-label">Geburtsdatum</div>
+        <div class="field-value">14. Januar 1939, Leningrad, UdSSR</div>
+
+        <div class="field-label">Alter</div>
+        <div class="field-value">86 Jahre</div>
+
+        <div class="field-label">Staatsangehörigkeit</div>
+        <div class="field-value">Deutsch (eingebürgert 1962)</div>
+
+        <div class="field-label">Wohnsitz</div>
+        <div class="field-value">Brahmsallee 16, 20144 Hamburg / Leibnizstraße 97, 10625 Berlin</div>
+
+        <div class="field-label">Einlieferung</div>
+        <div class="field-value">20. September 2025, 09:14 Uhr — Notaufnahme, Campus Mitte</div>
+
+        <div class="field-label">Todeszeitpunkt</div>
+        <div class="field-value"><span class="underline-hand">21. September 2025, 15:39 Uhr</span></div>
+
+        <div class="field-label">Behandelnde Ärztin</div>
+        <div class="field-value">Dr. med. Maria Kellerman (Notaufnahme)</div>
+
+        <div class="field-label">Obduzent</div>
+        <div class="field-value">Dr. med. Hans Georg Richter (Rechtsmedizin)</div>
+
+        <div class="field-label">Obduktion durchgeführt</div>
+        <div class="field-value">21. September 2025, 17:00–18:45 Uhr</div>
+    </div>
+
+    <!-- TODESURSACHE -->
+    <div class="section-title">I. Todesursache (offiziell)</div>
+    <div class="conclusion-box">
+        <p><strong>Primär:</strong> Akuter Myokardinfarkt (Herzversagen)</p>
+        <p><strong>Sekundär:</strong> Pankreaskarzinom Stadium IV mit hepatischer Metastasierung</p>
+        <p><strong>Begleitend:</strong> Kachexie, Angststörung (behandelt), Schlafstörung</p>
+    </div>
+
+    <div class="margin-block">
+        Das ist die offizielle Version. Was ich sah — siehe unten.
+    </div>
+
+    <!-- VORGESCHICHTE -->
+    <div class="section-title">II. Vorgeschichte / Anamnese</div>
+    <ul class="findings">
+        <li><strong>Juni 2025:</strong> Erstdiagnose Pankreaskarzinom, Dr. Nathan Schönblum (Hamburg). Stadium IV bei Diagnosestellung. Inoperabel. Prognose: 3–6 Monate.</li>
+        <li><strong>Juli–August 2025:</strong> Palliative Behandlung. Konsultation bei 6 Ärzten in Hamburg — alle bestätigten Diagnose. Patientin lehnte Chemotherapie ab.</li>
+        <li><strong>Psychiatrische Medikation (abgesetzt Aug 2025):</strong>
+            <br>— Clozapin 100mg (atypisches Antipsychotikum)
+            <br>— Olanzapin 10mg (atypisches Antipsychotikum)
+            <br><span class="inline-note">← Warum Antipsychotika? Wegen Halluzinationen? Oder hat sie etwas GESEHEN?</span>
+        </li>
+        <li><strong>Aktive Medikation bei Aufnahme:</strong>
+            <br>— Lorazepam 1mg (Anxiolytikum)
+            <br>— Zolpidem 10mg (Schlafmittel / "Ambien")
+        </li>
+        <li><strong>Kiropraktor (Karl Essen, Hamburg):</strong> 1 Besuch. Keine medizinische Relevanz.</li>
+        <li><strong>Keine Verwandten dokumentiert.</strong> Nächste Kontaktperson: Irene Adler (Hamburg). <span class="inline-note">← + "die amerikanischen Freunde" lt. Telefon</span></li>
+    </ul>
+
+    <!-- ÄUSSERE UNTERSUCHUNG -->
+    <div class="section-title">III. Äußere Untersuchung</div>
+    <ul class="findings">
+        <li>Weiblicher Leichnam, 86 Jahre, kachektisch (BMI ~16.2)</li>
+        <li>Körperlänge: 158 cm, Gewicht: 40.5 kg</li>
+        <li>Ikterus (Gelbfärbung der Skleren und Haut)</li>
+        <li>Keine äußeren Verletzungszeichen</li>
+        <li>Keine Petechien, keine Stauungsblutungen</li>
+        <li>Haut: dünn, pergamentartig, multiple Hämatome (altersbedingt)</li>
+    </ul>
+
+    <div class="margin-block">
+        Äußerlich: NICHTS. Keine Beulen, keine Läsionen, keine Larven-Austrittsspuren.<br>
+        Erst bei der Eröffnung der Brusthöhle.
+    </div>
+
+    <!-- INNERE UNTERSUCHUNG -->
+    <div class="section-title">IV. Innere Untersuchung (Sektion)</div>
+
+    <p><strong>Brusthöhle:</strong></p>
+    <ul class="findings">
+        <li>Herz: 285g (Normalgewicht). <strong>Akuter transmuraler Myokardinfarkt, posterolateral.</strong> Koronararterien: mäßige Atherosklerose (altersgemäß).</li>
+        <li>Myokard: Linksventrikuläre Wand — <span class="underline-hand">unregelmäßige Gewebedefekte</span>, nicht konsistent mit Infarkt-Nekrose.
+            <div class="margin-block">
+                Hier. Die Defekte. Nicht Nekrose — KONSUMTION. Geweberänder glatt, nicht ausgefranst. Wie von etwas GEFRESSEN. Keine bakterielle Infektion nachweisbar. Keine Pilzkultur positiv. Histologie zeigt: leere Kanäle, 2-4mm Durchmesser, die durch das Myokard verlaufen. Ich habe 14 gezählt.
+            </div>
+        </li>
+        <li>Lungen: Beidseitig Pleuraerguss (je ~200ml). Stauungslunge. Keine Pneumonie.</li>
+        <li>Perikard: Unauffällig. <span class="inline-note">← Aber 3 Larven IM Perikard. Nur ich konnte sie sehen.</span></li>
+    </ul>
+
+    <p><strong>Bauchhöhle:</strong></p>
+    <ul class="findings">
+        <li>Pankreas: Tumormasse 4.2 × 3.1 × 2.8 cm (Corpus). Infiltration in Ductus choledochus. Hepatische Metastasen (multiple, bilobulär, max. 1.8 cm).</li>
+        <li>Leber: 1450g (vergrößert). Metastasenleber. Ikterus bestätigt.</li>
+        <li>Milz, Nieren, Magen-Darm: Altersgemäß, keine Auffälligkeiten.</li>
+    </ul>
+
+    <!-- PAGE 2 -->
+    <div class="page-break">
+        <div class="page2-header">
+            Charité — Rechtsmedizin | Akt.-Nr. RM-2025-09-4471 | Orlova, Magda | Seite 2 von 2
+        </div>
+    </div>
+
+    <!-- RICHTERS EIGENANTEIL -->
+    <div class="section-title">V. Zusätzliche Befunde (nicht im offiziellen Bericht)</div>
+
+    <div class="margin-block" style="border-left-color: rgba(180, 40, 40, 0.5); background: rgba(180, 40, 40, 0.02);">
+        ACHTUNG — Folgende Befunde sind NICHT in der offiziellen Akte dokumentiert.<br>
+        Sie sind nur für mich sichtbar. Bestätigung durch zweiten Beobachter ausstehend.<br><br>
+
+        <strong>1. Parasitäre Organismen ("Larven")</strong><br>
+        — Schwarz, 2–4 mm Länge, dunkle Kopfsegmente<br>
+        — Lichtscheu (ziehen sich von direkter Beleuchtung zurück)<br>
+        — Lokalisiert: Perikard (3 St.), Myokard-Kanäle (vermutlich 14+), subkutanes Gewebe entlang der Rippen<br>
+        — LEBEND bei Entnahme. Weiterhin motil in Formalin.<br>
+        — Asservate: Gläser A, B, C. Kühlschrank 3, Regal 2.<br><br>
+
+        <strong>2. Sichtbarkeit</strong><br>
+        — Dr. Kellerman (Notaufnahme): sieht NICHTS<br>
+        — Pfleger Schmidt, Pfleger Yilmaz: sehen NICHTS<br>
+        — Ich: sehe sie klar. Warum?<br><br>
+
+        <strong>3. Literaturverweise</strong><br>
+        — Lyubimov, V. (1947): "Bolezni Voyny" [Die Krankheiten des Krieges], Moskau, S. 34–38.<br>
+        &nbsp;&nbsp;&nbsp;Identische Beschreibung: schwarze Larven, subkutan, bei sowjetischen Soldaten nach Leningrad 1942.<br>
+        — Toporov, A. (1922): "The Curse of Diseases", London, Kap. 7 ("Dream Curses"), S. 112.<br>
+        &nbsp;&nbsp;&nbsp;"Caused by a curse, black magic. Dormant for decades. Activation through proximity to source."<br><br>
+
+        <strong>4. Inkubationszeit</strong><br>
+        — Lt. Toporov: 2–6 Monate von Aktivierung bis Tod<br>
+        — Patientin Orlova: exponiert seit Kindheit (Leningrad, ca. 1942)<br>
+        — Parasit RUHEND seit 83 Jahren<br>
+        — Frage: <strong>Was hat die Aktivierung ausgelöst?</strong><br>
+        &nbsp;&nbsp;&nbsp;<span class="arrow">→</span> Kontakt mit den drei Männern? (19. Sept, Hamburg — lt. Adressbuch)<br>
+        &nbsp;&nbsp;&nbsp;<span class="arrow">→</span> Rituelle Aktivierung? (247 Hz?)<br>
+        &nbsp;&nbsp;&nbsp;<span class="arrow">→</span> Stress + geschwächtes Immunsystem (Karzinom)?<br><br>
+
+        <strong>5. Pankreaskarzinom ↔ Parasit</strong><br>
+        — Zusammenhang? Oder unabhängige Prozesse?<br>
+        — Hypothese: Parasit nutzt geschwächten Wirt. Karzinom = Trigger, nicht Ursache.<br>
+        — Alternativ: Parasit IST der Krebs. Onkologische Tarnung.<br><br>
+
+        <strong style="color: #8a2020;">6. Die Amerikaner</strong><br>
+        — Fünf Personen, angereist aus den USA. Kannten die Verstorbene.<br>
+        — Waren am 19. September in Hamburg anwesend (gleiche Exposition?).<br>
+        — Lagen 20.–21. September mit hohem Fieber im Hotel (lt. eigener Aussage).<br>
+        — <strong>Hypothese: ebenfalls infiziert.</strong><br>
+        — Blutproben angefordert für 22. September.<br>
+        — Wenn bestätigt: 2–6 Monate.
+    </div>
+
+    <!-- FAZIT -->
+    <div class="section-title">VI. Vorläufiges Fazit</div>
+    <div class="conclusion-box">
+        <p><strong>Offiziell:</strong> Natürlicher Tod. Herzversagen bei fortgeschrittenem Pankreaskarzinom. Keine Fremdeinwirkung. Keine polizeiliche Ermittlung empfohlen.</p>
+    </div>
+
+    <div class="margin-block">
+        Das offizielle Fazit ist medizinisch korrekt — und vollständig unzureichend.<br><br>
+        Die Wahrheit: Etwas hat sie von innen aufgefressen. Etwas, das seit 83 Jahren in ihr schlief. Etwas, das nur bestimmte Menschen sehen können.<br><br>
+        Ich muss mit Dr. Engler sprechen. Sie hat damals etwas gezeichnet — Schädel mit etwas Lebendigem darunter. 2011. Sie wusste es schon.<br><br>
+        — H.G.R.
+    </div>
+
+    <!-- SIGNATUR -->
+    <div class="signature-block">
+        <div>
+            <div class="date-stamp">Berlin, den 21. September 2025</div>
+        </div>
+        <div>
+            <div class="signature-line">
+                Dr. med. Hans Georg Richter<br>
+                Facharzt für Rechtsmedizin
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

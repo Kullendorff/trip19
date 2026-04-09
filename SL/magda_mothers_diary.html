@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dagbok — Frankfurt Clinic 1946–1952</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=IM+Fell+English:ital@0;1&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #1a1611;
+            color: #2c2318;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            line-height: 1.8;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* SL-HEADER - syns bara för GM */
+        .gm-header {
+            background: #0d1414;
+            border: 2px solid #4a90a4;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            font-family: 'Courier New', monospace;
+            color: #d1d5db;
+        }
+
+        .gm-header h1 {
+            color: #4a90a4;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gm-header p {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gm-header .warning {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 3px solid #ff4444;
+            padding: 0.75rem 1rem;
+            margin-top: 1rem;
+            color: #ff4444;
+            font-size: 0.85rem;
+        }
+
+        .gm-note {
+            background: rgba(255, 204, 0, 0.08);
+            border-left: 3px solid #ffcc00;
+            padding: 0.5rem 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: #b0a080;
+            font-style: italic;
+        }
+
+        /* DAGBOKEN */
+        .diary {
+            background: #f4ead0;
+            background-image:
+                radial-gradient(ellipse at 20% 50%, rgba(139, 109, 63, 0.08) 0%, transparent 70%),
+                radial-gradient(ellipse at 80% 20%, rgba(101, 67, 33, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 90%, rgba(160, 120, 60, 0.05) 0%, transparent 50%);
+            border-radius: 4px;
+            padding: 3rem 3.5rem;
+            box-shadow:
+                0 2px 20px rgba(0,0,0,0.4),
+                inset 0 0 60px rgba(139, 109, 63, 0.1);
+            position: relative;
+            border: 1px solid #c4a96a;
+        }
+
+        .diary::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 40px;
+            bottom: 0;
+            width: 1px;
+            background: rgba(180, 60, 60, 0.15);
+        }
+
+        .diary-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(44, 35, 24, 0.2);
+        }
+
+        .diary-title h2 {
+            font-family: 'IM Fell English', Georgia, serif;
+            font-size: 1.6rem;
+            color: #3a2a18;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .diary-title .subtitle {
+            font-size: 1rem;
+            color: #7a6a52;
+            font-style: italic;
+        }
+
+        .entry {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(44, 35, 24, 0.08);
+        }
+
+        .entry:last-of-type {
+            border-bottom: none;
+        }
+
+        .entry-date {
+            font-family: 'IM Fell English', Georgia, serif;
+            font-size: 1.05rem;
+            color: #5a3a1a;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        .entry-text {
+            font-size: 1.15rem;
+            color: #2c2318;
+            text-indent: 1.5rem;
+        }
+
+        .entry-text p {
+            margin-bottom: 0.75rem;
+        }
+
+        .russian {
+            font-style: italic;
+            color: #4a3520;
+        }
+
+        .scratched {
+            text-decoration: line-through;
+            color: #8a7a62;
+        }
+
+        .emphasis {
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .trembling {
+            font-size: 1.05rem;
+            letter-spacing: 1px;
+            word-spacing: 2px;
+        }
+
+        .sketch-note {
+            background: rgba(139, 109, 63, 0.08);
+            border: 1px dashed rgba(44, 35, 24, 0.2);
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+            color: #6a5a42;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .stain {
+            position: relative;
+        }
+
+        .stain::after {
+            content: "";
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            background: radial-gradient(ellipse, rgba(101, 67, 33, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            right: -10px;
+            top: -10px;
+            pointer-events: none;
+        }
+
+        .final-entry {
+            border: 2px solid rgba(120, 40, 40, 0.3);
+            padding: 1.5rem;
+            margin-top: 2rem;
+            background: rgba(120, 40, 40, 0.03);
+        }
+
+        .final-entry .entry-date {
+            color: #6a2020;
+        }
+
+        .torn-edge {
+            margin-top: 1rem;
+            text-align: center;
+            color: #8a7a62;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .translation-note {
+            background: rgba(74, 144, 164, 0.06);
+            border-left: 2px solid rgba(74, 144, 164, 0.3);
+            padding: 0.5rem 1rem;
+            margin: 0.5rem 0 0.5rem 1.5rem;
+            font-size: 0.95rem;
+            color: #5a6a72;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 1rem; }
+            .diary { padding: 2rem 1.5rem; }
+            .diary::before { left: 20px; }
+            .entry-text { font-size: 1.05rem; }
+        }
+
+        @media print {
+            .gm-header, .gm-note { display: none; }
+            body { background: white; padding: 0; }
+            .diary { box-shadow: none; border: none; padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- GM HEADER -->
+    <div class="gm-header">
+        <h1>HANDOUT — Mammans Dagbok</h1>
+        <p><strong>Artefakt:</strong> Dagbok skriven av Magdas mor, först på Kirovkliniken (Moskva, 1946–51) sedan Frankfurt Clinic (1951–52)</p>
+        <p><strong>Språk:</strong> Ryska (original). Presenteras här som översättning — spelarna behöver någon som kan ryska för att läsa den, eller Magdas delöversättning i hennes väska.</p>
+        <p><strong>Var hittad:</strong> Gömd bakom lös panel i garderob, Brahmsallee 16 Hamburg. Magda tog den till Berlin. Nu i Magdas väska på Charité.</p>
+        <p><strong>Fysisk form:</strong> Tunn, sliten skrivbok med pappärm. Blyerts och bläck. Vissa sidor vattenskadade. Skisser i marginalen.</p>
+        <div class="warning">
+            ⚠ KRÄVER ÖVERSÄTTNING: Dagboken är på ryska. Spelarna kan: (1) Be Richter hjälpa (han läser ryska), (2) Använda Google Translate (opålitligt med handstil), (3) Hitta Irenes tyska översättning, (4) Kontakta Arnold Weiss (talar ryska). Att översätta hela dagboken tar minst 8 timmar. Dessa utdrag är de viktigaste passagerna.
+        </div>
+    </div>
+
+    <!-- DAGBOKEN -->
+    <div class="diary">
+
+        <div class="diary-title">
+            <h2>Дневник</h2>
+            <div class="subtitle">Kirovkliniken, Moskva 1946–1951 / Frankfurt an der Oder 1951–1952</div>
+        </div>
+
+        <!-- ENTRY 1 -->
+        <div class="entry stain">
+            <div class="entry-date">17 mars 1946</div>
+            <div class="entry-text">
+                <p>Vi kom hit igår. De kallar det <span class="russian">Реабилитационный центр</span> — ett rehabiliteringscenter. Byggnaden liknar en kasern, grå betong med galler för fönstren på undervåningen, men de övre fönstren är öppna. Jag har ett rum med Magda. Vit vägg, järnsäng, ett litet fönster mot innergården. Magda fick en docka av en sköterska. Det är den första leksaken hon haft sedan Leningrad.</p>
+                <p>Det är inte S-17. Ingen talar om det här som ett läger. De säger <span class="russian">клиника</span>, klinik. Det finns mat. Det finns varmt vatten. Jag gråter på toaletten så att Magda inte ser.</p>
+                <p>Dr. Tatlina följde med oss från Moskva. Hon ser trött ut. Jag tror hon är den enda som förstår vad vi har sett.</p>
+            </div>
+        </div>
+
+        <div class="gm-note">SL: Dr. Natalya Tatlina — sovjetisk barnpsykiater som drev S-17-programmet. Följde med patienterna till Frankfurt. Dog 1973.</div>
+
+        <!-- ENTRY 2 -->
+        <div class="entry">
+            <div class="entry-date">9 juni 1946</div>
+            <div class="entry-text">
+                <p>Magda leker med de andra barnen i trädgården. Sju år. Hon skrattar. Jag har inte hört det ljudet sedan innan.</p>
+                <p>De tre pojkarna är i en annan flygel. Anatoly, Sasha, Filip. Jag ser dem ibland genom fönstret — de sitter i gräset, tysta, rör sig inte. De andra barnen undviker dem instinktivt, som djur som känner rök innan elden syns.</p>
+                <p>Sköterska Hilde säger att de tre pojkarna är "friska" och "normala." Hon tror det. Hon var inte i Leningrad.</p>
+            </div>
+        </div>
+
+        <!-- ENTRY 3 -->
+        <div class="entry">
+            <div class="entry-date">2 november 1947</div>
+            <div class="entry-text">
+                <p>Jag började berätta för Dr. Tatlina vad jag minns. Hon skrev ner allt. Bandspelaren snurrade. Jag berättade om natten. Om ljuset.</p>
+                <p>Nyårsafton. Klockan var strax före midnatt. Vi var i källaren under Kalenkos hus — alla vi, barnen, de vuxna som var kvar. Det var så kallt att andedräkten frös på väggarna. Ljusen hade slocknat utom ett.</p>
+                <p>Sedan kom ljuset. Inte från stearinljuset — uppifrån, eller inifrån, jag vet inte. Det var <span class="emphasis">blått och vitt och det brände utan värme</span>. Det varade kanske tio sekunder, kanske en minut. Tiden slutade.</p>
+                <p>De tre männen — Garudin, Ignatiev, och Pogodin, som de hette då — de stod närmast centrum. Deras kroppar kröktes bakåt. Jag hörde ben brytas. Nej — inte brytas. <span class="emphasis">Omformas.</span></p>
+            </div>
+        </div>
+
+        <div class="sketch-note">[Skiss i marginalen: tre figurer i en cirkel, böjda bakåt, linjer strålande uppåt/inåt. Barntecknings-stil, men gjord av en vuxen med darrig hand.]</div>
+
+        <!-- ENTRY 4 -->
+        <div class="entry">
+            <div class="entry-date">2 november 1947 (forts.)</div>
+            <div class="entry-text">
+                <p>Barnen skrek. Alla utom de tre pojkarna. Anatoly, Sasha och Filip bara stod och tittade. Filip — som var minst, kanske sex, sju — log. Det var ingen barnlig glädje. Det var igenkännande.</p>
+                <p>Sedan försvann ljuset. Det som var kvar var mörkare. Jag kände det i bröstet — en tyngd, som om luften blivit tjockare. Barnen kring mig grät. Magda, min Magda, låg på mitt bröst och skakade men sa ingenting. Hon var tyst. Tre år gammal och tyst som en sten.</p>
+                <p>De tre männen — Garudin, Ignatiev, Pogodin — reste sig. Deras ansikten var desamma. Men deras ögon var inte desamma.</p>
+                <p>Jag visste det redan då. De var inte längre de personer de hade varit.</p>
+            </div>
+        </div>
+
+        <!-- ENTRY 5 -->
+        <div class="entry">
+            <div class="entry-date">14 april 1948</div>
+            <div class="entry-text">
+                <p>Behandlingarna. Jag skriver ner dem för att jag måste. Någon måste veta vad de gör här.</p>
+                <p>Elchocker, tre gånger i veckan. De spänner fast barnen. Jag hör det genom väggen — Misha skriker, sedan tystnad. De kallar det <span class="russian">электросудорожная терапия</span>. De säger att det hjälper. Det hjälper inte.</p>
+                <p>Nere i källarvåningen finns det rum jag inte får gå in i. <span class="russian">Специальное отделение</span> — specialavdelningen. De barn som förändrades mest är där. Ibland om natten hör jag ljud därifrån som inte låter mänskliga.</p>
+                <p>Jag frågade Dr. Tatlina vad som finns där. Hon tittade bort och sa: "Dem kan vi inte hjälpa."</p>
+            </div>
+        </div>
+
+        <!-- ENTRY 6 -->
+        <div class="entry">
+            <div class="entry-date">23 september 1949</div>
+            <div class="entry-text">
+                <p>Anatoly fyllde 13 idag. Jag såg honom i korridoren. Han ser ut exakt som han gjorde för tre år sedan. Exakt. Inte äldre, inte längre, inte ens annorlunda hår. Som en fotograferad bild som nålats fast i verkligheten.</p>
+                <p>Sasha också. Och Filip.</p>
+                <p>De andra barnen växer. Magda växer. Misha har fått sin första tandlucka. Anya är nästan lika lång som jag nu.</p>
+                <p>De tre pojkarna växer inte.</p>
+                <p>Sköterskan Hilde mäter dem varje månad. Jag såg hennes anteckningar. Samma längd, samma vikt, samma allt. Sedan augusti 1946. Tre år utan förändring. Hon har understrukit siffrorna med rött men skrivit ingenting i marginalen. Vad skulle hon skriva?</p>
+            </div>
+        </div>
+
+        <!-- ENTRY 7 -->
+        <div class="entry stain">
+            <div class="entry-date">11 februari 1950</div>
+            <div class="entry-text">
+                <p>Jag vaknade klockan tre av ett ljud. Inte från specialavdelningen — det var ett <span class="emphasis">hummande</span>. Lågt, jämnt, som ett ölglas som vibrerar på ett bord. Jag gick ut i korridoren.</p>
+                <p>Sashas dörr stod öppen. Han satt på golvet i sitt rum, korslagda ben, ögon stängda. Han <span class="emphasis">hummade</span>. En ton. Samma ton. Den gick genom golvet, genom väggarna, genom mina tänder.</p>
+                <p>Jag stod där i kanske en minut. Han öppnade ögonen.</p>
+                <p>Han visste att jag var där. Han hade <span class="emphasis">vetat hela tiden</span>.</p>
+                <p>Han sa: <span class="russian">"Ты всё ещё помнишь."</span></p>
+                <p>"Du minns fortfarande."</p>
+                <p>Jag gick tillbaka till rummet. Låste dörren. Höll om Magda.</p>
+            </div>
+        </div>
+
+        <div class="gm-note">SL: 247 Hz. Sasha hummar denna frekvens konstant sedan transformationen. Spelarna borde känna igen den från författarkvällen.</div>
+
+        <!-- ENTRY 8 -->
+        <div class="entry">
+            <div class="entry-date">6 mars 1950</div>
+            <div class="entry-text">
+                <p>Drömmar igen. Varje natt nu.</p>
+                <p>Källaren under Kalenkos hus. Barnens ansikten. Ljuset. Men i drömmen ser jag mer — jag ser vad som var <span class="emphasis">under</span> ljuset. Något stort. Ofattbart stort. Inte en varelse — en <span class="scratched">plats</span> en geometri. Vinklar som inte borde finnas. Ett mönster som rör sig.</p>
+                <p>Jag tror det är det som kom igenom. Natten då. Det som de tre männen <span class="emphasis">blev</span>.</p>
+                <p>Filip besöker mig i drömmen. Han sitter vid min säng och håller min hand. Han ser ut som ett barn men hans leende är gammal. Urgammal. Han säger: <span class="russian">"Не бойся. Мы все связаны."</span> "Var inte rädd. Vi är alla förbundna."</p>
+                <p>Jag vet inte om det är en dröm. Jag vet inte om det spelar roll.</p>
+            </div>
+        </div>
+
+        <div class="gm-note">SL: Filip kan röra sig i andras medvetanden under sömn. Modern upplever detta men tolkar det som drömmar. Spelarna kanske känner igen mönstret om de själva drömmer i Berlin.</div>
+
+        <!-- ENTRY 9 -->
+        <div class="entry">
+            <div class="entry-date">3 oktober 1950</div>
+            <div class="entry-text">
+                <p>Nytt läkemedel. De injicerar det i armen, gult, tjockt. Dr. Tatlina kallar det <span class="russian">препарат 7</span>, preparat 7. Säger att det ska dämpa drömmarna.</p>
+                <p>Det dämpar ingenting. Det gör mig svag. Magda frågar varför jag inte orkar gå i trappan längre.</p>
+                <p>De tre pojkarna får inga injektioner. De behöver inte "behandlas." De förbättras tydligen. Men jag vet vad jag ser — de förbättras inte. <span class="emphasis">De väntar.</span></p>
+            </div>
+        </div>
+
+        <!-- ENTRY 10 -->
+        <div class="entry">
+            <div class="entry-date">19 januari 1951</div>
+            <div class="entry-text">
+                <p>Pyotr är sämre. Det lilla barnet vi hittade i Leningrad — han var spädbarn 1942, knappt ett år. Nu är han nio men ser ut som <span class="scratched">trettio</span> en gammal man i barns kropp. Huden hänger. Ögonen ligger djupt. Sköterskan gråter när hon matar honom.</p>
+                <p>De andra barnen också — Misha rör sig annorlunda nu. Hans leder böjs åt håll de inte borde. Han gör det medvetet, jag ser det. Han <span class="emphasis">testar vad hans kropp kan göra</span>.</p>
+                <p>Jag bad dem flytta Magda från barnavdelningen. Hon bor med mig nu. Dörren låst.</p>
+            </div>
+        </div>
+
+        <div class="sketch-note">[Skiss i marginalen: ett barn med oproportionerligt stora ögon och händer som böjs bakåt vid handlederna. Under: "Misha, jan 51"]</div>
+
+        <!-- ENTRY 11 -->
+        <div class="entry">
+            <div class="entry-date">8 maj 1951</div>
+            <div class="entry-text">
+                <p>De tre pojkarna ska skrivas ut.</p>
+                <p>Dr. Schäfer — klinikens nye ledare sedan Tatlina reste tillbaka till Moskva — säger att de är "rehabiliterade." Han visar mig deras journaler. Perfekta värden. Normalt beteende. Inga tecken på psykisk ohälsa.</p>
+                <p>Jag sa åt honom att de inte åldras. Jag visade honom mätningarna. Tre år utan förändring.</p>
+                <p>Han tittade på mig länge. Sedan sa han: "Det finns ingen medicinsk förklaring, alltså finns det ingen medicinsk anledning att hålla dem kvar."</p>
+                <p>Han vet. Han <span class="emphasis">vet</span> att något är fel. Men han vill inte veta. Det är enklare att skriva ut dem och glömma.</p>
+            </div>
+        </div>
+
+        <!-- ENTRY 12 -->
+        <div class="entry">
+            <div class="entry-date">22 november 1951</div>
+            <div class="entry-text">
+                <p>De tre pojkarna lämnade kliniken i september. Jag hörde ingenting på två månader. Sedan igår.</p>
+                <p>Helga — en av de äldre patienterna, hon som har sett nästan lika mycket som jag — fick ett brev. Hennes syster bor i Berlin. Systern skriver att det har startats en ny förening i östra Berlin. <span class="russian">Славянское объединение.</span> Slaviska sällskapet. Tre unga män driver det. De arrangerar kulturkvällar, matinsamlingar, ryska högtider.</p>
+                <p>Helga visade mig brevet. "Visste du inte?" frågade hon. "En av dem frågade specifikt efter dig. Den yngste. Filip."</p>
+                <p>Jag sov inte inatt.</p>
+            </div>
+        </div>
+
+        <!-- ENTRY 13 -->
+        <div class="entry">
+            <div class="entry-date">14 december 1951</div>
+            <div class="entry-text">
+                <p>Jag har skrivit brev till alla jag kan nå. Helgas syster. Doktor Tatlinas kontor i Moskva. Två gamla grannar från Leningrad som jag tror överlevde.</p>
+                <p>Ingen svarar. Eller så svarar de med ingenting. "Jag förstår inte vad du menar." "Det låter som du är sjuk." "Kanske borde du prata med din läkare."</p>
+                <p>Magda är tolv nu. Smart. Tyst. Hon frågar inte om Leningrad. Jag tror hon inte minns. Kanske är det bäst så. Kanske inte. Hur skyddar jag henne mot något hon inte vet finns?</p>
+            </div>
+        </div>
+
+        <!-- FINAL ENTRY -->
+        <div class="entry final-entry">
+            <div class="entry-date">3 februari 1952</div>
+            <div class="entry-text trembling">
+                <p>Jag orkar inte mer. Kroppen sviker mig. Dr. Schäfer säger att det inte finns något fel — men jag känner det inuti. Samma sak som Leningrad. Något som <span class="emphasis">rör sig under huden</span>. Klåda som inte går att nå.</p>
+                <p>Filip var här igår. I drömmen eller på riktigt — jag vet inte längre. Han satt vid sängkanten. Han sa: <span class="russian">"Спасибо, что помнишь нас."</span> "Tack för att du minns oss." Han grät. Jag tror att han grät.</p>
+                <p>Magda. Min lilla Magda. Om du läser detta en dag —</p>
+                <p><span class="emphasis">De tre männen lever.</span></p>
+                <p><span class="emphasis">Berlin. Slaviska Sällskapet.</span></p>
+                <p><span class="emphasis">De ser ut som barn men de är inte barn. De åldras inte. De väntar på något.</span></p>
+                <p><span class="emphasis">Spring inte till dem. Spring inte från dem. De hittar dig ändå.</span></p>
+                <p><span class="emphasis">Sök sanningen men lita inte på dina drömmar.</span></p>
+                <p>Förlåt mig. Jag ville ge dig ett bättre liv.</p>
+                <p style="margin-top: 1.5rem; text-align: right; font-style: italic; color: #5a3a1a;">— M.</p>
+            </div>
+        </div>
+
+        <div class="torn-edge">
+            [Resterande sidor är tomma. Bläckfläckar på sista sidans baksida, som om pennan lämnades liggande öppen.]
+        </div>
+
+    </div>
+
+    <!-- GM NOTER -->
+    <div class="gm-header" style="margin-top: 2rem;">
+        <h1>SL-NOTER — Spelareffekt</h1>
+
+        <p><strong>Vad dagboken BEVISAR för spelarna:</strong></p>
+        <ul style="margin: 1rem 0; padding-left: 1.5rem; color: #d1d5db; font-size: 0.9rem;">
+            <li>Leningrad nyårsnatt 1942 — ögonvittnesskildring av transformationen</li>
+            <li>De tre männen ÅLDRAS INTE (bekräftar fotobevisen från kontoret)</li>
+            <li>247 Hz-hummandet har funnits sedan 1950 (minst)</li>
+            <li>Filip besöker folk i drömmar — spelarna kan ha drömmar i Berlin</li>
+            <li>Slaviska Sällskapet grundat av de tre männen i Östberlin</li>
+            <li>Modern dog av "samma sak" — parasiten</li>
+            <li>Pyotr (som skickade vykortet "Jag har sett HAN") var spädbarn i Leningrad</li>
+        </ul>
+
+        <p><strong>Vad dagboken INTE säger:</strong></p>
+        <ul style="margin: 1rem 0; padding-left: 1.5rem; color: #d1d5db; font-size: 0.9rem;">
+            <li>Kristallens natur eller ursprung (hon vet inte vad det var)</li>
+            <li>Vad "Det Som Fängslades" är (hon beskriver geometri, inte en entitet)</li>
+            <li>Hur man botar parasiten</li>
+            <li>Var Kalenkos hus ligger exakt (hon minns bara Vasilyevsky Island)</li>
+            <li>Moderns riktiga namn (hon signerar bara "M.")</li>
+        </ul>
+
+        <p style="margin-top: 1rem;"><strong>Översättningstid:</strong> 8 timmar för hela dagboken. Richter kan hjälpa (läser ryska). Arnold Weiss talar ryska flytande. Google Translate ger ~60% korrekt men missar nyanser och handstil. Irene Adler har en <strong>tysk översättning</strong> som Magda gav henne.</p>
+
+        <div class="warning">
+            ⚠ PRESENTERA INTE ALLT PÅ EN GÅNG. Ge spelarna 2–3 utdrag initialt (entry 3, 6, och sista). Resten avslöjas under Berlin-undersökningen allteftersom de översätter mer eller hittar Irenes kopia.
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

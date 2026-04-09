@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charité — Preliminary Autopsy Report (Translated)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@400;600&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        @page {
+            size: A4;
+            margin: 1.5cm 2cm;
+        }
+
+        body {
+            background: #e8e4dc;
+            font-family: 'IBM Plex Mono', 'Courier New', monospace;
+            font-size: 11px;
+            color: #1a1a1a;
+            line-height: 1.5;
+            padding: 2rem;
+        }
+
+        .page {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 3rem 3.5rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .hospital-header {
+            border-bottom: 3px solid #1a1a1a;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .hospital-name { font-size: 22px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: #1a1a1a; }
+        .hospital-sub { font-size: 10px; letter-spacing: 1.5px; color: #4a4a4a; margin-top: 2px; }
+        .department { font-size: 11px; font-weight: 500; margin-top: 0.5rem; color: #2a2a2a; }
+
+        .report-id {
+            position: absolute; top: 0; right: 0;
+            font-size: 9px; color: #6a6a6a; text-align: right;
+        }
+
+        .report-title {
+            text-align: center;
+            font-size: 14px; font-weight: 500;
+            letter-spacing: 2px; text-transform: uppercase;
+            margin: 1.5rem 0; padding: 0.5rem 0;
+            border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;
+        }
+
+        .field-grid {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .field-label {
+            font-size: 9px; text-transform: uppercase;
+            letter-spacing: 1px; color: #5a5a5a;
+            padding: 4px 0; border-bottom: 1px solid #eee;
+        }
+
+        .field-value {
+            font-size: 11px; padding: 4px 0;
+            border-bottom: 1px solid #eee; color: #1a1a1a;
+        }
+
+        .section-title {
+            font-size: 11px; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 1.5px;
+            color: #1a1a1a;
+            margin: 1.5rem 0 0.75rem 0;
+            padding-bottom: 3px; border-bottom: 2px solid #1a1a1a;
+        }
+
+        .findings { margin: 0.5rem 0; padding-left: 1rem; }
+        .findings li { margin-bottom: 0.4rem; font-size: 10.5px; line-height: 1.5; }
+        .findings li strong { font-weight: 500; }
+
+        .conclusion-box {
+            border: 1px solid #1a1a1a;
+            padding: 1rem; margin: 1.5rem 0;
+        }
+
+        .conclusion-box p { font-size: 11px; line-height: 1.6; }
+
+        .signature-block {
+            margin-top: 2.5rem;
+            display: flex; justify-content: space-between; align-items: flex-end;
+        }
+
+        .signature-line {
+            border-top: 1px solid #1a1a1a;
+            width: 250px; padding-top: 4px;
+            font-size: 9px; color: #5a5a5a;
+        }
+
+        .date-stamp { font-size: 10px; color: #4a4a4a; }
+
+        .margin-note {
+            font-family: 'Caveat', cursive;
+            color: #1a3a6a; font-size: 15px;
+            line-height: 1.4; position: relative;
+            padding-left: 0.5rem;
+        }
+
+        .inline-note {
+            font-family: 'Caveat', cursive;
+            color: #1a3a6a; font-size: 14px; display: inline;
+        }
+
+        .margin-block {
+            font-family: 'Caveat', cursive;
+            color: #1a3a6a; font-size: 15px; line-height: 1.5;
+            margin: 0.75rem 0; padding: 0.5rem 0.75rem;
+            border-left: 2px solid rgba(26, 58, 106, 0.3);
+            background: rgba(26, 58, 106, 0.02);
+        }
+
+        .arrow {
+            font-family: 'Caveat', cursive;
+            color: #1a3a6a; font-size: 16px;
+        }
+
+        .underline-hand {
+            border-bottom: 2px solid rgba(26, 58, 106, 0.4);
+            padding-bottom: 1px;
+        }
+
+        .stamp-preliminary {
+            position: absolute; top: 140px; right: 40px;
+            border: 3px solid rgba(180, 40, 40, 0.6);
+            color: rgba(180, 40, 40, 0.6);
+            padding: 4px 14px; font-size: 14px; font-weight: 500;
+            letter-spacing: 3px; text-transform: uppercase;
+            transform: rotate(-8deg);
+        }
+
+        .stamp-confidential {
+            position: absolute; top: 85px; right: 35px;
+            border: 2px solid rgba(40, 40, 180, 0.4);
+            color: rgba(40, 40, 180, 0.4);
+            padding: 2px 10px; font-size: 9px; font-weight: 500;
+            letter-spacing: 2px; text-transform: uppercase;
+            transform: rotate(-5deg);
+        }
+
+        .translation-note {
+            font-size: 9px; color: #888;
+            text-align: center; margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        p { margin-bottom: 0.5rem; font-size: 10.5px; line-height: 1.6; }
+
+        .page-break {
+            margin: 3rem 0; border-top: 1px dashed #ccc; padding-top: 2rem;
+        }
+
+        .page2-header {
+            font-size: 9px; color: #6a6a6a;
+            margin-bottom: 1.5rem; padding-bottom: 0.5rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .page { box-shadow: none; padding: 1.5cm 2cm; max-width: none; }
+            .page-break { page-break-before: always; margin-top: 0; border-top: none; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- STAMPS -->
+    <div class="stamp-preliminary">PRELIMINARY</div>
+    <div class="stamp-confidential">CONFIDENTIAL</div>
+
+    <!-- CHARITÉ HEADER -->
+    <div class="hospital-header">
+        <div class="hospital-name">Charité</div>
+        <div class="hospital-sub">University Medicine Berlin — Campus Charité Mitte</div>
+        <div class="department">Institute of Forensic Medicine — Department of Forensic Pathology</div>
+        <div class="report-id">
+            Case No.: RM-2025-09-4471<br>
+            Examiner: Dr. med. H.G. Richter<br>
+            Building B, Sub-level 2
+        </div>
+    </div>
+
+    <div class="translation-note">Translated from German original by Dr. H. Engler</div>
+
+    <!-- TITLE -->
+    <div class="report-title">Preliminary Autopsy Report</div>
+
+    <!-- PATIENT DATA -->
+    <div class="field-grid">
+        <div class="field-label">Deceased</div>
+        <div class="field-value">Orlova, Magda</div>
+
+        <div class="field-label">Date of birth</div>
+        <div class="field-value">January 14, 1939, Leningrad, USSR</div>
+
+        <div class="field-label">Age</div>
+        <div class="field-value">86 years</div>
+
+        <div class="field-label">Citizenship</div>
+        <div class="field-value">German (naturalized 1962)</div>
+
+        <div class="field-label">Residence</div>
+        <div class="field-value">Brahmsallee 16, 20144 Hamburg / Leibnizstraße 97, 10625 Berlin</div>
+
+        <div class="field-label">Admitted</div>
+        <div class="field-value">September 20, 2025, 09:14 — Emergency Department, Campus Mitte</div>
+
+        <div class="field-label">Time of death</div>
+        <div class="field-value"><span class="underline-hand">September 21, 2025, 15:39</span></div>
+
+        <div class="field-label">Attending physician</div>
+        <div class="field-value">Dr. med. Maria Kellerman (Emergency Department)</div>
+
+        <div class="field-label">Forensic examiner</div>
+        <div class="field-value">Dr. med. Hans Georg Richter (Forensic Medicine)</div>
+
+        <div class="field-label">Autopsy performed</div>
+        <div class="field-value">September 21, 2025, 17:00–18:45</div>
+    </div>
+
+    <!-- CAUSE OF DEATH -->
+    <div class="section-title">I. Cause of Death (official)</div>
+    <div class="conclusion-box">
+        <p><strong>Primary:</strong> Acute myocardial infarction (heart failure)</p>
+        <p><strong>Secondary:</strong> Pancreatic carcinoma stage IV with hepatic metastasis</p>
+        <p><strong>Contributing:</strong> Cachexia, anxiety disorder (treated), sleep disorder</p>
+    </div>
+
+    <div class="margin-block">
+        That's the official version. What I actually saw — see below.
+    </div>
+
+    <!-- MEDICAL HISTORY -->
+    <div class="section-title">II. Medical History</div>
+    <ul class="findings">
+        <li><strong>June 2025:</strong> Initial diagnosis pancreatic carcinoma, Dr. Nathan Schönblum (Hamburg). Stage IV at diagnosis. Inoperable. Prognosis: 3–6 months.</li>
+        <li><strong>July–August 2025:</strong> Palliative care. Consulted 6 physicians in Hamburg — all confirmed diagnosis. Patient declined chemotherapy.</li>
+        <li><strong>Psychiatric medication (discontinued Aug 2025):</strong>
+            <br>— Clozapine 100mg (atypical antipsychotic)
+            <br>— Olanzapine 10mg (atypical antipsychotic)
+            <br><span class="inline-note">← Why antipsychotics? For hallucinations? Or did she actually SEE something?</span>
+        </li>
+        <li><strong>Active medication at admission:</strong>
+            <br>— Lorazepam 1mg (anxiolytic)
+            <br>— Zolpidem 10mg (sleep aid / "Ambien")
+        </li>
+        <li><strong>Chiropractor (Karl Essen, Hamburg):</strong> 1 visit. No medical relevance.</li>
+        <li><strong>No relatives documented.</strong> Emergency contact: Irene Adler (Hamburg). <span class="inline-note">← + "the American friends" per phone call</span></li>
+    </ul>
+
+    <!-- EXTERNAL EXAMINATION -->
+    <div class="section-title">III. External Examination</div>
+    <ul class="findings">
+        <li>Female body, 86 years, cachectic (BMI ~16.2)</li>
+        <li>Height: 158 cm, weight: 40.5 kg</li>
+        <li>Jaundice (yellowing of sclerae and skin)</li>
+        <li>No external signs of injury</li>
+        <li>No petechiae, no congestion hemorrhages</li>
+        <li>Skin: thin, parchment-like, multiple bruises (age-related)</li>
+    </ul>
+
+    <div class="margin-block">
+        Externally: NOTHING. No bumps, no lesions, no larval exit marks.<br>
+        Not until I opened the chest cavity.
+    </div>
+
+    <!-- INTERNAL EXAMINATION -->
+    <div class="section-title">IV. Internal Examination (Dissection)</div>
+
+    <p><strong>Thoracic cavity:</strong></p>
+    <ul class="findings">
+        <li>Heart: 285g (normal weight). <strong>Acute transmural myocardial infarction, posterolateral.</strong> Coronary arteries: moderate atherosclerosis (age-appropriate).</li>
+        <li>Myocardium: Left ventricular wall — <span class="underline-hand">irregular tissue defects</span>, not consistent with infarct necrosis.
+            <div class="margin-block">
+                Here. The defects. Not necrosis — CONSUMPTION. Tissue edges smooth, not frayed. As if something ATE through them. No bacterial infection detectable. No fungal culture positive. Histology shows: empty channels, 2–4mm diameter, running through the myocardium. I counted 14.
+            </div>
+        </li>
+        <li>Lungs: Bilateral pleural effusion (~200ml each). Pulmonary congestion. No pneumonia.</li>
+        <li>Pericardium: Unremarkable. <span class="inline-note">← But 3 larvae INSIDE the pericardium. Only I could see them.</span></li>
+    </ul>
+
+    <p><strong>Abdominal cavity:</strong></p>
+    <ul class="findings">
+        <li>Pancreas: Tumor mass 4.2 × 3.1 × 2.8 cm (corpus). Infiltration into common bile duct. Hepatic metastases (multiple, bilobar, max. 1.8 cm).</li>
+        <li>Liver: 1450g (enlarged). Metastatic liver. Jaundice confirmed.</li>
+        <li>Spleen, kidneys, GI tract: Age-appropriate, unremarkable.</li>
+    </ul>
+
+    <!-- PAGE 2 -->
+    <div class="page-break">
+        <div class="page2-header">
+            Charité — Forensic Medicine | Case No. RM-2025-09-4471 | Orlova, Magda | Page 2 of 2
+        </div>
+    </div>
+
+    <!-- RICHTER'S ADDITIONAL FINDINGS -->
+    <div class="section-title">V. Additional Findings (not in official report)</div>
+
+    <div class="margin-block" style="border-left-color: rgba(180, 40, 40, 0.5); background: rgba(180, 40, 40, 0.02);">
+        WARNING — The following findings are NOT documented in the official file.<br>
+        They are only visible to me. Confirmation by a second observer pending.<br><br>
+
+        <strong>1. Parasitic organisms ("larvae")</strong><br>
+        — Black, 2–4 mm in length, dark head segments<br>
+        — Photophobic (retract from direct illumination)<br>
+        — Localized: pericardium (3), myocardial channels (est. 14+), subcutaneous tissue along the ribs<br>
+        — ALIVE at extraction. Still motile in formalin.<br>
+        — Specimens: jars A, B, C. Refrigerator 3, shelf 2.<br><br>
+
+        <strong>2. Visibility</strong><br>
+        — Dr. Kellerman (Emergency Dept.): sees NOTHING<br>
+        — Nurse Schmidt, Nurse Yilmaz: see NOTHING<br>
+        — Me: I see them clearly. Why?<br><br>
+
+        <strong>3. Literature references</strong><br>
+        — Lyubimov, V. (1947): "Bolezni Voyny" [The Diseases of War], Moscow, pp. 34–38.<br>
+        &nbsp;&nbsp;&nbsp;Identical description: black larvae, subcutaneous, in Soviet soldiers after Leningrad 1942.<br>
+        — Toporov, A. (1922): "The Curse of Diseases", London, Ch. 7 ("Dream Curses"), p. 112.<br>
+        &nbsp;&nbsp;&nbsp;"Caused by a curse, black magic. Dormant for decades. Activation through proximity to source."<br><br>
+
+        <strong>4. Incubation period</strong><br>
+        — Per Toporov: 2–6 months from activation to death<br>
+        — Patient Orlova: exposed since childhood (Leningrad, ca. 1942)<br>
+        — Parasite DORMANT for 83 years<br>
+        — Question: <strong>What triggered the activation?</strong><br>
+        &nbsp;&nbsp;&nbsp;<span class="arrow">→</span> Contact with the three men? (Sept 19, Hamburg — per address book)<br>
+        &nbsp;&nbsp;&nbsp;<span class="arrow">→</span> Ritual activation? (247 Hz?)<br>
+        &nbsp;&nbsp;&nbsp;<span class="arrow">→</span> Stress + weakened immune system (carcinoma)?<br><br>
+
+        <strong>5. Pancreatic carcinoma ↔ Parasite</strong><br>
+        — Connection? Or independent processes?<br>
+        — Hypothesis: parasite exploits weakened host. Carcinoma = trigger, not cause.<br>
+        — Alternative: parasite IS the cancer. Oncological camouflage.<br><br>
+
+        <strong style="color: #8a2020;">6. The Americans</strong><br>
+        — Five individuals, arrived from the USA. Knew the deceased.<br>
+        — Were present in Hamburg on September 19 (same exposure?).<br>
+        — Bedridden September 20–21 with high fever (per their own account).<br>
+        — <strong>Hypothesis: also infected.</strong><br>
+        — Blood samples requested for September 22.<br>
+        — If confirmed: 2–6 months.
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="section-title">VI. Preliminary Conclusion</div>
+    <div class="conclusion-box">
+        <p><strong>Official:</strong> Natural death. Heart failure secondary to advanced pancreatic carcinoma. No evidence of external cause. No police investigation recommended.</p>
+    </div>
+
+    <div class="margin-block">
+        The official conclusion is medically correct — and utterly inadequate.<br><br>
+        The truth: something ate her from the inside. Something that had been sleeping inside her for 83 years. Something that only certain people can see.<br><br>
+        I need to speak with Dr. Engler. She drew something once — skulls with something alive underneath. 2011. She already knew.<br><br>
+        — H.G.R.
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature-block">
+        <div>
+            <div class="date-stamp">Berlin, September 21, 2025</div>
+        </div>
+        <div>
+            <div class="signature-line">
+                Dr. med. Hans Georg Richter<br>
+                Specialist in Forensic Medicine
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

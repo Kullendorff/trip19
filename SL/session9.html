@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session 9 — Berlin: Första Dagen | Trip 19</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-green: #00ff41;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --accent-yellow: #ffcc00;
+            --accent-purple: #9b59b6;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+            --mac: #4682b4;
+            --sullivan: #b87333;
+            --sparky: #00ff41;
+            --scalpel: #d4af37;
+            --trench: #ff8c00;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container { max-width: 1400px; margin: 0 auto; }
+
+        .session-header { background: var(--bg-panel); border: 2px solid var(--accent-blue); border-radius: 8px; padding: 2rem; margin-bottom: 2rem; text-align: center; }
+        .session-header h1 { color: var(--accent-blue); font-size: 2rem; margin-bottom: 0.5rem; }
+        .session-header p { color: var(--text-dim); margin-top: 0.5rem; }
+        .session-meta { display: flex; gap: 2rem; justify-content: center; color: var(--text-dim); font-size: 0.9rem; margin-top: 1rem; flex-wrap: wrap; }
+        .status-badge { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.85rem; font-weight: bold; background: rgba(74,144,164,0.2); border: 1px solid var(--accent-blue); color: var(--accent-blue); }
+
+        .nav-bar { display: flex; justify-content: space-between; align-items: center; background: rgba(74,144,164,0.1); border: 1px solid var(--accent-blue); border-radius: 4px; padding: 1rem; margin-bottom: 2rem; }
+        .nav-bar a { color: var(--accent-blue); text-decoration: none; font-weight: bold; }
+
+        .section { background: var(--bg-panel); border: 2px solid var(--border); border-radius: 8px; padding: 2rem; margin-bottom: 2rem; }
+        .section h2 { color: var(--accent-blue); font-size: 1.8rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+        .section h3 { color: var(--accent-yellow); font-size: 1.3rem; margin: 1.5rem 0 1rem 0; }
+        .section h4 { color: var(--accent-blue); font-size: 1.1rem; margin: 1rem 0 0.5rem 0; }
+
+        .info-box { background: rgba(74,144,164,0.1); border-left: 4px solid var(--accent-blue); padding: 1.5rem; margin: 1rem 0; border-radius: 4px; }
+        .warning-box { background: rgba(255,68,68,0.1); border-left: 4px solid var(--accent-red); padding: 1.5rem; margin: 1rem 0; border-radius: 4px; }
+        .yellow-box { background: rgba(255,204,0,0.1); border-left: 4px solid var(--accent-yellow); padding: 1.5rem; margin: 1rem 0; border-radius: 4px; }
+        .read-aloud { background: rgba(155,89,182,0.1); border-left: 4px solid var(--accent-purple); padding: 1.5rem; margin: 1rem 0; border-radius: 4px; font-style: italic; }
+
+        .npc-card { background: rgba(10,14,23,0.6); border: 1px solid var(--border); border-left: 3px solid var(--accent-green); padding: 1.5rem; margin: 1rem 0; border-radius: 4px; }
+        .npc-card.ally { border-left-color: var(--accent-green); }
+        .npc-card.ally h4 { color: var(--accent-green); }
+
+        .san-check { background: rgba(255,68,68,0.15); border: 2px solid var(--accent-red); padding: 1.5rem; margin: 1.5rem 0; border-radius: 8px; }
+        .san-check strong { color: var(--accent-red); }
+
+        .gm-note { background: var(--bg-darker); border-left: 4px solid var(--accent-yellow); padding: 1rem 1.5rem; margin: 1rem 0; font-style: italic; border-radius: 4px; }
+        .gm-note::before { content: "SL: "; color: var(--accent-yellow); font-weight: bold; font-style: normal; }
+
+        .skill-check { background: rgba(0,255,65,0.1); border: 1px solid var(--accent-green); padding: 1rem; margin: 1rem 0; border-radius: 4px; }
+        .skill-check strong { color: var(--accent-green); }
+
+        .music-cue { background: rgba(155,89,182,0.08); border: 1px solid var(--accent-purple); padding: 0.75rem 1rem; margin: 0.75rem 0; border-radius: 4px; font-size: 0.9rem; color: var(--accent-purple); }
+        .music-cue::before { content: "🎵 "; }
+
+        .dialogue { margin: 0.75rem 0; }
+        .speaker { color: var(--accent-yellow); font-weight: bold; }
+
+        .decision-box { background: rgba(255,204,0,0.05); border: 2px solid var(--accent-yellow); padding: 1.5rem; margin: 1.5rem 0; border-radius: 8px; }
+        .decision-box h4 { color: var(--accent-yellow); margin-bottom: 1rem; }
+
+        .clue-chain { background: rgba(0,255,65,0.08); border: 2px solid var(--accent-green); padding: 1.5rem; margin: 1.5rem 0; border-radius: 8px; }
+        .clue-chain h4 { color: var(--accent-green); margin-bottom: 1rem; }
+
+        .scene-transition { text-align: center; padding: 2rem; color: var(--text-dim); font-size: 1.2rem; letter-spacing: 3px; }
+
+        .overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 1rem 0; }
+        .overview-card { background: rgba(10,14,23,0.4); border: 1px solid var(--border); padding: 1rem; border-radius: 4px; }
+        .overview-card strong { color: var(--accent-blue); display: block; margin-bottom: 0.5rem; }
+
+        .agent-tag { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 3px; font-size: 0.8rem; font-weight: bold; margin: 0.1rem; }
+        .tag-mac { background: rgba(70,130,180,0.2); color: var(--mac); border: 1px solid var(--mac); }
+        .tag-sullivan { background: rgba(184,115,51,0.2); color: var(--sullivan); border: 1px solid var(--sullivan); }
+        .tag-sparky { background: rgba(0,255,65,0.2); color: var(--sparky); border: 1px solid var(--sparky); }
+        .tag-scalpel { background: rgba(212,175,55,0.2); color: var(--scalpel); border: 1px solid var(--scalpel); }
+        .tag-trench { background: rgba(255,140,0,0.2); color: var(--trench); border: 1px solid var(--trench); }
+
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { border: 1px solid var(--border); padding: 0.75rem; text-align: left; vertical-align: top; }
+        th { background: rgba(74,144,164,0.2); color: var(--accent-blue); font-weight: bold; }
+
+        ul, ol { margin-left: 2rem; margin-top: 0.5rem; }
+        li { margin-bottom: 0.5rem; }
+        p { margin-bottom: 0.75rem; }
+
+        @media (max-width: 768px) {
+            body { padding: 1rem; }
+            .overview-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="session-header">
+        <h1>SESSION 9 — BERLIN: FÖRSTA DAGEN</h1>
+        <p>Graefestraße 66 → Charité → Slavic Association?</p>
+        <div class="session-meta">
+            <span>📅 22 september 2025</span>
+            <span>📍 Kreuzberg / Mitte / Kreuzberg</span>
+            <span>⏱ Morgon → kväll</span>
+            <span class="status-badge">PLANERAD</span>
+        </div>
+        <div style="margin-top: 1rem;">
+            <span class="agent-tag tag-mac">Mac</span>
+            <span class="agent-tag tag-sullivan">Sullivan</span>
+            <span class="agent-tag tag-sparky">Sparky</span>
+            <span class="agent-tag tag-scalpel">Scalpel</span>
+            <span class="agent-tag tag-trench">Trench</span>
+        </div>
+    </div>
+
+    <!-- NAV -->
+    <div class="nav-bar">
+        <a href="session8.html">← Session 8: Hamburg till Berlin</a>
+        <span style="color: var(--text-dim);">Kapitel 1 — Berlin, dag 1</span>
+        <a href="scene_slavic_breakin.html">SA-inbrottet →</a>
+    </div>
+
+    <!-- BAKGRUND -->
+    <div class="section">
+        <h2>BAKGRUND — VAR ÄR VI?</h2>
+
+        <div class="overview-grid">
+            <div class="overview-card">
+                <strong>In-game tid</strong>
+                22 september 2025, ~08:00
+            </div>
+            <div class="overview-card">
+                <strong>Plats</strong>
+                Graefestraße 66, 4:e vån, Kreuzberg — Jürgens lägenhet
+            </div>
+            <div class="overview-card">
+                <strong>Magda Orlova</strong>
+                DÖD sedan igår kl 15:39 — cellen VET nu
+            </div>
+            <div class="overview-card">
+                <strong>Parasiten</strong>
+                Mac + Sullivan testad (blodprov natt). Resultat idag.
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h4>VAD HÄNDE I NATT (session 8 → 9)</h4>
+            <ul>
+                <li>Cellen anlände till Berlin ~01:00 (tåg eller bil)</li>
+                <li>Charité kl ~02:00 — Kellerman levererade dödsbeskedet, Richter visade dem källaren</li>
+                <li>Alla fem bekräftade för Richter att de ser larverna</li>
+                <li>Richter tog blodprov på <span class="agent-tag tag-mac">Mac</span> och <span class="agent-tag tag-sullivan">Sullivan</span> — resultat imorgon (dvs idag)</li>
+                <li>Cellen tog sig till Graefestraße ~04:00. Somnade i kläder. Ingen orkade prata.</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <strong>⚠ BLOBELS TEAM</strong>
+            <p>Om cellen inte aktivt skakade svansen (Tradecraft-roll i session 8) → Blobels team vet nu var de bor. Graefestraße 66 är identifierad som deras bas. Rapporterat till Anton.</p>
+            <p>Om de LYCKADES skaka svansen → Blobel vet att de är i Berlin men inte var. Han söker.</p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SCEN 1: MORGONEN -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SCEN 1 — MORGONEN PÅ GRAEFESTRASSE (~08:00)</h2>
+
+        <div class="music-cue">Nils Frahm — "Says" (eller liknande: mjukt piano, Berlin-morgon, andrum före stormen)</div>
+
+        <div class="read-aloud">
+            Ljuset kommer in genom gardinerna i Jürgens vardagsrum. September-morgon, klar, ovanligt varm för årstiden. Spielcasinots neon är släckt — på dagen är det bara en ful skylt i plåt. Albatross Bakery har öppnat: doften av smör och jäst bröd letar sig uppför trapphuset, genom springan under dörren.
+            <br><br>
+            Graefestraße rör sig sakta. En kvinna med barnvagn. En cyklist. Orient Falafel har inte öppnat ännu men neons brummar bakom disken. Träden längs trottoaren är fortfarande gröna — det sena septembergrön som inte riktigt vet om det ska ge upp.
+            <br><br>
+            I lägenheten: alla sov. Någon på bäddsoffan i gästrummet. Någon på soffan i vardagsrummet, filt halvt på golvet. Någon i Hannas gamla rum. Pianot står tyst i hörnet. Kaffepaketets etiopiska arom hänger kvar från klockan fyra i natt, när någon — troligtvis Trench — satte på french pressen innan alla kollapsade.
+        </div>
+
+        <h3>Vem sover var?</h3>
+        <div class="gm-note">Fråga spelarna. Det säger något om karaktärerna. Förslag om de inte vet:</div>
+        <ul>
+            <li><span class="agent-tag tag-scalpel">Scalpel</span> Hannas gamla rum. Hennes barndoms säng. Teckningen på väggen. Hon sov kanske inte alls.</li>
+            <li><span class="agent-tag tag-sparky">Sparky</span> Gästrummet/studion — redan nära det som ska bli ops-room. Laptop öppen, halvladdat.</li>
+            <li><span class="agent-tag tag-mac">Mac</span> Vardagsrumssoffan. Upprullad, disciplinerat, vaknar först.</li>
+            <li><span class="agent-tag tag-sullivan">Sullivan</span> Golvet vid pianot, kudde och filt. Bad tyst innan han somnade.</li>
+            <li><span class="agent-tag tag-trench">Trench</span> Köket. Stol mot väggen. Halvt vaken hela natten, vakade.</li>
+        </ul>
+
+        <h3>Sparkys leverans</h3>
+
+        <div class="info-box">
+            <h4><span class="agent-tag tag-sparky">Sparky</span> OPS-ROOM SETUP</h4>
+            <p>Sparky beställde utrustning igår kväll (Amazon.de / MediaMarkt-leverans). Det anlände vid 07:30 — leveransbud ringde på, Trench öppnade. Kartonger i hallen.</p>
+            <ul>
+                <li><strong>3 st 27" skärmar</strong> (Dell UltraSharp — Sparky väljer inte billigt)</li>
+                <li><strong>1 stationär dator</strong> (förbyggd, i5, 32GB RAM — tillräckligt för OSINT)</li>
+                <li><strong>1 laptop</strong> (ThinkPad, extra — backup/mobil enhet)</li>
+                <li><strong>Kablar, adaptrar, USB-hubbar, 2 st powerstrips</strong></li>
+                <li><strong>1 whiteboard</strong> (80×60 cm, magnetiskt, med pennor)</li>
+            </ul>
+            <p>Setup-tid: ~2 timmar. Under den tiden kan resten av cellen göra annat.</p>
+        </div>
+
+        <div class="read-aloud">
+            Gästrummet förvandlas. Sparkys tre skärmar står i rad på skrivbordet, kablar tvinnade bakom som svarta ormar. Den stationära datorn brummar under bordet. Jürgens Anglepoise-lampa böjd åt sidan för att göra plats. Vykortskorken fortfarande på väggen — Warszawa, Prag, Tokyo — men nu med en whiteboard bredvid, tom, väntande.
+            <br><br>
+            Bäddsoffan dragen åt sidan, halvt hopfälld. Det finns knappt plats för två stolar framför skärmarna. Ljuset från tre monitorer ger rummet ett blåaktigt sken som inte fanns här igår.
+            <br><br>
+            Jürgens gästrum har blivit ett underrättelselabb.
+        </div>
+
+        <div class="gm-note">Ge spelarna 5–10 minuter att vara normala. Kaffe. Bröd från Albatross (om någon hämtar). Planera dagen. Vilka telefonsamtal behöver göras? Det är sista stunden av lugn på ett tag.</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SCEN 2: CHARITÉ -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SCEN 2 — CHARITÉ: RICHTERS RESULTAT (~11:00)</h2>
+
+        <div class="music-cue">Jóhann Jóhannsson — "The Sun's Gone Dim" (kliniskt, sorgset, ofrånkomligt)</div>
+
+        <h3>Charité dagtid</h3>
+
+        <div class="read-aloud">
+            Charité Campus Mitte i dagsljus. Helt annan värld än klockan två i natt. Innergård med kastanjeträd, studenter med ryggsäckar, en guidad tur för besökare. Byggnaden är enorm — 1800-tals tegelmurar, moderna tillbyggnader i glas, broar mellan flyglar. Allting badat i septembersol.
+            <br><br>
+            Akutmottagningens ingång — den de kom in genom i natt — ser nu ut som vilken sjukhusport som helst. Ambulanser parkerade i rad. Sköterska i blått som röker vid hörnet.
+            <br><br>
+            Men de ska inte till akuten. De ska ner. Sidoingången vid rättsmedicin. Söder om huvudbyggnaden. Samma metallport, samma lilla gula skylt: "Rechtsmedizin — Eingang nur für Personal." Richter sa att han öppnar.
+        </div>
+
+        <h3>Richter möter dem</h3>
+
+        <p>Porten öppnas innan de hinner ringa. Han väntade. Samma vita rock, ny kaffefläck (vänster ärm denna gång). Han ser ut som en man som sovit två timmar men druckit fyra koppars kaffe.</p>
+
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Kom in. Jag har resultaten."
+        </div>
+
+        <p><em>Han leder dem genom korridoren. Fluorescerande ljus, formaldehyd, kylan som aldrig släpper. Förbi kylrummet — Magdas kropp är fortfarande där. Förbi larvburkarna i hyllan. In i ett litet kontor med ett skrivbord, en dator, och för många böcker.</em></p>
+
+        <h3>Blodprovsresultat</h3>
+
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Mac Riley. Sullivan."
+        </div>
+        <p><em>Han lägger två labbrapporter på bordet.</em></p>
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Positiva. Båda. Samma parasitmarkörer som Magda. Lägre koncentration — ni är i tidigt skede. Men de finns där."
+        </div>
+
+        <p><em>Tystnad. Han tar av glasögonen. Putsar dem. Sätter på dem.</em></p>
+
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Jag behöver testa de andra tre också."
+        </div>
+
+        <div class="gm-note">Richter tar blodprov på Sparky, Scalpel och Trench (enkel procedur — armveck, 2 minuter per person). Resultat imorgon. Men han säger redan nu: "Om ni alla var på samma plats den 19:e — vid presentationen — och alla fick feber natten efter... ja. Ni vet redan svaret."</div>
+
+        <h3>Diagnosen</h3>
+
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Enligt Toporov: två till sex månader från aktivering till... det som hände Magda."
+        </div>
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Magdas parasit var vilande i 83 år. Er: tre dagar."
+        </div>
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Medicinsk behandling finns inte. Jag har sökt. Antiparasitära — ingenting. Antibiotika — ingenting. Det som äter er reagerar inte på medicin."
+        </div>
+
+        <p><em>Paus.</em></p>
+
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Men Toporov nämner att förbannelsen kan brytas. Returneras till källan. Där den skapades."
+        </div>
+
+        <div class="san-check">
+            <strong>SAN CHECK: 0/1 (Unnatural)</strong>
+            <p>Att höra en läkare — en patolog på Europas mest respekterade universitetssjukhus — säga orden "förbannelse" och "ingen medicinsk behandling" i samma mening. Sekundärt trauma. Informationen var känd, men att få den bekräftad kliniskt är en annan sak.</p>
+        </div>
+
+        <h3>Magdas väska</h3>
+
+        <p>Richter tar fram en liten resväska från under skrivbordet.</p>
+
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Kellerman överlämnade den till mig igår kväll. Magdas tillhörigheter. Allt hon hade med sig när hon kollapsade."
+        </div>
+
+        <div class="info-box">
+            <h4>MAGDAS VÄSKA — INNEHÅLL</h4>
+            <table>
+                <tr><th>Föremål</th><th>Beskrivning</th><th>Värde</th></tr>
+                <tr><td><strong>Mammans dagbok</strong></td><td>Original. Ryska. Tunn skrivbok, pappärm, blyerts/bläck. Kirovkliniken 1946–51, Frankfurt (Oder) 1951–52. Handouts: <a href="handout_diary_part1.html" style="color: var(--accent-yellow);">Del 1</a>, <a href="handout_diary_part2.html" style="color: var(--accent-yellow);">2</a>, <a href="handout_diary_part3.html" style="color: var(--accent-yellow);">3</a>, <a href="handout_diary_part4.html" style="color: var(--accent-yellow);">4</a>, <a href="handout_diary_part5.html" style="color: var(--accent-yellow);">5</a></td><td>KRITISKT</td></tr>
+                <tr><td><strong>MacBook</strong></td><td>Låst (lösenord okänt). Magdas research. Sparky: Computer Science 50% för att komma in.</td><td>HÖG</td></tr>
+                <tr><td><strong>12 foton</strong></td><td>De tre ryssarna: 1942, 1960, 1980, 2010, 2024. Identiska ansikten. De åldras inte.</td><td>HÖG</td></tr>
+                <tr><td><strong>Leningrad-karta</strong></td><td>Röd cirkel runt Vasilyevsky Island. "Hier wurden wir zu Monstern."</td><td>MEDEL</td></tr>
+                <tr><td><strong>Handskrivna A4-sidor</strong></td><td>Magdas sammanfattning. Namnlista, kronologi. Tre frågetecken: "Camp S-17?", "Vasilyevsky Island?", "Vad hände i källaren 1942?"</td><td>MEDEL</td></tr>
+                <tr><td><strong>2 visitkort</strong></td><td>Anton Mahler — "Secure Consulting, Berlin". Filip Kramer — handskrivet telefonnummer, inget företag.</td><td>HÖG</td></tr>
+            </table>
+        </div>
+
+        <h3>Richters böcker</h3>
+
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Ni borde läsa dessa."
+        </div>
+
+        <p><em>Han lägger två böcker bredvid väskan.</em></p>
+
+        <ul>
+            <li><strong>"Bolezni Voyny"</strong> (Lyubimov, 1947) — ryska. Bilder av identiska larver hos sovjetiska soldater efter Leningrad. Sidan 34–38 markerade.</li>
+            <li><strong>"The Curse of Diseases"</strong> (Toporov, 1922) — engelska. Kapitel 7: "Dream Curses." S. 112: <em>"Caused by a curse, black magic. Dormant for decades. Activation through proximity to source."</em></li>
+        </ul>
+
+        <div class="gm-note">Ge spelarna handout: <a href="handout_richter_report.html" style="color: var(--accent-yellow);">handout_richter_report.html</a> (obduktionsrapporten, tyska) → <a href="handout_richter_report_en.html" style="color: var(--accent-yellow);">engelsk version</a> (efter översättning) och <a href="handout_magda_medical_history.html" style="color: var(--accent-yellow);">handout_magda_medical_history.html</a> (patientjournal, tyska) → <a href="handout_magda_medical_history_en.html" style="color: var(--accent-yellow);">engelsk version</a> (efter översättning). Richter ger dem i fysisk form — utskrifter, inte digitalt.</div>
+
+        <h3>Richters sista ord</h3>
+
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Jag ska dokumentera ert förlopp. Varje vecka, om ni tillåter. Blodprov, hudundersökning, fotografier."
+        </div>
+
+        <p><em>Han tittar på Scalpel.</em></p>
+
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Hanna. Om du hittar någon som vet mer — om källan, om hur man bryter det — ring mig. Vilken tid som helst."
+        </div>
+
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Och... var försiktiga med den mannen. Den som var här igår. Filip."
+        </div>
+
+        <p><em>Paus.</em></p>
+
+        <div class="dialogue">
+            <span class="speaker">RICHTER:</span> "Han grät när Magda dog. Jag tror han menade det. Men en man i sjuttioårsåldern som rör sig som han gör — det är inte naturligt."
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SCEN 3: OPS-ROOM -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SCEN 3 — OPS-ROOM: GENOMGÅNG (~14:00)</h2>
+
+        <div class="music-cue">Trent Reznor / Atticus Ross — "The Social Network" (analytiskt, tempo, focuserat)</div>
+
+        <div class="read-aloud">
+            Tillbaka på Graefestraße. Albatross-kön har lagt sig. Orient Falafel har öppnat — doften av friterad falafel kryper in genom det öppna köksfönstret.
+            <br><br>
+            Sparkys ops-room är igång. Tre skärmar lyser blått i gästrummet. Whiteboardet har fått sin första text — Sparkys handstil, grön marker: "WHAT DO WE KNOW?"
+            <br><br>
+            Bordet i vardagsrummet har blivit ett bevisbord. Magdas väska — uppfälld, innehållet utspritt. Mammans dagbok i mitten. Fotona av de tre männen i rad. Visitkorten. Richters rapporter. Allt de har.
+        </div>
+
+        <h3>Materialet — vad har de nu?</h3>
+
+        <div class="clue-chain">
+            <h4>KOMPLETT BEVISÖVERSIKT (22 september, kl 14)</h4>
+            <table>
+                <tr><th>Källa</th><th>Bevis</th><th>Pekar mot</th></tr>
+                <tr><td>Hamburg-lgh</td><td>Pyotrs vykort ("Jag har sett HAN")</td><td>Frankfurt Clinic, Frankfurt (Oder)</td></tr>
+                <tr><td>Hamburg-lgh</td><td>Foton 1942→2024 — de åldras inte</td><td>Transformation, odödlighet</td></tr>
+                <tr><td>Hamburg-lgh</td><td>SA-medlemskort 1961–1990</td><td>Slavic Association, Kreuzberg</td></tr>
+                <tr><td>Hamburg-lgh</td><td>Dagbok 20 sept: "Om jag dör — amerikanerna vet"</td><td>Magda förväntade sin död</td></tr>
+                <tr><td>Hamburg-lgh</td><td>Filips röstmeddelanden (panik)</td><td>Filip som ambivalent — varnade Magda</td></tr>
+                <tr><td>Magdas väska</td><td>Mammans dagbok (ryska, 1946–52)</td><td>Leningrad 1942, Camp S-17, Frankfurt Clinic</td></tr>
+                <tr><td>Magdas väska</td><td>MacBook (låst)</td><td>All Magdas research</td></tr>
+                <tr><td>Magdas väska</td><td>Visitkort: Anton "Secure Consulting" + Filips nr</td><td>Direktkontakt möjlig</td></tr>
+                <tr><td>Charité</td><td>Richters rapport — larver, parasit, 2–6 mån</td><td>Medicinsk bekräftelse</td></tr>
+                <tr><td>Charité</td><td>Lyubimov/Toporov-böckerna</td><td>Historisk bekräftelse + "bryta förbannelsen"</td></tr>
+                <tr><td>Charité</td><td>Filips besök kl 16:15 (säkerhetskamera)</td><td>Filip var på Charité, grät</td></tr>
+                <tr><td>Berlin-lgh (post-it)</td><td>"Arnold Weiss — Reichenberger Str. 124"</td><td>Arnold + SA-kopplingen</td></tr>
+            </table>
+        </div>
+
+        <h3>Beslutspunkt — vad gör vi FÖRST?</h3>
+
+        <div class="decision-box">
+            <h4>CELLENS ALTERNATIV</h4>
+            <table>
+                <tr><th>Alternativ</th><th>Argument för</th><th>Tidsåtgång</th></tr>
+                <tr>
+                    <td><strong>A. Slavic Association</strong><br><em>Reichenberger Str. 124</em></td>
+                    <td>Tre ledtrådar pekar hit. De tre männens bas. Arkiv med Camp S-17-dokument.</td>
+                    <td>Rekognosering idag, inbrott ikväll/imorgon</td>
+                </tr>
+                <tr>
+                    <td><strong>B. Arnold Weiss</strong><br><em>Wielandstraße 34</em></td>
+                    <td>Magdas närmaste vän. Kan ÖVERSÄTTA mammans dagbok (ryska). Vet om SA. Säkert möte.</td>
+                    <td>Ett telefonsamtal + kaffebesök (2–3h)</td>
+                </tr>
+                <tr>
+                    <td><strong>C. Mammans dagbok</strong></td>
+                    <td>Ögonvittnesskildringar av Leningrad 1942. Men den är på RYSKA — behöver översättning.</td>
+                    <td>8+ timmar med Arnold / Google Translate (opålitligt)</td>
+                </tr>
+                <tr>
+                    <td><strong>D. Magdas MacBook</strong></td>
+                    <td>All hennes research. Men LÅST.</td>
+                    <td>Sparky: Computer Science 50%. 1–2 timmar.</td>
+                </tr>
+                <tr>
+                    <td><strong>E. Ring Filip</strong></td>
+                    <td>Hans visitkort finns. Han varnade Magda. Han grät vid Charité. Allierad?</td>
+                    <td>Ett telefonsamtal — men RISKABELT. Vad säger man?</td>
+                </tr>
+                <tr>
+                    <td><strong>F. Frankfurt Clinic</strong><br><em>Frankfurt (Oder)</em></td>
+                    <td>Pyotrs vykort. Moderns dagbok nämner det. Men det är 1.5h tågresa bort.</td>
+                    <td>Heldag (resa + investigation)</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="gm-note">Låt spelarna diskutera fritt. Minst 10 minuter. De naturligaste kombinationerna:<br>
+        <strong>Snabbast avkastning:</strong> B+D (ring Arnold, hacka laptopen — samtidigt)<br>
+        <strong>Mest riskfyllt:</strong> A (SA rekognosering/inbrott)<br>
+        <strong>Mest dramatiskt:</strong> E (ring Filip)<br>
+        <strong>SL-styrning:</strong> Om de verkar obeslutsamma — Sparky föreslår: "Jag jobbar på laptopen. Resten gör rekognosering." Splittra cellen = parallella scener.</div>
+
+        <h3>Om de ringer Arnold</h3>
+
+        <p>Se <a href="black_madonna_chapter1.html#arnold" style="color: var(--accent-blue);">Arnold Weiss-sektionen i chapter1</a> för fullständig dialog och NPC-detalj. Kort version:</p>
+
+        <ul>
+            <li>Han vet INTE att Magda är död. Chockad. Tyst länge.</li>
+            <li>"Kom hit. Jag gör te. Jag behöver berätta vad jag vet."</li>
+            <li>Han kan ÖVERSÄTTA dagboken (flytande ryska) — "Ge mig den. En dag."</li>
+            <li>Han har sett Magda i slutet av augusti — tvättade händer, märken på armarna, besatt av forskningen</li>
+            <li>Varning: Arnold + SA = Arnolds adress dyker upp bredvid SA:s adress på Magdas post-it</li>
+        </ul>
+
+        <h3>Om Sparky hackar MacBooken</h3>
+
+        <div class="skill-check">
+            <strong>Computer Science 50%</strong>
+            <p><strong>Lyckad:</strong> Lösenord kringgått inom 1–2 timmar. Magdas hela research öppnas — 400+ filer, e-post, bilder, dokument.</p>
+            <p><strong>Misslyckad:</strong> Krypterat. Behöver mer tid (nytt försök efter 24h) eller verktyg.</p>
+        </div>
+
+        <div class="info-box">
+            <h4>MACBOOK-INNEHÅLL (vid lyckad hack)</h4>
+            <ul>
+                <li><strong>E-postkorrespondens:</strong> 47 e-post med Filip (2024–2025). Filip varnar henne upprepade gånger. Anton nämns som "den farligaste."</li>
+                <li><strong>Research-mapp:</strong> 200+ sidor om Leningrad 1942, Camp S-17, Frankfurt Clinic. PDF-skanningar av arkivdokument.</li>
+                <li><strong>Kontakter:</strong> Samma 240 personer som Hamburg-datorn. Inkl. de tre ryssarna + SA-adress.</li>
+                <li><strong>Browser-historik:</strong> Google Maps: Reichenberger Straße 124. Müggel Straße (Pogodins mansion?). Vasilyevsky Island, St Petersburg.</li>
+                <li><strong>Sista sökningen:</strong> "charité berlin rechtsmedizin öffnungszeiten" — hon ville till rättsmedicin. Varför?</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SCEN 4: SA REKOGNOSERING (VALFRI) -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SCEN 4 — REKOGNOSERING: SLAVIC ASSOCIATION (~16:00–18:00)</h2>
+
+        <p><em>Denna scen spelas om cellen bestämmer sig för att rekognosera SA idag. Fullständig SA-detalj finns i <a href="scene_slavic_breakin.html" style="color: var(--accent-blue);">scene_slavic_breakin.html</a>.</em></p>
+
+        <h3>Reichenberger Straße — dagtid</h3>
+
+        <div class="read-aloud">
+            Reichenberger Straße i eftermiddagssol. Kreuzberg lever: dönerkiosker, cyklister, en grupp tonåringar på en bänk med Bluetooth-högtalare. Numrena stiger — 108, 112, 118. Vid 124 smalnar gatan inte av, men känslan förändras.
+            <br><br>
+            Röd tegelbyggnad. F.d. fabrik, tidigt 1900-tal, fem våningar. En rostig grind leder in till en innergård. Tre skyltar vid portöppningen: Berlins Naturskyddsförening. Höders Möbelverkstad. Och längst in, med kyrillisk text under den tyska: <em>Slavische Vereinigung — Славянское объединение.</em>
+            <br><br>
+            Glasdörr, halvisolerad. Ljus innanför. En monstera-växt skymtar i fönstret.
+        </div>
+
+        <div class="gm-note">Fullständig rekognoseringsdetalj, trafikmönster, tidsfönster och intrångsalternativ finns i <a href="scene_slavic_breakin.html" style="color: var(--accent-yellow);">scene_slavic_breakin.html</a> — Fas 1. Kör därifrån om de bestämmer sig.</div>
+
+        <div class="info-box">
+            <h4>SNABBVERSION — vad de ser vid observation</h4>
+            <ul>
+                <li>~16:30: Anton Mahler (om han var där) redan borta</li>
+                <li>~17:00: Helga Krausst låser sekretariatet, lämnar med handväska och katt-mat</li>
+                <li>~17:15: Byggnaden tystnar. Ljus i övre fönstren släcks ett efter ett.</li>
+                <li>~18:00: Nyckelbricka-systemet aktiveras (hissarna till övervåningen låses)</li>
+                <li>Innergården: tom lastbil, överfulla soptunnor, en katt (inte Helgas — vildkatt)</li>
+            </ul>
+        </div>
+
+        <div class="yellow-box">
+            <strong>OM BLOBEL FÖLJER DEM HIT:</strong> Staffett-teamet ser att cellen rekognoserar SA. Rapporteras till Anton. Anton reagerar INTE omedelbart — han vill veta vad de planerar. Men arkivet kan rensas under natten om han blir nervös.
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SCEN 5: KVÄLLEN -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SCEN 5 — KVÄLLEN PÅ GRAEFESTRASSE (~20:00)</h2>
+
+        <div class="music-cue">Max Richter — "On the Nature of Daylight" (igen, men nu med annan vikt — det är deras sista normala kväll)</div>
+
+        <div class="read-aloud">
+            Graefestraße i skymningen. Albatross stänger — personalen hastar ut. Orient Falafel är fullt, kön rör sig. Spielcasinots neon tänds, gult och orange, den enda konstanten. I fönstren ovanför tänds lampor en efter en.
+            <br><br>
+            I lägenheten: ops-room lyser blått. Whiteboarden har text nu. Namn, pilar, frågetecken. Fotokopiorna av de tre männen sitter med magneter. Mammans dagbok ligger öppen på bordet — oöversatt, otillgänglig, som en låst dörr.
+            <br><br>
+            Någon har köpt falafel. Det luktar tahini och friterad kikärta. Det luktar nästan normalt.
+        </div>
+
+        <h3>Bonds — ringer de hem?</h3>
+
+        <div class="yellow-box">
+            <p>Cellen har varit borta från USA i dagar. Bondsna eroderar. Vem ringer hem?</p>
+            <ul>
+                <li><span class="agent-tag tag-mac">Mac</span> Emma. "Allt bra. Jobbar." Vad säger hon? Hur låter hon?</li>
+                <li><span class="agent-tag tag-sullivan">Sullivan</span> Ber han? Ringer han St. Mary's? Eller sitter han tyst vid pianot?</li>
+                <li><span class="agent-tag tag-trench">Trench</span> Sandra. "Jag är kvar i Europa. Säkert. Jag ringer snart." Tror hon honom?</li>
+                <li><span class="agent-tag tag-sparky">Sparky</span> Vem ringer hon? Eller: ringer hon ingen?</li>
+                <li><span class="agent-tag tag-scalpel">Scalpel</span> Ringer hon sin pappa i Tokyo? 8 timmars tidsskillnad — kl 04:00 i Japan.</li>
+            </ul>
+            <div class="gm-note">Frivilligt. Pressa inte. Men erbjud möjligheten. En Bond-scen mitt i operationen påminner om vad de har att förlora.</div>
+        </div>
+
+        <h3>Onda drömmar — första natten i Berlin</h3>
+
+        <div class="warning-box">
+            <strong>⚠ TRIGGER: Första gången cellen sover i Berlin</strong>
+            <p>Referens: <a href="black_madonna_chapter1.html#scene8" style="color: var(--accent-red);">chapter1, Scen 8: Onda drömmar</a></p>
+            <p>Alla fem drömmer. Samma dröm, olika varianter. Mörka bilder — barn i mörker, en källare, ljus som brinner utan värme, och <strong>ett hummande som inte slutar</strong>. 247 Hz.</p>
+            <p>De vaknar svettiga. Klåda i huden. Mörkret utanför fönstret känns tjockare.</p>
+        </div>
+
+        <div class="san-check">
+            <strong>SAN CHECK: 0/1 (Unnatural)</strong>
+            <p>Drömmen är delad. Om de pratar om den imorgon bitti inser de att alla drömde samma sak. Det är inte normalt. Det har aldrig varit normalt.</p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SESSIONSAVSLUT -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SESSIONSAVSLUT — TRÅDAR IN I NÄSTA SESSION</h2>
+
+        <div class="clue-chain">
+            <h4>AKTIVA LEDTRÅDAR (kvällen 22 september)</h4>
+            <table>
+                <tr><th>Tråd</th><th>Status</th><th>Nästa steg</th></tr>
+                <tr><td>Mammans dagbok (ryska)</td><td>I händerna — oöversatt</td><td>Arnold Weiss kan översätta (1 dag)</td></tr>
+                <tr><td>Magdas MacBook</td><td>Låst (eller hackad av Sparky)</td><td>Om hackad: 400+ filer att gå igenom</td></tr>
+                <tr><td>Slavic Association</td><td>Rekognoserad (om scen 4 spelades)</td><td>Inbrott ikväll/imorgon? → scene_slavic_breakin.html</td></tr>
+                <tr><td>Arnold Weiss</td><td>Kontaktad / ej kontaktad</td><td>Möte imorgon? Han bjöd hem.</td></tr>
+                <tr><td>Filip Kramers telefonnummer</td><td>Visitkort i handen</td><td>Ringer de? Vad säger de?</td></tr>
+                <tr><td>Parasiten</td><td>Mac + Sullivan bekräftade. Resten: imorgon.</td><td>Richter dokumenterar. Klockan tickar.</td></tr>
+                <tr><td>Blobels team</td><td>Följer dem (om inte skakat)</td><td>Anton vet vad de gör. Hur reagerar han?</td></tr>
+                <tr><td>Richter</td><td>Allierad. Väntar på Scalpels samtal.</td><td>Veckovis dokumentation. Oinfekterat blod.</td></tr>
+                <tr><td>Frankfurt Clinic</td><td>Pyotrs vykort + arkiv-dokument</td><td>Heldag utflykt. Kanske kapitel 2?</td></tr>
+            </table>
+        </div>
+
+        <div class="scene-transition">— SESSION 9 SLUT —</div>
+
+        <div class="gm-note">Bra sessionsslut: De har material. De har en bas. De har en diagnos. Och de har drömmar som säger att något vet att de är här. Nästa session: handling — SA-inbrott, Arnold-möte, eller det oväntade telefonsamtalet till Filip.</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SAN-SAMMANFATTNING -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SAN-SAMMANFATTNING</h2>
+        <table>
+            <tr><th>Trigger</th><th>Check</th><th>Typ</th><th>Kräver</th></tr>
+            <tr><td>Richters diagnos ("2–6 månader, ingen medicinsk behandling")</td><td>0/1</td><td>Unnatural</td><td>Höra orden</td></tr>
+            <tr><td>Onda drömmar (första natten i Berlin)</td><td>0/1</td><td>Unnatural</td><td>Sova i Berlin</td></tr>
+            <tr><td><strong>Totalt möjligt</strong></td><td><strong>0–2</strong></td><td></td><td>Låg budget — investigation-session</td></tr>
+        </table>
+        <div class="gm-note">Samma filosofi som session 8: spänning byggs av information, inte av monster. Dreden kommer inifrån — de är sjuka, de drömmer samma dröm, klockan tickar.</div>
+    </div>
+
+</div>
+</body>
+</html>

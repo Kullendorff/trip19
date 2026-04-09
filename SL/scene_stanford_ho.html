@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scen: Stanford — Dr. Raymond Ho | Trip 19</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-green: #00ff41;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --accent-yellow: #ffcc00;
+            --accent-purple: #9b59b6;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        .session-header {
+            background: var(--bg-panel);
+            border: 2px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .session-header h1 { color: var(--accent-blue); font-size: 2rem; margin-bottom: 0.5rem; }
+        .session-header p { color: var(--text-dim); }
+
+        .session-meta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(74, 144, 164, 0.1);
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-bar a { color: var(--accent-blue); text-decoration: none; font-weight: bold; }
+
+        .section {
+            background: var(--bg-panel);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: var(--accent-blue);
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section h3 { color: var(--accent-yellow); font-size: 1.2rem; margin: 1.5rem 0 1rem 0; }
+        .section h4 { color: var(--accent-blue); font-size: 1rem; margin: 1rem 0 0.5rem 0; }
+
+        .info-box {
+            background: rgba(74, 144, 164, 0.1);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid var(--accent-red);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .yellow-box {
+            background: rgba(255, 204, 0, 0.1);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .read-aloud {
+            background: rgba(155, 89, 182, 0.1);
+            border-left: 4px solid var(--accent-purple);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        .npc-card {
+            background: rgba(10, 14, 23, 0.6);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-yellow);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .npc-card h4 { color: var(--accent-yellow); font-size: 1.1rem; margin-bottom: 0.75rem; }
+
+        .san-check {
+            background: rgba(255, 68, 68, 0.15);
+            border: 2px solid var(--accent-red);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .gm-note {
+            background: var(--bg-darker);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            font-style: italic;
+            border-radius: 4px;
+        }
+
+        .gm-note::before { content: "SL: "; color: var(--accent-yellow); font-weight: bold; font-style: normal; }
+
+        .skill-check {
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid var(--accent-green);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .clue-box {
+            background: rgba(0, 255, 65, 0.08);
+            border: 2px solid var(--accent-green);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .clue-box h4 { color: var(--accent-green); margin-bottom: 1rem; }
+
+        .music-cue {
+            background: rgba(155, 89, 182, 0.08);
+            border: 1px solid var(--accent-purple);
+            padding: 0.75rem 1rem;
+            margin: 0.75rem 0;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .music-cue::before { content: "Musik: "; color: var(--accent-purple); font-weight: bold; }
+
+        .handout-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid #d4af37;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .handout-link a { color: #d4af37; font-weight: bold; text-decoration: none; }
+
+        .speaker { color: var(--accent-yellow); font-weight: bold; }
+        .dialogue { margin: 0.75rem 0; }
+
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th { background: rgba(74, 144, 164, 0.2); color: var(--accent-blue); padding: 0.75rem; text-align: left; }
+        td { padding: 0.75rem; border-bottom: 1px solid var(--border); }
+
+        ul { padding-left: 1.5rem; margin: 0.5rem 0; }
+        li { margin-bottom: 0.4rem; }
+
+        .agents-here {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .agent-tag {
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .trench { background: rgba(255, 140, 0, 0.2); border: 1px solid #ff8c00; color: #ff8c00; }
+        .scalpel { background: rgba(212, 175, 55, 0.2); border: 1px solid #d4af37; color: #d4af37; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="session-header">
+        <h1>SCEN: STANFORD — DR. RAYMOND HO</h1>
+        <p>Palo Alto, Kalifornien — Kort före Hamburg-resan</p>
+        <div class="session-meta">
+            <div><span style="font-weight:bold;">Agenter:</span> Trench + Scalpel</div>
+            <div><span style="font-weight:bold;">Plats:</span> Stanford University, Applied Physics</div>
+            <div><span style="font-weight:bold;">Status:</span> <span style="color: var(--accent-red);">Ho är redan död</span></div>
+        </div>
+    </div>
+
+    <div class="nav-bar">
+        <a href="session5-6.html">← Session 5-6</a>
+        <span style="color: var(--text-dim);">Kapitel 1 — Resan till Europa</span>
+        <a href="black_madonna_chapter1.html">Kapitel 1 →</a>
+    </div>
+
+    <!-- VARFÖR DEN HÄR SCENEN -->
+    <div class="section">
+        <h2>BAKGRUND</h2>
+
+        <div class="agents-here">
+            <span class="agent-tag trench">TRENCH</span>
+            <span class="agent-tag scalpel">SCALPEL</span>
+        </div>
+
+        <div class="info-box">
+            <strong>Situationen:</strong> Scalpel mailade Prof. Raymond Ho (Applied Physics, Stanford) med frågor om Volkov. Ho svarade — ett detaljerat, oroväckande brev om sin fd doktorand. Han verkade villig att prata mer. Trench och Scalpel bestämde sig för att flyga till Palo Alto och träffa honom personligen innan cellen beger sig till Hamburg.
+        </div>
+
+        <div class="warning-box">
+            <strong>Ho är redan död.</strong><br><br>
+            Han hittades i sitt kontor morgonen efter att han skickade emailet till Scalpel. Officiell dödsorsak: hjärtinfarkt. Han var 67 år. Ingenting ovanligt i sig — utom timingen. Utom att någon bevakade hans korrespondens. Utom att hans laboratorieanteckningar från 2008–2010 nu är borta.
+        </div>
+
+        <div class="gm-note">
+            Spelarna vet inte att han är död när de lämnar DC. De ringer, ingen svarar. De mailar, inget svar. Kanske tror de att han är på konferens. De tar sig till Stanford — och får reda på det där.
+        </div>
+    </div>
+
+    <!-- ANKOMST -->
+    <div class="section">
+        <h2>FAS 1 — ANKOMST PÅ STANFORD</h2>
+
+        <div class="music-cue">No Country for Old Men — Carter Burwell. Öppen, torr, väntar på något.</div>
+
+        <div class="read-aloud">
+            <p>Stanford i september. Kampus är det vackraste ni har sett på länge — röd sandsten, palmträd, den starka solljuset från Stilla havet. Studenter på cyklar. Någon spelar gitarr vid fontänen.</p>
+            <p style="margin-top: 1rem;">Varian Physics Building ligger lite avsides. En äldre byggnad, mer stillsam. Ni hittar institutionens receptionist — en ung kvinna som ser ut att ha grätit nyligen.</p>
+            <p style="margin-top: 1rem;">"Professor Ho?" Hon pausar. Tittar på er. "Kände ni honom?"</p>
+        </div>
+
+        <div class="yellow-box">
+            <h4 style="color: var(--accent-yellow);">Hur spelarna reagerar</h4>
+            <p>Det spelar roll vad de säger här. Alternativen:</p>
+            <table>
+                <tr><th>Approach</th><th>Resultat</th></tr>
+                <tr><td><strong>"Vi hade ett möte"</strong></td><td>Hon förstår. Ber dem vänta. Hämtar Dr. Nguyen.</td></tr>
+                <tr><td><strong>FBI-badge (Trench/Mac)</strong></td><td>Hon blir nervös, säger "Ni är den andra gruppen." Hämtar avdelningschefen istället.</td></tr>
+                <tr><td><strong>"Vi mailade nyligen"</strong></td><td>Hon tittar konstigt på dem. "Det är... märkligt. Polisen frågade om hans email också."</td></tr>
+            </table>
+        </div>
+
+        <div class="gm-note">
+            "Den andra gruppen" = FBI-agenter var här i morse. Om Trench använder FBI-id nu riskerar han att kollidera med en pågående FBI-undersökning. Det är en röd flagga att undvika eller navigera.
+        </div>
+    </div>
+
+    <!-- DR. NGUYEN -->
+    <div class="section">
+        <h2>FAS 2 — DR. LINDA NGUYEN</h2>
+
+        <p style="color: var(--text-dim); margin-bottom: 1rem;">Hos 27 år, Associate Professor, Applied Physics. Hon nämns i Hos email: "Dr. Nguyen och jag diskuterade att avbryta hans forskning 2004."</p>
+
+        <div class="npc-card">
+            <h4>Dr. Linda Nguyen — Kollega, vittne, rädd</h4>
+            <p><strong>Utseende:</strong> Tidig 50-årsåldern. Välklädd men tydligt påverkad — röda ögon, händerna håller hårt i kaffekoppen. Pratar fort och lågt.</p>
+            <p style="margin-top: 0.75rem;"><strong>Status:</strong> Chockad men samlad. Hon vet mer än hon säger till FBI. Hon är mer benägen att prata med "Raymonds kontakter" än med myndigheter.</p>
+            <p style="margin-top: 0.75rem;"><strong>Om Scalpel visar emailet:</strong> Nguyen läser det tyst. Läser om. Sätter ner koppen.</p>
+            <p class="dialogue" style="margin-top: 0.75rem;"><span class="speaker">NGUYEN:</span> "Han skickade detta till er. Sedan dog han. Samma dag."</p>
+            <p style="margin-top: 0.5rem;">Hon ser ut genom fönstret. Lång paus.</p>
+            <p class="dialogue"><span class="speaker">NGUYEN:</span> "Berätta för mig vad ni vet om Dmitri Volkov. Sedan berättar jag vad jag vet."</p>
+        </div>
+
+        <h3>Vad Nguyen kan berätta (tre nivåer)</h3>
+
+        <div class="info-box">
+            <h4 style="color: var(--accent-blue);">NIVÅ 1 — Grundläggande (om de delar något)</h4>
+            <ul>
+                <li>Ho hittades igår morgon av städpersonal. Kontoret upplåst. Han satt vid skrivbordet.</li>
+                <li>Officiell dödsorsak: hjärtinfarkt. Inga tecken på yttre våld.</li>
+                <li>"Raymond hade inga hjärtproblem. Senaste kontrollen för fyra månader sedan — perfekt."</li>
+                <li>Polisen behandlar det som naturlig dödsfall. FBI ringde och frågade om Volkov.</li>
+            </ul>
+        </div>
+
+        <div class="info-box" style="margin-top: 1rem;">
+            <h4 style="color: var(--accent-yellow);">NIVÅ 2 — Om de pressar (Persuade eller delar mer om Volkov)</h4>
+            <ul>
+                <li>"Två kvällar sedan — dagen innan han dog — såg en doktorand två män vid Raymonds kontor. Sent, efter 20:00. De gick inte in. Stod bara utanför."</li>
+                <li>"Kostymklädda. Inte studenter. Inte fakultet. Raymond var inte där då."</li>
+                <li>"Laboratorieanteckningarna är borta. Tre mappar, märkta 'Volkov 2008', 'Volkov 2009', 'Volkov 2010'. Jag har letat. Institutionen har letat. De är borta."</li>
+                <li>"FBI frågade om dem. De var inte nöjda när vi sa att vi inte kunde hitta dem."</li>
+            </ul>
+        </div>
+
+        <div class="info-box" style="margin-top: 1rem;">
+            <h4 style="color: var(--accent-red);">NIVÅ 3 — Om de vinner hennes förtroende fullt ut</h4>
+            <ul>
+                <li>"Det sista Volkov sa till mig, 2010, dagen vi avslutade hans anknytning: 'Ni förstår inte vad ni kastar bort. De har redan byggt en. Den fungerade 1940. Ni letar på fel ställen.'"</li>
+                <li>"Raymond trodde aldrig på det. Men han arkiverade Volkovs anteckningar istället för att förstöra dem. Han sa 'man kan aldrig veta.'"</li>
+                <li>"Och nu är de borta."</li>
+                <li style="color: var(--accent-red);">Lägre röst: "Jag ska till San Francisco i helgen. Besöka min syster. Jag tror inte att det är en bra vecka att stanna i Palo Alto."</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- HOS KONTOR -->
+    <div class="section">
+        <h2>FAS 3 — HOS KONTOR</h2>
+
+        <div class="info-box">
+            <strong>Tillgång:</strong> Om spelarna ber om att se kontoret — Nguyen kan ta dem dit. Eller, om de har FBI-id, kan de kräva tillgång. Kontoret är inte formellt avspärrat (naturlig dödsorsak).
+        </div>
+
+        <div class="read-aloud">
+            <p>Kontoret är litet, fullt av böcker och utskrifter. En gammaldags whiteboardtavla täcker en hel vägg — formler, diagram, pilar som leder från en box till nästa. Mest standardfysik. Men i ena hörnet, lite avsides:</p>
+            <p style="margin-top: 1rem;">En cirkel, ritad hårt. Inuti: "247?" med ett frågetecken. Under det, med ett annat bläck, nästan suddat: "ikke naturlig. se Volkovs fil 7."</p>
+            <p style="margin-top: 1rem;">På skrivbordet: en kaffekopp (fortfarande halvfull, kall), en öppen bok om kristallografi, och ett tomt utrymme där tre mappklämmor uppenbarligen stod.</p>
+        </div>
+
+        <div class="clue-box">
+            <h4>LEDTRÅDAR I KONTORET</h4>
+            <table>
+                <tr><th>Vad</th><th>Skill</th><th>Vad det ger</th></tr>
+                <tr>
+                    <td><strong>Whiteboardtavlan ("247?")</strong></td>
+                    <td>Notice (automatisk)</td>
+                    <td>Volkov publicerade aldrig sin frekvens — men Ho visste. Eller gissade.</td>
+                </tr>
+                <tr>
+                    <td><strong>"Fil 7"</strong></td>
+                    <td>Notice / Research</td>
+                    <td>Volkovs anteckningar var numrerade. Fil 7 var den sista — inte bland de borttagna 2008-2010-mapparna. Var är fil 7?</td>
+                </tr>
+                <tr>
+                    <td><strong>Kristallografi-boken</strong></td>
+                    <td>Science (Physics) 30%</td>
+                    <td>Uppslagen på ett kapitel om icke-standardiserade gitterstrukturer. En mening understruken: "Syntetiska formationer av denna typ kräver extremt kontrollerade förhållanden — alternativt en ursprunglig mall."</td>
+                </tr>
+                <tr>
+                    <td><strong>Papperskorgen</strong></td>
+                    <td>Search 50%</td>
+                    <td>En skrynklig post-it: "R. — ring tillbaka. Vet om Lundeen-lådan. Bråttom." Inget telefonnummer.</td>
+                </tr>
+                <tr>
+                    <td><strong>Datorn (låst)</strong></td>
+                    <td>Computer Science 40% eller IT-stöd</td>
+                    <td>Inloggad mail: IT-avdelningen kan ge tillgång vid FBI-begäran. Senaste skickade email = Scalpels svar. Näst senast: ett okänt nummer, krypterat, bara "Jag vet vad ni letade efter. Håll er borta." Skickat kvällen Ho dog.</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="san-check">
+            <strong>SAN-check: 0/1</strong> — Om de ser mailet som skickades till Ho kvällen han dog. Någon visste att han pratade med dem. Någon sände ett hot. Och sedan dog han.
+        </div>
+    </div>
+
+    <!-- FIL 7 -->
+    <div class="section">
+        <h2>FAS 4 — FIL 7 (OPTIONAL BONUS)</h2>
+
+        <div class="gm-note">
+            Fil 7 är ett valfritt spår om spelarna gräver djupare. Det är en belöning för grundlig investigation, inte nödvändig information.
+        </div>
+
+        <div class="yellow-box">
+            <h4 style="color: var(--accent-yellow);">Var är Fil 7?</h4>
+            <p>Den är inte i kontoret. Den är inte i institutionens arkiv. Men Nguyen minns — <em>"Raymond lämnade en del material till biblioteket för digitalisering för ungefär ett år sedan. Jag vet inte vad."</em></p>
+            <p style="margin-top: 1rem;">Stanford Libraries, Green Library Building. En arkivarie bekräftar: "Jo, vi har ett digitaliserat dokument från Applied Physics. Det är inte publikt ännu men..."</p>
+
+            <div class="skill-check" style="margin-top: 1rem;">
+                <strong>Persuade, FBI-badge, eller Research 60%:</strong> De får tillgång.<br>
+                <strong>Vad Fil 7 innehåller:</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>Volkovs handskrivna anteckningar, 2010. Svårlästa, som Ho varnade för.</li>
+                    <li>Matematiska formler — sunda, men i en kontext som inte är fysik</li>
+                    <li>En skiss av ett objekt: en kristall monterad i en metallram. Geometrin är omöjlig i naturliga kristaller.</li>
+                    <li>Datum antecknat: <em>"Original apparatus: Pennsylvania, August 1940. Confirmed functional. Fragments dispersed post-crash."</em></li>
+                    <li>Sista raden, med ett annat bläck, skrivet senare: <em>"De tre männen har ett fragment. Frankfurt Clinic, 1951–. De vet inte vad de bär."</em></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="san-check">
+            <strong>SAN-check: 0/1d4</strong> — Vid läsning av Fil 7. Inte för innehållet i sig, utan för insikten: Volkov visste om de tre männen redan 2010. Han visste var fragmenten var. Och ändå gick han till Virginia 2025 och grävde upp ett till.
+        </div>
+    </div>
+
+    <!-- STORAGE UNIT -->
+    <div class="section">
+        <h2>KRISTALLFRAGMENTET — PALO ALTO STORAGE</h2>
+
+        <div class="info-box">
+            <strong>Bakgrund:</strong> Cellen har fragmentet från Bishop Farm/Hamilton House. 85 CPM — radioaktivt nog för att trigga TSA-detektorer. Omöjligt att ta med på kommersiellt flyg. Trench och Scalpel beslutar att hyra en storage-enhet i Palo Alto innan de flyger till Hamburg.
+        </div>
+
+        <h3>Faciliteten</h3>
+        <div class="read-aloud">
+            <p>Ett Shurgard eller liknande — klimatkontrollerat, 24h-access med portalkod. Palo Alto har flera längs El Camino Real eller nära 101. Ingenting märkvärdigt. De hyr under ett av sina riktiga namn (inget annat val utan kontanter och falsk id) och betalar en månads hyra i förväg.</p>
+            <p style="margin-top: 1rem;">Fragmentet förpackas i blyfolie ur Scalpels kit, läggs i en låst metallbox, ställs längst in i enheten. De fotograferar allt — om någon rört det syns det.</p>
+        </div>
+
+        <div class="yellow-box">
+            <h4 style="color: var(--accent-yellow);">SL-BESLUT: Vem vet om förvaringen?</h4>
+            <table>
+                <tr><th>Val</th><th>Konsekvens</th></tr>
+                <tr>
+                    <td><strong>Bara Trench + Scalpel vet</strong></td>
+                    <td>Operativ säkerhet. Men om något händer dem i Hamburg — ingen i cellen kan hämta fragmentet. Det bara... stannar där.</td>
+                </tr>
+                <tr>
+                    <td><strong>De berättar för hela cellen</strong></td>
+                    <td>Mac, Sullivan, Sparky får adress och portalkod. Redundans. Men fler som vet = fler som kan läcka.</td>
+                </tr>
+                <tr>
+                    <td><strong>De lämnar ett kuvert hos Mac</strong></td>
+                    <td>"Öppna bara om vi inte hör av oss." Klassisk dead drop. Dramatisk potential.</td>
+                </tr>
+            </table>
+            <p style="margin-top: 0.75rem; color: var(--text-dim);">Låt spelarna bestämma. Det är ett karaktärsbeslut.</p>
+        </div>
+
+        <div class="warning-box">
+            <strong>Sårbarhet:</strong> Fragmentet är nu obevakat i Kalifornien. Om de tre männen har kontakter i USA — eller om FBI spårar cellens rörelser — kan någon hitta det. Storage-uthyrning kräver ID. Det finns ett papperspår.<br><br>
+            <strong>Fragmentet är inte borta ur storyn</strong> — det väntar i Palo Alto tills kampanjen kräver det igen.
+        </div>
+
+        <div class="gm-note">
+            247 Hz-hummet: Om Scalpel tillbringar mer än några minuter i närheten av fragmentet vid inpackningen — CON check eller en flyktig känsla av déjà vu, ett ljud hon inte kan placera. Ingenting dramatiskt. Bara en påminnelse om att det inte är inert.
+        </div>
+    </div>
+
+    <!-- SL-SAMMANFATTNING -->
+    <div class="section">
+        <h2>SL-SAMMANFATTNING</h2>
+
+        <h3>Vad scenen ger spelarna</h3>
+        <div class="clue-box">
+            <h4>OBLIGATORISK INFO (utan grävning):</h4>
+            <ul>
+                <li>Ho är död. Timing är inte slumpmässig.</li>
+                <li>Laboratorieanteckningarna är borta — någon var här och tog dem.</li>
+                <li>Volkov var övertygad om 1940-talets apparat redan vid Stanford</li>
+                <li>Nguyen är rädd och lämnar stan</li>
+            </ul>
+            <h4 style="margin-top: 1rem;">BONUS (med investigation):</h4>
+            <ul>
+                <li>247 Hz på whiteboardtavlan — bekräftelse</li>
+                <li>"Fil 7" — fragmenten + de tre männen kopplade samman av Volkov själv 2010</li>
+                <li>Hotmailet till Ho kvällen han dog — cellen är övervakad</li>
+                <li>Post-it om "Lundeen-lådan" — kopplar till Stanford Box 147</li>
+            </ul>
+        </div>
+
+        <h3>Ton och pacing</h3>
+        <div class="info-box">
+            <ul>
+                <li><strong>Ingen action.</strong> Det är en ren investigation-scen. Spänningen är intellektuell och paranoid.</li>
+                <li><strong>Trench känner sig onödig</strong> — detta är Scalpels miljö (akademisk, medicinsk). Ge honom ett moment: han är den som ser männen som stod utanför kontoret (Alertness check), han är den som läser kroppsspråket på Nguyen korrekt.</li>
+                <li><strong>Slutkänslan:</strong> De har lärt sig mycket. Och de inser att någon vet att de lär sig det. Dags att flyga.</li>
+            </ul>
+        </div>
+
+        <h3>Övergång till Hamburg</h3>
+        <div class="yellow-box">
+            <p>Scenen slutar naturligt med att de bokar flyg från SFO eller LAX till Europa (direkt eller via hub). De har nu:</p>
+            <ul style="margin-top: 0.5rem;">
+                <li>Bekräftelse på att 247 Hz är realt och att Volkov sökte det i decennier</li>
+                <li>Vetskap om att någon rensar spåren efter Volkov</li>
+                <li>En öppen tråd: Lundeen-lådan på Stanford (Box 147, restricted till 2045)</li>
+                <li>En känsla av att bli jagade — och att de inte hade en aning om det</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dagbok — Del 4: Utskrivningen</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=IM+Fell+English:ital@0;1&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @page { size: A4; margin: 2cm 2.5cm; }
+
+        body {
+            background: #f4ead0;
+            color: #2c2318;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            line-height: 1.85;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            background-image:
+                radial-gradient(ellipse at 20% 50%, rgba(139, 109, 63, 0.06) 0%, transparent 70%),
+                radial-gradient(ellipse at 80% 20%, rgba(101, 67, 33, 0.04) 0%, transparent 60%);
+        }
+
+        .page-edge {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            box-shadow: inset 0 0 80px rgba(101, 67, 33, 0.12);
+            z-index: 100;
+        }
+
+        .margin-line {
+            position: fixed; top: 0; left: 60px; bottom: 0;
+            width: 1px; background: rgba(180, 60, 60, 0.12);
+            z-index: 50; pointer-events: none;
+        }
+
+        .diary-header {
+            text-align: center; margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem; border-bottom: 1px solid rgba(44, 35, 24, 0.15);
+        }
+
+        .diary-header h1 { font-family: 'IM Fell English', Georgia, serif; font-size: 1.4rem; color: #3a2a18; letter-spacing: 1px; margin-bottom: 0.3rem; }
+        .diary-header .cyrillic { font-size: 1.8rem; color: #4a3520; margin-bottom: 0.5rem; letter-spacing: 2px; }
+        .diary-header .subtitle { font-size: 0.95rem; color: #7a6a52; font-style: italic; }
+
+        .entry { margin-bottom: 2.5rem; }
+        .entry-date { font-family: 'IM Fell English', Georgia, serif; font-size: 1rem; color: #5a3a1a; font-weight: 600; margin-bottom: 0.6rem; letter-spacing: 0.5px; }
+        .entry-text { font-size: 1.15rem; color: #2c2318; padding-left: 0.5rem; }
+        .entry-text p { margin-bottom: 0.7rem; text-indent: 1.5rem; }
+        .entry-text p:first-child { text-indent: 0; }
+
+        .russian { font-style: italic; color: #4a3520; }
+        .emphasis { font-weight: 600; }
+        .scratched { text-decoration: line-through; color: #8a7a62; }
+
+        .page-number { text-align: center; margin-top: 3rem; font-size: 0.85rem; color: #9a8a72; letter-spacing: 2px; }
+
+        .stain { position: relative; }
+        .stain::after {
+            content: ""; position: absolute;
+            width: 50px; height: 50px;
+            background: radial-gradient(ellipse, rgba(101, 67, 33, 0.09) 0%, transparent 70%);
+            border-radius: 50%; pointer-events: none;
+        }
+        .stain-tl::after { left: 5px; top: -8px; width: 55px; height: 55px; }
+
+        @media print {
+            body { padding: 0; background: #f4ead0; }
+            .page-edge, .margin-line { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-edge"></div>
+    <div class="margin-line"></div>
+
+    <div class="diary-header">
+        <div class="cyrillic">Дневник</div>
+        <h1>Frankfurt an der Oder, 1951–1952</h1>
+        <div class="subtitle">Del IV — Frankfurt an der Oder</div>
+    </div>
+
+    <!-- ENTRY 10: TRANSFER -->
+    <div class="entry">
+        <div class="entry-date">7 mars 1951</div>
+        <div class="entry-text">
+            <p>De flyttar oss. Västerut. Dr. Tatlina kallade det en "överföring till allierad vård" — som om vi vore paket. Elva barn och jag. De sjukaste lämnas kvar i Moskva. Pyotr lämnas kvar.</p>
+            <p>Jag frågade om de tre pojkarna. "De följer med," sa Tatlina. Hon tittade inte på mig när hon sa det.</p>
+            <p>Tåget gick i tre dagar. Genom Polen. Genom ruiner. Magda satt vid fönstret och räknade broar. Tolv år gammal och hon räknar fortfarande allt.</p>
+        </div>
+    </div>
+
+    <!-- ENTRY 11: ANKOMST FRANKFURT -->
+    <div class="entry stain stain-tl">
+        <div class="entry-date">14 mars 1951</div>
+        <div class="entry-text">
+            <p>Frankfurt an der Oder. Kliniken ligger utanför staden, i Güldendorf. Gråvit byggnad, nyare än Kirov, men med samma sorts galler på undervåningens fönster. Lukten är annorlunda — inte Moskvas kall-fuktiga mögel utan tysk kemisk renlighet. Allt stinker av klor.</p>
+            <p>Ny direktör: <strong>Dr. Helmut Schäfer.</strong> Tysk, kort, pratar snabbt. Skakar inte hand. Tatlina stannade en vecka, överlämnade journaler, sedan försvann hon tillbaka till Moskva. Jag hann inte ens säga adjö.</p>
+            <p>Schäfer tittade igenom mina papper. "Intressant fall," sa han. Inte till mig. Till sin assistent. Som om jag inte fanns i rummet.</p>
+        </div>
+    </div>
+
+    <!-- ENTRY 12: DE TRE POJKARNA I FRANKFURT -->
+    <div class="entry">
+        <div class="entry-date">9 juni 1951</div>
+        <div class="entry-text">
+            <p>Det har gått tre månader. Kliniken är bättre än Kirov — maten är riktig mat, inte grå gröt. Magda har fått gå i en liten skola i byn. Hon pratar tyska nu, nästan flytande. Barn lär sig snabbt.</p>
+            <p>De tre pojkarna har egna rum i östra flygeln. Schäfer behandlar dem annorlunda — som <span class="emphasis">studieobjekt</span>, inte patienter. Jag ser honom stå vid deras dörrar med anteckningsblock. Han mäter dem varje vecka. Samma resultat som Kirov. Samma längd. Samma vikt. Fem år nu utan förändring.</p>
+            <p>Han har sagt till mig, en gång, i korridoren: "Fru Orlova, det är anmärkningsvärt." Han log när han sa det. Det var inte ett vänligt leende.</p>
+        </div>
+    </div>
+
+    <!-- ENTRY 13: BREVET OM BERLIN -->
+    <div class="entry">
+        <div class="entry-date">22 november 1951</div>
+        <div class="entry-text">
+            <p>Helga — som följde med oss från Kirov, en av de äldre patienterna — fick ett brev från sin syster i Berlin. Systern skriver att det talas om en ny förening i östra Berlin. <span class="russian">Славянское объединение.</span> Slaviska sällskapet. Unga män med rysk bakgrund. Kulturkvällar, matinsamlingar, ryska högtider.</p>
+            <p>"Unga män"? Det finns inga "unga män" med rysk bakgrund som bara dyker upp i Östberlin. Inte nu. Inte så.</p>
+            <p>Jag frågade: "Vem driver det?" Helga visste inte. Men hon sa: "En av dem frågade specifikt efter dig. Den yngste."</p>
+            <p>Filip. Det måste vara Filip.</p>
+            <p>De tre pojkarna är fortfarande här på kliniken. Hur kan de vara i Berlin samtidigt? Eller — planerar de att lämna?</p>
+        </div>
+    </div>
+
+    <!-- ENTRY 14 -->
+    <div class="entry">
+        <div class="entry-date">14 december 1951</div>
+        <div class="entry-text">
+            <p>Jag har skrivit brev till alla jag kan nå. Helgas syster. Doktor Tatlinas kontor i Moskva. Två gamla grannar från Leningrad som jag tror överlevde.</p>
+            <p>Ingen svarar. Eller så svarar de med ingenting. "Jag förstår inte vad du menar." "Det låter som du är sjuk." "Kanske borde du prata med din läkare."</p>
+            <p>Magda är tolv nu. Smart. Tyst. Hon frågar inte om Leningrad. Jag tror hon inte minns. Kanske är det bäst så. Kanske inte. Hur skyddar jag henne mot något hon inte vet finns?</p>
+        </div>
+    </div>
+
+    <div class="page-number">— IV —</div>
+
+</body>
+</html>

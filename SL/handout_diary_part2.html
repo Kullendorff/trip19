@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dagbok — Del 2: Natten</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=IM+Fell+English:ital@0;1&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        @page { size: A4; margin: 2cm 2.5cm; }
+
+        body {
+            background: #f4ead0;
+            color: #2c2318;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            line-height: 1.85;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            background-image:
+                radial-gradient(ellipse at 20% 50%, rgba(139, 109, 63, 0.06) 0%, transparent 70%),
+                radial-gradient(ellipse at 80% 20%, rgba(101, 67, 33, 0.04) 0%, transparent 60%);
+        }
+
+        .page-edge {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            box-shadow: inset 0 0 80px rgba(101, 67, 33, 0.12);
+            z-index: 100;
+        }
+
+        .margin-line {
+            position: fixed;
+            top: 0; left: 60px; bottom: 0;
+            width: 1px;
+            background: rgba(180, 60, 60, 0.12);
+            z-index: 50;
+            pointer-events: none;
+        }
+
+        .diary-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(44, 35, 24, 0.15);
+        }
+
+        .diary-header h1 {
+            font-family: 'IM Fell English', Georgia, serif;
+            font-size: 1.4rem;
+            color: #3a2a18;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .diary-header .cyrillic {
+            font-size: 1.8rem;
+            color: #4a3520;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .diary-header .subtitle {
+            font-size: 0.95rem;
+            color: #7a6a52;
+            font-style: italic;
+        }
+
+        .entry {
+            margin-bottom: 2.5rem;
+        }
+
+        .entry-date {
+            font-family: 'IM Fell English', Georgia, serif;
+            font-size: 1rem;
+            color: #5a3a1a;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.5px;
+        }
+
+        .entry-text {
+            font-size: 1.15rem;
+            color: #2c2318;
+            padding-left: 0.5rem;
+        }
+
+        .entry-text p {
+            margin-bottom: 0.7rem;
+            text-indent: 1.5rem;
+        }
+
+        .entry-text p:first-child { text-indent: 0; }
+
+        .russian { font-style: italic; color: #4a3520; }
+        .emphasis { font-weight: 600; }
+        .scratched { text-decoration: line-through; color: #8a7a62; }
+
+        .sketch {
+            border: 1px dashed rgba(44, 35, 24, 0.15);
+            padding: 0.6rem 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: #7a6a52;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .page-number {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: #9a8a72;
+            letter-spacing: 2px;
+        }
+
+        .stain { position: relative; }
+        .stain::after {
+            content: "";
+            position: absolute;
+            width: 50px; height: 50px;
+            background: radial-gradient(ellipse, rgba(101, 67, 33, 0.09) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .stain-tr::after { right: -5px; top: -10px; }
+
+        @media print {
+            body { padding: 0; background: #f4ead0; }
+            .page-edge, .margin-line { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-edge"></div>
+    <div class="margin-line"></div>
+
+    <div class="diary-header">
+        <div class="cyrillic">Дневник</div>
+        <h1>Kirovkliniken, Moskva, 1946–1951</h1>
+        <div class="subtitle">Del II — Natten i Leningrad</div>
+    </div>
+
+    <!-- ENTRY 4 -->
+    <div class="entry">
+        <div class="entry-date">2 november 1947</div>
+        <div class="entry-text">
+            <p>Jag började berätta för Dr. Tatlina vad jag minns. Hon skrev ner allt. Bandspelaren snurrade. Jag berättade om natten. Om ljuset.</p>
+            <p>Nyårsafton. Klockan var strax före midnatt. Vi var i källaren under Kalenkos hus — alla vi, barnen, de vuxna som var kvar. Det var så kallt att andedräkten frös på väggarna. Ljusen hade slocknat utom ett.</p>
+            <p>Sedan kom ljuset. Inte från stearinljuset — uppifrån, eller inifrån, jag vet inte. Det var <span class="emphasis">blått och vitt och det brände utan värme</span>. Det varade kanske tio sekunder, kanske en minut. Tiden slutade.</p>
+            <p>De tre männen — Garudin, Ignatiev och Pogodin, som de hette då — de stod närmast centrum. Deras kroppar kröktes bakåt. Jag hörde ben brytas. Nej — inte brytas. <span class="emphasis">Omformas.</span></p>
+        </div>
+    </div>
+
+    <div class="sketch">[Skiss i marginalen: tre figurer i en cirkel, böjda bakåt, linjer strålande uppåt. Barntecknings-stil, men gjord av en vuxen med darrig hand.]</div>
+
+    <!-- ENTRY 4b -->
+    <div class="entry stain stain-tr">
+        <div class="entry-date">2 november 1947 (forts.)</div>
+        <div class="entry-text">
+            <p>Barnen skrek. Alla utom de tre pojkarna. Anatoly, Sasha och Filip bara stod och tittade. Filip — som var minst, kanske sex, sju — log. Det var ingen barnlig glädje. Det var igenkännande.</p>
+            <p>Sedan försvann ljuset. Det som var kvar var mörkare. Jag kände det i bröstet — en tyngd, som om luften blivit tjockare. Barnen kring mig grät. Magda, min Magda, låg på mitt bröst och skakade men sa ingenting. Hon var tyst. Tre år gammal och tyst som en sten.</p>
+            <p>De tre männen — Garudin, Ignatiev, Pogodin — reste sig. Deras ansikten var desamma. Men deras ögon var inte desamma.</p>
+            <p>Jag visste det redan då. De var inte längre de personer de hade varit.</p>
+        </div>
+    </div>
+
+    <!-- ENTRY 5 -->
+    <div class="entry">
+        <div class="entry-date">14 april 1948</div>
+        <div class="entry-text">
+            <p>Behandlingarna. Jag skriver ner dem för att jag måste. Någon måste veta vad de gör här.</p>
+            <p>Elchocker, tre gånger i veckan. De spänner fast barnen. Jag hör det genom väggen — Misha skriker, sedan tystnad. De kallar det <span class="russian">электросудорожная терапия</span>. De säger att det hjälper. Det hjälper inte.</p>
+            <p>Nere i källarvåningen finns det rum jag inte får gå in i. <span class="russian">Специальное отделение</span> — specialavdelningen. De barn som förändrades mest är där. Ibland om natten hör jag ljud därifrån som inte låter mänskliga.</p>
+            <p>Jag frågade Dr. Tatlina vad som finns där. Hon tittade bort och sa: "Dem kan vi inte hjälpa."</p>
+        </div>
+    </div>
+
+    <div class="page-number">— II —</div>
+
+</body>
+</html>
