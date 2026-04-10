@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breaking Point — Father Sullivan</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-dark: #0a0f0a;
+            --bg-darker: #050805;
+            --bg-card: #0d120d;
+            --accent: #b87333;
+            --accent-dim: #8b5a2b;
+            --text: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --border: #2d3d2d;
+            --highlight: #3d5a3d;
+            --warning: #ff6b35;
+            --danger: #ff3366;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 2rem;
+        }
+
+        .page-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* --- Header --- */
+        .page-header {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 2px solid var(--accent-dim);
+        }
+
+        .page-header h1 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header .subtitle {
+            font-size: 1rem;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        .page-header .date {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-dim);
+            margin-top: 1rem;
+        }
+
+        /* --- Intro --- */
+        .intro {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            padding: 1.5rem 2rem;
+            margin-bottom: 2.5rem;
+            border-radius: 4px;
+        }
+
+        .intro h2 {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .intro p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .intro p:last-child { margin-bottom: 0; }
+
+        .stat-line {
+            font-family: 'Courier New', monospace;
+            color: var(--text);
+            font-size: 0.9rem;
+            padding: 0.3rem 0;
+        }
+
+        .stat-line .label { color: var(--accent-dim); }
+        .stat-line .value { color: var(--accent); font-weight: bold; }
+        .stat-line .changed { color: var(--warning); }
+
+        /* --- Disorder Cards --- */
+        .disorder-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .disorder-header {
+            background: var(--bg-darker);
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .disorder-header h3 {
+            color: var(--accent);
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+        }
+
+        .disorder-tag {
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            background: var(--bg-dark);
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            border: 1px solid var(--border);
+        }
+
+        .disorder-body {
+            padding: 1.5rem;
+        }
+
+        .disorder-body h4 {
+            color: var(--accent-dim);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 1.2rem;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .disorder-body h4:first-child { margin-top: 0; }
+
+        .disorder-body p {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .disorder-body p:last-child { margin-bottom: 0; }
+
+        .mechanic-box {
+            background: var(--bg-darker);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--warning);
+            padding: 1rem 1.2rem;
+            margin: 0.75rem 0;
+            border-radius: 0 4px 4px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
+        .mechanic-box strong {
+            color: var(--warning);
+        }
+
+        .flavor-quote {
+            border-left: 2px solid var(--accent-dim);
+            padding: 0.8rem 1.2rem;
+            margin: 0.75rem 0;
+            font-style: italic;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        /* --- Suppress Section --- */
+        .suppress-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .suppress-section h2 {
+            color: var(--accent);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .suppress-section ol {
+            padding-left: 1.5rem;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .suppress-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Footer --- */
+        .page-footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 1rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            body { padding: 1rem; }
+            .page-header h1 { font-size: 1.4rem; }
+            .disorder-header { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 0.75rem; }
+            .page-header { padding: 1.5rem 1rem; }
+            .disorder-body { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+
+        <div class="page-header">
+            <h1>Breaking Point</h1>
+            <div class="subtitle">Father Michael Patrick Sullivan</div>
+            <div class="date">Berlin, 22 september 2025 — Graefestraße 66</div>
+        </div>
+
+        <!-- Intro -->
+        <div class="intro">
+            <h2>Vad har hänt</h2>
+            <p>Ni satt i lägenheten på Graefestraße och gick igenom Lyubimovs texter om drömmagi och förbannelser. Du avfärdade det. Bullshit — vidskepelse, folklore, ingenting som har med verkligheten att göra.</p>
+            <p>Sedan förklarade Mac — lugnt, metodiskt, som den analytiker han är — varför det nog faktiskt kan vara sant.</p>
+            <p>Det var inte texterna som bröt dig. Det var att <em>Mac</em> sa det. Och att du inte kunde argumentera emot.</p>
+
+            <div style="margin-top: 1rem;">
+                <div class="stat-line"><span class="label">SAN:</span> <span class="value">69</span> → <span class="changed">64</span> <span class="label">(−4 Charité, −1 forskning)</span></div>
+                <div class="stat-line"><span class="label">Breaking Point:</span> <span class="value">64</span> — <span class="changed">NÅDD</span></div>
+                <div class="stat-line"><span class="label">Nytt Breaking Point:</span> <span class="changed">48</span></div>
+            </div>
+        </div>
+
+        <!-- What it means -->
+        <div class="intro">
+            <h2>Vad det innebär mekaniskt</h2>
+            <p>Att nå sin Breaking Point betyder att det ackumulerade traumat har format ditt psyke på ett bestående sätt. Sullivan får en <strong style="color: var(--accent);">permanent mental störning</strong> — inte en tillfällig reaktion, utan en kronisk förändring i hur han hanterar världen.</p>
+            <p>Störningen manifesteras genom <strong style="color: var(--accent);">akuta episoder</strong> som triggas i specifika situationer. Mellan episoderna fungerar Sullivan normalt — men den underliggande förändringen finns alltid där.</p>
+            <p>Eftersom traumat kom från <strong style="color: var(--warning);">det Onaturliga</strong> — insikten att övernaturliga förbannelser är verkliga — väljs störningen från den kategorin. Nedan finns fem alternativ. <strong style="color: var(--accent);">Du väljer.</strong></p>
+        </div>
+
+        <!-- ==================== -->
+        <!-- DISORDER 1: OBSESSION -->
+        <!-- ==================== -->
+        <div class="disorder-card">
+            <div class="disorder-header">
+                <h3>1. Besatthet</h3>
+                <span class="disorder-tag">OBSESSION</span>
+            </div>
+            <div class="disorder-body">
+                <h4>Vad det är</h4>
+                <p>Sullivan kan inte sluta gräva. Förbannelsen, drömmagi, exorcism-texter, gnostiska evangelier, demonologi — allt som kan förklara hur detta <em>passar</em> i Guds skapelse. Det som började som teologisk nyfikenhet blir ett tvångsmässigt behov av att förstå.</p>
+
+                <div class="flavor-quote">
+                    Han slutar inte läsa. Klockan tre på natten sitter han fortfarande med Lyubimovs texter, gör anteckningar i marginalen med handstil som blir allt sämre. Om någon frågar säger han att han "bara kollar en sak till."
+                </div>
+
+                <h4>När episoder triggas</h4>
+                <p>När ny information om förbannelsen, det onaturliga eller relaterade ämnen dyker upp. Sullivan prioriterar att förstå framför allt annat — uppdragets säkerhet, sömn, sina egna gränser.</p>
+
+                <div class="mechanic-box">
+                    <strong>Akut episod:</strong> −20% på alla slag som inte direkt relaterar till att studera eller förstå det onaturliga fenomenet. Sullivan <em>kan</em> inte fokusera på annat förrän han har bearbetat informationen.
+                </div>
+
+                <h4>Hur det känns att spela</h4>
+                <p>En teolog som konfronteras med bevis gör det en teolog gör — han studerar. Men intensiteten eskalerar. Sullivan börjar söka kunskap i allt mörkare källor. Resten av cellen ser en man som tappar proportionerna, som prioriterar böcker framför verkligheten framför dem.</p>
+            </div>
+        </div>
+
+        <!-- ==================== -->
+        <!-- DISORDER 2: OCD      -->
+        <!-- ==================== -->
+        <div class="disorder-card">
+            <div class="disorder-header">
+                <h3>2. Tvångssyndrom</h3>
+                <span class="disorder-tag">OCD</span>
+            </div>
+            <div class="disorder-body">
+                <h4>Vad det är</h4>
+                <p>Sullivans tro sprack — och i sprickan växer ritualer. Inte äkta bön, inte genuin andakt, utan kompulsiva upprepningar. Korsa sig tre gånger. Specifika psalmer i exakt ordning. Handtvätt. Räkna. Kontrollera. Upprepa.</p>
+
+                <div class="flavor-quote">
+                    Han stannar i dörröppningen. "Ge mig en sekund." Han korsar sig, rör vid dörrkarmen, och viskar samma tre ord. Igen. Och igen. De andra väntar. Det tar tjugo sekunder. Det känns som en evighet.
+                </div>
+
+                <h4>När episoder triggas</h4>
+                <p>Innan farliga eller stressiga situationer — innan cellen går in i ett rum, innan ett viktigt samtal, innan sömn. Om han inte får genomföra sina ritualer bygger ångesten tills den blir förlamande.</p>
+
+                <div class="mechanic-box">
+                    <strong>Akut episod:</strong> Sullivan måste genomföra sina tvångshandlingar. Om han hindras eller avbryts: −20% på alla slag tills han kan slutföra dem. Ritualen tar 1–2 minuter — inte länge, men i kritiska ögonblick är det en evighet.
+                </div>
+
+                <h4>Hur det känns att spela</h4>
+                <p>Ironin är central: en chaplain vars autentiska tro krackelerade ersätter den med tom mekanik. Sullivan <em>vet</em> att ritualerna inte betyder något. Han kan inte sluta ändå. Det är skillnaden mellan tro och tvång — och Sullivan lever nu på fel sida av den gränsen.</p>
+            </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- DISORDER 3: DEPERSONALIZATION  -->
+        <!-- ============================== -->
+        <div class="disorder-card">
+            <div class="disorder-header">
+                <h3>3. Depersonalisation</h3>
+                <span class="disorder-tag">DEPERSONALIZATION</span>
+            </div>
+            <div class="disorder-body">
+                <h4>Vad det är</h4>
+                <p>Sullivan fungerar. Han leder cellen, fattar beslut, talar med auktoritet. Men inifrån ser han sig själv utifrån — som om han tittar på en film av någon som spelar "Father Sullivan." Hans identitet som Guds man, som ledare, som Michael — allt känns som en roll han upprepar av vana.</p>
+
+                <div class="flavor-quote">
+                    Sparky frågar honom något. Sullivan svarar rätt sak, med rätt ton. Men det känns som att orden kommer från någon annan. Han hör sin egen röst och undrar vem som pratar.
+                </div>
+
+                <h4>När episoder triggas</h4>
+                <p>Under stress, särskilt situationer som kräver att han <em>är</em> Father Sullivan — leda gruppen, ge tröst, fatta moraliska beslut. Ju mer situationen kräver autenticitet, desto starkare blir känslan av att han bara spelar en roll.</p>
+
+                <div class="mechanic-box">
+                    <strong>Akut episod:</strong> −20% på alla sociala slag och HUMINT. Sullivan agerar korrekt men "ingen är hemma" — andra märker att något saknas i hans ögon, hans röst, hans närvaro.
+                </div>
+
+                <h4>Hur det känns att spela</h4>
+                <p>Subtilt och obehagligt. Sullivan gör allt rätt men känner inget. Böner som brukade ge tröst är nu bara ord. Cellen märker inte direkt — men gradvis inser de att chaplainens värme har ersatts av kompetent tomhet.</p>
+            </div>
+        </div>
+
+        <!-- ======================== -->
+        <!-- DISORDER 4: MEGALOMANIA -->
+        <!-- ======================== -->
+        <div class="disorder-card">
+            <div class="disorder-header">
+                <h3>4. Megalomani</h3>
+                <span class="disorder-tag">MEGALOMANIA</span>
+            </div>
+            <div class="disorder-body">
+                <h4>Vad det är</h4>
+                <p>Sullivans tro dog inte — den muterade. Om förbannelser är verkliga, om det övernaturliga existerar, då finns det en <em>anledning</em> till att just han fick veta det. Gud valde honom. Han har ett uppdrag. Inte bara Delta Green — något större, något heligt.</p>
+
+                <div class="flavor-quote">
+                    "Det finns en anledning till att vi är här. Inte cellen — vi. Du och jag och det här uppdraget. Det är inte slump." Hans blick har en intensitet som inte fanns där förut. Det är inte galenskap. Det är övertygelse. Och det är värre.
+                </div>
+
+                <h4>När episoder triggas</h4>
+                <p>När cellen tvekar, vill retirera, eller ifrågasätter uppdraget. Sullivans gudomliga övertygelse gör honom ovillig att backa — att ge upp vore att svika sitt kall.</p>
+
+                <div class="mechanic-box">
+                    <strong>Akut episod:</strong> Sullivan kan inte frivilligt överge uppdraget eller acceptera kompromisser. −20% på alla slag som inte direkt driver uppdraget framåt. Han kan bli farligt riskvillig.
+                </div>
+
+                <h4>Hur det känns att spela</h4>
+                <p>En chaplain som hittar ny tro — men fel sorts tro. Sullivan blir karismatisk och driven, men hans omdöme förvrängs av övertygelsen att han utför Guds vilja. Gränsen mellan mod och hybris suddas ut.</p>
+            </div>
+        </div>
+
+        <!-- ==================== -->
+        <!-- DISORDER 5: AMNESIA  -->
+        <!-- ==================== -->
+        <div class="disorder-card">
+            <div class="disorder-header">
+                <h3>5. Amnesi</h3>
+                <span class="disorder-tag">AMNESIA</span>
+            </div>
+            <div class="disorder-body">
+                <h4>Vad det är</h4>
+                <p>Sullivan minns inte ögonblicket. Han vet att han satt i lägenheten, att han läste Lyubimovs texter, att klockan var sen. Sedan är det morgon. Vad som hände däremellan — insikten, kraschen, vad han sa eller gjorde — är borta. Och varje gång det onaturliga pressar sig på blockerar hans psyke det igen.</p>
+
+                <div class="flavor-quote">
+                    "Vad hände igår kväll?" Han ser på de andra. De ser konstigt på honom. "Du..." börjar Mac. "Du grät i två timmar." Sullivan blinkar. "Det minns jag inte."
+                </div>
+
+                <h4>När episoder triggas</h4>
+                <p>När Sullivan konfronteras med det onaturliga — bevis, manifestationer, eller påminnelser om förbannelsen. Hans psyke stänger av och han förlorar minnet av händelsen efteråt.</p>
+
+                <div class="mechanic-box">
+                    <strong>Akut episod:</strong> Sullivan "tappar" tid — minuter till timmar. Under episoden agerar han på autopilot (SL styr) eller fryser helt. Efteråt minns han inget. −20% på alla slag under episoden.
+                </div>
+
+                <h4>Hur det känns att spela</h4>
+                <p>Frustrerande men dramatiskt. Sullivan har luckor i sitt minne och vet det. Han kan hitta anteckningar i sin egen handstil som han inte minns att han skrev. Det skapar en obehaglig osäkerhet — vad gör han under tiden han är "borta"? Och litar de andra på honom?</p>
+            </div>
+        </div>
+
+        <!-- ==================== -->
+        <!-- SUPPRESS MECHANICS   -->
+        <!-- ==================== -->
+        <div class="suppress-section">
+            <h2>Undertrycka en episod</h2>
+            <p style="margin-bottom: 1rem;">När en akut episod triggas kan du försöka trycka ner den. Det fungerar så här:</p>
+            <ol>
+                <li>Spendera <strong style="color: var(--warning);">1D4 Willpower Points</strong>.</li>
+                <li>Välj en <strong style="color: var(--accent);">Bond</strong> — den sänks med samma värde som WP-kostnaden.</li>
+                <li>Slå ett <strong style="color: var(--accent);">SAN-slag</strong>. Lyckas det undertrycks episoden den här gången.</li>
+            </ol>
+            <p style="margin-top: 1rem; color: var(--text-dim); font-style: italic;">Priset är verkligt: varje gång du kämpar ner en episod eroderar dina relationer. De människor Sullivan bryr sig om — hans marines, hans församling, hans kollegor bland chaplains — får betala för att han håller ihop.</p>
+        </div>
+
+        <!-- Insane Insight -->
+        <div class="suppress-section">
+            <h2>Insane Insight</h2>
+            <p style="margin-bottom: 1rem;"><strong style="color: var(--accent);">Gäller om du väljer Besatthet eller Megalomani.</strong></p>
+            <p style="margin-bottom: 1rem;">Om Sullivan <em>konfronterar</em> det övernaturliga snarare än stänger ute det, får han något i utbyte — fragmentarisk, intuitiv förståelse av hur det fungerar. Inte kunskap han vill ha. Inte kunskap som gör honom tryggare. Men kunskap han inte kan <em>inte</em>-ha.</p>
+            <p style="margin-bottom: 0.75rem;">Mekaniskt innebär det:</p>
+            <div class="mechanic-box">
+                <strong>Unnatural +3</strong> — Sullivan får 3 poäng i skillen Unnatural.<br><br>
+                Unnatural används för att identifiera onaturliga fenomen, förstå ritualer och känna igen saker som inte borde existera.<br><br>
+                <strong>Priset:</strong> Max SAN sänks permanent med samma belopp. Sullivans tak går från <strong>80 → 77</strong>. Hans nuvarande SAN (64) påverkas inte — men han kan aldrig återhämta sig förbi 77 genom terapi. Ju mer han förstår, desto mindre <em>kan</em> han vara hel.
+            </div>
+            <p style="margin-top: 1rem; color: var(--text-dim); font-style: italic;">Om du väljer Depersonalisation, Tvångssyndrom eller Amnesi blockerar Sullivans psyke insikten istället — ingen Unnatural, men inget sänkt tak heller.</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="page-footer">
+            <p>Välj den störning som känns mest intressant att spela.<br>
+            Det finns inget "rätt svar" — bara vad som gör Sullivans resa mest meningsfull för dig.<br>
+            (Kullens känsla är att Besatthet eller Tvångssyndrom passar Sullivan bäst — men det är ditt val.)</p>
+            <p style="margin-top: 1rem; color: var(--accent-dim);">Session 9 — 22 september 2025, Berlin</p>
+        </div>
+
+    </div>
+</body>
+</html>
