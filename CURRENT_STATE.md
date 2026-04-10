@@ -1,24 +1,27 @@
 # CURRENT STATE - Trip 19 / Svarta Madonnan
 
 ## Senast uppdaterad
-2026-02-09
+2026-04-10
 
 ## 🎮 SPELLÄGE - Var är vi i kampanjen?
 
-**In-game datum:** 7 september 2025 (söndag eftermiddag)
-**Session:** Mitt i Session 4 (3/4 klar)
-**Plats:** Hamilton House, Lovettsville VA
-**Situation:** Cellen har nått Hamilton House och hittat Volkovs saker. Har inte lämnat huset ännu.
+**In-game datum:** 22 september 2025 (måndag kväll)
+**Session:** Session 9 SPELAD (9 april 2026). Session 10 NÄSTA.
+**Kapitel:** Kapitel 1 — Mördarnas Dans (scen 7–9 av 18 i `black_madonna_chapter1.html`)
+**Plats:** Graefestraße 66, 4:e vån, Kreuzberg, Berlin — Scalpels farbror Jürgens lägenhet
+**Situation:** Cellen har fått Richters diagnos (alla fem infekterade, 2–6 månader). Leibnizstraße 97 (Magdas Berlin-lgh) tömd av Antons män. Sparky + Sullivan översätter dagboken (båda kan ryska). Span satt på Slavic Association. Sullivan nådde sin Breaking Point — disorder-val pågår.
 
 **Sessionsöversikt (spelade):**
 | Session | In-game datum | Vad hände |
 |---------|--------------|-----------|
 | 1 | 4 sept 2025 | Briefing på China Buffet. Hittade förrådet via Emily Johnson |
-| 2 | 6 sept 2025 | Gick igenom Harriets förråd (2 dagar efter att de hittade det) |
+| 2 | 6 sept 2025 | Gick igenom Harriets förråd |
 | 3 | 7 sept 2025 | Lovettsville Historical Society, mötte Magda Orlova |
-| 4 | 7 sept 2025 | Bishop Farm → Hamilton House. **PÅGÅENDE** - stannade vid Hamilton House |
-| 5 | 7 sept 2025 | **PLANERAD:** Grisha → Debriefing → Beslutet (USA). Se `SL/session5-6.html` |
-| 6 | TBD (efter downtime) | **PLANERAD:** Tyskland (Hamburg → Berlin). Materialet utbrutet ur session5-6.html - ännu ingen egen fil. |
+| 4 | 7 sept 2025 | Bishop Farm → Hamilton House, hittade Volkovs saker |
+| 5–6 | 7 sept → 19 sept | Grishas Garage → Debriefing → Beslutet → Flyg till Hamburg |
+| 7 | 19–21 sept 2025 | Författarkvällen (Thalia, Hamburg). Magdas lägenhet Brahmsallee 16. Feber 1.5 dygn. |
+| 8 | 21 sept 2025 | Hamburg→Berlin: Brahmsallee utpasset → Richters samtal → Tåg/bil → Berlin ~01:00. Charité ~02:00 (dödsbesked + larvprov). |
+| **9** | **22 sept 2025** | **Charité (diagnos, alla positiva). Leibnizstraße tömd. Dagboksöversättning påbörjad. Span på SA. Sullivan når Breaking Point.** |
 
 ---
 
@@ -45,8 +48,9 @@
 - #4: Interpol/biometri om de begår brott i Tyskland
 
 **Karaktärsobservationer:**
-- Mac: Breaking Point-marginal = 10 (nära kris)
-- Sullivan: Breaking Point-marginal = 5 (extremt nära)
+- Mac: Breaking Point-marginal = 10 (nära kris). Parasit-positiv.
+- Sullivan: **BREAKING POINT NÅDD** (SAN 69→64, BP 64). Disorder-val pågår (Andreas väljer). Nytt BP: 48. Insane Insight: Unnatural +3 (om disorder tillåter). Max SAN: 80→77 (om Unnatural).
+- Alla 5: Infekterade, bekräftat via Richters tester. 2–6 månader kvar. Onda drömmar — 247 Hz.
 
 ---
 

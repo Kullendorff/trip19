@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampanjkalender Sep 2025 | Chesapeake Cell</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0f0a;
+            --bg-darker: #050805;
+            --accent-red: #ff3366;
+            --accent-orange: #ff6b35;
+            --accent-blue: #4A90A4;
+            --accent-green: #00ff88;
+            --text: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --border: #2d3d2d;
+            --mac: #4A90A4;
+            --sullivan: #b87333;
+            --sparky: #00ff88;
+            --scalpel: #c9a876;
+            --trench: #ff7f3f;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .header {
+            max-width: 1400px;
+            margin: 0 auto 2rem auto;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-blue);
+            padding-bottom: 1.5rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Controls */
+        .controls {
+            background: var(--bg-darker);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .control-section h3 {
+            color: var(--accent-orange);
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--bg-dark);
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(74, 144, 164, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            cursor: pointer;
+        }
+
+        .checkbox-item.checked {
+            background: rgba(74, 144, 164, 0.2);
+            border-color: var(--accent-blue);
+        }
+
+        /* Month Navigation */
+        .month-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            background: var(--bg-darker);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+        }
+
+        .month-navigation button {
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .month-navigation button:hover {
+            background: var(--accent-orange);
+        }
+
+        .month-navigation button:disabled {
+            background: var(--border);
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .month-navigation h2 {
+            color: var(--accent-orange);
+            font-size: 1.8rem;
+        }
+
+        /* Calendar */
+        .calendar {
+            background: var(--bg-darker);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+
+        .calendar-header {
+            text-align: center;
+            padding: 0.75rem;
+            font-weight: bold;
+            color: var(--accent-orange);
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 0.5rem;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 0.5rem;
+            position: relative;
+            background: rgba(77, 77, 77, 0.2);
+            display: flex;
+            flex-direction: column;
+            min-height: 80px;
+        }
+
+        .calendar-day.empty {
+            background: transparent;
+            border: 1px dashed var(--border);
+            opacity: 0.3;
+        }
+
+        .calendar-day.today {
+            border: 3px solid var(--accent-green);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+        }
+
+        .calendar-day.today::before {
+            content: 'NU';
+            position: absolute;
+            top: 2px;
+            right: 4px;
+            font-size: 0.6rem;
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        .calendar-day.future {
+            opacity: 0.35;
+        }
+
+        .day-number {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin-bottom: 0.25rem;
+        }
+
+        .calendar-day.has-event {
+            cursor: pointer;
+            background: rgba(74, 144, 164, 0.15);
+        }
+
+        .calendar-day.has-event.critical {
+            background: rgba(255, 51, 102, 0.2);
+            border-color: var(--accent-red);
+        }
+
+        .calendar-day.has-event:hover {
+            background: rgba(74, 144, 164, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .calendar-day.has-event.critical:hover {
+            background: rgba(255, 51, 102, 0.35);
+        }
+
+        .calendar-day.filtered-out {
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .event-title {
+            font-size: 0.7rem;
+            color: var(--text);
+            line-height: 1.2;
+            margin-bottom: 0.25rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .category-badge {
+            font-size: 0.65rem;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            margin-bottom: 0.2rem;
+            display: inline-block;
+        }
+
+        .category-badge.nyheter {
+            background: rgba(74, 144, 164, 0.3);
+            color: #4A90A4;
+        }
+
+        .category-badge.operation {
+            background: rgba(0, 255, 136, 0.3);
+            color: #00ff88;
+        }
+
+        .category-badge.personligt {
+            background: rgba(201, 168, 118, 0.3);
+            color: #c9a876;
+        }
+
+        .character-dots {
+            display: flex;
+            gap: 3px;
+            margin-top: auto;
+            flex-wrap: wrap;
+        }
+
+        .character-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .character-dot.mac { background: var(--mac); }
+        .character-dot.sullivan { background: var(--sullivan); }
+        .character-dot.sparky { background: var(--sparky); }
+        .character-dot.scalpel { background: var(--scalpel); }
+        .character-dot.trench { background: var(--trench); }
+
+        /* Detail Panel */
+        .detail-panel {
+            display: none;
+            background: var(--bg-darker);
+            border: 2px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .detail-panel.active {
+            display: block;
+        }
+
+        .detail-panel h3 {
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-date {
+            color: var(--accent-orange);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-summary {
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .detail-characters {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .character-tag {
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .character-tag.mac { background: rgba(74, 144, 164, 0.3); color: var(--mac); }
+        .character-tag.sullivan { background: rgba(184, 115, 51, 0.3); color: var(--sullivan); }
+        .character-tag.sparky { background: rgba(0, 255, 136, 0.3); color: var(--sparky); }
+        .character-tag.scalpel { background: rgba(201, 168, 118, 0.3); color: var(--scalpel); }
+        .character-tag.trench { background: rgba(255, 127, 63, 0.3); color: var(--trench); }
+
+        .close-btn {
+            float: right;
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            padding: 0.25rem 0.75rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .close-btn:hover {
+            border-color: var(--accent-red);
+            color: var(--accent-red);
+        }
+
+        /* Legend */
+        .legend {
+            background: var(--bg-darker);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .legend h3 {
+            color: var(--accent-orange);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.85rem;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .calendar-day { min-height: 60px; }
+            .event-title { font-size: 0.65rem; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 1rem; }
+            .header h1 { font-size: 1.6rem; }
+            .controls-grid { grid-template-columns: 1fr; }
+            .calendar-day { min-height: 50px; aspect-ratio: auto; }
+            .event-title { display: none; }
+            .category-badge { font-size: 0.6rem; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 0.5rem; }
+            .calendar-grid { gap: 2px; }
+            .calendar-day { padding: 0.25rem; min-height: 40px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="https://kullendorff.github.io/trip19/" style="display: inline-block; margin-bottom: 1rem; color: var(--accent-blue); text-decoration: none; font-size: 0.9rem; border: 1px solid var(--border); padding: 0.4rem 1rem; border-radius: 4px; transition: border-color 0.2s;"
+           onmouseover="this.style.borderColor='var(--accent-blue)'" onmouseout="this.style.borderColor='var(--border)'">&larr; Tillbaka</a>
+        <h1>Kampanjkalender</h1>
+        <div class="subtitle">Chesapeake Cell — September 2025</div>
+    </div>
+
+    <div class="container">
+        <!-- Controls -->
+        <div class="controls">
+            <div class="controls-grid">
+                <div class="control-section">
+                    <h3>Sök</h3>
+                    <input type="text" class="search-box" id="searchBox" placeholder="Sök händelse...">
+                </div>
+                <div class="control-section">
+                    <h3>Filtrera</h3>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item checked">
+                            <input type="checkbox" value="operation" checked onchange="applyFilters(); updateCheckboxStyles()"> Operativt
+                        </label>
+                        <label class="checkbox-item checked">
+                            <input type="checkbox" value="nyheter" checked onchange="applyFilters(); updateCheckboxStyles()"> Nyheter
+                        </label>
+                        <label class="checkbox-item checked">
+                            <input type="checkbox" value="personligt" checked onchange="applyFilters(); updateCheckboxStyles()"> Personligt
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Month navigation -->
+        <div class="month-navigation">
+            <button id="prevMonth" onclick="changeMonth(-1)">&#9664; Föregående</button>
+            <h2 id="monthTitle"></h2>
+            <button id="nextMonth" onclick="changeMonth(1)">Nästa &#9654;</button>
+        </div>
+
+        <!-- Calendar -->
+        <div class="calendar">
+            <div class="calendar-grid" id="calendarGrid"></div>
+        </div>
+
+        <!-- Detail panel -->
+        <div class="detail-panel" id="detailPanel">
+            <button class="close-btn" onclick="closeDetail()">Stäng</button>
+            <h3 id="detailTitle"></h3>
+            <div class="detail-date" id="detailDate"></div>
+            <div class="detail-summary" id="detailSummary"></div>
+            <div class="detail-characters" id="detailCharacters"></div>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <h3>Cellen</h3>
+            <div class="legend-grid">
+                <div class="legend-item"><div class="legend-dot" style="background: var(--mac)"></div> Mac Riley (FBI)</div>
+                <div class="legend-item"><div class="legend-dot" style="background: var(--sullivan)"></div> Father Sullivan (Navy Chaplain)</div>
+                <div class="legend-item"><div class="legend-dot" style="background: var(--sparky)"></div> Sparky Zhang (NSA)</div>
+                <div class="legend-item"><div class="legend-dot" style="background: var(--scalpel)"></div> Scalpel Engler (Medical Examiner)</div>
+                <div class="legend-item"><div class="legend-dot" style="background: var(--trench)"></div> Trench Novak (USAR)</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // In-game "now"
+        const CURRENT_DATE = '2025-09-22';
+
+        const events = {
+            // SEPTEMBER 2025
+            '2025-09-03': {
+                title: 'Domstol: LA militär-deployment olaglig',
+                summary: 'Federal domare Charles Breyer: Militär deployment i Los Angeles bryter mot Posse Comitatus Act. Kostnaden: 120 miljoner dollar.',
+                critical: false,
+                characters: [],
+                category: 'nyheter'
+            },
+            '2025-09-04': {
+                title: 'Briefing — Hornbake Library',
+                summary: 'Chesapeake Cell samlas vid Hornbake Library, University of Maryland — specialsamlingar (Maryland Room). Sparky flaggar Volkov-aktivitet kopplat till Trip 19. Emily Johnson leder oss till ett förråd i Leesburg.',
+                critical: true,
+                characters: ['mac', 'sullivan', 'sparky', 'scalpel', 'trench'],
+                category: 'operation'
+            },
+            '2025-09-06': {
+                title: 'Harriets Förråd + NATO Article 4',
+                summary: 'CubeSmart Storage, Leesburg. Tre träkistor med Lundeens saker — märkliga fragment, koppling till en klinik i Frankfurt. Samtidigt: Ryska drönare flyger in i Polen, NATO Article 4 aktiveras.',
+                critical: true,
+                characters: ['mac', 'sullivan', 'sparky', 'scalpel', 'trench'],
+                category: 'operation'
+            },
+            '2025-09-07': {
+                title: 'Lovettsville — Bishop Farm — Hamilton House',
+                summary: 'Lovettsville Historical Society: möter Magda Orlova, forskare med koppling till Leningrad 1942. Bishop Farm: kraschplatsen, John Flannery, John Bishop. Hamilton House: Volkovs saker — anteckningsboken, desperata varningar. Grisha.',
+                critical: true,
+                characters: ['mac', 'sullivan', 'sparky', 'scalpel', 'trench'],
+                category: 'operation'
+            },
+            '2025-09-10': {
+                title: 'Charlie Kirk mördad',
+                summary: 'Charlie Kirk (31) skjuts till döds vid Utah Valley University. Ensamt skott från ~150 yards.',
+                critical: true,
+                characters: [],
+                category: 'nyheter'
+            },
+            '2025-09-11': {
+                title: 'Tyler Robinson gripen',
+                summary: 'Tyler Robinson (22) gripen efter 33-timmars manhunt. Erkände för sin far. FBI fick över 7,000 tips.',
+                critical: false,
+                characters: [],
+                category: 'nyheter'
+            },
+            '2025-09-12': {
+                title: 'Grishas Garage — Debriefing — Beslutet',
+                summary: 'Sterling VA: konfrontation med Volkovs fixare Grisha. Debriefing: kristalleffekter, NSA compliance-alarm. Downtime. Magda hör av sig — författarkväll i Hamburg den 19:e.',
+                critical: true,
+                characters: ['mac', 'sullivan', 'sparky', 'scalpel', 'trench'],
+                category: 'operation'
+            },
+            '2025-09-13': {
+                title: 'Doxxing-kampanj lanseras',
+                summary: '"Expose Charlie\'s Murderers" lanseras. 63,000+ submissions. 41 namn publicerade. Över 30 personer sparkas. Texas: 350+ lärare under utredning.',
+                critical: true,
+                characters: [],
+                category: 'nyheter'
+            },
+            '2025-09-14': {
+                title: 'Magdas email',
+                summary: 'Magda bjuder in cellen till författarkvällen i Hamburg — "The Forgotten of Leningrad 1942." Thalia Flagship Store, 19 september kl 19:00.',
+                critical: true,
+                characters: ['mac', 'sullivan', 'sparky', 'scalpel', 'trench'],
+                category: 'operation'
+            },
+            '2025-09-16': {
+                title: 'Åtal mot Robinson — dödsstraff',
+                summary: 'Utah County söker dödsstraff. 7 anklagelser. DNA på avtryckare och patronhylsor. Antifascistiska meddelanden på hylsorna.',
+                critical: false,
+                characters: [],
+                category: 'nyheter'
+            },
+            '2025-09-19': {
+                title: 'Författarkvällen — Hamburg',
+                summary: 'Thalia bokhandel, HafenCity, kl 19:00. Magda presenterar boken om Leningrad 1942. Tre män dyker upp — Anton och Sasha identifierade. Cellen exponeras. Efteråt: Brahmsallee 16, Magdas lägenhet. Dagbok, foton av män som inte åldras (1942→2024), Slavic Association-medlemskort, vykort från Frankfurt an der Oder.',
+                critical: true,
+                characters: ['mac', 'sullivan', 'sparky', 'scalpel', 'trench'],
+                category: 'operation'
+            },
+            '2025-09-20': {
+                title: 'Feber — alla fem sjuka',
+                summary: 'Hög feber, ~1.5 dygn. Ingen kan resa. Magda tar tåg till Berlin kl 06:42, kollapsar utanför Charité. Irene ringer — "Magda är på sjukhus."',
+                critical: true,
+                characters: ['mac', 'sullivan', 'sparky', 'scalpel', 'trench'],
+                category: 'operation'
+            },
+            '2025-09-21': {
+                title: 'Magda dör — Hamburg → Berlin',
+                summary: 'Magda Orlova dör kl 15:39, Charité Hospital, Berlin. Hjärtsvikt + pankreascancer steg IV. Kvällen: utpasset vid Brahmsallee. Richters samtal. Cellen tar sig till Berlin — anländer ~01:00. Charité ~02:00: dödsbesked, larvprover i källaren.',
+                critical: true,
+                characters: ['mac', 'sullivan', 'sparky', 'scalpel', 'trench'],
+                category: 'operation'
+            },
+            '2025-09-22': {
+                title: 'Berlin — Första dagen',
+                summary: 'Graefestraße 66: ops-room. Charité: Richters diagnos — alla fem positiva. Parasitlarver. 2–6 månader, ingen medicinsk behandling. Förbannelsen måste brytas vid källan. Leibnizstraße 97 (Magdas Berlin-lgh) tömd av okända. Dagboksöversättning påbörjad. Magdas sjukhusjournaler genomgångna. Span på Slavic Association. Kvällen: Mac förklarar att förbannelsen kan vara verklig. Sullivan krackelerar.',
+                critical: true,
+                characters: ['mac', 'sullivan', 'sparky', 'scalpel', 'trench'],
+                category: 'operation'
+            },
+
+            // Framtida events läggs till allteftersom kampanjen fortskrider
+        };
+
+        const categoryNames = {
+            operation: 'Operativt',
+            nyheter: 'Nyheter',
+            personligt: 'Personligt'
+        };
+
+        const characterNames = {
+            mac: 'Mac',
+            sullivan: 'Sullivan',
+            sparky: 'Sparky',
+            scalpel: 'Scalpel',
+            trench: 'Trench'
+        };
+
+        let currentMonth = 8; // September
+        let currentYear = 2025;
+
+        const monthNames = [
+            'Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni',
+            'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCalendar();
+            updateCheckboxStyles();
+            document.getElementById('searchBox').addEventListener('input', applyFilters);
+        });
+
+        function updateCheckboxStyles() {
+            document.querySelectorAll('.checkbox-item').forEach(item => {
+                const cb = item.querySelector('input[type="checkbox"]');
+                item.classList.toggle('checked', cb.checked);
+            });
+        }
+
+        function changeMonth(dir) {
+            currentMonth += dir;
+            if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+            if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+            renderCalendar();
+            closeDetail();
+        }
+
+        function renderCalendar() {
+            const grid = document.getElementById('calendarGrid');
+            const title = document.getElementById('monthTitle');
+            title.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+
+            // Nav buttons
+            document.getElementById('prevMonth').disabled = (currentMonth === 8 && currentYear === 2025);
+            document.getElementById('nextMonth').disabled = (currentMonth === 8 && currentYear === 2025);
+
+            // Build grid
+            const dayHeaders = ['Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör', 'Sön'];
+            let html = dayHeaders.map(d => `<div class="calendar-header">${d}</div>`).join('');
+
+            const firstDay = new Date(currentYear, currentMonth, 1);
+            let startDay = firstDay.getDay();
+            startDay = startDay === 0 ? 6 : startDay - 1; // Monday-start
+
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            // Empty cells
+            for (let i = 0; i < startDay; i++) {
+                html += '<div class="calendar-day empty"></div>';
+            }
+
+            // Days
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const event = events[dateStr];
+                const isToday = dateStr === CURRENT_DATE;
+                const isFuture = dateStr > CURRENT_DATE;
+
+                let classes = ['calendar-day'];
+                if (isToday) classes.push('today');
+                if (isFuture) classes.push('future');
+                if (event) {
+                    classes.push('has-event');
+                    if (event.critical) classes.push('critical');
+                }
+
+                let content = `<div class="day-number">${day}</div>`;
+
+                if (event) {
+                    content += `<span class="category-badge ${event.category}">${categoryNames[event.category]}</span>`;
+                    content += `<div class="event-title">${event.title}</div>`;
+
+                    if (event.characters.length > 0) {
+                        content += '<div class="character-dots">';
+                        event.characters.forEach(c => {
+                            content += `<div class="character-dot ${c}"></div>`;
+                        });
+                        content += '</div>';
+                    }
+                }
+
+                const onclick = event ? `onclick="showDetail('${dateStr}')"` : '';
+                html += `<div class="${classes.join(' ')}" ${onclick}>${content}</div>`;
+            }
+
+            grid.innerHTML = html;
+            applyFilters();
+        }
+
+        function showDetail(dateStr) {
+            const event = events[dateStr];
+            if (!event) return;
+
+            const panel = document.getElementById('detailPanel');
+            document.getElementById('detailTitle').textContent = event.title;
+
+            const date = new Date(dateStr + 'T12:00:00');
+            const dayNames = ['Söndag', 'Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag'];
+            document.getElementById('detailDate').textContent =
+                `${dayNames[date.getDay()]} ${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+
+            document.getElementById('detailSummary').textContent = event.summary;
+
+            const charDiv = document.getElementById('detailCharacters');
+            if (event.characters.length > 0) {
+                charDiv.innerHTML = event.characters.map(c =>
+                    `<span class="character-tag ${c}">${characterNames[c]}</span>`
+                ).join('');
+            } else {
+                charDiv.innerHTML = '';
+            }
+
+            panel.classList.add('active');
+            panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function closeDetail() {
+            document.getElementById('detailPanel').classList.remove('active');
+        }
+
+        function applyFilters() {
+            const searchText = document.getElementById('searchBox').value.toLowerCase();
+            const activeCategories = Array.from(document.querySelectorAll('.checkbox-item input:checked'))
+                .map(cb => cb.value);
+
+            document.querySelectorAll('.calendar-day.has-event').forEach(day => {
+                const dateStr = getDateFromDay(day);
+                const event = events[dateStr];
+                if (!event) return;
+
+                const matchesCategory = activeCategories.includes(event.category);
+                const matchesSearch = !searchText ||
+                    event.title.toLowerCase().includes(searchText) ||
+                    event.summary.toLowerCase().includes(searchText);
+
+                day.classList.toggle('filtered-out', !matchesCategory || !matchesSearch);
+            });
+        }
+
+        function getDateFromDay(dayEl) {
+            const dayNum = dayEl.querySelector('.day-number')?.textContent;
+            if (!dayNum) return '';
+            return `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(dayNum).padStart(2, '0')}`;
+        }
+    </script>
+</body>
+
+</html>
