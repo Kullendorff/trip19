@@ -36,7 +36,7 @@
 
 **Hit Points (HP):** 14
 **Willpower Points (WP):** 12
-**Sanity (SAN):** 46 / 60 (MAX)
+**Sanity (SAN):** 45 / 60 (MAX)
 **Initial Breaking Point:** 48 (60 - POW 12)
 **Current Breaking Point:** 36 (sänkt efter Sea Glass-break)
 **Margin över BP:** 10 poäng ← FARLIGT NÄ
@@ -366,11 +366,12 @@ Screaming. Crying. Sullivan talked honom ner under 30 minuter.
 - **BREAKING POINT PASSERAD**
 - Disorder: PTSD med obsessiva drag
 - New Breaking Point: 36 (48 - 12)
-- SAN återhämtade till 46 (partial recovery)
-- **Margin över BP: 10 poäng** ← fortfarande kritiskt nära
+- SAN återhämtade till 46 (partial recovery efter Sea Glass)
+- SAN 46→45 (Berlin, sept 2025 — Charité/Richter-mötet)
+- **Margin över BP: 9 poäng** ← fortfarande kritiskt nära
 
 **SAN loss:** -6 (impossible choice, killing innocent, witnessing Unnatural)
-**New SAN:** 46/60 (efter recovery)
+**New SAN:** 46/60 (efter recovery), sedan 45/60 (Berlin)
 **New BP:** 36
 
 **Mac kom aldrig helt tillbaka efter Sea Glass.**
@@ -1166,7 +1167,7 @@ Hur mycket Sparky också struggling. Hennes Volkov-fixation nästan lika strong 
 
 ### Andra Breaket - Vad händer?
 
-**Nuvarande marginal:** 10 poäng över BP (46 SAN, BP 36)
+**Nuvarande marginal:** 9 poäng över BP (45 SAN, BP 36)
 
 **Om Mac förlorar 11+ SAN i en enskild händelse:** Andra breaket triggas.
 
@@ -1523,7 +1524,7 @@ Inte att han dör. Att han misslyckas igen.
 
 Marcus "Mac" Riley är en trasig man på randen av totalt sammanbrott. FBI Supervisory Special Agent med 13 års karriär, ex-Marine med 6 års tjänst, Delta Green field operative med 7 års erfarenhet. Skild, distanserad från sin son, isolerad från vänner och kolleger.
 
-**46 SAN, BP 36. Margin: 10 poäng.**
+**45 SAN, BP 36. Margin: 9 poäng.**
 
 Hans obsession med Dmitri Volkov är det enda som håller honom vid liv - och det enda som dödar honom.
 

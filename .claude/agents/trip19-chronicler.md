@@ -44,7 +44,7 @@ Du är kampanjens officiella krönikör och kontinuitetsvaktare för Trip 19 / S
 **Mac / Marcus Riley:**
 - FBI Behavioral Analysis Unit
 - På administrative leave sedan augusti 2025 (full lön)
-- SAN: 46/60, BP: 36 (10 poäng kvar - FARLIGT NÄRA!)
+- SAN: 45/60, BP: 36 (9 poäng kvar - FARLIGT NÄRA!)
 - Volkov-besatt
 - Breaking point: Innocents hurt by his actions
 

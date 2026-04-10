@@ -32,7 +32,7 @@
 - **ROLL:** Cell leader (tekniskt), men på administrative leave sedan augusti 2025
 - **YRKESROLL:** Supervisory Special Agent, FBI Behavioral Analysis Unit 2
 - **EXPERTOMRÅDE:** Profiling, HUMINT, förhör, skjutvapen
-- **SAN:** 46/60, Breaking Point: 36 (10 poäng marginal - FARLIGT NÄRA!)
+- **SAN:** 45/60, Breaking Point: 36 (9 poäng marginal - FARLIGT NÄRA!)
 - **Breaking Point Trigger:** Innocents hurt by his actions
 - **NULÄGE:** Brutal PTSD-försämring, Volkov-besatt, familj splittrad
 
@@ -82,8 +82,8 @@
 
 | Callsign | Aktuell SAN | Max SAN | Breaking Point | Marginal | Status |
 |----------|-------------|---------|----------------|----------|--------|
-| Mac | 46 | 60 | 36 | **10** | ⚠️ KRITISK - På administrative leave |
-| Sullivan | 69 | 80 | 64 | **5** | ⚠️ VARNING - Tro-kris |
+| Mac | 45 | 60 | 36 | **9** | ⚠️ KRITISK - På administrative leave |
+| Sullivan | 64 | 80 | 48 | **16** | ⛔ BREAKING POINT NÅDD - Disorder pending |
 | Sparky | 63 | 70 | 56 | **7** | ⚠️ VARNING - Volkov-besatt |
 | Scalpel | 68 | 75 | 60 | **7** | ⚠️ VARNING - Funktionell |
 | Trench | 53 | 55 | 44 | **9** | ⚠️ KRITISK - Adapted |

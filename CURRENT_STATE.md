@@ -48,7 +48,7 @@
 - #4: Interpol/biometri om de begår brott i Tyskland
 
 **Karaktärsobservationer:**
-- Mac: Breaking Point-marginal = 10 (nära kris). Parasit-positiv.
+- Mac: SAN 45/60, Breaking Point-marginal = 9 (nära kris). Parasit-positiv. (−1 SAN Charité/Richter)
 - Sullivan: **BREAKING POINT NÅDD** (SAN 69→64, BP 64). Disorder-val pågår (Andreas väljer). Nytt BP: 48. Insane Insight: Unnatural +3 (om disorder tillåter). Max SAN: 80→77 (om Unnatural).
 - Alla 5: Infekterade, bekräftat via Richters tester. 2–6 månader kvar. Onda drömmar — 247 Hz.
 
