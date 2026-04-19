@@ -36,10 +36,10 @@
 
 **Hit Points (HP):** 14
 **Willpower Points (WP):** 12
-**Sanity (SAN):** 45 / 60 (MAX)
+**Sanity (SAN):** 43 / 60 (MAX)
 **Initial Breaking Point:** 48 (60 - POW 12)
 **Current Breaking Point:** 36 (sänkt efter Sea Glass-break)
-**Margin över BP:** 10 poäng ← FARLIGT NÄ
+**Margin över BP:** 7 poäng ← FARLIGT NÄ
 
 RA
 
@@ -368,10 +368,11 @@ Screaming. Crying. Sullivan talked honom ner under 30 minuter.
 - New Breaking Point: 36 (48 - 12)
 - SAN återhämtade till 46 (partial recovery efter Sea Glass)
 - SAN 46→45 (Berlin, sept 2025 — Charité/Richter-mötet)
-- **Margin över BP: 9 poäng** ← fortfarande kritiskt nära
+- SAN 45→43 (Berlin, sept 2025 — Session 10 händelser)
+- **Margin över BP: 7 poäng** ← fortfarande kritiskt nära
 
 **SAN loss:** -6 (impossible choice, killing innocent, witnessing Unnatural)
-**New SAN:** 46/60 (efter recovery), sedan 45/60 (Berlin)
+**New SAN:** 46/60 (efter recovery), sedan 45/60 (Berlin), nu 43/60 (post Session 10)
 **New BP:** 36
 
 **Mac kom aldrig helt tillbaka efter Sea Glass.**
@@ -1167,9 +1168,9 @@ Hur mycket Sparky också struggling. Hennes Volkov-fixation nästan lika strong 
 
 ### Andra Breaket - Vad händer?
 
-**Nuvarande marginal:** 9 poäng över BP (45 SAN, BP 36)
+**Nuvarande marginal:** 7 poäng över BP (43 SAN, BP 36)
 
-**Om Mac förlorar 11+ SAN i en enskild händelse:** Andra breaket triggas.
+**Om Mac förlorar 8+ SAN i en enskild händelse:** Andra breaket triggas.
 
 **Möjliga utfall:**
 1. Catatonic Shutdown (20%) - Hospitalization, unplayable

@@ -1,27 +1,28 @@
 # CURRENT STATE - Trip 19 / Svarta Madonnan
 
 ## Senast uppdaterad
-2026-04-10
+2026-04-20 (post Session 10 — narrativ dokumenterad, kalender + CURRENT_STATE uppdaterade)
 
 ## 🎮 SPELLÄGE - Var är vi i kampanjen?
 
-**In-game datum:** 22 september 2025 (måndag kväll)
-**Session:** Session 9 SPELAD (9 april 2026). Session 10 NÄSTA.
-**Kapitel:** Kapitel 1 — Mördarnas Dans (scen 7–9 av 18 i `black_madonna_chapter1.html`)
-**Plats:** Graefestraße 66, 4:e vån, Kreuzberg, Berlin — Scalpels farbror Jürgens lägenhet
-**Situation:** Cellen har fått Richters diagnos (alla fem infekterade, 2–6 månader). Leibnizstraße 97 (Magdas Berlin-lgh) tömd av Antons män. Sparky + Sullivan översätter dagboken (båda kan ryska). Span satt på Slavic Association. Sullivan nådde sin Breaking Point — disorder-val pågår.
+**In-game datum:** 23 september 2025 (tisdag, tidig morgon efter SA-inbrottet kl 03:00)
+**Session:** Session 10 SPELAD (19 april 2026). SA-inbrott genomfört, Blobels skurkar överraskade cellen — Olaf Neumann svårt skadad (möjligen dödlig), Dietmar bortförd i den stulna Mercedes-vanen. Utkörning från SA:s innergård kl 03:00 i regn.
+**Kapitel:** Kapitel 1 — Mördarnas Dans (scen 9–10 av 18 i `black_madonna_chapter1.html`)
+**Plats:** Kreuzberg, Berlin — tillbaka till Graefestraße 66 med bytet? Eller säkrat gömställe? Pogodins Mansion (Müggel Straße 89, Köpenick) = kvällens mål kl 22:00.
+**Situation:** Cellen har brutit sig in i Slavic Association, fått tag på Mahlers almanacka (visar SA Inner Circle-möte vid Pogodins Mansion 23 sept kl 22:00), korruptionsbrevet till polischef Treuber, mansionens blueprints, Leningrad 1942-foton, samt vapen och annat från Blobels skurkar. Olaf Neumanns öde är pending — om han dör kommer det trigga ytterligare SAN-förlust. Vanen är stulen och spårbar. Dietmar är deras fånge — intel-möjlighet och risk. Sullivans Besatthet (Obsession) kommer driva honom mot Pogodins Mansion oavsett kostnad. ~19 timmar till deadline.
 
 **Sessionsöversikt (spelade):**
 | Session | In-game datum | Vad hände |
 |---------|--------------|-----------|
-| 1 | 4 sept 2025 | Briefing på China Buffet. Hittade förrådet via Emily Johnson |
+| 1 | 4 sept 2025 | Briefing vid Hornbake Library (UMD). Hittade förrådet via Emily Johnson |
 | 2 | 6 sept 2025 | Gick igenom Harriets förråd |
 | 3 | 7 sept 2025 | Lovettsville Historical Society, mötte Magda Orlova |
 | 4 | 7 sept 2025 | Bishop Farm → Hamilton House, hittade Volkovs saker |
 | 5–6 | 7 sept → 19 sept | Grishas Garage → Debriefing → Beslutet → Flyg till Hamburg |
 | 7 | 19–21 sept 2025 | Författarkvällen (Thalia, Hamburg). Magdas lägenhet Brahmsallee 16. Feber 1.5 dygn. |
 | 8 | 21 sept 2025 | Hamburg→Berlin: Brahmsallee utpasset → Richters samtal → Tåg/bil → Berlin ~01:00. Charité ~02:00 (dödsbesked + larvprov). |
-| **9** | **22 sept 2025** | **Charité (diagnos, alla positiva). Leibnizstraße tömd. Dagboksöversättning påbörjad. Span på SA. Sullivan når Breaking Point.** |
+| **9** | **22 sept 2025** | **Charité (diagnos, alla positiva). Leibnizstraße tömd. Dagboksöversättning påbörjad. Span på SA. Sullivan når Breaking Point — väljer Besatthet.** |
+| **10** | **22 sept kväll → 23 sept kl 03:00** | **SPELAD 19 april 2026. SA-inbrott genomfört (Behrenstraße). Hittade Mahlers almanacka + korruptionsbrev till Treuber + Pogodin-blueprints + Leningrad 1942-foton + Inner Circle-lista. Nästan klara när Blobels skurkar slog till. Strid: Olaf Neumann svårt skadad (möjligen dödlig/permanenta men — SAN pending), Dietmar bunden och bortförd i skurkarnas stulna Mercedes-van. Cellen tog även vapen + intel från Blobels crew. Utkörning kl 03:00 i regn med skrikande däck. Mac −2 SAN, Trench −1 SAN (ännu ej i Discord JSON). Skill improvements: Scalpel Krav Maga +1 (41%), Sparky Stealth +2 (32%) + Craft (Locksmithing) +1 (41%).** |
 
 ---
 
@@ -44,12 +45,15 @@
 | 10 | Clue chains | ✅ Löst (hybrid: ramverk + investigation) |
 
 **Kvarvarande:**
-- #1: Ryssland-finansiering ($100k) behöver lösas innan Session 9
+- #1: Ryssland-finansiering ($100k) behöver lösas innan kapitel 5
 - #4: Interpol/biometri om de begår brott i Tyskland
 
-**Karaktärsobservationer:**
-- Mac: SAN 45/60, Breaking Point-marginal = 9 (nära kris). Parasit-positiv. (−1 SAN Charité/Richter)
-- Sullivan: **BREAKING POINT NÅDD** (SAN 69→64, BP 64). Disorder-val pågår (Andreas väljer). Nytt BP: 48. Insane Insight: Unnatural +3 (om disorder tillåter). Max SAN: 80→77 (om Unnatural).
+**Karaktärsobservationer (efter Session 10, 19 april 2026):**
+- Mac: **SAN 43/60**, Breaking Point-marginal = **7** (ännu närmare kris). Parasit-positiv. (−2 SAN Session 10)
+- Trench: **SAN 52/55**, BP 44, marginal **8**. Adapted Helplessness 3/3. (−1 SAN Session 10, ännu ej reflekterat i Discord JSON — uppdatera manuellt)
+- Scalpel: SAN 68/75, BP 60, marginal 8. +1 Krav Maga (41%).
+- Sparky: SAN 63/70, BP 56, marginal 7. +2 Stealth (32%), +1 Craft (Locksmithing) (41%).
+- Sullivan: **BREAKING POINT NÅDD** (Session 9, SAN 69→64, BP 64→48). Disorder: **Besatthet (Obsession)** — fokus Svarta Madonnan/Volkov. Insane Insight: Unnatural +3% (trained class). Max SAN: 80→77.
 - Alla 5: Infekterade, bekräftat via Richters tester. 2–6 månader kvar. Onda drömmar — 247 Hz.
 
 ---
@@ -87,6 +91,38 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
 
 ### Pågående arbete
 
+**Session 10 SPELAD — SA-inbrottet & Blobels motattack** - 19 april 2026 ✅
+- **In-game:** 22 sept 2025 kväll → 23 sept 2025 kl 03:00 (utkörning)
+- **Plats:** Slavic Association-huset, Behrenstraße, Berlin-Mitte
+- **Intrång:** Sparky (Locksmithing + Stealth) ledde inbrottet. Scalpel, Mac, Sullivan och Trench spred sig i byggnaden.
+  - Olaf Neumann (lokal kontakt) och Dietmar (Scalpels farbrors vän) med som stöd/utkik
+- **Byte från SA:**
+  - Mahlers almanacka — bekräftar Inner Circle-möte 23 sept kl 22:00 vid Pogodins Mansion
+  - Utkast till korruptionsbrev från Anton Mahler till polischef Treuber (omarbetat version — 72-timmars admin-förhindring)
+  - Blueprints över Pogodins Mansion, Müggel Straße 89, Köpenick (mansionens planlösning)
+  - Leningrad 1942-foton (tre pojkar identiska med Anton/Sasha/Filip idag)
+  - Inner Circle-lista (namn + ca 12 medlemmar)
+- **Blobels motattack:**
+  - Blobels crew (3–4 man) anlände medan cellen var nästan klar
+  - Strid: Cellen övermannade dem till slut, men till en hög kostnad
+  - **Olaf Neumann svårt skadad** — slagen i huvudet, möjligen dödligt eller permanenta men. Trench −1 SAN (bevittnade)
+  - **Dietmar bunden och bortförd** som fånge — cellen tog honom med sig i bytet
+  - Cellen tog även: vapen, ammunition, en mapp med SA-intel från Blobels crew
+  - **Stal Blobels svarta Mercedes-van** (spårbar — tidskänsligt)
+- **Utkörning:** 23 sept kl 03:00 i regn från SA:s innergård, skrikande däck
+- **SAN-förluster:** Mac −2 SAN (utlösare ej dokumenterad än), Trench −1 SAN (Olafs skador). Discord JSON uppdaterad för Mac, Trench pending manuell uppdatering.
+- **Skill improvements (`/dgendsession`):** Scalpel Krav Maga +1 (→41%), Sparky Stealth +2 (→32%) + Craft (Locksmithing) +1 (→41%)
+- **Pending:**
+  - Olafs öde (död/lever/permanenta men) → resterande SAN-förlust när cellen får reda på det
+  - Dietmar-förhör (intel-möjlighet vs risk — han vet att de har honom)
+  - Vanen måste dumpas/bytas (spårbar)
+  - Cellen har ~19 timmar till Pogodins Mansion-deadline (23 sept kl 22:00)
+- **Filer uppdaterade:**
+  - `calendar.html`: CURRENT_DATE → 2025-09-23, expanderad 22 sept + ny 23 sept (Pogodin kl 22:00)
+  - `CURRENT_STATE.md`: (denna uppdatering)
+  - TBD: `master/timeline.md`, `master/continuity_database.md`, `SL/sessions.html` Session 10-kort
+- **Status:** Session 10 dokumenterad ✅ (Olaf SAN-trigger uppskjuten till separat scen)
+
 **Session 5 Rensning: Bara USA** - Februari 2026 ✅
 - **`SL/session5-6.html` rensat** - Bara Session 5 (USA, Scen 1-3). Tyskland-material (Scen 4-6) utbrutet.
   - Scen 1: Grishas Garage (Sterling VA) - konfrontation med Volkovs fixare
@@ -104,11 +140,14 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
   - Volkovs endgame → förhindrar reassembly
   - Fragmenttransport → under scanner-trösklar
   - Clue chains → hybrid (ramverk + investigation)
-- **STOR KONTINUITETSÄNDRING**: Magda lever (inte död/försvunnen/kidnappad)
-  - 14+ filer uppdaterade med "Magda lever"-status
-  - Magda: terminal cancer, i Berlin, ringer cellen, arbetar med dem
-  - Alla "Magda död"-scenarier i locations.html, npcs.html, timeline.html, kapitel-filer etc. uppdaterade
-  - `master/timeline.md` och `master/continuity_database.md` uppdaterade
+- **Magda Orlova: DÖD** — 21 september 2025, kl 15:39, Charité Hospital Berlin
+  - Officiell: hjärtsvikt + pankreascancer stadium IV
+  - Verklig: parasitlarver åt sig igenom hjärtmuskeln
+  - Dr. Richter (rättsmedicin) såg larverna, lade i formalin
+  - Filip Kramer på sjukhuset vid dödsfallet — kastades ut, försvann onaturligt snabbt
+  - Lägenheten (Leibnizstraße 97) tömd av Antons män
+  - Morns dagbok (Elsa Orlovas) i cellens händer — deras viktigaste ledtråd
+  - *(OBS: Tidigare "Magda lever"-designbeslut från feb 2026 ersatt av faktisk spelad kampanj)*
 - **SAN-budget**: Max 0-4 poäng per session (medvetet låg - bygger dread, inte trauma)
 
 **Djupgranskning: Inkonsistenser & Narrativa Problem** - Februari 2026 ✅
@@ -474,9 +513,8 @@ Trip19/
 ```
 
 ## Nästa steg
-- Detaljera Session 5 scener (expand Scen 1-3 till fullständiga scener)
-- Skapa Session 6-fil (Tyskland: flyg, författarkvällen, klipphangare) - materialet finns i git-historik
-- Planera Session 7: Filip-mötet vid Slavic Association
-- Flaggad för framtida revision: `SL/black_madonna_chapter1.html` (förutsätter Magda död + Hamburg bokrelease - behöver total omskrivning)
-- Lösa Ryssland-finansiering (#1) innan Session 8-9 prep
+- **Sullivans disorder** — Väntar på Andreas val (Breaking Point-sida skickad: `Sullivan/breaking_point_val.html`)
+- **Session 10 prep** — Fortsättning 22–23 sept, Berlin. SA-inbrottet (`scene_slavic_breakin.html` redo), Arnold Weiss, dagboksöversättning, onda drömmar
+- **Spelarkalender** live: `calendar.html` (länkad från alla spelarsidor)
+- Lösa Ryssland-finansiering (#1) innan kapitel 5
 - Lösa Interpol/biometri (#4) om brott begås i Tyskland

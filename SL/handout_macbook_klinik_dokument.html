@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>MacBook — Preview: schaefer_protokoll_1951.pdf</title>
+<style>
+:root {
+    --bg: #1d1d1f;
+    --panel: #2a2a2d;
+    --header: #323236;
+    --text: #e6e6e6;
+    --dim: #8e8e93;
+    --warn: #ff453a;
+    --paper: #e8e0c8;
+    --paper-text: #1a1610;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: -apple-system, "SF Pro Display", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 0;
+    min-height: 100vh;
+}
+.macbook-frame {
+    max-width: 880px;
+    margin: 30px auto;
+    background: var(--panel);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+.toolbar {
+    background: var(--header);
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #1a1a1c;
+}
+.dots { display: flex; gap: 6px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.r { background: #ff5f57; }
+.dot.y { background: #ffbd2e; }
+.dot.g { background: #28c941; }
+.app-title {
+    color: var(--dim);
+    font-size: 13px;
+    margin-left: 16px;
+    font-weight: 500;
+}
+.scan-page {
+    background: var(--paper);
+    color: var(--paper-text);
+    margin: 30px;
+    padding: 0;
+    border-radius: 2px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    font-family: "Courier New", "Courier", monospace;
+    position: relative;
+    overflow: hidden;
+}
+.scan-page::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+        repeating-linear-gradient(0deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 1px, transparent 1px, transparent 4px),
+        radial-gradient(ellipse at 30% 20%, rgba(120, 80, 30, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(80, 50, 20, 0.10) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 1;
+}
+.scan-content {
+    padding: 50px 60px;
+    position: relative;
+    z-index: 2;
+}
+.archive-stamp {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    border: 3px solid #6a1a1a;
+    color: #6a1a1a;
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transform: rotate(-8deg);
+    z-index: 3;
+    background: rgba(255,255,255,0.1);
+}
+.archive-stamp .id { font-size: 9px; margin-top: 2px; letter-spacing: 1px; }
+.scan-content h1 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+    font-weight: bold;
+    text-align: center;
+}
+.scan-content .doc-sub {
+    text-align: center;
+    font-size: 11px;
+    margin-bottom: 4px;
+    color: #3a2810;
+}
+.scan-content .doc-meta {
+    text-align: center;
+    font-size: 10px;
+    color: #5a4828;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #8a7048;
+    padding-bottom: 10px;
+}
+.scan-content h2 {
+    font-size: 12px;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px dashed #6a5028;
+    padding-bottom: 3px;
+}
+.scan-content p {
+    font-size: 12px;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+.field-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    font-size: 12px;
+    border-bottom: 1px dotted #8a7048;
+    padding: 3px 0;
+}
+.field-row .label { font-weight: bold; color: #3a2810; }
+.diagram {
+    margin: 18px 0;
+    padding: 14px;
+    background: #d8cfb0;
+    border: 1px solid #8a7048;
+    text-align: center;
+    font-size: 11px;
+    color: #2a2010;
+}
+.diagram .ascii-box {
+    font-family: monospace;
+    white-space: pre;
+    line-height: 1.2;
+    font-size: 11px;
+    color: #2a1808;
+    text-align: left;
+    display: inline-block;
+}
+.diagram .caption {
+    margin-top: 8px;
+    font-style: italic;
+    font-size: 10px;
+    color: #5a4828;
+}
+.handwritten-margin {
+    background: rgba(160, 30, 30, 0.06);
+    border-left: 3px solid #a02020;
+    padding: 10px 14px;
+    margin: 14px 0;
+    font-family: "Bradley Hand", "Marker Felt", "Comic Sans MS", cursive;
+    color: #6a1010;
+    font-size: 14px;
+    transform: rotate(-0.2deg);
+}
+.handwritten-margin .label {
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: #6a1010;
+    font-family: "Courier New", monospace;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+    transform: rotate(0.2deg);
+}
+.gm-callout {
+    max-width: 880px;
+    margin: 20px auto;
+    background: #1a0f0f;
+    border-left: 4px solid var(--warn);
+    padding: 14px 20px;
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    color: #e6e6e6;
+    border-radius: 4px;
+}
+.gm-callout strong { color: var(--warn); }
+.gm-callout .label-title {
+    color: var(--warn);
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    display: block;
+}
+.translation {
+    background: rgba(70, 50, 20, 0.08);
+    padding: 8px 12px;
+    border-left: 2px solid #6a5028;
+    font-style: italic;
+    font-size: 11px;
+    margin: 4px 0 12px 0;
+    color: #3a2810;
+}
+</style>
+</head>
+<body>
+
+<div class="macbook-frame">
+    <div class="toolbar">
+        <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+        <div class="app-title">Preview — schaefer_protokoll_1951.pdf — sida 14 av 23</div>
+    </div>
+
+    <div class="scan-page">
+        <div class="archive-stamp">
+            STAATSARCHIV<br>
+            BRANDENBURG
+            <div class="id">Bestand R-9361 / Mappe 47</div>
+        </div>
+
+        <div class="scan-content">
+            <h1>Klinik Güldendorf — Patientenakte</h1>
+            <div class="doc-sub">Direktor: Dr. med. Helmut Schäfer</div>
+            <div class="doc-meta">Frankfurt an der Oder, Stadtteil Güldendorf — Dokument 14/23 — November 1951</div>
+
+            <h2>I. Patientenidentifikation</h2>
+            <div class="field-row"><div class="label">Aktenzeichen:</div><div>F.7 / Kirov-Transfer 04.X.1951</div></div>
+            <div class="field-row"><div class="label">Vorname (Kennung):</div><div>"Filip"</div></div>
+            <div class="field-row"><div class="label">Geburtsdatum (vermutet):</div><div>ca. 1939 (laut Kirov-Akte)</div></div>
+            <div class="field-row"><div class="label">Chronologisches Alter:</div><div>12 Jahre</div></div>
+            <div class="field-row"><div class="label">Biologisches Alter (geschätzt):</div><div><strong>7–8 Jahre</strong></div></div>
+
+            <div class="translation">[Sv. öv.] Akt-nr: F.7 / Kirov-överföring 4 okt 1951. Förnamn: "Filip". Födelsedatum (uppskattat): ca 1939. Kronologisk ålder: 12 år. <strong>Biologisk ålder (uppskattad): 7–8 år.</strong></div>
+
+            <h2>II. Klinischer Befund (Auszug)</h2>
+            <p>Patient zeigt ungewöhnliche Stagnation der somatischen Reifung seit Aufnahme in Kirov-Anstalt 1946. Knochenwachstum verlangsamt um Faktor 0,55 gegenüber Normalwert. Zahnentwicklung verzögert. Pubertätsbeginn nicht festgestellt.</p>
+
+            <div class="translation">[Sv. öv.] Patienten visar ovanligt mognadsstillestånd sedan intagning på Kirov-anstalten 1946. Bentillväxt fördröjd med faktor 0,55 jämfört med normalvärde. Tandutveckling försenad. Pubertetsstart inte konstaterad.</p>
+
+            <p>Thoraxröntgen 12.XI.1951 zeigt im rechten unteren Lungenfeld sowie peri-kardial Ansammlungen unbekannter Natur. Vermutlich verkalkte Granulome (DD: Tbc, Echinokokken). <strong>Eigene Mikroskopie der Probematerial widerspricht jedoch der Granulom-Hypothese</strong> — siehe Anhang B.</p>
+
+            <div class="translation">[Sv. öv.] Lungröntgen 12 nov 1951 visar i höger nedre lungfält samt peri-kardiellt ansamlingar av okänd natur. Förmodligen förkalkade granulom (DD: Tbc, ekinokocker). <strong>Egen mikroskopi av provmaterial motsäger dock granulom-hypotesen</strong> — se bilaga B.</p>
+
+            <div class="diagram">
+                <div class="ascii-box">     ╭─────────────────────╮
+     │   ⚐ THORAX-RÖNTGEN  │
+     │   F.7 — 12.XI.1951  │
+     ├─────────────────────┤
+     │      ▒▒▒▒▒          │
+     │     ▒▒░░░▒▒  ◄ ●●●  │
+     │    ▒░░ ●● ░▒  ●●●●  │ ← Anhäufungen
+     │    ▒░ ●●●● ░▒  ●●   │   im Perikard
+     │     ▒░ ●●● ░▒       │
+     │      ▒▒░░▒▒         │
+     │       ▒▒▒▒          │
+     ╰─────────────────────╯</div>
+                <div class="caption">Schemazeichnung Anhang B / Sida 15 — formationer i bröstkorgen, ej granulom.</div>
+            </div>
+
+            <h2>III. Mikroskopischer Befund (Anhang B)</h2>
+            <p>Im histologischen Präparat finden sich tubuläre Strukturen, dunkel pigmentiert, 2–4 mm Länge, mit anscheinender Eigenbeweglichkeit unter Mikroskop-Beleuchtung. Strukturen reagieren auf Lichtquelle durch Rückzug. <strong>Keine bekannte parasitäre Spezies entspricht dieser Morphologie.</strong></p>
+
+            <div class="translation">[Sv. öv.] I det histologiska preparatet finns tubulära strukturer, mörkt pigmenterade, 2–4 mm långa, med skenbar egenrörlighet under mikroskopets belysning. Strukturer reagerar på ljuskälla genom tillbakadragning. <strong>Ingen känd parasitär art motsvarar denna morfologi.</strong></p>
+
+            <h2>IV. Empfehlung</h2>
+            <p>Patient nicht zu entlassen. Beobachtung dauerhaft. Probenmaterial monatlich. Akte gleichlautend mit Patienten F.11 ("Sasha") und F.16 ("Anatoly") — vergleichende Studie wird empfohlen.</p>
+
+            <div class="translation">[Sv. öv.] Patienten ej att utskriva. Permanent observation. Provmaterial månadsvis. Akten överensstämmer med patienterna F.11 ("Sasha") och F.16 ("Anatoly") — jämförande studie rekommenderas.</p>
+
+            <p style="text-align: right; margin-top: 20px; font-size: 11px;">— Dr. H. Schäfer, Direktor</p>
+
+            <div class="handwritten-margin">
+                <span class="label">Magdas anteckning i marginalen:</span>
+                Larverna är på röntgen från 1951.<br>
+                Han var 12 år gammal när bilden togs.<br>
+                Han är 86 nu och rör sig som någon i 70.<br>
+                <strong>Schäfer såg dem. Schäfer visste. Och Schäfer släppte aldrig F.7, F.11, F.16.</strong><br>
+                Vart tog protokollet vägen efter 1952?<br>
+                <span style="font-size: 12px;">(A.W. säger arkivet brann. Men brevet från Pyotr säger annat.)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="gm-callout">
+    <span class="label-title">▲ SL-NOTER (delas ej)</span>
+    <strong>Vad dokumentet ger spelarna:</strong>
+    <ul style="margin: 8px 0 8px 20px;">
+        <li><strong>Visuell SAN-trigger:</strong> Röntgenbilden + den mikroskopiska beskrivningen av larverna är konkret bevis. Inte bara Richters ord — ett dokument från 1951 som visar EXAKT samma parasit. <em>SAN CHECK: 0/1 (Unnatural)</em>.</li>
+        <li><strong>Bekräftelse på lore:</strong> Filip var 12 år 1951 men biologiskt 7–8 år. Han åldras med ~0,55× normaltakt. (Det förklarar varför 86-årige Filip rör sig som 70-årige.)</li>
+        <li><strong>Schäfer-spåret:</strong> Dr. Helmut Schäfer dokumenterade parasiten 1951 men ingen vetenskap har publicerats. Vart tog protokollen vägen? Magda tror Pyotr har dem (eller vet var de finns).</li>
+        <li><strong>Mörker på sidan:</strong> "Patient nicht zu entlassen. Beobachtung dauerhaft." — pojkarna var fångar, inte patienter. Frankfurt Clinic var ett experiment, inte ett sjukhus.</li>
+    </ul>
+    <p><strong>Användning vid bordet:</strong> Visa scen-uppe denna sida på en skärm/iPad om någon har en. Den fungerar utmärkt som "läs detta över Sparkys axel medan han bläddrar"-moment. Eller skriv ut sidan utan SL-notisen och lägg fysiskt på bordet — det ger viktig vikt åt det som hände 1951.</p>
+    <p><strong>Vad spelarna kan göra härnäst:</strong> Söka efter mer av Schäfer-arkivet (Frankfurt Clinic-utflykt). Konfrontera Filip med dokumentet (HUMINT-moment). Skicka kopia till Richter för forensisk verifiering.</p>
+</div>
+
+</body>
+</html>

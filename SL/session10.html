@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session 10 — Berlin: Dag Två | Trip 19</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-dark: #0a0f0f;
+            --bg-darker: #050808;
+            --bg-panel: #0d1414;
+            --accent-green: #00ff41;
+            --accent-red: #ff4444;
+            --accent-blue: #4a90a4;
+            --accent-yellow: #ffcc00;
+            --accent-purple: #9b59b6;
+            --text: #d1d5db;
+            --text-dim: #6b7280;
+            --border: #1a2332;
+            --mac: #4682b4;
+            --sullivan: #b87333;
+            --sparky: #00ff41;
+            --scalpel: #d4af37;
+            --trench: #ff8c00;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container { max-width: 1400px; margin: 0 auto; }
+
+        .session-header { background: var(--bg-panel); border: 2px solid var(--accent-blue); border-radius: 8px; padding: 2rem; margin-bottom: 2rem; text-align: center; }
+        .session-header h1 { color: var(--accent-blue); font-size: 2rem; margin-bottom: 0.5rem; }
+        .session-header p { color: var(--text-dim); margin-top: 0.5rem; }
+        .session-meta { display: flex; gap: 2rem; justify-content: center; color: var(--text-dim); font-size: 0.9rem; margin-top: 1rem; flex-wrap: wrap; }
+        .status-badge { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.85rem; font-weight: bold; background: rgba(74,144,164,0.2); border: 1px solid var(--accent-blue); color: var(--accent-blue); }
+
+        .nav-bar { display: flex; justify-content: space-between; align-items: center; background: rgba(74,144,164,0.1); border: 1px solid var(--accent-blue); border-radius: 4px; padding: 1rem; margin-bottom: 2rem; }
+        .nav-bar a { color: var(--accent-blue); text-decoration: none; font-weight: bold; }
+
+        .section { background: var(--bg-panel); border: 2px solid var(--border); border-radius: 8px; padding: 2rem; margin-bottom: 2rem; }
+        .section h2 { color: var(--accent-blue); font-size: 1.8rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+        .section h3 { color: var(--accent-yellow); font-size: 1.3rem; margin: 1.5rem 0 1rem 0; }
+        .section h4 { color: var(--accent-blue); font-size: 1.1rem; margin: 1rem 0 0.5rem 0; }
+
+        .info-box { background: rgba(74,144,164,0.1); border-left: 4px solid var(--accent-blue); padding: 1.5rem; margin: 1rem 0; border-radius: 4px; }
+        .warning-box { background: rgba(255,68,68,0.1); border-left: 4px solid var(--accent-red); padding: 1.5rem; margin: 1rem 0; border-radius: 4px; }
+        .yellow-box { background: rgba(255,204,0,0.1); border-left: 4px solid var(--accent-yellow); padding: 1.5rem; margin: 1rem 0; border-radius: 4px; }
+        .read-aloud { background: rgba(155,89,182,0.1); border-left: 4px solid var(--accent-purple); padding: 1.5rem; margin: 1rem 0; border-radius: 4px; font-style: italic; }
+
+        .npc-card { background: rgba(10,14,23,0.6); border: 1px solid var(--border); border-left: 3px solid var(--accent-green); padding: 1.5rem; margin: 1rem 0; border-radius: 4px; }
+        .npc-card.ally { border-left-color: var(--accent-green); }
+        .npc-card.ally h4 { color: var(--accent-green); }
+
+        .san-check { background: rgba(255,68,68,0.15); border: 2px solid var(--accent-red); padding: 1.5rem; margin: 1.5rem 0; border-radius: 8px; }
+        .san-check strong { color: var(--accent-red); }
+
+        .gm-note { background: var(--bg-darker); border-left: 4px solid var(--accent-yellow); padding: 1rem 1.5rem; margin: 1rem 0; font-style: italic; border-radius: 4px; }
+        .gm-note::before { content: "SL: "; color: var(--accent-yellow); font-weight: bold; font-style: normal; }
+
+        .skill-check { background: rgba(0,255,65,0.1); border: 1px solid var(--accent-green); padding: 1rem; margin: 1rem 0; border-radius: 4px; }
+        .skill-check strong { color: var(--accent-green); }
+
+        .music-cue { background: rgba(155,89,182,0.08); border: 1px solid var(--accent-purple); padding: 0.75rem 1rem; margin: 0.75rem 0; border-radius: 4px; font-size: 0.9rem; color: var(--accent-purple); }
+        .music-cue::before { content: "🎵 "; }
+
+        .dialogue { margin: 0.75rem 0; }
+        .speaker { color: var(--accent-yellow); font-weight: bold; }
+
+        .decision-box { background: rgba(255,204,0,0.05); border: 2px solid var(--accent-yellow); padding: 1.5rem; margin: 1.5rem 0; border-radius: 8px; }
+        .decision-box h4 { color: var(--accent-yellow); margin-bottom: 1rem; }
+
+        .clue-chain { background: rgba(0,255,65,0.08); border: 2px solid var(--accent-green); padding: 1.5rem; margin: 1.5rem 0; border-radius: 8px; }
+        .clue-chain h4 { color: var(--accent-green); margin-bottom: 1rem; }
+
+        .scene-transition { text-align: center; padding: 2rem; color: var(--text-dim); font-size: 1.2rem; letter-spacing: 3px; }
+
+        .overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 1rem 0; }
+        .overview-card { background: rgba(10,14,23,0.4); border: 1px solid var(--border); padding: 1rem; border-radius: 4px; }
+        .overview-card strong { color: var(--accent-blue); display: block; margin-bottom: 0.5rem; }
+
+        .agent-tag { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 3px; font-size: 0.8rem; font-weight: bold; margin: 0.1rem; }
+        .tag-mac { background: rgba(70,130,180,0.2); color: var(--mac); border: 1px solid var(--mac); }
+        .tag-sullivan { background: rgba(184,115,51,0.2); color: var(--sullivan); border: 1px solid var(--sullivan); }
+        .tag-sparky { background: rgba(0,255,65,0.2); color: var(--sparky); border: 1px solid var(--sparky); }
+        .tag-scalpel { background: rgba(212,175,55,0.2); color: var(--scalpel); border: 1px solid var(--scalpel); }
+        .tag-trench { background: rgba(255,140,0,0.2); color: var(--trench); border: 1px solid var(--trench); }
+
+        .disorder-box { background: rgba(184,115,51,0.12); border: 2px solid var(--sullivan); padding: 1.5rem; margin: 1.5rem 0; border-radius: 8px; }
+        .disorder-box h4 { color: var(--sullivan); margin-bottom: 1rem; }
+
+        .diary-quote { background: rgba(10,14,23,0.7); border-left: 3px solid var(--accent-yellow); padding: 1rem 1.5rem; margin: 1rem 0; font-family: 'Georgia', serif; font-style: italic; color: #e8d8b0; }
+
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { border: 1px solid var(--border); padding: 0.75rem; text-align: left; vertical-align: top; }
+        th { background: rgba(74,144,164,0.2); color: var(--accent-blue); font-weight: bold; }
+
+        ul, ol { margin-left: 2rem; margin-top: 0.5rem; }
+        li { margin-bottom: 0.5rem; }
+        p { margin-bottom: 0.75rem; }
+
+        @media (max-width: 768px) {
+            body { padding: 1rem; }
+            .overview-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="session-header">
+        <h1>SESSION 10 — BERLIN: DAG TVÅ</h1>
+        <p>Graefestraße 66 → Wielandstraße / Reichenberger Straße / Frankfurt (Oder)?</p>
+        <div class="session-meta">
+            <span>📅 22 sept kväll → 23 sept</span>
+            <span>📍 Kreuzberg / Charlottenburg / ?</span>
+            <span>⏱ ~22:00 → natt → morgon/dag</span>
+            <span class="status-badge">PLANERAD</span>
+        </div>
+        <div style="margin-top: 1rem;">
+            <span class="agent-tag tag-mac">Mac</span>
+            <span class="agent-tag tag-sullivan">Sullivan</span>
+            <span class="agent-tag tag-sparky">Sparky</span>
+            <span class="agent-tag tag-scalpel">Scalpel</span>
+            <span class="agent-tag tag-trench">Trench</span>
+        </div>
+    </div>
+
+    <!-- NAV -->
+    <div class="nav-bar">
+        <a href="session9.html">← Session 9: Berlin, dag 1</a>
+        <span style="color: var(--text-dim);">Kapitel 1 — Berlin, dag 2</span>
+        <a href="scene_slavic_breakin.html">SA-inbrottet →</a>
+    </div>
+
+    <!-- BAKGRUND -->
+    <div class="section">
+        <h2>BAKGRUND — VAR ÄR VI?</h2>
+
+        <div class="overview-grid">
+            <div class="overview-card">
+                <strong>In-game tid vid start</strong>
+                22 september 2025, ~22:00 kväll
+            </div>
+            <div class="overview-card">
+                <strong>Plats</strong>
+                Graefestraße 66, Kreuzberg (bas) — Trench på span i Kreuzberg
+            </div>
+            <div class="overview-card">
+                <strong>Diagnos bekräftad</strong>
+                Alla 5 infekterade. 2–6 månader. Ingen medicinsk behandling.
+            </div>
+            <div class="overview-card">
+                <strong>Dagboken</strong>
+                Översatt. Sparky + Sullivan avslutade innan kvällen.
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h4>VAD HÄNDE I SESSION 9</h4>
+            <ul>
+                <li>Morgon på Graefestraße. Ops-room byggt (Sparkys 3-skärm-setup).</li>
+                <li>Charité → Richter: <strong>alla fem positiva</strong>. Mammans dagbok + MacBook + 12 foton + 2 visitkort överlämnade.</li>
+                <li>Ops-room eftermiddag: bevisöversikt sammanställd på whiteboard.</li>
+                <li>Dagboken översatt av <span class="agent-tag tag-sparky">Sparky</span> + <span class="agent-tag tag-sullivan">Sullivan</span> (ryska → engelska/svenska) under eftermiddag och kväll.</li>
+                <li><span class="agent-tag tag-sullivan">Sullivan</span> nådde <strong>Breaking Point</strong> — SAN 64/77, valde <strong>Besatthet</strong> som störning. Ny BP: 48.</li>
+                <li><span class="agent-tag tag-trench">Trench</span> tog på sig rekognosering av Slavic Association (Reichenberger Str. 124). Ute sedan ~19:00.</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <strong>⚠ CELL-STATUS INFÖR SESSION 10</strong>
+            <ul>
+                <li><span class="agent-tag tag-mac">Mac</span> SAN 45/60, BP 36 — <strong>marginal 9</strong>. Volkov-besatt. Adrenalinet från Charité-dagen håller honom uppe.</li>
+                <li><span class="agent-tag tag-sullivan">Sullivan</span> SAN 64/77, BP 48 (ny efter disorder). <strong>Besatthet aktiverad</strong>. Dagboken är hans nya fix.</li>
+                <li><span class="agent-tag tag-sparky">Sparky</span> SAN 63/70, BP 56. Mental utmattning efter 8h översättning.</li>
+                <li><span class="agent-tag tag-scalpel">Scalpel</span> SAN 68/75, BP 60. Enda som sett hela bilden kliniskt. Sover inte.</li>
+                <li><span class="agent-tag tag-trench">Trench</span> SAN 53/55, BP 44 — <strong>marginal 9</strong>. Ute på span. Kommer tillbaka tidigt i session.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SCEN 1: TRENCH ÅTERVÄNDER -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SCEN 1 — TRENCH ÅTERVÄNDER (~22:00)</h2>
+
+        <div class="music-cue">Ben Frost — "Theory of Machines" (dämpad industriell puls, natten kryper)</div>
+
+        <div class="read-aloud">
+            Kreuzberg om kvällen. Graefestraße har skiftat karaktär — Orient Falafel stänger, spielcasinots neon är den enda konstanta ljuskällan på gatan. Regn på trottoarerna från ett kort skurkväder för en timme sedan. Löven under träden är gula och fuktiga, slätas mot asfalten.
+            <br><br>
+            På fjärde våningen lyser gästrummets tre skärmar fortfarande blått. Sparky har inte rest sig från stolen på flera timmar. Bredvid honom ligger en tjock skrivbok — mammans dagbok, öppen, ryska handstilen genom tunt pappärmspapper. Vid sidan: anteckningsblock med den engelska översättningen, sida efter sida.
+            <br><br>
+            Sullivan är i köket. Han står vid fönstret. Han har stått där i tjugo minuter. Framför honom på köksbordet: översättningens sista sidor. Han har läst dem tre gånger.
+            <br><br>
+            Portkoden klickar. Hissen öppnas. Trench steg på trappen nedanför.
+        </div>
+
+        <div class="gm-note">Scenen etablerar tre saker samtidigt: 1) Trench har information från spanet, 2) Sullivan har läst något i dagboken som bitit fast, 3) Dagboken är färdigöversatt. Ge <span class="agent-tag tag-trench">Trench</span>-spelaren första ordet — han klev just in.</div>
+
+        <h3>Vad Trench har sett (SA rekognosering)</h3>
+
+        <div class="info-box">
+            <h4><span class="agent-tag tag-trench">Trench</span> RAPPORT FRÅN REICHENBERGER STRASSE 124</h4>
+            <p><strong>Tidsfönster observerat:</strong> ~19:30–21:45</p>
+            <ul>
+                <li><strong>19:45:</strong> Helga Krausst lämnar — senaste anställd ut. Låser glasdörren. Bär katt-mat-påse, handväska. Tar sig till U-Bahn Kottbusser Tor.</li>
+                <li><strong>20:10:</strong> Byggnaden tystnar. Fyra fönster släckta ovanför SA-skylten.</li>
+                <li><strong>20:30:</strong> En okänd man (60+, kostym, smal, ljus grå päls) stannar framför porten i 90 sekunder. Låser upp, går in. Ljus tänds i ett övre fönster. Lämnar 20:55. Tar taxi.</li>
+                <li><strong>21:15:</strong> Säkerhetsbil gör en cirkulation. Företag: Tegel Security. Kör långsamt, inte stopp. Sannolikt kontraktsleverantör — inte SA:s egna.</li>
+                <li><strong>21:20–21:45:</strong> Inget. Innergården tom. En katt.</li>
+            </ul>
+            <p><strong>Fysiska observationer:</strong></p>
+            <ul>
+                <li>Glasdörren är halvisolerad, låset är ett Abloy-cylinderlås (inte elektroniskt på nedervåningen)</li>
+                <li>Innergården nås från Reichenberger Straße via rostig järngrind — <strong>olåst</strong></li>
+                <li>Baksidan av byggnaden vetter mot gård med soptunnor, lastbil, brandstege upp till andra våningen (rostig, ljudlig)</li>
+                <li>Övre våningarna har nyckelbricka-system (hissarna blockas efter 18:00)</li>
+                <li>Ingen kamera synlig mot innergården. Kamera vid huvudingången.</li>
+                <li>Inget bostadsfönster syns lysa i byggnaden efter 20:10 — det verkar inte bo någon här</li>
+            </ul>
+        </div>
+
+        <div class="skill-check">
+            <strong>Alertness eller Tradecraft 50%+</strong>
+            <p><strong>Lyckad:</strong> <span class="agent-tag tag-trench">Trench</span> upptäcker en svart Mercedes parkerad på Skalitzer Straße, två gathörn bort, som stått där hela hans span. Två personer i framsätet. De startar motorn tre minuter efter att han börjar gå mot U-Bahn. De följer inte — men de ser honom.</p>
+            <p><strong>Misslyckad:</strong> Han noterar inget. Men Blobels team noterar honom.</p>
+        </div>
+
+        <div class="yellow-box">
+            <strong>SL-anmärkning:</strong> Oavsett roll — Blobels team har sett <span class="agent-tag tag-trench">Trench</span> rekognosera SA. De vet nu att cellen är intresserad. Anton får rapport senast midnatt. Konsekvens: om cellen dröjer med inbrott, kan arkivet rensas. Men Anton agerar INTE förrän han vet deras plan.
+        </div>
+
+        <h3>Trench berättar — cellen lyssnar</h3>
+
+        <div class="read-aloud">
+            I vardagsrummet. Alla har samlats. Sparky har dragit ut ett papper på whiteboard-stativet, börjar skissa Reichenberger-planens grundläggande geometri utifrån Trenchs beskrivning. Scalpel står med armarna i kors mot fönsterposten. Mac sitter framåtlutad, fingrarna sammanvävda. Sullivan har kommit in från köket men han håller fortfarande dagboken mot bröstet.
+            <br><br>
+            Trench rullar ner fönstret i sin läderjacka. Han luktar regn och cigarettrök (grannens, inte hans). Han har en skiss i anteckningsbok — innergården, baksidan, brandstegen.
+        </div>
+
+        <div class="gm-note">Ge <span class="agent-tag tag-trench">Trench</span>-spelaren utrymme att leverera sin rapport i karaktär. Han är professionell — USAR, strukturell analys, riskbedömning. Det är hans moment.</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SCEN 2: SULLIVANS BESATTHET -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SCEN 2 — SULLIVAN OCH DAGBOKEN (~22:30)</h2>
+
+        <div class="music-cue">Arvo Pärt — "Für Alina" (ett piano, tomrummet mellan tonerna)</div>
+
+        <div class="disorder-box">
+            <h4>SULLIVAN: BESATTHET — MEKANIKEN</h4>
+            <p><strong>Trigger:</strong> Breaking Point nådd i session 9. Ny BP: 48.</p>
+            <p><strong>Fixering:</strong> Att <em>förstå</em>. Dagboken, Toporov, Lyubimov, de tre männens historia. Det som hände 1942 i Leningrad. Han måste veta varför.</p>
+            <p><strong>Mekanisk effekt:</strong> När besattheten tar över (minst 1 gång per session, eller vid SAN-check) — Sullivan dras till källmaterialet, även när det inte är operativt klokt. Han prioriterar <em>kunskap</em> över <em>säkerhet</em> eller <em>sömn</em>.</p>
+            <p><strong>Bond-erosion:</strong> Vid slutet av sessionen, om besattheten aktiverats — en Bond förlorar 1 poäng (spelaren väljer, förslag: "fellow Navy Chaplains" eller "his parish").</p>
+            <p><strong>INGET PROF-MOMENT:</strong> Det här är inte en ramberättelse. Det är Andreas att spela ut. Ge honom scener där det KAN manifesteras — men tvinga inte.</p>
+        </div>
+
+        <h3>Sullivan läser igen</h3>
+
+        <p>När Trench har rapporterat klart — när Sparky börjar skissa SA-layouten på whiteboard, när Mac ställer följdfrågor om flyktvägar — sitter Sullivan kvar vid köksbordet. Han har öppnat dagboken på sista sidan igen. Sidorna före är fyllda. Sidan efter är tom. Bläckfläcken på baksidan är där pennan lämnats liggande öppen.</p>
+
+        <div class="diary-quote">
+            "De tre männen lever. Berlin. Slaviska Sällskapet. De ser ut som barn men de är inte barn. De åldras knappt. De väntar på något. Spring inte till dem. Spring inte från dem. De hittar dig ändå. Sök sanningen men lita inte på dina drömmar."
+        </div>
+
+        <div class="gm-note">Detta är ett <strong>Andreas-moment</strong> — inte ett SL-moment. Ställ frågan rakt ut: "Sullivan. Du har läst det här tre gånger. Vad stannar hos dig? Vad gör besattheten med dig just nu?" Ge honom tid. Om han inte vet vad han ska göra med det, erbjud alternativen nedan — men låt honom välja.</div>
+
+        <h3>Manifestations-alternativ (om Andreas behöver förslag)</h3>
+
+        <div class="overview-grid">
+            <div class="overview-card">
+                <strong>A. TEOLOGEN</strong>
+                Sullivan börjar jämföra Elsas text med teologiska texter om demonbesättelse, Augustinus, de Ryska ortodoxa exorcismritualerna. Han vill förstå VAD som besatte de tre männen. Inte som kuriosa — som doktrin.
+            </div>
+            <div class="overview-card">
+                <strong>B. NAMNLISTAN</strong>
+                Han skriver upp alla namn från dagboken i sin anteckningsbok. Garudin, Ignatiev, Pogodin. Anatoly, Sasha, Filip. Han börjar spåra dem i huvudet — genealogier, dödsannonser, arkiv.
+            </div>
+            <div class="overview-card">
+                <strong>C. "SÖK SANNINGEN"</strong>
+                Elsas sista ord blir en ordning. Han måste åka till Leningrad/St Petersburg. Inte nu — men planen formas redan i natt. Han nämner det inte för de andra ännu.
+            </div>
+            <div class="overview-card">
+                <strong>D. HAN DELAR MED SIG</strong>
+                Motsatsen: besattheten gör honom till EVANGELIST. Han måste få de andra att förstå. Han reciterar passager högt. Han insisterar att de lyssnar. "Ni läser inte tillräckligt. Det är inte bara en rapport. Det är en varning."
+            </div>
+        </div>
+
+        <div class="san-check">
+            <strong>INGEN SAN-CHECK HÄR</strong>
+            <p>Detta är en karaktärsscen, inte en horror-scen. Sullivans störning är redan aktiv. Det han gör nu är att BÖRJA LEVA med den. Ge det vikt utan mekanik.</p>
+        </div>
+
+        <div class="gm-note">Om Sullivan börjar manifestera högt i gruppen — låt de andra reagera. Detta är första gången de ser honom så här. Mac kommer känna igen det (PTSD-symptom han sett tidigare). Scalpel kommer reagera kliniskt. Sparky kommer reagera mänskligt. Ingenting som <em>bondas</em> — bara en tyst observation att Father inte är samma person som ikväll som i morse.</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SCEN 3: ONDA DRÖMMAR -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SCEN 3 — ONDA DRÖMMAR (~02:00–04:00, natten 22→23 sept)</h2>
+
+        <div class="music-cue">William Basinski — "Disintegration Loop 1.1" (ett loop som förfaller, omärkligt i bakgrunden hela scenen)</div>
+
+        <div class="read-aloud">
+            De går till sängs en efter en. Scalpel sist — hon har suttit länge vid köksbordet med Richters rapport och en penna, markerat passager. Trench på sin stol i köket igen. Mac på vardagsrumssoffan. Sparky med laptopen på bröstet. Sullivan på golvet vid pianot.
+            <br><br>
+            Lampan i vardagsrummet släcks. Staden andas. Någonstans i kvarteret spelar någon piano, otydligt, en enkel melodi. En bil utanför. Ett rop som skrattar.
+            <br><br>
+            Och sedan: sömnen kommer. Inte lugn. Men den kommer.
+        </div>
+
+        <h3>Drömmen (delad — alla fem)</h3>
+
+        <div class="warning-box">
+            <strong>⚠ DELAD DRÖM — FÖRSTA NATTEN I BERLIN</strong>
+            <p>Referens för fullständig detalj: <a href="black_madonna_chapter1.html#scene8" style="color: var(--accent-red);">chapter1, Scen 8: Onda drömmar</a></p>
+            <p>Alla fem drömmer samma grundscen, med individuella variationer. De upptäcker INTE förrän morgonen att drömmen var delad.</p>
+        </div>
+
+        <div class="read-aloud">
+            En källare. Fuktiga tegelväggar. Det är kallt — de fryser i drömmen, de kan känna det. Ett svagt ljus från ett stearinljus i mitten av rummet. Tre figurer står omkring det — vuxna män i slitna rockar. Tre figurer på avstånd — mindre, barn. Det är inte klart var man själv står.
+            <br><br>
+            Sedan kommer ljuset. Uppifrån. Eller inifrån. Det är blått och vitt och det brinner utan värme.
+            <br><br>
+            Männens ryggar kröks bakåt. Det låter inte som ben som bryts — det låter som ben som <em>omformas</em>. Barnen skriker inte. En av dem — en pojke — ler. Hans leende är fel. Det är inte ett barns leende.
+            <br><br>
+            Och under ljuset, eller bakom det, eller i det: en geometri. Vinklar som inte borde finnas. Ett mönster som rör sig. Det tittar tillbaka.
+            <br><br>
+            Och hummandet. Det börjar i tänderna. Det kryper nedåt genom käken, ner i bröstet, in i bröstkorgsbenet. En enda ton. Exakt samma för alla fem. <strong>247 Hz.</strong> Det slutar aldrig.
+            <br><br>
+            De vaknar svettiga. Klåda i huden på platser de inte kan nå. Hummandet sitter kvar i tänderna i flera sekunder efter att ögonen öppnas.
+        </div>
+
+        <h3>Individuella variationer</h3>
+
+        <div class="info-box">
+            <h4>HUR VAR DROMMEN OLIKA FÖR VAR OCH EN?</h4>
+            <p>Samma grundscen, men perspektivet skiljer sig. Fråga spelarna vad de tror sina karaktärer såg. Om de inte vet — erbjud förslag, men låt dem välja:</p>
+            <ul>
+                <li><span class="agent-tag tag-mac">Mac</span> Han stod bland de vuxna. Han var en av männen vars rygg kröktes. Han kände det.</li>
+                <li><span class="agent-tag tag-sullivan">Sullivan</span> Han stod utanför cirkeln, i en mörk vrå. Han höll en bok. Sidorna var tomma. Han försökte läsa för att kunna be.</li>
+                <li><span class="agent-tag tag-sparky">Sparky</span> Han var pojken som log. Han minns inte det — men när han vaknar håller han käken hårt.</li>
+                <li><span class="agent-tag tag-scalpel">Scalpel</span> Hon stod över allt, från en balkong eller takbjälke. Hon såg ner. Hon kunde inte röra sig.</li>
+                <li><span class="agent-tag tag-trench">Trench</span> Han var Elsa. Han höll ett barn mot sig. Barnet var tungt. Armarna värkte när han vaknade.</li>
+            </ul>
+        </div>
+
+        <div class="gm-note">Spelarautonomi-princip: INGA tvingade tolkningar. Erbjud alternativen som "förslag om ni inte vet", men låt varje spelare bestämma själv. Om någon vill ha en helt annan variation — bra. Den delade dimensionen är att det är SAMMA scen, SAMMA ljus, SAMMA hummande. Inte att de såg exakt samma detaljer.</div>
+
+        <div class="san-check">
+            <strong>SAN CHECK: 0/1 (Unnatural)</strong>
+            <p>Att drömma om något du inte kan ha sett. Platsen är Leningrad 1942 — du har aldrig varit där. Personer du inte känner. Händelsen som Elsa beskrev i dagboken. Bekräftelsen att du nu ser det hon såg.</p>
+            <p><strong>Extra överväg:</strong> När de pratar om drömmen dagen efter och inser att den var DELAD — ingen ytterligare check, men ge det vikt. Det här är första beviset att de är sammankopplade på något sätt.</p>
+        </div>
+
+        <h3>Klåda och hummande</h3>
+
+        <div class="yellow-box">
+            <p>Efter drömmen (från och med nu, genom resten av kampanjen):</p>
+            <ul>
+                <li><strong>Hummande 247 Hz</strong> — konstant i bakgrunden, tydligast i tystnad. De vänjer sig, men det försvinner aldrig.</li>
+                <li><strong>Klåda i huden</strong> — sporadisk, under huden, på platser de inte kan nå. Ofta under bröstbenet, längs revbenen, på ryggen.</li>
+                <li><strong>Dreams</strong> — om de sover i Berlin, varje natt, någon version av drömmen. Intensiteten ökar långsamt.</li>
+            </ul>
+            <div class="gm-note">Flagga detta tidigt i morgonscenen, men återkom till det under session. Inte som SAN-triggers — som atmosfär. De är sjuka. Kroppen vet det nu.</div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SCEN 4: MORGONEN 23 SEPTEMBER -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SCEN 4 — MORGONEN 23 SEPTEMBER (~08:00)</h2>
+
+        <div class="music-cue">Jóhann Jóhannsson — "A Pile of Dust" (grått, långsamt, det som är kvar efter)</div>
+
+        <div class="read-aloud">
+            Graefestraße i gryningen. Himlen är betongfärgad. Oktober kryper in i september — första verkligt kyliga morgon. Träden längs gatan har släppt fler löv över natten. Albatross Bakery bakar, doften kyler istället för värmer. Orient Falafel är stängt. Spielcasinot också — gult neon släckt. Det är en söndag.
+            <br><br>
+            En efter en vaknar de. Ingen sa god morgon. Mac står vid fönstret med en kopp kaffe som han glömde blåsa på; den är för kall nu. Sparky sitter på bäddsoffkanten, huvudet i händerna. Scalpel har redan börjat syssla med något i köket — kokt ägg, skivat bröd. Trench är på balkongen, rullar en cigarett han inte kommer tända. Sullivan sitter på golvet vid pianot. Han har inte rest sig.
+        </div>
+
+        <h3>De delar drömmen</h3>
+
+        <p>Någon säger något. Inte planerat. Kanske <span class="agent-tag tag-scalpel">Scalpel</span> som frågar "Sov ni alls?" — eller <span class="agent-tag tag-sparky">Sparky</span> som ställer en slarvig fråga om "den där ljuset." Det är först när två av dem använder samma bild — "ljuset som brann utan värme" — som det stannar av.</p>
+
+        <div class="gm-note">Låt det unfolda mellan spelarna. Ge dem utrymme. Det här är en roleplay-scen, inte en SL-driven scen. När de inser att drömmen var delad — paus. Det är en bekräftelse på något större än parasiten. Det finns ett MÖNSTER. Det VET att de är här.</div>
+
+        <div class="san-check">
+            <strong>INGEN NY SAN-CHECK</strong>
+            <p>Säges redan av scen 3. Men notera: detta ögonblick är en av de känslomässiga tungvikterna i sessionen. De är inte längre fem individer med samma sjukdom — de är en enhet, och sjukdomen SER dem.</p>
+        </div>
+
+        <h3>Bonds — har någon ringt hem?</h3>
+
+        <div class="yellow-box">
+            <p>Det är söndag morgon i Berlin. Lördag kväll i USA. Rätt tid att ringa om man vill.</p>
+            <ul>
+                <li><span class="agent-tag tag-mac">Mac</span> Emma. Barnen. Om han ringer — Emma är försiktig, artig, avlägsen. Barnen frågar om han är i Maine ("där du var i somras"). Han måste ljuga.</li>
+                <li><span class="agent-tag tag-sullivan">Sullivan</span> St. Mary's i Boston (hans gamla pastorat). Det är söndag — om han ringer fångar han någon efter gudstjänsten.</li>
+                <li><span class="agent-tag tag-sparky">Sparky</span> Hans mor? Mr. Walsh? Null Space Collective (förre hacktivist-vänner)?</li>
+                <li><span class="agent-tag tag-scalpel">Scalpel</span> Hennes pappa i Tokyo (14:00 lokal tid — lämplig). Eller hennes mor.</li>
+                <li><span class="agent-tag tag-trench">Trench</span> Sandra (6 år, dotter). Det är lördag kväll 02:00 hemma — för sent. Broder Randolf? Tidigare chef Linda?</li>
+            </ul>
+            <div class="gm-note">Frivilligt. Inte alla måste. Men erbjud EN scen. Bonds är inte bara värden — de är länken till det som är värt att överleva för. En minut av Emmas röst i telefonluren är inte en SAN-check. Men det kostar.</div>
+        </div>
+
+        <h3>Sullivan håller genomgång</h3>
+
+        <p>Eller någon annan håller den. Men sannolikt Sullivan — besattheten driver honom. Han har dagboken på bordet. Han har sin anteckningsbok. Han har funderat hela natten.</p>
+
+        <div class="info-box">
+            <h4>VAD VI VET NU (morgonen 23 sept)</h4>
+            <ul>
+                <li><strong>Leningrad, nyår 1942:</strong> Tre vuxna män (Garudin, Ignatiev, Pogodin) och tre pojkar (Anatoly, Sasha, Filip) närvarande vid "händelsen" i en källare. Ljuset. Kroppar omformades.</li>
+                <li><strong>De tre männen:</strong> Lever fortfarande. Åldras knappt. Är i Berlin. Slaviska Sällskapet.</li>
+                <li><strong>De tre pojkarna:</strong> Anatoly, Sasha, Filip. Studieobjekt i Kirovkliniken (1946–51). Åldrades EXTREMT långsamt. Vad är de nu?</li>
+                <li><strong>"Filip":</strong> Filip Kramer, 70+ år, rör sig som ung man. Grät på Charité. Grundade SA 1961 (med Magda). Är han samma Filip?</li>
+                <li><strong>Förbannelsen:</strong> Kan brytas. "Returneras till källan. Där den skapades." (Toporov)</li>
+                <li><strong>Källan:</strong> Leningrad / St Petersburg. Källaren under Kalenkos hus. Vasilyevsky Island?</li>
+                <li><strong>"Slaviska Sällskapet":</strong> En av dem frågade specifikt efter Elsa i 1951. "Den yngste." = Filip?</li>
+                <li><strong>Anton Mahler:</strong> "Den farligaste." Hans män tömde Magdas lägenhet på Leibnizstraße.</li>
+            </ul>
+        </div>
+
+        <div class="gm-note">Om Sullivan kör genomgången — låt honom tala för länge. Han är besatt. Mac kommer avbryta. Scalpel kommer peka på det praktiska. Sparky kommer föra anteckningar. Trench kommer fråga: "Okej. Vad GÖR vi?" — det är frågan som leder oss till scen 5.</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SCEN 5: BESLUTSPUNKT -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SCEN 5 — BESLUTSPUNKT (~09:30)</h2>
+
+        <div class="music-cue">Trent Reznor / Atticus Ross — "Hand Covers Bruise" (planering, spänning under ytan)</div>
+
+        <div class="read-aloud">
+            Whiteboarden i gästrummet. Sparky har skrivit en ny rubrik i grön marker: "NÄSTA STEG." Under det — ingenting ännu. Sex alternativ väntar.
+        </div>
+
+        <h3>Uppdaterad bevisöversikt</h3>
+
+        <div class="clue-chain">
+            <h4>KOMPLETT LÄGE (23 september, 09:30)</h4>
+            <table>
+                <tr><th>Källa</th><th>Bevis</th><th>Pekar mot</th></tr>
+                <tr><td>Dagboken</td><td>Fullständig översättning — Leningrad 1942, Kirovkliniken, Frankfurt (Oder)</td><td>Elsas vittnesmål → de tre männen + Filip</td></tr>
+                <tr><td>Dagboken</td><td>"Spring inte till dem. Spring inte från dem. De hittar dig ändå."</td><td>De TRE MÄNNEN vet att cellen är här</td></tr>
+                <tr><td>Richter</td><td>Bekräftelse: alla 5 infekterade. 2–6 månader.</td><td>Klockan tickar</td></tr>
+                <tr><td>Richter</td><td>Toporov: "Returneras till källan."</td><td>Leningrad / St Petersburg</td></tr>
+                <tr><td>SA-span</td><td>Trenchs observationer. Ingen boende. Arkiv tillgängligt.</td><td>Inbrott möjligt natten 23→24 sept</td></tr>
+                <tr><td>SA-span</td><td>Svart Mercedes på Skalitzer (om Alertness lyckad)</td><td>Blobels team övervakar</td></tr>
+                <tr><td>Drömmar</td><td>Delad dröm, 247 Hz hummande</td><td>De är sammankopplade. MED varandra. MED källan.</td></tr>
+                <tr><td>Visitkort</td><td>Filip Kramers telefonnummer</td><td>Direktkontakt möjlig — men riskabel</td></tr>
+                <tr><td>MacBook</td><td>Hackad / olåst (om Sparky lyckats) eller fortfarande låst</td><td>400+ filer om låst öppnas</td></tr>
+                <tr><td>Arnold Weiss</td><td>Ej kontaktad ännu. Kan ryska. Närmaste vän till Magda.</td><td>Wielandstraße 34, Charlottenburg</td></tr>
+            </table>
+        </div>
+
+        <h3>Alternativ på bordet</h3>
+
+        <div class="decision-box">
+            <h4>CELLENS VÄGAR (dag 2, 23 september)</h4>
+            <table>
+                <tr><th>Alternativ</th><th>Argument för</th><th>Risk</th><th>Tid</th></tr>
+                <tr>
+                    <td><strong>A. SA-inbrott</strong><br><em>Reichenberger Str. 124</em></td>
+                    <td>Trench har planen. Arkivet finns. Natten 23→24 sept = bra fönster.</td>
+                    <td>HÖG — Blobel vet de är intresserade. Arkivet kan rensas om de dröjer.</td>
+                    <td>Förberedelse dag, utförande natt</td>
+                </tr>
+                <tr>
+                    <td><strong>B. Arnold Weiss</strong><br><em>Wielandstraße 34, Charlottenburg</em></td>
+                    <td>Magdas närmaste vän. Visste något. Säker plats.</td>
+                    <td>LÅG — men Arnolds adress står bredvid SA:s på Magdas post-it. Varför?</td>
+                    <td>Telefon + möte (2–3h)</td>
+                </tr>
+                <tr>
+                    <td><strong>C. Ring Filip</strong></td>
+                    <td>Han grät. Han varnade Magda. Kan vara allierad.</td>
+                    <td>MYCKET HÖG — han är en av de tre pojkarna. Vad han är nu, är okänt.</td>
+                    <td>Ett samtal</td>
+                </tr>
+                <tr>
+                    <td><strong>D. MacBook</strong> (om låst)</td>
+                    <td>Sparky kan försöka igen. Computer Science 50%.</td>
+                    <td>LÅG — misslyckande = tidsförlust.</td>
+                    <td>1–2h</td>
+                </tr>
+                <tr>
+                    <td><strong>E. Frankfurt Clinic</strong><br><em>Dorfstraße 42c, Frankfurt (Oder)</em></td>
+                    <td>Pyotrs vykort. Elsas dagbok pekar hit. Kliniken existerar kanske inte längre.</td>
+                    <td>MEDEL — 1.5h tåg bort. Blobel kan följa.</td>
+                    <td>Heldag</td>
+                </tr>
+                <tr>
+                    <td><strong>F. Split</strong><br><em>Två mål parallellt</em></td>
+                    <td>Arnold + SA-förberedelse samtidigt. Arnold + MacBook. Etc.</td>
+                    <td>BEROENDE PÅ VAL — men Sparky ensam på Graefestraße = Blobel har fönster.</td>
+                    <td>Beror på kombination</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="gm-note">Låt cellen diskutera fritt. Minst 15 minuter. Detta är SESSIONENS strategiska moment. Naturliga kombinationer:
+        <ul>
+            <li><strong>Klassisk:</strong> B + D parallellt (Arnold-möte + MacBook-hack) → Sen kväll: A (SA-inbrott). Mest information på kortaste tid.</li>
+            <li><strong>Aggressivt:</strong> C + A (ring Filip + SA-inbrott samma kväll). Farligt. Men om Filip är allierad kan cellen få hjälp.</li>
+            <li><strong>Defensivt:</strong> B + D, avvakta med A tills de vet mer från Arnold.</li>
+            <li><strong>Långsiktigt:</strong> E (Frankfurt) — men det är en heldag och SA kan rensas under tiden.</li>
+        </ul>
+        Om de verkar obeslutsamma: låt <span class="agent-tag tag-sullivan">Sullivan</span> (besatt) pusha för A (han VILL veta). Låt <span class="agent-tag tag-mac">Mac</span> (profiler) pusha för B (Arnold är mjuk målet, riskminimerat). Låt <span class="agent-tag tag-trench">Trench</span> (operativ) vilja verkställa A redan i kväll.</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SCEN 6: GENOMFÖRANDE -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SCEN 6 — GENOMFÖRANDE (dagen 23 sept)</h2>
+
+        <p><em>Detta är den "reaktiva" delen av sessionen. Beroende på vad cellen väljer i scen 5, kör en eller flera av scenerna nedan. Inte alla behöver spelas — tid är en begränsning.</em></p>
+
+        <h3>6A. Möte med Arnold Weiss (om vald)</h3>
+
+        <div class="npc-card ally">
+            <h4>ARNOLD WEISS — kort referens</h4>
+            <p><strong>Plats:</strong> Wielandstraße 34, Charlottenburg. Terrasshus. Tre katter. Pensionerad lektor i asiatiska språk, Free University of Berlin.</p>
+            <p><strong>Relation:</strong> Magdas närmaste vän, 40+ år. Visste inte hon var död (om de ringer i förväg). Flytande ryska.</p>
+            <p><strong>Vad han vet:</strong> Magdas eskalerande paranoia sista månaderna. Att hon tvättade händerna hårt. Märken på armarna. Att hon varit på SA tidigt 80-tal men bröt kontakten i slutet av 80-talet. Anton Mahler som "farlig." Han vet INTE om parasiten, ljuset, 1942.</p>
+            <p><strong>Vad han erbjuder:</strong> Te. En fåtölj. Översättningsarbete (men dagboken är redan översatt). Minnesbilder. En kopia av ett gammalt foto: Magda + Arnold + fyra andra personer, 1976, vid en strand i Rügen.</p>
+            <p><strong>SAN-check:</strong> INGEN. Arnold är säker. Han är oinfekterad. Han är varm.</p>
+        </div>
+
+        <p>Fullständig Arnold-scen i <a href="black_madonna_chapter1.html#arnold" style="color: var(--accent-blue);">chapter1.html#arnold</a>. Viktiga tillägg för session 10:</p>
+
+        <ul>
+            <li>Om cellen har dagboken med sig: Arnold läser passager på ryska, bekräftar översättningen. Sätter namnen i historisk kontext.</li>
+            <li>Han minns Magdas mor Elsa. "Hon var tyst. Hon rökte för mycket. Hon tittade inte på människor i ögonen."</li>
+            <li>Fråga Arnold om de tre männen — han har <strong>aldrig träffat dem personligen</strong>, men Magda nämnde dem en gång, 2013, efter för mycket vin. "Hon kallade dem 'de som inte dör.' Jag trodde det var en metafor."</li>
+            <li>Arnold vet om en till plats: <strong>Pogodins mansion, Müggel Straße</strong>. Magda parkerade utanför det 2019 och satt i bilen i tre timmar.</li>
+        </ul>
+
+        <div class="gm-note">Arnold är en vän-scen. Om cellen behöver lugnas, information, eller en paus från skräck — detta är det. Han är en resurs, inte ett hot.</div>
+
+        <h3>6B. Ring Filip (om vald)</h3>
+
+        <div class="warning-box">
+            <h4>TELEFONSAMTALET MED FILIP KRAMER</h4>
+            <p><strong>Om de ringer:</strong> Han svarar efter 4 signaler. Rösten är äldre än Charité-Filip verkade — tröttare. "Ja?"</p>
+            <p><strong>Nyckeldynamik:</strong> Han vet inte vilka de är förrän de säger "Magda." Då blir han tyst i fem sekunder.</p>
+            <p><strong>Vad Filip säger:</strong></p>
+            <ul>
+                <li>"Hon borde ha ringt mig innan hon kom till Berlin."</li>
+                <li>"Jag varnade henne. Jag trodde hon hade lyssnat."</li>
+                <li>"Ni är i fara. Lämna Berlin. Idag."</li>
+                <li>Om de frågar vem han är: <em>"Jag är en gammal vän. Det räcker."</em></li>
+                <li>Om de frågar om 1942: <strong>lång tystnad</strong>. Sedan: <em>"Ring mig inte igen."</em> Han lägger på.</li>
+            </ul>
+            <p><strong>Efter samtalet:</strong> Om Sparky spårar samtalet (Tradecraft eller SIGINT-resurs) — nummer är från en burner i Friedrichshain. Inte hans bostad. Han ringer INTE upp dem.</p>
+            <p><strong>VIKTIGT:</strong> Oavsett vad cellen säger, Filip varnar dem inte om Blobel eller Anton specifikt. Han vill inte att de är i Berlin — inte att de ska konfrontera SA.</p>
+        </div>
+
+        <div class="san-check">
+            <strong>SAN CHECK: 0/1 (Unnatural) — frivillig</strong>
+            <p>Om de hör Filips röst och överlägger att de pratar med en man som stod bland barnen 1942. 83 år sedan. Rösten låter som en 70-åring. Det är inte naturligt.</p>
+            <p>Triggern är insikten, inte samtalet självt. Check endast om spelaren aktivt tänker den tanken.</p>
+        </div>
+
+        <h3>6C. SA-inbrott (om vald — samma kväll)</h3>
+
+        <p>Fullständig scen i <a href="scene_slavic_breakin.html" style="color: var(--accent-blue);">scene_slavic_breakin.html</a>. Kör därifrån.</p>
+
+        <div class="gm-note">Om cellen väljer att göra inbrottet samma kväll: flytta dit efter 6A/6B/6D har klarats av. Om de väljer nästa dag: session 10 slutar innan inbrottet, session 11 börjar med det.</div>
+
+        <h3>6D. MacBook-hack (om ej redan gjort)</h3>
+
+        <div class="skill-check">
+            <strong>Computer Science 50% — andra försök</strong>
+            <p>Om Sparky misslyckades i session 9: andra försök +10% (han har nu förstått krypteringssystemet). Effektivt 60%.</p>
+            <p><strong>Lyckad:</strong> Fullständigt MacBook-innehåll öppet. Se session9.html scen 3 för innehållsöversikt.</p>
+            <p><strong>Kritisk lyckad (under 10):</strong> Han hittar en GÖMD mapp som Magda hade skyddat separat. "PROJEKT_SVART" — 12 filer, mest foton och skanningar. Inklusive en karta över <strong>källaren under Kalenkos hus, Leningrad</strong>. Handritad. Av Elsa.</p>
+            <p><strong>Misslyckad igen:</strong> Tid för extra verktyg. Kräver ytterligare 24h.</p>
+        </div>
+
+        <h3>6E. Frankfurt Clinic (om vald)</h3>
+
+        <div class="gm-note">Detta blir en heldag. Om cellen väljer det: antagligen slutar session 10 med att de sitter på tåget dit eller ankommer. Frankfurt-scenerna hör till session 11 (eller kapitel 2). Planen: 1.5h tåg från Berlin Hauptbahnhof, byte i Frankfurt (Oder) Bahnhof, sedan buss eller taxi till Dorfstraße 42c i Güldendorf. Kliniken är en ruin — men inte tom.</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SCEN 7: SAMMANSJUNKNING -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SCEN 7 — SAMMANSJUNKNING (kvällen 23 sept)</h2>
+
+        <div class="music-cue">Max Richter — "Sarajevo" (stillhet efter rörelse, vad de blivit)</div>
+
+        <div class="read-aloud">
+            Graefestraße igen. De återvänder — en eller flera grupper. Det är mörkt utanför. Kreuzberg lever söndagskväll: Orient Falafel öppnat igen, studenter skrattar nedanför, en bilhorn avlägsen. Men inne i lägenheten är det tyst. Whiteboarden har ny text. Nya pilar. Arnolds namn. Filips namn kanske, understruket. En linje till Leningrad.
+            <br><br>
+            Det som inte finns på whiteboarden: hur de känner sig. Hur klåda sitter i huden. Hur hummandet vid 247 Hz har blivit en del av tystnaden.
+        </div>
+
+        <h3>Debrief</h3>
+
+        <div class="gm-note">Ge cellen 10 minuter att reflektera. Frågor att ställa indirekt (inte som ram, som naturliga spelarfrågor):
+        <ul>
+            <li>Vad visste Arnold som ni inte förväntade er?</li>
+            <li>Ringde någon Filip? Vad betyder det ni hörde?</li>
+            <li>Om SA-inbrottet inte är gjort ännu: är det fortfarande planen?</li>
+            <li>Har någon förstått vad "returnera till källan" betyder? Leningrad?</li>
+            <li>Varför ringde Sullivan St Mary's? Varför inte?</li>
+        </ul>
+        Detta är inte fakta-genomgång. Det är KARAKTÄRSMOMENT. Ge dem utrymme att sitta i det.</div>
+
+        <h3>Bond-erosion (om någon aktiverades)</h3>
+
+        <div class="yellow-box">
+            <p>Om <span class="agent-tag tag-sullivan">Sullivan</span>s Besatthet manifesterats aktivt under sessionen — Andreas förlorar 1 Bond-poäng. Spelaren väljer. Förslag:</p>
+            <ul>
+                <li>"Fellow Navy Chaplains" (Bond 10 → 9) — han har inte ringt dem</li>
+                <li>"Hans parish back in Boston" (Bond 10 → 9) — han ringde inte St Mary's</li>
+            </ul>
+            <p>Andra agenter: om de hoppade över Bond-scener där möjligheten fanns — kan spelaren välja att erodera en Bond frivilligt för karaktärsutveckling. Mac/Sullivan är mer benägna (de har aktiva relationskriser).</p>
+        </div>
+
+        <h3>Cliffhanger — en av dessa</h3>
+
+        <div class="overview-grid">
+            <div class="overview-card">
+                <strong>A. OM SA-INBROTTET ÄR GJORT</strong>
+                De sitter med en väska dokument från arkivet. Någonting i den får Scalpel att resa sig och gå till fönstret utan att säga något. Kameran följer henne. Ute på gatan står en man och tittar upp mot deras fönster. Han bär en grå päls. Det är natt — han borde inte se någonting.
+            </div>
+            <div class="overview-card">
+                <strong>B. OM SA ÄR OGJORT</strong>
+                Sparky får en notifikation. Blobels team har rört sig. En av de tre enheterna är nu parkerad på Graefestraße, 200m söder om deras port. De byter skift tyst. Anton vet var de bor.
+            </div>
+            <div class="overview-card">
+                <strong>C. FILIP-SAMTAL SOM SLUT</strong>
+                Om Filip ringde tillbaka — han kommer inte. Men på deras gatudörrsskylt (nedervåningen, nästa morgon) står det skrivet i blyerts: <em>"Elsa hade fel. De hittar er ändå, bara snabbare om ni rör på er. — F."</em> Han har stått nedanför deras lägenhet.
+            </div>
+            <div class="overview-card">
+                <strong>D. DRÖM-CLIFFHANGER</strong>
+                De går till sängs. Hummande igen. Drömmen kommer igen. Men den här gången är det en skillnad: <strong>en av dem saknas från cirkeln.</strong> Vem? Fråga spelarna. Låt dem välja. Det är ett varsel — någon ska lämna gruppen.
+            </div>
+        </div>
+
+        <div class="gm-note">Välj cliffhanger baserat på vad som spelats. D fungerar alltid. A är bäst om inbrottet skett. B är bäst om de inte agerat tillräckligt. C är bäst om Filip-samtalet hände och laddat med laddning.</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SESSIONSAVSLUT -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SESSIONSAVSLUT — TRÅDAR IN I NÄSTA SESSION</h2>
+
+        <div class="clue-chain">
+            <h4>AKTIVA LEDTRÅDAR (kvällen 23 september)</h4>
+            <table>
+                <tr><th>Tråd</th><th>Status efter session 10</th><th>Nästa steg</th></tr>
+                <tr><td>SA-inbrott</td><td>Gjort / Ogjort / Planerat</td><td>Om ogjort: nästa session. Om gjort: gå igenom arkivet.</td></tr>
+                <tr><td>Arnold Weiss</td><td>Kontaktad / Icke-kontaktad</td><td>Om kontaktad: möjlig återkoppling. Müggel Straße (Pogodins mansion) tips.</td></tr>
+                <tr><td>Filip Kramer</td><td>Ringd / Ingen kontakt</td><td>Han ringer inte upp. Men han vet nu att de är här.</td></tr>
+                <tr><td>MacBook</td><td>Hackad / Fortfarande låst</td><td>Om hackad: PROJEKT_SVART-mappen (kritisk lyckad) innehåller Leningrad-karta.</td></tr>
+                <tr><td>Frankfurt Clinic</td><td>Ej besökt</td><td>Heldag. Kapitel 2 eller session 11?</td></tr>
+                <tr><td>Leningrad / St Petersburg</td><td>Identifierad som "källan"</td><td>Resa krävs. Pogodins mansion som alternativt spår?</td></tr>
+                <tr><td>Drömmarna</td><td>Delad konfirmerad. 247 Hz.</td><td>Varje natt i Berlin = drömmen återkommer.</td></tr>
+                <tr><td>Blobels övervakning</td><td>Identifierat cellen. Anton vet.</td><td>Anton agerar — när?</td></tr>
+                <tr><td>Sullivans Besatthet</td><td>Aktiv</td><td>Fortsatt manifestation kommande sessioner.</td></tr>
+                <tr><td>Parasiten</td><td>Dag 3 av aktivering</td><td>~60–180 dagar kvar. Ingen försämring synbar ännu.</td></tr>
+            </table>
+        </div>
+
+        <div class="scene-transition">— SESSION 10 SLUT —</div>
+
+        <div class="gm-note">Bra sessionsslut: De har agerat. De har information. De har en vag bild av Leningrad som slutdestination — men inte hur man tar sig dit, och definitivt inte vad som väntar. Och de har förstått att de inte är ensamma i drömmen. Nästa session: konsekvenser av vad de gjort. Antons reaktion. Nya dokument. Möjligen Frankfurt Clinic.</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SAN-SAMMANFATTNING -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>SAN-SAMMANFATTNING</h2>
+        <table>
+            <tr><th>Trigger</th><th>Check</th><th>Typ</th><th>Kräver</th></tr>
+            <tr><td>Delad dröm första natten (scen 3)</td><td>0/1</td><td>Unnatural</td><td>Sova i Berlin</td></tr>
+            <tr><td>Insikten att drömmen var DELAD (scen 4)</td><td>Ingen extra</td><td>Atmosfär</td><td>Morgondialog</td></tr>
+            <tr><td>Telefon med Filip (scen 6B) — frivillig</td><td>0/1</td><td>Unnatural</td><td>Insikt: 83 år</td></tr>
+            <tr><td>SA-inbrott (om spelat — se separat scen)</td><td>Se scene_slavic_breakin.html</td><td>Varierar</td><td>—</td></tr>
+            <tr><td>Cliffhanger D (drömvarsel)</td><td>0/1</td><td>Unnatural</td><td>Sömn</td></tr>
+            <tr><td><strong>Totalt möjligt (utan SA-inbrott)</strong></td><td><strong>0–3</strong></td><td></td><td>Låg budget — investigations + karaktärsbeat</td></tr>
+            <tr><td><strong>Med SA-inbrott samma kväll</strong></td><td><strong>0–6+</strong></td><td></td><td>Medium — se scen-ref</td></tr>
+        </table>
+        <div class="gm-note">Session 10 är inte en SAN-session. Det är en strategisk session. Tyngden ligger i Sullivans besatthet, delad dröm, och beslutspunkt. SAN-check bara där det är motiverat — inte för stämning. Stämningen sköter hummandet, klådan, och Blobels skugga.</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- REFERENSER -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section">
+        <h2>REFERENSER OCH LÄNKAR</h2>
+        <ul>
+            <li><a href="session10_player_intel.html" style="color: var(--accent-blue);">session10_player_intel.html</a> — Spelar-briefing (delas ut inför sessionsstart)</li>
+            <li><a href="scene_slavic_breakin.html" style="color: var(--accent-blue);">scene_slavic_breakin.html</a> — SA-inbrottsscen (komplett)</li>
+            <li><a href="black_madonna_chapter1.html" style="color: var(--accent-blue);">black_madonna_chapter1.html</a> — Kapitel 1 (Arnold Weiss, drömscen, NPC-detaljer)</li>
+            <li><a href="handout_diary_part1.html" style="color: var(--accent-blue);">handout_diary_part1-5.html</a> — Elsas dagbok (komplett översättning)</li>
+            <li><a href="handout_richter_report.html" style="color: var(--accent-blue);">handout_richter_report.html</a> — Obduktionsrapport + medicinsk analys</li>
+            <li><a href="session9.html" style="color: var(--accent-blue);">session9.html</a> — Föregående session (kontext)</li>
+            <li><a href="blobels_busar.html" style="color: var(--accent-red);">blobels_busar.html</a> — <strong>BEREDSKAP:</strong> Fyra stat-blockade ex-Stasi-operatörer (Kühn, Sauer, Neumann, Brandt). Dras fram om sessionen behöver action — naturlig trigger: bakhåll i gränden efter SA-inbrottet.</li>
+        </ul>
+
+        <h3>Nyckel-NPCs i session 10</h3>
+        <ul>
+            <li><strong>Arnold Weiss</strong> — Wielandstraße 34, Charlottenburg. Allierad. Ej infekterad.</li>
+            <li><strong>Filip Kramer</strong> — Telefonkontakt endast. Ambivalent. 70+, rör sig som ung.</li>
+            <li><strong>Anton Mahler</strong> — "Den farligaste." Bakgrundshot. Ej direkt möte.</li>
+            <li><strong>Dr. Hans Georg Richter</strong> — Charité. Kontakt via telefon om behövs.</li>
+            <li><strong>Blobels team</strong> — Ex-Stasi. Tre enheter. Övervakning från avstånd.</li>
+        </ul>
+    </div>
+
+</div>
+</body>
+</html>

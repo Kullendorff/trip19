@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Archivverzeichnis — Klinik Güldendorf 1952</title>
+<style>
+@page {
+    size: A4;
+    margin: 0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: "Courier New", "Courier", monospace;
+    background: #d9cfb5;
+    color: #2a2418;
+    font-size: 11pt;
+    line-height: 1.5;
+}
+.page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 22mm 20mm 18mm 24mm;
+    background:
+        radial-gradient(ellipse at 20% 15%, #c8bc9a 0%, transparent 45%),
+        radial-gradient(ellipse at 80% 85%, #c0b08c 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, #e0d5b8 0%, #d0c29e 70%, #b8a980 100%);
+    position: relative;
+    page-break-after: always;
+    overflow: hidden;
+}
+.page:last-child { page-break-after: auto; }
+
+/* Stains and age marks */
+.page::before {
+    content: "";
+    position: absolute;
+    top: 30mm; right: 15mm;
+    width: 30mm; height: 30mm;
+    background: radial-gradient(circle, rgba(120,80,40,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.page::after {
+    content: "";
+    position: absolute;
+    bottom: 40mm; left: 10mm;
+    width: 25mm; height: 35mm;
+    background: radial-gradient(ellipse, rgba(90,60,30,0.10) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Header bar */
+.header-block {
+    border-top: 3px double #3a2e1a;
+    border-bottom: 1px solid #3a2e1a;
+    padding: 5mm 0 3mm 0;
+    margin-bottom: 8mm;
+    text-align: center;
+}
+.deutsche-demokratische-republik {
+    font-size: 8pt;
+    letter-spacing: 4px;
+    color: #3a2e1a;
+    text-transform: uppercase;
+    margin-bottom: 2mm;
+}
+.ministerium {
+    font-size: 10pt;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #2a2418;
+    margin-bottom: 1mm;
+}
+.institut {
+    font-size: 9pt;
+    letter-spacing: 1px;
+    color: #3a2e1a;
+}
+
+/* Stamps */
+.stamp {
+    position: absolute;
+    border: 2.5px solid;
+    padding: 2mm 4mm;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 9pt;
+    letter-spacing: 1px;
+    text-align: center;
+    background: rgba(255,255,255,0.05);
+    font-family: "Arial", sans-serif;
+    line-height: 1.2;
+}
+.stamp.red {
+    color: #8a1818;
+    border-color: #8a1818;
+}
+.stamp.blue {
+    color: #1a3a6a;
+    border-color: #1a3a6a;
+}
+.stamp.green {
+    color: #2a5a3a;
+    border-color: #2a5a3a;
+}
+.stamp.round {
+    border-radius: 50%;
+    width: 42mm;
+    height: 42mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 7pt;
+}
+.stamp.round .center {
+    font-size: 10pt;
+    margin: 1mm 0;
+}
+.stamp.round .sub {
+    font-size: 6pt;
+    letter-spacing: 0.5px;
+}
+
+/* Title block */
+h1.title {
+    text-align: center;
+    font-size: 16pt;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin: 8mm 0 2mm 0;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-style: double;
+    text-underline-offset: 4px;
+}
+.subtitle {
+    text-align: center;
+    font-size: 10pt;
+    font-style: italic;
+    margin-bottom: 2mm;
+    color: #3a2e1a;
+}
+.aktenzeichen {
+    text-align: center;
+    font-size: 9pt;
+    letter-spacing: 2px;
+    margin-bottom: 6mm;
+    color: #3a2e1a;
+}
+
+/* Metadata grid */
+.meta-grid {
+    display: grid;
+    grid-template-columns: 55mm 1fr;
+    gap: 1.5mm 4mm;
+    font-size: 10pt;
+    margin: 4mm 0 8mm 0;
+    border-top: 1px solid #8a7a5a;
+    border-bottom: 1px solid #8a7a5a;
+    padding: 4mm 2mm;
+}
+.meta-grid .label {
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* Body text */
+p {
+    margin-bottom: 3mm;
+    text-align: justify;
+}
+
+h2 {
+    font-size: 11pt;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 6mm 0 3mm 0;
+    border-bottom: 1px solid #5a4a30;
+    padding-bottom: 1mm;
+    font-weight: bold;
+}
+
+/* Inventory table */
+table.inventory {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9pt;
+    margin: 3mm 0 5mm 0;
+}
+table.inventory th {
+    background: #c0b088;
+    border: 1px solid #3a2e1a;
+    padding: 2mm 1.5mm;
+    text-align: left;
+    font-weight: bold;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+table.inventory td {
+    border: 1px solid #5a4a30;
+    padding: 1.5mm;
+    vertical-align: top;
+    font-size: 9pt;
+}
+table.inventory td.center { text-align: center; }
+table.inventory tr.verstorben td {
+    color: #6a5a3a;
+    font-style: italic;
+}
+table.inventory tr.entkommen td {
+    background: rgba(138, 24, 24, 0.08);
+    font-weight: bold;
+    color: #6a1010;
+}
+table.inventory tr.entkommen td:first-child::after {
+    content: " ●";
+    color: #8a1818;
+}
+
+/* Summary */
+.summary {
+    margin: 5mm 0;
+    padding: 3mm 4mm;
+    border-left: 3px solid #5a4a30;
+    background: rgba(255,255,255,0.15);
+    font-size: 10pt;
+}
+.summary .line {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5mm 0;
+}
+.summary .line.highlight {
+    color: #8a1818;
+    font-weight: bold;
+    border-top: 1px solid #8a1818;
+    margin-top: 1mm;
+    padding-top: 1.5mm;
+}
+
+/* Handwritten note */
+.handwritten {
+    font-family: "Bradley Hand", "Marker Felt", "Segoe Script", cursive;
+    color: #1a2a5a;
+    font-size: 13pt;
+    line-height: 1.7;
+    padding: 6mm;
+    border: 1px dashed rgba(26,42,90,0.3);
+    margin: 6mm 2mm;
+    transform: rotate(-0.3deg);
+    background: rgba(255,255,240,0.3);
+}
+.handwritten .strong {
+    text-decoration: underline;
+    text-decoration-color: #8a1818;
+    text-decoration-thickness: 2px;
+}
+.handwritten .initials {
+    display: block;
+    text-align: right;
+    margin-top: 4mm;
+    font-size: 16pt;
+    font-style: italic;
+}
+
+/* Footer */
+.page-footer {
+    position: absolute;
+    bottom: 10mm;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 8pt;
+    color: #5a4a30;
+    letter-spacing: 1px;
+    border-top: 1px solid #8a7a5a;
+    padding-top: 2mm;
+    margin: 0 20mm;
+}
+
+/* Cover page specific */
+.cover-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+}
+.cover-title {
+    font-size: 22pt;
+    font-weight: bold;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 6mm;
+    border-top: 3px double #2a2418;
+    border-bottom: 3px double #2a2418;
+    padding: 6mm 0;
+}
+.cover-sub1 {
+    font-size: 13pt;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 3mm;
+}
+.cover-sub2 {
+    font-size: 10pt;
+    font-style: italic;
+    margin-bottom: 10mm;
+    color: #3a2e1a;
+}
+.cover-year {
+    font-size: 48pt;
+    font-weight: bold;
+    letter-spacing: 12px;
+    margin: 10mm 0;
+    font-family: "Times New Roman", serif;
+}
+.cover-location {
+    font-size: 11pt;
+    letter-spacing: 2px;
+    margin-top: 8mm;
+}
+
+/* Legend box */
+.legend {
+    margin-top: 4mm;
+    padding: 2mm 3mm;
+    border: 1px solid #5a4a30;
+    font-size: 8pt;
+    background: rgba(255,255,255,0.1);
+}
+.legend-item {
+    margin: 0.5mm 0;
+}
+.legend-item .marker {
+    display: inline-block;
+    width: 4mm;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Schäfer's signature block */
+.signature-block {
+    margin-top: 8mm;
+    padding-top: 4mm;
+    border-top: 1px solid #5a4a30;
+}
+.signature-line {
+    width: 70mm;
+    border-bottom: 1px solid #3a2e1a;
+    margin-top: 12mm;
+    margin-bottom: 1mm;
+}
+.signature-name {
+    font-family: "Bradley Hand", "Segoe Script", cursive;
+    font-size: 15pt;
+    color: #1a2a5a;
+    margin-top: -8mm;
+    margin-bottom: 1mm;
+    transform: rotate(-1deg);
+    display: inline-block;
+}
+.signature-sub {
+    font-size: 8pt;
+    color: #3a2e1a;
+}
+
+/* Typewriter imperfections */
+.faded { color: #4a4030; }
+.smudged { color: #3a2e1a; text-shadow: 0.3px 0 0 rgba(0,0,0,0.3); }
+
+/* VP stamp diagonal */
+.vp-stamp {
+    position: absolute;
+    top: 80mm;
+    right: 18mm;
+    transform: rotate(8deg);
+}
+.archiv-stamp {
+    position: absolute;
+    top: 200mm;
+    left: 15mm;
+    transform: rotate(-5deg);
+}
+.page2-stamp {
+    position: absolute;
+    top: 12mm;
+    right: 15mm;
+    transform: rotate(6deg);
+}
+
+</style>
+</head>
+<body>
+
+<!-- ========== PAGE 1: COVER ========== -->
+<div class="page">
+
+    <div class="header-block">
+        <div class="deutsche-demokratische-republik">Deutsche Demokratische Republik</div>
+        <div class="ministerium">Ministerium für Gesundheitswesen</div>
+        <div class="institut">Abteilung IV — Sonderkliniken und Forschungseinrichtungen</div>
+    </div>
+
+    <div class="cover-center">
+        <div class="cover-sub1">Archivverzeichnis</div>
+        <div class="cover-sub2">Inventaraufstellung der verlagerten Akten</div>
+
+        <div class="cover-title">Klinik<br>Güldendorf</div>
+
+        <div class="cover-sub1">Bestand: Kirov-Material</div>
+        <div class="cover-sub2">(Verlagerung Moskau → Güldendorf, März 1952)</div>
+
+        <div class="cover-year">1952</div>
+
+        <div class="cover-location">Frankfurt an der Oder — Güldendorf</div>
+        <div class="cover-sub2" style="margin-top: 2mm;">Kreis Frankfurt (Oder), Bezirk Frankfurt</div>
+    </div>
+
+    <div class="vp-stamp">
+        <div class="stamp round red">
+            <div class="sub">VOLKSPOLIZEI</div>
+            <div class="center">GEPRÜFT</div>
+            <div class="sub">KREISAMT</div>
+            <div class="sub">FRANKFURT/ODER</div>
+            <div class="sub">14. X. 1952</div>
+        </div>
+    </div>
+
+    <div class="archiv-stamp">
+        <div class="stamp blue">
+            BESTAND<br>
+            R-9361 / MAPPE 47<br>
+            <span style="font-size: 7pt;">STAATSARCHIV BRANDENBURG</span>
+        </div>
+    </div>
+
+    <div class="page-footer">
+        Aktenzeichen: GÜL/KIR-52/INV-001 &nbsp; · &nbsp; Nicht zur öffentlichen Einsicht
+    </div>
+</div>
+
+<!-- ========== PAGE 2: SUMMARY & OVERVIEW ========== -->
+<div class="page">
+
+    <div class="page2-stamp">
+        <div class="stamp green">
+            VERTRAULICH<br>
+            <span style="font-size: 7pt;">NUR FÜR DEN DIENSTGEBRAUCH</span>
+        </div>
+    </div>
+
+    <h1 class="title">Archivverzeichnis</h1>
+    <div class="subtitle">Bestand "Kirov-Material" — Klinik Güldendorf</div>
+    <div class="aktenzeichen">Aktenzeichen: GÜL/KIR-52/INV-001</div>
+
+    <div class="meta-grid">
+        <div class="label">Erstellt am:</div><div>14. Oktober 1952</div>
+        <div class="label">Erstellt durch:</div><div>Dr. med. Helmut SCHÄFER, Oberarzt</div>
+        <div class="label">Geprüft durch:</div><div>Hauptmann W. Reinhardt, VP-Kreisamt Frankfurt/Oder</div>
+        <div class="label">Zweck:</div><div>Bestandsaufnahme nach Verlagerung des Materials aus Klinik N.A. Kirov, Moskau (UdSSR)</div>
+        <div class="label">Verlagerungsdatum:</div><div>03. – 17. März 1952</div>
+        <div class="label">Transportweg:</div><div>Moskau → Brest → Warschau → Frankfurt (Oder) → Güldendorf</div>
+        <div class="label">Aktenumfang:</div><div>siehe Gesamtübersicht unten</div>
+    </div>
+
+    <h2>1. Gesamtübersicht des Bestandes</h2>
+
+    <div class="summary">
+        <div class="line"><span>Patientenakten (F.1 – F.47):</span> <span><strong>47 Mappen</strong></span></div>
+        <div class="line"><span>Personalakten:</span> <span><strong>12 Karten</strong></span></div>
+        <div class="line"><span>Protokollbücher (I – III):</span> <span><strong>3 Bände</strong></span></div>
+        <div class="line"><span>Fotografisches Material:</span> <span><strong>9 Kartons</strong></span></div>
+        <div class="line"><span>Röntgenplatten:</span> <span><strong>4 Kassetten (Nr. 1949–1952)</strong></span></div>
+        <div class="line"><span>Korrespondenz (UdSSR/DDR):</span> <span><strong>2 Ordner</strong></span></div>
+        <div class="line highlight"><span>Gesamtanzahl Einheiten:</span> <span>77</span></div>
+    </div>
+
+    <h2>2. Statusaufschlüsselung der Patientenakten</h2>
+
+    <div class="summary">
+        <div class="line"><span><strong>VERLEGT</strong> (in andere Einrichtungen überstellt):</span> <span>31 Akten</span></div>
+        <div class="line"><span><strong>VERSTORBEN</strong> (vor Oktober 1952):</span> <span>13 Akten</span></div>
+        <div class="line" style="color: #8a1818;"><span><strong>ENTKOMMEN</strong> (Verbleib unklar oder unbekannt):</span> <span><strong>3 Akten</strong></span></div>
+    </div>
+
+    <p class="faded" style="margin-top: 4mm; font-size: 9pt; font-style: italic;">
+        Anmerkung: Die Kategorie "ENTKOMMEN" wurde auf ausdrückliche Anweisung der Abt. IV
+        eingeführt, nachdem die reguläre Transportliste aus Moskau drei Einträge ohne
+        Zielinstitut aufwies. Eine Rückfrage beim Gesundheitsministerium UdSSR ist eingeleitet,
+        jedoch ohne Antwort (Stand: 10. Oktober 1952).
+    </p>
+
+    <div class="legend">
+        <strong>Legende:</strong>
+        <div class="legend-item"><span class="marker">V</span> VERLEGT — Akte weitergeleitet, Zielinstitut dokumentiert</div>
+        <div class="legend-item"><span class="marker">✝</span> VERSTORBEN — Patient vor Bestandsaufnahme verstorben</div>
+        <div class="legend-item"><span class="marker">●</span> ENTKOMMEN — kein gültiges Verlegungsprotokoll, kein Zielinstitut</div>
+    </div>
+
+    <div class="page-footer">Seite 2 von 14 &nbsp; · &nbsp; GÜL/KIR-52/INV-001</div>
+</div>
+
+<!-- ========== PAGE 3: PATIENT LIST (excerpt) ========== -->
+<div class="page">
+
+    <h2 style="margin-top: 0;">3. Patientenakten — Auszug (F.1 bis F.30)</h2>
+
+    <table class="inventory">
+        <thead>
+            <tr>
+                <th style="width: 14mm;">Akte</th>
+                <th style="width: 22mm;">Eingang Güld.</th>
+                <th style="width: 32mm;">Status</th>
+                <th>Zielinstitut / Anmerkung</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>F.01</td><td>03.III.52</td><td>VERLEGT</td><td>Sanatorium Jalta, Krim (UdSSR)</td></tr>
+            <tr class="verstorben"><td>F.02</td><td>03.III.52</td><td>VERSTORBEN</td><td>† 1949, Moskau — Aktenübernahme postmortal</td></tr>
+            <tr><td>F.03</td><td>04.III.52</td><td>VERLEGT</td><td>Kinderheim Woronesch</td></tr>
+            <tr><td>F.04</td><td>04.III.52</td><td>VERLEGT</td><td>Sanatorium Jalta, Krim (UdSSR)</td></tr>
+            <tr class="verstorben"><td>F.05</td><td>05.III.52</td><td>VERSTORBEN</td><td>† 1950, Leningrad — Tuberkulose</td></tr>
+            <tr><td>F.06</td><td>05.III.52</td><td>VERLEGT</td><td>Klinik Nr. 6, Leningrad</td></tr>
+            <tr class="entkommen"><td>F.07</td><td>06.III.52</td><td>ENTKOMMEN</td><td>vermutlich Westberlin — keine Bestätigung</td></tr>
+            <tr><td>F.08</td><td>07.III.52</td><td>VERLEGT</td><td>Sanatorium Sotschi</td></tr>
+            <tr><td>F.09</td><td>07.III.52</td><td>VERLEGT</td><td>Internat Woronesch</td></tr>
+            <tr><td>F.10</td><td>08.III.52</td><td>VERLEGT</td><td>Klinik Nr. 6, Leningrad</td></tr>
+            <tr><td>F.11</td><td>08.III.52</td><td>VERLEGT</td><td>Hospital Botkin, Moskau</td></tr>
+            <tr class="verstorben"><td>F.12</td><td>09.III.52</td><td>VERSTORBEN</td><td>† 1948, Moskau — "Unfall"</td></tr>
+            <tr><td>F.13</td><td>09.III.52</td><td>VERLEGT</td><td>Klinik Nr. 6, Leningrad</td></tr>
+            <tr><td>F.14</td><td>10.III.52</td><td>VERLEGT</td><td>Internat Saratow</td></tr>
+            <tr><td>F.15</td><td>10.III.52</td><td>VERLEGT</td><td>Sanatorium Jalta</td></tr>
+            <tr class="entkommen"><td>F.16</td><td>11.III.52</td><td>ENTKOMMEN</td><td>vermutlich Ostberlin — Kontakt verloren VII.52</td></tr>
+            <tr><td>F.17</td><td>11.III.52</td><td>VERLEGT</td><td>Internat Saratow</td></tr>
+            <tr><td>F.18</td><td>12.III.52</td><td>VERLEGT</td><td>Klinik Nr. 6, Leningrad</td></tr>
+            <tr><td>F.19</td><td>12.III.52</td><td>VERLEGT</td><td>Sanatorium Sotschi</td></tr>
+            <tr><td>F.20</td><td>13.III.52</td><td>VERLEGT</td><td>Internat Kasan</td></tr>
+            <tr><td>F.21</td><td>13.III.52</td><td>VERLEGT</td><td>Internat Swerdlowsk</td></tr>
+            <tr><td>F.22</td><td>14.III.52</td><td>VERLEGT</td><td>Klinik Nr. 6, Leningrad</td></tr>
+            <tr class="entkommen"><td>F.23</td><td>14.III.52</td><td>ENTKOMMEN</td><td><strong>Verbleib unbekannt</strong> — siehe Nachtrag S. 14</td></tr>
+            <tr class="verstorben"><td>F.24</td><td>15.III.52</td><td>VERSTORBEN</td><td>† 1951, Güldendorf — Lungenentzündung</td></tr>
+            <tr><td>F.25</td><td>15.III.52</td><td>VERLEGT</td><td>Internat Kasan</td></tr>
+            <tr><td>F.26</td><td>16.III.52</td><td>VERLEGT</td><td>Sanatorium Jalta</td></tr>
+            <tr class="verstorben"><td>F.27</td><td>16.III.52</td><td>VERSTORBEN</td><td>† 1950, Moskau — Herzversagen</td></tr>
+            <tr><td>F.28</td><td>16.III.52</td><td>VERLEGT</td><td>Klinik Nr. 6, Leningrad</td></tr>
+            <tr><td>F.29</td><td>17.III.52</td><td>VERLEGT</td><td>Internat Woronesch</td></tr>
+            <tr><td>F.30</td><td>17.III.52</td><td>VERLEGT</td><td>Sanatorium Sotschi</td></tr>
+        </tbody>
+    </table>
+
+    <p class="faded" style="font-size: 9pt; font-style: italic;">
+        Fortsetzung F.31 bis F.47 auf Seite 4. Personalakten auf Seite 8. Protokollbücher auf Seite 11.
+    </p>
+
+    <div class="page-footer">Seite 3 von 14 &nbsp; · &nbsp; GÜL/KIR-52/INV-001</div>
+</div>
+
+<!-- ========== PAGE 4: ENTKOMMEN DETAIL ========== -->
+<div class="page">
+
+    <h1 class="title" style="font-size: 13pt;">Sondervermerk — Kategorie ENTKOMMEN</h1>
+    <div class="subtitle">Akten F.07, F.16 und F.23 — Detaillierte Auflistung</div>
+    <div class="aktenzeichen">Nachtrag zu S. 3, verfasst 10. X. 1952</div>
+
+    <p>
+        Die folgenden drei Akten wurden während der regulären Bestandsaufnahme als
+        <strong>ohne gültiges Verlegungsprotokoll</strong> befunden. Eine nachträgliche
+        Rekonstruktion der Vorgänge ergab folgendes Bild:
+    </p>
+
+    <h2 style="color: #6a1010; border-color: #6a1010;">Akte F.07</h2>
+    <table class="inventory">
+        <tr><td style="width: 40mm;"><strong>Klinik-ID:</strong></td><td>K-07 (Kirov, Moskau)</td></tr>
+        <tr><td><strong>Geschlecht / Alter:</strong></td><td>männlich / bei Aufnahme 1942: ca. 6 Jahre</td></tr>
+        <tr><td><strong>Eingang Güldendorf:</strong></td><td>06. März 1952</td></tr>
+        <tr><td><strong>Letzte Sichtung:</strong></td><td>Güldendorf, 14. März 1952 — Morgenappell</td></tr>
+        <tr><td><strong>Als vermisst gemeldet:</strong></td><td>15. März 1952, 06:30 Uhr</td></tr>
+        <tr><td><strong>Umstände:</strong></td><td>Verließ Schlafsaal C zwischen 02:00 und 05:00. Kein Anzeichen von Gewalt. Tür war von innen geöffnet. Patient trug keine Außenkleidung.</td></tr>
+        <tr><td><strong>Vermuteter Verbleib:</strong></td><td>Westberlin (amerikanischer Sektor) — Grundlage: anonyme Mitteilung an die VP Frankfurt/Oder vom 03. IV. 1952</td></tr>
+        <tr><td><strong>Fahndung:</strong></td><td>nicht eingeleitet — Anweisung Abt. IV, Gen. Marschall</td></tr>
+    </table>
+
+    <h2 style="color: #6a1010; border-color: #6a1010;">Akte F.16</h2>
+    <table class="inventory">
+        <tr><td style="width: 40mm;"><strong>Klinik-ID:</strong></td><td>K-16 (Kirov, Moskau)</td></tr>
+        <tr><td><strong>Geschlecht / Alter:</strong></td><td>männlich / bei Aufnahme 1942: ca. 4 Jahre</td></tr>
+        <tr><td><strong>Eingang Güldendorf:</strong></td><td>11. März 1952</td></tr>
+        <tr><td><strong>Letzte Sichtung:</strong></td><td>Güldendorf, 20. Juli 1952 — Abendappell</td></tr>
+        <tr><td><strong>Als vermisst gemeldet:</strong></td><td>21. Juli 1952, 07:00 Uhr</td></tr>
+        <tr><td><strong>Umstände:</strong></td><td>Während Revisionsarbeiten am Nebenflügel. Patient war dem Küchendienst zugeteilt. Kontakt zu einem ostberliner Zivilisten (Name nicht verifiziert) am 18. VII. bekannt.</td></tr>
+        <tr><td><strong>Vermuteter Verbleib:</strong></td><td>Ostberlin — Kontakt verloren 07/1952. Gerüchte deuten auf Aufnahme in einem privaten Haushalt.</td></tr>
+        <tr><td><strong>Fahndung:</strong></td><td>eingeleitet, eingestellt 14. IX. 1952 — ergebnislos</td></tr>
+    </table>
+
+    <h2 style="color: #6a1010; border-color: #6a1010;">Akte F.23 — <em>Sonderfall</em></h2>
+    <table class="inventory">
+        <tr><td style="width: 40mm;"><strong>Klinik-ID:</strong></td><td>K-23 (Kirov, Moskau)</td></tr>
+        <tr><td><strong>Geschlecht / Alter:</strong></td><td class="smudged">[Angabe fehlt im Transportmanifest]</td></tr>
+        <tr><td><strong>Eingang Güldendorf:</strong></td><td><span class="smudged">— laut Manifest: 14. III. 1952 —</span></td></tr>
+        <tr><td><strong>Tatsächlicher Eingang:</strong></td><td style="color: #6a1010;"><strong>nicht verifizierbar.</strong> Mappe war bei Ankunft leer.</td></tr>
+        <tr><td><strong>Umstände:</strong></td><td>Die Mappe F.23 wurde am 14. Mai 1952 im Archivregal B-IV festgestellt. Sie war <strong>leer</strong>. Kein Patient, keine Unterlagen, keine Röntgenaufnahmen. Der Umschlag war unbeschädigt.</td></tr>
+        <tr><td><strong>Ausgangsprotokoll:</strong></td><td style="color: #6a1010;">nicht auffindbar</td></tr>
+        <tr><td><strong>Transportbefehl:</strong></td><td style="color: #6a1010;">nicht auffindbar</td></tr>
+        <tr><td><strong>Vermuteter Verbleib:</strong></td><td style="color: #6a1010;"><strong>unbekannt.</strong> Weder UdSSR- noch DDR-Behörden bestätigen Zuständigkeit.</td></tr>
+        <tr><td><strong>Fahndung:</strong></td><td>nicht möglich — kein Name, kein Foto, keine Röntgenaufnahme vorhanden</td></tr>
+    </table>
+
+    <div class="page-footer">Seite 4 von 14 &nbsp; · &nbsp; GÜL/KIR-52/INV-001</div>
+</div>
+
+<!-- ========== PAGE 5: SCHÄFER'S HANDWRITTEN ADDENDUM ========== -->
+<div class="page">
+
+    <h1 class="title" style="font-size: 12pt;">Handschriftliche Anmerkung</h1>
+    <div class="subtitle">Anlage zu Sondervermerk F.23 — S. 14 des Verzeichnisses</div>
+    <div class="aktenzeichen">Verfasser: Dr. med. H. Schäfer &nbsp;·&nbsp; 03. November 1952</div>
+
+    <div class="handwritten">
+        <p style="margin-bottom: 4mm;">Frankfurt (Oder), den 3. November 1952.</p>
+
+        <p style="margin-bottom: 3mm;">
+            An die geehrte Leitung der Abteilung IV —
+        </p>
+
+        <p style="margin-bottom: 3mm;">
+            ich fühle mich verpflichtet, zum Abschluß dieses Verzeichnisses eine
+            <span class="strong">persönliche Anmerkung</span> hinzuzufügen, die ich nicht in
+            das amtliche Protokoll aufnehmen konnte.
+        </p>
+
+        <p style="margin-bottom: 3mm;">
+            Akte F.23 wurde <span class="strong">nicht von uns</span> verlegt. Die Mappe war am
+            14. Mai leer. Es gab <span class="strong">kein Ausgangsprotokoll.
+            Keinen Transportbefehl.</span> Weder das Ministerium in Moskau noch unsere eigene
+            Abteilung hat Kenntnis davon, wer die Akte oder den Patienten entfernt hat.
+        </p>
+
+        <p style="margin-bottom: 3mm;">
+            Ich habe das Archivregal B-IV persönlich überprüft. Das Siegel war unversehrt.
+            Der Umschlag zeigte keine Spuren von Gewaltanwendung. Nur das innere Dokument
+            fehlte — samt Röntgenaufnahme, Anamnese und Photographie.
+        </p>
+
+        <p style="margin-bottom: 3mm;">
+            Das bedeutet: <span class="strong">jemand mit Schlüsselgewalt</span> hat zwischen
+            dem 14. März und dem 14. Mai 1952 das Material entfernt. Es gibt in Güldendorf
+            <span class="strong">nur vier Personen</span> mit Zugang zu B-IV. Ich bin eine davon.
+            Die anderen drei wurden befragt — ohne Ergebnis.
+        </p>
+
+        <p style="margin-bottom: 3mm;">
+            Ich lege hiermit fest, daß der Verbleib des Patienten F.23 nach meinem
+            Dafürhalten <span class="strong">außerhalb des Zugriffs der UdSSR und der DDR</span>
+            liegt. Ob in Westberlin, in der britischen oder amerikanischen Zone — oder darüber
+            hinaus — kann ich nicht sagen.
+        </p>
+
+        <p style="margin-bottom: 3mm;">
+            Ich ersuche die Leitung der Abteilung IV, diese Anmerkung zu verwahren und bei
+            eventuellen Rückfragen durch höhere Stellen vorzulegen. Ich werde keine weiteren
+            Nachforschungen anstellen.
+        </p>
+
+        <p class="initials">— H. Sch.</p>
+    </div>
+
+    <div class="signature-block">
+        <div class="signature-line"></div>
+        <div class="signature-name">H. Schäfer</div>
+        <div class="signature-sub">
+            Dr. med. Helmut Schäfer, Oberarzt<br>
+            Klinik Güldendorf, Abt. für Sonderforschung<br>
+            Frankfurt an der Oder, 03. November 1952
+        </div>
+    </div>
+
+    <div style="position: absolute; bottom: 40mm; right: 18mm; transform: rotate(-4deg);">
+        <div class="stamp round red">
+            <div class="sub">ABTEILUNG IV</div>
+            <div class="center">ABGELEGT</div>
+            <div class="sub">KEINE WEITERE</div>
+            <div class="sub">BEARBEITUNG</div>
+            <div class="sub">08. XI. 1952</div>
+        </div>
+    </div>
+
+    <div class="page-footer">Seite 14 von 14 &nbsp; · &nbsp; GÜL/KIR-52/INV-001 &nbsp; · &nbsp; Ende des Verzeichnisses</div>
+</div>
+
+</body>
+</html>

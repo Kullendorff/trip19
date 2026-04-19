@@ -19,8 +19,8 @@
 **Handler:** [Delta Green kontakt, ej specificerad]
 
 **Nuvarande Status:**
-- **SAN:** 53/55 (förlorat 20, återhämtat 8)
-- **Breaking Point:** 44 (endast 9 poäng kvar till mental kollaps!)
+- **SAN:** 52/55 (förlorat 21, återhämtat 8)
+- **Breaking Point:** 44 (endast 8 poäng kvar till mental kollaps!)
 - **Adapted to Helplessness** (Pittsburgh 2022, -2 POW permanent)
 - **Fysisk status:** Frisk, topp USAR-kondition
 - **Mental status:** Funktionell men traumatiserad, "hör Robert's röst"
@@ -68,12 +68,12 @@
 |----------|---------|---------|--------|-------|
 | **HP** (Hit Points) | 15 | 15 | (STR + CON) / 2, avrundas upp | — |
 | **WP** (Willpower Points) | 11 | 11 | POW | Start 13, nu 11 |
-| **SAN** (Sanity) | 55 | 53 | POW × 5 | Start 65/65, nu 55/53 |
-| **Breaking Point** | 44 | 44 | SAN - POW | Start 52, nu 44 (⚠️ **9 poäng kvar!**) |
+| **SAN** (Sanity) | 55 | 52 | POW × 5 | Start 65/65, nu 55/52 |
+| **Breaking Point** | 44 | 44 | SAN - POW | Start 52, nu 44 (⚠️ **8 poäng kvar!**) |
 | **Damage Bonus** | +1D4 | +1D4 | STR + CON = 29 | — |
 
 **⚠️ KRITISK MENTAL STATUS:**
-Sam har endast **9 poäng marginal** innan Breaking Point. Nästa stora SAN-förlust kan trigga permanent mental break.
+Sam har endast **8 poäng marginal** innan Breaking Point. Nästa stora SAN-förlust kan trigga permanent mental break.
 
 ### SAN History
 
@@ -85,9 +85,9 @@ Sam har endast **9 poäng marginal** innan Breaking Point. Nästa stora SAN-för
 - **False Flag Operations (4 st):** 0 SAN-förlust (inga onaturliga inslag)
 - **Recovery (naturlig healing + therapy + time):** +8 SAN återställt
 
-**Aktuell:** 53/55 SAN, BP 44, marginal 9 poäng
+**Aktuell:** 52/55 SAN, BP 44, marginal 8 poäng
 
-**Total SAN-förlust från DG-arbete:** 20 poäng (Pittsburgh -10, Dry Run -4, Signal Lost -6)
+**Total SAN-förlust från DG-arbete:** 21 poäng (Pittsburgh -10, Dry Run -4, Signal Lost -6, Session 10 -1)
 
 ### Yrkesfärdigheter (USAR Specialist) - 460 poäng
 
@@ -544,8 +544,8 @@ Robert's sista sanning. Oavsett hur många människor du räddar, hur många ope
 ### Current DG Status (2025)
 
 **Total operationer:** 6 (2 riktiga, 4 false flags)
-**SAN status:** 53/55 (förlorat 20, återhämtat 8)
-**Breaking Point:** 44 (9 poäng marginal – KRITISKT LÅGT)
+**SAN status:** 52/55 (förlorat 21, återhämtat 8)
+**Breaking Point:** 44 (8 poäng marginal – KRITISKT LÅGT)
 **Adaptations:** Helplessness (komplett)
 **Handler:** Okänd federal kontakt
 **Cell:** Chesapeake Cell (Mac Riley, Father Sullivan, Kai "Sparky" Zhang, Hanna "Scalpel" Engler)
@@ -1210,9 +1210,9 @@ Linda ordnade så Sam inte behövde prata med familjen efter begravningen. Sam �
 
 ### Nuvarande Mental Status (2025)
 
-**SAN:** 53/55 (förlorat 20 poäng, återhämtat 8)
+**SAN:** 52/55 (förlorat 21 poäng, återhämtat 8)
 **Breaking Point:** 44
-**Marginal:** 9 poäng (KRITISKT LÅGT)
+**Marginal:** 8 poäng (KRITISKT LÅGT)
 
 **Adaptations:**
 - ✅ **Adapted to Helplessness** (Pittsburgh 2022, cost: -2 POW permanent)

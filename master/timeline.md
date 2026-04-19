@@ -7,6 +7,24 @@
 
 ---
 
+## ⚠️ AKTUELL KAMPANJ-POSITION (Sonntag 23 sept 2025, kl 03:00)
+
+**Senast spelade session:** Session 10 (19 april 2026) — **SA-inbrottet**
+**In-game datum:** 23 september 2025, kl 03:00 (tisdag morgon, efter utkörningen)
+**Plats:** Berlin, i rörelse från Behrenstraße (SA) i stulen Mercedes-van
+**Deadline:** 23 sept kl 22:00 — Inner Circle-möte vid Pogodins Mansion, Müggel Straße 89, Köpenick (~19 timmar)
+
+**Viktiga händelser post-Session 10:**
+- Olaf Neumann svårt skadad (möjligen dödlig/permanenta men) — SAN-konsekvens pending
+- Dietmar bunden och bortförd i vanen — intel-möjlighet + risk
+- Stulen Mercedes-van (spårbar) måste hanteras
+- Blobels crew decimerad, intel + vapen tagna
+- Cellen har: Mahlers almanacka, Treuber-brev, Pogodin-blueprints, Leningrad 1942-foton, Inner Circle-lista
+
+*Den ursprungliga session-planeringen nedan (Session 6-12) har divergerat — SA-inbrottet skedde Session 10 istället för planerad Session 6. Se `CURRENT_STATE.md` för aktuell status.*
+
+---
+
 ## 2025 - KAMPANJENS ÅR
 
 ### **Januari-Februari 2025**
@@ -164,36 +182,35 @@
 ✅ Juli 2025: Polen-incidenten (påverkar Rysslandsresan)
 ✅ Augusti 2025: Magda reser till USA
 ✅ September 2025: Kampanj börjar, möter Magda i Lovettsville
-✅ September 2025: Magda lever, terminalt sjuk, på väg till Berlin. Cellen följer efter.
+✅ September 2025: Magda DÖD 21 sept kl 15:39, Charité Berlin. Parasitlarver + cancer. Cellen får veta via Richters samtal (Session 8).
 ✅ Oktober 2025: Ryssland-infiltration (svår) + Finale
 
 ---
 
 ## KRITISKA ÄNDRINGAR I ADAPTION-GUIDEN:
 
-### **Magda Orlova (1939-)**
+### **Magda Orlova (1939–2025)**
 
 **2025-version:**
 - Pensionerad journalist sedan 2004
 - 86 år gammal
-- Bodde i Hamburg
-- **Juni 2025:** Diagnosticerad med pankreascancer steg IV (3-6 mån prognos). Vägrar kemoterapi.
+- Bodde i Hamburg → Berlin (Leibnizstraße 97, Charlottenburg)
+- **Juni 2025:** Diagnosticerad med pankreascancer steg IV. Vägrar kemoterapi.
 - **Augusti 2025:** Reste till USA för Trip 19-research (vet att tiden är kort)
-- **September 2025:** Träffar spelarna i Lovettsville (Session 3)
-- **September 2025:** Reser tillbaka till Berlin. Hittar morns dagbok. Filip Kramer kontaktar henne.
-- **September 2025:** Ringer cellen - bjuder in dem till Berlin (Session 5)
-- Terminal cancer driver henne: desperation + ånger + "inte mycket tid kvar"
-- Hennes research + dagbok blir agenternas vägkarta
+- **September 2025:** Träffar spelarna i Lovettsville (Session 3) — döljer cancern
+- **September 2025:** Hamburg-bokreleasen (Session 7). Kollapsar, åker tåg till Berlin.
+- **19 sept:** Irene ringer cellen: "Magda är på sjukhus" (Charité). Cellen feberdåliga i Hamburg.
+- **21 september 2025, kl 15:39 — DÖD**, Charité Hospital Berlin
+  - **Officiell dödsorsak:** Hjärtsvikt + pankreascancer stadium IV
+  - **Verklig dödsorsak:** Parasitlarver åt sig igenom hjärtmuskeln
+  - Dr. Hans Georg Richter (rättsmedicin) såg larverna, lade i formalin
+  - Filip Kramer var vid sjukhuset, kastades ut av säkerhetsvakt, försvann onaturligt snabbt
 
-**Hennes roll:**
-- Inte bara NPC - narrativ motor
-- Träffas levande i Session 3 (Lovettsville)
-- Delar sin mors historia från Leningrad
-- Visar att Trip 19 → Leningrad är verklig koppling
-- Ringer cellen från Berlin (Session 5) - bjuder in dem
-- Terminal cancer = desperation som drivkraft (visas genom handling, aldrig exposition)
-- Möter cellen i Berlin med dagbok och foto (Session 5)
-- Kopplar cellen till Filip Kramer-möte (Session 6)
+**Hennes roll (retrospektivt):**
+- Narrativ motor vars död sätter allt i rörelse
+- Träffas levande i Session 3–7, dog Session 8-natt
+- Morns dagbok (Elsa Orlovas, 1946–1952) = cellens viktigaste ledtråd
+- Hennes forskning + dagbok leder cellen till de tre männen och Slavic Association
 
 ---
 
@@ -241,7 +258,7 @@
 **Kampanj slutar:** Början av oktober 2025  
 **Total speltid:** ~8-12 sessioner över 2 månader in-game
 
-**Magda:** Träffas levande i Session 3 (Lovettsville), ringer cellen i Session 5 (Berlin), terminalt sjuk  
+**Magda:** Träffas levande i Session 3 (Lovettsville), Session 5 (Hamburg/Berlin). DÖD 21 sept 2025 kl 15:39, Charité Berlin — parasitlarver/cancer. Cellen informeras Session 8.  
 **Polen-incident:** Juli 2025, påverkar Rysslandsresan Session 9+
 
 **Backdrop:** Hösten 2025 med verkliga händelser från hösten 2024 som "förra året"

@@ -55,7 +55,8 @@
 - Craft (Microelectronics): 40%
 
 **Operational:**
-- Stealth: 30%
+- Stealth: 32%  *(+2 Session 10)*
+- Craft (Locksmithing): 41%  *(+1 Session 10)*
 - Search: 40%
 - Alertness: 40%
 - Drive: 35%

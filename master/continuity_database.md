@@ -1,6 +1,6 @@
 # TRIP 19 - KONTINUITETSDATABAS
 
-**Senast uppdaterad:** 2026-02-07 (Session 5 planerad, Magda lever - terminalt sjuk)
+**Senast uppdaterad:** 2026-04-20 (post Session 10 — nya NPCs: Olaf Neumann, Dietmar, stulen Mercedes-van)
 
 ---
 
@@ -54,6 +54,80 @@ Denna fil är ett **INDEX**. När du söker efter ett element:
   - Frankfurt Clinic-patienter 1946
   - Slavic Association-koppling
 
+### Session-NPCs (Berlin — Session 10)
+
+#### Olaf Neumann
+- **Filer**:
+  - `CURRENT_STATE.md` (Session 10-anteckning)
+  - `calendar.html` (22 sept-eventet)
+  - TBD: `SL/session10.html`
+- **Nyckeldata**:
+  - Lokal Berlin-kontakt, stöd vid SA-inbrottet
+  - **STATUS (post Session 10):** Svårt skadad av Blobels crew — slagen i huvudet. Möjligen dödlig eller permanenta men.
+  - **SAN-trigger pending:** Cellens reaktion när de får reda på hans öde = resterande SAN-förlust (ej utlöst än — Johans beslut)
+  - Trench förlorade 1 SAN redan (bevittnade misshandeln)
+
+#### Dietmar
+- **Filer**:
+  - `CURRENT_STATE.md` (Session 10-anteckning)
+  - `calendar.html` (22 sept-eventet)
+  - TBD: `SL/session10.html`
+- **Nyckeldata**:
+  - Scalpels farbror Jürgens vän, lokal Berlin-kontakt
+  - **STATUS (post Session 10):** Bunden och bortförd av cellen i den stulna Mercedes-vanen — **fånge**
+  - Han vet att cellen har honom → intel-möjlighet + risk
+  - Dubbelagent-möjlighet? Motstånd? Förhandling?
+
+### Antagonister (Session 10)
+
+#### Blobels crew
+- **Filer**:
+  - `CURRENT_STATE.md` (Session 10)
+  - TBD: `SL/session10.html`
+- **Nyckeldata**:
+  - 3–4 skurkar som dök upp vid SA-inbrottet
+  - **STATUS:** Decimerad i stridsutgången — cellen övermannade dem
+  - Cellen tog deras vapen, ammunition, en mapp med SA-intel, samt deras svarta Mercedes-van
+  - Övergripande "Blobel"-organisation fortfarande oklar — vidare research behövs
+
+### Objekt & Transport (Session 10)
+
+#### Stulen Mercedes-van (svart)
+- **Filer**:
+  - `CURRENT_STATE.md` (Session 10)
+  - `calendar.html` (22-23 sept)
+- **Nyckeldata**:
+  - Tillhörde Blobels crew
+  - Svart, utkörd från SA:s innergård kl 03:00 23 sept i regn
+  - **SPÅRBAR** — tidskänsligt att dumpa/byta
+  - Innehåller: Dietmar (fånge), Blobels vapen, SA-bytet (Mahlers almanacka, Treuber-brev, Pogodin-blueprints, Leningrad 1942-foton, Inner Circle-lista)
+
+### Handouts & Intel (Session 10)
+
+#### Mahlers almanacka
+- **Hittat:** SA-huset (Behrenstraße), Session 10
+- Bekräftar Inner Circle-möte 23 sept 2025 kl 22:00 vid Pogodins Mansion, Müggel Straße 89, Köpenick
+
+#### Korruptionsbrev (Anton Mahler → polischef Treuber)
+- **Hittat:** SA-huset (utkast), Session 10
+- 72-timmars admin-förhindring mot amerikanska federala utredare
+- Se `black_madonna_chapter1.html` för brevets text (omskriven version)
+
+#### Pogodin Mansion blueprints
+- **Hittat:** SA:s arkiv, Session 10
+- Mansionens planlösning — Müggel Straße 89, Köpenick
+- Viktigt för infiltration 23 sept kl 22:00
+
+#### Leningrad 1942-foton
+- **Hittat:** SA-huset, Session 10
+- Tre pojkar 1942 = identiska med Anton Mahler / Sasha Volkov / Filip Kramer idag
+- SAN 0/1 — redan etablerat visuellt i Berlin Session 5 (83-årigt foto), men nu FYSISKT i cellens händer
+
+#### Inner Circle-lista (SA)
+- **Hittat:** SA-huset, Session 10
+- ~12 medlemmar namngivna
+- Kräver cross-referens med Mahlers almanacka och tidigare intel
+
 ### Session-NPCs (Lovettsville)
 
 #### John Bishop
@@ -100,25 +174,29 @@ Denna fil är ett **INDEX**. När du söker efter ett element:
   - Adress: 318 Edwards Ferry Rd NE, Leesburg, VA 20176
   - Storage unit: CubeSmart Leesburg, Unit D-47
 
-#### Magda Orlova (Hamburg → Berlin) [LEVER - Terminalt sjuk]
+#### Magda Orlova (Hamburg → Berlin → CHARITÉ) [DÖD 21 SEPTEMBER 2025]
 - **Filer**:
-  - `SL/session3.html`
-  - `SL/session5-6.html`
-  - `wiki/_npcs/magda-orlova.md`
-  - `master/timeline.md` (augusti-september 2025)
+  - `SL/session3.html` (levande, Lovettsville)
+  - `SL/session5-6.html` (levande, Hamburg → Berlin)
+  - `SL/session8.html` (DÖD — Richters samtal, kl 15:39)
+  - `SL/session9.html` (referens — cellen VET nu)
+  - `master/timeline.md` (biografi + dödsdag)
   - `SL/black_madonna_chapter2.html` (hennes research)
 - **Nyckeldata**:
-  - 86 år (1939-)
+  - 86 år (1939–2025)
   - Pensionerad journalist (2004)
-  - Bodde i Hamburg → nu i Berlin
-  - **Juni 2025:** Diagnosticerad med pankreascancer steg IV (3-6 mån prognos). Vägrar kemoterapi.
-  - **Augusti 2025:** Reste till USA för Trip 19-research
-  - **September 2025:** Träffar spelarna i Lovettsville (Session 3)
-  - **September 2025:** Reser tillbaka till Berlin. Hittar morns dagbok. Filip Kramer kontaktar henne.
-  - **September 2025:** Ringer cellen - bjuder in dem till Berlin (Session 5)
-  - Dotter till Leningrad 1942-överlevande
-  - **Terminal cancer visas genom:** Viktförlust, ikterus, äter inte, darrar, fokuserad intensitet (smärtstillande)
-  - **Döljer för cellen:** Cancern, misstanke att Filip lägger en fälla
+  - Bodde i Hamburg → Berlin (Leibnizstraße 97, Charlottenburg)
+  - **Juni 2025:** Diagnosticerad med pankreascancer steg IV. Vägrar kemoterapi.
+  - **Augusti 2025:** Reste till USA för Trip 19-research (vet att tiden är kort)
+  - **September 2025:** Träffar spelarna i Lovettsville (Session 3) — döljer cancern
+  - **19–21 sept 2025:** Kollapsade utanför Charité. Irene ringer cellen: "Magda är på sjukhus."
+  - **21 september 2025, kl 15:39 — DÖD, Charité Hospital Berlin**
+  - **Officiell dödsorsak:** Hjärtsvikt komplicerad av pankreascancer stadium IV
+  - **Verklig dödsorsak:** Parasitlarver åt sig igenom hjärtmuskeln via cancervävnaden som väg
+  - **Dr. Richter såg larverna** under obduktionen (kl 17:00) — lade dem i formalin
+  - **Filip Kramer vid sjukhuset:** Skrek hennes namn ("Magda. Magda."), kastades ut av säkerhetsvakt. Försvann med onaturlig snabbhet för en man i 70-årsåldern.
+  - **Lägenheten (Leibnizstraße 97):** Tömd av Antons män kort efter hennes död
+  - **Morns dagbok** (Elsa Orlovas dagbok, 1946–1952) — i cellens händer, deras viktigaste ledtråd
 
 #### Grigori "Grisha" Morozov
 - **Filer**:
@@ -266,7 +344,7 @@ Denna fil är ett **INDEX**. När du söker efter ett element:
 | Callsign | Aktuell SAN | Max SAN | Breaking Point | Margin | Discord JSON-fil |
 |----------|-------------|---------|----------------|--------|------------------|
 | SERGEANT (Mac) | 46 | 60 | 36 | **10** | `C:\Diceroller\data\deltagreen\agents\368410767189606401.json` |
-| Father (Sullivan) | 69 | 80 | 64 | **5** | `C:\Diceroller\data\deltagreen\agents\477800979295633409.json` |
+| Father (Sullivan) | 64 | 77 | 48 | **16** | `C:\Diceroller\data\deltagreen\agents\477800979295633409.json` ⛔ BP NÅDD - Besatthet, Unnatural +3 |
 | Sparky | 63 | 70 | 56 | **7** | `C:\Diceroller\data\deltagreen\agents\680064176227352610.json` |
 | SCALPEL | 68 | 75 | 60 | **7** | `C:\Diceroller\data\deltagreen\agents\223183062882713600.json` |
 | TRENCH | 53 | 55 | 44 | **9** | `C:\Diceroller\data\deltagreen\agents\197809169296916480.json` |
@@ -511,7 +589,7 @@ Dessa element är plausibla tillägg i dokumenterade historiska gap:
 
 ### Magda Hamburg's Research
 - **Filer**: `wiki/_npcs/magda-orlova.md`, `master/timeline.md`
-- **Element**: Magda Orlova (1939-), journalist, Trip 19-research, terminalt sjuk (pankreascancer steg IV)
+- **Element**: Magda Orlova (1939–2025), journalist, Trip 19-research — DÖD 21 sept 2025, Charité Berlin (parasitlarver + pankreascancer)
 
 ### Leningrad 1942-incident
 - **Filer**: `wiki/_handelser/leningrad-1942.md`, `master/timeline.md`

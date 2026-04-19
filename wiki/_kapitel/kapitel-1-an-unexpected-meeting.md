@@ -13,7 +13,7 @@ ledtradar: ["Magdas forskningsmaterial", "The Power of Dreams", "247 Hz-humming"
 **Ett oväntat möte**
 
 ## SYNOPSIS
-Spelarna möter Magda Orlova i Lovettsville Historical Society. Hon bjuder in dem till sin bokrelease i Hamburg där Anton Mahler och Sasha Pogodin dyker upp. När Magda flyr till Berlin träffar spelarna henne igen vid Charité Hospital, där Dr. Richter avslöjar sin kunskap om de övernaturliga krafterna. Magda är terminalt sjuk men lever och blir en värdefull medlem av cellen.
+Spelarna möter Magda Orlova i Lovettsville Historical Society. Hon bjuder in dem till sin bokrelease i Hamburg där Anton Mahler och Sasha Pogodin dyker upp. Magda kollapsar och åker ensam till Berlin — hon dör 21 september 2025 kl 15:39 på Charité Hospital (parasitlarver + pankreascancer). Dr. Richter avslöjar vad han såg under obduktionen. Morns dagbok leder cellen vidare.
 
 ## SESSIONS
 **Session 3-5** (ca 3 sessioners material)
@@ -26,13 +26,13 @@ Spelarna möter Magda Orlova i Lovettsville Historical Society. Hon bjuder in de
 - **Charité Hospital** - Där Magda är inlagd; Dr. Richter avslöjar sin kunskap om det övernaturliga
 
 ## NYCKELPERSONER
-- **Magda Orlova** - Historiker, "The Forgotten of Leningrad 1942", terminalt sjuk men driver sin forskning från Berlin
+- **Magda Orlova** - Historiker, "The Forgotten of Leningrad 1942", terminalt sjuk — DÖD 21 sept 2025 kl 15:39 på Charité, hennes morns dagbok är cellens viktigaste ledtråd
 - **Anton Mahler** - Yithian-värd, Slavic Association-ledare, dyker upp på lanseringen
 - **Aleksandr "Sasha" Pogodin** - 247 Hz-transformerad, dyker upp på lanseringen
 - **Dr. Richter** - Läkare på Charité som kan "se" något på Magda
 
 ## STRUKTUR
-**18 scener från första mötet till Magdas anslutning till cellen:**
+**18 scener från första mötet till Magdas död och cellens nästa steg:**
 
 ### Act 1: Lovettsville
 - Möte med Magda på Historical Society
@@ -47,11 +47,11 @@ Spelarna möter Magda Orlova i Lovettsville Historical Society. Hon bjuder in de
 
 ### Act 3: Berlin
 - Magdas Berlin-lägenhet, Leibnizstraße 97
-- Spelarna möter Magda i Charité Hospital där hon är inlagd
-- Hon är svag men alert, forskar från sjukhusrummet
-- "The Power of Dreams" och forskningsmaterial i rummet
-- Dr. Richter avslöjar sin kunskap om övernaturliga krafter
-- Magda och Dr. Richter blir värdefulla resurser för cellen
+- Magda kollapsar, åker tåg till Berlin ensam
+- Irene ringer cellen: "Magda är på sjukhus"
+- Cellen feberdåliga i Hamburg, kan inte åka direkt
+- **Magda dör 21 september kl 15:39** — Richter ser larverna under obduktionen
+- Dr. Richter kontaktar cellen, avslöjar vad han såg
 
 ## VIKTIGA LEDTRÅDAR
 1. **Magdas forskningsmaterial** - Omfattande research om de tre männen
@@ -77,8 +77,8 @@ Spelarna möter Magda Orlova i Lovettsville Historical Society. Hon bjuder in de
 - Spelarna har Magdas forskning
 - De vet att tre män från Leningrad 1942 inte åldras
 - De vet att något är fel med de tre männen
-- Magda och Dr. Richter är nu del av cellen
-- Dr. Richter kan ses på Charité Hospital för information
+- Spelarna har Magdas morns dagbok (Elsa Orlovas, 1946–1952)
+- Dr. Richter kan kontaktas på Charité för vidare information
 - Frankfurt Clinic nämns i Magdas anteckningar
 
 ## SL-NOTERINGAR
@@ -87,11 +87,11 @@ Spelarna möter Magda Orlova i Lovettsville Historical Society. Hon bjuder in de
 - Hamburg escalerar - första mötet med antagonister
 - Berlin är KRITISK - att träffa Magda igen, sjuk men stridbar, nya allierade
 
-**Magdas tillstånd:**
-- Filip Kramer (drömvandrare) attackerade henne tidigare
-- Hon är terminalt sjuk från dessa attacker men fortfarande mentalt skarp
-- Dr. Richter kan tekniskt sett "se" Yithian-kolonisering
-- Magda och Richter blir värdegulla resurser för spelarna framåt
+**Magdas öde:**
+- Pankreascancer stadium IV + parasitangrepp kombinerat dödade henne
+- Parasitlarverna använde cancervävnaden som väg till hjärtmuskeln
+- Dr. Richter (rättsmedicin) är nu den enda som vet vad som verkligen hände
+- Filip Kramer var vid sjukhuset vid dödsfallet — oroande detalj för cellen
 
 **Anton & Sasha:**
 - Första intrycket MÅSTE vara oroande men inte öppet hotfullt

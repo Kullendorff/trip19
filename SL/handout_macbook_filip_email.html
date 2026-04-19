@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>MacBook — Mail: Filip Kramer (12 juli 2025)</title>
+<style>
+:root {
+    --bg: #1d1d1f;
+    --panel: #2a2a2d;
+    --header: #323236;
+    --text: #e6e6e6;
+    --dim: #8e8e93;
+    --accent: #5e9eff;
+    --warn: #ff453a;
+    --green: #30d158;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 0;
+    min-height: 100vh;
+}
+.macbook-frame {
+    max-width: 880px;
+    margin: 30px auto;
+    background: var(--panel);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+.toolbar {
+    background: var(--header);
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #1a1a1c;
+}
+.dots { display: flex; gap: 6px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.r { background: #ff5f57; }
+.dot.y { background: #ffbd2e; }
+.dot.g { background: #28c941; }
+.app-title {
+    color: var(--dim);
+    font-size: 13px;
+    margin-left: 16px;
+    font-weight: 500;
+}
+.email-header {
+    padding: 22px 28px;
+    border-bottom: 1px solid #1a1a1c;
+}
+.subject {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    color: var(--text);
+}
+.meta-row {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 6px 14px;
+    font-size: 13px;
+    color: var(--dim);
+}
+.meta-row .label { text-align: right; color: var(--dim); }
+.meta-row .val { color: var(--text); }
+.meta-row .val.warn { color: var(--warn); font-weight: 500; }
+.body {
+    padding: 28px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+.body p { margin-bottom: 14px; }
+.body .signature {
+    margin-top: 24px;
+    color: var(--dim);
+    font-size: 14px;
+    border-top: 1px dashed #3a3a3d;
+    padding-top: 14px;
+}
+.attachment {
+    margin-top: 20px;
+    padding: 12px 14px;
+    background: #353538;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+}
+.attachment .icon {
+    width: 32px;
+    height: 38px;
+    background: var(--accent);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: white;
+    font-weight: bold;
+}
+.attachment .name { color: var(--text); }
+.attachment .size { color: var(--dim); margin-left: auto; }
+.flag {
+    display: inline-block;
+    background: var(--warn);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+.gm-callout {
+    max-width: 880px;
+    margin: 20px auto;
+    background: #1a0f0f;
+    border-left: 4px solid var(--warn);
+    padding: 14px 20px;
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    color: #e6e6e6;
+    border-radius: 4px;
+}
+.gm-callout strong { color: var(--warn); }
+.gm-callout .label {
+    color: var(--warn);
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    display: block;
+}
+</style>
+</head>
+<body>
+
+<div class="macbook-frame">
+    <div class="toolbar">
+        <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+        <div class="app-title">Mail — Inbox (3 472 olästa) — magda.orlova@gmx.de</div>
+    </div>
+
+    <div class="email-header">
+        <div class="subject">Re: göm den. <span class="flag">Flaggat</span></div>
+        <div class="meta-row">
+            <div class="label">Från:</div><div class="val warn">Filip Kramer &lt;f.kramer@protonmail.ch&gt;</div>
+            <div class="label">Till:</div><div class="val">Magda Orlova &lt;magda.orlova@gmx.de&gt;</div>
+            <div class="label">Datum:</div><div class="val">12 juli 2025, 03:47 CET</div>
+            <div class="label">Ämne:</div><div class="val">Re: göm den.</div>
+        </div>
+    </div>
+
+    <div class="body">
+        <p>Magda.</p>
+
+        <p>Jag har inte sovit. Jag skriver detta klockan tre på natten och jag kommer ångra det imorgon men jag måste säga det nu.</p>
+
+        <p>Anton vet om dagboken. Jag vet inte hur. Han satt vid sittningen i fredags och sa Elsas namn rakt ut. Sa det utan att titta på mig — som om jag skulle förstå. Och jag förstod.</p>
+
+        <p>Han söker efter den. Han har sökt efter den i tjugo år. Han trodde att den brann i Güldendorf 1952. Han tror inte det längre.</p>
+
+        <p>Lyssna på mig nu. <strong>Den får inte ligga kvar i Hamburg.</strong> Och inte i Berlin. Inte i Leibnizstraße. Han har folk som kan komma in genom låsta dörrar utan att det syns. Det vet du. Jag har sett det.</p>
+
+        <p>Lägg den hos någon som inte har koppling till oss. Inte Arnold — Anton har koll på Arnold. Inte i ett bankvalv — de loggar besök. Lämna den hos någon som inte vet vad det är. En granne. En vän till en vän. Vem som helst. Bara inte hos dig.</p>
+
+        <p>Och om det går åt helvete: <strong>använd Pyotr-vägen.</strong> Han väntar fortfarande. Han har väntat sen 1989. Han bor inte längre i klinikens skugga men han kan fortfarande få dig dit. Han läser inte mail. Du måste skicka kort. Han svarar bara på papper. Du vet adressen.</p>
+
+        <p>Jag kan inte hjälpa dig öppet. Du förstår varför. Om Anton ser mig prata med dig — då är vi båda färdiga, jag tidigare än du.</p>
+
+        <p>Jag ber dig. Lyssna den här gången.</p>
+
+        <div class="signature">
+            F.<br>
+            <em>(P.S. Bränn det här mailet. Det vet jag att du inte gör.)</em>
+        </div>
+
+        <div class="attachment">
+            <div class="icon">PDF</div>
+            <div class="name">guldendorf_1952_archive_index.pdf</div>
+            <div class="size">2,4 MB</div>
+        </div>
+    </div>
+</div>
+
+<div class="gm-callout">
+    <span class="label">▲ SL-NOTER (delas ej)</span>
+    <strong>Vad mailet ger spelarna:</strong>
+    <ul style="margin: 8px 0 8px 20px;">
+        <li><strong>Anton vet om dagboken.</strong> Bekräftar att det de har på Graefestraße är vad SA letar efter. Höjer trycket — om Blobel hittar lägenheten är det inte bara övervakning, det är hämtning.</li>
+        <li><strong>"Pyotr-vägen."</strong> Filip bekräftar att Pyotr (vykortet, Frankfurt an der Oder) är aktiv allierad. Kontakt sker via vanlig post — inte mail, inte telefon. <em>Adressen finns på Pyotrs vykort i Magdas väska.</em></li>
+        <li><strong>"Han bor inte längre i klinikens skugga."</strong> Pyotr har flyttat från Frankfurt an der Oder — men kan fortfarande få cellen till kliniken. Han är vägen in.</li>
+        <li><strong>Filip är ambivalent men hjälpsam.</strong> Detta mail tonar honom som <em>genuinly</em> rädd. Inte fiende. Sympatisk men kompromissad.</li>
+        <li><strong>Bilagan</strong> (guldendorf_1952_archive_index.pdf) — om Sparky öppnar den: en lista över <em>vad som arkiverades vid kliniken 1952</em>. 47 patientmappar, 12 personalkort, 3 protokollböcker. Markerade "VERLEGT" (förflyttade) eller "VERSTORBEN" (avlidna). Tre mappar är märkta "ENTKOMMEN" — undsluppna. Du kan dra fram namnen om de pressar mappen.</li>
+    </ul>
+    <p><strong>Reaktioner att lyssna efter:</strong> Vill de gömma dagboken någonstans säkert NU? (Bra impuls.) Vill de skicka kort till Pyotr? (Driver Frankfurt-spåret.) Vill de skydda Filip? (Bond-möjlighet.)</p>
+</div>
+
+</body>
+</html>

@@ -84,7 +84,7 @@
 
 | Färdighet | Värde | Anteckningar |
 |-----------|-------|--------------|
-| **Obeväpnad strid (Krav Maga)** | 40% | Tränad Berlin 2010-2011, upprätthållet sporadiskt |
+| **Obeväpnad strid (Krav Maga)** | 41% | Tränad Berlin 2010-2011, upprätthållet sporadiskt (+1 Session 10) |
 | **Konst (Skiss/Graffiti)** | 40% | Anatomisk street art, stencil-teknik |
 | **Musik (Piano)** | 40% | 17 års tystnad (2004-2025), återupptaget |
 | **Köra** | 50% | 2019 Honda Civic |

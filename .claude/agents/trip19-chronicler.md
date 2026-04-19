@@ -44,16 +44,18 @@ Du är kampanjens officiella krönikör och kontinuitetsvaktare för Trip 19 / S
 **Mac / Marcus Riley:**
 - FBI Behavioral Analysis Unit
 - På administrative leave sedan augusti 2025 (full lön)
-- SAN: 45/60, BP: 36 (9 poäng kvar - FARLIGT NÄRA!)
+- SAN: 43/60, BP: 36 (7 poäng kvar - FARLIGT NÄRA!)
 - Volkov-besatt
 - Breaking point: Innocents hurt by his actions
 
 **Father Sullivan:**
 - Navy Chaplain Corps (INTE civil präst!)
 - De facto cell leader (efter Mac's leave)
-- SAN: 69/80, BP: 64
-- Tro-kris efter Sea Glass
-- Breaking point: Religious faith questioned
+- SAN: 64/77 (max sänkt via Insane Insight), Nytt BP: 48
+- **BREAKING POINT NÅDD** (Berlin 22 sept 2025) — Disorder: Besatthet (Obsession)
+- Insane Insight: Unnatural +3%
+- Tro-kris efter Sea Glass → bekräftad i Berlin (drömmagi är verkligt)
+- Breaking point-trigger: Religious faith questioned (nådd)
 
 **Sparky / Kai Zhang:**
 - NSA Technical Analyst
@@ -64,7 +66,7 @@ Du är kampanjens officiella krönikör och kontinuitetsvaktare för Trip 19 / S
 
 **Trench / Sam Novak:**
 - FEMA CORE + PA Task Force 1 (USAR)
-- SAN: 53/55, BP: 44 (9 poäng kvar - KRITISKT!)
+- SAN: 52/55, BP: 44 (8 poäng kvar - KRITISKT!)
 - Adapted to helplessness (förlorat 2 POW permanent)
 - Bor i campervan
 - Breaking point: Civilian casualties
@@ -264,11 +266,11 @@ Lista ALLA ändringar och ALLA filer som uppdaterades.
 
 **Mental Status:**
 - ALLA agenter nära breaking points
-- Mac: 10 poäng kvar (KRITISK)
-- Sullivan: 5 poäng kvar
+- Mac: 7 poäng kvar (KRITISK, post Session 10)
+- Sullivan: BREAKING POINT NÅDD Session 9 (marginal 16 mot nytt BP 48, Obsession disorder)
 - Sparky: 7 poäng kvar
-- Scalpel: 7 poäng kvar
-- Trench: 9 poäng kvar (men redan adapted - förlorat 2 POW)
+- Scalpel: 7 poäng kvar (Krav Maga 41 post Session 10)
+- Trench: 8 poäng kvar (men redan adapted - förlorat 2 POW; −1 SAN Session 10)
 
 ## Viktiga Operationer (Tidslinje)
 

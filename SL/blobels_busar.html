@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Blobels Busar - Tre Ex-Stasi Enheter</title>
+<style>
+:root {
+    --bg-dark: #0a0f0f;
+    --bg-darker: #050808;
+    --bg-panel: #0d1414;
+    --text: #d1d5db;
+    --text-dim: #6b7280;
+    --border: #1a2332;
+    --accent-primary: #4a90a4;
+    --accent-secondary: #e89a3c;
+    --classified: #ff4444;
+    --warning: #d4a520;
+    --success: #4ade80;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: var(--bg-dark);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.header {
+    border-bottom: 2px solid var(--accent-primary);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+.header h1 {
+    color: var(--accent-primary);
+    font-size: 1.8em;
+    letter-spacing: 2px;
+}
+.header .sub {
+    color: var(--text-dim);
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+.banner {
+    background: var(--bg-panel);
+    border-left: 4px solid var(--warning);
+    padding: 12px 18px;
+    margin-bottom: 25px;
+    font-size: 0.95em;
+}
+.banner strong { color: var(--warning); }
+.npc {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--classified);
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    border-radius: 3px;
+}
+.npc h2 {
+    color: var(--classified);
+    font-size: 1.4em;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+.npc .alias {
+    color: var(--accent-secondary);
+    font-style: italic;
+    margin-bottom: 15px;
+    font-size: 0.95em;
+}
+.npc h3 {
+    color: var(--accent-primary);
+    font-size: 1.05em;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 3px;
+}
+.stats {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    background: var(--bg-darker);
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid var(--border);
+}
+.stat {
+    text-align: center;
+    font-size: 0.9em;
+}
+.stat .label {
+    color: var(--text-dim);
+    font-size: 0.75em;
+    text-transform: uppercase;
+}
+.stat .val {
+    color: var(--accent-secondary);
+    font-size: 1.3em;
+    font-weight: bold;
+}
+.hp-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    background: var(--bg-darker);
+    padding: 10px 12px;
+    margin-top: 8px;
+    border: 1px solid var(--border);
+}
+.hp-row .stat .val { color: var(--success); }
+.skills {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 20px;
+    margin-top: 8px;
+}
+.skills li {
+    list-style: none;
+    padding: 3px 0;
+    border-bottom: 1px dotted var(--border);
+    font-size: 0.92em;
+}
+.skills li span {
+    color: var(--accent-secondary);
+    float: right;
+}
+.gear {
+    background: var(--bg-darker);
+    padding: 10px 15px;
+    border-left: 3px solid var(--accent-primary);
+    margin-top: 8px;
+    font-size: 0.92em;
+}
+p { margin-bottom: 8px; }
+.callout {
+    background: #1a0f0f;
+    border-left: 4px solid var(--classified);
+    padding: 10px 15px;
+    margin-top: 12px;
+    font-size: 0.9em;
+}
+.callout strong { color: var(--classified); }
+.tactics {
+    background: var(--bg-darker);
+    padding: 15px 20px;
+    border: 1px solid var(--border);
+    margin-top: 25px;
+}
+.tactics h3 {
+    color: var(--accent-primary);
+    margin-bottom: 10px;
+}
+.tactics ul { padding-left: 20px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>▲ BLOBELS BUSAR — STAFFETTENHET BERLIN</h1>
+    <div class="sub">SL-material // Session 10 (+) // Ex-Stasi operatörer under Alexi Blobel</div>
+</div>
+
+<div class="banner">
+    <strong>KONTEXT:</strong> Tre av Blobels män — kärnan i hans övervakningsteam (ex-HVA/ex-Stasi, aktiva sedan 1980-talet). Målet vid fysisk konfrontation är <em>inte</em> att döda — det är att <em>skada cellen tillräckligt för sjukhus</em>, beslagta material, och skrämma. Professionella. Tysta. Ingen förhandling. Mörka kläder, läderhandskar, svart BMW X5 eller VW Transporter i närheten.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- DIETMAR KÜHN -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="npc">
+    <h2>DIETMAR KÜHN</h2>
+    <div class="alias">"Eisblock" | Teamledare | 58 år | Ex-HVA (Stasi utlandsspionage, avd. XXII)</div>
+
+    <h3>Utseende</h3>
+    <p>Lång (190 cm), smal men senig, hållning som en pensionerad officer. Gråsprängt stubbat hår, djupa rynkor mellan ögonen. Ansiktet uttryckslöst som en statsbyråkrats. Bär oftast en mörkblå vindjacka över svart polotröja, jeans, bruna läderskor. Röker aldrig på uppdrag. Luktar svagt av Kölnisch Wasser 4711.</p>
+
+    <h3>Bakgrund & Personlighet</h3>
+    <p>Utbildad vid Juristische Hochschule Potsdam 1986. Jobbade mot Västberlin 1987–1989. Efter Wende: privat säkerhet, sedan Blobels högra hand sedan 2003. Talar tyska (dialekt: Sachsen), ryska (flytande), engelska (accent). Lugn, metodisk, säger aldrig ett ord för mycket. Fattar besluten. Om något går fel är det Kühn som ringer Blobel.</p>
+
+    <div class="stats">
+        <div class="stat"><div class="label">STR</div><div class="val">13</div></div>
+        <div class="stat"><div class="label">CON</div><div class="val">12</div></div>
+        <div class="stat"><div class="label">DEX</div><div class="val">13</div></div>
+        <div class="stat"><div class="label">INT</div><div class="val">14</div></div>
+        <div class="stat"><div class="label">POW</div><div class="val">12</div></div>
+        <div class="stat"><div class="label">CHA</div><div class="val">11</div></div>
+    </div>
+    <div class="hp-row">
+        <div class="stat"><div class="label">HP</div><div class="val">13</div></div>
+        <div class="stat"><div class="label">WP</div><div class="val">12</div></div>
+        <div class="stat"><div class="label">SAN</div><div class="val">55</div></div>
+        <div class="stat"><div class="label">BP</div><div class="val">44</div></div>
+    </div>
+
+    <h3>Skills</h3>
+    <ul class="skills">
+        <li>Alertness <span>70%</span></li>
+        <li>Firearms <span>60%</span></li>
+        <li>Unarmed Combat <span>55%</span></li>
+        <li>Melee Weapons <span>50%</span></li>
+        <li>Stealth <span>60%</span></li>
+        <li>Persuade <span>55%</span></li>
+        <li>Foreign Language (ryska) <span>70%</span></li>
+        <li>HUMINT <span>65%</span></li>
+        <li>Drive <span>50%</span></li>
+        <li>Law <span>40%</span></li>
+    </ul>
+
+    <h3>Utrustning</h3>
+    <div class="gear">
+        Utdragbar batong (ASP 21"), Glock 17 i axelholster (reserv, dras bara om någon drar vapen först), radiosnäckor (Motorola MOTOTRBO), pepparspray, handfängsel (plasttygg), encrypted smartphone (Threema).
+    </div>
+
+    <div class="callout">
+        <strong>TAKTIK:</strong> Står bak, ger order på tyska via radio. Går in sist. Hans uppgift är <em>inte</em> att slåss — det är att koordinera och avvärja cellen från att fly. Om han måste slåss: sikta på knän och armbågar. Skada som kräver sjukhus men inte kirurgi.
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- RALF SAUER -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="npc">
+    <h2>RALF SAUER</h2>
+    <div class="alias">"Bremse" | Grovjobbare | 54 år | Ex-Stasi vaktstyrka, Hohenschönhausen</div>
+
+    <h3>Utseende</h3>
+    <p>Kort (175 cm), bred, 105 kg, nästan allt muskel som börjar bli fett. Rödblond nedrakad skalle, rött skägg skurat till stubbe. Ärr över höger ögonbryn (glasflaska, Rostock 1994). Brutna knogar som aldrig läkt rätt. Bär svart bomberjacka, mörk jeans, boots. Luktar cigaretter (Club röka) och billig aftershave.</p>
+
+    <h3>Bakgrund & Personlighet</h3>
+    <p>Fängelsevakt vid Stasi-fängelset Hohenschönhausen 1986–1989. Efter Wende: dörrvakt i Prenzlauer Berg-klubbar, sedan nacke-i-nacken personskydd. Känner Kühn sedan 1999. Tyst tills han är berusad — sen kan han inte hålla käften. Inte dum, men inte snabb heller. Gillar att skada folk. Förstår att det är jobb och inte personligt, men tycker det är roligt ändå. Dricker oktoberfest Weißbier. Hatar katter.</p>
+
+    <div class="stats">
+        <div class="stat"><div class="label">STR</div><div class="val">16</div></div>
+        <div class="stat"><div class="label">CON</div><div class="val">15</div></div>
+        <div class="stat"><div class="label">DEX</div><div class="val">11</div></div>
+        <div class="stat"><div class="label">INT</div><div class="val">9</div></div>
+        <div class="stat"><div class="label">POW</div><div class="val">10</div></div>
+        <div class="stat"><div class="label">CHA</div><div class="val">8</div></div>
+    </div>
+    <div class="hp-row">
+        <div class="stat"><div class="label">HP</div><div class="val">16</div></div>
+        <div class="stat"><div class="label">WP</div><div class="val">10</div></div>
+        <div class="stat"><div class="label">SAN</div><div class="val">45</div></div>
+        <div class="stat"><div class="label">BP</div><div class="val">36</div></div>
+    </div>
+
+    <h3>Skills</h3>
+    <ul class="skills">
+        <li>Unarmed Combat <span>65%</span></li>
+        <li>Melee Weapons <span>60%</span></li>
+        <li>Firearms <span>45%</span></li>
+        <li>Alertness <span>45%</span></li>
+        <li>Athletics <span>50%</span></li>
+        <li>Dodge <span>40%</span></li>
+        <li>Stealth <span>30%</span></li>
+        <li>Intimidate <span>55%</span></li>
+        <li>Drive <span>40%</span></li>
+        <li>Survival <span>35%</span></li>
+    </ul>
+
+    <h3>Utrustning</h3>
+    <div class="gear">
+        Knogjärn (brass knuckles, +1 skada), utdragbar batong, fällkniv (Böker, i stövel — endast om det blir allvarligt), pepparspray, skinnhandskar med knogförstärkning, radiosnäcka.
+    </div>
+
+    <div class="callout">
+        <strong>TAKTIK:</strong> Först in. Rusar målet, slår med knogjärn mot revben och käke. Går för den största karaktären (Trench eller Sullivan) först — vill visa för Kühn att han fortfarande duger. Ger aldrig upp förrän han blir utslagen eller tillsagd att backa. Svag fot: vänster knä (gammalt skada).
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- OLAF NEUMANN -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="npc">
+    <h2>OLAF NEUMANN</h2>
+    <div class="alias">"Schatten" | Smygare & Förare | 49 år | Ex-NVA Kommando → Stasi Personskydd</div>
+
+    <h3>Utseende</h3>
+    <p>Medellängd (180 cm), atletisk, 80 kg pure condition. Kort ljusbrunt hår, välrakad, ärr-fri. Rör sig tyst och avslappnat — mer kattliknande än man förväntar sig av någon i hans storlek. Svart tunn dunjacka, grå stickad mössa, löparskor (inte boots — han vill kunna springa). Ett silvrigt armbandsur (Poljot från 1987 — fars). Tittar aldrig direkt på någon, läser reflexioner i fönster.</p>
+
+    <h3>Bakgrund & Personlighet</h3>
+    <p>NVA Fallschirmjäger 1976–1983. Rekryterad till Stasi personskydd (Hauptabteilung PS) 1984 — Honeckers bilkortege några gånger. Efter Wende: Bundeswehr några år, sedan privat säkerhet i Moskva 1998–2004. Återvände till Berlin efter "incident" i Tjetjenien han inte pratar om. Talar sparsamt, alltid till punkten. Observerar mer än alla andra i rummet tillsammans. Den enda som skulle kunna ta Kühns plats om Kühn dog.</p>
+
+    <div class="stats">
+        <div class="stat"><div class="label">STR</div><div class="val">13</div></div>
+        <div class="stat"><div class="label">CON</div><div class="val">14</div></div>
+        <div class="stat"><div class="label">DEX</div><div class="val">15</div></div>
+        <div class="stat"><div class="label">INT</div><div class="val">12</div></div>
+        <div class="stat"><div class="label">POW</div><div class="val">11</div></div>
+        <div class="stat"><div class="label">CHA</div><div class="val">10</div></div>
+    </div>
+    <div class="hp-row">
+        <div class="stat"><div class="label">HP</div><div class="val">14</div></div>
+        <div class="stat"><div class="label">WP</div><div class="val">11</div></div>
+        <div class="stat"><div class="label">SAN</div><div class="val">42</div></div>
+        <div class="stat"><div class="label">BP</div><div class="val">33</div></div>
+    </div>
+
+    <h3>Skills</h3>
+    <ul class="skills">
+        <li>Stealth <span>70%</span></li>
+        <li>Drive <span>65%</span></li>
+        <li>Unarmed Combat <span>60%</span></li>
+        <li>Firearms <span>55%</span></li>
+        <li>Melee Weapons <span>55%</span></li>
+        <li>Alertness <span>65%</span></li>
+        <li>Dodge <span>55%</span></li>
+        <li>Athletics <span>55%</span></li>
+        <li>Demolitions <span>30%</span></li>
+        <li>Navigate <span>50%</span></li>
+    </ul>
+
+    <h3>Utrustning</h3>
+    <div class="gear">
+        Utdragbar batong, taser (Axon X2, 50 000 V), CZ 75 kompakt i höftholster (reserv), Ka-Bar kniv i stövel, skinnhandskar, pepparspray, radiosnäcka, bilnycklar till svart BMW X5 (parkerad 50 m bort, motorn går).
+    </div>
+
+    <div class="callout">
+        <strong>TAKTIK:</strong> Kommer bakifrån. Taser på den som verkar mest alerta (Sparky eller Scalpel). Om cellen försöker fly — han blockerar utgången med bilen. Om Sauer blir nedtagen drar han sig TILLBAKA och rapporterar — han dör inte för Blobels månadslön.
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- UWE BRANDT — CHAUFFÖREN -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="npc" style="border-left-color: var(--warning);">
+    <h2 style="color: var(--warning);">UWE BRANDT</h2>
+    <div class="alias">"Das Fahrrad" | Chaufför & Kommunikationsstöd | 52 år | Ex-Stasi Hauptabteilung VIII (övervakning/transport)</div>
+
+    <h3>Utseende</h3>
+    <p>Smal, benig, 178 cm, 68 kg på en bra dag. Hängiga axlar, dålig rygg (körkrok efter trettio år bakom ratt). Glasögon med tunna stålbågar. Gråbrunt hår kammat rakt bakåt. Ljusgul hud av rökning (Club, två paket/dag — men aldrig i bilen). Svart rullkragetröja, slitna manchesterbyxor, brun skinnjacka som ligger på passagerarsätet. Varma fingerlösa handskar — fingrarna är alltid kalla.</p>
+
+    <h3>Bakgrund & Personlighet</h3>
+    <p>Stasi Hauptabteilung VIII 1983–1989 — staffettföljning av V-Männer (inofficiella medarbetare) i Prenzlauer Berg och Mitte. Känner Öst-Berlins gator bättre än taxichaufförer. Efter Wende: långtradare till Polen några år, sedan privat säkerhetstransport (diplomater, ryska affärsmän). Rekryterad av Kühn 2008. Dricker inte, slåss inte, skjuter sällan. Hans värde är ratten — och det faktum att han minns varje skyltnummer han sett sedan kl. 19:00 ikväll. Lyssnar mer än han pratar. Gift, två vuxna barn i Leipzig. Ingen vet om han älskar dem.</p>
+
+    <div class="stats">
+        <div class="stat"><div class="label">STR</div><div class="val">10</div></div>
+        <div class="stat"><div class="label">CON</div><div class="val">11</div></div>
+        <div class="stat"><div class="label">DEX</div><div class="val">13</div></div>
+        <div class="stat"><div class="label">INT</div><div class="val">13</div></div>
+        <div class="stat"><div class="label">POW</div><div class="val">11</div></div>
+        <div class="stat"><div class="label">CHA</div><div class="val">10</div></div>
+    </div>
+    <div class="hp-row">
+        <div class="stat"><div class="label">HP</div><div class="val">11</div></div>
+        <div class="stat"><div class="label">WP</div><div class="val">11</div></div>
+        <div class="stat"><div class="label">SAN</div><div class="val">50</div></div>
+        <div class="stat"><div class="label">BP</div><div class="val">40</div></div>
+    </div>
+
+    <h3>Skills</h3>
+    <ul class="skills">
+        <li>Drive <span>80%</span></li>
+        <li>Alertness <span>65%</span></li>
+        <li>Navigate (Berlin) <span>75%</span></li>
+        <li>Stealth <span>50%</span></li>
+        <li>Firearms <span>40%</span></li>
+        <li>Unarmed Combat <span>30%</span></li>
+        <li>Craft (mekanik) <span>50%</span></li>
+        <li>HUMINT <span>55%</span></li>
+        <li>Foreign Language (polska) <span>45%</span></li>
+        <li>Stäng av och försvinna <span>70%</span></li>
+    </ul>
+
+    <h3>Utrustning</h3>
+    <div class="gear">
+        Svart BMW X5 (registreringsskyltar byts varannan vecka), reserv-VW Transporter parkerad tre kvarter bort, Makarov PM i handskfacket (dammig — avfyrad senast 2014), radiokommunikation (Motorola), fyra burner-telefoner, Berlin-stadskarta i papper (ingen GPS — han litar på minnet), termos kaffe, ID-handlingar i tre namn.
+    </div>
+
+    <div class="callout">
+        <strong>TAKTIK:</strong> Sitter i bilen. Motorn går. Radiokanal öppen mot Kühn. Om något händer — han KÖR. Hans prioritering i ordning: (1) få ut teamet, (2) inte åka fast, (3) inte skada civila. Han kommer inte stanna för Sauer om Sauer inte är vid bilen inom 15 sekunder. Han är inte lojal mot Sauer. Han är lojal mot jobbet.
+    </div>
+
+    <div class="callout" style="border-left-color: var(--accent-primary); background: #0a1418;">
+        <strong style="color: var(--accent-primary);">OM SPELARNA SIKTAR PÅ BILEN:</strong> Brandt är cellens största hot om han blir ordentligt uppmärksammad. Förlorar cellen bilen — ingen ambulans för Kühn, ingen flykt för Neumann, allt kollapsar. Men Brandt kör på spelare om de tvingar honom. 2 000 kg BMW i 40 km/h = <strong>3D10 skada</strong>, DEX × 5 Dodge. Han sikter inte för att döda, men han ger inte upp motorn frivilligt.
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- TAKTIK & IDEER -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="tactics">
+    <h3>▲ SAMMANLAGD TAKTIK — HUR ATTACKEN GENOMFÖRS</h3>
+    <ul>
+        <li><strong>Plats:</strong> Gränd, U-bahn-uppgång nattetid, parkeringshus, eller utanför Graefestraße 66 när cellen kommer ut för att röka/gå till 7-Eleven. Få vittnen, dålig belysning.</li>
+        <li><strong>Tidpunkt:</strong> 02:00–04:00. Blobel har kartlagt cellens mönster.</li>
+        <li><strong>Formation:</strong> Kühn står 20 m bort med radio. Neumann bakom målet (tyst approach, taser). Sauer framifrån (öppen konfrontation). Chaufför (extra, inte här som NPC) väntar i BMW:n.</li>
+        <li><strong>Mål:</strong> Slå ut 2–3 av cellen (medvetslösa / sjukhusfall). Beslagta väskor, telefoner, bärbara datorer. Försvinna inom 90 sekunder.</li>
+        <li><strong>De kommer INTE:</strong> skjuta först, tala mycket, förhandla, lämna spår, bry sig om vilka som "förtjänar" att bli slagna.</li>
+        <li><strong>Brytpunkt:</strong> Om en av dem går ner eller om polissirener hörs — Neumann evakuerar, de andra följer efter. Blobel gillar inte förluster.</li>
+    </ul>
+
+    <h3>▲ OM CELLEN VINNER</h3>
+    <ul>
+        <li><strong>Kühn kidnappad:</strong> Värdefull. Kan HUMINT-pressas. Vet om Blobel, övervakningsschema, SA:s säkerhet. Vet INTE om parasiten eller kristallerna — han är proffs, inte troende.</li>
+        <li><strong>Sauer kidnappad:</strong> Värre fångenskap. Kommer hota och svära. Kräks på dig. Vet mindre än Kühn men kan berätta om Stasi-kretsen som Blobel rekryterar från.</li>
+        <li><strong>Neumann försvinner:</strong> Han blir inte fångad. Om situationen är förlorad flyr han. Dyker upp igen i senare session som skugga.</li>
+        <li><strong>Alla tre döda:</strong> Blobel personligen engageras. Anton får rapport inom 6 timmar. Eskalering till polischefs-nivå — Interpol-flaggor, hyrda ryssar, värre.</li>
+    </ul>
+
+    <h3>▲ SAN-EFFEKTER</h3>
+    <ul>
+        <li>Våldsam konfrontation mot människa: <strong>0/1D4 Violence</strong> (om cellen dödar någon).</li>
+        <li>Att själv bli brutalt misshandlad: <strong>0/1 Helplessness</strong>.</li>
+        <li>Ingen Unnatural här — detta är ren brottsvärld. Lugnare sektion innan horroren återvänder.</li>
+    </ul>
+</div>
+
+</body>
+</html>

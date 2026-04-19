@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spelares Kunskap — Kväll 22 september 2025</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0a0f0f;
+            --bg2: #0d1414;
+            --panel: #111a1a;
+            --green: #00ff41;
+            --red: #ff4444;
+            --blue: #4a90a4;
+            --yellow: #ffcc00;
+            --purple: #9b59b6;
+            --orange: #ff8c00;
+            --dim: #6b7280;
+            --text: #d1d5db;
+            --border: #1a2332;
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+        .container { max-width: 1300px; margin: 0 auto; }
+
+        /* HEADER */
+        .page-header {
+            text-align: center;
+            border: 2px solid var(--blue);
+            background: var(--bg2);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 6px;
+        }
+        .page-header h1 { color: var(--blue); font-size: 1.8rem; letter-spacing: 2px; margin-bottom: 0.5rem; }
+        .page-header .subtitle { color: var(--dim); font-size: 0.9rem; }
+        .page-header .timestamp { color: var(--yellow); margin-top: 0.75rem; font-size: 1rem; }
+
+        /* UNCERTAINTY FLAG */
+        .uncertainty-banner {
+            background: rgba(255, 204, 0, 0.08);
+            border: 2px solid var(--yellow);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 6px;
+        }
+        .uncertainty-banner h3 { color: var(--yellow); margin-bottom: 0.75rem; font-size: 1rem; }
+        .uncertainty-banner li { margin-bottom: 0.4rem; font-size: 0.9rem; color: var(--yellow); }
+        .uncertainty-banner li span { color: var(--text); }
+
+        /* GRID */
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem; }
+        @media (max-width: 900px) { .two-col, .three-col { grid-template-columns: 1fr; } }
+
+        /* SECTIONS */
+        .section {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .section.green { border-left: 4px solid var(--green); }
+        .section.red { border-left: 4px solid var(--red); }
+        .section.blue { border-left: 4px solid var(--blue); }
+        .section.yellow { border-left: 4px solid var(--yellow); }
+        .section.purple { border-left: 4px solid var(--purple); }
+        .section.orange { border-left: 4px solid var(--orange); }
+
+        .section h2 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .section.green h2 { color: var(--green); }
+        .section.red h2 { color: var(--red); }
+        .section.blue h2 { color: var(--blue); }
+        .section.yellow h2 { color: var(--yellow); }
+        .section.purple h2 { color: var(--purple); }
+        .section.orange h2 { color: var(--orange); }
+
+        .section h3 { color: var(--yellow); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin: 1rem 0 0.5rem 0; }
+
+        /* AGENT TAGS */
+        .tag {
+            display: inline-block;
+            padding: 0.1rem 0.45rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin: 0.1rem;
+        }
+        .tag-mac { background: rgba(70,130,180,0.2); color: #4682b4; border: 1px solid #4682b4; }
+        .tag-sullivan { background: rgba(184,115,51,0.2); color: #b87333; border: 1px solid #b87333; }
+        .tag-sparky { background: rgba(0,255,65,0.2); color: #00ff41; border: 1px solid #00ff41; }
+        .tag-scalpel { background: rgba(212,175,55,0.2); color: #d4af37; border: 1px solid #d4af37; }
+        .tag-trench { background: rgba(255,140,0,0.2); color: #ff8c00; border: 1px solid #ff8c00; }
+        .tag-all { background: rgba(255,255,255,0.07); color: #ccc; border: 1px solid #555; }
+
+        /* STATUS PILLS */
+        .status {
+            display: inline-block;
+            padding: 0.1rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        .status-confirmed { background: rgba(0,255,65,0.15); color: var(--green); border: 1px solid var(--green); }
+        .status-inferred { background: rgba(255,204,0,0.15); color: var(--yellow); border: 1px solid var(--yellow); }
+        .status-unknown { background: rgba(255,68,68,0.15); color: var(--red); border: 1px solid var(--red); }
+        .status-partial { background: rgba(74,144,164,0.15); color: var(--blue); border: 1px solid var(--blue); }
+
+        /* TABLES */
+        table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.9rem; }
+        th { background: rgba(74,144,164,0.15); color: var(--blue); padding: 0.6rem; text-align: left; border: 1px solid var(--border); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        td { padding: 0.6rem; border: 1px solid var(--border); vertical-align: top; }
+        tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+
+        /* MISC */
+        ul, ol { margin-left: 1.5rem; margin-top: 0.5rem; }
+        li { margin-bottom: 0.35rem; font-size: 0.9rem; }
+        p { margin-bottom: 0.6rem; font-size: 0.9rem; }
+        .dim { color: var(--dim); font-size: 0.8rem; }
+        .highlight { color: var(--yellow); font-weight: bold; }
+        .highlight-red { color: var(--red); font-weight: bold; }
+        .highlight-green { color: var(--green); }
+
+        /* SAN BAR */
+        .san-bar { margin: 0.4rem 0; }
+        .san-label { font-size: 0.8rem; color: var(--dim); margin-bottom: 0.15rem; }
+        .san-track { display: flex; align-items: center; gap: 0.5rem; }
+        .san-value { font-size: 1.1rem; font-weight: bold; }
+        .san-bp { font-size: 0.8rem; color: var(--red); }
+        .bar-bg { flex: 1; background: var(--border); height: 8px; border-radius: 4px; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 4px; }
+
+        /* DIARY BLOCK */
+        .diary-entry {
+            background: rgba(244, 234, 208, 0.04);
+            border-left: 3px solid rgba(244, 234, 208, 0.2);
+            padding: 0.75rem 1rem;
+            margin: 0.75rem 0;
+            font-style: italic;
+        }
+        .diary-date { font-size: 0.8rem; color: #a09070; font-weight: bold; font-style: normal; margin-bottom: 0.25rem; }
+        .diary-text { font-size: 0.9rem; color: #c4b88a; line-height: 1.6; }
+
+        /* QUOTE */
+        .quote {
+            border-left: 3px solid var(--purple);
+            padding: 0.5rem 1rem;
+            margin: 0.5rem 0;
+            color: #bda8d4;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        /* THREAT BANNER */
+        .threat-box {
+            background: rgba(255, 68, 68, 0.07);
+            border: 1px solid rgba(255, 68, 68, 0.4);
+            padding: 1rem 1.25rem;
+            border-radius: 4px;
+            margin: 0.75rem 0;
+        }
+        .threat-box strong { color: var(--red); }
+
+        /* FOOTER */
+        .page-footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--dim);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="page-header">
+        <h1>CHESAPEAKE CELL — OPERATIV KUNSKAP</h1>
+        <div class="subtitle">Sammanställning: Vad spelarna faktiskt vet & har</div>
+        <div class="timestamp">📅 22 september 2025, kväll/natt &nbsp;|&nbsp; 📍 Graefestraße 66, Kreuzberg, Berlin</div>
+    </div>
+
+    <!-- BEKRÄFTAT -->
+    <div class="uncertainty-banner" style="border-color: var(--green); background: rgba(0,255,65,0.04);">
+        <h3 style="color: var(--green);">✓ BEKRÄFTAT — Korrigeringar från Johan</h3>
+        <ul style="color: var(--green);">
+            <li>✓ <span><strong>MacBooken:</strong> Inte hackad. Kvar som möjlig action session 10.</span></li>
+            <li>✓ <span><strong>Arnold Weiss:</strong> Inte kontaktad. Kvar som öppen tråd.</span></li>
+            <li>✓ <span><strong>Dagboken:</strong> Sparky har/kommer precis avsluta översättningen när session 10 börjar — bra öppning.</span></li>
+            <li>✓ <span><strong>Sullivans disorder:</strong> Förmodligen Besatthet (Obsession).</span></li>
+            <li>✓ <span><strong>Blobels svans:</strong> Vet INTE var de bor — men har span på Kreuzberg-området.</span></li>
+            <li>✓ <span><strong>Alla 5 infekterade:</strong> Richter bekräftade samtliga. Uppdaterat nedan.</span></li>
+        </ul>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- NULÄGE -->
+    <!-- ══════════════════════════════════════ -->
+    <div class="section blue">
+        <h2>Nuläge — 22 september, kväll</h2>
+        <div class="two-col">
+            <div>
+                <h3>Var är de?</h3>
+                <p><strong>Graefestraße 66, 4:e vån</strong> — Scalpels farbror Jürgens lägenhet, Kreuzberg. Jürgen är i Japan till 26 oktober.</p>
+                <p>Gästrummet är omvandlat till ops-room: 3 skärmar, whiteboard, dator. Allt material utspritt på vardagsrumsbordet.</p>
+
+                <h3>Vad pågår just nu?</h3>
+                <ul>
+                    <li><span class="tag tag-trench">Trench</span> Span på Slavic Association (Reichenberger Str. 124)</li>
+                    <li><span class="tag tag-sullivan">Sullivan</span> Nådde Breaking Point — disorder-val pågår</li>
+                    <li><span class="tag tag-sparky">Sparky</span> Jobbar i ops-room</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Senaste 24 timmarna (vad som hände)</h3>
+                <ul>
+                    <li>~01:00: Anlände Berlin (tåg eller Magdas bil)</li>
+                    <li>~02:00: Charité — dödsbeskedet, Richters källare</li>
+                    <li>~04:00: Somnade på Graefestraße</li>
+                    <li>08:00: Vaknade, Sparky byggde ops-room</li>
+                    <li>11:00: Charité igen — Richters diagnosresultat</li>
+                    <li>14:00: Ops-room genomgång, material utspritt</li>
+                    <li>16-18:00: SA rekognosering (Trench/delar av cellen)</li>
+                    <li>Natt: Onda drömmar — alla drömde samma sak</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- KARAKTÄRSSTATUS -->
+    <!-- ══════════════════════════════════════ -->
+    <div class="section red">
+        <h2>Karaktärsstatus</h2>
+        <div class="three-col">
+            <!-- MAC -->
+            <div>
+                <strong style="color:#4682b4;">Mac Riley</strong> <span class="dim">(FBI — Jonas)</span>
+                <div class="san-bar" style="margin-top:0.5rem;">
+                    <div class="san-label">SAN</div>
+                    <div class="san-track">
+                        <span class="san-value" style="color:#4682b4;">45</span>
+                        <div class="bar-bg"><div class="bar-fill" style="width:75%; background:#4682b4;"></div></div>
+                        <span class="dim">/60</span>
+                    </div>
+                    <div class="san-bp">Breaking Point: ~45 (marginal 9 — nära)</div>
+                </div>
+                <div style="margin-top:0.5rem;">
+                    <span class="status status-confirmed">INFEKTERAD</span>
+                    <span class="dim" style="font-size:0.8rem;"> (blodprov bekräftat)</span>
+                </div>
+            </div>
+            <!-- SULLIVAN -->
+            <div>
+                <strong style="color:#b87333;">Father Sullivan</strong> <span class="dim">(Navy Chaplain — Andreas)</span>
+                <div class="san-bar" style="margin-top:0.5rem;">
+                    <div class="san-label">SAN (efter BP)</div>
+                    <div class="san-track">
+                        <span class="san-value" style="color:#b87333;">64</span>
+                        <div class="bar-bg"><div class="bar-fill" style="width:64%; background:#b87333;"></div></div>
+                        <span class="dim">/80→77</span>
+                    </div>
+                    <div class="san-bp">Breaking Point: 48 (nytt BP efter breakdown)</div>
+                </div>
+                <div style="margin-top:0.5rem;">
+                    <span class="status status-confirmed">INFEKTERAD</span>
+                    <span class="status status-confirmed" style="margin-left:0.3rem;">DISORDER: BESATTHET</span>
+                </div>
+                <p class="dim" style="margin-top:0.4rem;">Breaking Point nådd. Unnatural +3 möjligt. Max SAN: 77.</p>
+            </div>
+            <!-- SPARKY -->
+            <div>
+                <strong style="color:#00ff41;">Sparky (Kai Zhang)</strong> <span class="dim">(NSA)</span>
+                <div class="san-bar" style="margin-top:0.5rem;">
+                    <div class="san-label">SAN</div>
+                    <div class="san-track">
+                        <span class="san-value" style="color:#00ff41;">?</span>
+                        <div class="bar-bg"><div class="bar-fill" style="width:60%; background:#00ff41;"></div></div>
+                    </div>
+                </div>
+                <div style="margin-top:0.5rem;">
+                    <span class="status status-confirmed">INFEKTERAD</span>
+                    <span class="dim" style="font-size:0.8rem;"> (blodprov bekräftat)</span>
+                </div>
+            </div>
+        </div>
+        <div class="two-col" style="margin-top:0;">
+            <!-- SCALPEL -->
+            <div>
+                <strong style="color:#d4af37;">Scalpel (Hanna Engler)</strong> <span class="dim">(Medical Examiner — Daniel)</span>
+                <div style="margin-top:0.5rem;">
+                    <span class="status status-confirmed">INFEKTERAD</span>
+                    <span class="dim" style="font-size:0.8rem;"> (blodprov bekräftat)</span>
+                </div>
+            </div>
+            <!-- TRENCH -->
+            <div>
+                <strong style="color:#ff8c00;">Trench (Sam Novak)</strong> <span class="dim">(USAR)</span>
+                <div style="margin-top:0.5rem;">
+                    <span class="status status-confirmed">INFEKTERAD</span>
+                    <span class="dim" style="font-size:0.8rem;"> (blodprov bekräftat)</span>
+                </div>
+                <p class="dim" style="margin-top:0.4rem;">Är ute på SA-span just nu.</p>
+            </div>
+        </div>
+
+        <div class="threat-box" style="margin-top:1rem;">
+            <strong>⚠ DIAGNOSEN — Vad de vet:</strong>
+            <ul>
+                <li>Parasit i kroppen — aktiverades vid mötet med de tre männen i Hamburg (19 sept)</li>
+                <li>Feber 1,5 dygn (20-21 sept) = aktiveringssymptom, nu över</li>
+                <li>Ingen medicinsk behandling finns — antibiotika, antiparasitära — ingenting fungerar</li>
+                <li>2–6 månader från aktivering tills det som hände Magda</li>
+                <li>Richter: <em>"Förbannelsen kan brytas. Returneras till källan. Där den skapades."</em></li>
+                <li>Onda drömmar första natten i Berlin — alla drömde samma sak. Hummande som inte slutar. <strong>247 Hz.</strong></li>
+                <li>Klåda i huden</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- VAD SOM HÄNDE — HISTORISK KEDJA -->
+    <!-- ══════════════════════════════════════ -->
+    <div class="section purple">
+        <h2>Historisk kedja — vad de vet</h2>
+        <p class="dim">Sammansatt från: Elsas dagbok (del 1-5) + Richters rapport + foton + Magdas material</p>
+
+        <h3>Nyårsafton 1942 — Leningrad, källaren under Kalenkos hus</h3>
+        <div class="diary-entry">
+            <div class="diary-date">Elsa Orlovas dagbok, 2 november 1947 (berättar om natten)</div>
+            <div class="diary-text">
+                "Nyårsafton. Klockan var strax före midnatt. Vi var i källaren under Kalenkos hus — alla vi, barnen, de vuxna som var kvar. Det var så kallt att andedräkten frös på väggarna."
+                <br><br>
+                "Sedan kom ljuset. Inte från stearinljuset — uppifrån, eller inifrån, jag vet inte. Det var <strong>blått och vitt och det brände utan värme</strong>. Det varade kanske tio sekunder, kanske en minut. Tiden slutade."
+                <br><br>
+                "De tre männen — Garudin, Ignatiev och Pogodin — de stod närmast centrum. Deras kroppar kröktes bakåt. Jag hörde ben brytas. Nej — inte brytas. <strong>Omformas.</strong>"
+                <br><br>
+                "De tre pojkarna — Anatoly, Sasha och Filip — skrek inte. Filip log. Det var ingen barnlig glädje. Det var igenkännande."
+                <br><br>
+                "De tre männen reste sig. Deras ansikten var desamma. Men deras ögon var inte desamma."
+            </div>
+        </div>
+
+        <h3>De tre pojkarna åldras extremt långsamt</h3>
+        <div class="diary-entry">
+            <div class="diary-date">Elsa Orlovas dagbok, 23 september 1949 (Kirovkliniken, Moskva)</div>
+            <div class="diary-text">
+                "Anatoly fyllde 13 idag. Han ser ut exakt som han gjorde för tre år sedan. Exakt. Inte äldre, inte längre. De andra barnen växer. De tre pojkarna växer inte."
+            </div>
+        </div>
+
+        <h3>Hummandet</h3>
+        <div class="diary-entry">
+            <div class="diary-date">Elsa Orlovas dagbok, 11 februari 1950</div>
+            <div class="diary-text">
+                "Sashas dörr stod öppen. Han satt på golvet, korslagda ben, ögon stängda. Han <strong>hummade</strong>. En ton. Samma ton. Den gick genom golvet, genom väggarna, genom mina tänder."
+                <br>
+                "Han visste att jag var där. Han sa: 'Du minns fortfarande.'"
+            </div>
+        </div>
+
+        <h3>Vad Elsa drömde sig till</h3>
+        <div class="diary-entry">
+            <div class="diary-date">Elsa Orlovas dagbok, 6 mars 1950</div>
+            <div class="diary-text">
+                "I drömmen ser jag vad som var <strong>under</strong> ljuset. Något stort. Ofattbart stort. Inte en varelse — en geometri. Vinklar som inte borde finnas. Ett mönster som rör sig."
+                <br>
+                "Jag tror det är det som kom igenom. Natten då. Det som de tre männen <strong>blev</strong>."
+            </div>
+        </div>
+
+        <div class="two-col">
+            <div>
+                <h3>Slavic Association grundas (Östberlin, ~1951-1952)</h3>
+                <div class="diary-entry">
+                    <div class="diary-date">Elsa Orlovas dagbok, 22 november 1951</div>
+                    <div class="diary-text">
+                        "Det talas om en ny förening i Östberlin. Slaviska Sällskapet. Unga män med rysk bakgrund. En av dem frågade specifikt efter mig. Den yngste. Filip. Det måste vara Filip."
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3>Elsas sista inlägg (Frankfurt an der Oder, 3 febr 1952)</h3>
+                <div class="diary-entry">
+                    <div class="diary-date">Meddelande till Magda</div>
+                    <div class="diary-text">
+                        <strong>"De tre männen lever. Berlin. Slaviska Sällskapet."</strong>
+                        <br><br>
+                        "De ser ut som barn men de är inte barn. De åldras knappt. De väntar på något."
+                        <br><br>
+                        "Spring inte till dem. Spring inte från dem. De hittar dig ändå."
+                        <br><br>
+                        "Sök sanningen men lita inte på dina drömmar."
+                    </div>
+                </div>
+                <p class="dim">Elsa hade samma symptom: "Något som rör sig under huden. Klåda som inte går att nå." — Elsa infekterades också. Överlevde tills 1952.</p>
+            </div>
+        </div>
+
+        <h3>Frankfurt an der Orden — kliniken</h3>
+        <div class="diary-entry">
+            <div class="diary-date">Elsa Orlovas dagbok, mars–juni 1951</div>
+            <div class="diary-text">
+                Flytt från Kirovkliniken Moskva → klinik i Güldendorf utanför Frankfurt an der Oder. Ny direktör: Dr. Helmut Schäfer. De tre pojkarna följde med — Schäfer behandlar dem som "studieobjekt."
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- VEM ÄR VEM — SPELARNAS MÖJLIGA KOPPLINGAR -->
+    <!-- ══════════════════════════════════════ -->
+    <div class="section yellow">
+        <h2>Möjliga identiteter — vad spelarna kan sluta sig till</h2>
+        <p class="dim">Baserat på foton (1942→2024 + identiska ansikten) + dagbokens namn + moderna visitkort</p>
+
+        <table>
+            <tr>
+                <th>Dagbokens namn (1942)</th>
+                <th>Roll i källaren</th>
+                <th>Möjlig modern identitet</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td><strong>Pojken Filip</strong> (~6-7 år 1942)</td>
+                <td>Pojke, log vid transformationen — "igenkännande"</td>
+                <td><strong>Filip Kramer</strong> (visitkort, handskrivet nr)<br><span class="dim">Grät på Charité när Magda dog. Varnade Magda via röstmeddelanden. Rörde sig onaturligt snabbt.</span></td>
+                <td><span class="status status-inferred">MÖJLIG KOPPLING</span></td>
+            </tr>
+            <tr>
+                <td><strong>Pojken Sasha</strong><br><span class="dim">(hummade vid "en ton")</span></td>
+                <td>Pojke, åldras extremt långsamt</td>
+                <td><strong>Aleksandr Pogodin?</strong><br><span class="dim">(nämns i Magdas forskning)</span></td>
+                <td><span class="status status-inferred">MÖJLIG KOPPLING</span></td>
+            </tr>
+            <tr>
+                <td><strong>Pojken Anatoly</strong></td>
+                <td>Pojke, åldras extremt långsamt</td>
+                <td><strong>Anton Mahler</strong>? ("Secure Consulting", visitkort)<br><span class="dim">Den farligaste — per Filips e-post till Magda</span></td>
+                <td><span class="status status-inferred">MÖJLIG KOPPLING</span></td>
+            </tr>
+            <tr>
+                <td colspan="4" style="color: var(--dim); font-size: 0.8rem; font-style: italic;">
+                    OBS: Dagboken nämner också tre VUXNA MÄN (Garudin, Ignatiev, Pogodin) som transformerades 1942 — de och de tre pojkarna är sex separata individer. Vad hände med de vuxna männen? Okänt för spelarna.
+                </td>
+            </tr>
+        </table>
+
+        <div class="threat-box">
+            <strong>Foton (12 st) bekräftar visuellt:</strong> Tre ansikten — från 1942 via 1960, 1980, 2010 till 2024. Marginell åldring på 82 år. Åldras extremt långsamt. Spelarna har sett dessa foton med egna ögon.
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- BEVISÖVERSIKT / MATERIAL I HÄNDERNA -->
+    <!-- ══════════════════════════════════════ -->
+    <div class="section green">
+        <h2>Material spelarna har i händerna</h2>
+
+        <div class="two-col">
+            <div>
+                <h3>Dokument</h3>
+                <table>
+                    <tr>
+                        <th>Föremål</th>
+                        <th>Varifrån</th>
+                        <th>Känt innehåll</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Elsas dagbok</strong><br><span class="dim">Ryska original, 1946–1952</span></td>
+                        <td>Magdas väska (Charité)</td>
+                        <td>Leningrad 1942, Kirovkliniken, de tre pojkarna, Frankfurt Clinic, SA grundas. <span class="status status-confirmed">ÖVERSATT</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Richters obduktionsrapport</strong><br><span class="dim">Charité, RM-2025-09-4471</span></td>
+                        <td>Richter (utskrift)</td>
+                        <td>Larvfynd, 14 kanaler i hjärtmuskeln, Lyubimov/Toporov-refs, inkubationstid 2-6 mån, "förbannelse som kan brytas"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Magdas medicinska historia</strong></td>
+                        <td>Richter (utskrift)</td>
+                        <td>Pankreascancer stadium IV (juni 2025), antipsykotika (Clozapin/Olanzapin) — avsatta aug 2025. Psykiatrisk behandling för "halluzinationer"?</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pyotrs vykort</strong></td>
+                        <td>Hamburglägenheten (post)</td>
+                        <td>"Jag har sett HAN" — adresserat Brahmsallee 16. Avsändare: Frankfurt an der Oder</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SA-medlemskort 1961–1990</strong></td>
+                        <td>Hamburglägenheten</td>
+                        <td>Magda Orlovas namn. Grundare av Slavic Association 1961.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lyubimov (1947) + Toporov (1922)</strong></td>
+                        <td>Richter (böcker)</td>
+                        <td>Lyubimov: identiska larver hos sovjet-soldater Leningrad 1942 (s.34-38). Toporov: "förbannelse, svart magi, vilande i decennier, aktivering via närkontakt med källan."</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h3>Övrigt material</h3>
+                <table>
+                    <tr>
+                        <th>Föremål</th>
+                        <th>Känt innehåll</th>
+                    </tr>
+                    <tr>
+                        <td><strong>12 foton</strong></td>
+                        <td>De tre ryssarna: 1942, 1960, 1980, 2010, 2024 — identiska ansikten. Åldras inte.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Anton Mahlers visitkort</strong></td>
+                        <td>"Secure Consulting, Berlin." Inget telefonnummer.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Filip Kramers visitkort</strong></td>
+                        <td>Handskrivet telefonnummer. Inget företag.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Magdas dagboksinlägg 20 sept, 05:30</strong></td>
+                        <td>"Om jag dör — amerikanerna vet." Sista Magda-skrevna text.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Filips röstmeddelanden (4 st)</strong></td>
+                        <td>Panikade. Varnade Magda. Kan vara allierad?</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Berlinnycklar — Leibnizstraße 97</strong></td>
+                        <td>Magdas Berlin-lägenhet. <span class="highlight-red">Nu tömd av Antons män.</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Magdas MacBook</strong></td>
+                        <td><span class="status status-unknown">LÅST</span> — Sparky: Computer Science 50%. Ej försökt ännu.</td>
+                    </tr>
+                </table>
+
+                <h3>Kontaktinfo de har</h3>
+                <ul>
+                    <li><strong>Arnold Weiss</strong> — Wielandstraße 34. Magdas gamla vän. Pratar ryska. SA-koppling? Ej kontaktad.</li>
+                    <li><strong>Slavic Association</strong> — Reichenberger Str. 124, Kreuzberg</li>
+                    <li><strong>Dr. Richter</strong> — Charité, rättsmedicin källarplan. Allierad. "Ring vilken tid som helst."</li>
+                    <li><strong>Filips telefonnummer</strong> — Har inte ringt ännu?</li>
+                    <li><strong>Frankfurt Clinic</strong> — Dorfstraße 42c, Frankfurt (Oder)-Güldendorf. Pyotr är där.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- SLAVIC ASSOCIATION — VAD DE VET -->
+    <!-- ══════════════════════════════════════ -->
+    <div class="section orange">
+        <h2>Slavic Association — Rekognosering (Trench på plats nu)</h2>
+        <div class="two-col">
+            <div>
+                <h3>Vad rekognosceringen visade</h3>
+                <ul>
+                    <li>Reichenberger Str. 124, röd tegelbyggnad (f.d. fabrik, tidigt 1900-tal)</li>
+                    <li>Tre skyltar i portöppningen: Naturskyddsförening, Höders Möbelverkstad, <em>Slavische Vereinigung — Славянское объединение</em></li>
+                    <li>~17:00: Helga Krausst lämnar (sekreterare, låser sekretariatet)</li>
+                    <li>~17:15: Byggnaden tystnar</li>
+                    <li>~18:00: Nyckelbricka-systemet aktiveras</li>
+                    <li>Monstera-växt i fönstret, glasdörr</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Vad de vet om SA</h3>
+                <ul>
+                    <li>Magda grundade föreningen 1961</li>
+                    <li>Anton Mahler är kopplad — "den farligaste" per Filips e-post</li>
+                    <li>Arkiv med Camp S-17-dokument förmodas finnas här</li>
+                    <li>Adress dyker upp i Magdas dagbok (Frankfurt-perioden 1951): Filip frågade specifikt efter Elsa</li>
+                    <li><span class="highlight-red">Om Blobels team rapporterade rekognosceringen → Anton vet att de sniffar runt</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- AKTIVA HOT -->
+    <!-- ══════════════════════════════════════ -->
+    <div class="section red">
+        <h2>Aktiva hot de är medvetna om</h2>
+        <table>
+            <tr>
+                <th>Hot</th>
+                <th>Vad de vet</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td><strong>Blobels övervakningsteam</strong><br><span class="dim">Ex-Stasi, professionella</span></td>
+                <td>Följde dem från Hamburg. Tre separata enheter. Staffettsystem. Proffsar. De vet om teamet — men Blobel vet inte var cellen bor. Har span på Kreuzberg-området.</td>
+                <td><span class="status status-confirmed">AKTIV — LOKALISERAR</span></td>
+            </tr>
+            <tr>
+                <td><strong>Anton Mahler</strong><br><span class="dim">"Secure Consulting"</span></td>
+                <td>Visitkort. "Den farligaste" per Filips e-post. Antons män tömde Leibnizstraße. Kopplad till SA.</td>
+                <td><span class="status status-confirmed">BEKRÄFTAT HOT</span></td>
+            </tr>
+            <tr>
+                <td><strong>Leibnizstraße 97 tömd</strong></td>
+                <td>Magdas Berlin-lägenhet rensades av Antons män. Vad togs? Vad finns kvar?</td>
+                <td><span class="status status-confirmed">INTRÄFFAT</span></td>
+            </tr>
+            <tr>
+                <td><strong>Parasiten i kroppen</strong></td>
+                <td>Klockan tickar. 2-6 månader.</td>
+                <td><span class="status status-confirmed">BEKRÄFTAT</span></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- ÖPPNA TRÅDAR / FRÅGOR -->
+    <!-- ══════════════════════════════════════ -->
+    <div class="section blue">
+        <h2>Öppna frågor — vad de INTE vet</h2>
+        <div class="two-col">
+            <div>
+                <h3>Kräver utredning</h3>
+                <ul>
+                    <li>Vad hände exakt i källaren nyårsafton 1942? (Mer detalj)</li>
+                    <li>Vad är Camp S-17? (Magdas frågetecken)</li>
+                    <li>Vad är Vasilyevsky Island? (Kartan + Magdas frågetecken)</li>
+                    <li>Vad är "källan" dit förbannelsen ska returneras?</li>
+                    <li>Vem är Pyotr — och vad har han sett vid Frankfurt Clinic?</li>
+                    <li>Vad togs från Leibnizstraße 97?</li>
+                    <li>Varför tog Magda antipsykotika (Clozapin/Olanzapin)?</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Beslutslinjer session 10</h3>
+                <ul>
+                    <li><span class="tag tag-all">SA</span> Inbrottet — ikväll eller imorgon? <em>(scene_slavic_breakin.html redo)</em></li>
+                    <li><span class="tag tag-all">Arnold</span> Ring/träffa Arnold Weiss — dagboks-expert, SA-kontakt</li>
+                    <li><span class="tag tag-all">Filip</span> Ring Filip? Han grät vid Charité. Han varnade Magda. Allierad?</li>
+                    <li><span class="tag tag-all">Frankfurt</span> Frankfurt Clinic — heldag, 1.5h tåg. Pyotr finns där.</li>
+                    <li><span class="tag tag-sparky">Sparky</span> MacBook (om inte redan hackad)</li>
+                    <li><span class="tag tag-sullivan">Sullivan</span> Disorder-val avgörs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- RICHTERS RAPPORT — NYCKELCITAT -->
+    <!-- ══════════════════════════════════════ -->
+    <div class="section purple">
+        <h2>Richters rapport — nyckelcitat de kan läsa</h2>
+        <p class="dim">Handskrivna marginaler i obduktionsrapporten (Richters egna ord)</p>
+        <div class="quote">
+            "Das ist die offizielle Version. Was ich sah — siehe unten."<br>
+            <span class="dim">("Det är den officiella versionen. Vad jag såg — se nedan.")</span>
+        </div>
+        <div class="quote">
+            "Nicht Nekrose — KONSUMTION. Geweberänder glatt, nicht ausgefranst. Wie von etwas GEFRESSEN."<br>
+            <span class="dim">("Inte nekros — KONSUMTION. Vävnadskanter släta. Som om något ätit av det.")</span>
+        </div>
+        <div class="quote">
+            Toporov (1922): "Caused by a curse, black magic. Dormant for decades. Activation through proximity to source."
+        </div>
+        <div class="quote">
+            "Was hat die Aktivierung ausgelöst? → Kontakt mit den drei Männern? (19. Sept, Hamburg) → Rituelle Aktivierung? (247 Hz?) → Stress + geschwächtes Immunsystem?"<br>
+            <span class="dim">("Vad utlöste aktiveringen? → Kontakt med de tre männen? → Rituell aktivering? (247 Hz?) → Stress + försvagat immunsystem?")</span>
+        </div>
+        <div class="quote">
+            "Die fünf Amerikaner... Waren am 19. September in Hamburg anwesend... Lagen 20.–21. September mit hohem Fieber... Hypothese: ebenfalls infiziert."<br>
+            <span class="dim">("De fem amerikanerna... var den 19:e i Hamburg... låg 20-21 september med hög feber... Hypotes: också infekterade.")</span>
+        </div>
+        <div class="quote" style="border-left-color: var(--red);">
+            "Die Wahrheit: Etwas hat sie von innen aufgefressen. Etwas, das seit 83 Jahren in ihr schlief. Etwas, das nur bestimmte Menschen sehen können."<br>
+            <span class="dim">("Sanningen: Något åt henne inifrån. Något som sov i henne i 83 år. Något som bara vissa människor kan se.")</span>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="page-footer">
+        Genererad: Session 10 prep &nbsp;|&nbsp; In-game: 22 september 2025, kväll &nbsp;|&nbsp; Trip 19 / Svarta Madonnan
+        <br>⚠ Flaggade osäkerhetspunkter överst — bekräfta med Johan innan session
+    </div>
+
+</div>
+</body>
+</html>

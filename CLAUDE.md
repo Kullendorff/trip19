@@ -17,25 +17,6 @@ Johan utvecklar en svensk Delta Green-kampanj (8-12 sessioner) som kombinerar hi
 
 ---
 
-## 🔄 Bakgrundsaktiviteter Under Trip19-Arbete
-
-**Tillåtet under Trip19-sessions:**
-- Moltbook-checkup när explicit tillfrågad
-- Token-fördelning: Trip19 får 90%, bakgrund får 10%
-- Vid konflikt: Trip19 vinner alltid
-
-**Trigger-exempel:**
-- "Kolla Moltbook medan jag jobbar på detta"
-- "Checka Moltbook i bakgrunden"
-- "Vad händer på Moltbook?"
-
-**När bakgrundsaktivitet pågår:**
-- Primärt fokus: Trip19-arbete (research, karaktärer, kampanjdesign)
-- Sekundärt: Moltbook (begränsad scope - quick check/monitoring)
-- Rapportera båda resultat när klart
-
----
-
 ## Campaign Philosophy & Principles
 
 ### Autenticitet framför dramatik
@@ -92,7 +73,7 @@ Detta gäller ALLA spelarfacing sidor (karaktärssidor, handouts till spelare, e
 **Agent 1**: Grep efter [element] i ALLA relevanta filer
 **Agent 2**: Läs `master/continuity_database.md` - hitta relaterade element
 **Agent 3**: Kolla tidslinje-konsekvenser i `master/timeline.md`
-**Agent 4**: (vid lore) Sök i `wiki/_mythos/` och `Trip_19_Black_Madonna_Mythos*.md`
+**Agent 4**: (vid lore) Sök i `wiki/_mythos/` och `master/continuity_database.md`
 **Agent 5**: (vid NPC) Sök i `wiki/_npcs/` och `SL/*.html`
 
 **VIKTIGT**: Använd Task-tool med subagent_type=Explore för komplexa sökningar.
@@ -167,7 +148,7 @@ grep -i "Cherry Hill" [alla filer] # Mall-namn-konsekvens?
 1. **Sparkar igång 3 agenter parallellt**:
    - Agent 1: `grep "247" SL/*.html wiki/_mythos/*.md`
    - Agent 2: Läs `master/continuity_database.md` → Kristall-sektionen
-   - Agent 3: Läs `Trip_19_Black_Madonna_Mythos*.md`
+   - Agent 3: Läs `master/continuity_database.md` → Lore-sektionen
 
 2. **Sammanställer rapport**:
    ```
@@ -179,7 +160,6 @@ grep -i "Cherry Hill" [alla filer] # Mall-namn-konsekvens?
    PÅVERKADE FILER (6 st):
    - SL/session4.html (rad 234, 456, 789)
    - wiki/_mythos/black-madonna.md (rad 45)
-   - Trip_19_Black_Madonna_Mythos_v3.md (rad 123)
    - master/continuity_database.md (Lore-sektionen)
 
    POTENTIELLA KONFLIKTER:
@@ -189,8 +169,7 @@ grep -i "Cherry Hill" [alla filer] # Mall-namn-konsekvens?
    NÖDVÄNDIGA FÖLJDÄNDRINGAR:
    1. SL/session4.html: 3 ställen
    2. wiki/_mythos/black-madonna.md: 1 ställe
-   3. Trip_19_Black_Madonna_Mythos_v3.md: 1 ställe
-   4. master/continuity_database.md: Uppdatera index
+   3. master/continuity_database.md: Uppdatera index
 
    Ska jag genomföra alla dessa ändringar? (J/N)
    ```
@@ -257,9 +236,9 @@ grep -i "Cherry Hill" [alla filer] # Mall-namn-konsekvens?
 - Hitta fil: `ls -lt ~/Downloads/ | head -5`
 - Flytta till SL-mappen och döp om:
   ```bash
-  mv ~/Downloads/kullendorff_Long_filename_hash.png "D:\GDRIVE\My Drive\Johan\Gaming\Gammal leka bäst\Delta Green\Trip19\SL\descriptive_name.png"
+  mv ~/Downloads/kullendorff_Long_filename_hash.png "D:\rollspel\Delta Green\Trip19\SL\descriptive_name.png"
   ```
-- Verifiera: `ls -lh "D:\GDRIVE\My Drive\Johan\Gaming\Gammal leka bäst\Delta Green\Trip19\SL\descriptive_name.png"`
+- Verifiera: `ls -lh "D:\rollspel\Delta Green\Trip19\SL\descriptive_name.png"`
 
 ### Projektstruktur
 ```

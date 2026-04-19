@@ -32,7 +32,7 @@
 - **ROLL:** Cell leader (tekniskt), men på administrative leave sedan augusti 2025
 - **YRKESROLL:** Supervisory Special Agent, FBI Behavioral Analysis Unit 2
 - **EXPERTOMRÅDE:** Profiling, HUMINT, förhör, skjutvapen
-- **SAN:** 45/60, Breaking Point: 36 (9 poäng marginal - FARLIGT NÄRA!)
+- **SAN:** 43/60, Breaking Point: 36 (7 poäng marginal - FARLIGT NÄRA!)
 - **Breaking Point Trigger:** Innocents hurt by his actions
 - **NULÄGE:** Brutal PTSD-försämring, Volkov-besatt, familj splittrad
 
@@ -40,9 +40,11 @@
 - **ROLL:** De facto cell leader (efter Mac's leave)
 - **YRKESROLL:** Navy Chaplain Corps, Lieutenant Commander (Quantico Marine Base)
 - **EXPERTOMRÅDE:** HUMINT, pastoral care, historia, konfliktlösning
-- **SAN:** 69/80, Breaking Point: 64 (5 poäng marginal)
-- **Breaking Point Trigger:** Religious faith questioned
-- **NULÄGE:** Genomgår existentiell tro-kris efter Sea Glass-operationen
+- **SAN:** 64/77 (max sänkt från 80 via Insane Insight), Nytt Breaking Point: 48 (16 poäng marginal)
+- **Breaking Point Trigger:** Religious faith questioned → **NÅDD** Berlin 22 sept 2025
+- **DISORDER:** Besatthet (Obsession) — tvångsmässigt behov att förstå det onaturliga
+- **INSANE INSIGHT:** Unnatural +3%
+- **NULÄGE:** Breaking Point nådd. Mac övertygade honom om att drömmagi är verkligt. Kan inte sluta gräva i texter.
 - **VIKTIG:** Navy Chaplain (inte civil präst!) - kan inte ge sakrament utanför militären
 
 ### Sparky / Kai Zhang
@@ -59,7 +61,7 @@
 - **ROLL:** Heavy/demo specialist, strukturell expert, medic backup
 - **YRKESROLL:** FEMA CORE Reservist + Pennsylvania Task Force 1 (USAR Specialist)
 - **EXPERTOMRÅDE:** Första hjälpen 80% (högsta i cell), tunga maskiner, sprängning
-- **SAN:** 53/55, Breaking Point: 44 (9 poäng marginal - KRITISKT!)
+- **SAN:** 52/55, Breaking Point: 44 (8 poäng marginal - KRITISKT!)
 - **Breaking Point Trigger:** Civilian casualties
 - **ADAPTED TO HELPLESSNESS:** Förlorat 2 POW permanent (Pittsburgh 2022)
 - **VIKTIG:** Bor i campervan 200+ dagar/år, "hör Robert's röst" (död teamkamrat)
@@ -78,15 +80,15 @@
 
 ---
 
-## SAN-STATUSÖVERSIKT (DECEMBER 2025)
+## SAN-STATUSÖVERSIKT (APRIL 2026 – POST SESSION 10)
 
 | Callsign | Aktuell SAN | Max SAN | Breaking Point | Marginal | Status |
 |----------|-------------|---------|----------------|----------|--------|
-| Mac | 45 | 60 | 36 | **9** | ⚠️ KRITISK - På administrative leave |
-| Sullivan | 64 | 80 | 48 | **16** | ⛔ BREAKING POINT NÅDD - Disorder pending |
+| Mac | 43 | 60 | 36 | **7** | ⚠️ KRITISK - På administrative leave |
+| Sullivan | 64 | 77 | 48 | **16** | ⛔ BREAKING POINT NÅDD - Besatthet (Obsession), Unnatural +3 |
 | Sparky | 63 | 70 | 56 | **7** | ⚠️ VARNING - Volkov-besatt |
 | Scalpel | 68 | 75 | 60 | **7** | ⚠️ VARNING - Funktionell |
-| Trench | 53 | 55 | 44 | **9** | ⚠️ KRITISK - Adapted |
+| Trench | 52 | 55 | 44 | **8** | ⚠️ KRITISK - Adapted |
 
 **GRUPPSTATUS:** Alla nära breaking points. Mac och Trench mest kritiska. Sullivan i ledarposition trots egen kris.
 

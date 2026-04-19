@@ -135,7 +135,7 @@ Check for:
 - Address or location conflicts
 
 **Key NPCs to verify:**
-- Magda Golebowska (born 1939, terminally ill with cancer, working with cell in Berlin during November 2025)
+- Magda Orlova (born 1939, DEAD 21 September 2025 kl 15:39, Charité Hospital Berlin — parasitlarver + pankreascancer)
 - Nikolay Kalenko (orphanage owner, died Dec 31, 1941)
 - Father Ivan Chezenko (priest at Kaptyeno cathedral)
 - Dimi Nesterov (icon painter, Magda's cousin)
@@ -178,7 +178,7 @@ The agent should:
 - 1951-1958: Frankfurt Clinic (patient treatment)
 - 1972-1989: Slavic Forum gap period
 - November 2025: Campaign begins, players investigate
-- Magda: Born 1939, terminally ill with cancer (6-12 months), actively working with cell in November 2025
+- Magda Orlova: Born 1939, DEAD 21 September 2025 kl 15:39 at Charité Hospital Berlin (parasitlarver + pankreascancer steg IV)
 
 Check for:
 - Date conflicts between documents

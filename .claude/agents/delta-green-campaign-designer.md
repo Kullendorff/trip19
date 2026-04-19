@@ -452,10 +452,10 @@ EXEMPEL: Transformerade från Leningrad
 ### Scenario: Spelarna träffar Magda i Berlin (direct contact, alive)
 
 **Setup:**
-- Magda är vid liv men terminalt sjuk (cancer, 6-12 månader)
-- Hon bor i sin lägenhet i Berlin, arbetar från hemmet
-- Magda kontaktar cellen eller spelarna hittar henne genom research
-- Hon är villig att dela research men svag på energi
+- Magda Orlova är DÖD — dog 21 september 2025, kl 15:39, Charité Hospital Berlin
+- Officiellt: hjärtsvikt + pankreascancer stadium IV. Verkligt: parasitlarver åt sig igenom hjärtmuskeln
+- Dr. Richter (rättsmedicin) såg larverna, lade i formalin — han är fortfarande en resurs för cellen
+- Hennes morns dagbok (Elsa Orlovas, 1946–1952) är cellens viktigaste ledtråd
 
 **Investigation opportunities:**
 

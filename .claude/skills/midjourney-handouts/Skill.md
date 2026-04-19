@@ -102,11 +102,11 @@ German postcard aesthetic --ar 3:2 --style raw
 5. Move to SL folder and rename:
    ```bash
    mv ~/Downloads/kullendorff_Long_filename_hash.png \
-      "D:\GDRIVE\My Drive\Johan\Gaming\Gammal leka bäst\Delta Green\Trip19\SL\descriptive_name.png"
+      "D:\rollspel\Delta Green\Trip19\SL\descriptive_name.png"
    ```
 6. Verify:
    ```bash
-   ls -lh "D:\GDRIVE\My Drive\Johan\Gaming\Gammal leka bäst\Delta Green\Trip19\SL\descriptive_name.png"
+   ls -lh "D:\rollspel\Delta Green\Trip19\SL\descriptive_name.png"
    ```
 
 ## Concrete Examples

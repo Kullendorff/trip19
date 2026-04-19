@@ -15,7 +15,7 @@
 **Cell:** Chesapeake Outlaw Cell (DMV-området)
 **Nuvarande roll:** De facto Cell Leader (efter Mac's administrative leave)
 
-**Nuvarande läge:** Funktionell men djupt skadat. Genomgår existentiell tro-kris efter Sea Glass. Kan inte längre be utan att känna tomhet. 5 poäng från Breaking Point.
+**Nuvarande läge:** Breaking Point NÅDD i Berlin (22 sept 2025). Mac övertygade honom om att drömmagi/förbannelser är verkliga — det Sullivan inte kunde argumentera emot. Disorder förvärvad: **Besatthet (Obsession)**. Insane Insight aktiverad: Unnatural +3, max SAN permanent sänkt 80→77. Funktionell men djupt skadad. Kan inte sluta gräva i texter, exorcism, gnostiska evangelier. Nytt Breaking Point: 48 (margin 16 poäng).
 
 ---
 
@@ -59,27 +59,32 @@
 |----------|---------|---------|--------|
 | **HP** | 11 | 11 | (CON + STR) / 2 |
 | **WP** | 16 | 16 | POW |
-| **SAN** | 80 | 69 | POW × 5 |
-| **Breaking Point** | 64 | 64 | SAN - POW |
+| **SAN** | 77 | 64 | POW × 5 (original 80, sänkt via Insane Insight) |
+| **Breaking Point** | 48 | — | Nytt BP efter Berlin 22 sept 2025 (gamla 64 nåddes) |
 | **Adapted to Violence** | - | 0/3 | - |
 | **Adapted to Helplessness** | - | **2/3** | ⚠️ En operation från adaptation (förlorar 1D6 POW) |
 
-### SAN-Status
+### SAN-Status — BREAKING POINT NÅDD
 
-**Utgångs-SAN:** 80 (POW × 5)
-**Aktuell SAN:** 69
-**Total förlust:** 11 poäng
-**Margin kvar till Breaking Point:** 5 poäng
+**Original-SAN:** 80 (POW × 5)
+**Nuvarande tak:** 77 (sänkt permanent via Insane Insight, Berlin 22 sept 2025)
+**Aktuell SAN:** 64
+**Total förlust:** 16 poäng
+**Nytt Breaking Point:** 48 (margin 16 poäng)
+
+**Aktiv störning:** Besatthet (Obsession) — Unnatural-kategori
+**Insane Insight:** Unnatural-skill +3 (förvärvad genom konfrontation med drömmagi)
 
 **SAN-förlust per operation:**
 - Operation "Holy Ground" (Utah, 2021): -2 SAN
 - Operation "Night Terrors" (Virginia, 2023): -1 SAN
 - "The Mall Before Christmas" (December 2024): -3 SAN
 - "Sea Glass" (Maine, Maj 2025): -5 SAN
+- **Berlin/Charité + Lyubimov-research (sept 2025): -5 SAN** (BP nådd)
 
-**Främst från:** Sea Glass (maj 2025), Mall Before Christmas (2024), Holy Ground (2021)
+**Främst från:** Sea Glass (maj 2025), Berlin (sept 2025), Mall Before Christmas (2024)
 
-⚠️ **KRITISKT:** Varje operation tar sin tribut. Varje onaturlig händelse river lite mer i tron. Närmar sig gränsen där adaptation och mental skada börjar.
+⚠️ **BREAKING POINT NÅDD:** Den ackumulerade traumat har format Sullivans psyke bestående. Han kan inte sluta gräva — exorcism-texter, gnostiska evangelier, demonologi. Allt som kan förklara hur det onaturliga *passar* i Guds skapelse. Klockan tre på natten sitter han fortfarande med Lyubimovs texter.
 
 ---
 
@@ -111,6 +116,7 @@
 | **Datorvetenskap** | +20% | 20% | Grundläggande användning, ej tech-savvy |
 | **Hantverk (Möbelrestaurering)** | +30% | 30% | Restaurerar antika kyrkbänkar och möbler som meditation |
 | **Överlevnad** | +30% | 30% | Jakt, fiske, orientering i naturen |
+| **Unnatural** | +3% | 3% | ⚠️ Insane Insight (Berlin sept 2025) — fragmentarisk förståelse av drömmagi/förbannelser |
 
 ### Specialiteter - Djupdykning
 
@@ -788,7 +794,7 @@ Efter denna operation kan Sullivan inte längre be utan att känna tomhet.
 **Cell:** "Chesapeake" Outlaw Cell (DMV-området)
 **Roll:** De facto Cell Leader (efter Mac's administrative leave)
 
-**Aktuell SAN:** 69/80 (5 poäng från Breaking Point)
+**Aktuell SAN:** 64/77 (max sänkt via Insane Insight). **Breaking Point NÅDD** Berlin 22 sept 2025. Disorder: Besatthet. Nytt BP: 48 (margin 16).
 
 **Vet om Delta Green:**
 - Off-books operation utan officiell sanktion
@@ -1450,11 +1456,13 @@ De ser en funktionell chaplain, en pålitlig Delta Green-agent, en stabil ledare
 
 De ser inte mannen som inte kan be längre. Som citerar Bibeln ur minnet men inte känner orden. Som håller mässor och undrar om han ljuger för Gud eller om Gud ljuger för honom.
 
-**5 poäng från Breaking Point.**
+**Breaking Point NÅDD — Berlin, 22 september 2025.**
 
-En dålig operation till. Kanske två.
+Inte en "dålig operation". Inte fältarbete. Ett samtal. Mac, sakligt och metodiskt, förklarade varför drömmagin är verklig. Sullivan kunde inte argumentera emot.
 
-Och då?
+Nu kan han inte sluta gräva. Texter, exorcism, gnostiska evangelier. Klockan tre på natten. Handstilen blir sämre.
+
+Han vet svaret nu. Det hjälper inte.
 
 ---
 
@@ -1470,7 +1478,7 @@ Sullivan söker desperately efter bevis att Gud finns. Varje onaturlig händelse
 - Är "räddning" verkligen räddning när offer behåller traumat?
 - Om oskyldiga måste dö för "greater good" - vem bestämmer vem?
 
-**Bonds kan brytas lätt** - han är redan nära breaking point.
+**Bonds kan brytas lätt** — Breaking Point är nådd. Att undertrycka Besatthet-episoder kostar WP + bondsänkning. Relationer eroderar varje gång han kämpar ner det.
 
 ### Flexibilitet för Operationer
 
@@ -1513,23 +1521,28 @@ INGEN KAN FRÅGA:
 **Perfect för "trolley problem"-scenarios:**
 Han har redan stått vid spakarna en gång (Holy Ground - 2 dog för att rädda 8).
 
-### Sullivan's Breaking Point
+### Sullivan's Breaking Point — NÅDD
 
-Han är närmare än han tror. 2-3 operationer till som Sea Glass och han är klar.
+Berlin, 22 september 2025, Graefestraße 66. Inte en operation. Ett samtal med Mac om Lyubimovs texter. Sullivan valde **Besatthet (Obsession)** som disorder.
 
-**Tecken att han närmar sig:**
-- Börjar rationalisera brutala val utan självreflektion
-- Slutar försöka hålla Mac och Sparky emotionellt intakta
-- Accepterar att bonds måste brytas som "cost of business"
-- Slutar söka efter Gud och accepterar tomheten
-- Börjar prata om "vi" vs "de" (civila) istället av "alla vi försöker skydda"
+**Nytt Breaking Point:** 48 (margin 16 poäng)
+**Max SAN:** 77 (sänkt från 80 via Insane Insight)
+**Unnatural-skill:** 3% (Insane Insight)
 
-**Om Sullivan passerar Breaking Point:**
-- Förlorar 1D6 POW (från Adapted to Helplessness 2/3 → 3/3)
-- Kan inte längre upprätthålla chaplain-rollen trovärdigt
-- Riskerar att Jimmy Walsh märker och rapporterar
-- Kanske begår "karriärsjälvmord" - säger sanningen högt
-- Eller värre: Accepterar tomheten och blir kall, emotionslös DG-agent
+**Akut episod (Besatthet) triggas när:**
+- Ny information om förbannelsen/det onaturliga dyker upp
+- Relaterade texter, ritualer eller fenomen konfronteras
+- Sullivan får chansen att "bara kolla en sak till"
+
+**Mekanisk effekt:** −20% på alla slag som inte direkt relaterar till att studera/förstå det onaturliga fenomenet. Kan inte fokusera på annat förrän informationen bearbetats.
+
+**Undertrycka episod:** 1D4 WP + sänk en Bond med samma värde + SAN-slag.
+
+**Insane Insight (permanent):** Unnatural +3%. Max SAN permanent −3. Ju mer han förstår, desto mindre *kan* han vara hel.
+
+**Nästa Breaking Point (48) innebär:**
+- Ny disorder OCH 1D6 POW förlust (från Adapted to Helplessness 2/3 → 3/3)
+- Risk för karriärsjälvmord eller total emotionell kollaps
 
 ### Karaktärscitat
 
