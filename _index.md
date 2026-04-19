@@ -2,17 +2,19 @@
 
 **🎯 ENTRY POINT:** Läs denna fil FÖRST när du börjar arbeta med kampanjen!
 
-**Senast uppdaterad:** 2025-12-18
-**Version:** 1.0 (efter EON-inspirerad omstrukturering)
+**Senast uppdaterad:** 2026-04-20 (post Session 10)
+**Version:** 2.0 (kampanj aktiv)
 
 ---
 
 ## VAR ÄR VI NU?
 
-- **Kampanjfas:** Pre-campaign (karaktärer klara, kampanjmaterial under utveckling)
-- **Nästa milstolpe:** Session 1 - "An Unexpected Meeting"
-- **Status:** Jekyll wiki skapad, Complete.md-filer för alla 5 agenter, EON-kontinuitetssystem implementerat
-- **Senaste uppdatering:** Strukturomorganisation december 2025
+- **Kampanjfas:** Session 10 SPELAD (19 april 2026) — SA-inbrottet + Blobels motattack
+- **In-game datum:** 23 september 2025, kl 03:00 (tisdag, efter utkörningen)
+- **Nästa milstolpe:** Session 11 — förberedelser inför Pogodins Mansion kl 22:00 (Müggel Straße 89, Köpenick)
+- **Deadline:** ~19 timmar till Inner Circle-mötet
+- **Aktuell situation:** Cellen har SA-bytet (stor mängd dokument + pärmar + material från kontoren, inte hunnit gå igenom — innehåller bl.a. Mahlers almanacka, Treuber-brev, Inner Circle-lista, Mansion-blueprints, Leningrad 1942-foton), men Olaf Neumann är svårt skadad (SAN pending), Dietmar är bortförd som fånge, och den stulna Mercedes-vanen är spårbar.
+- **Se:** `CURRENT_STATE.md` för full status
 
 ---
 

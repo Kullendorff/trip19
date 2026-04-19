@@ -96,12 +96,15 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
 - **Plats:** Slavic Association-huset, Behrenstraße, Berlin-Mitte
 - **Intrång:** Sparky (Locksmithing + Stealth) ledde inbrottet. Scalpel, Mac, Sullivan och Trench spred sig i byggnaden.
   - Olaf Neumann (lokal kontakt) och Dietmar (Scalpels farbrors vän) med som stöd/utkik
-- **Byte från SA:**
-  - Mahlers almanacka — bekräftar Inner Circle-möte 23 sept kl 22:00 vid Pogodins Mansion
-  - Utkast till korruptionsbrev från Anton Mahler till polischef Treuber (omarbetat version — 72-timmars admin-förhindring)
-  - Blueprints över Pogodins Mansion, Müggel Straße 89, Köpenick (mansionens planlösning)
-  - Leningrad 1942-foton (tre pojkar identiska med Anton/Sasha/Filip idag)
-  - Inner Circle-lista (namn + ca 12 medlemmar)
+- **Byte från SA (TAGET — men INTE genomgånget ännu):**
+  - Cellen grabbade stor mängd dokument, pärmar och material från kontoren innan Blobels crew anföll — i brådskan togs allt som kändes relevant
+  - Det enda som omedelbart stod klart på plats: **Mahlers almanacka** — bekräftar möte 23 sept kl 22:00 vid Pogodins Mansion
+  - Vad som FINNS i bytet (men kräver genomgång i Session 11):
+    - Utkast till korruptionsbrev från Anton Mahler till polischef Treuber (72-timmars admin-förhindring)
+    - Blueprints över Pogodins Mansion, Müggel Straße 89, Köpenick (mansionens planlösning)
+    - Leningrad 1942-foton (tre pojkar identiska med Anton/Sasha/Filip idag — SAN 0/1 när upptäckt)
+    - Inner Circle-lista (namn + ca 12 medlemmar)
+  - **Spelarfacing-vetskap (per 23 sept kl 03:00):** "möte kl 22, Pogodins Mansion" + "en massa dokument vi måste gå igenom"
 - **Blobels motattack:**
   - Blobels crew (3–4 man) anlände medan cellen var nästan klar
   - Strid: Cellen övermannade dem till slut, men till en hög kostnad

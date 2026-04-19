@@ -104,27 +104,34 @@ Denna fil är ett **INDEX**. När du söker efter ett element:
 
 ### Handouts & Intel (Session 10)
 
-#### Mahlers almanacka
-- **Hittat:** SA-huset (Behrenstraße), Session 10
-- Bekräftar Inner Circle-möte 23 sept 2025 kl 22:00 vid Pogodins Mansion, Müggel Straße 89, Köpenick
+**VIKTIG KONTEXT:** Cellen tog med sig en stor mängd dokument/pärmar/material från SA:s kontor i brådskan när Blobels crew anföll. Endast **Mahlers almanacka** lästes/verifierades på plats. Resten av bytet är **TAGET men INTE genomgånget än** — genomgång sker i Session 11. SL vet vad som finns i bunten, spelarna vet bara att de har "en bunt hemliga dokument".
 
-#### Korruptionsbrev (Anton Mahler → polischef Treuber)
-- **Hittat:** SA-huset (utkast), Session 10
+#### Mahlers almanacka ✅ KÄND
+- **Hittat:** SA-huset (Behrenstraße), Session 10
+- **Status:** Läst på plats
+- Bekräftar möte 23 sept 2025 kl 22:00 vid Pogodins Mansion, Müggel Straße 89, Köpenick
+
+#### Korruptionsbrev (Anton Mahler → polischef Treuber) 🔒 ÄNNU EJ GENOMLÄST
+- **Hittat:** SA-huset (utkast), Session 10 — finns i bunten
+- **Status:** Inte genomgånget av cellen än
 - 72-timmars admin-förhindring mot amerikanska federala utredare
 - Se `black_madonna_chapter1.html` för brevets text (omskriven version)
 
-#### Pogodin Mansion blueprints
-- **Hittat:** SA:s arkiv, Session 10
+#### Pogodin Mansion blueprints 🔒 ÄNNU EJ GENOMLÄST
+- **Hittat:** SA:s arkiv, Session 10 — finns i bunten
+- **Status:** Inte utforskat av cellen än
 - Mansionens planlösning — Müggel Straße 89, Köpenick
 - Viktigt för infiltration 23 sept kl 22:00
 
-#### Leningrad 1942-foton
-- **Hittat:** SA-huset, Session 10
+#### Leningrad 1942-foton 🔒 ÄNNU EJ GENOMLÄST
+- **Hittat:** SA-huset, Session 10 — finns i bunten
+- **Status:** Inte sett av cellen än — **SAN 0/1-trigger väntar** när de upptäcker fotona
 - Tre pojkar 1942 = identiska med Anton Mahler / Sasha Volkov / Filip Kramer idag
-- SAN 0/1 — redan etablerat visuellt i Berlin Session 5 (83-årigt foto), men nu FYSISKT i cellens händer
+- OBS: Redan etablerat visuellt i Berlin Session 5 (83-årigt foto hos Magda), men dessa är FYSISKT SA:s kopior i cellens händer
 
-#### Inner Circle-lista (SA)
-- **Hittat:** SA-huset, Session 10
+#### Inner Circle-lista (SA) 🔒 ÄNNU EJ GENOMLÄST
+- **Hittat:** SA-huset, Session 10 — finns i bunten
+- **Status:** Inte genomgången av cellen än
 - ~12 medlemmar namngivna
 - Kräver cross-referens med Mahlers almanacka och tidigare intel
 
