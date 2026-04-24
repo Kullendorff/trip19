@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>04:17 — Graefestraße — Father Sullivan</title>
+<style>
+:root {
+    --bg-dark: #0d0a07;
+    --bg-darker: #060503;
+    --bg-panel: #15110b;
+    --lamp-warm: #c48a4a;
+    --lamp-dim: #8a6333;
+    --paper: #d8c9a4;
+    --ink: #e8dcc0;
+    --ink-dim: #9a8a6a;
+    --border: #3a2a18;
+    --blood: #8a3333;
+    --cold-blue: #5a8ac0;
+    --violet-hint: #7a6a9a;
+    --book-english: #d4af5f;
+    --latin: #a88a5a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background:
+        radial-gradient(ellipse at center top, #2a1a08 0%, var(--bg-darker) 65%);
+    background-attachment: fixed;
+    color: var(--ink);
+    line-height: 1.8;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+.container {
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    padding: 55px 60px;
+    box-shadow:
+        0 0 80px rgba(196, 138, 74, 0.12),
+        inset 0 0 40px rgba(0,0,0,0.6);
+    position: relative;
+}
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(196, 138, 74, 0.015) 2px,
+            rgba(196, 138, 74, 0.015) 4px
+        );
+    pointer-events: none;
+}
+/* varm lampring */
+.container::after {
+    content: "";
+    position: absolute;
+    top: -20px; left: 50%;
+    transform: translateX(-50%);
+    width: 300px; height: 40px;
+    background: radial-gradient(ellipse, rgba(196, 138, 74, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.header {
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 22px;
+    margin-bottom: 38px;
+    text-align: center;
+}
+.header .tag {
+    color: var(--lamp-warm);
+    font-size: 0.7em;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+}
+.header h1 {
+    color: var(--lamp-warm);
+    font-size: 1.3em;
+    letter-spacing: 4px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+.header .meta {
+    color: var(--ink-dim);
+    font-size: 0.82em;
+    letter-spacing: 1.5px;
+    margin-top: 12px;
+    font-style: italic;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 1em;
+    text-align: justify;
+}
+p.indent { padding-left: 24px; }
+
+em, .italic { font-style: italic; color: var(--ink-dim); }
+.russian { color: var(--cold-blue); font-style: italic; letter-spacing: 0.5px; }
+.latin { color: var(--latin); font-style: italic; }
+.book-en { color: var(--book-english); font-style: italic; }
+.bold { color: var(--lamp-warm); font-weight: bold; }
+.blood-word { color: var(--blood); }
+
+.sep {
+    text-align: center;
+    color: var(--lamp-dim);
+    letter-spacing: 12px;
+    margin: 32px 0;
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+.ritual-list {
+    margin: 26px 0 26px 10px;
+    padding-left: 20px;
+}
+.ritual-list li {
+    margin-bottom: 14px;
+    list-style: decimal;
+    color: var(--ink);
+    padding-left: 8px;
+}
+.ritual-list li::marker {
+    color: var(--lamp-warm);
+    font-weight: bold;
+}
+
+.names-block {
+    border-left: 2px solid var(--blood);
+    padding: 18px 22px;
+    margin: 24px 0;
+    background: rgba(0,0,0,0.3);
+    text-align: center;
+}
+.names-block .ru {
+    color: var(--blood);
+    font-size: 1.15em;
+    letter-spacing: 2px;
+    font-style: italic;
+    margin-bottom: 4px;
+}
+.names-block .ru-note {
+    color: var(--cold-blue);
+    font-style: italic;
+    font-size: 0.95em;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+}
+.names-block .sv {
+    color: var(--ink);
+    font-size: 1.05em;
+    letter-spacing: 1.5px;
+}
+.names-block .sv-note {
+    color: var(--ink-dim);
+    font-size: 0.9em;
+    font-style: italic;
+    margin-top: 2px;
+}
+
+.inscription {
+    text-align: center;
+    font-style: italic;
+    color: var(--book-english);
+    border-top: 1px dashed var(--border);
+    border-bottom: 1px dashed var(--border);
+    padding: 18px 0;
+    margin: 26px 0;
+    font-size: 0.95em;
+    letter-spacing: 1px;
+}
+
+.question {
+    text-align: center;
+    font-style: italic;
+    color: var(--lamp-warm);
+    font-size: 1.05em;
+    letter-spacing: 1px;
+    margin: 24px 0;
+}
+
+.footer {
+    border-top: 1px solid var(--border);
+    margin-top: 38px;
+    padding-top: 26px;
+    text-align: center;
+}
+.footer .clock {
+    color: var(--lamp-warm);
+    font-size: 1.6em;
+    letter-spacing: 8px;
+    display: block;
+    margin: 8px 0 14px;
+    font-family: 'Courier New', monospace;
+}
+.footer .alone {
+    color: var(--ink-dim);
+    letter-spacing: 3px;
+    font-size: 0.9em;
+    display: block;
+}
+
+.closer {
+    margin-top: 28px;
+    padding: 16px 20px;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--ink-dim);
+    font-style: italic;
+    font-size: 0.9em;
+    line-height: 1.7;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+    <span class="tag">▪ privat anteckning ▪ läs ensam ▪</span>
+    <h1>Fr. M. Sullivan</h1>
+    <div class="meta">24 september 2025 — natt — Graefestraße</div>
+</div>
+
+<p>
+Du sitter vid köksbordet i Jürgens lägenhet. Klockan är någonstans mellan två och fyra på morgonen. Framför dig, utlagda sida vid sida, ligger två saker.
+</p>
+
+<p>
+<span class="bold">Det första är en bok.</span> <span class="book-en">The Power of Dreams</span>, Filip Kramer, Black Sun Publishing, Berlin 1988. Du känner igen den. Samma bok ni hittade i travar om tio exemplar på Ernst Kochners kontor hos SA — första gången ni någonsin sett den. Bokens rygg är sliten. Någon har läst den många gånger. Det är inte Jürgen.
+</p>
+
+<p>
+På bakomslaget finns ett författarfoto. En man, kanske trettiofem, iklädd rullkrage, cigarett i handen, Berlin bakom sig. Daterat <em>Januar 1988.</em> Du har sett den mannen. Han heter fortfarande Filip Kramer. Han ser ut som han gör på fotot. Det har gått trettiosju år.
+</p>
+
+<p>
+<span class="bold">Det andra är en bunt med utskrifter.</span> Dot-matrix. Kontinuerligt papper med perforerade kanter, inte avrivna. De är översättningar av sid 25 i boken — <span class="book-en">About The Breaking of Curses Contracted by Means of the Power of Dreams.</span> Någons handstil i marginalen, ryska. Tre ord återkommer: <span class="russian">источник, носитель, освобождение.</span> Källa. Bärare. Befrielse.
+</p>
+
+<div class="sep">◦ ◦ ◦</div>
+
+<p>
+Du öppnar boken vid sid 25. Det är det enklaste steget på hela kvällen.
+</p>
+
+<p>
+Texten är engelska, men med latinska termer inflätade. Du följer den utan problem — Kramer skriver som en katolsk seminariestudent som hamnat fel. Strukturen är identisk med en exorcismmanual. <span class="latin">Ordo, materia, forma, finis.</span> Ordning. Material. Form. Syfte.
+</p>
+
+<p>
+Ritualens logik, enligt sid 25–26:
+</p>
+
+<p>
+En drömförbannelse består av tre komponenter. Den som <em>kastar</em> drömmen — <span class="book-en">dreamer</span>. Den som <em>bär</em> drömmen — <span class="book-en">sleeper</span>. Och det som <em>drömmas</em> — <span class="book-en">the dreamed.</span> Förbannelsen bryts genom att separera de tre. Man släpper det drömda fritt.
+</p>
+
+<p>
+Någon har strukit under en mening på sid 26, tre gånger: <span class="book-en">"The sleeper wakes only when the dreamers are no longer dreaming."</span>
+</p>
+
+<p>
+I marginalen, med blyerts, samma anonyma ryska handstil: <span class="russian">"требуется три источника"</span> — tre källor krävs. Och längre ner: <span class="russian">"они сами — ключи."</span> De är själva nycklarna.
+</p>
+
+<div class="sep">◦ ◦ ◦</div>
+
+<p>Ritualens steg (utdrag, förenklat):</p>
+
+<ol class="ritual-list">
+    <li>Samla <span class="book-en">material of dreaming</span> — ett fragment av <span class="book-en">dreaming stone</span>. Boken är specifik: det ska pulsera i en viss ton. Ni har två sådana fragment i hörnskåpet i Graefestraße. Du har hört dem.</li>
+    <li>Identifiera <span class="book-en">the dreamers</span> — de som kastade förbannelsen. Ritualen säger: <span class="book-en">there are always three.</span> Alltid tre. Inte två, inte fyra.</li>
+    <li>Utför <span class="latin">absolutio</span> — bokens ord. Det är ordet din ordenslärare använde i Baltimore 1998 för att beskriva syndaförlåtelsen. Här betyder det något annat. Texten är tydlig: <span class="book-en">the dreamers must depart.</span> Drömmarna måste ge sig av.</li>
+    <li>Det drömda <em>lösgörs</em> — <span class="book-en">the dreamed remains.</span></li>
+</ol>
+
+<div class="inscription">
+"The price of breaking the dream is that the dream itself persists,<br>
+free of its makers. This is not a cure. This is a release."
+<div style="font-size: 0.78em; color: var(--ink-dim); margin-top: 8px; letter-spacing: 1px;">— sid 27, utan marginalanteckning</div>
+</div>
+
+<div class="sep">◦ ◦ ◦</div>
+
+<p>
+Medan du läser, hör du hur kylskåpet startar och stannar, startar och stannar. Kranen i badrummet droppar. Du har kontrollerat den tre gånger. Den är åtdragen.
+</p>
+
+<p>
+På sid 31, sista sidan av kapitlet, finns en tryckt illustration. Den föreställer tre män som står i en källare, runt något i mitten. Tre pojkar ser på från sidan. <span class="bold">Du har aldrig sett bilden förut. Du har sett scenen förut.</span>
+</p>
+
+<p>
+Texten under bilden: <span class="book-en">"Leningrad, 1942. After Heller."</span>
+</p>
+
+<div class="sep">◦ ◦ ◦</div>
+
+<p>
+Utskrifterna går ett steg längre än boken. På den sista sidan av utskriften, i marginalen, har samma ryska handstil skrivit en kort lista. Fyra rader. Tre är namn:
+</p>
+
+<div class="names-block">
+    <div class="ru">Малер. Погодин. Крамер.</div>
+    <div class="ru-note">— пусть сделает кто-то другой.</div>
+    <div class="sv">Mahler. Pogodin. Kramer.</div>
+    <div class="sv-note">— låt någon annan göra det.</div>
+</div>
+
+<p>
+Det mellersta namnet — <span class="italic">Pogodin</span> — har du sett i tryck tidigare. På ett dokument, kanske. Du minns inte exakt var. En rapport, en rubrik, en notering i något FBI tog in från ett annat land. Det satt fast i minnet som ett av de där namnen man läser men aldrig möter.
+</p>
+
+<p>
+Du har aldrig sett mannen. Du vet inte om han är rysk eller polsk eller tjeckisk. Du vet inte om han lever. Du vet bara att namnet stod på något som passerade ditt skrivbord, eller ditt bord, eller den skärm där sådana saker visas. Och att han nu står i en handskriven lista över tre personer som någon — som skrev på ryska, i blyerts, för Gud vet hur länge sedan — förväntade sig att någon annan skulle döda.
+</p>
+
+<div class="sep">◦ ◦ ◦</div>
+
+<p>
+Boken säger att ritualen fungerar. Bokens logik är vattentät för någon som kan läsa liturgi. Det är inte vaga symboler och hopp — det är en bruksanvisning. Exorcistmanual. Stegvis. Varje steg går att verifiera.
+</p>
+
+<p>
+Det finns bara en fråga kvar, och boken svarar inte på den:
+</p>
+
+<div class="question">
+Varför skulle en av de tre själv skriva<br>
+manualen för hur man dödar de tre?
+</div>
+
+<p>
+Du vänder på boken. Bakomslaget. Filip Kramer, trettiofem år, januari 1988. Han ler inte. Han ser rakt in i kameran. Ögonen är tydliga i tryck.
+</p>
+
+<p>
+Om du tittar länge på fotot — och du har suttit här i över en timme nu — verkar det som att ögonen ligger lite fel. Inte gränd. Bara <em>placerade</em> lite fel. Som om de tillhör någon som lärt sig att bära ett ansikte men inte riktigt fått måtten rätt.
+</p>
+
+<p>
+Men det kan vara trycket. Det kan vara att du är trött. Det kan vara klockan.
+</p>
+
+<div class="footer">
+    Det är
+    <span class="clock">04 : 17</span>
+    <span class="alone">ingen annan är vaken</span>
+</div>
+
+<div class="closer">
+    Boken ligger öppen framför dig.<br>
+    Utskrifterna ligger vid sidan.<br>
+    Ingen vet att du läser detta.<br>
+    <br>
+    Vad du gör härnäst är upp till dig.
+</div>
+
+</div>
+
+</body>
+</html>

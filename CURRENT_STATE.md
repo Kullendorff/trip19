@@ -1,15 +1,19 @@
 # CURRENT STATE - Trip 19 / Svarta Madonnan
 
 ## Senast uppdaterad
-2026-04-20 (post Session 10 — narrativ dokumenterad, kalender + CURRENT_STATE uppdaterade)
+2026-04-24 (post Session 11 — Dietmar-förhör, första drömmarna, dekodning påbörjad, SAN-justeringar)
 
 ## 🎮 SPELLÄGE - Var är vi i kampanjen?
 
-**In-game datum:** 23 september 2025 (tisdag, tidig morgon efter SA-inbrottet kl 03:00)
-**Session:** Session 10 SPELAD (19 april 2026). SA-inbrott genomfört, Blobels skurkar överraskade cellen — Olaf Neumann svårt skadad (möjligen dödlig), Dietmar bortförd i den stulna Mercedes-vanen. Utkörning från SA:s innergård kl 03:00 i regn.
-**Kapitel:** Kapitel 1 — Mördarnas Dans (scen 9–10 av 18 i `black_madonna_chapter1.html`)
-**Plats:** Kreuzberg, Berlin — tillbaka till Graefestraße 66 med bytet? Eller säkrat gömställe? Pogodins Mansion (Müggel Straße 89, Köpenick) = kvällens mål kl 22:00.
-**Situation:** Cellen har brutit sig in i Slavic Association, fått tag på Mahlers almanacka (visar SA Inner Circle-möte vid Pogodins Mansion 23 sept kl 22:00), korruptionsbrevet till polischef Treuber, mansionens blueprints, Leningrad 1942-foton, samt vapen och annat från Blobels skurkar. Olaf Neumanns öde är pending — om han dör kommer det trigga ytterligare SAN-förlust. Vanen är stulen och spårbar. Dietmar är deras fånge — intel-möjlighet och risk. Sullivans Besatthet (Obsession) kommer driva honom mot Pogodins Mansion oavsett kostnad. ~19 timmar till deadline.
+**In-game datum:** 23 september 2025 (tisdag, eftermiddag) — samma dag som SA-inbrottets utkörning kl 03:00. Cellen har haft några timmars sömn (första drömmarna inträffade), förhört Dietmar, och är nu i aktiv förberedelse inför Pogodin-mötet kl 22:00.
+**Session:** Session 11 SPELAD (24 april 2026). Dietmar Kühn förhörd — **cellen avslöjade INTE att de kände till honom, SA-strukturen, Mahler, eller parasiten**; Dietmar tror fortsatt att han blev överfallen av slumpmässiga kriminella. Alla fem cellen-medlemmar har haft sina första drömmar (247 Hz-progression aktiv — parasiten börjar manifesteras psykiskt). Trench och Sparky har inlett arbetet på en anti-247 Hz-motåtgärd (signalblockerare/faraday-liknande konstruktion). Sullivan och Mac har börjat dekoda "Power of Dreams"-ritualen (Sullivans Besatthet + Macs Volkov-obsession driver arbetet). **SAN-förluster denna session:** Trench −1 (51→50), Sparky −1 (62→61). Mac/Scalpel/Sullivan: inga SAN-förändringar registrerade.
+**Kapitel:** Kapitel 1 — Mördarnas Dans (scen 11 av 18 i `black_madonna_chapter1.html`)
+**Plats:** Kreuzberg, Berlin — Graefestraße 66 (säkerhetshus, förhörs- och arbetsbas). Pogodins Mansion (Müggel Straße 89, Köpenick) = kvällens mål kl 22:00 (**~6 timmar till deadline**).
+**Situation:** Cellen har verifierat att Pogodin-mötet genomförs som planerat — ingen i Inner Circle vet att mötet är komprometterat. Blobel, Mahler och Blobels kvarvarande crew (Sauer, Brandt, ev. Olaf) är **arga och vakna** men saknar fortfarande tillräcklig intel för att spåra cellen direkt — de vet att någon slog till mot SA, men Dietmar kan inte (och har inte) avslöjat cellens identitet eller syfte eftersom han inte förstår vad som hände. Dietmar förblir fånge i Graefestraße 66 — har gett intel om Blobels operation och SA:s säkerhetsupplägg, men fortfarande omedveten om parasiten/kristallerna. **Kritiska pågående arbetsströmmar:**
+- **Sullivan + Mac:** Dekoda "Power of Dreams"-ritualen (Leningrad-dokument + Morns dagbok + Volkovs anteckningar)
+- **Trench + Sparky:** Bygga anti-247 Hz-motåtgärd inför mansion-infiltrationen
+- **Scalpel:** (arbetsström ej specificerad denna session — möjligen medicinsk backup/larvanalys)
+- **Alla fem:** Första drömmarna har kommit — SL-facing: detta är parasit-progression steg 1, ej ännu manifesterade symptom
 
 **Sessionsöversikt (spelade):**
 | Session | In-game datum | Vad hände |
@@ -22,7 +26,8 @@
 | 7 | 19–21 sept 2025 | Författarkvällen (Thalia, Hamburg). Magdas lägenhet Brahmsallee 16. Feber 1.5 dygn. |
 | 8 | 21 sept 2025 | Hamburg→Berlin: Brahmsallee utpasset → Richters samtal → Tåg/bil → Berlin ~01:00. Charité ~02:00 (dödsbesked + larvprov). |
 | **9** | **22 sept 2025** | **Charité (diagnos, alla positiva). Leibnizstraße tömd. Dagboksöversättning påbörjad. Span på SA. Sullivan når Breaking Point — väljer Besatthet.** |
-| **10** | **22 sept kväll → 23 sept kl 03:00** | **SPELAD 19 april 2026. SA-inbrott genomfört (Behrenstraße). Hittade Mahlers almanacka + korruptionsbrev till Treuber + Pogodin-blueprints + Leningrad 1942-foton + Inner Circle-lista. Nästan klara när Blobels skurkar slog till. Strid: Olaf Neumann svårt skadad (möjligen dödlig/permanenta men — SAN pending), Dietmar bunden och bortförd i skurkarnas stulna Mercedes-van. Cellen tog även vapen + intel från Blobels crew. Utkörning kl 03:00 i regn med skrikande däck. Mac −2 SAN, Trench −1 SAN (ännu ej i Discord JSON). Skill improvements: Scalpel Krav Maga +1 (41%), Sparky Stealth +2 (32%) + Craft (Locksmithing) +1 (41%).** |
+| **10** | **22 sept kväll → 23 sept kl 03:00** | **SPELAD 19 april 2026. SA-inbrott genomfört (Behrenstraße). Hittade Mahlers almanacka + korruptionsbrev till Treuber + Pogodin-blueprints + Leningrad 1942-foton + Inner Circle-lista. Nästan klara när Blobels fyra-mannacrew slog till. Strid: samtliga fyra Blobel-operatörer nedkämpade — Olaf Neumann (Schatten) enda allvarligt skadad, Dietmar Kühn (Eisblock — teamledare) bunden och bortförd som fånge, Ralf Sauer (Bremse) och Uwe Brandt (Das Fahrrad) oskadade men medvetslösa kvar på platsen (kommer prata när de vaknar). Cellen stal svart Mercedes-van från SA:s innergård (ej Blobels BMW X5 — den missade de) samt vapen + SA-intel från Blobel-crewen. Utkörning kl 03:00 i regn med skrikande däck. Inga förföljare just nu. Mac −2 SAN, Trench −1 SAN (ännu ej i Discord JSON). Skill improvements: Scalpel Krav Maga +1 (41%), Sparky Stealth +2 (32%) + Craft (Locksmithing) +1 (41%).** |
+| **11** | **23 sept 2025 eftermiddag** | **SPELAD 24 april 2026. Dietmar Kühn förhörd i Graefestraße 66 — cellen dolde sin kunskap om SA/Mahler/parasiten, Dietmar tror fortsatt att han blev rånad av slumpmässiga kriminella. Intel extraherat om Blobels operation och SA-säkerhet. Alla fem har haft första drömmarna (247 Hz-parasit manifesteras psykiskt). Sullivan + Mac inleder dekodning av "Power of Dreams"-ritualen. Trench + Sparky påbörjar bygge av anti-247 Hz-motåtgärd. Blobel/Mahler/crew är arga och vakna men saknar spår till cellen (Dietmar kan inte avslöja det han inte vet). Pogodin-mötet kl 22:00 i mansion bekräftat att genomföras som planerat. SAN-förluster: Trench −1 (→50), Sparky −1 (→61). Uppdaterat i Discord JSON 24 april 2026.** |
 
 ---
 
@@ -48,13 +53,13 @@
 - #1: Ryssland-finansiering ($100k) behöver lösas innan kapitel 5
 - #4: Interpol/biometri om de begår brott i Tyskland
 
-**Karaktärsobservationer (efter Session 10, 19 april 2026):**
-- Mac: **SAN 43/60**, Breaking Point-marginal = **7** (ännu närmare kris). Parasit-positiv. (−2 SAN Session 10)
-- Trench: **SAN 52/55**, BP 44, marginal **8**. Adapted Helplessness 3/3. (−1 SAN Session 10, ännu ej reflekterat i Discord JSON — uppdatera manuellt)
+**Karaktärsobservationer (efter Session 11, 24 april 2026):**
+- Mac: **SAN 43/60**, Breaking Point-marginal = **7** (ännu närmare kris). Parasit-positiv. Dekodar "Power of Dreams"-ritualen med Sullivan.
+- Trench: **SAN 50/55**, BP 44, marginal **6**. Adapted Helplessness 3/3. (−1 SAN Session 11 — uppdaterad i Discord JSON 24 april 2026.) Bygger anti-247 Hz-motåtgärd med Sparky.
 - Scalpel: SAN 68/75, BP 60, marginal 8. +1 Krav Maga (41%).
-- Sparky: SAN 63/70, BP 56, marginal 7. +2 Stealth (32%), +1 Craft (Locksmithing) (41%).
-- Sullivan: **BREAKING POINT NÅDD** (Session 9, SAN 69→64, BP 64→48). Disorder: **Besatthet (Obsession)** — fokus Svarta Madonnan/Volkov. Insane Insight: Unnatural +3% (trained class). Max SAN: 80→77.
-- Alla 5: Infekterade, bekräftat via Richters tester. 2–6 månader kvar. Onda drömmar — 247 Hz.
+- Sparky: **SAN 61/70**, BP 56, marginal **5**. +2 Stealth (32%), +1 Craft (Locksmithing) (41%). (−1 SAN Session 11 — uppdaterad i Discord JSON 24 april 2026.) Bygger anti-247 Hz-motåtgärd med Trench.
+- Sullivan: **BREAKING POINT NÅDD** (Session 9, SAN 69→64, BP 64→48). Disorder: **Besatthet (Obsession)** — fokus Svarta Madonnan/Volkov. Insane Insight: Unnatural +3% (trained class). Max SAN: 80→77. Dekodar "Power of Dreams"-ritualen med Mac.
+- **Alla 5: Första drömmarna har inträffat (Session 11)** — parasitens 247 Hz-progression manifesteras psykiskt. Infekterade vid Magdas död 21 sept (exponering för larvmanifestation). Richters blodprov 22 sept **bekräftade** infektionen — orsakade den inte. Latent men nu symptomatisk (drömmarna). 2–6 månader kvar vid passivt förlopp. (OBS: Pogodin-ritualens "fingertouch" aktiverar/accelererar mot 6-stegs progression — se `SL/black_madonna_ritual_teknisk.html`.)
 
 ---
 
@@ -95,7 +100,7 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
 - **In-game:** 22 sept 2025 kväll → 23 sept 2025 kl 03:00 (utkörning)
 - **Plats:** Slavic Association-huset, Behrenstraße, Berlin-Mitte
 - **Intrång:** Sparky (Locksmithing + Stealth) ledde inbrottet. Scalpel, Mac, Sullivan och Trench spred sig i byggnaden.
-  - Olaf Neumann (lokal kontakt) och Dietmar (Scalpels farbrors vän) med som stöd/utkik
+  - Ingen extern "lokal kontakt" — cellen körde operationen själv
 - **Byte från SA (TAGET — men INTE genomgånget ännu):**
   - Cellen grabbade stor mängd dokument, pärmar och material från kontoren innan Blobels crew anföll — i brådskan togs allt som kändes relevant
   - Det enda som omedelbart stod klart på plats: **Mahlers almanacka** — bekräftar möte 23 sept kl 22:00 vid Pogodins Mansion
@@ -105,20 +110,27 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
     - Leningrad 1942-foton (tre pojkar identiska med Anton/Sasha/Filip idag — SAN 0/1 när upptäckt)
     - Inner Circle-lista (namn + ca 12 medlemmar)
   - **Spelarfacing-vetskap (per 23 sept kl 03:00):** "möte kl 22, Pogodins Mansion" + "en massa dokument vi måste gå igenom"
-- **Blobels motattack:**
-  - Blobels crew (3–4 man) anlände medan cellen var nästan klar
-  - Strid: Cellen övermannade dem till slut, men till en hög kostnad
-  - **Olaf Neumann svårt skadad** — slagen i huvudet, möjligen dödligt eller permanenta men. Trench −1 SAN (bevittnade)
-  - **Dietmar bunden och bortförd** som fånge — cellen tog honom med sig i bytet
+- **Blobels motattack (se `SL/blobels_busar.html` för fullständig NPC-spec):**
+  - Blobels fyra-mannacrew anlände medan cellen var nästan klar — alla fyra ex-Stasi/HVA-operatörer
+    - **Dietmar Kühn** ("Eisblock") — teamledare, 58 år, ex-HVA, Blobels högra hand sedan 2003
+    - **Ralf Sauer** ("Bremse") — grovjobbare, 54 år, ex-Stasi Hohenschönhausen
+    - **Olaf Neumann** ("Schatten") — smygare/förare, 49 år, ex-NVA Kommando
+    - **Uwe Brandt** ("Das Fahrrad") — chaufför, 52 år, satt i BMW X5 med motorn igång
+  - Strid: Cellen övermannade ALLA FYRA
+  - **Olaf Neumann (Schatten) — ENDA ALLVARLIGT SKADADE** — slagen i huvudet, möjligen dödligt eller permanenta men. Trench −1 SAN (bevittnade misshandeln/0/1 Helplessness eller Violence)
+  - **Dietmar Kühn (Eisblock) bunden och bortförd** som fånge — cellen tog honom med i flykten i Mercedes-vanen. Vet allt om Blobels operation och SA:s säkerhetsupplägg, vet INTE om parasiten/kristallerna ("proffs, inte troende")
+  - **Ralf Sauer (Bremse) & Uwe Brandt (Das Fahrrad)** — oskadda men nedkämpade/medvetslösa på platsen. **Kommer vakna och kunna prata inom timmar** — egot har fått en törn, inte kroppen. Brandt är den farligaste — hans Berlin-kunnighet och lojalitet mot jobbet gör honom till ett verkligt hot när han är medveten igen.
   - Cellen tog även: vapen, ammunition, en mapp med SA-intel från Blobels crew
-  - **Stal Blobels svarta Mercedes-van** (spårbar — tidskänsligt)
+  - **Stal svart Mercedes-van från SA:s innergård** (spårbar — tidskänsligt). Blobels BMW X5 (Brandts bil, 50 m bort med motorn igång) lämnades — missades av cellen.
 - **Utkörning:** 23 sept kl 03:00 i regn från SA:s innergård, skrikande däck
 - **SAN-förluster:** Mac −2 SAN (utlösare ej dokumenterad än), Trench −1 SAN (Olafs skador). Discord JSON uppdaterad för Mac, Trench pending manuell uppdatering.
 - **Skill improvements (`/dgendsession`):** Scalpel Krav Maga +1 (→41%), Sparky Stealth +2 (→32%) + Craft (Locksmithing) +1 (→41%)
 - **Pending:**
   - Olafs öde (död/lever/permanenta men) → resterande SAN-förlust när cellen får reda på det
-  - Dietmar-förhör (intel-möjlighet vs risk — han vet att de har honom)
-  - Vanen måste dumpas/bytas (spårbar)
+  - Dietmar Kühn-förhör (intel-guldgruva: Blobels op + SA-säkerhet; vet inte om parasiten/kristallerna). Moraliskt/praktiskt dilemma — Sullivans Besatthet kan pusha mörka val
+  - Sauer + Brandt lämnade medvetslösa på SA-innergården → vaknar inom timmar, kan peka ut cellen för polis/Blobel. Brandt är Berlin-kunnig proffsförföljare när han är medveten
+  - Vanen måste dumpas/bytas (spårbar — SA äger den, polisen kommer leta snabbt)
+  - Blobel får rapport inom ~6h → eskalering: polischefs-nivå, Interpol-flaggor, hyrda ryssar
   - Cellen har ~19 timmar till Pogodins Mansion-deadline (23 sept kl 22:00)
 - **Filer uppdaterade:**
   - `calendar.html`: CURRENT_DATE → 2025-09-23, expanderad 22 sept + ny 23 sept (Pogodin kl 22:00)
@@ -304,15 +316,10 @@ Delta Green-kampanj på svenska med 5 spelarkaraktärer (Chesapeake Cell):
 - **Lärdomar**: "Hammer & Nail"-problem - inte alla handouts behöver genereras med AI. HTML är bättre för exakt text/datum/layout.
 - **Meta-bild**: `SL/late_night_coding_4am.png` - Dokumentation av 04:00-kodning istället för sömn 😴
 
-**Sparky Färgscheman PoC** - Januari 2026 ✅
-- **Skapade 5 Proof-of-Concept sidor** för Sparky/Kai Zhang (16 jan 2026):
-  - `Sparky/sparky_poc1_nsa_classified.html` - NSA Classified (Steel Blue #64b5f6, IBM Plex Mono)
-  - `Sparky/sparky_poc2_cybersecurity_pro.html` - Cybersecurity Pro (Lila/Cyan #8b5cf6, JetBrains Mono)
-  - `Sparky/sparky_poc3_dark_terminal.html` - Dark Terminal Elite (Amber #ffb86c, Cascadia Code)
-  - `Sparky/sparky_poc4_stealth_mode.html` - Stealth Mode (Mörkgrå minimalism, SF Mono)
-  - `Sparky/sparky_poc5_signal_intelligence.html` - Signal Intelligence (Teal #14b8a6, Anonymous Pro)
-- **Syfte**: Modernare alternativ till neon-grön "Hollywood hacker"-look
-- **Rekommendation**: PoC #5 Signal Intelligence (passar NSA SIGINT-bakgrund)
+**Sparky Färgscheman PoC** - Januari 2026 (borttaget april 2026)
+- Skapade 5 Proof-of-Concept sidor för Sparky/Kai Zhang (16 jan 2026) som alternativ till neon-grön "Hollywood hacker"-look
+- PoC-filer borttagna 2026-04-24 efter att valet landat på befintlig neon-grön stil
+- Rekommendationen var PoC #5 Signal Intelligence (Teal, Anonymous Pro) men aldrig implementerad
 
 **Emily Johnson & Storage Facility** - Januari 2026 ✅
 - **Emily Johnson adress etablerad** (16 jan 2026):

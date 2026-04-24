@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brief Treuber — Entwurf 03 — 22.09.2025</title>
+<style>
+:root {
+    --paper: #f4ede0;
+    --paper-shadow: #e5dbc4;
+    --ink: #1a1a1a;
+    --ink-soft: #2d2a24;
+    --ink-faded: #5a544a;
+    --ink-redlined: #7a1a1a;
+    --header-line: #8a7a5a;
+    --stamp: #6a3030;
+    --meta-bg: #2a2620;
+    --meta-text: #c8bfa8;
+    --meta-label: #8a8068;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background: #1a1612;
+    color: var(--ink);
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+.document {
+    max-width: 760px;
+    margin: 0 auto 30px;
+    background: var(--paper);
+    background-image:
+        radial-gradient(ellipse at 15% 20%, rgba(212, 195, 160, 0.25) 0%, transparent 40%),
+        radial-gradient(ellipse at 85% 70%, rgba(212, 195, 160, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 30% 90%, rgba(180, 160, 120, 0.15) 0%, transparent 35%);
+    padding: 60px 70px;
+    box-shadow:
+        0 2px 4px rgba(0,0,0,0.3),
+        0 12px 40px rgba(0,0,0,0.5);
+    position: relative;
+    line-height: 1.7;
+    font-size: 15px;
+    color: var(--ink);
+}
+.document::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 40px,
+            rgba(180, 160, 120, 0.03) 40px,
+            rgba(180, 160, 120, 0.03) 41px
+        );
+    pointer-events: none;
+}
+
+/* BREVHUVUD */
+.letterhead {
+    border-bottom: 2px solid var(--header-line);
+    padding-bottom: 18px;
+    margin-bottom: 32px;
+    position: relative;
+}
+.letterhead .org-name {
+    font-size: 1.25em;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: var(--ink);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+.letterhead .org-meta {
+    font-size: 0.82em;
+    color: var(--ink-faded);
+    line-height: 1.5;
+    letter-spacing: 0.3px;
+}
+.letterhead .org-meta em {
+    font-style: italic;
+}
+
+/* ADRESSAT */
+.address-block {
+    margin-bottom: 32px;
+    font-size: 0.95em;
+    line-height: 1.55;
+    color: var(--ink-soft);
+}
+.address-block .confidential {
+    margin-top: 10px;
+    font-style: italic;
+    color: var(--ink-redlined);
+    font-size: 0.88em;
+    letter-spacing: 1px;
+}
+
+/* DATUM */
+.date-line {
+    text-align: right;
+    margin-bottom: 28px;
+    font-size: 0.95em;
+    color: var(--ink-soft);
+    font-style: italic;
+}
+
+/* ÄRENDERAD */
+.subject-line {
+    font-weight: bold;
+    margin-bottom: 28px;
+    font-size: 0.95em;
+    letter-spacing: 0.3px;
+}
+
+/* ANREDE */
+.greeting {
+    margin-bottom: 22px;
+    font-style: italic;
+}
+.greeting .familiar {
+    font-size: 0.95em;
+    color: var(--ink-faded);
+    display: block;
+    margin-top: 4px;
+    margin-left: 10px;
+}
+
+/* BRÖDTEXT */
+p.body {
+    margin-bottom: 18px;
+    text-align: justify;
+    text-indent: 0;
+    hyphens: auto;
+}
+p.body.indent {
+    text-indent: 24px;
+}
+
+.de-term {
+    font-style: italic;
+    color: var(--ink-soft);
+}
+.emphasis {
+    font-style: italic;
+}
+
+ol.requests {
+    margin: 22px 0 22px 8px;
+    padding-left: 32px;
+}
+ol.requests li {
+    margin-bottom: 14px;
+    padding-left: 6px;
+    text-align: justify;
+}
+ol.requests li strong {
+    color: var(--ink);
+}
+
+/* AVSLUTNING */
+.closing {
+    margin-top: 28px;
+    margin-bottom: 8px;
+    text-align: justify;
+}
+.closing .formal-sign-off {
+    margin-top: 24px;
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
+.signature-block {
+    margin-top: 8px;
+    padding-top: 6px;
+}
+.signature-block .sig-name {
+    font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+    font-size: 1.7em;
+    color: var(--stamp);
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    line-height: 1;
+}
+.signature-block .sig-title {
+    font-size: 0.92em;
+    font-weight: bold;
+    color: var(--ink-soft);
+}
+.signature-block .sig-subtitle {
+    font-size: 0.86em;
+    color: var(--ink-faded);
+    font-style: italic;
+}
+
+/* P.S. */
+.postscript {
+    margin-top: 30px;
+    padding-top: 18px;
+    border-top: 1px dotted var(--header-line);
+    font-size: 0.92em;
+    font-style: italic;
+    color: var(--ink-soft);
+    line-height: 1.65;
+}
+.postscript strong {
+    font-style: normal;
+    font-weight: bold;
+    color: var(--ink);
+    letter-spacing: 1px;
+    margin-right: 6px;
+}
+
+/* METADATA-BOX (Sparkys vy) */
+.metadata {
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--meta-bg);
+    color: var(--meta-text);
+    padding: 22px 28px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12.5px;
+    line-height: 1.65;
+    border-left: 3px solid #4a7a2a;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+.metadata .meta-head {
+    color: #8abf5a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.82em;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #3a4028;
+    padding-bottom: 8px;
+}
+.metadata .meta-row {
+    margin-bottom: 4px;
+}
+.metadata .meta-label {
+    color: var(--meta-label);
+    display: inline-block;
+    min-width: 180px;
+}
+.metadata .meta-value {
+    color: var(--meta-text);
+}
+.metadata .meta-flag {
+    color: #d87a3a;
+}
+.metadata .meta-ok {
+    color: #8abf5a;
+}
+</style>
+</head>
+<body>
+
+<!-- SJÄLVA BREVET -->
+<div class="document">
+
+    <!-- BREVHUVUD -->
+    <div class="letterhead">
+        <div class="org-name">Slavische Kulturvereinigung e.V.</div>
+        <div class="org-meta">
+            Behrenstraße 47 &middot; 10117 Berlin<br>
+            <em>Vereinsregister VR 28471 B &middot; Amtsgericht Charlottenburg</em><br>
+            Präsident: Dr. Anton Mahler &middot; Tel. +49 30 2847 1902 &middot; Fax +49 30 2847 1903
+        </div>
+    </div>
+
+    <!-- ADRESSAT -->
+    <div class="address-block">
+        Herrn Polizeipräsidenten<br>
+        <strong>Harald Treuber</strong><br>
+        Polizeidirektion 3 &middot; Abschnitt 61<br>
+        Friedrichshain<br>
+        10247 Berlin
+        <div class="confidential">— Persönlich / Vertraulich —</div>
+    </div>
+
+    <!-- DATUM -->
+    <div class="date-line">Berlin, den 22. September 2025</div>
+
+    <!-- ÄRENDERAD -->
+    <div class="subject-line">
+        <span class="de-term">Betreff:</span> Administrative Angelegenheit &mdash; <span class="de-term">Ihre freundliche Aufmerksamkeit erbeten</span>
+    </div>
+
+    <!-- ANREDE -->
+    <div class="greeting">
+        Sehr geehrter Herr Polizeipräsident Treuber,
+        <span class="familiar">lieber Harald &mdash;</span>
+    </div>
+
+    <!-- BRÖDTEXT -->
+    <p class="body">
+        det är med blandade känslor jag återigen vänder mig till Dig i en fråga som kräver den diskretion och det sinne för proportioner som Du under våra många år av samarbete har visat Dig besitta.
+    </p>
+
+    <p class="body">
+        Jag ber om ursäkt för att jag stör Dig en lördag, men omständigheterna är sådana att vår normala kommunikationsväg via fru Krausst bedöms olämplig.
+    </p>
+
+    <p class="body">
+        Sedan fredagens eftermiddag har vi hos Kulturvereinigungen noterat en förhöjd uppmärksamhet från individer som vi har anledning att tro representerar amerikanska federala myndigheter &mdash; närmare bestämt personal från <span class="de-term">Federal Bureau of Investigation</span> samt, enligt våra egna observationer, tekniska tjänster. Det rör sig sannolikt om fyra till fem personer, varav minst en religiös rådgivare med militär anknytning. De har etablerat surveillance-positioner i Kreuzberg och har under de senaste trettiosex timmarna även intresserat sig för lokaler anknutna till Kulturvereinigungen i Mitte.
+    </p>
+
+    <p class="body">
+        Vi har självklart inget att dölja för våra egna myndigheter, vilket jag vid upprepade tillfällen har betonat. Vår verksamhet är registrerad, våra medlemsregister är tillgängliga för Berlin-polisen, och vårt samarbete med Förbundsrepubliken är dokumenterat in i minsta detalj.
+    </p>
+
+    <p class="body">
+        Det är just därför vi finner den aktuella situationen oacceptabel.
+    </p>
+
+    <p class="body">
+        Amerikanska federala utredare som opererar på tysk mark utan <span class="de-term">BKA</span>-koordinering utgör &mdash; som Du är fullt medveten om &mdash; en diplomatisk komplikation. Vår förening har ett antal aktiviteter inplanerade under den kommande veckan som, om de skulle störas av utländsk inblandning, skulle föranleda klagomål från flera medlemsstater i Östeuropa samt från enskilda medborgare med betydande politisk tyngd.
+    </p>
+
+    <p class="body">
+        Vi ber därför &mdash; <span class="emphasis">och jag ber här i eget namn, inte i föreningens</span> &mdash; om följande:
+    </p>
+
+    <ol class="requests">
+        <li>
+            Att en administrativ <span class="de-term">Vorprüfung</span> initieras mot varje amerikansk federal förfrågan rörande Slavische Kulturvereinigung eller dess medlemmar som inkommer till Berlin-polisen under de kommande <strong>sjuttiotvå (72) timmarna</strong>. <span class="de-term">Vorprüfungen</span> behöver inte vara utförlig; det räcker med sedvanlig hantering enligt <span class="de-term">§14 BKAG</span>.
+        </li>
+        <li>
+            Att eventuella överenskommelser om informationsutbyte med amerikanska representanter som har hanterats via Din avdelning, med sedvanlig diskretion läggs till handlingarna tills situationen klarnat.
+        </li>
+        <li>
+            Att om Du &mdash; i Din egenskap av <span class="de-term">Polizeipräsident</span> &mdash; skulle bli kontaktad personligen av representanter för FBI, NSA eller annan amerikansk myndighet rörande vår förening, Du vänligen informerar undertecknad innan svar lämnas.
+        </li>
+    </ol>
+
+    <p class="body">
+        Jag behöver inte påminna Dig om att vi under de nio år som vår relation har varit av ömsesidig nytta, inte vid ett enda tillfälle har ställt Dig inför en situation där Din professionella integritet har utmanats. Det är vår ambition att så skall förbli. Den ersättning som under september månad har förts till det konto vi sedan 2019 har använt för praktiska ändamål, återspeglar vår uppskattning av Din kontinuerliga lojalitet och Ditt omdöme.
+    </p>
+
+    <p class="body">
+        Jag ser fram emot Ditt sedvanligt välvilliga svar, gärna via den kanal vi tidigare har funnit mest diskret.
+    </p>
+
+    <div class="closing">
+        <div class="formal-sign-off">
+            Mit vorzüglicher Hochachtung,
+        </div>
+
+        <div class="signature-block">
+            <div class="sig-name">A. Mahler</div>
+            <div class="sig-title">Dr. Anton Mahler</div>
+            <div class="sig-subtitle">Präsident, Slavische Kulturvereinigung e.V.</div>
+        </div>
+    </div>
+
+    <!-- P.S. -->
+    <div class="postscript">
+        <strong>P.S.</strong> Den fråga Du förra månaden nämnde rörande Din sons ansökan till Humboldt-Universität &mdash; jag har talat med rektor Schönbach, och han ser fram emot att träffa Jonas personligen nästa fredag. Hälsa honom från mig, och ge Gertrude mina varmaste tankar.
+    </div>
+
+</div>
+
+<!-- METADATA — VAD SPARKY SER I DOKUMENTFILEN -->
+<div class="metadata">
+    <div class="meta-head">▪ file metadata &mdash; extracted by K. Zhang (NSA) ▪</div>
+
+    <div class="meta-row"><span class="meta-label">Filnamn:</span> <span class="meta-value">Brief_Treuber_Entwurf_03.docx</span></div>
+    <div class="meta-row"><span class="meta-label">Sökväg:</span> <span class="meta-value">\\SA-FS01\Sekretariat\Mahler\Korrespondenz\Entwürfe\</span></div>
+    <div class="meta-row"><span class="meta-label">Författare:</span> <span class="meta-value">A. Mahler <span class="meta-flag">(faktisk redaktör: Ada Lohman — dikterad)</span></span></div>
+    <div class="meta-row"><span class="meta-label">Skapad:</span> <span class="meta-value">22.09.2025 &middot; 14:12:07</span></div>
+    <div class="meta-row"><span class="meta-label">Senast sparad:</span> <span class="meta-value">22.09.2025 &middot; 18:47:33</span></div>
+    <div class="meta-row"><span class="meta-label">Redigeringssessioner:</span> <span class="meta-value">3 &middot; totalt 4h 35m aktiv tid</span></div>
+    <div class="meta-row"><span class="meta-label">Tidigare utkast i mappen:</span> <span class="meta-value">Entwurf_01.docx (14:18), Entwurf_02.docx (16:02) &mdash; successivt mjukare formuleringar kring "ersättning" och "kontot"</span></div>
+    <div class="meta-row"><span class="meta-label">E-postutkast:</span> <span class="meta-value meta-flag">nästan färdig — h.treuber@berlin-polizei.de — bifogad PDF — EJ SKICKAT (Mahler hann inte trycka Senden)</span></div>
+    <div class="meta-row"><span class="meta-label">Senaste åtkomst av Mahler:</span> <span class="meta-value">22.09.2025 &middot; 18:47 &mdash; därefter inga ändringar (cellen tog datorn 23.09 &middot; 02:40)</span></div>
+    <div class="meta-row" style="margin-top: 14px;"><span class="meta-label">Systemanmärkning:</span> <span class="meta-value meta-ok">dokumentet är autentiskt &mdash; ingen antydan till fabrication, ingen revisionshistorik raderad</span></div>
+</div>
+
+</body>
+</html>

@@ -15,10 +15,10 @@
 **Clearance:** Top Secret / SCI (Sensitive Compartmented Information)
 
 **Nuvarande status:** Aktiv DG-operatör, obsessed med att hitta Dmitri Volkov
-**SAN:** 63/70 (Starting: 70)
-**Breaking Point:** 56
+**SAN:** 61/70 (Starting: 70) — Berlin Session 10 −1, Session 11 −1 (Dietmar-förhör / första 247 Hz-drömmen)
+**Breaking Point:** 56 (marginal: 5)
 **Adapted to Violence:** 2/3
-**Adapted to Helplessness:** 0/5
+**Adapted to Helplessness:** 0/3
 
 **Adress:** Apartment 3G, C Street Flats, 24 C Street, Laurel, MD 20707
 **Telefon:** (301) 555-7824 (roterar burner numbers var 48:e timme)
@@ -42,8 +42,8 @@
 **Summa:** 75 poäng
 **HP:** 10 (genomsnitt av STR och CON)
 **WP:** 14 (samma som POW)
-**SAN:** 63/70 (Starting: 70, nuvarande: 63)
-**Breaking Point:** 56
+**SAN:** 61/70 (Starting: 70, nuvarande: 61)
+**Breaking Point:** 56 (marginal: 5)
 
 ### Färdigheter (Professional Skills - 460 poäng)
 
@@ -96,9 +96,10 @@
 - **NSA Colleagues**: Distanced (can't be real around them)
 
 **SAN Loss Distribution:**
-- 7 SAN loss total över 7 operations (2022-2025)
+- 9 SAN loss total (2022-2025 ops + Berlin Session 10 &minus;1 + Session 11 &minus;1)
 - Adapted to Violence: 2/3 (från "The Mall Before Christmas" och tidigare ops)
 - Breaking Point shifted efter Volkov escaped: mental health deteriorating
+- Session 11 (23 sept 2025): Första parasit-drömmen (247 Hz) + Dietmar-förhör. Sparky arbetar med Trench på anti-247 Hz-motåtgärd.
 
 ---
 
@@ -212,7 +213,7 @@ Delta Green identifierade henne via NSA surveillance av anomalous signals från 
 - Building custom tools for next encounter
 
 **Personal:**
-- SAN 63/70, deteriorating mental health
+- SAN 61/70, deteriorating mental health
 - Sleep deprivation (4-5 tim/natt)
 - Relationship med mor distant (kan inte berätta vad hon gör)
 - Mr. Walsh (granne 4A) = enda stabila sociala kontakten
@@ -1116,7 +1117,7 @@ Delta Green identifierade henne via NSA surveillance av anomalous signals från 
 
 **Operational:**
 - 7 operations completed
-- SAN 63/70 (7 points lost)
+- SAN 61/70 (9 points lost — inkl. Berlin Session 10 −1, Session 11 −1)
 - Breaking Point: 56
 - Adapted to Violence: 2/3 (Mall op + earlier firefight)
 - Adapted to Helplessness: 0/5
@@ -1680,10 +1681,10 @@ Precis som allt annat i hennes liv.
 
 ### Mental Health (2025)
 
-**SAN: 63/70**
+**SAN: 61/70**
 - Starting SAN: 70 (POW 14 × 5)
-- Lost: 7 points över 7 operations (2022-2025)
-- Breaking Point: 56 (SAN - adaptations)
+- Lost: 9 points (2022-2025 ops + Berlin Session 10 −1 + Session 11 −1)
+- Breaking Point: 56 (SAN - adaptations) — **marginal: 5 poäng**
 
 **Adapted to Violence: 2/3**
 - From: "The Mall Before Christmas" firefight (Dec 2024)
@@ -1802,9 +1803,9 @@ Avoidant. Easier to be alone than risk betrayal/discovery. Pushes people away be
 
 ### Breaking Point Risk
 
-**Current SAN:** 63/70
+**Current SAN:** 61/70
 **Breaking Point:** 56
-**Buffer:** 7 points
+**Buffer:** 5 points
 
 **Triggers that could push her over:**
 1. Volkov encounter (high SAN loss likely)

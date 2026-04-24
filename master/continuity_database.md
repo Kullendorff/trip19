@@ -54,39 +54,39 @@ Denna fil är ett **INDEX**. När du söker efter ett element:
   - Frankfurt Clinic-patienter 1946
   - Slavic Association-koppling
 
-### Session-NPCs (Berlin — Session 10)
+### Antagonister — Blobels Berlin-crew (Session 10)
 
-#### Olaf Neumann
-- **Filer**:
-  - `CURRENT_STATE.md` (Session 10-anteckning)
-  - `calendar.html` (22 sept-eventet)
-  - TBD: `SL/session10.html`
-- **Nyckeldata**:
-  - Lokal Berlin-kontakt, stöd vid SA-inbrottet
-  - **STATUS (post Session 10):** Svårt skadad av Blobels crew — slagen i huvudet. Möjligen dödlig eller permanenta men.
-  - **SAN-trigger pending:** Cellens reaktion när de får reda på hans öde = resterande SAN-förlust (ej utlöst än — Johans beslut)
-  - Trench förlorade 1 SAN redan (bevittnade misshandeln)
+**⚠️ KORRIGERING (post-session 10-audit):** Tidigare dokumentation attribuerade Olaf Neumann som "lokal kontakt" och Dietmar som "Scalpels farbrors vän". DETTA VAR FEL. Alla fyra är **Blobels ex-Stasi-operatörer**. Kanon: `SL/blobels_busar.html`.
 
-#### Dietmar
-- **Filer**:
-  - `CURRENT_STATE.md` (Session 10-anteckning)
-  - `calendar.html` (22 sept-eventet)
-  - TBD: `SL/session10.html`
-- **Nyckeldata**:
-  - Scalpels farbror Jürgens vän, lokal Berlin-kontakt
-  - **STATUS (post Session 10):** Bunden och bortförd av cellen i den stulna Mercedes-vanen — **fånge**
-  - Han vet att cellen har honom → intel-möjlighet + risk
-  - Dubbelagent-möjlighet? Motstånd? Förhandling?
+#### Dietmar Kühn ("Eisblock")
+- **Filer**: `SL/blobels_busar.html` (KANON — fullständig spec), `CURRENT_STATE.md`, `calendar.html`, TBD: `SL/session10.html`
+- **Roll**: Teamledare, 58 år, ex-HVA Stasi utlandsspionage (avd. XXII). Blobels högra hand sedan 2003.
+- **Kompetens**: Talar tyska (sachsendialekt), ryska flytande, engelska. Lugn, metodisk. HUMINT 65%, Foreign Language (ryska) 70%.
+- **STATUS (post Session 10):** **Bunden och bortförd av cellen** i den stulna Mercedes-vanen — **fånge**.
+- **Intel-värde**: Vet allt om Blobels övervakningsoperation, SA:s säkerhetsupplägg, köpta poliser. Vet **INTE** om parasiten eller kristallerna ("proffs, inte troende" enligt blobels_busar.html). HUMINT-pressbar.
 
-### Antagonister (Session 10)
+#### Olaf Neumann ("Schatten")
+- **Filer**: `SL/blobels_busar.html` (KANON), `CURRENT_STATE.md`, `calendar.html`, TBD: `SL/session10.html`
+- **Roll**: Smygare och förare, 49 år, ex-NVA Fallschirmjäger → Stasi personskydd (HA PS). Enda som kunde ta Kühns plats.
+- **STATUS (post Session 10):** **Ende allvarligt skadade** — slagen i huvudet, möjligen dödlig eller permanenta men.
+- **SAN-trigger pending:** Cellens reaktion när de får reda på hans öde = resterande SAN-förlust (ej utlöst än — Johans beslut)
+- Trench förlorade 1 SAN redan (bevittnade misshandeln)
 
-#### Blobels crew
-- **Filer**:
-  - `CURRENT_STATE.md` (Session 10)
-  - TBD: `SL/session10.html`
-- **Nyckeldata**:
-  - 3–4 skurkar som dök upp vid SA-inbrottet
-  - **STATUS:** Decimerad i stridsutgången — cellen övermannade dem
+#### Ralf Sauer ("Bremse")
+- **Filer**: `SL/blobels_busar.html` (KANON), `CURRENT_STATE.md`
+- **Roll**: Grovjobbare, 54 år, ex-Stasi vaktstyrka Hohenschönhausen. Knogjärn, batong, gillar att skada folk.
+- **STATUS (post Session 10):** Oskadad men medvetslös på SA-innergården. Kommer vakna inom timmar och kunna prata.
+
+#### Uwe Brandt ("Das Fahrrad")
+- **Filer**: `SL/blobels_busar.html` (KANON), `CURRENT_STATE.md`
+- **Roll**: Chaufför och kommunikationsstöd, 52 år, ex-Stasi HVIII (övervakning/transport). Känner Berlins gator "bättre än taxichaufförer". Drive 80%, Navigate (Berlin) 75%.
+- **STATUS (post Session 10):** Oskadad men medvetslös. Hans BMW X5 + reserv-VW Transporter står kvar vid SA — cellen missade dem.
+- **⚠️ HOTNIVÅ:** Brandt är cellens *största framtida hot* när han är medveten — hans Berlin-kunskap + lojalitet mot jobbet (inte personerna) gör honom till en proffsförföljare.
+
+#### Blobels crew — sammanfattat status
+- **Alla fyra nedkämpade** under session 10 på SA:s innergård.
+- Ingen fysisk förföljare vid utkörning kl 03:00.
+- **Tidsfönster**: Sauer + Brandt vaknar inom timmar. Blobel får rapport inom ~6h → eskalering till polischefs-nivå enligt blobels_busar.html.
   - Cellen tog deras vapen, ammunition, en mapp med SA-intel, samt deras svarta Mercedes-van
   - Övergripande "Blobel"-organisation fortfarande oklar — vidare research behövs
 

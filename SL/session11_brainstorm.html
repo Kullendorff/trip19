@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 11 — Brainstormutkast</title>
+<style>
+:root {
+    --bg-dark: #0a0f0f;
+    --bg-darker: #050808;
+    --bg-panel: #0d1414;
+    --bg-lighter: #111a1a;
+    --accent-primary: #4a90a4;
+    --accent-secondary: #e89a3c;
+    --warning: #d4a520;
+    --classified: #ff4444;
+    --dream: #9b7ede;
+    --success: #4ade80;
+    --text: #d1d5db;
+    --text-dim: #6b7280;
+    --border: #1a2332;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+    background-attachment: fixed;
+    color: var(--text);
+    line-height: 1.65;
+    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.header {
+    border-bottom: 2px solid var(--accent-primary);
+    padding-bottom: 18px;
+    margin-bottom: 25px;
+}
+.header h1 {
+    color: var(--accent-primary);
+    font-size: 1.9em;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px rgba(74, 144, 164, 0.3);
+}
+.header .sub {
+    color: var(--text-dim);
+    font-size: 0.9em;
+    margin-top: 6px;
+    letter-spacing: 1px;
+}
+
+.disclaimer {
+    background: var(--bg-panel);
+    border-left: 4px solid var(--warning);
+    padding: 14px 20px;
+    margin-bottom: 30px;
+    font-size: 0.95em;
+}
+.disclaimer strong { color: var(--warning); }
+
+.tldr {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent-primary);
+    padding: 16px 22px;
+    margin-bottom: 30px;
+}
+.tldr h3 {
+    color: var(--accent-primary);
+    margin-bottom: 10px;
+    font-size: 1em;
+    letter-spacing: 2px;
+}
+.tldr ul { padding-left: 22px; }
+.tldr li { padding: 3px 0; }
+
+h2 {
+    color: var(--accent-primary);
+    font-size: 1.35em;
+    margin-top: 40px;
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed var(--border);
+    letter-spacing: 1.5px;
+}
+h2 .tag {
+    font-size: 0.65em;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+
+h3 {
+    color: var(--accent-secondary);
+    font-size: 1.05em;
+    margin-top: 22px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+p { margin-bottom: 10px; }
+
+.section-intro {
+    color: var(--text-dim);
+    font-style: italic;
+    margin-bottom: 15px;
+    font-size: 0.93em;
+    border-left: 2px solid var(--border);
+    padding-left: 12px;
+}
+
+ul.ideas {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 12px;
+}
+ul.ideas li {
+    padding: 7px 0 7px 26px;
+    position: relative;
+    border-bottom: 1px dotted var(--border);
+    font-size: 0.96em;
+}
+ul.ideas li::before {
+    content: "▸";
+    color: var(--accent-primary);
+    position: absolute;
+    left: 8px;
+    top: 7px;
+}
+
+.image-box {
+    background: var(--bg-lighter);
+    border-left: 3px solid var(--accent-secondary);
+    padding: 12px 18px;
+    margin: 15px 0;
+    font-size: 0.94em;
+}
+.image-box .label {
+    color: var(--accent-secondary);
+    font-size: 0.75em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.dream-box {
+    background: linear-gradient(135deg, #1a1030 0%, #0d1414 100%);
+    border-left: 4px solid var(--dream);
+    padding: 14px 20px;
+    margin: 15px 0;
+    font-size: 0.95em;
+}
+.dream-box .label {
+    color: var(--dream);
+    font-size: 0.75em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.warning-box {
+    background: #1a0f0f;
+    border-left: 4px solid var(--classified);
+    padding: 12px 18px;
+    margin: 15px 0;
+    font-size: 0.93em;
+}
+.warning-box strong { color: var(--classified); }
+
+.ghost-box {
+    background: var(--bg-panel);
+    border: 1px dashed var(--border);
+    padding: 12px 18px;
+    margin: 12px 0;
+    font-size: 0.9em;
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin: 14px 0;
+}
+@media (max-width: 750px) {
+    .two-col { grid-template-columns: 1fr; }
+}
+.col-box {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    font-size: 0.92em;
+}
+.col-box h4 {
+    color: var(--accent-primary);
+    font-size: 0.9em;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+}
+
+.timeline {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-size: 0.93em;
+}
+.timeline .hour {
+    display: flex;
+    padding: 4px 0;
+    border-bottom: 1px dotted var(--border);
+}
+.timeline .hour:last-child { border-bottom: none; }
+.timeline .time {
+    color: var(--accent-secondary);
+    min-width: 70px;
+    font-weight: bold;
+}
+
+.pullquote {
+    font-size: 1.1em;
+    color: var(--accent-secondary);
+    font-style: italic;
+    text-align: center;
+    padding: 18px;
+    margin: 20px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 0.85em;
+    text-align: center;
+}
+
+.stitch {
+    color: var(--text-dim);
+    font-size: 0.82em;
+    font-style: italic;
+    margin-top: 6px;
+    padding-left: 14px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>▲ SESSION 11 — BRAINSTORMUTKAST</h1>
+    <div class="sub">Trip 19 / Svarta Madonnan // Första genomkörningen — lösryckta idéer, ingen kanon</div>
+</div>
+
+<div class="disclaimer">
+    <strong>LÄS DET HÄR FÖRST:</strong> Det här är ett <em>första brainstormutkast</em>. Inget är beslutat. Om du använder två idéer av tjugo är det en vinst. Många scener står bara som bilder — välj, kombinera, eller kasta. Det finns inga spelarreaktioner eller inre monologer beskrivna — vad karaktärerna <em>känner</em> bestämmer spelarna. Här är bara värld, händelser, NPCs, stämning. Detta är ren råvara.
+</div>
+
+<div class="tldr">
+    <h3>▪ GRUNDPREMISS — 19 TIMMAR</h3>
+    <p>Cellen kör en stulen svart Mercedes-van från SA:s innergård kl 03:00 den 23 september. Dietmar Kühn (Blobels teamledare) är bunden i bakluckan. Olaf Neumann (Schatten) blev kvar, svårt skadad. Ralf Sauer och Uwe Brandt ligger medvetslösa på samma innergård — de är oskadda och vaknar inom timmar. Cellen har inte sovit. Drömmarna har inte börjat. Det finns ett byte från SA som ännu inte är genomgånget. Pogodins Mansion, Müggel Straße 89: möte kl 22:00.</p>
+    <ul>
+        <li><strong>Session 11-förslag:</strong> från flykten kl 03:00 → någonstans på eftermiddagen eller sen kväll. Pogodin-raiden sparas troligen till session 12.</li>
+        <li><strong>Huvudtema:</strong> adrenalinfallet. Tröttheten. Den första sömnen. Det första dagsljuset som träffar vad de faktiskt har gjort.</li>
+        <li><strong>Knivblad:</strong> en bunden man, en stulen van, ett par timmar innan Blobel får rapport, en besatt präst som inte vill vila.</li>
+    </ul>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>1. TEMPO & RYTM <span class="tag">// strukturförslag</span></h2>
+
+<p class="section-intro">Olika sätt att dela upp dagen. Ta eller lämna.</p>
+
+<div class="timeline">
+    <div class="hour"><span class="time">03:00</span><span>Utkörning. Regn. Ingen trafik. Vanen luktar röken från Blobels män.</span></div>
+    <div class="hour"><span class="time">03:30</span><span>Första stoppet. Någonstans de inte brukar vara. Bro, bensinmack, parkeringshus, skog.</span></div>
+    <div class="hour"><span class="time">04:00–05:30</span><span>Dietmar-frågan. Vanen-frågan. Adrenalinet sjunker.</span></div>
+    <div class="hour"><span class="time">05:30–07:00</span><span>Återkomst till Graefestraße ELLER beslut att inte återvända. Någon måste sova.</span></div>
+    <div class="hour"><span class="time">07:00–11:00</span><span>Första sömnen. Första drömmarna. Kontinuiteten mellan sömn och vaken slits.</span></div>
+    <div class="hour"><span class="time">11:00–15:00</span><span>Bytesgenomgång. Berlin börjar reagera. Blobel har fått rapport. Polisen har hittat SA.</span></div>
+    <div class="hour"><span class="time">15:00–19:00</span><span>Rekon av Pogodins Mansion. Ansatser till kontakter (Richter, Arnold Weiss, Filip Kramer?).</span></div>
+    <div class="hour"><span class="time">19:00–22:00</span><span>Köpenick. Positionering. Kvällen faller. Session slut före raiden eller precis när den börjar.</span></div>
+</div>
+
+<div class="ghost-box">
+    Alternativ struktur: hoppa över sömnen och gör session 11 till en enda lång natt/morgon fram till första drömmen — låt drömmen vara kulmen. Session 12 blir då "dagen efter + Pogodin". Pacing-fråga för dig.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>2. VANEN — DEN BRINNANDE SAKEN <span class="tag">// logistik + stämning</span></h2>
+
+<p class="section-intro">Mercedes-vanen är SA:s egendom. När Sauer eller Brandt vaknar (timmar) ringer de Blobel. När SA-personalen kommer till kontoret (några timmar senare) ringer de polisen och sitt egna nätverk. Vanen har GPS. Vanen har registreringsnummer. Vanen har ett interiörlukt av fyra tunga rökande män och en fånge i bakluckan.</p>
+
+<h3>Hur bli av med den</h3>
+<ul class="ideas">
+    <li>Dumpa i Landwehrkanalen. Hittas inom dagar, inte timmar. Men ljud, vittnen, ett plask mitt i natten.</li>
+    <li>Bränna den. I ett industriområde i Marzahn eller Schöneweide. Gas i tanken, tändsticka, tjugo minuters fönster innan räddningstjänsten är där.</li>
+    <li>Parkera i ett bostadsområde med gatuparkering. Tas bort först efter en vecka. Men gatukameror.</li>
+    <li>Köra in i skogen vid Müggelsee, täcka med granris. Kan ligga veckor. Ironisk närhet till Pogodins Mansion — eller smart eftersom ingen letar *där*?</li>
+    <li>Byta till en annan bil de stjäl. Nu har de två brott på sig samma natt.</li>
+    <li>Hyra en bil legitimt via Jürgens lägenhets-garage. Kreditkort lämnar spår.</li>
+    <li>Köpa en skrotfärdig Polo kontant från någon på Kurfürstenstraße kl 06:00. Ingen registrering, ingen spårning. Berlin har såna kontakter om man vet var man letar.</li>
+    <li>Ringa Dr Richter och be honom parkera den på Charité-parkeringen som personalfordon (moraliskt frågetecken — drar in honom).</li>
+</ul>
+
+<h3>Problem med själva vanen</h3>
+<ul class="ideas">
+    <li>Det finns en GPS-tracker undrecarriage. Sparky kan hitta den — eller missa den.</li>
+    <li>En av fönstren krossades i striden. Den är identifierbar på avstånd.</li>
+    <li>Det finns blod på golvmattan bak. Dietmars. Eller Olafs.</li>
+    <li>Det sitter en gammal parkeringsbiljett från Nollendorfplatz på vindrutan — några dagar gammal. Ger indikator på vart Blobels crew rört sig.</li>
+    <li>I handskfacket: en anteckningsbok i tysk kortskrift. Brandts. Stafettschema för cellen de senaste 48 timmarna — Hamburg, tåget, Berlin. Vet exakt var de bor.</li>
+    <li>En mobiltelefon i kopphållaren. Inte låst. Tre missade samtal från "A.M." de senaste två timmarna.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>3. SKOGEN — DIN BILD <span class="tag">// specifik scen</span></h2>
+
+<p class="section-intro">Du hade en bild: cellen står i en liten skog någonstans, bråkar internt om hur det här ska lösas — och så kommer det förbi någon som är ute och går. Här är varianter på den bilden. Det interna bråket är spelarnas, jag rör inte det.</p>
+
+<div class="image-box">
+    <span class="label">Grundscen</span>
+    En parkeringsficka längs en skogsväg mellan Berlin och Köpenick — eller i Tegeler Forst om de drog norrut. Gryning, 04:30. Dimman ligger kvar i granarna. Vanen står på tomgång. Motorn puttar lite. En kvist knäcks under någons sko. Bakom dem, i bakluckan, tickar något som de inte kan bestämma sig för.
+</div>
+
+<h3>Vem vandraren kan vara</h3>
+<ul class="ideas">
+    <li><strong>Joggaren.</strong> 50-årig kvinna i reflexväst och hund. Springer förbi varje morgon 04:30. Ler och hälsar. Hunden lyssnar på något i bakluckan.</li>
+    <li><strong>Svampplockaren.</strong> Äldre man med korg och kniv. Han svarar tyskt att han letar kantareller. Stannar längre än han borde. Hans blick flackar mot vanen.</li>
+    <li><strong>Ornitologen.</strong> Kikare runt halsen, glasögon, thermosflaska. Han hörde något från vanen och trodde det var en uggla. Han är extremt godtrogen. Eller inte.</li>
+    <li><strong>En pojke på en moped.</strong> 16, skolväg. Ser allt, säger inget, kör vidare. Dyker upp på SA:s övervakningsvideo sex timmar senare när polisen börjar leta.</li>
+    <li><strong>Ett gammalt par med hund.</strong> Han frågar om de behöver hjälp. Hon säger inget, bara tittar. Deras tystnad är fel sorts tystnad.</li>
+    <li><strong>En man i svart rock.</strong> Vandrarkeps, paraply trots att det har slutat regna. Han stannar tio meter bort. Han tittar inte på vanen — han tittar på <em>cellen</em>. Sen går han vidare. (Drömvandrare? Filip Kramer?)</li>
+    <li><strong>Den tyske skogsvakten.</strong> Uniform, walkie-talkie. "Parken är inte öppen för bilar här. Identifikation, tack."</li>
+    <li><strong>Ingen.</strong> Det är bara en korp som flaxar. Men något i gräset vid vägkanten är bevakat. Känslan av att bli sedd utan att se.</li>
+</ul>
+
+<h3>Hur det kan gå</h3>
+<ul class="ideas">
+    <li>Vandraren passerar. Inget händer. Sen, senare, dyker deras vittnesmål upp i en polisrapport cellen aldrig får läsa.</li>
+    <li>Vandraren försöker hjälpa. "Har ni problem med bilen?" Cellen måste improvisera.</li>
+    <li>Vandraren hör ett kvävt ljud från bakluckan.</li>
+    <li>Vandraren vänder sig om vid vägkanten och säger något på ryska. Bara en mening. Sen är de borta.</li>
+    <li>Cellen hittar vandraren död vid vägen när de återvänder fyra timmar senare.</li>
+    <li>Vandraren har sett Blobels män köra där förut. Han vet mer än han borde.</li>
+    <li>Vandraren bryr sig inte. Tyskar bryr sig inte. Tyskar går vidare.</li>
+</ul>
+
+<div class="warning-box">
+    <strong>FALLGROP:</strong> En oskyldig dödad i panik här är 0/1d6 Violence. Mac ligger på marginal 7 till Breaking Point. Scalpel har inte triggats än. Detta är <em>en lågpotentiell Breaking Point-bomb</em>. Gör den medveten om du placerar den.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>4. DIETMAR KÜHN — FÅNGEN I BAKLUCKAN <span class="tag">// NPC, varierande beteenden</span></h2>
+
+<p class="section-intro">Dietmar är 58, tog sin Jurist-examen 1986 i Potsdam, spionerade mot Västberlin tills muren föll, har jobbat för Blobel sedan 2003. Han är lugn. Han säger inte ett ord för mycket. Han är proffs. Han vet <em>inte</em> om parasiten eller kristallerna — Blobel har inte sagt det till honom. Han tror att cellen är amerikanska agenter efter något ekonomiskt eller diplomatiskt.</p>
+
+<h3>Vad han kan göra i bakluckan/vid förhör</h3>
+<ul class="ideas">
+    <li>Tiga. Helt. I timmar. Inte blinka för mycket.</li>
+    <li>Be om en cigarett. Artigt.</li>
+    <li>Säga "Sie machen einen Fehler." En gång. Sen tystnad igen.</li>
+    <li>Svara på tyska när man frågar på engelska. Svara på engelska när man frågar på tyska. Aldrig samma som man kommer in med.</li>
+    <li>Fråga om Scalpel är läkare. Han har noterat hennes händer. Han säger: "Mein Schwester war Ärztin. DDR. Kranke Kinder."</li>
+    <li>Erbjuda information mot frihet. Inte panikerat — som en förhandling. "Jag kan säga vad Blobel vet. Jag kan säga vad han <em>inte</em> vet."</li>
+    <li>Säga Blobel aldrig kommer komma efter honom själv. "Er schickt andere. Er kommt nie."</li>
+    <li>Identifiera Mac som federal. "Riechen kann ich's. FBI, oder?" Ingen hot, bara observation.</li>
+    <li>Skratta åt frågan om Anton Mahler. Inte hånfullt — uppriktigt. "Sie wissen nicht, worauf Sie sich eingelassen haben."</li>
+    <li>Blöda från en läpp han bet sig i under striden, och börja se oroligt ut när blodet droppar — som om han vet något om blod.</li>
+    <li>Börja humma en låg ton. Inte 247 Hz. Nästan. Fem timmar senare kommer cellen inte kunna sluta tänka på det.</li>
+    <li>Om Sullivan pressar för hårt om Madonna: reagera med genuin förvåning. Han visste inte att cellen visste det namnet.</li>
+    <li>Be om att få ringa sin syster i Dresden. "Sie ist alt. Sie wartet auf Anruf."</li>
+    <li>Efter sex timmar: "Ich habe genug. Was wollen Sie?"</li>
+</ul>
+
+<h3>Vad han vet (intel-guldgruva)</h3>
+<ul class="ideas">
+    <li>Blobels hela övervakningsschema för cellen sedan Hamburg.</li>
+    <li>SA:s säkerhetsupplägg — vilka väktare, vilka dagar, vilken nivå.</li>
+    <li>Tre poliser i Mitte-distriktet som Mahler köpt.</li>
+    <li>Att Blobel jobbar för Mahler sedan 2019, inte längre.</li>
+    <li>Att det fanns en person innan Blobel som "försvann."</li>
+    <li>Att Brandt har en anteckningsbok i sitt högerskjortficka — alla skyltnummer han sett de senaste 48 timmarna.</li>
+    <li>En sak han nämner i förbigående men som är viktigare än han fattar: Mahler reser ibland till en klinik i Frankfurt (Oder). "Jeden dritten Monat, immer allein."</li>
+</ul>
+
+<h3>Vad han inte vet (men kunde gissa om han visste att fråga)</h3>
+<ul class="ideas">
+    <li>Parasiten. Kristallerna. Leningrad 1942.</li>
+    <li>Att Mahler och Pogodin åldras onormalt långsamt.</li>
+    <li>Att Filip Kramer existerar som tredje man.</li>
+    <li>Vad 247 Hz är.</li>
+</ul>
+
+<div class="ghost-box">
+    Sullivans Obsession är ett verktyg här — inte åt honom, utan åt dig. Besatta präster blir kreativa med förhör. Men vad Andreas väljer är Andreas val. Ge honom bara situationen.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>5. DEN FÖRSTA SÖMNEN — DRÖMMARNAS DEBUT <span class="tag">// detta är nytt</span></h2>
+
+<p class="section-intro">Alla fem har varit infekterade sedan 19 september i Hamburg. Febern var aktiveringen. Men drömmarna har inte börjat än — de har inte sovit med den aktiva parasiten i kroppen. Session 11 är troligen när det händer. 247 Hz är inte en ton — det är en kanal. Drömmarna kommer via Leningrad 1942, via de tre männen, via något äldre än det.</p>
+
+<div class="pullquote">
+    "De tre männen reste sig. Deras ansikten var desamma. Men deras ögon var inte desamma."<br>
+    <span style="font-size: 0.75em; color: var(--text-dim);">— Elsas dagbok</span>
+</div>
+
+<h3>Generella drömelement (gemensamma)</h3>
+<div class="dream-box">
+    <span class="label">Grundmotiv</span>
+    En källare. Stearinljus. Kalla fötter mot stengolv. Dimman från de vuxna som andas. Tre män som står nära något i mitten, tre pojkar som ser på. Ljuset som inte kommer från stearinljuset. Det blå-vita ljuset som brinner utan värme. Tiden slutar.
+</div>
+
+<div class="dream-box">
+    <span class="label">Sensoriska förankringar</span>
+    Hummandet. 247 Hz som en fysisk känsla i käken och bakom ögonen. Klådan som kommer tillbaka. Lukten av brinnande tygg. En röst som gråter långt bort, otydligt — en kvinna, Elsa. Ett barn som skrattar när det inte borde. Någon räknar på ryska, fem till noll.
+</div>
+
+<h3>Karaktärsspecifika drömningångar (förslag — välj fritt)</h3>
+<div class="two-col">
+    <div class="col-box">
+        <h4>MAC</h4>
+        Står i Bishop Farm igen, men det är Leningrad-snö på grässen. Flight 19 har kraschat bakom honom. Han hör Volkovs röst i hummet. Volkov säger något på ryska — men Mac förstår. När han vaknar kan han inte längre.
+    </div>
+    <div class="col-box">
+        <h4>SULLIVAN</h4>
+        Står vid altaret i en kyrka som inte är en kyrka. Över altaret hänger inte ett kors. Tre pojkar kommer fram till nattvarden. En av dem ler. Sullivan kan inte sluta hålla fram kalken.
+    </div>
+    <div class="col-box">
+        <h4>SPARKY</h4>
+        Serverrum. Kabelrack. Men kablarna pulserar i tonerna 247 Hz. Koden som rinner på skärmen är inte kod — det är ryska barnsånger. Siffran 247 överallt. NSA-brickan runt halsen blir varm och bränner.
+    </div>
+    <div class="col-box">
+        <h4>SCALPEL</h4>
+        På obduktionsbordet, men inte som patolog. Som liket. Hon ser in i sig själv och ser larverna. En röst säger "Du minns fortfarande" — samma ord Sasha Pogodin sa till Elsa 1951.
+    </div>
+    <div class="col-box">
+        <h4>TRENCH</h4>
+        USAR-uniform. Men öknen är källaren. Sandkornen är stearinljusen. Människorna omkring honom vänder sig om och det är Harriet Johnson, Magda, Volkov, andra som är döda. De frågar inget. De bara står där.
+    </div>
+    <div class="col-box">
+        <h4>GEMENSAMT SLUT</h4>
+        Alla fem vaknar ungefär samtidigt. Alla fem har samma ord i huvudet men vet inte hur de vet: <em>Kalenko</em>. Klockan visar 02:47. Ingen sover mer den natten.
+    </div>
+</div>
+
+<h3>Varianter och trick</h3>
+<ul class="ideas">
+    <li>En av dem drömmer inte. Varför? Är det Sullivan (Obsession som sköld)? Eller är det den som är närmast Breaking Point (Mac)?</li>
+    <li>En av dem drömmer dubbelt så länge som de sovit. Vaknar och vet att det gått 8 timmar — men klockan har bara gått 2.</li>
+    <li>En drömmer från Filip Kramers perspektiv. Har inte vetat att det var möjligt.</li>
+    <li>Någon hör Elsas sista dagboksmening viskas: <em>"Spring inte till dem. Spring inte från dem. De hittar dig ändå."</em></li>
+    <li>Dietmar hör dem i sömnen (om han är närvarande). När de vaknar tittar han på dem annorlunda.</li>
+    <li>Drömmens slutkänsla: <em>att de redan varit i Pogodins Mansion innan.</em> Minnet är inte deras men det sitter i dem.</li>
+    <li>Någon vaknar och upptäcker att de skrivit ryska tecken på fönstret med fingret medan de sov. Ordet betyder "Godnatt."</li>
+    <li>Någon vaknar med ett ärr som inte fanns innan.</li>
+    <li>SAN-förlust per Delta Green: 0/1d4 Unnatural första gången. Sullivans Obsession gör honom +3% Insane Insight — han kan se <em>mönstret</em> först. Det blir tyngre för honom än för de andra.</li>
+</ul>
+
+<div class="warning-box">
+    <strong>DESIGNFRÅGA:</strong> Ska drömmarna vara spelade ut i detalj (en scen per karaktär, monolog/beskrivning), eller korta flashar innan de skrivs på handouts (som dagboksutdrag)? Båda funkar. Den första är mer filmisk och personlig. Den andra låter spelarna själva tolka.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>6. BYTESGENOMGÅNGEN <span class="tag">// scenbild + rötter till mer</span></h2>
+
+<p class="section-intro">När adrenalinet är borta, när någon sovit, när kaffet är på — högarna ska genomgås. Mahlers almanacka är läst. Resten är pärmar, mappar, pappersbuntar, och minst en overksaksmanila-kuvert som ingen öppnat.</p>
+
+<h3>Vad som redan är bekräftat (kanon)</h3>
+<ul class="ideas">
+    <li>Utkast till korruptionsbrev från Mahler till polischef Treuber (72-timmars admin-förhindring).</li>
+    <li>Blueprints över Pogodins Mansion, Müggel Straße 89.</li>
+    <li>Leningrad 1942-foton (tre pojkar identiska med Anton/Sasha/Filip idag — <strong>SAN 0/1 när upptäckt</strong>).</li>
+    <li>Inner Circle-lista (~12 namn).</li>
+</ul>
+
+<h3>Extra innehåll — ta det du vill</h3>
+<ul class="ideas">
+    <li>En sida med handskrivna marginalnoteringar av Anton Mahler i 1980-talsbläck: "<em>Der Dritte muss gefunden werden</em>" (den tredje måste hittas). Pekar på Filip Kramer?</li>
+    <li>Ett kvitto från Frankfurt (Oder) från juni 2025. Dorfstraße 42c. Kliniken.</li>
+    <li>En kopierad sida ur Toporov (1922) — med en ritning i marginalen av ett sigill. Sigillet har 247 mm-mätangivelser.</li>
+    <li>En lista över "medlemmar emerit" i SA — sex namn, alla döda. Ett av namnen: <strong>Harriet Johnson</strong>. (Session 1-cirkeln sluter sig.)</li>
+    <li>Foton från en middag 2019. Mahler, Pogodin, Kramer — och en fjärde man. Inte identifierad.</li>
+    <li>En mapp märkt "CH/USA 1940" med fotokopior av Flight 19-dokument. Samma dokument cellen såg i Hornbake Library. Någon har gått igenom deras spår.</li>
+    <li>Ett brev till Mahler på engelska, daterat 2023, från en ekonomichef i Baltimore. Ämne: "Baltimore Harbor property transfer." Trench eller Mac kan ha åsikter.</li>
+    <li>En liten ask. Inne i asken: en tand. Människas. Med silverfyllning. Inskrift på silverpappret runt: "L. 1942."</li>
+    <li>En almanacka från 1961 med Magdas handstil. Hon satt inte bara i SA — hon skrev också deras protokoll.</li>
+    <li>En bunt ockulttidskrifter från 1920-talet. Pogodins kontorsutfyllnad. En av dem är tysk, från 1923: "<em>Die Schwarze Madonna von Leningrad</em>." Artikeln publicerades <em>innan</em> Leningrad hette Leningrad.</li>
+    <li>En handritad Berlin-karta med röda prickar på tio platser. Ingen legend. En av prickarna är Graefestraße 66.</li>
+    <li>En USB-sticka. Krypterad. Sparky kan knäcka den — eller den kan vara radioaktiv digital lockbete (innehåller tracker).</li>
+    <li>Ett foto av Scalpel själv på Charité 2010. Hur fan har det hamnat i SA:s arkiv.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>7. BERLIN REAGERAR <span class="tag">// hoten bygger under dagen</span></h2>
+
+<p class="section-intro">Vanen är spårbar. SA har fler folk än Blobel. Polisen har sin egen logik. En bunden man i en skog är bara en fråga om tid.</p>
+
+<h3>Tidsfönster (grova)</h3>
+<div class="timeline">
+    <div class="hour"><span class="time">04:30</span><span>Sauer vaknar först (kort medvetslöshet). Ringer Blobel direkt. Blobel är i Wannsee, sover med mobilen vid sängen.</span></div>
+    <div class="hour"><span class="time">05:15</span><span>Brandt vaknar. Mer alert. Han inventerar: BMW kvar, vanen borta, Dietmar borta, Olaf i kritiskt skick.</span></div>
+    <div class="hour"><span class="time">06:00</span><span>Blobel skickar ambulans till Olaf via en köpt ambulansförare. Inte officiellt sjukhus — en privat klinik.</span></div>
+    <div class="hour"><span class="time">07:30</span><span>SA-personal kommer till Behrenstraße. Inbrottet upptäcks. De ringer Mahler INNAN de ringer polisen.</span></div>
+    <div class="hour"><span class="time">08:00</span><span>Mahler får samtalet. Han blir inte arg. Han blir fokuserad.</span></div>
+    <div class="hour"><span class="time">09:00</span><span>Polisen anmäler. Polischef Treuber får det på sitt skrivbord 10:00. Korruptionsbrevet (72-timmars förhindring) ligger nu i <em>cellens</em> hand — inte i Mahlers. Treuber vet inte att det finns.</span></div>
+    <div class="hour"><span class="time">11:00</span><span>Brandt börjar aktivt jaga. Hans Berlin-kunskap är djupare än polisens.</span></div>
+    <div class="hour"><span class="time">14:00</span><span>Blobel + Mahler har jämkat ihop en bild. De vet cellen är amerikansk, de vet nivån. De ringer "hyrda ryssar."</span></div>
+    <div class="hour"><span class="time">19:00</span><span>Pogodins Mansion är maximalt bevakad i väntan på mötet kl 22:00.</span></div>
+</div>
+
+<h3>Tecken som cellen kan märka under dagen</h3>
+<ul class="ideas">
+    <li>Polissirener över Kreuzberg kring 10:00. Inte mot dem — mot SA-huset. Men de hör det.</li>
+    <li>En polisbil långsamt rullar förbi Graefestraße 66 kl 11:30. Stannar vid hörnet. Kör vidare.</li>
+    <li>Dr Richter ringer i panik: en civilklädd man frågade efter cellen på Charité idag kl 09:00. Richter ljög bort det, men ville att de skulle veta.</li>
+    <li>Berlin-tidning online-edition 13:00: "Einbruch in Kreuzberger Vereinshaus — Polizei ermittelt." Ingen nämnd vid namn.</li>
+    <li>En främmande ringsignal på Jürgens fastnummer — någon lägger på när Scalpel svarar.</li>
+    <li>Jürgen ringer från Japan. Han har fått mejl från sin hemvärdspappa: "märkliga personer har frågat efter dig." Scalpel måste ljuga för sin farbror.</li>
+    <li>En man med svart cap står vid U-Bahn-utgången Schönleinstraße en eftermiddag. Röker. Sparkys face-recognition-verktyg ger en träff: han har jobbat för rysk konsulat i Berlin 2017-2020.</li>
+    <li>Anton Mahler kör själv förbi Graefestraße 66 vid 16:30. En Audi A8, svart. Saktar ner. Kör vidare. Spelarna vet inte att det var han — men Sullivans Obsession kan få honom att reagera.</li>
+    <li>Någon har skrivit något på dörren till Jürgens lägenhet i krita. På ryska. Orden betyder: <em>"Vi ser"</em>.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>8. FILIP KRAMER — DEN TREDJE MANNEN <span class="tag">// den okända allierade?</span></h2>
+
+<p class="section-intro">Han skrek Magdas namn när hon dog. Han varnade henne upprepade gånger. Han försvann med onaturlig snabbhet från Charité. Han är en av de tre, men han är <em>inte som de andra två</em>. Hans telefonnummer är fortfarande cellens enda direkta linje till någon som vet vad de är indragna i.</p>
+
+<h3>Olika sätt han kan dyka upp</h3>
+<ul class="ideas">
+    <li>De ringer hans nummer. Det ringer sju gånger innan någon svarar. Inte han — en kvinna. "Filip ist nicht hier. Er wartet." Klick.</li>
+    <li>Han ringer dem. Från ett nytt nummer. "Lägg inte på. Jag är inte som de andra två."</li>
+    <li>Han lämnar ett paket utanför Graefestraße 66. Inuti: Elsa Orlovas <em>första</em> dagbok. Den som var före den de har.</li>
+    <li>Han sitter på en parkbänk vid Landwehrkanalen. Han säger: "Kom och sätt dig. Inte alla fem. Två."</li>
+    <li>Han dyker upp <em>i drömmen</em>. Inte som hot — som budbärare. "Jag kan inte stanna länge. De hör mig när jag talar här."</li>
+    <li>Han har mejl till Sparkys NSA-adress som aldrig borde ha nått fram. Mejlet är på svenska. Han vet att Johan finns där bak.</li>
+    <li>Han visar sig på Müggelsee-stranden i skymningen 23 sept. Väntar. Tittar på Pogodins Mansion från fel sida av sjön.</li>
+    <li>Han gör ingenting. Han är borta. Cellen hittar aldrig honom. Det är också en historia.</li>
+</ul>
+
+<h3>Vad han kan säga</h3>
+<ul class="ideas">
+    <li>Han är den tredje pojken. Han var åtta 1942.</li>
+    <li>Något gick fel med honom. Han vet inte vad. De andra två kan inte läsa honom som de läser varandra.</li>
+    <li>Han åldras inte som de. Han åldras <em>snabbare</em> än de. Han är trött.</li>
+    <li>Han vill inte att de tre ska mötas i Pogodins Mansion ikväll. Om de gör det, händer något.</li>
+    <li>Magda var hans vän. Inte älskare, inte syster — vän. Hon var den enda som mindes honom som han hade varit.</li>
+    <li>Han vet var den fjärde kristallbiten är.</li>
+    <li>Han vet inte om cellen kan räddas. Men han vill försöka.</li>
+    <li>Han kan inte röra vid dem. Om han gör det, vet de andra två var de är.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>9. ARNOLD WEISS — WIELANDSTRASSE 34 <span class="tag">// öppen tråd</span></h2>
+
+<p class="section-intro">Magdas gamla vän. Koppling till SA. Aldrig kontaktad. Har bara funnits som ett namn på en post-it i Hamburg-lägenheten. Här är han vad du vill att han ska vara.</p>
+
+<h3>Möjliga versioner av Arnold</h3>
+<ul class="ideas">
+    <li><strong>Den försiktige.</strong> 82, ensamstående, bor i första våning vid Savignyplatz. Vägrar öppna dörren. Pratar genom dörrkik. Han har väntat på dem — inte med glädje.</li>
+    <li><strong>Den förberedde.</strong> Öppnar utan att bli rädd. "Jag trodde det skulle vara tidigare. Magdas död tog längre tid än jag väntade." Har hela ett rum fullt av dokument — sitt eget parallella arkiv över SA sedan 1961.</li>
+    <li><strong>Förnekaren.</strong> "Jag känner ingen Magda Orlova. Gå." Stänger. När cellen går hör de honom gråta genom dörren.</li>
+    <li><strong>Den som är redan död.</strong> Dörren är öppen. Han ligger i fåtöljen. Kallt te på bordet. Arrangerat självmord — eller en mycket professionell maskering. Vid honom en lapp: <em>"De kommer att fråga mig. Berätta att jag inget visste."</em></li>
+    <li><strong>Den som inte är Arnold Weiss.</strong> Mannen som öppnar är inte Arnold Weiss. Arnold Weiss har aldrig bott där. Lägenheten är en fålla.</li>
+    <li><strong>Den sovande agenten.</strong> Han är Stasi-pensionär men har alltid varit Magdas i hemlighet. Berlin 1961 var komplicerat. Han har en låda i sitt kök och innehållet tar andan från Mac.</li>
+</ul>
+
+<h3>Vad han möjligen har</h3>
+<ul class="ideas">
+    <li>Foton från SA:s grundande 1961. Tolv personer på trappan. Magda är en. Mahler är en. Pogodin också. Arnold själv — en.</li>
+    <li>En gammal anteckningsbok med Mahlers handstil. "<em>Geschenkt an mich von Anton, weil ich zu viel wusste</em>." (Given till mig av Anton eftersom jag visste för mycket.)</li>
+    <li>Elsa Orlovas tredje och sista dagbok. Den finns inte nämnd någon annanstans. Den är skriven på tyska, inte ryska.</li>
+    <li>En lista på <em>alla</em> som varit hos kliniken i Frankfurt (Oder) sedan 1952.</li>
+    <li>Ingenting. Han är bara gammal och skrämd. Men kontakten är trösterik.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>10. DR. RICHTER <span class="tag">// allierad i Charité</span></h2>
+
+<p class="section-intro">Patologen som ser larverna. Han har bett dem ringa vilken tid som helst. Han har sin egen natt.</p>
+
+<ul class="ideas">
+    <li>De ringer honom kl 04:00 angående Olaf. Richter: "Jag kan inte ta in honom. De letar redan. Men jag känner någon i Friedrichshain."</li>
+    <li>Han ringer dem på morgonen. Parasittester från i går visade något nytt: larverna <em>reagerar</em> på infraljud. "Jag spelade 247 Hz i formalinen. De samlades åt ena sidan."</li>
+    <li>Han har själv drömt i natt. Första gången. "Scalpel, jag är inte infekterad. Men jag drömde ändå. Har du en förklaring?"</li>
+    <li>Han har en kollega på patologen i Brandenburg som just skickade ett prov — "samma larver, från ett lik i Frankfurt (Oder)." Plötsligt är kartan större.</li>
+    <li>Han erbjuder sin källare som bas om Graefestraße blir komprometterat.</li>
+    <li>Han har en gammal vän vid BKA som kan hjälpa om det blir officiellt. Men han vill helst inte dra den sladden.</li>
+    <li>Han blir inte nådd. Telefonen ringer och ringer. När cellen åker dit är Charité avspärrat — "gasläcka," säger polisen.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>11. SULLIVAN I BESATTHET <span class="tag">// obsession-scener, ingen inre monolog</span></h2>
+
+<p class="section-intro">Andreas spelar Sullivans Besatthet. Jag ger bara <em>situationer</em> där Obsession-drift kan manifesteras — Andreas bestämmer hur. Dessa är scener där <strong>det är upp till Andreas</strong> om Sullivan faller in eller kämpar emot. Ingen prefererar inget.</p>
+
+<ul class="ideas">
+    <li>Under bilfärden från skogen håller Sullivan Elsas dagbok i knät. Han läser en sida fem gånger. Han säger inget om det. Men han bläddrar inte framåt.</li>
+    <li>När alla andra vill sova i Graefestraße sätter han sig vid köksbordet med ett block papper och börjar skriva tider: 1942, 1946, 1951, 1961, 1990, 2025. Han fyller i rutor mellan dem.</li>
+    <li>Han ringer sin biskop i USA. Biskopen är inte i tjänst (det är söndag där). Han lämnar ett meddelande på fel språk.</li>
+    <li>Han insisterar på att förhöra Dietmar ensam. Dörren ska vara stängd.</li>
+    <li>Han försöker be för första gången på två dagar. Han glömmer orden. Han glömmer inte orden — men han kan inte uttala dem.</li>
+    <li>Han vill åka till Müggelsee nu. Precis nu. Inte för att rekon — för att "stå där och lyssna."</li>
+    <li>Han står vid fönstret kl 02:00 dagen efter. Han har inte sovit sedan drömmen. Han tittar inte ut — han tittar på sin egen reflex.</li>
+    <li>Han är mild. Oroväckande mild. Inte arg längre. Det är värre.</li>
+    <li>Han hittar något i bytet som de andra missat — en koppling ingen skulle sett. Det är korrekt. +3% Insane Insight i Delta Green-termer.</li>
+    <li>Han tar av sig sitt kors vid någon tidpunkt. Lägger det i en ficka. Säger inget.</li>
+    <li>Han tar på sig det igen senare. Säger fortfarande inget.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>12. POGODINS MANSION — REKON <span class="tag">// Müggelsee-eftermiddagen</span></h2>
+
+<p class="section-intro">Blueprints är i cellens hand. Men papper ersätter inte att se platsen. Köpenick är 22 km bort — ungefär 45 minuter i trafik, 25 min utan trafik. Det ligger på Müggelsees södra strand. Privata villor. Skog. Vatten.</p>
+
+<h3>Vinklar för att närma sig</h3>
+<ul class="ideas">
+    <li>Biltur förbi. Scalpel kör, ingen tittar direkt. Sparky i baksätet med kamera i rockärmen.</li>
+    <li>Vandring längs Müggelsees södra strandpromenad. Paret med kartan. Turistkamera.</li>
+    <li>Hyrd båt från Strandbad. Avstånd till mansionen över vatten: 400 m. Kikare.</li>
+    <li>Drönare. Sparky har utrustning. Risk: lokalt luftrum, privat egendom, och om Pogodins har jammers...</li>
+    <li>Fiskare vid lilla kanalen norr om Mansionen. Tre timmar där utan att dra upp en fisk.</li>
+    <li>Cyklister. Berlinare cyklar överallt. Helt osynliga.</li>
+    <li>Lokaltidning. Köpenick-Kurier. "Vi gör en artikel om villaområden" — dörrknackning hos grannar.</li>
+    <li>U-Bahn S3 till Köpenick, sen spårvagn 60, promenad sista biten. Långsammast men mest osynlig.</li>
+</ul>
+
+<h3>Vad de kan observera</h3>
+<ul class="ideas">
+    <li>Två väktare vid grinden i olika tider på dagen. Bytesschema otydligt.</li>
+    <li>En svart Range Rover kommer 14:30 — fyra män går in. Inte mötet ännu. Pre-mötesförberedelse.</li>
+    <li>En trädgårdsmästare jobbar där på onsdagar. Är idag onsdag? (23 sept 2025 är en <em>tisdag</em>. Så nej. Trädgårdsmästaren är inte där.)</li>
+    <li>En hund kommer ibland ut i trädgården. Stor. Inte aggressiv — <em>observant</em>.</li>
+    <li>Pogodins Mansion har en privat brygga. Fotografisk möjlighet från vatten.</li>
+    <li>En skorsten röker tidigt på morgonen. Ingen modernt hus i Köpenick eldar på morgonen i september. Något brinner.</li>
+    <li>Alla fönster på bottenvåningen är igensatta med svart plast. Oändligt diskret — men cellen ser det från båten.</li>
+</ul>
+
+<h3>Granne-scenario</h3>
+<ul class="ideas">
+    <li>En dam, 70, med trimmad hund. Hon bor tre hus bort. Hon har åsikter om Pogodins. "Die Russen sind seltsam. Aber die Polizei kümmert sich nicht."</li>
+    <li>Hon har en son som fiskade Müggelsee för fem år sedan — och försvann. Polisen avskrev det som drunkning. Hon tror inte det.</li>
+    <li>Hon har en nyckel till Pogodins från en tid då hon vattnade blommor. Oklart om den fortfarande passar.</li>
+    <li>Hon är inte en granne. Hon är en sovande agent för Mahler.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>13. OLAFS ÖDE <span class="tag">// pending SAN-trigger</span></h2>
+
+<p class="section-intro">Olaf Neumann, "Schatten", ex-NVA Kommando. Cellen slog honom i huvudet under striden. De vet inte hur illa det blev. De vet inte var han är nu.</p>
+
+<ul class="ideas">
+    <li><strong>Död vid platsen.</strong> Brandt hittar honom redan död när han vaknar. Sätt Violence-SAN i rörelse när cellen får reda på det (tidning, Richter via kontakt, Dietmar som nämner det i förbifarten).</li>
+    <li><strong>Permanenta men.</strong> Han överlever men kommer aldrig tala igen. Blobel placerar honom i en privat vård. Spökscen: en gång senare i kampanjen dyker han upp vid en buss­hållplats och stirrar på Scalpel utan att röra munnen.</li>
+    <li><strong>Hämnd-motiverad återkomst.</strong> Han återhämtar sig mer än någon trodde möjligt. En senare session. Han är inte professionell längre — han är personlig.</li>
+    <li><strong>Mac hittar honom själv.</strong> FBI-instinkt, FBI-kontakter i Berlin-ambassaden, triangulering. Han når sjukhuset där Olaf ligger. Valet: gå in eller vänta?</li>
+    <li><strong>Richters kontakt var hans läkare.</strong> Den lilla världen i Berlin slår till. Richter nämner i förbigående att "en kollega i Friedrichshain fick in en ex-militär med huvudskada i natt."</li>
+    <li><strong>Han vaknar och berättar.</strong> Han är proffs. Han berättar för Blobel, inte för polisen. Men han har <em>sett</em> cellens ansikten.</li>
+</ul>
+
+<div class="warning-box">
+    <strong>SAN-trigger:</strong> Om Olaf dör och cellen får reda på det, 0/1d4 Violence (de dödade en människa, i strid, försvar — men det är fortfarande en död som sitter på deras händer). Mac på marginal 7 kan trippla mot Breaking Point om det sker tätt med Leningrad-fotona och den första drömmen. <em>Om</em> det är designen du vill.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>14. LÖSRYCKTA BILDER <span class="tag">// stämning, inte scener</span></h2>
+
+<p class="section-intro">Bilder jag fick i huvudet när jag läste materialet. Använd som inspiration, ingen struktur, ingen ordning.</p>
+
+<div class="image-box">
+    <span class="label">bild 01</span>
+    Regnet har slutat. Det är blött asfalt och ingen trafik. Cellen står vid en bensinmack på en utkant av Berlin. Ljuset är lila. Någon pumpar bensin i vanen. Ingen pratar. Inne i macken står en man och väljer mellan två olika smörgåsar under en plastskiva.
+</div>
+
+<div class="image-box">
+    <span class="label">bild 02</span>
+    Dietmar i bakluckan. Vanen kör. Hans ögon är öppna. Han tittar inte på någonting. Han lyssnar på radion som är påslagen. Tyska radion spelar Bach. Dietmar nickar knappt i takt.
+</div>
+
+<div class="image-box">
+    <span class="label">bild 03</span>
+    Sparky sitter på golvet i vardagsrummet på Graefestraße, rygg mot soffan, laptop i knät. Skärmen är den enda ljuskällan. Klockan är 06:17. Hon har fortfarande blod från SA på sin ärm. Hon ser det inte.
+</div>
+
+<div class="image-box">
+    <span class="label">bild 04</span>
+    En korp på ett staket. Müggelsee-morgon. Dimman ligger. Bakom korpen: Pogodins Mansion. Korpen lyfter och flyger <em>inte</em> bort — den flyger mot huset.
+</div>
+
+<div class="image-box">
+    <span class="label">bild 05</span>
+    Mac står på balkongen på Graefestraße. Röker fast han slutat för sex år sedan. Cigarettlådan är Brandts — han tog den från vanen. Tobaken är fuktig.
+</div>
+
+<div class="image-box">
+    <span class="label">bild 06</span>
+    Elsa Orlovas dagbok ligger öppen på köksbordet. Ingen läser den. Men sidorna ruskar i draget från det öppna fönstret. Det är inte drag. Det är inget fönster öppet.
+</div>
+
+<div class="image-box">
+    <span class="label">bild 07</span>
+    Scalpel står i Jürgens badrum, händer tvättade. Vattnet i handfatet är rosa. Hon tittar i spegeln — inte på sitt ansikte, på bakom sig.
+</div>
+
+<div class="image-box">
+    <span class="label">bild 08</span>
+    Klockan i hallen på Graefestraße. Den är digital. Den visar "02:47." Den har visat det i femton minuter.
+</div>
+
+<div class="image-box">
+    <span class="label">bild 09</span>
+    En man med paraply vid en busshållplats. Regnet har slutat. Han har inte fällt ihop paraplyet. Han väntar inte på en buss — bussen har redan gått. Han står kvar.
+</div>
+
+<div class="image-box">
+    <span class="label">bild 10</span>
+    Sullivan på knä vid sängen. Inte för att be. För att leta efter något under sängen. Ingen vet vad han letar efter. Inte ens han.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>15. OVÄNTADE VINKLAR <span class="tag">// högrisk, högutdelning</span></h2>
+
+<p class="section-intro">Sakerna som inte står i någon manual. Testa om du vill krydda.</p>
+
+<ul class="ideas">
+    <li><strong>Jürgen återvänder.</strong> Hans affärsresa i Japan avbryts. Han flyger hem akut — något hände med hans mor i Hamburg. Han kommer till Graefestraße dag tre eller fyra. Scalpel har tolv minuter på sig att städa.</li>
+    <li><strong>Blobels telefon ringer.</strong> Mobilen i handskfacket på vanen. Cellen har den nu. Den ringer kl 08:43. Display: "A.M." Om de svarar — tystnad. Sen läggs det på.</li>
+    <li><strong>Brandts anteckningsbok är mer än bara skyltnummer.</strong> Sista sidan: handritad karta över Pogodins Mansion. Anteckningar om "Schwachstelle Nord" — svagpunkt norr.</li>
+    <li><strong>Någon i Inner Circle-listan är en journalist.</strong> Tysk journalist som cellen kan hitta. Vill hon hjälpa — eller är hon en av dem?</li>
+    <li><strong>En av cellens karaktärer får ett mejl från en okänd avsändare.</strong> Rubriken: deras initialer + ett nummer. Innehållet: ett foto av dem själva från idag, taget för två timmar sedan, från en vinkel de inte förstår.</li>
+    <li><strong>Deltagare på "författarkvällen" i Hamburg dyker upp.</strong> Hon var i bokhandeln. Hon är i Berlin nu. Hon vill snacka. Hon var varnad av Magda — eller av Mahler.</li>
+    <li><strong>Spegelvärlden.</strong> Någon hittar en vägg i Graefestraße som inte var där igår. Sekundsnabb glimt när dagsljuset faller på rätt sätt. Sen försvinner det.</li>
+    <li><strong>Dietmar ber om en präst.</strong> Ironiskt. Sullivan finns i rummet.</li>
+    <li><strong>Scalpels farbror Jürgen ringer ett andra samtal — till Scalpels mamma.</strong> Han är orolig. Hon ringer Scalpel. Familj ska hanteras.</li>
+    <li><strong>En amerikansk attaché knackar på dörren i Graefestraße vid middagstid.</strong> Mac känner igen honom. FBI liaison till Berlin-ambassaden. "Jag behöver prata med dig, i korridoren."</li>
+    <li><strong>Trenches brorsa ringer.</strong> Inget med uppdraget att göra. Men vid exakt fel ögonblick. En påminnelse om ett liv som finns utanför allt det här.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>16. LÖSA TRÅDAR FRÅN TIDIGARE <span class="tag">// kan dras in i session 11</span></h2>
+
+<ul class="ideas">
+    <li><strong>Magdas MacBook.</strong> Låst. 400+ filer. Sparky kan försöka. Lösenordet kan vara "Kalenko," "1942," eller något personligt som cellen inte kan gissa.</li>
+    <li><strong>Pyotrs vykort</strong> från Frankfurt (Oder). "Jag har sett HAN." Har nu mer tyngd efter Leningrad-fotona.</li>
+    <li><strong>Filip Kramers röstmeddelanden.</strong> Fyra panikade meddelanden som varnade Magda. Någon — kanske Sullivan i sin Obsession — kan lyssna igen och höra <em>nya saker</em>.</li>
+    <li><strong>Harriet Johnson-spåret.</strong> Om hennes namn dyker upp i SA:s bytesarkiv, är det Session 1 som sluter sig. Emily Johnson kan få ett oväntat samtal.</li>
+    <li><strong>Grisha Morozov i Sterling, VA.</strong> Ingen koppling till Berlin direkt. Men om USA-Volkov-tråden dras in via Mac — Grisha vet saker han inte sagt.</li>
+    <li><strong>Deltagare "Outlaws" från Session 1-planen.</strong> Om cellen söker kontakt med sin A-cell-case-officer — har de en? Kontroll? Eller är de fristående?</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>17. MEKANISKA/DESIGNFRÅGOR TILL DIG <span class="tag">// innan session</span></h2>
+
+<ul class="ideas">
+    <li><strong>Olafs öde:</strong> död, permanent skadad, eller återhämtande? Påverkar SAN-triggers + framtida hot.</li>
+    <li><strong>Sauer &amp; Brandt:</strong> ska de vara aktiva jägare i Berlin redan vid frukost, eller mer som bakgrundshot? Brandts Berlin-kunnighet kan vara centralt — eller bara flavor.</li>
+    <li><strong>Drömmarna — spelas ut eller skrivs ner?</strong> Filmisk monolog per karaktär är tyngst, men äter tid. Handout med dagbokslika utdrag är lättare, mer tolkningsbart.</li>
+    <li><strong>Session 11:s slutpunkt:</strong> morgon efter drömmen (pause innan eftermiddag-rekon), eller kvällen-vid-Müggelsee (precis innan raiden)? Båda fungerar — första är safer, andra är tightare.</li>
+    <li><strong>Mac:</strong> vill du pusha honom mot Breaking Point den här sessionen, eller spara det till Pogodin?</li>
+    <li><strong>Dietmar-utfallet:</strong> är du öppen för att han släpps levande, eller vill du att han ska ha "ingen väg tillbaka"-känsla?</li>
+    <li><strong>Filip Kramer:</strong> dyker han upp i session 11 alls, eller sparas till senare?</li>
+    <li><strong>Den extra handouts-lasten:</strong> vill du att jag skriver handouts (Leningrad-foton, Toporov-sigill, korruptionsbrev, drömbeskrivningar) eller håller vi oss muntligt?</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>18. GRUNDSATS <span class="tag">// påminnelse</span></h2>
+
+<div class="pullquote">
+    Slow-burn. Autenticitet. Inga inre monologer. Spelarnas rum är spelarnas rum.<br>
+    Session 1–4: "Något är fel." Session 5–8: "Det här kan inte vara sant." <strong>Session 9–12: "Vi borde aldrig ha grävt här."</strong>
+</div>
+
+<p style="text-align: center; color: var(--text-dim); margin-top: 20px;">
+    Det här är session 11. Vi är djupt ner i den tredje fasen. Mörkret ska kännas bestämt men inte hopplöst. Adrenalinet är borta men inte utmattningen.<br>
+    Cellen har inte sovit. När de gör det kommer de veta att något har följt med.
+</p>
+
+<footer>
+    Brainstormutkast v1 — 21 april 2026, skrivet medan du sover<br>
+    <em>Inget här är kanon förrän du säger det.</em>
+</footer>
+
+</body>
+</html>

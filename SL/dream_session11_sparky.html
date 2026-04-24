@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drömfragment — Kai Zhang</title>
+<style>
+:root {
+    --bg-dark: #0a0612;
+    --bg-darker: #05040a;
+    --bg-panel: #120e20;
+    --dream-violet: #9b7ede;
+    --dream-blue: #7aa8d8;
+    --ink: #e8e0c8;
+    --ink-dim: #a89f85;
+    --border: #2a1f3a;
+    --blood: #8a3333;
+    --cold-blue: #5a8ac0;
+    --character: #14b8a6;
+    --terminal: #4ade80;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: radial-gradient(ellipse at center top, #1a0f2e 0%, var(--bg-darker) 70%);
+    background-attachment: fixed;
+    color: var(--ink);
+    line-height: 1.8;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+.container {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    padding: 50px 55px;
+    box-shadow: 0 0 60px rgba(155, 126, 222, 0.15),
+                inset 0 0 30px rgba(0,0,0,0.5);
+    position: relative;
+}
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(155, 126, 222, 0.02) 2px,
+            rgba(155, 126, 222, 0.02) 4px
+        );
+    pointer-events: none;
+}
+
+.header {
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 35px;
+    text-align: center;
+}
+.header .tag {
+    color: var(--dream-violet);
+    font-size: 0.7em;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+.header h1 {
+    color: var(--character);
+    font-size: 1.4em;
+    letter-spacing: 3px;
+    font-weight: normal;
+}
+.header .meta {
+    color: var(--ink-dim);
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.fragment {
+    margin-bottom: 22px;
+    font-size: 1em;
+    text-align: justify;
+}
+.fragment.indent { padding-left: 20px; }
+
+.italic { font-style: italic; color: var(--ink-dim); }
+.russian { color: var(--cold-blue); font-style: italic; letter-spacing: 0.5px; }
+.pulse { color: var(--dream-violet); }
+.blood-word { color: var(--blood); }
+.code {
+    color: var(--terminal);
+    font-family: 'Courier New', monospace;
+    background: rgba(0,0,0,0.4);
+    padding: 1px 5px;
+    font-size: 0.94em;
+}
+
+.sep {
+    text-align: center;
+    color: var(--dream-violet);
+    letter-spacing: 10px;
+    margin: 28px 0;
+    font-size: 0.8em;
+    opacity: 0.6;
+}
+
+.wake {
+    border-top: 1px solid var(--border);
+    margin-top: 35px;
+    padding-top: 25px;
+    text-align: center;
+    color: var(--ink-dim);
+    font-size: 0.88em;
+    letter-spacing: 1px;
+}
+.wake .clock {
+    color: var(--dream-violet);
+    font-size: 1.4em;
+    letter-spacing: 6px;
+    display: block;
+    margin: 10px 0 14px;
+    font-family: 'Courier New', monospace;
+}
+.wake .word {
+    color: var(--cold-blue);
+    letter-spacing: 4px;
+    display: block;
+    margin-top: 8px;
+    font-size: 1em;
+}
+
+.term-block {
+    background: rgba(0,0,0,0.5);
+    border-left: 2px solid var(--terminal);
+    padding: 12px 18px;
+    margin: 18px 0;
+    color: var(--terminal);
+    font-size: 0.88em;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+    <span class="tag">▪ drömfragment ▪</span>
+    <h1>K. ZHANG</h1>
+    <div class="meta">natt mot 24 september 2025 // en timme sömn eller två</div>
+</div>
+
+<div class="fragment">
+Serverrummet. Fort Meade-nivå, men luften är fel — för kall, för torr, för tyst. Rackarna står i sina rader så långt ögat når, men ögat når för långt. Raderna slutar inte där raderna slutar.
+</div>
+
+<div class="fragment">
+Varje rackskåp pulserar. Inte LED-status. Något <em>inuti</em> metallen pulserar. Takten är långsam, regelbunden, och den sitter i bröstbenet: fyra slag per sekund, sen paus, sen fyra igen. <span class="pulse">247 Hz</span> när örat räknar ordentligt.
+</div>
+
+<div class="fragment">
+En skärm står påslagen vid fel ände av raden. Kabeln till den försvinner uppåt i ett hål i taket. Texten rullar.
+</div>
+
+<div class="term-block">
+> ждёт.он.ждёт.он.ждёт<br>
+> баю.баюшки.баю<br>
+> не.ложися.на.краю<br>
+> придёт.серенький.волчок<br>
+> и.ухватит.за.бочок<br>
+> <span style="color: var(--dream-violet);">> KALENKO</span>
+</div>
+
+<div class="fragment">
+Inte kod. En vaggvisa. Ryska. Den om den grå vargen som kommer och tar dig i sidan om du lägger dig vid sängkanten. Ordet bryter in mitt i raden där det inte hör hemma.
+</div>
+
+<div class="sep">◦ ◦ ◦</div>
+
+<div class="fragment">
+NSA-brickan hänger runt halsen. Den är varm. Inte obehagligt — <em>för</em> varm. Plasten mjuknar mot nyckelbenet. Fingrarna drar i snöret men snöret är inte där längre. Brickan är fast vid huden.
+</div>
+
+<div class="fragment">
+Siffran <span class="blood-word">247</span> står på varje skärm som tänds. Klockorna i rummet visar 247. Serverns IP-adresser slutar på 247. Det räcker inte som slump, men drömmen behandlar det som normalt.
+</div>
+
+<div class="fragment">
+En kvinna räknar någonstans bakom rackraderna. Hennes röst går igenom kabelskärmningen som om skärmningen inte finns där. <span class="russian">пять... четыре... три...</span>
+</div>
+
+<div class="fragment">
+En gammal skärm i hörnet — CRT, grönsvart, 1980‑talsnivå — vaknar utan input. Koden som rinner är inte kod. Det är ryska barnsånger translittererade genom ett filter som nästan men inte riktigt fungerar. Tecknen stavar <em>nästan</em> svenska här och där. <span class="italic">godnatt.</span> Sen bort igen.
+</div>
+
+<div class="sep">◦ ◦ ◦</div>
+
+<div class="fragment">
+Ett rack öppnar sig. Inte som dörrar öppnas — som en katt. Inuti racket: inte elektronik. En källare. Stearinljus. Tre män står nära något i mitten. Tre pojkar ser på.
+</div>
+
+<div class="fragment">
+En av pojkarna vänder huvudet utan att vända kroppen. Han tittar <em>ut</em> genom racket som genom ett fönster. Han tittar på den som tittar in.
+</div>
+
+<div class="fragment">
+Brickans varmhet blir en bränna. Halsen luktar plast som smälter. Pojken i racket säger ett ord som kommer ut ur högtalaren i den påslagna skärmen bakom, inte ur hans mun.
+</div>
+
+<div class="fragment indent">
+<span class="blood-word">Kalenko.</span>
+</div>
+
+<div class="fragment">
+Räkningen har kommit till <span class="russian">ноль</span>. Alla rackar i rummet öppnar sig samtidigt.
+</div>
+
+<div class="wake">
+uppvaknande
+laptopen är avstängd men fläkten går. WiFi-ikonen visar ett nätverk som inte finns: SSID = "247". halskedjan ligger på bröstet. plasten är kall. huden under brickan är röd.
+<span class="word">KALENKO</span>
+</div>
+
+<div class="wake" style="border-top:none; padding-top:0; margin-top:18px;">
+<em style="color: var(--ink-dim); font-size: 0.8em;">route-tabellen har en ny post. default gateway pekar på en IPv6-adress som inte finns i någon offentlig tilldelning. fysiskt omöjligt. det står där ändå.</em>
+</div>
+
+</div>
+
+</body>
+</html>

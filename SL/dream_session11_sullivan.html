@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drömfragment — Father Sullivan</title>
+<style>
+:root {
+    --bg-dark: #0a0612;
+    --bg-darker: #05040a;
+    --bg-panel: #120e20;
+    --dream-violet: #9b7ede;
+    --dream-blue: #7aa8d8;
+    --ink: #e8e0c8;
+    --ink-dim: #a89f85;
+    --border: #2a1f3a;
+    --blood: #8a3333;
+    --cold-blue: #5a8ac0;
+    --character: #c48a4a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: radial-gradient(ellipse at center top, #1a0f2e 0%, var(--bg-darker) 70%);
+    background-attachment: fixed;
+    color: var(--ink);
+    line-height: 1.8;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+.container {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    padding: 50px 55px;
+    box-shadow: 0 0 60px rgba(155, 126, 222, 0.15),
+                inset 0 0 30px rgba(0,0,0,0.5);
+    position: relative;
+}
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(155, 126, 222, 0.02) 2px,
+            rgba(155, 126, 222, 0.02) 4px
+        );
+    pointer-events: none;
+}
+
+.header {
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 35px;
+    text-align: center;
+}
+.header .tag {
+    color: var(--dream-violet);
+    font-size: 0.7em;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+.header h1 {
+    color: var(--character);
+    font-size: 1.4em;
+    letter-spacing: 3px;
+    font-weight: normal;
+}
+.header .meta {
+    color: var(--ink-dim);
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.fragment {
+    margin-bottom: 22px;
+    font-size: 1em;
+    text-align: justify;
+}
+.fragment.indent { padding-left: 20px; }
+
+.italic { font-style: italic; color: var(--ink-dim); }
+.russian { color: var(--cold-blue); font-style: italic; letter-spacing: 0.5px; }
+.pulse { color: var(--dream-violet); }
+.blood-word { color: var(--blood); }
+.liturgy { color: var(--character); font-style: italic; }
+
+.sep {
+    text-align: center;
+    color: var(--dream-violet);
+    letter-spacing: 10px;
+    margin: 28px 0;
+    font-size: 0.8em;
+    opacity: 0.6;
+}
+
+.wake {
+    border-top: 1px solid var(--border);
+    margin-top: 35px;
+    padding-top: 25px;
+    text-align: center;
+    color: var(--ink-dim);
+    font-size: 0.88em;
+    letter-spacing: 1px;
+}
+.wake .clock {
+    color: var(--dream-violet);
+    font-size: 1.4em;
+    letter-spacing: 6px;
+    display: block;
+    margin: 10px 0 14px;
+    font-family: 'Courier New', monospace;
+}
+.wake .word {
+    color: var(--cold-blue);
+    letter-spacing: 4px;
+    display: block;
+    margin-top: 8px;
+    font-size: 1em;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+    <span class="tag">▪ drömfragment ▪</span>
+    <h1>FR. M. SULLIVAN</h1>
+    <div class="meta">natt mot 24 september 2025 // om sömnen alls kom</div>
+</div>
+
+<div class="fragment">
+Altaret är gjort av trä som är äldre än några altaren borde vara. Linnet ligger rätt. Kalken står där kalken ska stå. Patenen är slipad av många händer och dagsljuset som faller på den kommer från ingenstans — det finns inga fönster.
+</div>
+
+<div class="fragment">
+Ovanför altaret, där krucifixet ska vara, finns en nisch i stenen. Nischen är tom. Men den är inte <em>tom</em> på det sättet ett tomt utrymme är tomt. Något står där som gör att luften böjs.
+</div>
+
+<div class="fragment">
+Händerna håller i kalken. Vinet är rött och stilla. Bakom kommer tre pojkar fram mellan bänkarna. De går i takt, men de är inte vana vid kyrkogolv. De är kanske sju, åtta år. De har samma ögon. <span class="italic">Inte samma färg — samma ögon.</span>
+</div>
+
+<div class="sep">◦ ◦ ◦</div>
+
+<div class="fragment">
+Liturgin är där i munnen, men orden är fel ordning. <span class="liturgy">Hoc est enim corpus meum</span> — men stavelserna sitter fast som om någon sjungit dem baklänges någon gång och minnet av det lägger sig över det riktiga.
+</div>
+
+<div class="fragment">
+Den första pojken knäböjer. Öppnar munnen. Händerna sätter hostia på hans tunga. Han sväljer utan att blinka. Han reser sig.
+</div>
+
+<div class="fragment">
+Den andra pojken knäböjer. Öppnar munnen. Händerna sätter hostia på hans tunga. Han sväljer utan att blinka. Han reser sig.
+</div>
+
+<div class="fragment">
+Den tredje pojken knäböjer. Öppnar munnen. <span class="italic">Han ler.</span>
+</div>
+
+<div class="fragment">
+Händerna fortsätter. Hostian läggs på hans tunga. Leendet vidgas inte — det är redan där, som om leendet funnits innan ansiktet. Han sväljer. Han reser sig. Han tittar på sin egen bror bredvid sig. Brodern bugar tillbaka.
+</div>
+
+<div class="sep">◦ ◦ ◦</div>
+
+<div class="fragment">
+Vinet i kalken har inte sjunkit. Händerna håller den fortfarande framför bröstet. De tre pojkarna har gått tillbaka till bänkraden men kalken är kvar där den var.
+</div>
+
+<div class="fragment">
+En röst långt bort, kvinnlig, räknar baklänges på ryska: <span class="russian">пять... четыре... три...</span> Röstens ton sitter i käkleden. I tandroten.
+</div>
+
+<div class="fragment">
+Hummandet. <span class="pulse">247 Hz</span> som en närvaro i stenen under fötterna. Ljuset i den tomma nischen bakom altaret är blåvitt nu, kallt, och något rör sig <em>inuti</em> ljuset utan att ljuset rör sig.
+</div>
+
+<div class="fragment">
+En av pojkarna — den som log — tittar ner igen mellan bänkarna. Han säger ett ord. Han säger det på något språk som inte är ryska eller tyska eller latin. Ordet sitter kvar i munnen på den som håller kalken som en smak.
+</div>
+
+<div class="fragment indent">
+<span class="blood-word">Kalenko.</span>
+</div>
+
+<div class="fragment">
+Händerna kan inte släppa kalken. Räkningen har kommit till <span class="russian">ноль</span>. Någonting i nischen rör sig framåt.
+</div>
+
+<div class="wake">
+uppvaknande
+rummet är Graefestraße. fingrarna är hopkrokade runt ingenting. bordet bredvid sängen har en bibel som har öppnats — ingen minns att den öppnats.
+<span class="word">KALENKO</span>
+</div>
+
+<div class="wake" style="border-top:none; padding-top:0; margin-top:18px;">
+<em style="color: var(--ink-dim); font-size: 0.8em;">sidan som bibeln slagits upp på är 1 Samuel 28. den heliga anden har inget att säga om den.</em>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drömfragment — Sam Novak</title>
+<style>
+:root {
+    --bg-dark: #0a0612;
+    --bg-darker: #05040a;
+    --bg-panel: #120e20;
+    --dream-violet: #9b7ede;
+    --dream-blue: #7aa8d8;
+    --ink: #e8e0c8;
+    --ink-dim: #a89f85;
+    --border: #2a1f3a;
+    --blood: #8a3333;
+    --cold-blue: #5a8ac0;
+    --character: #e89a3c;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: radial-gradient(ellipse at center top, #1a0f2e 0%, var(--bg-darker) 70%);
+    background-attachment: fixed;
+    color: var(--ink);
+    line-height: 1.8;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+.container {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    padding: 50px 55px;
+    box-shadow: 0 0 60px rgba(155, 126, 222, 0.15),
+                inset 0 0 30px rgba(0,0,0,0.5);
+    position: relative;
+}
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(155, 126, 222, 0.02) 2px,
+            rgba(155, 126, 222, 0.02) 4px
+        );
+    pointer-events: none;
+}
+
+.header {
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 35px;
+    text-align: center;
+}
+.header .tag {
+    color: var(--dream-violet);
+    font-size: 0.7em;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+.header h1 {
+    color: var(--character);
+    font-size: 1.4em;
+    letter-spacing: 3px;
+    font-weight: normal;
+}
+.header .meta {
+    color: var(--ink-dim);
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.fragment {
+    margin-bottom: 22px;
+    font-size: 1em;
+    text-align: justify;
+}
+.fragment.indent { padding-left: 20px; }
+
+.italic { font-style: italic; color: var(--ink-dim); }
+.russian { color: var(--cold-blue); font-style: italic; letter-spacing: 0.5px; }
+.pulse { color: var(--dream-violet); }
+.blood-word { color: var(--blood); }
+.military { color: var(--character); font-style: italic; letter-spacing: 0.5px; }
+
+.sep {
+    text-align: center;
+    color: var(--dream-violet);
+    letter-spacing: 10px;
+    margin: 28px 0;
+    font-size: 0.8em;
+    opacity: 0.6;
+}
+
+.wake {
+    border-top: 1px solid var(--border);
+    margin-top: 35px;
+    padding-top: 25px;
+    text-align: center;
+    color: var(--ink-dim);
+    font-size: 0.88em;
+    letter-spacing: 1px;
+}
+.wake .clock {
+    color: var(--dream-violet);
+    font-size: 1.4em;
+    letter-spacing: 6px;
+    display: block;
+    margin: 10px 0 14px;
+    font-family: 'Courier New', monospace;
+}
+.wake .word {
+    color: var(--cold-blue);
+    letter-spacing: 4px;
+    display: block;
+    margin-top: 8px;
+    font-size: 1em;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+    <span class="tag">▪ drömfragment ▪</span>
+    <h1>S. NOVAK</h1>
+    <div class="meta">natt mot 24 september 2025 // trots adrenalinet</div>
+</div>
+
+<div class="fragment">
+Öknen är den som öknen ska vara. Afghanska höglandet, eller så är det Irak, eller så är det den där plats som alla som var där har i huvudet oavsett var de faktiskt stod. Sanden ljus. Himlen hög. USAR-multicamen sitter på kroppen. Stövlarna är inskurna.
+</div>
+
+<div class="fragment">
+Förbanden i ryggsäcken. Kolven i handen. Patrullen utsträckt i diamond — men fötterna nedanför bär inte i sanden som sand ska bära. Fötterna bär i <em>sten</em>. Sanden ligger över sten. Under stenen finns något som svarar när man trampar.
+</div>
+
+<div class="sep">◦ ◦ ◦</div>
+
+<div class="fragment">
+Patrullen vänder sig om. De som går framåt i diamond‑formation är inte de som ska vara där.
+</div>
+
+<div class="fragment">
+Längst fram: <span class="italic">Harriet Johnson.</span> Hon är gammal. Hon bär ingen utrustning. Hon går som om hon vore i en kyrka.
+</div>
+
+<div class="fragment">
+På två-positionen: <span class="italic">Magda Orlova.</span> Hon är den Magda som dog på Charité, inte den Magda de träffade i Hamburg. Huden har den grå nyansen. Men hon går som någon som just har vaknat och inte har bestämt sig än.
+</div>
+
+<div class="fragment">
+På tre-positionen: <span class="italic">en man med rocken hängande fel på sig.</span> Han har ingen ansikte förrän han vänder sig. Det är Volkov som han såg ut innan. Innan allt.
+</div>
+
+<div class="fragment">
+På fyra-positionen: någon med ryggen vänd som han inte känner igen än. <span class="italic">Det ansiktet kommer senare.</span>
+</div>
+
+<div class="sep">◦ ◦ ◦</div>
+
+<div class="fragment">
+Hummandet stiger upp ur sanden. <span class="pulse">247 Hz</span> — inte ett ljud, snarare det sätt luften ändrar tryck i trumhinnan. Stenen under sanden vibrerar i takt. Sanden på den vibrerar inte alls, som om sanden inte tillhör scenen.
+</div>
+
+<div class="fragment">
+Stearinljus. Ett stearinljus, rakt i sanden. Sen två. Sen sju. Sen en hel rad som leder bort mot en sluttning. Vaxdropparna flödar inte nedåt — de hänger kvar i luften där de borde falla.
+</div>
+
+<div class="fragment">
+Patrullen fortsätter framåt. Harriet vrider lite på huvudet. Hennes ögon möter inget bestämt. Hon säger ingenting. Magda säger ingenting. Volkov säger ingenting. Ingen av dem frågar vad han gör här.
+</div>
+
+<div class="fragment">
+Sluttningen är inte en sluttning. Sluttningen är en trappa ner i sten. Sand rinner över trappstegen utan att samlas.
+</div>
+
+<div class="sep">◦ ◦ ◦</div>
+
+<div class="fragment">
+Längst ner: en källare. Stearinljusen är där de ska vara nu. Stengolvet är kallt genom stövelsulan, som om stövlarna inte finns. Tre män står nära något i mitten. Tre pojkar står och ser på.
+</div>
+
+<div class="fragment">
+En av de tre männen vänder sig om. Han har inga ögon där ögonen ska vara — bara samma blåvita ljus som ligger över hela rummet utan källa. Han säger ett ord till USAR-uniformen:
+</div>
+
+<div class="fragment indent">
+<span class="blood-word">Kalenko.</span>
+</div>
+
+<div class="fragment">
+En kvinna långt borta räknar på ryska: <span class="russian">пять... четыре... три...</span>
+</div>
+
+<div class="fragment">
+Harriet Johnson står plötsligt bredvid. Hon lägger sin torra hand på multicamens ärm. Hennes hand är lätt. Hon säger, på någon dialekt av amerikansk engelska som inte var hennes:
+</div>
+
+<div class="fragment indent">
+<span class="italic">"We kept it quiet. We kept it quiet so long."</span>
+</div>
+
+<div class="fragment">
+Magda står bakom. Volkov står bakom. Fjärdepersonen står bakom — och nu har fjärdepersonen ett ansikte och det är ett ansikte som inte borde finnas där ännu.
+</div>
+
+<div class="fragment">
+Räkningen har kommit till <span class="russian">ноль</span>.
+</div>
+
+<div class="wake">
+uppvaknande
+soffan i Graefestraße. filten är halvvägs på golvet. AR‑15 är inom armlängds avstånd där den ställdes. sandkornen på fingrarna är inte från någonstans i den här staden.
+<span class="word">KALENKO</span>
+</div>
+
+<div class="wake" style="border-top:none; padding-top:0; margin-top:18px;">
+<em style="color: var(--ink-dim); font-size: 0.8em;">fjärdepersonen i patrullen — hans ansikte stannade inte kvar när ögonen öppnades. bara att det stod där. bara att det inte borde ha stått där.</em>
+</div>
+
+</div>
+
+</body>
+</html>
